@@ -1,0 +1,3 @@
+- **Uživatelského rozhraní Správce balíčků** (Visual Studio): v Průzkumníku řešení klikněte pravým tlačítkem a vyberte **obnovení balíčků NuGet**. Pokud jeden nebo více jednotlivých balíčků jsou stále není správně nainstalován (tj. že Průzkumník řešení se zobrazuje ikona chyby) a potom pomocí uživatelského rozhraní Správce balíčků a odinstalaci ovlivněných balíčků je přeinstalovat. V tématu [Reinstalling a aktualizaci balíčků](../Consume-Packages/Reinstalling-and-Updating-Packages.md)
+
+- **Příkazový řádek**: použití [obnovení nuget](../tools/cli-ref-restore.md) příkaz. Jednoduše systémem `nuget restore` v projektu složky pokusí obnovit závislosti projektu.

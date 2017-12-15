@@ -1,0 +1,1 @@
+Tato složka uložení umístění pro obsah odebírán z hlavní dokumentace, obvykle podstatným, která se vztahuje na dřívější verze, které bude pravděpodobně přesunut do umístění trvalé archivu.
