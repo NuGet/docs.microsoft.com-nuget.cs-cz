@@ -1,0 +1,41 @@
+- name: Docs
+  tocHref: /
+  topicHref: /
+  items:
+    - name: NuGet
+      tocHref: /nuget/
+      topicHref: /nuget
+      items:
+        - name: Rychlý start
+          tocHref: /nuget/quickstart/
+          topicHref: /nuget/quickstart/create-and-publish-a-package
+        - name: Příručky
+          tocHref: /nuget/guides/
+          topicHref: /nuget/guides/install-nuget
+        - name: Vytvoření balíčků
+          tocHref: /nuget/create-packages/
+          topicHref: /nuget/create-packages/overview-and-workflow
+        - name: Využívání balíčků
+          tocHref: /nuget/consume-packages/
+          topicHref: /nuget/consume-packages/overview-and-workflow
+        - name: Hostování balíčků
+          tocHref: /nuget/hosting-packages/
+          topicHref: /nuget/hosting-packages/overview
+        - name: Nástroje
+          tocHref: /nuget/tools/
+          topicHref: /nuget/tools/nuget-exe-cli-reference
+        - name: Odkaz
+          tocHref: /nuget/reference/
+          topicHref: /nuget/schema/nuspec
+        - name: rozhraní API
+          tocHref: /nuget/api/
+          topicHref: /nuget/api/overview
+        - name: Rozšiřitelnost sady Visual Studio
+          tocHref: /nuget/visual-studio-extensibility/
+          topicHref: /nuget/visual-studio-extensibility/nuget-api-in-visual-studio
+        - name: Zásady
+          tocHref: /nuget/policies/
+          topicHref: /nuget/policies/nuget-faq
+        - name: Poznámky k vydané verzi
+          tocHref: /nuget/release-notes/
+          topicHref: /nuget/release-notes/index
