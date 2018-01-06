@@ -13,11 +13,11 @@ keywords: "NuGet konzoly Správce balíčků, příkazy prostředí NuGet Powers
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 7bf8cdb938195f4747932b38ef0d5bb6c34b9137
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 6a3232af925f75713168421e68f2773060c5ebaa
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="add-bindingredirect-package-manager-console-in-visual-studio"></a>Přidat BindingRedirect (konzola Správce balíčků v sadě Visual Studio)
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 12/14/2017
 
 Hledá ve všech sestaveních ve výstupní cestě pro projekt a potřeby přidá přesměrování vazby do konfiguračního souboru aplikace nebo webu. Tento příkaz spustí automaticky při instalaci balíčku.
 
-Podrobnosti o vazby přesměrování a proč se používají, najdete v části [přesměrování verzí sestavení](https://docs.microsoft.com/dotnet/framework/configure-apps/redirect-assembly-versions) v dokumentaci k rozhraní .NET.
+Podrobnosti o vazby přesměrování a proč se používají, najdete v části [přesměrování verzí sestavení](/dotnet/framework/configure-apps/redirect-assembly-versions) v dokumentaci k rozhraní .NET.
 
 ## <a name="syntax"></a>Syntaxe
 

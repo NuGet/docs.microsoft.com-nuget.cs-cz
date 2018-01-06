@@ -17,11 +17,11 @@ keywords: "Metadata balíčků NuGet rozhraní API, rozhraní API NuGet registra
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 15d3c836a5748497fe33dadc17e5a44846b4a8c0
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 1aabe6ae5c661e12b2639700813946e7a9a58b24
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="package-metadata"></a>Metadata balíčků
 
@@ -76,7 +76,7 @@ Adresa URL registrace indexu je předvídatelný a klientem daného ID balíčku
 
 ### <a name="registration-pages-and-leaves"></a>Registrace stránky a nechá
 
-Ačkoli to není nezbytně nutné pro implementaci serveru pro ukládání registrace listy v samostatných registrací stránka dokumenty, je doporučený postup pro konzervaci paměti na straně klienta. Místo vložené všechny registrace ponechá v indexu nebo okamžitě ukládání nechá v dokumentech stránky, doporučuje se, že implementaci serveru definovat některé heuristiky si vybrat mezi dva přístupy, na základě počtu verze balíčku nebo Celková velikost všech balíček opustí.
+I když je to požadováno, nejedná striktně pro implementaci serveru pro ukládání, že registrace listy v samostatných registrací stránka dokumenty, je doporučený postup pro konzervaci paměti na straně klienta. Místo vložené všechny registrace ponechá v indexu nebo okamžitě ukládání nechá v dokumentech stránky, doporučuje se, že implementaci serveru definovat některé heuristiky si vybrat mezi dva přístupy, na základě počtu verze balíčku nebo Celková velikost všech balíček opustí.
 
 Ukládání všechny verze balíčku (zůstanou) uloží index registrace na počet požadavků HTTP potřebné k načtení metadat balíčku ale znamená, že je nutné stáhnout větší dokumentu a musí být přidělena více paměti klienta. Na druhé straně Pokud implementaci serveru okamžitě ukládá nechá registrace v dokumentech zvláštní stránce, klient musíte provést další požadavky HTTP na získat informace, které potřebuje.
 
@@ -92,7 +92,7 @@ Název     | V     | Typ    | Požadováno | Poznámky
 -------- | ------ | ------- | -------- | -----
 LOWER_ID | Adresa URL    | odkazy řetězců  | Ano      | ID balíčku, psané malými písmeny
 
-`LOWER_ID` Hodnota je psané malými písmeny pomocí pravidel implementovaných podle ID požadované balíčku. NET na [ `System.String.ToLowerInvariant()` ](https://msdn.microsoft.com/en-us/library/system.string.tolowerinvariant.aspx) metoda.
+`LOWER_ID` Hodnota je psané malými písmeny pomocí pravidel implementovaných podle ID požadované balíčku. NET na [ `System.String.ToLowerInvariant()` ](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) metoda.
 
 ### <a name="response"></a>Odpověď
 

@@ -17,17 +17,17 @@ keywords: "Rozhraní API V3 NuGet, rozhraní API NuGet V2, NuGet JSON, rozhraní
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: a9515d90ad66d8840f575bba542f0cf887c41718
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 05ed17f12f413d29d97a253d7d55f154d4910834
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-api"></a>NuGet rozhraní API
 
 Rozhraní API NuGet je sada koncových bodů protokolu HTTP, které lze použít pro stáhnout balíčky, načtení metadat, publikování nové balíčky a provádět většinu dalších operací k dispozici v oficiální klienty NuGet.
 
-Toto rozhraní API slouží klientem NuGet v sadě Visual Studio, nuget.exe a rozhraní příkazového řádku .NET k provádění operací NuGet, jako [ `dotnet restore` ](https://docs.microsoft.com/dotnet/articles/core/preview3/tools/dotnet-restore), vyhledávání v uživatelském rozhraní Visual Studio a [ `nuget.exe push` ](../tools/cli-ref-push.md).
+Toto rozhraní API slouží klientem NuGet v sadě Visual Studio, nuget.exe a rozhraní příkazového řádku .NET k provádění operací NuGet, jako [ `dotnet restore` ](/dotnet/articles/core/preview3/tools/dotnet-restore), vyhledávání v uživatelském rozhraní Visual Studio a [ `nuget.exe push` ](../tools/cli-ref-push.md).
 
 Poznámka: v některých případech nuget.org má další požadavky, které nejsou vynucené jinými zdroji balíčku. Tyto rozdíly jsou popsány pomocí [nuget.org protokoly](nuget-protocols.md).
 

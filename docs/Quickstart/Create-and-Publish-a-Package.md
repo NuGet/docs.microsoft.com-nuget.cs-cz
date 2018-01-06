@@ -13,11 +13,11 @@ keywords: "Vytvoření balíčku NuGet, publikování, balíček NuGet kurzu NuG
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 36a7c2b1d056dddf07a59737de1c3e94294689ac
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: b33344c3b3dd782fc4668d2a1674b9501fadcc03
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-and-publish-a-package"></a>Vytvoření a publikování balíčku
 
@@ -115,7 +115,6 @@ Jakmile máte `.nupkg` souboru ji publikujete pomocí nuget.org `push` příkaz.
 > [!Warning]
 > Balíčky, které publikujete nuget.org jsou veřejně viditelné pro ostatní vývojáři. K hostování balíčků soukromě, najdete v části [hostování balíčků](../hosting-packages/overview.md).
 
-
 1. Vytvořit bezplatný účet na [nuget.org](https://www.nuget.org/users/account/LogOn?returnUrl=%2F), nebo se přihlásit, pokud již účet máte. Vytvoření nového účtu odešle e-mail s potvrzením. Účet je potřeba zkontrolovat, než můžete nahrát balíček.
 
 1. Po přihlášení, vyberte jméno uživatele (v pravém horním rohu) a pak vyberte **klíče rozhraní API**.
@@ -134,7 +133,7 @@ Jakmile máte `.nupkg` souboru ji publikujete pomocí nuget.org `push` příkaz.
     ```
     nuget push AppLogger.1.0.0.0.nupkg 47be3377-c434-4c29-8576-af7f6993a54b -Source https://api.nuget.org/v3/index.json
     ```
-    
+
 1. nuget.exe zobrazuje výsledky procesu publikování:
 
     ```

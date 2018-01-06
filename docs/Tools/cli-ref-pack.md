@@ -13,11 +13,11 @@ keywords: "odkaz na pack nuget, příkaz pack"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 353d5d839d85c04bc315c3a0e9cfe274a361bd15
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 22643ee4c7d5f858da728ba9d9d2886d600d20f0
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="pack-command-nuget-cli"></a>příkaz Pack (NuGet CLI)
 
@@ -53,7 +53,7 @@ kde `<nuspecPath>` a `<projectPath>` zadejte `.nuspec` nebo projektu soubor, v u
 | NoDefaultExcludes | Zabraňuje výchozí vyloučení NuGet balíček soubory a soubory a složky začínající tečkou, jako například `.svn` a `.gitignore`. |
 | NoPackageAnalysis | Určuje, že sada by neměl spustit analysis balíčku po vytvoření balíčku. |
 | Výstupnísložka | Určuje složku, ve kterém je uložen balíček vytvořený. Pokud není zadaný žádný složky, se používá aktuální složky. |
-| Vlastnosti | Určuje seznam vlastností, které potlačí hodnoty v souboru projektu; v tématu [běžné vlastnosti projektu nástroje MSBuild](https://docs.microsoft.com/visualstudio/msbuild/common-msbuild-project-properties) pro názvy vlastností. Argument vlastnosti tady je seznam token = hodnota páry, oddělené středníky, kde každý výskyt `$token$` v `.nuspec` souboru se nahradí s danou hodnotou. Hodnoty mohou být řetězce v uvozovkách. Všimněte si, že pro vlastnost "Konfigurace" Výchozí hodnota je "Debug". Můžete změnit konfiguraci verze `-Properties Configuration=Release`. |
+| Vlastnosti | Určuje seznam vlastností, které potlačí hodnoty v souboru projektu; v tématu [běžné vlastnosti projektu nástroje MSBuild](/visualstudio/msbuild/common-msbuild-project-properties) pro názvy vlastností. Argument vlastnosti tady je seznam token = hodnota páry, oddělené středníky, kde každý výskyt `$token$` v `.nuspec` souboru se nahradí s danou hodnotou. Hodnoty mohou být řetězce v uvozovkách. Všimněte si, že pro vlastnost "Konfigurace" Výchozí hodnota je "Debug". Můžete změnit konfiguraci verze `-Properties Configuration=Release`. |
 | Přípona | *(3.4.4+)*  Připojí příponu k číslo verze generované interně, obvykle se používá pro připojování sestavení nebo dalších identifikátorů předběžné verze. Například pomocí `-suffix nightly` vytvoří balíček s jako číslo verze `1.2.3-nightly`. Přípony musí začínat písmenem, aby se zabránilo upozornění, chyby a potenciální nekompatibilitu s různými verzemi nástroje NuGet a Správce balíčků NuGet. |
 | Symboly | Určuje, zda balíček obsahuje zdroje a symboly. Při použití s `.nuspec` souboru, tím se vytvoří soubor regulární balíčku NuGet a odpovídající balíčku symbolů. |
 | Nástroj | Určuje, že výstupních souborů projektu mají být umístěny v `tool` složky. |

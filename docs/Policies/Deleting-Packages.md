@@ -13,11 +13,11 @@ keywords: "Odstranění balíčku NuGet, balíček NuGet unlisting, zakázané p
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 331979bdc3703ddbeff18e2bd0e6b0a17551e68b
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 9e388171f83fae7deb4f20033184dfa91bfab3da
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="deleting-packages"></a>Odstraněním balíčků
 
@@ -41,7 +41,7 @@ Balíčky, které splnit některý z následujících kritérií nejsou povoleny
 - Porušuje autorská práva nebo porušuje licence.
 - Obsahuje neplatný obsah.
 - Jsou používány k přikrčené na identifikátory balíček, včetně balíčků, které obsahují nulové produktivní obsah. Balíčky musí obsahovat kód nebo vlastníci musí protihráči postoupit identifikátor někomu, kdo má ve skutečnosti produktu pro odeslání.
-- Pokus o galerii udělat něco není explicitně určené udělat.
+- Pokusí se provést akci, která je určený není explicitně udělat galerie.
 
 Pokud zjistíte, balíček, který je v rozporu s některou z těchto položek, klikněte na tlačítko **oznámení zneužití** odkaz na stránku podrobností balíčku a odeslání zprávy.
 

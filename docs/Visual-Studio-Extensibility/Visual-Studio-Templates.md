@@ -3,29 +3,28 @@ title: "Balíčky NuGet ve šablony sady Visual Studio | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 2/8/2017
+ms.date: 1/3/2018
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 0b2cf228-f028-475d-8792-c012dffdb26f
 description: "Pokyny včetně balíčků NuGet v rámci šablon projektů a položek v sadě Visual Studio."
 keywords: "NuGet v sadě Visual Studio, šablony projektů Visual Studio, položka šablony sady Visual Studio, balíčky v projektu šablony, balíčky v šablonách položek"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 5b2ad7616578b5f54d917c4555e861c847814da9
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 45a2ca2c08660be650f9cf38301f628923e1f8be
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="packages-in-visual-studio-templates"></a>Balíčky v šablony sady Visual Studio
 
-Projektů a položek šablony sady Visual Studio se často potřeba zajistit, že některé balíčky instalují do při vytváření projektu nebo položky. Například šablony ASP.NET MVC 3 nainstaluje jQuery, Modernizr a dalších balíčků.
+Projektů a položek šablony sady Visual Studio se často potřebují k zajištění, že některé balíčky byly nainstalovány při vytváření projektu nebo položky. Například šablony ASP.NET MVC 3 nainstaluje jQuery, Modernizr a dalších balíčků.
 
 Za tímto účelem šablony autorům určit, aby NuGet k instalaci potřebné balíčky, nikoli jednotlivých knihoven. Vývojáři tedy můžete snadno aktualizovat tyto balíčky kdykoli později.
 
-Další informace o vytváření šablon sami, najdete v tématu [vytváření šablon projektů a položek v sadě Visual Studio](https://msdn.microsoft.com/library/s365byhx.aspx) nebo [vytváření vlastních šablon projektů a položek s Visual Studio SDK](https://msdn.microsoft.com/library/ff527340.aspx).
+Další informace o vytváření šablon sami, najdete v tématu [postupy: vytvoření šablony projektů](/visualstudio/ide/how-to-create-project-templates) nebo [vytváření vlastních projektů a šablon položek](/visualstudio/extensibility/creating-custom-project-and-item-templates).
 
 Zbývající část Tato část popisuje konkrétní kroky pro zajištění správně zahrnout balíčků NuGet při vytváření šablony.
 
@@ -34,16 +33,15 @@ Zbývající část Tato část popisuje konkrétní kroky pro zajištění spr�
 
 Příklad, naleznete v části [NuGetInVsTemplates ukázka](https://bitbucket.org/marcind/nugetinvstemplates).
 
-
 ## <a name="adding-packages-to-a-template"></a>Přidávání balíčků do šablony
 
-Při vytváření instance šablony [Průvodce šablonou](https://msdn.microsoft.com/library/ms185301.aspx) je vyvolána k načíst seznam balíčků, které mají nainstalovat společně s informacemi o tom, kde najít tyto balíčky. Balíčky mohou být vložených ve VSIX, vložené v šabloně nebo umístěné na místním pevném disku v takovém případě pomocí klíče registru tak, aby odkazovaly cesta k souboru. Podrobnosti o těchto umístění jsou uvedeny později v této části.
+Při vytváření instance šablony [Průvodce šablonou](/visualstudio/extensibility/how-to-use-wizards-with-project-templates) je vyvolána k načíst seznam balíčků, které mají nainstalovat společně s informacemi o tom, kde najít tyto balíčky. Balíčky mohou být vložených ve VSIX, vložené v šabloně nebo umístěné na místním pevném disku v takovém případě pomocí klíče registru tak, aby odkazovaly cesta k souboru. Podrobnosti o těchto umístění jsou uvedeny později v této části.
 
-Předinstalované balíčky pomocí fungovalo [průvodců pro šablony](http://msdn.microsoft.com/library/ms185301.aspx). Speciální Průvodce volán získá vytvoření instance šablony. Průvodce načte seznam balíčků, které je potřeba nainstalovat a předá tyto informace k rozhraním API odpovídající NuGet.
+Předinstalované balíčky pomocí fungovalo [průvodců pro šablony](/visualstudio/extensibility/how-to-use-wizards-with-project-templates). Speciální Průvodce volán získá vytvoření instance šablony. Průvodce načte seznam balíčků, které je potřeba nainstalovat a předá tyto informace k rozhraním API odpovídající NuGet.
 
 Postup do šablony zahrnout balíčky:
 
-1. Ve vaší `vstemplate` soubor, přidejte odkaz na Průvodce šablonou NuGet přidáním [ `WizardExtension` ](http://msdn.microsoft.com/library/ms171411.aspx) element:
+1. Ve vaší `vstemplate` soubor, přidejte odkaz na Průvodce šablonou NuGet přidáním [ `WizardExtension` ](/visualstudio/extensibility/wizardextension-element-visual-studio-templates) element:
 
     ```xml
     <WizardExtension>
@@ -66,12 +64,11 @@ Postup do šablony zahrnout balíčky:
 
     *(NuGet 2.2.1+)*  Průvodce podporuje více `<package>` elementy pro podporu více zdrojů balíčků. Jak `id` a `version` atributy jsou požadovány, což znamená, že konkrétní verze balíčku se nainstalují i v případě, že je k dispozici novější verze. Aktualizace balíčků zabrání nejnovější šablony, a rozhodnout pro daný balíček aktualizovat vývojáře pomocí šablony.
 
-
 1. Zadejte úložiště NuGet kde najdete balíčky, jak je popsáno v následujících částech.
 
 ### <a name="vsix-package-repository"></a>Úložiště balíčku VSIX
 
-Doporučené nasazení přístup pro šablony sady Visual Studio nebo položka projektu je [VSIX rozšíření](http://msdn.microsoft.com/library/ff363239.aspx) protože umožňuje sbalit několik šablon projektu/položky společně a umožňuje vývojářům snadno zjistit vaše šablony pomocí Správce rozšíření VS nebo Galerii Visual Studia. Aktualizace pro rozšíření jsou také snadno nasadit pomocí [mechanizmus automatických aktualizací Visual Studio rozšíření Manager](http://msdn.microsoft.com/library/dd997169.aspx).
+Doporučené nasazení přístup pro šablony sady Visual Studio nebo položka projektu je [VSIX rozšíření](/visualstudio/extensibility/shipping-visual-studio-extensions) protože umožňuje sbalit několik šablon projektu/položky společně a umožňuje vývojářům snadno zjistit vaše šablony pomocí Správce rozšíření VS nebo Galerii Visual Studia. Aktualizace pro rozšíření jsou také snadno nasadit pomocí [mechanizmus automatických aktualizací Visual Studio rozšíření Manager](/visualstudio/extensibility/how-to-update-a-visual-studio-extension).
 
 VSIX samotné může sloužit jako zdroj pro balíčky vyžadované šablonou:
 
@@ -83,25 +80,17 @@ VSIX samotné může sloužit jako zdroj pro balíčky vyžadované šablonou:
     </packages>
     ```
 
-    `repository` Atribut určuje typ úložiště jako `extension` při `repositoryId` je jedinečný identifikátor VSIX samotné (to je hodnota [ `ID` atribut](http://msdn.microsoft.com/library/dd393688.aspx) v rozšíření `vsixmanifest` souboru).
+    `repository` Atribut určuje typ úložiště jako `extension` při `repositoryId` je jedinečný identifikátor VSIX samotné (to je hodnota `ID` atribut v rozšíření `vsixmanifest` souborů najdete v tématu [ Referenční dokumentace schématu 2.0 rozšíření VSIX](/visualstudio/extensibility/vsix-extension-schema-2-0-reference)).
 
 1. Místní vaše `nupkg` soubory ve složce nazývají `Packages` ve VSIX.
-1. Přidat soubory potřebný balíček jako [vlastní rozšíření obsah](http://msdn.microsoft.com/library/dd393737.aspx) ve vaší `source.extension.vsixmanifest` souboru. Pokud používáte schéma 2.0 by měl vypadat takto:
+
+1. Přidat soubory potřebný balíček jako `<Asset>` ve vaší `vsixmanifest` souboru (v tématu [VSIX rozšíření schéma 2.0 – referenční informace](/visualstudio/extensibility/vsix-extension-schema-2-0-reference)):
 
     ```xml
     <Asset Type="Moq.4.0.10827.nupkg" d:Source="File" Path="Packages\Moq.4.0.10827.nupkg" d:VsixSubPath="Packages" />
     ```
 
-    Pokud používáte schéma 1.0 by měl vypadat takto:
-
-    ```xml
-    <CustomExtension Type="Moq.4.0.10827.nupkg">
-        packages/Moq.4.0.10827.nupkg
-    </CustomExtension>
-    ```
-
 1. Poznámka: abyste mohli zajistit balíčků ve stejné VSIX jako šablony projektu nebo můžete je umístit do samostatné VSIX to další pro váš scénář. Neodkazujte však žádné VSIX, přes který nemáte ovládací prvek, protože změny tohoto rozšíření by mohlo způsobit narušení vaší šablony.
-
 
 ### <a name="template-package-repository"></a>Úložiště balíčků šablony
 
@@ -120,7 +109,6 @@ Pokud je distribuován pouze jednu projektu nebo položku šablonu a nemusíte b
 1. Umístěte balíčky v kořenové složce soubor ZIP šablony projektu/položky.
 
 Všimněte si, že použití tohoto přístupu v VSIX, který obsahuje několik šablon vede k tomu nepotřebné když jeden nebo více balíčků, které jsou společné pro šablony. V takových případech použít [VSIX jako úložiště](#vsix-package-repository) jak je popsáno v předchozí části.
-
 
 ### <a name="registry-specified-folder-path"></a>Cesta ke složce zadat registru
 
@@ -159,6 +147,6 @@ Sady SDK, které se instalují pomocí souboru MSI mohou instalovat balíčky Nu
     <!-- ... -->
     ```
 
-1. Vyžadovat šablon projektu nebo položek uložit na vytváření nastavením [ `<PromptForSaveOnCreation>` ](http://msdn.microsoft.com/library/twfxayz5.aspx) v `.vstemplate` souboru.
+1. Vyžadovat šablon projektu nebo položek uložit na vytváření zahrnutím [ `<PromptForSaveOnCreation>true</PromptForSaveOnCreation>` ](/visualstudio/extensibility/promptforsaveoncreation-element-visual-studio-templates) v `.vstemplate` souboru.
 
 1. Šablony neobsahují `packages.config` nebo `project.json` souboru a nezahrnují nebo žádné odkazy nebo obsah, který by byl přidán, když se instalují balíčky NuGet.

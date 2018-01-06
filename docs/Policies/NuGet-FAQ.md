@@ -13,11 +13,11 @@ keywords: "Verze balíčku NuGet otázek a odpovědí, otázky a odpovědi, bě�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 105fa6e1cad3d163b673376c74ce9c835a0b5059
-ms.sourcegitcommit: 122bf7ce308365ea45da018b0768f0536de76a1f
+ms.openlocfilehash: 44636a3ab8a3f7aaf96e52aa67d568d7ef381549
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-frequently-asked-questions"></a>Nejčastější dotazy NuGet
 
@@ -57,9 +57,9 @@ Další informace najdete v tématu [vyhledání a výběr balíčků](../Consum
 **Jak se podporuje NuGet v různých produktů Visual Studio?**
 
 - Visual Studio v systému Windows podporuje [uživatelského rozhraní Správce balíčků](../tools/Package-Manager-UI.md) a [Konzola správce balíčků](../tools/Package-Manager-Console.md).
-- Visual Studio pro Mac obsahuje integrované funkce NuGet, jak je popsáno na [balíček včetně NuGet ve vašem projektu](https://docs.microsoft.com/visualstudio/mac/nuget-walkthrough).
+- Visual Studio pro Mac obsahuje integrované funkce NuGet, jak je popsáno na [balíček včetně NuGet ve vašem projektu](/visualstudio/mac/nuget-walkthrough).
 - Visual Studio Code (všechny platformy) nemá žádné přímé integrace NuGet. Použití [NuGet CLI](../tools/nuget-exe-CLI-Reference.md) nebo [dotnet rozhraní příkazového řádku](../tools/dotnet-commands.md).
-- Visual Studio Team Services poskytuje [krok sestavení pro obnovování balíčků NuGet](https://docs.microsoft.com/vsts/build-release/tasks/package/nuget). Můžete také [privátní balíček NuGet hostitele kanály na Team Services](https://www.visualstudio.com/docs/package/nuget/publish).
+- Visual Studio Team Services poskytuje [krok sestavení pro obnovování balíčků NuGet](/vsts/build-release/tasks/package/nuget). Můžete také [privátní balíček NuGet hostitele kanály na Team Services](https://www.visualstudio.com/docs/package/nuget/publish).
 
 **Jak zkontrolovat přesnou verzi systému NuGet nástroje, které jsou nainstalovány?**
 
@@ -101,7 +101,7 @@ Ano, je možné přidat vlastní příkazy `nuget.exe`, jak je popsáno v [post 
 
 **Jak získat přístup k objektu DTE v konzole Správce balíčků**
 
-Objekt nejvyšší úrovně v sadě Visual Studio automatizace objektový model se nazývá objekt prostředí DTE (Development Tools Environment). To konzole poskytuje prostřednictvím proměnné s názvem `$DTE`. Další informace najdete v tématu [Přehled automatizace modelu](https://docs.microsoft.com/visualstudio/extensibility/internals/automation-model-overview) v dokumentaci k rozšiřitelnosti Visual Studio.
+Objekt nejvyšší úrovně v sadě Visual Studio automatizace objektový model se nazývá objekt prostředí DTE (Development Tools Environment). To konzole poskytuje prostřednictvím proměnné s názvem `$DTE`. Další informace najdete v tématu [Přehled automatizace modelu](/visualstudio/extensibility/internals/automation-model-overview) v dokumentaci k rozšiřitelnosti Visual Studio.
 
 **Pokusu převést proměnnou $DTE typu DTE2, ale zobrazí chybová zpráva: nelze převést hodnotu "EnvDTE.DTEClass" typ "EnvDTE.DTEClass" typ "EnvDTE80.DTE2". Co je?**
 

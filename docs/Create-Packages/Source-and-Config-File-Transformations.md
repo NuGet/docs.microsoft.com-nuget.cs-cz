@@ -14,11 +14,11 @@ ms.reviewer:
 - karann-msft
 - unniravindranathan
 - anangaur
-ms.openlocfilehash: 7d380b7f2ff52ec39a2ac9a2b939ee51db6054f3
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 89a55716ccbc9043cfce4c7f38ec8ab9a0e2f768
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="transforming-source-code-and-configuration-files"></a>Transformace zdrojového kódu a konfiguračních souborů
 
@@ -27,20 +27,19 @@ Pro projekty pomocí `packages.config` nebo `project.json`, NuGet podporuje scho
 > [!Note]
 > Zdroj a konfigurační soubor transformace se nepoužívají při instalaci balíčku do projektu pomocí [odkazů balíčku v souborech projektu](../Consume-Packages/Package-References-in-Project-Files.md). 
 
-A **zdrojového kódu transformace** jednosměrný tokenu nahrazení se vztahují na soubory v balíčku `content` složku, když je balíček nainstalován, kde najdete tokeny pro Visual Studio [projektu vlastnosti](https://msdn.microsoft.com/library/vslangproj.projectproperties_properties.aspx) . To umožňuje vložit soubor do projektu obor názvů nebo přizpůsobit kód, který obvykle přejde do `global.asax` v projektu aplikace ASP.NET.
+A **zdrojového kódu transformace** jednosměrný tokenu nahrazení se vztahují na soubory v balíčku `content` složku, když je balíček nainstalován, kde najdete tokeny pro Visual Studio [projektu vlastnosti](/dotnet/api/vslangproj.projectproperties?redirectedfrom=MSDN&view=visualstudiosdk-2017#properties_) . To umožňuje vložit soubor do projektu obor názvů nebo přizpůsobit kód, který obvykle přejde do `global.asax` v projektu aplikace ASP.NET.
 
 A **transformace souboru config** umožňuje upravit soubory, které již existují v cílovém projektu, například `web.config` a `app.config`. Například může být nutné přidat položku, kterou chcete vašeho balíčku `modules` oddíl v konfiguračním souboru. Tato transformace je potřeba včetně speciální soubory v balíčku, který popisuje oddíly pro přidání konfiguračních souborů. Při odinstalaci balíčku, tyto změny budou stejně jsou pak vrátit zpět, provedení to obousměrný transformace.
-
 
 ## <a name="specifying-source-code-transformations"></a>Určení transformace zdrojového kódu
 
 1. Soubory, které chcete vložit z balíčku do projektu musí být umístěn v balíčku `content` složky. Například, pokud chcete do souboru s názvem `ContosoData.cs` být nainstalovaný v `Models` složky cílový projekt, musí být uvnitř `content\Models` složky v balíčku.
 
-2. Dáte pokyn, aby správci balíčků NuGet použít token nahrazení během instalace, připojte `.pp` k názvu souboru zdrojového kódu. Po instalaci, soubor nebude mít `.pp` rozšíření.
+1. Dáte pokyn, aby správci balíčků NuGet použít token nahrazení během instalace, připojte `.pp` k názvu souboru zdrojového kódu. Po instalaci, soubor nebude mít `.pp` rozšíření.
 
     Například aby transformace ve `ContosoData.cs`, název souboru v balíčku `ContosoData.cs.pp`. Po instalaci se zobrazí jako `ContosoData.cs`.
 
-3. V souboru se zdrojovým kódem, použijte velká a malá písmena tokeny ve formátu `$token$` k určení hodnoty by měl tento NuGet nahraďte vlastností projektu:
+1. V souboru se zdrojovým kódem, použijte velká a malá písmena tokeny ve formátu `$token$` k určení hodnoty by měl tento NuGet nahraďte vlastností projektu:
 
     ```cs
     namespace $rootnamespace$.Models
@@ -58,8 +57,7 @@ A **transformace souboru config** umožňuje upravit soubory, které již existu
 
     Po instalaci, nahradí NuGet `$rootnamespace$` s `Fabrikam` za předpokladu, že cílový projekt elementu, jehož kořenový obor názvů je `Fabrikam`.
 
-`$rootnamespace$` Token je vlastnost nejčastěji používané projektu; všechny ostatní jsou uvedeny v [vlastnosti projektu](https://msdn.microsoft.com/library/vslangproj.projectproperties_properties.aspx) dokumentaci na webu MSDN. Mějte na paměti, samozřejmě platí, že některé vlastnosti může být specifické pro daný typ projektu.
-
+`$rootnamespace$` Token je vlastnost nejčastěji používané projektu; všechny ostatní jsou uvedeny v [vlastnosti projektu](/dotnet/api/vslangproj.projectproperties?redirectedfrom=MSDN&view=visualstudiosdk-2017#properties_) dokumentaci na webu MSDN. Mějte na paměti, samozřejmě platí, že některé vlastnosti může být specifické pro daný typ projektu.
 
 ## <a name="specifying-config-file-transformations"></a>Určení transformace souboru config
 
@@ -91,7 +89,6 @@ Jako příklad předpokládejme projekt původně obsahuje následující obsah 
 
 Chcete-li přidat `MyNuModule` elementu, který chcete `modules` během instalace balíčku, vytvořte `web.config.transform` souboru v balíčku `content` složky, která vypadá takto:
 
-    
 ```xml
 <configuration>
     <system.webServer>
@@ -125,10 +122,9 @@ Pro zjištění jeho `web.config.transform` soubor, stáhněte si balíček ELMA
 
 Informace o účinku instalace a odinstalace balíčku, vytvořte nový projekt ASP.NET v sadě Visual Studio (šablona je pod **Visual C# > Web** v dialogovém okně Nový projekt) a vyberte prázdnou aplikaci ASP.NET. Otevřete `web.config` zobrazíte počátečního stavu. Klikněte pravým tlačítkem na projekt, vyberte **spravovat balíčky NuGet**, vyhledejte ELMAH na nuget.org a nainstalujte nejnovější verzi. Všimněte si, všechny změny do `web.config`. Teď má být balíček odinstalován a uvidíte `web.config` vrátit do předchozího stavu.
 
-
 ### <a name="xdt-transforms"></a>Transformuje XDT
 
-S NuGet 2.6 nebo novější, můžete upravit konfigurační soubory pomocí [XDT syntaxe](https://msdn.microsoft.com/library/dd465326.aspx). Můžete taky nechat NuGet nahradit tokeny se [vlastnosti projektu](https://msdn.microsoft.com/library/vslangproj.projectproperties_properties.aspx) zahrnutím název vlastnosti v rámci `$` delimeters (velká a malá písmena).
+S NuGet 2.6 nebo novější, můžete upravit konfigurační soubory pomocí [XDT syntaxe](https://msdn.microsoft.com/library/dd465326.aspx). Můžete taky nechat NuGet nahradit tokeny se [vlastnosti projektu](/dotnet/api/vslangproj.projectproperties?redirectedfrom=MSDN&view=visualstudiosdk-2017#properties_) zahrnutím název vlastnosti v rámci `$` delimeters (velká a malá písmena).
 
 Například následující `app.config.install.xdt` vloží soubor `appSettings` element do `app.config` obsahující `FullPath`, `FileName`, a `ActiveConfigurationSettings` hodnoty z projektu:
 

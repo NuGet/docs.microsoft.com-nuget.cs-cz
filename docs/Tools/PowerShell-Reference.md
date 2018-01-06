@@ -13,11 +13,11 @@ keywords: "NuGet konzoly Správce balíčků, příkazy prostředí NuGet Powers
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c0da5c88447784fdd49d824bbd03b11f73c22ebc
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 64450a8bcca7f6028d4ce389d51ac35e9209cfae
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="powershell-reference"></a>Referenční informace prostředí PowerShell
 
@@ -27,23 +27,23 @@ Konzola správce balíčků poskytuje rozhraní PowerShell v sadě Visual Studio
 > Všechny příkazy prostředí PowerShell se týkají pouze spotřeba balíčku. Žádné příkazy prostředí PowerShell se vztahují k vytváření a publikování balíčků s výjimkou, pokud balíček může být také příjemce další balíčky.
 
 > [!Important]
-> Zde uvedené příkazy jsou specifické pro konzolu Správce balíčků v sadě Visual Studio a liší od [příkazy modulu správy balíčků](https://msdn.microsoft.com/powershell/reference/6/packagemanagement/packagemanagement) které jsou k dispozici v obecné prostředí PowerShell. Konkrétně každé prostředí má příkazy, které nejsou k dispozici v dalších a příkazy se stejným názvem, může se také liší v jejich konkrétní argumenty. Pokud používáte konzolu pro správu balíčku v sadě Visual Studio, příkazy a argumenty, které jsou popsané v tomto tématu přítomen použít.
+> Zde uvedené příkazy jsou specifické pro konzolu Správce balíčků v sadě Visual Studio a liší od [příkazy modulu správy balíčků](/powershell/module/packagemanagement/?view=powershell-6) které jsou k dispozici v obecné prostředí PowerShell. Konkrétně každé prostředí má příkazy, které nejsou k dispozici v dalších a příkazy se stejným názvem, může se také liší v jejich konkrétní argumenty. Pokud používáte konzolu pro správu balíčku v sadě Visual Studio, příkazy a argumenty, které jsou popsané v tomto tématu přítomen použít.
 
 | Běžné příkazy | Popis | Verze NuGet |
 | --- | --- | --- |
-| [Instalace balíčku](ps-ref-install-package.md) | Nainstaluje do projektu balíček a jeho závislé součásti. | Všechny |
-| [Balíček aktualizace](ps-ref-update-package.md) | Aktualizuje balíček a jeho závislosti nebo všechny balíčky v projektu. | Všechny |
-| [Najít balíček](ps-ref-find-package.md) | Vyhledá zdroji balíčku pomocí ID balíčku nebo klíčová slova. | 3.0+ |
+| [Install-Package](ps-ref-install-package.md) | Nainstaluje do projektu balíček a jeho závislé součásti. | Všechny |
+| [Update-Package](ps-ref-update-package.md) | Aktualizuje balíček a jeho závislosti nebo všechny balíčky v projektu. | Všechny |
+| [Find-Package](ps-ref-find-package.md) | Vyhledá zdroji balíčku pomocí ID balíčku nebo klíčová slova. | 3.0+ |
 | [Get-Package](ps-ref-get-package.md) | Načte seznam balíčků nainstalovaných v místním úložišti, nebo obsahuje seznam balíčků dostupných ze zdroje balíčku. | Všechny |
 
 | Sekundární příkazy | Popis | Verze NuGet |
 | --- | --- | --- |
-| [Přidat bindingRedirect –](ps-ref-add-bindingredirect.md) | Hledá ve všech sestaveních ve výstupní cestě pro projekt a přidá přesměrování vazby `app.config` nebo `web.config` potřeby. | Všechny |
-| [Get projektu](ps-ref-get-project.md) | Zobrazí informace o výchozí nebo zadaného projektu. | 3.0+ |
-| [Otevřete PackagePage](ps-ref-open-packagepage.md) | Spuštění výchozího prohlížeče s projektu, licence nebo adresy URL sestav zneužití pro zadaný balíček. | Zastaralé v 3.0 + |
+| [Add-BindingRedirect](ps-ref-add-bindingredirect.md) | Hledá ve všech sestaveních ve výstupní cestě pro projekt a přidá přesměrování vazby `app.config` nebo `web.config` potřeby. | Všechny |
+| [Get-Project](ps-ref-get-project.md) | Zobrazí informace o výchozí nebo zadaného projektu. | 3.0+ |
+| [Open-PackagePage](ps-ref-open-packagepage.md) | Spuštění výchozího prohlížeče s projektu, licence nebo adresy URL sestav zneužití pro zadaný balíček. | Zastaralé v 3.0 + |
 | [Registrace TabExpansion](ps-ref-register-tabexpansion.md) | Zaregistruje karta rozšíření pro parametry příkazu, umožňuje vytvářet vlastní rozšíření pro běžně používané parametr hodnoty. | Všechny |
-| [Synchronizace balíčku](ps-ref-sync-package.md) | Nainstalovaná verze balíčku z Get zadané projektu a synchronizuje ji s ostatními projekty v řešení. | 3.0+ |
-| [Odinstalace balíčku](ps-ref-uninstall-package.md) | Odebere balíček z projektu, případně odebrání jeho závislé součásti. | Všechny |
+| [Sync-Package](ps-ref-sync-package.md) | Nainstalovaná verze balíčku z Get zadané projektu a synchronizuje ji s ostatními projekty v řešení. | 3.0+ |
+| [Uninstall-Package](ps-ref-uninstall-package.md) | Odebere balíček z projektu, případně odebrání jeho závislé součásti. | Všechny |
 
 Pro dokončení, podrobné nápovědu k jakémukoli z těchto příkazů v rámci konzoly stačí spusťte následující s dotyčném název příkazu:
 

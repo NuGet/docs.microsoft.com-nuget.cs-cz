@@ -13,11 +13,11 @@ keywords: "NuGet 2.1 poznámky k verzi, opravy chyb známé problémy, přidat f
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c45cfb9f6a46a1efd9fe4531602191973da66290
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: dafe575eedbfed215c0b1c86795bea281de97252
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-21-release-notes"></a>Poznámky k verzi 2.1 NuGet
 
@@ -80,7 +80,7 @@ NuGet 2.1 poskytuje podrobnější kontrolu nad umístění složky balíčky pr
 V tomto příkladu sdílený `Nuget.Config` soubor Určuje balíčky sdílené složky pro každý projekt, který se vytvoří pod C:\myteam, bez ohledu na to hloubka. Poznámka: Pokud máte existující balíčky složce pod kořenového adresáře řešení, bude muset odstranit před NuGet umístí balíčky v novém umístění.
 
 ## <a name="support-for-portable-libraries"></a>Podpora pro přenosné knihovny
-[Přenosné knihovny](http://msdn.microsoft.com/library/gg597391.aspx) je funkce poprvé .NET 4, který vám umožní sestavovat sestavení, které můžete pracovat bez úprav na různých platformách Microsoft, z verzí rozhraní.NET Framework pro Silverlight pro Windows Phone a i Xbox 360 (i když v současné době nepodporuje NuGet cíl přenosné knihovny Xbox).  Tím, že rozšíří [balíček konvence](../create-packages/supporting-multiple-target-frameworks.md) profilů a framework verze NuGet 2.1 teď podporuje přenosné knihovny tím, že vám vytvořit balíčky, které mají složené framework a profil cíle `lib` složek.
+[Přenosné knihovny](/dotnet/standard/cross-platform/cross-platform-development-with-the-portable-class-library) je funkce poprvé .NET 4, který vám umožní sestavovat sestavení, které můžete pracovat bez úprav na různých platformách Microsoft, z verzí rozhraní.NET Framework pro Silverlight pro Windows Phone a i Xbox 360 (i když v současné době nepodporuje NuGet cíl přenosné knihovny Xbox).  Tím, že rozšíří [balíček konvence](../create-packages/supporting-multiple-target-frameworks.md) profilů a framework verze NuGet 2.1 teď podporuje přenosné knihovny tím, že vám vytvořit balíčky, které mají složené framework a profil cíle `lib` složek.
 
 Jako příklad zvažte následující knihovny přenosných tříd dostupných cílových platforem.
 

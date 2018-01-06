@@ -17,15 +17,15 @@ keywords: "NuGet, uživatelského rozhraní Správce balíčků NuGet uživatels
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 88e987054f3c59a327f71b15330a99eb350449e5
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 0f08e5a36499c4481c4e0cd70738d67d65cd980a
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-package-manager-ui"></a>Uživatelského rozhraní Správce balíčků NuGet
 
-Uživatelské rozhraní Správce balíčků NuGet v sadě Visual Studio v systému Windows umožňuje snadno nainstalování, odinstalování a aktualizovat balíčky NuGet ve projekty a řešení. Pro prostředí v sadě Visual Studio pro Mac, najdete v části [balíček včetně NuGet ve vašem projektu](https://docs.microsoft.com/visualstudio/mac/nuget-walkthrough). Uživatelské rozhraní Správce balíčků není součástí Visual Studio Code.
+Uživatelské rozhraní Správce balíčků NuGet v sadě Visual Studio v systému Windows umožňuje snadno nainstalování, odinstalování a aktualizovat balíčky NuGet ve projekty a řešení. Pro prostředí v sadě Visual Studio pro Mac, najdete v části [balíček včetně NuGet ve vašem projektu](/visualstudio/mac/nuget-walkthrough). Uživatelské rozhraní Správce balíčků není součástí Visual Studio Code.
 
 V tomto tématu:
 

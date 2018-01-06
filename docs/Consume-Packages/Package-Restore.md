@@ -13,11 +13,11 @@ keywords: "Obnovení balíčku NuGet, instalace balíčku NuGet, instalace balí
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c2567f45b6bb36cdd94c4ce6f1418cb1c7ceac5e
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 4e819a2bb34bbe70f0f11d5adeed82b976a8cb65
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="package-restore"></a>Obnovení balíčku
 
@@ -64,7 +64,7 @@ Z příkazového řádku nebo [Konzola správce balíčků](../tools/Package-Man
 | Příkaz | Použít scénáře |
 | --- | --- | 
 | `nuget restore` | Všechny verze NuGet a všechny odkazové typy. V tématu [příkazového řádku obnovení](#command-line-restore) níže. | 
-| `dotnet restore` | Stejné jako `nuget restore` pro projekty .NET Core. V tématu [dotnet obnovení](https://docs.microsoft.com/dotnet/articles/core/tools/dotnet-restore). |
+| `dotnet restore` | Stejné jako `nuget restore` pro projekty .NET Core. V tématu [dotnet obnovení](/dotnet/articles/core/tools/dotnet-restore). |
 | `msbuild /t:restore` | Nuget 4.x+ a MSBuild 15.1 + s [balíček odkazy v souborech projektu](../Consume-Packages/Package-References-in-Project-Files.md) pouze. `nuget restore`a `dotnet restore` obě tento příkaz použijte pro příslušné projekty. V tématu [NuGet pack a obnovení jako MSBuild cíle obnovení cíl](../schema/msbuild-targets.md#restore-target).|
 
 Visual Studio, samotné také obnoví balíčky v různých časech:

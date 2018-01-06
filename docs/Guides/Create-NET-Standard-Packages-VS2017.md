@@ -13,17 +13,17 @@ keywords: "Vytvoření balíčku, .NET Standard balíčky .NET Core"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 82e413119b12503336becd6019e4fa3e4ac0b1f3
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 5b48ad2f062fd3a9b99985dbda6f89e6039dac4d
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-net-standard-20-packages-with-visual-studio-2017"></a>Vytvoření balíčků standardní rozhraní .NET 2.0 s Visual Studio 2017
 
 *Platí pro NuGet 4.x+ a MSBuild 15.3 + v souladu s Visual Studio 2017 Update 3. U starších verzí Visual Studio 2017, tyto pokyny platí pro standardní 1.4 .NET 1.6 změnou \<TargetFramework\> vlastnost. Viz také [vytvořit .NET standardní balíčky s Visual Studiem 2015](../guides/create-net-standard-packages-vs2015.md) pro práci s NuGet 3.x+.*
 
-[Standardní knihovny .NET](https://docs.microsoft.com/dotnet/articles/standard/library) je formální specifikaci rozhraní API technologie .NET by měla být k dispozici pro všechny moduly runtime rozhraní .NET, tím větší jednotnost vytváří v ekosystému .NET. Standardní knihovny .NET definuje jednotnou sadu BCL (základní třída knihovna) rozhraní API pro všechny platformy .NET implementovat, nezávisle na zatížení. Ji umožňuje vývojářům vytvářet PCLs, které jsou použitelné pro všechny moduly runtime rozhraní .NET, a snižuje, pokud není eliminuje direktivy specifické pro platformu Podmíněná kompilace v sdíleného kódu.
+[Standardní knihovny .NET](/dotnet/articles/standard/library) je formální specifikaci rozhraní API technologie .NET by měla být k dispozici pro všechny moduly runtime rozhraní .NET, tím větší jednotnost vytváří v ekosystému .NET. Standardní knihovny .NET definuje jednotnou sadu BCL (základní třída knihovna) rozhraní API pro všechny platformy .NET implementovat, nezávisle na zatížení. Ji umožňuje vývojářům vytvářet PCLs, které jsou použitelné pro všechny moduly runtime rozhraní .NET, a snižuje, pokud není eliminuje direktivy specifické pro platformu Podmíněná kompilace v sdíleného kódu.
 
 Tato příručka vás provede procesem vytvoření balíčku nuget cílení na rozhraní .NET standardní knihovny 2.0 s Visual Studio 2017 Update 3 a NuGet 4.0.
 
@@ -113,5 +113,5 @@ Pokud chcete zpřístupnit vašeho balíčku jinými vývojáři, postupujte pod
 
 - [Balíček odkazy v souborech projektu](../consume-packages/package-references-in-project-files.md) popisuje všechny podrobnosti o popisující vašeho balíčku přímo v souboru projektu.
 - [NuGet pack a obnovit jako cíle MSBuild](../schema/msbuild-targets.md) popisuje všechny možnosti použití `msbuild /t:pack` k vytvoření balíčku.
-- [Standardní knihovny .NET dokumentaci](https://docs.microsoft.com/dotnet/articles/standard/library)
-- [Portování do .NET Core z rozhraní .NET Framework](https://docs.microsoft.com/dotnet/articles/core/porting/index)
+- [Standardní knihovny .NET dokumentaci](/dotnet/articles/standard/library)
+- [Portování do .NET Core z rozhraní .NET Framework](/dotnet/articles/core/porting/index)

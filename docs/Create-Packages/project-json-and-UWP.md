@@ -13,11 +13,11 @@ keywords: "NuGet závislosti, NuGet a UPW, UWP a project.json, soubor project.js
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 40507e541997cea368052c373a4124d9c4a00a51
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: ae49c017365e1a63622fde318d5c94b64ed1ea2e
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="projectjson-and-uwp"></a>Project.JSON a UWP
 
@@ -70,7 +70,7 @@ Balíčky NuGet formátu mají následující dobře známou složku a chování
 
 Balíčky NuGet může obsahovat `.targets` a `.props` soubory, které jsou importovány do jakékoli projektu nástroje MSBuild, který je balíček nainstalován do. V NuGet 2.x, k tomu bylo potřeba vložením `<Import>` příkazů do `.csproj` souboru, v NuGet 3.0 není k dispozici žádná konkrétní "instalace do projektu" akce. Místo toho v procesu obnovení balíčku zapíše dva soubory `[projectname].nuget.props` a `[projectname].NuGet.targets`.
 
-MSBuild zná hledání tyto dva soubory a automaticky je importuje téměř začátku a konci procesu sestavení projektu. To poskytuje velmi podobné chování NuGet 2.x, ale jeden hlavní rozdíl: *neexistuje žádné zaručenou pořadí cíle nebo props souborů v tomto případě*. Však poskytuje způsoby, jak pořadí cíle prostřednictvím nástroje MSBuild `BeforeTargets` a `AfterTargets` atributy `<Target>` definice (najdete v části [Target – Element (MSBuild)](https://docs.microsoft.com/visualstudio/msbuild/target-element-msbuild).
+MSBuild zná hledání tyto dva soubory a automaticky je importuje téměř začátku a konci procesu sestavení projektu. To poskytuje velmi podobné chování NuGet 2.x, ale jeden hlavní rozdíl: *neexistuje žádné zaručenou pořadí cíle nebo props souborů v tomto případě*. Však poskytuje způsoby, jak pořadí cíle prostřednictvím nástroje MSBuild `BeforeTargets` a `AfterTargets` atributy `<Target>` definice (najdete v části [Target – Element (MSBuild)](/visualstudio/msbuild/target-element-msbuild).
 
 
 ## <a name="lib-and-ref"></a>LIB a Ref
@@ -93,7 +93,7 @@ Jsou někdy případech, kdy by měla být použita jiném sestavení při kompi
 
 Většina autoři balíček nevyžadují `ref` složky. Je vhodné pro balíčky, které potřebují k zajištění konzistentní útoku pro kompilaci a technologii IntelliSense, ale pak mít jinou implementaci pro různé TxMs. Největších případ použití tyto `System.*` balíčky, které vznikají jako součást přenosů .NET Core na NuGet. Tyto balíčky mají různé implementace, které jsou právě unified konzistentní sada ref sestavení.
 
-Mechanicky sestavení součástí `ref` složky jsou předávány kompilátoru referenční sestavení. Pro ty z vás, kteří použili csc.exe Toto jsou sestavení jsme jsou předány [možnost/reference jazyka C#](https://docs.microsoft.com/dotnet/articles/csharp/language-reference/compiler-options/reference-compiler-option) přepínače.
+Mechanicky sestavení součástí `ref` složky jsou předávány kompilátoru referenční sestavení. Pro ty z vás, kteří použili csc.exe Toto jsou sestavení jsme jsou předány [možnost/reference jazyka C#](/dotnet/articles/csharp/language-reference/compiler-options/reference-compiler-option) přepínače.
 
 Struktura `ref` složky je stejný jako `lib`, například:
 
@@ -121,7 +121,7 @@ V tomto příkladu sestavení v `ref` adresáře by být identické.
 
 ## <a name="runtimes"></a>Moduly runtime
 
-Moduly runtime složka obsahuje sestavení a nativní knihovny potřebné ke spuštění na konkrétní "moduly runtime", které jsou obvykle definovány Architektura operačního systému a procesoru. Tyto moduly runtime jsou identifikovány pomocí [Runtime identifikátorů (RID)](https://docs.microsoft.com/dotnet/core/rid-catalog) například `win`, `win-x86`, `win7-x86`, `win8-64`atd.
+Moduly runtime složka obsahuje sestavení a nativní knihovny potřebné ke spuštění na konkrétní "moduly runtime", které jsou obvykle definovány Architektura operačního systému a procesoru. Tyto moduly runtime jsou identifikovány pomocí [Runtime identifikátorů (RID)](/dotnet/core/rid-catalog) například `win`, `win-x86`, `win7-x86`, `win8-64`atd.
 
 ## <a name="native-light-up"></a>Nativní lehký up
 

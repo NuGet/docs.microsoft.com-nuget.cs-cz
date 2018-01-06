@@ -13,11 +13,11 @@ keywords: "NuGet 2.6 poznámky k verzi, opravy chyb známé problémy, přidat f
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: f93e34326aa9ab3d6bd5d1756126e6bfa24fd82e
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: b34c0049a5ba42f6bcd5b36fa5b0ba261e27ecd5
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-26-release-notes"></a>Poznámky k verzi 2.6 NuGet
 
@@ -35,8 +35,8 @@ Chcete-li poskytovat nejlepší možný podpora pro Visual Studio 2013 při stá
 
 Od verze NuGet 2.6, budeme publikovat dvě rozšíření, jak je uvedeno níže:
 
-1. [Správce balíčků NuGet](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c/file/37502/30/NuGet.Tools.vsix) (platí pro Visual Studio 2010 a 2012)
-2. [Správce balíčků NuGet pro Visual Studio 2013](http://visualstudiogallery.msdn.microsoft.com/4ec1526c-4a8c-4a84-b702-b21a8f5293ca)
+1. [Správce balíčků NuGet](https://marketplace.visualstudio.com/items?itemName=NuGetTeam.NuGetPackageManager) (platí pro Visual Studio 2010 a 2012)
+1. [Správce balíčků NuGet pro Visual Studio 2013](https://marketplace.visualstudio.com/items?itemName=NuGetTeam.NuGetPackageManagerforVisualStudio2013)
 
 S toto rozdělení [nuget.org](https://nuget.org) tlačítko "Nainstalovat NuGet" domovskou stránku teď přejdete k [instalace NuGet](../guides/install-nuget.md) stránky, kde můžete najít další informace o instalaci různých klientů NuGet.
 
@@ -44,7 +44,8 @@ S toto rozdělení [nuget.org](https://nuget.org) tlačítko "Nainstalovat NuGet
 
 ### <a name="xdt-webconfig-transformation-support"></a>Podpora transformaci XDT Web.config
 
-Jedna z funkcí nejvíce vysoce požadovaných pro klienta NuGet byl pro podporu výkonnější transformace XML pomocí XDT transformační modul, který se používá v sadě Visual Studio [sestavení konfigurace transformace](http://msdn.microsoft.com/library/dd465318(v=vs.100).aspx).
+Jedna z funkcí nejvíce vysoce požadovaných pro klienta NuGet byl pro podporu výkonnější transformace XML pomocí XDT transformační modul, který se používá v sadě Visual Studio sestavení konfigurace transformace.
+
 V duben 2013 jsme provedli dva big oznámení týkajících se podpory NuGet XDT. První bylo, že samotné knihovny XDT se sám sebe [vydané jako balíčku NuGet](https://nuget.org/packages/Microsoft.Web.Xdt) a [open source na webu CodePlex](http://xdt.codeplex.com/). Tento krok povolit, aby modul XDT volně používat jiné open-source softwaru, včetně klienta NuGet. Druhý oznámení se plán podporovat použití modulu XDT transformace v klientovi NuGet. NuGet 2.6 zahrnuje Tato integrace.
 
 #### <a name="how-it-works"></a>Jak to funguje

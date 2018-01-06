@@ -14,11 +14,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 4d1d2e6850f22306d715b1c2071ee45b0eb050dc
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 36e1f0cd6e4284a6bd272ce3c85749e9ed72cbcd
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="target-frameworks"></a>Cílové rozhraní
 
@@ -53,7 +53,7 @@ Klienti NuGet podporují rozhraní v následující tabulce. Ekvivalenty se zobr
 |                |              | net46      |
 |                |              | net461     |
 |                |              | net462     |
-|Windows Store   | netcore      | netcore [netcore45] |
+|Microsoft Storu (pro Windows Store) | netcore      | netcore [netcore45] |
 |                |              | netcore45 [win, win8] |
 |                |              | netcore451 [win81] |
 |                |              | netcore50 |
@@ -83,7 +83,7 @@ Standardní rozhraní .NET | monikerů netstandard | netstandard1.0 |
 Aplikace .NET core | netcoreapp | netcoreapp1.0 |
 | | | netcoreapp1.1 |
 | | | netcoreapp2.0 |
-Tizen | tizen | tizen3 |
+tizen | tizen | tizen3 |
 | | | tizen4 |
 
 ## <a name="deprecated-frameworks"></a>Zastaralá rozhraní
@@ -122,7 +122,7 @@ Je několik rozhraní související s a kompatibilní s sebou, ale není nutně 
 
 ## <a name="net-platform-standard"></a>Standardní NET platformy
 
-[Standard platformy .NET](https://github.com/dotnet/corefx/blob/master/Documentation/architecture/net-platform-standard.md) zjednodušuje odkazy mezi rozhraní kompatibilní s binární, povolení jedné cílové rozhraní tak, aby odkazovaly kombinaci jiných. (Pro informace viz [Úvod do rozhraní .NET](https://docs.microsoft.com/dotnet/articles/standard/index).)
+[Standard platformy .NET](https://github.com/dotnet/corefx/blob/master/Documentation/architecture/net-platform-standard.md) zjednodušuje odkazy mezi rozhraní kompatibilní s binární, povolení jedné cílové rozhraní tak, aby odkazovaly kombinaci jiných. (Pro informace viz [Úvod do rozhraní .NET](/dotnet/articles/standard/index).)
 
 [NuGet získat nejbližší Framework nástroj](https://aka.ms/s2m3th) simuluje NuGet používá k výběru jedné framework z mnoha prostředky k dispozici framework v balíčku na rozhraní .NET framework projektu na základě.
 

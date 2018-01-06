@@ -17,11 +17,11 @@ keywords: "Rozhraní API NuGet výčet všechny balíčky, replikace balíčky N
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 50a5be4cb0405ad78a72d0497612781a4b346060
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 5559a7cd104861b1a10aa8d1513696e609c51c15
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="query-for-all-packages-published-to-nugetorg"></a>Dotaz pro všechny balíčky, které jsou publikovány do nuget.org
 
@@ -106,7 +106,7 @@ Tento krok je, kde můžete implementovat vlastní logiky. Další kroky v této
 
 ### <a name="downloading-the-nupkg"></a>Stahování .nupkg
 
-Pokud vás zajímá stahování pro balíčky .nupkg v katalogu nalezen, můžete použít [zdrojového obsahu balíčku](../../api/package-base-address-resource.md). Ale Všimněte si, že prodleva mezi při nalezení balíček v katalogu a pokud je k dispozici v zdrojového obsahu balíčku. Proto pokud dojde k `404 Not Found` při pokusu o stažení .nupkg pro balíček, který jste získali v katalogu, jednoduše znovu po krátkou dobu později. Oprava Tato prodleva sledován problém Githubu [NuGet/NuGetGallery #3455](https://github.com/NuGet/NuGetGallery/issues/3455).
+Pokud vás zajímá stahování pro balíčky .nupkg v katalogu nalezen, můžete použít [zdrojového obsahu balíčku](../../api/package-base-address-resource.md). Upozorňujeme však, že se prodleva mezi při je v katalogu nalezen balíček a pokud je k dispozici v zdrojového obsahu balíčku. Proto pokud dojde k `404 Not Found` při pokusu o stažení .nupkg pro balíček, který jste získali v katalogu, jednoduše znovu po krátkou dobu později. Oprava Tato prodleva sledován problém Githubu [NuGet/NuGetGallery #3455](https://github.com/NuGet/NuGetGallery/issues/3455).
 
 ## <a name="move-the-cursor-forward"></a>Přesunutí kurzoru předat dál
 

@@ -13,11 +13,11 @@ keywords: "nuget.exe rozhraní příkazového řádku, nástrojích klienta NuGe
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b1abb30458c9ebfb0ffb28be254efd9709a9627f
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 2f67c298d269149bba9f36ad9e026d5443c39b6a
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="installing-nuget-client-tools"></a>Instalace nástrojů klienta NuGet
 
@@ -29,7 +29,7 @@ Existují dvě primární nástroje, které vám pomůžou vytvářet, publikova
 1. [ **NuGet CLI** ](#nuget-cli) je nástroj příkazového řádku pro Windows, který nabízí všechny funkce NuGet; může být spuštěn také na Mac OSX a Linux pomocí Mono nebo prostřednictvím rozhraní příkazového řádku .NET Core (`dotnet`).
 1. [ **Správce balíčků NuGet v sadě Visual Studio** ](#nuget-package-manager-in-visual-studio) (jenom Windows) je nástroj grafického uživatelského rozhraní pro správu balíčků a zahrnuje konzole prostředí PowerShell, pomocí kterého můžete určité příkazy pro balíčky NuGet přímo v rámci Visual Studio. Uživatelské rozhraní Správce balíčků a konzoly jsou obě zahrnutá v sadě Visual Studio (v systému Windows) 2012 a novější a může být nainstalován ručně pro starší verze.
 
-    Pomocí sady Visual Studio pro Mac NuGet možnosti jsou součástí přímo. V tématu [balíček včetně NuGet ve vašem projektu](https://docs.microsoft.com/visualstudio/mac/nuget-walkthrough) návod.
+    Pomocí sady Visual Studio pro Mac NuGet možnosti jsou součástí přímo. V tématu [balíček včetně NuGet ve vašem projektu](/visualstudio/mac/nuget-walkthrough) návod.
 
     Visual Studio Code v současnosti nemá žádné integrovanou podporu NuGet. Pomocí rozhraní příkazového řádku NuGet nebo [dotnet rozhraní příkazového řádku](../Tools/dotnet-Commands.md).
 
@@ -53,7 +53,7 @@ Následující funkce jsou podporovány pouze v rozhraní příkazového řádku
 
 > [!Note]
 > Dobrý dalším nástrojem je [Explorer balíček NuGet](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer), nástroj na open source, samostatné vizuálně zkoumat, vytvořit a upravit balíčky NuGet. Je třeba velmi užitečné, změnit experimentální struktura balíček bez nutnosti znovu sestavte balíček pokaždé, když.
-> Napříč platformami [.NET Core rozhraní příkazového řádku](https://docs.microsoft.com/dotnet/articles/core/tools/index#installation) nástrojů, použít pro vývoj aplikací .NET Core podporuje několik příkazy pro balíčky NuGet, například odstranit, místní hodnoty, push, aktualizací Service pack a obnovení. 
+> Napříč platformami [.NET Core rozhraní příkazového řádku](/dotnet/articles/core/tools/index#installation) nástrojů, použít pro vývoj aplikací .NET Core podporuje několik příkazy pro balíčky NuGet, například odstranit, místní hodnoty, push, aktualizací Service pack a obnovení. 
 
 ## <a name="nuget-cli"></a>Rozhraní příkazového řádku NuGet
 

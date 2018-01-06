@@ -12,11 +12,11 @@ description: "Měnící nuget.org protokoly pro interakci s klienty NuGet."
 ms.reviewer:
 - kraigb
 - karann-msft
-ms.openlocfilehash: 097b7a86d056b692c52d6de76bc2fb99d1b58c6f
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 0bc71795d120256b9eb14ca64141f0b69f01e620
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nugetorg-protocols"></a>Protokoly nuget.org
 
@@ -43,7 +43,7 @@ Klienti jsou potřeba předat následující hlavičku při provádění volán�
 X-NuGet-Protocol-Version: 4.1.0
 ```
 
-Všimněte si, že již existující `X-NuGet-Client-Version` záhlaví má stejný účel, ale je nyní zastaralý a by měl být dále používán.
+Všimněte si, že `X-NuGet-Client-Version` záhlaví má podobnou sémantiku, ale je vyhrazen pouze používat oficiální klienta NuGet. Třetí strany klienti měli používat `X-NuGet-Protocol-Version` hlavičku a hodnotu.
 
 **Nabízené** samotný protokol je popsána v dokumentaci k [ `PackagePublish` prostředků](package-publish-resource.md).
 

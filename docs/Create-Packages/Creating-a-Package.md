@@ -13,11 +13,11 @@ keywords: "Vytvoření balíčku NuGet, vytváření balíčku, nuspec manifest,
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: e7a2c4d02afb2387161c22fe5bd443eb0991ea8c
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 50bc9e79f95f901477208f638b0965c82fd98356
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="creating-nuget-packages"></a>Vytváření balíčků NuGet
 
@@ -284,7 +284,7 @@ U balíčku NuGet 3.5 +, může být označen balíčky konkrétní *typ balíč
 
 - `Dependency`Typ balíčky sestavení nebo běhu prostředky přidat do knihovny a aplikace a lze nainstalovat do libovolného typu projektu (za předpokladu, že jsou kompatibilní).
 
-- `DotnetCliTool`Typ balíčky jsou rozšíření [rozhraní příkazového řádku .NET](https://docs.microsoft.com/dotnet/articles/core/tools/index) a jsou vyvolány z příkazového řádku. Tyto balíčky lze nainstalovat pouze v projektech .NET Core a mít žádný vliv na operace obnovení. Další podrobnosti o těchto – projekt rozšíření jsou k dispozici v [rozšiřitelnost .NET Core](https://docs.microsoft.com/dotnet/articles/core/tools/extensibility#per-project-based-extensibility) dokumentaci.
+- `DotnetCliTool`Typ balíčky jsou rozšíření [rozhraní příkazového řádku .NET](/dotnet/articles/core/tools/index) a jsou vyvolány z příkazového řádku. Tyto balíčky lze nainstalovat pouze v projektech .NET Core a mít žádný vliv na operace obnovení. Další podrobnosti o těchto – projekt rozšíření jsou k dispozici v [rozšiřitelnost .NET Core](/dotnet/articles/core/tools/extensibility#per-project-based-extensibility) dokumentaci.
 
     Pokud je nainstalován balíček DotnetCliTool, Visual Studio umístí balíček v `project.json` `tools` uzlu místo `dependencies` uzlu.
 
@@ -488,4 +488,4 @@ Můžete také chtít rozšiřují možnosti vašeho balíčku nebo jinak podpor
 Nakonec existují další balíčky typy zajímat:
 
 - [Nativní balíčky](../create-packages/native-packages.md)
-- [Symbol balíčky](../create-packages/symbol-packages.md)
+- [Balíčky symbolů](../create-packages/symbol-packages.md)

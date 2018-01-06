@@ -13,15 +13,15 @@ keywords: "Správce balíčků NuGet, využívání, vytvoření balíčku, bal�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 29dcedf33a54e249fe0b6acf588e4aafde28304f
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 2bc6a9e154df287fee6a7e00cc1349dfa2100643
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="an-introduction-to-nuget"></a>Úvod do NuGet
 
-Základní nástroj pro libovolnou platformu pro vývoj moderních je mechanismus, pomocí něhož mohou vývojáři vytvářet, sdílet a využívat užitečné knihovny kódu. Tyto knihovny jsou obvykle říká "packages" protože mohou obsahovat zkompilovaný kód (jako knihovny DLL) společně s jiný obsah, který může být potřeba v projektech, které využívají tyto knihovny.
+Základní nástroj pro libovolnou platformu pro vývoj moderních je mechanismus, pomocí kterého mohou vývojáři vytvářet, sdílet a využívat užitečné kódu. Takový kód je často seskupeny do "packages" obsahující zkompilovaný kód (jako knihovny DLL) společně s další obsah, je potřeba v projektů, které využívají tyto balíčky.
 
 Pro platformu .NET, tento mechanismus pro sdílení kódu je **NuGet**, který definuje jak balíčky pro rozhraní .NET vytvářené hostované a využívat a poskytuje nástroje pro každou z těchto rolí. 
 
@@ -44,9 +44,9 @@ Kromě hostování podpory, NuGet také poskytuje celou řadu nástrojů použí
 | Nástroj | Platformy | Použít scénáře | Popis |
 | --- | --- | --- | --- |
 | [nuget.exe rozhraní příkazového řádku](Tools/nuget-exe-CLI-Reference.md) | Všechny | Vytváření, spotřeba | Nabízí všechny funkce NuGet, se některé příkazy platného pro balíček tvůrcích, použití pouze k příjemce, a ostatní použití na obojí. Například balíček creators použití `nuget pack` příkazu vytvořit balíček z různých sestavení a související soubory, balíček příjemci použití `nuget install` mezi ně patřit balíčky v projektu a everyone používá `nuget config` nastavit konfiguraci NuGet proměnné.  |
-| [Uživatelského rozhraní Správce balíčků](Tools/Package-Manager-UI.md) | Visual Studio v systému Windows | Spotřeba | Poskytuje snadno použitelné uživatelské rozhraní pro instalaci a správě balíčků v projektech pro rozhraní .NET. | 
-| [Spravovat NuGet uživatelského rozhraní](https://docs.microsoft.com/visualstudio/mac/nuget-walkthrough) | Visual Studio for Mac | Spotřeba | Zadejte snadno použitelné uživatelské rozhraní pro instalaci a správě balíčků v projektech pro rozhraní .NET. |
-| [Konzola správce balíčků](Tools/Package-Manager-Console.md) | Visual Studio v systému Windows | Spotřeba | Poskytuje [příkazy prostředí PowerShell](Tools/Powershell-Reference.md) k instalaci a správě balíčků v projektech pro rozhraní .NET. | 
+| [Uživatelské rozhraní Správce balíčků](Tools/Package-Manager-UI.md) | Visual Studio v systému Windows | Spotřeba | Poskytuje snadno použitelné uživatelské rozhraní pro instalaci a správě balíčků v projektech pro rozhraní .NET. | 
+| [Spravovat NuGet uživatelského rozhraní](/visualstudio/mac/nuget-walkthrough) | Visual Studio for Mac | Spotřeba | Zadejte snadno použitelné uživatelské rozhraní pro instalaci a správě balíčků v projektech pro rozhraní .NET. |
+| [Konzola Správce balíčků](Tools/Package-Manager-Console.md) | Visual Studio v systému Windows | Spotřeba | Poskytuje [příkazy prostředí PowerShell](Tools/Powershell-Reference.md) k instalaci a správě balíčků v projektech pro rozhraní .NET. | 
 | [DotNet rozhraní příkazového řádku](Tools/dotnet-Commands.md) | Všechny | Vytváření, spotřeba | Poskytuje rozhraní příkazového řádku určité NuGet možnosti přímo v rámci nástrojů .NET Core. |
 | [MSBuild](Schema/msbuild-targets.md) | Windows | Vytváření, spotřeba | Umožňuje vytvořit balíčky a balíčky v projektu přímo prostřednictvím nástrojů MSBuild použité obnovení. |
 

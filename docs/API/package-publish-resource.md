@@ -17,16 +17,15 @@ keywords: "Nabízené balíček NuGet rozhraní API, rozhraní API NuGet odstran
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 1fa3c0e1698a11208d9ef29fdf26a4980cb60cf5
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 87970a701c63bce2b74c619069ec1d231ea77ab5
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="push-and-delete"></a>Push a odstranění
 
-Je možné nabízené a odstranit (nebo unlist, v závislosti na implementaci serveru) balíčky, pomocí rozhraní API V3 NuGet.
-Obě tyto operace jsou na základě odhlásit z `PackagePublish` v nalezen prostředek [indexu služby](service-index.md).
+Je možné push, odstraníte (nebo unlist, v závislosti na implementaci serveru) a relist balíčky pomocí rozhraní API V3 NuGet. Tyto operace jsou na základě odhlásit z `PackagePublish` v nalezen prostředek [indexu služby](service-index.md).
 
 ## <a name="versioning"></a>Správa verzí
 
@@ -44,9 +43,12 @@ Všimněte si, že tato adresa URL odkazuje do stejného umístění jako starš
 
 ## <a name="http-methods"></a>Metody HTTP
 
-`PUT` a `DELETE` metody HTTP podporuje tento prostředek. Které metody jsou podporovány na každém koncovém bodu najdete níže.
+`PUT`, `POST` a `DELETE` metody HTTP podporuje tento prostředek. Které metody jsou podporovány na každém koncovém bodu najdete níže.
 
 ## <a name="push-a-package"></a>Push balíčku
+
+> [!Note]
+> má nuget.org [další požadavky](NuGet-Protocols.md) pro interakci s koncovým bodem push.
 
 nuget.org podporuje vkládání nové balíčky pomocí následující rozhraní API. Pokud balíček s zadané ID a verzí již existuje, odmítnou nuget.org nabízeného oznámení. Další zdroje balíčku může podporovat nahrazování existujícího balíčku.
 
@@ -101,4 +103,29 @@ X-NuGet-ApiKey | Záhlaví | odkazy řetězců | Ano      | Třeba `X-NuGet-ApiK
 Stavový kód | Význam
 ----------- | -------
 204         | Balíček byl odstraněn.
+404         | Žádný balíček poskytnutým `ID` a `VERSION` existuje
+
+## <a name="relist-a-package"></a>Relist balíčku
+
+Pokud je balíček neuvedené, je možné vytvořit tento balíček opět viditelné ve výsledcích hledání používá koncový bod "relist". Tento koncový bod má stejné tvar jako [odstranit (unlist) koncový bod](#delete-a-package) ale používá `POST` metoda HTTP místo `DELETE` metoda.
+
+Pokud už je balíček uvedený, stále neproběhne.
+
+```
+POST https://www.nuget.org/api/v2/package/{ID}/{VERSION}
+```
+
+### <a name="request-parameters"></a>Parametry žádosti
+
+Název           | V     | Typ   | Požadováno | Poznámky
+-------------- | ------ | ------ | -------- | -----
+ID             | Adresa URL    | odkazy řetězců | Ano      | ID balíčku má relist
+VERZE        | Adresa URL    | odkazy řetězců | Ano      | Verze balíčku, který má relist
+X-NuGet-ApiKey | Záhlaví | odkazy řetězců | Ano      | Třeba `X-NuGet-ApiKey: {USER_API_KEY}`.
+
+### <a name="response"></a>Odpověď
+
+Stavový kód | Význam
+----------- | -------
+204         | Balíček je nyní obsažena.
 404         | Žádný balíček poskytnutým `ID` a `VERSION` existuje

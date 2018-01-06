@@ -13,11 +13,11 @@ keywords: "NuGet 1.8 poznámky k verzi, opravy chyb známé problémy, přidat f
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 875cb752fed102c24da255a336d3f16729ca082c
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 350f0d9590c1e0ef1a843fd783203b158059efa7
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-18-release-notes"></a>Poznámky k verzi 1,8 NuGet
 
@@ -72,7 +72,7 @@ Zadejte svůj souhlas 2 způsoby. První naleznete v dialogu balíček Správce 
 
 Druhý způsob je nastavení prostředí proměnné "EnableNuGetPackageRestore" na hodnotu "true".  Tato metoda je určena pro bezobslužné počítače, jako jsou třeba servery položky konfigurace nebo sestavení.
 
-Nyní jak jsme uvedli výše, budeme mít pouze podle základ pro tuto funkci NuGet 1.8.  Prakticky to znamená, že když jsme přidali veškerou logiku k povolení této funkce, není vynucena aktuálně v této verzi. Bude povoleno, ale v příští verzi NuGet, takže jsme chtěli, aby vás upozornit je co nejdříve, aby správně nakonfigurovat vaše prostředí a proto nelze dopad jsme spouštění vynutit omezení souhlasu.
+Nyní jak jsme uvedli výše, budeme mít pouze podle základ pro tuto funkci NuGet 1.8.  Prakticky to znamená, že když jsme přidali veškerou logiku k povolení této funkce, vynuceno není aktuálně v této verzi. Bude povoleno, ale v příští verzi NuGet, takže jsme chtěli, aby vás upozornit je co nejdříve, aby správně nakonfigurovat vaše prostředí a proto nelze dopad jsme spouštění vynutit omezení souhlasu.
 
 Další podrobnosti najdete v tématu [příspěvku na blogu týmu](http://blog.nuget.org/20120518/package-restore-and-consent.html) na tuto funkci.
 

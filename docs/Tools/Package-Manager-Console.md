@@ -13,11 +13,11 @@ keywords: "Konzole Správce balíčků NuGet, NuGet powershell, spravovat balí�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: d9df514c6f92a3ea0841503d86c44271e70f95f2
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: cc11963a9b9bfe9aa456d8cd4c8397e1084f660b
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="package-manager-console"></a>Konzola správce balíčků
 
@@ -62,7 +62,7 @@ V tomto tématu:
 
 ## <a name="opening-the-console-and-console-controls"></a>Otevření konzoly a ovládací prvky konzoly
 
-1. Otevřete konzolu v sadě Visual Studio pomocí **nástroje > Správce balíčků NuGet > Konzola správce balíčků** příkaz. Konzole je okno sady Visual Studio, které mohou být uspořádány a umístěný, ale chcete (viz [přizpůsobení rozložení oken v sadě Visual Studio](https://docs.microsoft.com/visualstudio/ide/customizing-window-layouts-in-visual-studio)).
+1. Otevřete konzolu v sadě Visual Studio pomocí **nástroje > Správce balíčků NuGet > Konzola správce balíčků** příkaz. Konzole je okno sady Visual Studio, které mohou být uspořádány a umístěný, ale chcete (viz [přizpůsobení rozložení oken v sadě Visual Studio](/visualstudio/ide/customizing-window-layouts-in-visual-studio)).
 
 1. Ve výchozím nastavení fungují příkazy konzoly pro určitý balíček zdrojem a projekt jako sada v ovládacím prvku v horní části okna:
 
@@ -171,7 +171,7 @@ V aplikaci Visual Studio 2017 NuGet a Správce balíčků NuGet jsou automaticky
 
 Zkontrolujte také, pokud jste chybí Správce balíčků NuGet v sadě Visual Studio 2015 a starší, **nástroje > rozšíření a aktualizace...**  a vyhledejte rozšíření Správce balíčků NuGet. Pokud nemůžete použít instalační program rozšíření v sadě Visual Studio, si můžete stáhnout rozšíření přímo z [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html).
 
-Konzola správce balíčků není v současné době dostupné pomocí sady Visual Studio for Mac. Ekvivalentní příkazy, ale jsou k dispozici prostřednictvím [NuGet CLI](nuget-exe-CLI-reference.md). Visual Studio pro Mac nemá uživatelského rozhraní pro správu balíčků NuGet. V tématu [balíček včetně NuGet ve vašem projektu](https://docs.microsoft.com/visualstudio/mac/nuget-walkthrough).
+Konzola správce balíčků není v současné době dostupné pomocí sady Visual Studio for Mac. Ekvivalentní příkazy, ale jsou k dispozici prostřednictvím [NuGet CLI](nuget-exe-CLI-reference.md). Visual Studio pro Mac nemá uživatelského rozhraní pro správu balíčků NuGet. V tématu [balíček včetně NuGet ve vašem projektu](/visualstudio/mac/nuget-walkthrough).
 
 Konzola správce balíčků není součástí Visual Studio Code.
 

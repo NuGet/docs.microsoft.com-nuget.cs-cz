@@ -13,15 +13,15 @@ keywords: "Rozhraní API NuGet, NuGet v sadě Visual Studio, programovací rozhr
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 1d5c4cba1474f4215c6cc83497e347b2145f21ef
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: e1279f5c0c36bfdf99a6bae240c779fd0c39f04c
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-api-in-visual-studio"></a>Rozhraní API NuGet v sadě Visual Studio
 
-Kromě uživatelské rozhraní Správce balíčků a konzoly v sadě Visual Studio, NuGet zároveň exportuje některé užitečné služby prostřednictvím [Managed Extensibility Framework (MEF)](http://msdn.microsoft.com/library/dd460648.aspx). Toto rozhraní umožňuje ostatní součásti v sadě Visual Studio pro interakci s NuGet, který můžete použít k instalaci a odinstalaci balíčků a získat informace o nainstalované balíčky.
+Kromě uživatelské rozhraní Správce balíčků a konzoly v sadě Visual Studio, NuGet zároveň exportuje některé užitečné služby prostřednictvím [Managed Extensibility Framework (MEF)](/dotnet/framework/mef/index). Toto rozhraní umožňuje ostatní součásti v sadě Visual Studio pro interakci s NuGet, který můžete použít k instalaci a odinstalaci balíčků a získat informace o nainstalované balíčky.
 
 Od verze NuGet 3.3 + NuGet exportuje následující služby, které jsou umístěny ve `NuGet.VisualStudio` oboru názvů v `NuGet.VisualStudio.dll` sestavení:
 
@@ -47,7 +47,7 @@ Od verze NuGet 3.3 + NuGet exportuje následující služby, které jsou umíst�
 > [!Warning]
 > Nepoužívejte u jiných typů kromě veřejné rozhraní v kódu a neodkazují žádné jiné NuGet sestavení, včetně `NuGet.Core.dll`.
 
-1. Pokud chcete používat službu, importujte ji prostřednictvím [MEF importovat atribut](https://msdn.microsoft.com/library/dd460648.aspx#Imports%20and%20Exports%20with%20Attributes), nebo pomocí [IComponentModel služby](http://msdn.microsoft.com/library/microsoft.visualstudio.componentmodelhost.icomponentmodel.aspx).
+1. Pokud chcete používat službu, importujte ji prostřednictvím [MEF importovat atribut](/dotnet/framework/mef/index#imports-and-exports-with-attributes), nebo pomocí [IComponentModel služby](/dotnet/api/microsoft.visualstudio.componentmodelhost.icomponentmodel?redirectedfrom=MSDN&view=visualstudiosdk-2017).
 
     ```cs
     //Using the Import attribute

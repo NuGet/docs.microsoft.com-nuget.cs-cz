@@ -13,11 +13,11 @@ keywords: "NuGet 2.8 poznámky k verzi, opravy chyb známé problémy, přidat f
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0bb35e9d6ef6f3dde7919cd502b32ba5a550c689
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 182e7d1e2224c431631cddd14fdbea8dd9e14278
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-28-release-notes"></a>Poznámky k verzi 2,8 NuGet
 
@@ -96,7 +96,7 @@ Není-li prozkoumat nové funkce, nainstalujte předprodejní verze balíčku a 
 
 ## <a name="development-dependencies"></a>Vývoj pro závislosti
 
-Mnoho různých typů možnosti mohou být zajišťovány jako balíčky NuGet - včetně nástrojů, které se používají pro optimalizaci procesu vývoje. Tyto součásti, zatímco můžou být instrumentálního při vývoji nový balíček, by neměla považovat za publikován závislost nový balíček, pokud je novější. NuGet 2.8 umožňuje balíček identifikovat v `.nuspec` souboru jako developmentDependency. Při instalaci, tato metadata se dá přidat taky do `packages.config` souboru projektu, do kterého byl nainstalován balíček. Když, `packages.config` později NuGet závislosti během analýzy souboru `nuget.exe pack`, vyloučí těchto závislostí označen jako vývoj závislosti.
+Mnoho různých typů možnosti mohou být zajišťovány jako balíčky NuGet - včetně nástrojů, které se používají pro optimalizaci procesu vývoje. Tyto součásti, zatímco můžou být instrumentálního při vývoji nový balíček, by se neměla považovat závislost nového balíčku při později publikování. NuGet 2.8 umožňuje balíček identifikovat v `.nuspec` souboru jako developmentDependency. Při instalaci, tato metadata se dá přidat taky do `packages.config` souboru projektu, do kterého byl nainstalován balíček. Když, `packages.config` později NuGet závislosti během analýzy souboru `nuget.exe pack`, vyloučí těchto závislostí označen jako vývoj závislosti.
 
 ## <a name="individual-packagesconfig-files-for-different-platforms"></a>Soubor packages.config jednotlivé soubory pro různé platformy
 

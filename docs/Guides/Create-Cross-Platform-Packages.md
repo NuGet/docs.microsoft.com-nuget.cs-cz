@@ -13,11 +13,11 @@ keywords: "Vytvoření balíčku, balíčky pro Xamarin, balíčky a platformy"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 8ee825a6299d7de375fd2f242cf456da13b777d9
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: f372856232f151efcf972881cffbe7d4bb7ed6ee
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-cross-platform-packages"></a>Vytváření balíčků a platformy
 
@@ -43,7 +43,7 @@ V tomto návodu vytvoříte balíček NuGet a platformy, který lze použít v m
 
 ## <a name="create-the-project-structure-and-abstraction-code"></a>Vytvoření projektu strukturu a abstrakce kód
 
-1. Stažení a spuštění [modul plug-in pro Xamarin šablony rozšíření](https://visualstudiogallery.msdn.microsoft.com/afead421-3fbf-489a-a4e8-4a244ecdbb1e) pro sadu Visual Studio. Tyto šablony snadno vytvořit strukturu nezbytné projektu pro účely tohoto postupu.
+1. Stažení a spuštění [modul plug-in pro Xamarin šablony rozšíření](https://marketplace.visualstudio.com/items?itemName=vs-publisher-473885.PluginForXamarinTemplates) pro sadu Visual Studio. Tyto šablony snadno vytvořit strukturu nezbytné projektu pro účely tohoto postupu.
 1. V sadě Visual Studio **soubor > Nový > projekt**, vyhledejte `Plugin`, vyberte **modul plug-in pro Xamarin** šablony, změňte název na LoggingLibrary a klikněte na tlačítko OK.
 
     ![Nový projekt prázdná aplikace (Xamarin.Forms přenositelností) v sadě Visual Studio](media/CrossPlatform-NewProject.png)

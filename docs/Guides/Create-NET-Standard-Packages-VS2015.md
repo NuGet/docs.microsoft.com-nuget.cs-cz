@@ -13,17 +13,17 @@ keywords: "Vytvoření balíčku, .NET Standard balíčky, .NET Standard mapová
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: a912c27e1873d60426f2147995f69e2dcc433ca9
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: e02888bf552997afe25e967f13e021e78e40d48d
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-net-standard-packages-with-visual-studio-2015"></a>Vytvoření balíčků .NET Standard s Visual Studio 2015
 
 *Platí pro NuGet 3.x. V tématu [vytvořit .NET standardní balíčky s Visual Studio 2017](../guides/create-net-standard-packages-vs2017.md) pro práci s NuGet 4.x+.*
 
-[Standardní knihovny .NET](https://docs.microsoft.com/dotnet/articles/standard/library) je formální specifikaci rozhraní API technologie .NET by měla být k dispozici pro všechny moduly runtime rozhraní .NET, tím větší jednotnost vytváří v ekosystému .NET. Standardní knihovny .NET definuje jednotnou sadu BCL (základní třída knihovna) rozhraní API pro všechny platformy .NET implementovat, nezávisle na zatížení. Ji umožňuje vývojářům vytvářet PCLs, které jsou použitelné pro všechny moduly runtime rozhraní .NET, a snižuje, pokud není eliminuje direktivy specifické pro platformu Podmíněná kompilace v sdíleného kódu.
+[Standardní knihovny .NET](/dotnet/articles/standard/library) je formální specifikaci rozhraní API technologie .NET by měla být k dispozici pro všechny moduly runtime rozhraní .NET, tím větší jednotnost vytváří v ekosystému .NET. Standardní knihovny .NET definuje jednotnou sadu BCL (základní třída knihovna) rozhraní API pro všechny platformy .NET implementovat, nezávisle na zatížení. Ji umožňuje vývojářům vytvářet PCLs, které jsou použitelné pro všechny moduly runtime rozhraní .NET, a snižuje, pokud není eliminuje direktivy specifické pro platformu Podmíněná kompilace v sdíleného kódu.
 
 Tato příručka vás provede procesem vytvoření balíčku nuget cílení na rozhraní .NET standardní knihovně 1,4. To bude fungovat přes rozhraní .NET Framework 4.6.1, Universal Windows Platform 10, .NET Core a Mono nebo Xamarin. Podrobnosti najdete v tématu [.NET Standard mapovací tabulku](#net-standard-mapping-table) dál v tomto tématu.
 
@@ -329,5 +329,5 @@ Chcete-li to provést, vytvořte vaše `readme.txt` souboru, umístěte do koře
 - [Podpora více verzí rozhraní .NET Framework](../create-packages/supporting-multiple-target-frameworks.md)
 - [Zahrnout do balíčku nástroje MSBuild props a cíle](../create-packages/creating-a-package.md#including-msbuild-props-and-targets-in-a-package)
 - [Vytvoření lokalizovaných balíčků](../create-packages/creating-localized-packages.md)
-- [Standardní knihovny .NET dokumentaci](https://docs.microsoft.com/dotnet/articles/standard/library)
-- [Portování do .NET Core z rozhraní .NET Framework](https://docs.microsoft.com/dotnet/articles/core/porting/index)
+- [Standardní knihovny .NET dokumentaci](/dotnet/articles/standard/library)
+- [Portování do .NET Core z rozhraní .NET Framework](/dotnet/articles/core/porting/index)

@@ -13,11 +13,11 @@ keywords: "NuGet v sadě Visual Studio, typy vlastních projektů, projektů sad
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 39212361e7cb2c214c3e83cef604d40cd057fd7e
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 9c8cad46f18578bec41bd9280985e42972a9b3c1
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-support-for-the-visual-studio-project-system"></a>Podpora NuGet pro projekt systému Visual Studio
 
@@ -121,9 +121,8 @@ case __VSHPROPID8.VSHPROPID_ProjectCapabilitiesChecker:
     return VSConstants.S_OK;
 ```
 
-
 ## <a name="dte-support"></a>Podpora prostředí DTE
 
-NuGet jednotky systému projektu přidáte odkazy, položky obsahu a MSBuild importuje voláním [DTE](https://msdn.microsoft.com/library/mt452175.aspx), což je nejvyšší úrovně rozhraní pro automatizaci sady Visual Studio. DTE je sada rozhraní modelu COM, které je může implementovat.
+NuGet jednotky systému projektu přidáte odkazy, položky obsahu a MSBuild importuje voláním [DTE](/dotnet/api/envdte.dte?view=visualstudiosdk-2017), což je nejvyšší úrovně rozhraní pro automatizaci sady Visual Studio. DTE je sada rozhraní modelu COM, které je může implementovat.
 
 Pokud typ vašeho projektu je založená na CPS, DTE je implementována pro vás.

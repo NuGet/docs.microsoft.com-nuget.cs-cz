@@ -13,11 +13,11 @@ keywords: "Poskytovatelé přihlašovacích údajů NuGet, ověřování pomocí
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2b2fac23102865a08509acc1cc3d09f0cd375f26
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 8d7360205387d4813f95560018e2ac68f71f5603
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="authenticating-feeds-in-visual-studio-with-nuget-credential-providers"></a>Ověřování informační kanály v sadě Visual Studio s poskytovatelé přihlašovacích údajů NuGet
 
@@ -88,5 +88,5 @@ Vlastní poskytovatel pověření NuGet pro Visual Studio musí implementovat `I
 | BOOL isRetry | Hodnota TRUE, pokud se přihlašovací údaje byly dříve požadované pro tento identifikátor Uri, ale zadaná pověření neumožňuje autorizovaný přístup. |
 | Neinteraktivní BOOL | V případě hodnoty true musí poskytovatel pověření potlačit všechny uživatelské výzvy a místo toho použít výchozí hodnoty. |
 | CancellationToken cancellationToken | Tento token zrušení kontroly k určení, pokud operace s požadavkem na pověření byla zrušena. |
-  
-**Návratová hodnota**: implementace objektu přihlašovací údaje [ `System.Net.ICredentials` rozhraní](https://msdn.microsoft.com/library/system.net.icredentials.aspx).
+
+**Návratová hodnota**: implementace objektu přihlašovací údaje [ `System.Net.ICredentials` rozhraní](/dotnet/api/system.net.icredentials?view=netstandard-2.0).

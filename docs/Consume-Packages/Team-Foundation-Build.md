@@ -13,11 +13,11 @@ keywords: "Obnovení balíčku NuGet, NuGet a sady TFS, NuGet a služby VSTS, sy
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 4be1bb83549958897a15d690439cac073c9683d1
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 82decfa1a39cb99c405840a8f13b0bc993111c09
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="setting-up-package-restore-with-team-foundation-build"></a>Nastavení obnovení balíčků s Team Foundation Build
 
@@ -29,9 +29,9 @@ ms.lasthandoff: 12/14/2017
 >
 > Pokud používáte Visual Studio Team Services nebo na místním Team Foundation Server 2013 s jeho šablony procesu sestavení, automatické obnovení balíčků se stane, jako součást procesu sestavení.
 
-V této části vám poskytne podrobný návod k obnovení balíčků jako součást [Team Foundation Build](http://msdn.microsoft.com/library/ms181710(v=VS.90).aspx) obou pro [git](http://en.wikipedia.org/wiki/Git_(software)) a také [TF verzí](http://msdn.microsoft.com/library/ms181237(v=vs.120).aspx).
+V této části vám poskytne podrobný návod k obnovení balíčků jako součást [Team Services Build](/vsts/build-release/index) i pro Git a správě verzí Team Services.
 
-I když Tento názorný postup je specifický pro scénář použití [Team Foundation Service](http://tfs.visualstudio.com/), koncepty také použít pro další ovládací prvek verze - a sestavit systémy.
+I když Tento názorný postup je specifická pro scénář použití Visual Studio Team Services, koncepty také použít pro další ovládací prvek verze a sestavit systémy.
 
 ## <a name="the-general-approach"></a>Obecný přístup
 
@@ -119,7 +119,7 @@ Komunikovat do správy verzí, že nepodporujeme záměr vrácení se změnami *
 
 To vyloučí všechny `packages` složky ale bude znovu zahrnout všechny obsažené `.targets` soubory. Tím, můžete najít šablonu pro `.gitignore` soubory, které je specificky přizpůsobit pro potřeby vývojářů Visual Studio [zde](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore).
 
-Správa verzí TF podporuje velmi podobné mechanismus prostřednictvím [.tfignore](http://msdn.microsoft.com/library/ms245454.aspx) souboru. Syntaxe je v podstatě stejný:
+Správa verzí TF podporuje velmi podobné mechanismus prostřednictvím [.tfignore](/vsts/tfvc/add-files-server#customize-which-files-are-ignored-by-version-control) souboru. Syntaxe je v podstatě stejný:
 
     *.user
     *.suo
@@ -135,7 +135,7 @@ Tento projekt bude mít tři konvenční cíle `Clean`, `Build` a `Rebuild` i no
 
 - `Build` a `Rebuild` cíle obě závisí na `RestorePackages`. Tím je zajištěno, že oba spuštěním `Build` a `Rebuild` a spoléhá na balíčky obnovena.
 - `Clean`, `Build` a `Rebuild` vyvolání odpovídající cíle MSBuild na všechny soubory řešení.
-- `RestorePackages` Cíl vyvolá `nuget.exe` pro každý soubor řešení. To se dá udělat pomocí [je dávkování nástroje MSBuild funkce](http://msdn.microsoft.com/library/ms171473.aspx).
+- `RestorePackages` Cíl vyvolá `nuget.exe` pro každý soubor řešení. To se dá udělat pomocí [je dávkování nástroje MSBuild funkce](/visualstudio/msbuild/msbuild-batching).
 
 Výsledek vypadá takto:
 

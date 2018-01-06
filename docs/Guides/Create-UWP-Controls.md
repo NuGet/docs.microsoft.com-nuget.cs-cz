@@ -13,11 +13,11 @@ keywords: "Ovládací prvky NuGet UWP, Návrhář Visual Studio XAML, Návrhář
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: f51dbabd406199752e4f9d612b498f59ffb54021
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 8756ce472c11a05370914841245295361b3f179b
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="creating-uwp-controls-as-nuget-packages"></a>Vytváření ovládacích prvků UPW jako balíčků NuGet
 
@@ -105,7 +105,7 @@ Například Řekněme, že jste nastavili TPMinV pro ovládací prvky balíček 
 \ref\uap10.0\*
 ```
 
-Chcete-li vynutit příslušné kontroly TPMinV, vytvořit [souboru cíle MSBuild](https://docs.microsoft.com/visualstudio/msbuild/msbuild-targets) a balíčků ve složce sestavení (nahrazení "your_assembly_name" s název vaší konkrétní sestavení):
+Chcete-li vynutit příslušné kontroly TPMinV, vytvořit [souboru cíle MSBuild](/visualstudio/msbuild/msbuild-targets) a balíčků ve složce sestavení (nahrazení "your_assembly_name" s název vaší konkrétní sestavení):
 
 ```
 \build
@@ -133,7 +133,7 @@ Tady je příklad, jak by měla vypadat soubor cíle:
 
 ## <a name="add-design-time-support"></a>Přidání podpory návrhu
 
-Konfigurace, kde vlastnosti ovládacích prvků zobrazí v inspector vlastnost, přidejte vlastní ozdobného prvku atd., umístěte vaše `design.dll` souboru uvnitř `lib\<platform>\Design` složku v závislosti na cílové platformy. Také zajistit, aby  **[upravit šablonu > Upravit kopii](https://docs.microsoft.com/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)**  funkce funguje, je nutné zahrnout `Generic.xaml` a všechny slovnících prostředků, které se sloučí v `<AssemblyName>\Themes` složky. (Tento soubor nemá žádný vliv na modul runtime chování ovládacího prvku.)
+Konfigurace, kde vlastnosti ovládacích prvků zobrazí v inspector vlastnost, přidejte vlastní ozdobného prvku atd., umístěte vaše `design.dll` souboru uvnitř `lib\<platform>\Design` složku v závislosti na cílové platformy. Také zajistit, aby  **[upravit šablonu > Upravit kopii](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)**  funkce funguje, je nutné zahrnout `Generic.xaml` a všechny slovnících prostředků, které se sloučí v `<AssemblyName>\Themes` složky. (Tento soubor nemá žádný vliv na modul runtime chování ovládacího prvku.)
 
 
 ```
@@ -172,7 +172,7 @@ Obsah balíčku, například bitové kopie, které mohou být využívána vlast
 \tools
 ```
 
-Mohou také vytvářet[souboru cíle MSBuild](https://docs.microsoft.com/visualstudio/msbuild/msbuild-targets) zajistit asset se zkopíruje do výstupní složky náročné projektu:
+Mohou také vytvářet[souboru cíle MSBuild](/visualstudio/msbuild/msbuild-targets) zajistit asset se zkopíruje do výstupní složky náročné projektu:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -187,5 +187,5 @@ Mohou také vytvářet[souboru cíle MSBuild](https://docs.microsoft.com/visuals
 
 ## <a name="see-also"></a>Viz také
 
-- [Vytvořit balíčky UWP](create-uwp-packages.md)
+- [Vytvoření balíčků UPW](create-uwp-packages.md)
 - [Ukázka ExtensionSDKasNuGetPackage](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage)
