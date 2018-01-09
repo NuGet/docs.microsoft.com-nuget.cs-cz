@@ -13,11 +13,11 @@ keywords: "Vytvoření balíčku NuGet, vytváření balíčku, nuspec manifest,
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 50bc9e79f95f901477208f638b0965c82fd98356
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 6675d21a2900a1b61e17c08518b328732f4472c5
+ms.sourcegitcommit: 1cb047b24b3b69d80e808c23b2ace0d98d2dfdcc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="creating-nuget-packages"></a>Vytváření balíčků NuGet
 
@@ -157,7 +157,7 @@ nuget locals -list global-packages
 Přejděte do jakéhokoli *package\version* složce, kopie `.nupkg` do souboru `.zip` souboru a pak otevřete, `.zip` soubor a zkontrolujte `.nuspec` v něm.
 
 > [!Note]
-> Při vytváření `.nuspec` z projektu sady Visual Studio manifest obsahuje tokenů, které jsou nahrazeny informace z projektu při vytváření balíčku. V tématu [vytváření příponou .nuspec z projektu sady Visual Studio](#from-a-visual-studio-project).
+> Při vytváření `.nuspec` z projektu sady Visual Studio manifest obsahuje tokenů, které jsou nahrazeny informace z projektu, když je balíček vytvořen. V tématu [vytváření příponou .nuspec z projektu sady Visual Studio](#from-a-visual-studio-project).
 
 ## <a name="creating-the-nuspec-file"></a>Vytvoření souboru s příponou .nuspec
 

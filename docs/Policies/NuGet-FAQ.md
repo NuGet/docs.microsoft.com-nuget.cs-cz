@@ -13,11 +13,11 @@ keywords: "Verze balíčku NuGet otázek a odpovědí, otázky a odpovědi, bě�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 44636a3ab8a3f7aaf96e52aa67d568d7ef381549
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: d19a24a2d1955e996e18d44fee346865d36493f8
+ms.sourcegitcommit: e5b7cf6675be9891341c196afe822cea6f71d60c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="nuget-frequently-asked-questions"></a>Nejčastější dotazy NuGet
 
@@ -177,9 +177,9 @@ Pokud balíček neurčuje licenční podmínky, obraťte se na vlastníka balí�
 
 ## <a name="managing-packages-on-nugetorg"></a>Spravovat balíčky v nuget.org
 
-**Můžete upravit metadata balíčků, až se nahrají? Proč vám doporučujeme upravit soubor nuspec a odesílání nový balíček pro provádění změn do balíčku metadata?**
+**Můžete upravit metadata balíčků, až se nahrají? Proč požadujete úpravy soubor nuspec a odesílání nový balíček pro provádění změn do balíčku metadata?**
 
-NuGet bude implementace podpis balíčku. Princip návrhu podepisování balíčku je, že podepsaný balíček obsahu musí být neměnné, což zahrnuje soubor nuspec. Úpravy metadata balíčků výsledkem změny pro soubor nuspec, zneplatnění existující podpisy. Doporučujeme, abyste úprava existující pracovní postupy a nevyžadují úpravy metadata balíčků po vytvoření balíčku.
+NuGet vyžaduje všechny balíčky k podepsání. Princip návrhu podepisování balíčku je, že podepsaný balíček obsahu musí být neměnné, což zahrnuje soubor nuspec. Úpravy metadata balíčků výsledkem změny pro soubor nuspec, zneplatnění existující podpisy. Doporučujeme, abyste úprava existující pracovní postupy a nevyžadují úpravy metadata balíčků po vytvoření balíčku.
 
 Všimněte si, že pro svůj balíček uvedené závislosti jsou automaticky generovány z balíčku sám sebe a nelze jej upravit.
 
