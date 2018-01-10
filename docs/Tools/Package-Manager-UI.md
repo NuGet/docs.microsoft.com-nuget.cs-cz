@@ -17,11 +17,11 @@ keywords: "NuGet, uživatelského rozhraní Správce balíčků NuGet uživatels
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0f08e5a36499c4481c4e0cd70738d67d65cd980a
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: fb2166b727dd01de0f7096535fdbc71c5ab0e2a3
+ms.sourcegitcommit: cde52deee5691d3e8bcb96f46f9645c7ba579af8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="nuget-package-manager-ui"></a>Uživatelského rozhraní Správce balíčků NuGet
 
@@ -39,7 +39,7 @@ V tomto tématu:
 > [!Note]
 > Pokud jste chybí Správce balíčků NuGet v sadě Visual Studio 2015, zkontrolujte **nástroje > rozšíření a aktualizace...**  a vyhledejte *Správce balíčků NuGet* rozšíření. Pokud nemůžete použít instalační program rozšíření v sadě Visual Studio, stáhněte si rozšíření přímo z [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html).
 >
-> V aplikaci Visual Studio 2017 jsou NuGet a Správce balíčků NuGet automaticky nainstalovány s žádným. NET související úlohy. Nainstalujte ji individuall výběrem **jednotlivých součástí > Code nástroje > Správce balíčků NuGet** možnosti v instalačním programu Visual Studio 2017.
+> V aplikaci Visual Studio 2017 jsou NuGet a Správce balíčků NuGet automaticky nainstalovány s žádným. NET související úlohy. Nainstalujte ji jednotlivě výběrem **jednotlivých součástí > Code nástroje > Správce balíčků NuGet** možnosti v instalačním programu Visual Studio 2017.
 
 ## <a name="finding-and-installing-a-package"></a>Hledání a instalaci balíčku
 
