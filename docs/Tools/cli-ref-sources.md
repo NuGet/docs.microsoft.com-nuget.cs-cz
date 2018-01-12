@@ -13,17 +13,19 @@ keywords: "nuget zdroje odkazu, zdroje příkaz"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 52c46dba168e7395d50cb8d8f9775839389e614c
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 2eca8557840c467a60f5f708efe242cd83609164
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="sources-command-nuget-cli"></a>příkaz zdroje (NuGet CLI)
 
 **Platí pro:** spotřeba balíčku, publikování &bullet; **podporované verze:** všechny
 
 Spravuje seznam zdrojů, které jsou umístěné v `%AppData%\NuGet\NuGet.Config` nebo zadaný konfigurační soubor.
+
+Všimněte si, že je adresa URL zdroje pro nuget.org `https://api.nuget.org/v3/index.json`.
 
 ## <a name="usage"></a>Použití
 
@@ -32,7 +34,6 @@ nuget sources <operation> -Name <name> -Source <source>
 ```
 
 kde `<operation>` je jedním z *seznamu, přidat, odebrat, povolit, zakázat,* nebo *aktualizace*, `<name>` je název zdroje, a `<source>` je adresa URL zdroje.
-
 
 ## <a name="options"></a>Možnosti
 

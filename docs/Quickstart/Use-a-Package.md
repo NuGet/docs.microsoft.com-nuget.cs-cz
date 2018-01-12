@@ -13,13 +13,15 @@ keywords: "Nainstalujte NuGet, využívání balíčku NuGet, instalace balíčk
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: bcccc7139de31a8d07e9ed52abfd12fe9e6d687b
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 639f4883f5ce904a44d8aa23d76c93ed79ea4b9d
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="install-and-use-a-package"></a>Instalace a použití balíčku
+
+Balíčky NuGet jsou jednotky opakovaně použitelný kód, který jinými vývojáři zpřístupnění pro použití ve vašich projektů. V tématu [co je NuGet?](../What-is-NuGet.md) pozadí.
 
 [!INCLUDE [install-methods](../includes/install-methods.md)]
 
@@ -125,4 +127,4 @@ S balíčkem Newtonsoft.Json v projektu, můžete volat jeho `JsonConvert.Serial
 
 - [Přehled a pracovní postup spotřeby balíčku](../consume-packages/overview-and-workflow.md)
 - [Vyhledání a výběr balíčků](../consume-packages/finding-and-choosing-packages.md)
-- [Konfigurace chování NuGet](../consume-packages/configuring-nuget-behavior.md)
+- [Konfigurace chování NuGetu](../consume-packages/configuring-nuget-behavior.md)

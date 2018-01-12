@@ -13,11 +13,11 @@ keywords: "referenční dokumentace týkající se konfigurace nuget, příkazu 
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 12a8b51dd11b9bc3a496e02e869cdeb95e67b9e3
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: f49751d9747687177e3b6c1890ee9d2919be8d0e
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="config-command-nuget-cli"></a>příkaz config (NuGet CLI)
 
@@ -33,6 +33,8 @@ nuget config -AsPath <name> [options]
 ```
 
 kde `<name>` a `<value>` zadejte pár klíč hodnota v konfiguraci nastavit. Podle potřeby můžete zadat libovolný počet párů. Odebrat hodnotu, zadejte název a `=` přihlášení, ale žádná hodnota.
+
+Povolené názvy klíčů najdete v článku [odkaz na soubor konfigurace NuGet](../Schema/nuget-config-file.md).
 
 V NuGet 3.4 + `<value>` můžete použít [proměnné prostředí](cli-ref-environment-variables.md).
 

@@ -12,13 +12,14 @@ f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager
 - vs.toolsoptionspages.nuget_package_manager.general
 - vs.toolsoptionspages.nuget_package_manager.package_sources
+- vs.nuget.packagemanager.ui
 description: "Pokyny k používání uživatelského rozhraní Správce balíčků NuGet v sadě Visual Studio pro práci s balíčky NuGet."
 keywords: "NuGet, uživatelského rozhraní Správce balíčků NuGet uživatelského rozhraní, NuGet v sadě Visual Studio, Správa balíčků NuGet, NuGet uživatelské rozhraní Správce balíčků v sadě Visual Studio"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: fb2166b727dd01de0f7096535fdbc71c5ab0e2a3
-ms.sourcegitcommit: cde52deee5691d3e8bcb96f46f9645c7ba579af8
+ms.openlocfilehash: 39ce53184755887c419c8872148a6c13dc2c65ec
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 01/10/2018

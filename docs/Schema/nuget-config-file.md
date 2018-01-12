@@ -13,11 +13,11 @@ keywords: "Soubor NuGet.Config, referenci na konfigurační NuGet, možnosti kon
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: fa471e1ad419c6a4cab99e271375d9be94c29a50
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 830c622f622b894a228b18dfdb3a790bccfde8a3
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="nugetconfig-reference"></a>Odkaz na soubor nuget.config.
 
@@ -31,12 +31,11 @@ V tomto tématu:
 - [část bindingRedirects](#bindingredirects-section)
 - [část packageRestore](#packagerestore-section)
 - [část řešení](#solution-section)
-- [Balíček zdrojové oddíly](#package-source-sections):
-    - [packageSources](#packagesources)
-    - [packageSourceCredentials](#packagesourcecredentials)
-    - [apikeys](#apikeys)
-    - [disabledPackageSources](#disabledpackagesources)
-    - [activePackageSource](#activepackagesource)
+- [Balíček zdrojové oddíly](#package-source-sections): - [packageSources](#packagesources)
+  - [packageSourceCredentials](#packagesourcecredentials)
+  - [apikeys](#apikeys)
+  - [disabledPackageSources](#disabledpackagesources)
+  - [activePackageSource](#activepackagesource)
 - [Použití proměnných prostředí](#using-environment-variables)
 - [Příklad konfiguračního souboru](#example-config-file)
 
@@ -59,7 +58,6 @@ Poznámka: `dependencyVersion` a `repositoryPath` se vztahují pouze na projekt�
 | defaultPushSource | Určuje adresu URL nebo cestu zdroje balíčku, který se má použít jako výchozí pro operace nebyly nalezeny žádné jiné zdroje balíčku. |
 | http_proxy http_proxy.user http_proxy.password no_proxy | Nastavení proxy serveru používat při připojování ke zdroji balíčků; `http_proxy` by měl být ve formátu `http://<username>:<password>@<domain>`. Hesla se šifrují a nelze ji přidat ručně. Pro `no_proxy`, hodnota je čárkami oddělený seznam domén Nepoužívat proxy server. Případně můžete http_proxy a no_proxy proměnných prostředí pro tyto hodnoty. Další podrobnosti najdete v tématu [nastavení proxy serveru NuGet](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (skolima.blogspot.com). |
 
-
 **Příklad**:
 
 ```xml
@@ -70,7 +68,6 @@ Poznámka: `dependencyVersion` a `repositoryPath` se vztahují pouze na projekt�
     <add key="http_proxy" value="http://company-squid:3128@contoso.com" />
 </config>
 ```
-
 
 ## <a name="bindingredirects-section"></a>část bindingRedirects
 
@@ -116,7 +113,6 @@ Ovládací prvky jestli `packages` složku řešení je součástí zdrojového 
 | --- | --- |
 | disableSourceControlIntegration | Logická hodnota, která určuje, zda ignorovat složce balíčků při práci se službou správy zdrojového kódu. Výchozí hodnota je False. |
 
-
 **Příklad**:
 
 ```xml
@@ -125,13 +121,13 @@ Ovládací prvky jestli `packages` složku řešení je součástí zdrojového 
 </solution>
 ```
 
-
 ## <a name="package-source-sections"></a>Části zdroje balíčku
 
 `packageSources`, `packageSourceCredentials`, `apikeys`, `activePackageSource`, A `disabledPackageSources` všechny pracovní dohromady a nakonfigurujte, jak funguje NuGet s úložiště balíčku během instalace, obnovení a operace aktualizace.
 
 [ `nuget sources` Příkaz](../tools/cli-ref-sources.md) se obvykle používá ke správě těchto nastavení, s výjimkou `apikeys` kterou spravují pomocí [ `nuget setapikey` příkaz](../tools/cli-ref-setapikey.md).
 
+Všimněte si, že je adresa URL zdroje pro nuget.org `https://api.nuget.org/v3/index.json`.
 
 ### <a name="packagesources"></a>packageSources
 
@@ -150,7 +146,6 @@ Zobrazí seznam všech zdrojů známé balíčku.
     <add key="Test Source" value="c:\packages" />
 </packageSources>
 ```
-
 
 ### <a name="packagesourcecredentials"></a>packageSourceCredentials
 
@@ -190,7 +185,7 @@ Při použití nešifrovaná hesla:
     <Test_x0020_Source>
         <add key="Username" value="user" />
         <add key="ClearTextPassword" value="hal+9ooo_da!sY" />
-    </Test_x0020_Source>    
+    </Test_x0020_Source>
 </packageSourceCredentials>
 ```
 
@@ -210,7 +205,6 @@ Ukládá klíče pro zdroje, které používají rozhraní API klíče ověřov�
 </apikeys>
 ```
 
-
 ### <a name="disabledpackagesources"></a>disabledPackageSources
 
 Identifikovat aktuálně zakázané zdroje. Může být prázdná.
@@ -218,8 +212,6 @@ Identifikovat aktuálně zakázané zdroje. Může být prázdná.
 | Key | Hodnota |
 | --- | --- |
 | (název zdroje) | Logická hodnota určující, zda je neaktivní zdroj. |
-
-
 
 **Příklad:**
 
@@ -263,7 +255,6 @@ Například pokud `HOME` proměnná prostředí v systému Windows je nastavená
 Podobně pokud `HOME` na Mac/Linux je nastavena na `/home/myStuff`, pak `$HOME/NuGetRepository` v konfiguraci souboru přeloží na `/home/myStuff/NuGetRepository`.
 
 Pokud není nalezena proměnná prostředí, používá NuGet literálovou hodnotou z konfiguračního souboru.
-
 
 ## <a name="example-config-file"></a>Příklad konfiguračního souboru
 

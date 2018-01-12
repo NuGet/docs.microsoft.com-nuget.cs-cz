@@ -13,11 +13,11 @@ keywords: "Vytvoření balíčku NuGet, publikování, balíček NuGet kurzu NuG
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b33344c3b3dd782fc4668d2a1674b9501fadcc03
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: ab5235537d869047075b93f9d8255ae9e61dfedd
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="create-and-publish-a-package"></a>Vytvoření a publikování balíčku
 
@@ -52,7 +52,7 @@ Každý balíček NuGet musí manifestu&mdash; `.nuspec` soubor&mdash;k popisu j
     nuget spec
     ```
 
-1. Otevřete soubor v textovém editoru. Manifest je podobný kódu níže, kde tokeny ve formátu  *$ `<token>` $*  nahrazená při vytváření balíčku hodnotami z Properties/AssemblyInfo.cs projektu soubor. Další informace o tokeny v [vytváření soubor s příponou .nuspec](../create-packages/creating-a-package.md#creating-the-nuspec-file).
+1. Otevřete soubor v textovém editoru. Manifest je podobný kódu níže, kde tokeny ve formátu `<token>` (například `$id$`) jsou nahrazena při vytváření balíčku hodnotami z Properties/AssemblyInfo.cs souboru projektu. Další informace o tokeny v [vytváření soubor s příponou .nuspec](../create-packages/creating-a-package.md#creating-the-nuspec-file).
 
     ```xml
     <?xml version="1.0"?>

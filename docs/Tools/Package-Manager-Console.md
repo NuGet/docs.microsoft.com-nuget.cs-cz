@@ -8,16 +8,17 @@ ms.topic: article
 ms.prod: nuget
 ms.technology: 
 ms.assetid: 2b92b119-6861-406c-82af-9d739af230e4
+f1_keywords: vs.nuget.packagemanager.console
 description: "Pokyny k používání konzoly Správce balíčků NuGet v sadě Visual Studio pro práci s balíčky."
 keywords: "Konzole Správce balíčků NuGet, NuGet powershell, spravovat balíčky NuGet"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: cc11963a9b9bfe9aa456d8cd4c8397e1084f660b
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: b8f1df23d1a43412868c14e508ee5221d48dcc7c
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="package-manager-console"></a>Konzola správce balíčků
 

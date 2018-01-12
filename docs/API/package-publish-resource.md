@@ -17,11 +17,11 @@ keywords: "Nabízené balíček NuGet rozhraní API, rozhraní API NuGet odstran
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 87970a701c63bce2b74c619069ec1d231ea77ab5
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 5fbcd82b09ebd56ae21103640e7c39b482059525
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="push-and-delete"></a>Push a odstranění
 
@@ -127,5 +127,5 @@ X-NuGet-ApiKey | Záhlaví | odkazy řetězců | Ano      | Třeba `X-NuGet-ApiK
 
 Stavový kód | Význam
 ----------- | -------
-204         | Balíček je nyní obsažena.
+200         | Balíček je nyní obsažena.
 404         | Žádný balíček poskytnutým `ID` a `VERSION` existuje

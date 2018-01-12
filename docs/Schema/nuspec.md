@@ -14,11 +14,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: dbbf81966fc0cfe76e44682d6cc18276825282fb
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: cd5b7c79ad0af07b167e062d4a2f5142ef2d718a
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="nuspec-reference"></a>referenční dokumentace příponou .nuspec
 
@@ -172,8 +172,8 @@ A vytváření sestavení jejichž `AssemblyName` je `LoggingLibrary` s `Release
 `<dependencies>` v rámci `<metadata>` obsahuje libovolný počet `<dependency>` elementy, které identifikují další balíčky, na kterých závisí balíček nejvyšší úrovně. Atributy pro každou `<dependency>` jsou následující:
 
 | Atribut | Popis |
-| --- | --- | 
-| `id` | (Povinné) ID balíčku závislosti. |
+| --- | --- |
+| `id` | (Povinné) ID balíčku závislosti, jako je například "EntityFramework" a "NUnit", což je název nuget.org balíčku se zobrazí na stránce balíček. |
 | `version` | (Povinné) Rozsah verze přijatelné jako závislost. V tématu [Správa verzí balíčku](../reference/package-versioning.md#version-ranges-and-wildcards) pro přesná syntaxe. |
 | include | Čárkami oddělený seznam zahrnutí a vyloučení značky (viz níže), která určuje závislosti, které chcete zahrnout do konečné balíčku. Výchozí hodnota je `none`. |
 | exclude | Čárkami oddělený seznam zahrnutí a vyloučení značky (viz níže), která určuje závislosti k vyloučení z poslední balíček. Výchozí hodnota je `all`. Značky s `exclude` mají přednost před uvedenými s `include`. Například `include="runtime, compile" exclude="compile"` je stejný jako `include="runtime"`. |
