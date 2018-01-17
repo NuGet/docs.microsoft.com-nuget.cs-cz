@@ -311,12 +311,12 @@ Chcete-li to provést, vytvořte vaše `readme.txt` souboru, umístěte do koře
 |Název platformy |Alias|
 |--------------|-----|
 |Standardní rozhraní .NET | monikerů netstandard| 1.0| 1.1| 1.2| 1.3| 1.4| 1.5| 1.6|
-|.NET Core | netcoreapp| & #x 2192;| & #x 2192;| & #x 2192;| & #x 2192;| & #x 2192;| & #x 2192;| 1.0|
+|.NET Core | netcoreapp| &#x2192;| &#x2192;| &#x2192;| &#x2192;| &#x2192;| &#x2192;| 1.0|
 |.NET Framework| NET| 4.5| 4.5.1| 4.6| 4.6.1| 4.6.2| 4.6.3|
-|Platformy mono nebo Xamarin| & #x 2192;| & #x 2192;| & #x 2192;| & #x 2192;| & #x 2192;| & #x 2192;|
-|Univerzální platforma pro Windows| uap| & #x 2192;| & #x 2192;| & #x 2192;| & #x 2192;|10.0|
-|Windows| Win| & #x 2192;| 8.0| 8.1|
-|Windows Phone| WPA| & #x 2192;| & #x 2192;|8.1|
+|Platformy mono nebo Xamarin| &#x2192;| &#x2192;| &#x2192;| &#x2192;| &#x2192;| &#x2192;|
+|Univerzální platforma pro Windows| uap| &#x2192;| &#x2192;| &#x2192;| &#x2192;|10.0|
+|Windows| Win| &#x2192;| 8.0| 8.1|
+|Windows Phone| WPA| &#x2192;| &#x2192;|8.1|
 |Windows Phone Silverlight| webové části| 8.0|
 
 

@@ -109,7 +109,7 @@ Satelitní sestavení pak používá zásady vytváření názvů `{identifier}.
 
 Vzhledem k tomu je samostatný balíček, má svou vlastní `.nuspec` soubor, který obsahuje lokalizované metadat. Mějte na paměti, jazyk v `.nuspec` **musí** odpovídat používaný v názvu souboru.
 
-Satelitní sestavení **musí** zároveň deklarovat přesnou verzi primární balíčku jako závislost, pomocí zápisu verze [] (viz [verze balíčku](../reference/package-versioning.md)). Například `ContosoUtilities.de.1.0.0.nupkg` závislost na musí deklarovat `ContosoUtilities.1.0.0.nupkg` pomocí `[1.0.0]` zápis. Balíček satelitní můžou mít samozřejmě číslo jinou verzi než primární balíček.
+Satelitní sestavení **musí** zároveň deklarovat přesnou verzi primární balíčku jako závislost, pomocí zápisu verze [] \(viz [verze balíčku](../reference/package-versioning.md)). Například `ContosoUtilities.de.1.0.0.nupkg` závislost na musí deklarovat `ContosoUtilities.1.0.0.nupkg` pomocí `[1.0.0]` zápis. Balíček satelitní můžou mít samozřejmě číslo jinou verzi než primární balíček.
 
 Struktura satelitní balíček pak zahrnout sestavení prostředků a soubor XML IntelliSense podsložky, která odpovídá `{language}` v názvu souboru balíčku:
 

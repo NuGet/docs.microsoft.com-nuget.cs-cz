@@ -3,7 +3,7 @@ title: "NuGet – nejčastější dotazy | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 12/07/2017
+ms.date: 01/11/2018
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
@@ -13,11 +13,11 @@ keywords: "Verze balíčku NuGet otázek a odpovědí, otázky a odpovědi, bě�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: d19a24a2d1955e996e18d44fee346865d36493f8
-ms.sourcegitcommit: e5b7cf6675be9891341c196afe822cea6f71d60c
+ms.openlocfilehash: f029af78edfcc5e542c5df2d4d6db8eeaebc3068
+ms.sourcegitcommit: d576d84fb4b6a178eb2ac11f55deb08ac771ba1c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="nuget-frequently-asked-questions"></a>Nejčastější dotazy NuGet
 
@@ -92,6 +92,10 @@ Ano, NuGet pracuje přímo z příkazového řádku. Najdete v článku [instala
 **Jak lze získat nejnovější verzi nástroje příkazového řádku NuGet?**
 
 Najdete v článku [instalace Průvodce](../guides/install-nuget.md).
+
+**Co je licence k nuget.exe?**
+
+Jsou povoleny nuget.exe v rámci podmínek licencí MIT znovu distribuovat. Jste zodpovědní za aktualizace a údržba všechny kopie nuget.exe, které chcete znovu distribuovat.
 
 **Je možné rozšířit nástroje příkazového řádku NuGet?**
 
@@ -173,7 +177,6 @@ To není problém při použití PackageReference, protože každý soubor proje
 Každý balíček se řídí podmínkami, které jsou součástí balíčku. Přečtěte si podmínky použít před přístup, stahování nebo získávání všechny balíčky. Na nuget.org, použijte **licenční informace** odkaz na stránce balíček.
 
 Pokud balíček neurčuje licenční podmínky, obraťte se na vlastníka balíčku přímo pomocí **obraťte se na vlastníky** odkaz na stránce balíček nuget.org. Společnost Microsoft není licence duševního vlastnictví vám ze zprostředkovatelů balíček třetích stran a není zodpovědná za informace třetích stran.
-
 
 ## <a name="managing-packages-on-nugetorg"></a>Spravovat balíčky v nuget.org
 

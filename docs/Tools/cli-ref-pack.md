@@ -13,11 +13,11 @@ keywords: "odkaz na pack nuget, příkaz pack"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 22643ee4c7d5f858da728ba9d9d2886d600d20f0
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 0dbecb8f01acf781ab8d2e77e8df7fa405f74cf1
+ms.sourcegitcommit: d576d84fb4b6a178eb2ac11f55deb08ac771ba1c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="pack-command-nuget-cli"></a>příkaz Pack (NuGet CLI)
 
@@ -42,7 +42,7 @@ kde `<nuspecPath>` a `<projectPath>` zadejte `.nuspec` nebo projektu soubor, v u
 | --- | --- |
 | BasePath | Nastaví základní cesta soubory definované v `.nuspec` souboru. |
 | Sestavení | Určuje, že projekt by měly být vytvořeny před vytvořením balíčku. |
-| Vyloučení | Určuje jeden nebo více vzory zástupných znaků, které chcete vyloučit při vytváření balíčku. |
+| Vyloučení | Určuje jeden nebo více vzory zástupných znaků, které chcete vyloučit při vytváření balíčku. Chcete-li zadat více než jeden vzorek, opakujte příznak - vyloučení. Viz následující příklad. |
 | ExcludeEmptyDirectories | Při vytváření balíčku, zabraňuje zahrnutí prázdných adresářů. |
 | ForceEnglishOutput | *(3.5 +)*  Vynutí nuget.exe ke spuštění pomocí invariantní, na základě angličtina jazykové verze. |
 | Nápověda | Zobrazí nápovědu pro příkaz. |
@@ -100,4 +100,6 @@ nuget pack foo.csproj -Build -Symbols -Properties owners=janedoe,xiaop;version="
 nuget pack foo.nuspec -Version 2.1.0
 
 nuget pack foo.nuspec -Version 1.0.0 -MinClientVersion 2.5
+
+nuget pack Package.nuspec -exclude "*.exe" -exclude "*.bat"
 ```

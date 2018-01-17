@@ -14,11 +14,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: cd5b7c79ad0af07b167e062d4a2f5142ef2d718a
-ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
+ms.openlocfilehash: b8c286b9a5705526e2e8fcf259c6503d48e5d181
+ms.sourcegitcommit: d576d84fb4b6a178eb2ac11f55deb08ac771ba1c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="nuspec-reference"></a>referenční dokumentace příponou .nuspec
 
@@ -91,16 +91,16 @@ Může se zobrazit tyto prvky v rámci `<metadata>` elementu.
 
 | Prvek | Popis |
 | --- | --- |
-| **Název** | Lidské popisný název balíčku, obvykle používaných v zobrazení uživatelského rozhraní na nuget.org a Správce balíčků v sadě Visual Studio. Pokud není zadaný, použije se ID balíčku. |
+| **title** | Lidské popisný název balíčku, obvykle používaných v zobrazení uživatelského rozhraní na nuget.org a Správce balíčků v sadě Visual Studio. Pokud není zadaný, použije se ID balíčku. |
 | **Vlastníci** | Seznam creators balíček pomocí profilu názvy v nuget.org oddělených čárkami. Tento problém je často seznamu stejné jako v `authors`a při odesílání balíčku pro nuget.org ignorováno. V tématu [Správa vlastníků balíčku na nuget.org](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg). |
-| **adrese projectUrl** | Zobrazí adresu URL pro domovskou stránku balíčku, často se zobrazí v uživatelském rozhraní a také nuget.org. |
-| **Adresa licenseUrl** | Adresa URL pro balíčku licenci, často se zobrazí v zobrazení uživatelského rozhraní, jakož i nuget.org. |
+| **projectUrl** | Zobrazí adresu URL pro domovskou stránku balíčku, často se zobrazí v uživatelském rozhraní a také nuget.org. |
+| **licenseUrl** | Adresa URL pro balíčku licenci, často se zobrazí v zobrazení uživatelského rozhraní, jakož i nuget.org. |
 | **iconUrl** | Adresu URL pro bitovou kopii 64 x 64 s průhlednost pozadí chcete použít jako ikonu balíčku v zobrazení uživatelského rozhraní. Ujistěte se, obsahuje tento element *přímá adresa URL obrázku* nikoli adresa URL webové stránky, který obsahuje bitovou kopii. Například pokud chcete použít bitovou kopii z Githubu, použijte soubor raw, jako adresa URL `https://github.com/<username>/<repository>/raw/<branch>/<logo.png>`. |
 | **requireLicenseAcceptance** | Logická hodnota určující, jestli klient musí zobrazovat výzvu k příjemce tak, aby přijímal licenční balíček před instalací balíčku. |
 | **developmentDependency** | *(2.8 +)*  A logickou hodnotu určující, zda tento balíček je označit jako vývoj jen závislost, která zabraňuje balíček zahrnutí v závislosti na dalších balíčků. |
-| **Souhrn** | Stručný popis balíčku pro zobrazení uživatelského rozhraní. Pokud tento parametr vynechán, zkrácený verzi `description` se používá. |
+| **summary** | Stručný popis balíčku pro zobrazení uživatelského rozhraní. Pokud tento parametr vynechán, zkrácený verzi `description` se používá. |
 | **releaseNotes** | *(1.5 +)*  Popis změn provedených v této verzi balíčku, často se používá v uživatelském rozhraní, jako **aktualizace** karta nástroje Visual Studio Správce balíčků místo Popis balíčku. |
-| **Copyright** | *(1.5 +)*  Copyright podrobnosti balíčku. |
+| **copyright** | *(1.5 +)*  Copyright podrobnosti balíčku. |
 | **jazyk** | ID národního prostředí pro daný balíček. V tématu [vytvoření lokalizovaných balíčků](../create-packages/creating-localized-packages.md). |
 | **značky** | Mezerami oddělený seznam značek a klíčová slova, která popisují možnosti rozpoznání balíčku a podpory balíčků prostřednictvím vyhledávání a filtrování. |
 | **možnost změny** | *(3.3 +)*  Pouze pro interní NuGet použít. |
@@ -109,7 +109,7 @@ Může se zobrazit tyto prvky v rámci `<metadata>` elementu.
 
 | Prvek | Popis |
 | --- | --- |
-**packageTypes** | *(3.3 +)*  Kolekce nula nebo více `<packageType>` elementy určení typu balíčku Pokud než tradiční závislost balíčku. Každý packageType má atributy *název* a *verze*. V tématu [nastavení typ balíčku](../create-packages/creating-a-package.md#setting-a-package-type). |
+**packageTypes** | *(3.5 +)*  Kolekce nula nebo více `<packageType>` elementy určení typu balíčku Pokud než tradiční závislost balíčku. Každý packageType má atributy *název* a *verze*. V tématu [nastavení typ balíčku](../create-packages/creating-a-package.md#setting-a-package-type). |
 | **závislosti** | Kolekce nula nebo více `<dependency>` elementy určení závislostí pro balíček. Každá závislost má atributy *id*, *verze*, *zahrnují* (3.x+), a *vyloučit* (3.x+). V tématu [závislosti](#dependencies) níže. |
 | **frameworkAssemblies** | *(1.2 +)*  Kolekce nula nebo více `<frameworkAssembly>` elementy identifikace odkazy na sestavení rozhraní .NET Framework, které tento balíček vyžaduje, což zajistí, že odkazy jsou přidány do projekty využívající balíčku. Má každý frameworkAssembly *assemblyName* a *targetFramework* atributy. V tématu [zadání sestavení rozhraní odkazuje GAC](#specifying-framework-assembly-references-gac) níže. |
 | **odkazy** | *(1.5 +)*  Kolekce nula nebo více `<reference>` elementy pojmenování sestavení v balíčku `lib` složky, které jsou přidány jako odkazy na projekt. Má každý odkaz *souboru* atribut. `<references>`může také obsahovat `<group>` element s *targetFramework* atribut, který pak obsahuje `<reference>` elementy. Pokud tento parametr vynechán, všechny odkazy v `lib` jsou zahrnuty. V tématu [zadání odkazy na sestavení explicitní](#specifying-explicit-assembly-references) níže. |
@@ -182,7 +182,7 @@ A vytváření sestavení jejichž `AssemblyName` je `LoggingLibrary` s `Release
 | --- | --- |
 | contentFiles | Obsah  |
 | modul runtime | Modul runtime, prostředky a FrameworkAssemblies  |
-| Kompilace | Lib |
+| compile | lib |
 | sestavení | sestavení (MSBuild props a cíle) |
 | nativní | nativní |
 | žádná | Žádné složky |
@@ -340,8 +340,8 @@ Každý `<file>` element určuje následující atributy:
 | Atribut | Popis |
 | --- | --- |
 | **src** | Umístění souboru nebo soubory, které chcete zahrnout, podstoupí vyloučení určeného `exclude` atribut. Cesta je vzhledem k `.nuspec` souboru uvedeno absolutní cesta. Zástupný znak `*` je povolen a dvojité zástupných znaků `**` znamená rekurzivní složky hledání. |
-| **cíl** | Relativní cesta ke složce v rámci balíčku umístění zdrojových souborů, které musí začínat `lib`, `content`, `build`, nebo `tools`. V tématu [vytváření příponou .nuspec z pracovního adresáře založené na konvenci](../Create-Packages/Creating-a-Package.md#from-a-convention-based-working-directory). |
-| **vyloučení** | Seznam oddělený středníkem souborů nebo vzorů souborů, které chcete vyloučit z `src` umístění. Zástupný znak `*` je povolen a dvojité zástupných znaků `**` znamená rekurzivní složky hledání. |
+| **target** | Relativní cesta ke složce v rámci balíčku umístění zdrojových souborů, které musí začínat `lib`, `content`, `build`, nebo `tools`. V tématu [vytváření příponou .nuspec z pracovního adresáře založené na konvenci](../Create-Packages/Creating-a-Package.md#from-a-convention-based-working-directory). |
+| **exclude** | Seznam oddělený středníkem souborů nebo vzorů souborů, které chcete vyloučit z `src` umístění. Zástupný znak `*` je povolen a dvojité zástupných znaků `**` znamená rekurzivní složky hledání. |
 
 ### <a name="examples"></a>Příklady
 
@@ -544,10 +544,10 @@ Tyto soubory jsou určeny sadu atributů, které popisují, jak mají být použ
 | Atribut | Popis |
 | --- | --- |
 | **Zahrnout** | (Povinné) Umístění souboru nebo soubory, které chcete zahrnout, podstoupí vyloučení určeného `exclude` atribut. Cesta je vzhledem k `.nuspec` souboru uvedeno absolutní cesta. Zástupný znak `*` je povolen a dvojité zástupných znaků `**` znamená rekurzivní složky hledání. |
-| **vyloučení** | Seznam oddělený středníkem souborů nebo vzorů souborů, které chcete vyloučit z `src` umístění. Zástupný znak `*` je povolen a dvojité zástupných znaků `**` znamená rekurzivní složky hledání. |
+| **exclude** | Seznam oddělený středníkem souborů nebo vzorů souborů, které chcete vyloučit z `src` umístění. Zástupný znak `*` je povolen a dvojité zástupných znaků `**` znamená rekurzivní složky hledání. |
 | **buildAction** | Akce sestavení přiřadit položku obsahu pro MSBuild, jako například `Content`, `None`, `Embedded Resource`, `Compile`atd. Výchozí hodnota je `Compile`. |
 | **copyToOutput** | Logická hodnota, která určuje, zda zkopírovat položky obsahu do výstupní složky sestavení. Výchozí hodnota je false. |
-| **vyrovnání** | Logická hodnota, která určuje, jestli kopírování obsahu položky do jediné složky ve výstupu sestavení (true) nebo chcete zachovat struktura složek v balíčku (false). Výchozí hodnota je false. |
+| **flatten** | Logická hodnota, která určuje, jestli kopírování obsahu položky do jediné složky ve výstupu sestavení (true) nebo chcete zachovat struktura složek v balíčku (false). Tento příznak pouze funguje, když je příznak copyToOutput nastaven na hodnotu true. Výchozí hodnota je false. |
 
 Při instalaci balíčku, NuGet platí podřízených elementů `<contentFiles>` shora dolů. Pokud stejný soubor shodovat s více položek se použijí všechny položky. Položka nejvyšší přepíše nižší položky, pokud dojde ke konfliktu pro stejný atribut.
 
@@ -679,8 +679,8 @@ Můžete použít prázdné složky `.` pro vyjádření výslovného nesouhlasu
 
 V tomto příkladu následující se nainstalují pro konkrétní projekt cíle:
 
-- . -> NET4 `System.Web`,`System.Net`
+- .NET4 -> `System.Web`, `System.Net`
 - . NET4 -> Client Profile`System.Net`
 - -> Silverlight 3`System.Json`
 - Silverlight 4 ->`System.Windows.Controls.DomainServices`
-- -> WindowsPhone`Microsoft.Devices.Sensors`
+- WindowsPhone -> `Microsoft.Devices.Sensors`
