@@ -9,7 +9,6 @@
 ## [Vytvoření balíčků UPW](Guides/Create-UWP-Packages.md)
 ## [Vytvoření ovládacích prvků UPW jako balíčků NuGet](Guides/Create-UWP-Controls.md)
 ## [Vytvoření balíčků pro různé platformy](Guides/Create-Cross-Platform-Packages.md)
-## [Vytvoření dotazu na všechny balíčky pomocí rozhraní API](Guides/api/query-for-all-published-packages.md)
 # Vytvoření balíčků
 ## [Přehled a pracovní postup](Create-Packages/Overview-and-Workflow.md)
 ## [Vytvoření balíčku](Create-Packages/Creating-a-Package.md)
@@ -86,6 +85,7 @@
 ### [Poskytovatelé pověření v nuget.exe](Reference/extensibility/nuget-exe-Credential-Providers.md)
 # rozhraní API
 ## [Přehled](API/overview.md)
+## [Postup: Vytvoření dotazu na všechny balíčky pomocí rozhraní API](Guides/api/query-for-all-published-packages.md)
 ## [Index služby](API/service-index.md)
 ## [Nabídnutí a odstranění](API/package-publish-resource.md)
 ## [Hledání](API/search-query-service-resource.md)
