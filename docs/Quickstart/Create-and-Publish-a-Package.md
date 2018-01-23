@@ -13,11 +13,11 @@ keywords: "Vytvoření balíčku NuGet, publikování, balíček NuGet kurzu NuG
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: ab5235537d869047075b93f9d8255ae9e61dfedd
-ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
+ms.openlocfilehash: 9ec7091b0984c53fb883bbace9ee55d10ece773c
+ms.sourcegitcommit: 9ac1fa23a4a8ce098692de93328b1db4136fe3d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="create-and-publish-a-package"></a>Vytvoření a publikování balíčku
 
@@ -119,14 +119,14 @@ Jakmile máte `.nupkg` souboru ji publikujete pomocí nuget.org `push` příkaz.
 
 1. Po přihlášení, vyberte jméno uživatele (v pravém horním rohu) a pak vyberte **klíče rozhraní API**.
 
-1. Vyberte **vytvořit**, zadejte název klíče, vyberte **vyberte obory > Push**pod **klíč rozhraní API**, zadejte * pro **Glob vzor**, pak Vyberte **vytvořit**.
+1. Vyberte **vytvořit**, zadejte název klíče, vyberte **vyberte obory > Push** pod **klíč rozhraní API**, zadejte * pro **Glob vzor**, pak Vyberte **vytvořit**.
 
 1. Po vytvoření klíče, vyberte **kopie** načíst přístup klíčů budete potřebovat v rozhraní příkazového řádku:
 
     ![Klíč rozhraní API kopírování do schránky.](media/QS_Create-02-APIKey.png)
 
     > [!Warning]
-    > Váš klíč uložit na bezpečném místě a udržování je tajný klíč. Pokud váš klíč se omylem zjistí, můžete ho obnovit vždy kdykoli. Klíč rozhraní API můžete také odebrat, pokud již nechcete push balíčky prostřednictvím rozhraní příkazového řádku.
+    > Váš klíč uložit na bezpečném místě a zachovat tajný. Pokud váš klíč se zjistí omylem, můžete znovu vygenerovat kdykoliv. Klíč rozhraní API můžete také odebrat, pokud již nechcete push balíčky prostřednictvím rozhraní příkazového řádku.
 
 1. Na příkazovém řádku spusťte následující příkaz zadáte název balíčku a klíč nahraďte hodnotou zkopírovali v kroku 4:
 

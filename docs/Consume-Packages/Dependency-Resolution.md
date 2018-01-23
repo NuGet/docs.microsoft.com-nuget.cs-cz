@@ -13,19 +13,19 @@ keywords: "Závislosti balíčků NuGet, Správa verzí NuGet, verze závislosti
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 93a3d077a6dd1946485fc8c48f97c8009280890c
-ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
+ms.openlocfilehash: 91af96eb1f4bf0ee5a46ea8c418440eff20c768d
+ms.sourcegitcommit: 9ac1fa23a4a8ce098692de93328b1db4136fe3d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>Jak NuGet řeší závislosti balíčků
 
 Vždy, když je balíček nainstalován, nebo přeinstalovat, včetně instaluje jako součást [obnovení](../consume-packages/package-restore.md) procesu NuGet nainstaluje také všechny další balíčky, na kterých závisí tento první balíček.
 
-Tyto okamžité závislosti potom také může mít závislosti na jejich vlastní, které můžete pokračovat v libovolné hloubka. To vytváří, co se nazývá *graf závislostí* která popisuje vztahy mezi balíčky jsou všechny úrovně.
+Tyto okamžité závislosti potom také může mít závislosti na jejich vlastní, které můžete pokračovat v libovolné hloubka. To vytváří, co se nazývá *graf závislostí* která popisuje vztahy mezi balíčky na všech úrovních.
 
-Pokud více balíčků stejné závislosti, pak stejné ID balíčku může vyskytovat v grafu vícekrát, potenciálně s omezeními jinou verzi. Však jenom jedna verze nástroje daného balíčku můžete použít v projektu, takže NuGet musíte zvolit, která verze je použít. Přesný postup závisí na formátu odkaz balíčku, který je používán.
+Pokud více balíčků stejné závislosti, pak stejné ID balíčku může vyskytovat v grafu vícekrát, potenciálně s omezeními jinou verzi. Jenom jedna verze nástroje daného balíčku můžete však použít v projektu, tak NuGet, musíte zvolit, která verze se má použít. Přesný postup závisí na formátu odkaz balíčku, který je používán.
 
 V tomto tématu:
 - [Řešení závislostí s PackageReference a project.json](#dependency-resolution-with-packagereference-and-projectjson)

@@ -14,11 +14,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 53fccbb86f2920d870b5383070d043e25045a626
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 29eb72cbb6c095cd3aeb524fd8b28416ec5dc798
+ms.sourcegitcommit: 6ccb963e065680ab2e7df1d8dd5492897fd56b04
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="errors-and-warnings"></a>Chyby a upozornění
 
@@ -31,7 +31,7 @@ S chybami a upozorněními tady jsou k dispozici jenom s [na základě PackageRe
 | Skupina | Chyba čísla |
 | --- | --- |
 | [Neplatné vstupní chyby](#invalid-input-errors) | [NU1001](#nu1001), [NU1002](#nu1002), [NU1003](#nu1003) |
-| [Chybějící chyby balíčku a projektu](#missing-package-and-project-errors) | [NU1100](#nu1100), [NU1101](#nu1101), [NU1102](#nu1102), [NU1103](#nu1103), [NU1104](#nu1104), [NU1105](#nu1105), [ NU1106](#nu1106), [NU1107](#nu1107) (dříve NU1607), [NU1108](#nu1107) (dříve NU1606) |
+| [Chybějící chyby balíčku a projektu](#missing-package-and-project-errors) | [NU1100](#nu1100), [NU1101](#nu1101), [NU1102](#nu1102), [NU1103](#nu1103), [NU1104](#nu1104), [NU1105](#nu1105), [ NU1106](#nu1106), [NU1107](#nu1107) (dříve NU1607), [NU1108](#nu1108) (dříve NU1606) |
 | [Chyby kompatibility](#compatibility-errors) | [NU1201](#nu1201), [NU1202](#nu1202), [NU1203](#nu1203), [NU1401](#nu1401) |
 
 **Upozornění**
@@ -75,7 +75,7 @@ S chybami a upozorněními tady jsou k dispozici jenom s [na základě PackageRe
 
 ## <a name="missing-package-and-project-errors"></a>Chybějící chyby balíčku a projektu
 
-[NU1100](#nu1100) | [NU1101](#nu1101) | [NU1102](#nu1102) | [NU1103](#nu1103) | [NU1104 ](#nu1104)  |  [NU1105](#nu1105) | [NU1106](#nu1106)
+[NU1100](#nu1100) | [NU1101](#nu1101) | [NU1102](#nu1102) | [NU1103](#nu1103) | [NU1104](#nu1104) | [NU1105](#nu1105) | [NU1106](#nu1106)
 
 ### <a name="nu1100"></a>NU1100
 
@@ -133,7 +133,7 @@ S chybami a upozorněními tady jsou k dispozici jenom s [na základě PackageRe
 | **Běžné příčiny** | Balíčky obsahovat závislosti na přesné verze balíčku místo zprostředkovává rozsahy. |
 | **Příklad zprávy** | *Nelze vyhovět konfliktním žádostem pro {id}: {cesta konflikt} Framework: {cíl grafu}* |
 
-< a name = "NU1107 ></a>
+<a name="nu1107"></a> 
 
 ### <a name="nu1107-previously-nu1607"></a>NU1107 (dříve NU1607)
 
@@ -143,7 +143,7 @@ S chybami a upozorněními tady jsou k dispozici jenom s [na základě PackageRe
 | **Běžné příčiny** | Balíčky s omezeními závislosti na přesné verze neumožňují dalších balíčků v případě potřeby zvýšit verze. |
 | **Příklad zprávy** | *Pro NuGet.Versioning zjištěn konflikt verzí. Odkazují na balíček přímo z projektu k vyřešení tohoto problému.<br/>  NuGet.Packaging 3.5.0 -> NuGet.Versioning (= 3.5.0)<br/> NuGet.Configuration 4.0.0 -> NuGet.Versioning (= 4.0.0)* |
 
-< a name = "NU1108 ></a>
+<a name="nu1108"></a>
 
 ### <a name="nu1108-previously-nu1606"></a>NU1108 (dříve NU1606)
 
@@ -263,8 +263,6 @@ S chybami a upozorněními tady jsou k dispozici jenom s [na základě PackageRe
 
 ## <a name="resolver-conflict-warnings"></a>Řešitel konfliktů upozornění
 
-[NU1608](#nu1608)
-
 ### <a name="nu1608"></a>NU1608
 
 | | |
@@ -275,8 +273,6 @@ S chybami a upozorněními tady jsou k dispozici jenom s [na základě PackageRe
 
 ## <a name="package-fallback-warnings"></a>Balíček záložní upozornění
 
-[NU1701](#nu1701)
-
 ### <a name="nu1701"></a>NU1701
 
 | | |
@@ -286,8 +282,6 @@ S chybami a upozorněními tady jsou k dispozici jenom s [na základě PackageRe
 | **Příklad zprávy** | *Balíček NuGet.Versioning se obnovil pomocí 'přenositelností net45 + win8' místo toho cílový framework projektu 'netstandard1.5'. Tento balíček nemusí být plně kompatibilní s projektem.* |
 
 ## <a name="feed-warnings"></a>Informačního kanálu upozornění
-
-[NU1801](#nu1801)
 
 ### <a name="nu1801"></a>NU1801
 

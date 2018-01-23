@@ -1,4 +1,4 @@
-Instalace balíčku se stane třemi způsoby:
+Můžete nainstalovat balíček NuGet třemi různými způsoby:
 
 | Metoda | Popis | Odkaz |
 | --- | --- | --- |

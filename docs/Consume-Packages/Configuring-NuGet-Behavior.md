@@ -13,11 +13,11 @@ keywords: "NuGet konfigurační soubory, NuGet konfigurace, nastavení chování
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: f9e56b68f70387435cdaa1537db503abb912fd2a
-ms.sourcegitcommit: 122bf7ce308365ea45da018b0768f0536de76a1f
+ms.openlocfilehash: 9269180241a880d3b796b79a13dbcd45627d74d7
+ms.sourcegitcommit: 9ac1fa23a4a8ce098692de93328b1db4136fe3d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="configuring-nuget-behavior"></a>Konfigurace chování NuGet
 
@@ -30,17 +30,17 @@ V tomto tématu:
 - [Jak se používají nastavení](#how-settings-are-applied)
 - [Soubor NuGetDefaults.Config](#nuget-defaults-file)
 
-## <a name="config-file-locations-and-uses"></a>Umístění konfiguračního souboru a používá
+## <a name="nugetconfig-file-locations-and-uses"></a>Umístění souboru NuGet.Config a používá
 
 | Rozsah | Umístění souboru NuGet.Config | Popis |
 | --- | --- | --- |
-| Project | Projekt nebo všechny složky na kořenové jednotce | Ve složce projektu nastavení platí pouze pro tento projekt. V nadřazené složky, které obsahují více projektů podsložky nastavení se vztahují na všechny projekty v těchto podsložky. |
-| Uživatel | Windows: %APPDATA%\NuGet\NuGet.Config<br/>Mac/Linux: ~/.nuget/NuGet.Config | Nastavení platí pro všechny operace, ale jsou přepsány jakékoli nastavení projektu. Při použití rozhraní příkazového řádku, můžete zadat pomocí různých konfiguračním souboru `-configFile` přepínač tak, aby ignorovat všechna nastavení v souboru výchozí úrovni uživatele. |
-| Počítače | Windows: % ProgramFiles (x86) %\NuGet\Config<br/>Mac/Linux: $XDG_DATA_HOME (obvykle ~/.local/share) | Nastavení platí pro všechny operace v počítači, ale jsou elementem podle všechna nastavení na úrovni uživatele nebo projektu. |
+| Projekt | Aktuální složce (neboli složky projektu) nebo libovolné složky až kořenové jednotce.| Ve složce projektu nastavení platí pouze pro tento projekt. V nadřazené složky, které obsahují více projektů podsložky nastavení se vztahují na všechny projekty v těchto podsložky. |
+| Uživatel | Windows: %APPDATA%\NuGet\NuGet.Config<br/>Mac/Linux: ~/.nuget/NuGet.Config | Nastavení platí pro všechny operace, ale jsou přepsány jakékoli nastavení projektu. |
+| Počítače | Windows: %ProgramFiles(x86)%\NuGet\Config<br/>Mac/Linux: $XDG_DATA_HOME (obvykle ~/.local/share) | Nastavení platí pro všechny operace v počítači, ale jsou elementem podle všechna nastavení na úrovni uživatele nebo projektu. |
 
 Poznámky pro starší verze balíčku nuget:
 - NuGet 3.3 a dříve slouží `.nuget` složku pro nastavení celé řešení. Tento soubor není používán NuGet 3.4 +.
-- Pro NuGet 2.6 k 3.x, úrovni počítače konfiguračním souboru v systému Windows se nacházel v % ProgramData%\NuGet\Config [\\{IDE} [\\{Version} [\\{SKU}]]]\NuGet.Config, kde *{IDE}* může být  *Visual Studio*, *{Version}* verzi sady Visual Studio, jako byl *14.0*, a *{SKU}* je buď *komunity*, *Pro*, nebo *Enterprise*. Migrace nastavení na NuGet 4.0 +, jednoduše zkopírujte do konfiguračního souboru % ProgramFiles(x86) % \NuGet\Config. Na Linus, byl tento předchozího umístění /etc/opt a v systému Mac, Library/Application Support.
+- Pro NuGet 2.6 k 3.x, úrovni počítače konfiguračním souboru v systému Windows se nacházel v % ProgramData%\NuGet\Config [\\{IDE} [\\{Version} [\\{SKU}]]]\NuGet.Config, kde *{IDE}* může být  *Visual Studio*, *{Version}* verzi sady Visual Studio, jako byl *14.0*, a *{SKU}* je buď *komunity*, *Pro*, nebo *Enterprise*. Migrace nastavení na NuGet 4.0 +, jednoduše zkopírujte do konfiguračního souboru % ProgramFiles(x86) % \NuGet\Config. V systému Linux, byl tento předchozího umístění /etc/opt a v systému Mac, Library/Application Support.
 
 ## <a name="changing-config-settings"></a>Změna nastavení konfigurace
 
@@ -188,7 +188,7 @@ Soubor C. disk_drive_2/Project1/NuGet.Config:
 </configuration>
 ```
 
-Soubor D. disk_drive_2/Project2/NuGet.Config:
+File D. disk_drive_2/Project2/NuGet.Config:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

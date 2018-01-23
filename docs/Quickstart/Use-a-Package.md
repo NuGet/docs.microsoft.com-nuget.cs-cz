@@ -13,11 +13,11 @@ keywords: "Nainstalujte NuGet, využívání balíčku NuGet, instalace balíčk
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 639f4883f5ce904a44d8aa23d76c93ed79ea4b9d
-ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
+ms.openlocfilehash: ffba868bbbf1fe373fd45a9459eab7072f4c19b3
+ms.sourcegitcommit: 9ac1fa23a4a8ce098692de93328b1db4136fe3d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="install-and-use-a-package"></a>Instalace a použití balíčku
 
@@ -27,7 +27,7 @@ Balíčky NuGet jsou jednotky opakovaně použitelný kód, který jinými vývo
 
 Po instalaci odkazovat na balíček v kódu pomocí `using <namespace>` kde \<obor názvů\> je specifická pro balíček, který používáte. Jakmile se odkazuje, můžete volat balíček prostřednictvím jejího rozhraní API.
 
-Zbývající část tohoto tématu provede procesem instalace oblíbených pomocí uživatelského rozhraní Správce balíčků [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) balíček v projektu univerzální platformu Windows (UWP). Poté zobrazí příklad použití balíčku. Podobně jako stejný pracovní postup se používá pro opravdu každého balíčku NuGet, které můžete použít v projektu.
+Zbývající část tohoto tématu provede procesem instalace oblíbených pomocí uživatelského rozhraní Správce balíčků [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) balíček v projektu univerzální platformu Windows (UWP). Poté zobrazí příklad použití balíčku. Podobně jako pracovní postup se používá pro jiné balíčky NuGet.
 
 - [Nainstalujte požadavky](#install-pre-requisites)
 - [Vytvoření projektu](#create-a-project)
@@ -35,7 +35,7 @@ Zbývající část tohoto tématu provede procesem instalace oblíbených pomoc
 - [Použít Newtonsoft.Json rozhraní API v aplikaci](#use-the-newtonsoftjson-api-in-the-app)
 
 > [!Tip]
-> **Začněte s nuget.org**: instalace balíčků z nuget.org je běžné pracovní postup, který .NET vývojáři použít k vyhledání součásti můžete opakovaně použít ve svých vlastních aplikacích. Můžete vždy hledání nuget.org přímo nebo najít a nainstalovat balíčky v sadě Visual Studio, jak je znázorněno v tomto tématu.
+> **Začněte s nuget.org**: instalace balíčků z nuget.org je běžné pracovní postup, který .NET vývojáři použít k vyhledání součásti, které mohou používat ve svých vlastních aplikacích. Můžete vždy hledání nuget.org přímo nebo najít a nainstalovat balíčky v sadě Visual Studio, jak je znázorněno v tomto tématu.
 
 ## <a name="install-pre-requisites"></a>Nainstalujte požadavky
 

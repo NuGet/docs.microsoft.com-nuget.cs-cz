@@ -13,11 +13,11 @@ keywords: "NuGet 4.0 RTM poznámky k verzi, opravy chyb známé problémy, přid
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2cdee8b736fa2c651da803be9a10a6114936134a
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 488b7259f4cc8635d590d35283dc685dc117ad39
+ms.sourcegitcommit: 9ac1fa23a4a8ce098692de93328b1db4136fe3d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="40-rtm-release-notes"></a>4.0 poznámky k verzi RTM
 
@@ -51,7 +51,7 @@ Pro tento problém zatím neexistuje alternativní řešení.
 #### <a name="issue"></a>Problém:
 Správce balíčků NuGet nezobrazuje a nepovoluje přidat nebo aktualizovat DotNetCLITools. [NuGet#4256](https://github.com/NuGet/Home/issues/4256)
 
-* #### <a name="workaround"></a>Alternativní řešení:
+#### <a name="workaround"></a>Alternativní řešení:
 V souboru projektu se musí ručně upravit DotNetCLIToolReferences.
 
 ### <a name="nuget-restore-will-fail-when-you-set-packageid-property-for-projects"></a>Když pro projekty nastavíte vlastnost PackageId, obnovení NuGet se nepovede
@@ -365,4 +365,3 @@ Pro tento problém zatím neexistuje alternativní řešení.
 [Seznam problémů 3](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.0 RC3")  
 [Seznam problémů 4](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.0 RC2")  
 [Seznam problémů 5](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.0 RC")
-
