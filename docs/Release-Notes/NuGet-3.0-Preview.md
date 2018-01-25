@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 6762b6f8-82b7-4bab-a1f0-cd25e5dc1fb4
 description: "Poznámky k verzi pro náhled 3.0 NuGet včetně známé problémy, opravy chyb, přidaných funkcí a chcete."
 keywords: "Náhled 3.0 NuGet poznámky k verzi, opravy chyb známé problémy, přidat funkce, chcete"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: ae137af6f9722c454458fdcb4f20760c08d6e8bb
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: e07bcad2bf713deee0add72663c84b9979f8c5c4
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-30-preview-release-notes"></a>Poznámky k verzi 3.0 Preview NuGet
 
@@ -25,7 +24,7 @@ ms.lasthandoff: 01/05/2018
 
 NuGet 3.0 Preview byla vydána 12. listopadu 2014 jako součást Visual Studiu 2015 Preview verze. Jsme vydali NuGet 3.0 Preview. Toto je velký verze pro nás (i když náhled), a máme nadšení zahájíte získávání názory na naše změny.
 
-## <a name="visual-studio-2012"></a>Visual Studio 2012 +
+## <a name="visual-studio-2012"></a>Visual Studio 2012+
 
 Tato verze Preview NuGet 3.0 je součástí Visual Studiu 2015 Preview. Pracujeme na velmi brzy získat vyřazuje preview pro sadu Visual Studio 2012 a Visual Studio 2013. Jsme předtím sdílené naše záměr [přestali aktualizace pro sadu Visual Studio 2010](http://blog.nuget.org/20141002/visual-studio-2010.html), a jsme Ujistěte se, že obtížné rozhodnutí.
 

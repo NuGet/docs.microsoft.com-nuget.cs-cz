@@ -11,17 +11,16 @@ ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: ead5cf7a-e51e-4cbb-8798-58226f4c853f
 description: "Službu vyhledávání automatického dokončování podporuje interaktivní zjišťování ID balíčku a verze."
 keywords: "Rozhraní API funkce automatického dokončování NuGet, ID balíčku NuGet vyhledávání, ID balíčku dílčí řetězec"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 313ceb630947b46c34b98e14044ecf121b725087
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 7c984ca61799293d7832851b80cf3fefc4734288
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="autocomplete"></a>Automatické dokončování
 
@@ -51,9 +50,7 @@ První autocomplete rozhraní API podporuje hledání část řetězce ID balí�
 
 Balíček se pouze neuvedené verzí se nezobrazí ve výsledcích.
 
-```
-GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
-```
+    GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
 
 ### <a name="request-parameters"></a>Parametry žádosti
 
@@ -90,9 +87,7 @@ data      | Pole řetězců. | Ano      | ID balíčku odpovídala požadavku
 
 ### <a name="sample-request"></a>Ukázková žádost
 
-```
 GET https://api-v2v3search-0.nuget.org/autocomplete?q=storage&prerelease=true
-```
 
 ### <a name="sample-response"></a>Ukázková odpověď
 
@@ -104,9 +99,7 @@ Po zjištění ID balíčku pomocí předchozího rozhraní API může klient po
 
 Verze balíčku, který neuvedené nezobrazí ve výsledcích.
 
-```
-GET {@id}?id={ID}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
-```
+    GET {@id}?id={ID}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
 
 ### <a name="request-parameters"></a>Parametry žádosti
 
@@ -134,9 +127,7 @@ Verze v balíčku `data` pole může obsahovat metadata sestavení SemVer 2.0.0 
 
 ### <a name="sample-request"></a>Ukázková žádost
 
-```
-GET https://api-v2v3search-0.nuget.org/autocomplete?id=nuget.protocol&prerelease=true
-```
+    GET https://api-v2v3search-0.nuget.org/autocomplete?id=nuget.protocol&prerelease=true
 
 ### <a name="sample-response"></a>Ukázková odpověď
 

@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: c193f1e3-d114-427f-9425-9930cc8e4db3
 description: "Poznámky k verzi pro včetně známé problémy, opravy chyb, přidaných funkcí a chcete 2.5 NuGet."
 keywords: "NuGet 2.5 poznámky k verzi, opravy chyb známé problémy, přidat funkce, chcete"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 8d3bebbbe550645fcffad078538134427103cf98
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: c2c6cf85b9ebccf200be9ef4a2bf96802cffcaea
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-25-release-notes"></a>Poznámky k verzi 2,5 NuGet
 
@@ -59,9 +58,9 @@ Děkujeme také následující jednotlivce pro vyhledání chyby s NuGet 2.5 Bet
 1. [ADAM Wall](https://www.codeplex.com/site/users/view/CodeChief) ([@CodeChief](https://twitter.com/codechief))
     - [#3200](https://nuget.codeplex.com/workitem/3200) – Mstestu přerušený s nejnovější NuGet 2.4 a 2,5 sestavení
 
-# <a name="notable-features-in-the-release"></a>Upozorňují na důležité funkce ve verzi
+## <a name="notable-features-in-the-release"></a>Upozorňují na důležité funkce ve verzi
 
-## <a name="allow-users-to-overwrite-content-files-that-already-exist"></a>Povolit uživatelům přepsat soubory obsahu, které již existují.
+### <a name="allow-users-to-overwrite-content-files-that-already-exist"></a>Povolit uživatelům přepsat soubory obsahu, které již existují.
 
 Jednou z nejžádanějších funkcí celou dobu byla možnost přepsat soubory obsahu, které již existují na disku, obsažen v balíčku NuGet. Od verze NuGet 2.5, jsou identifikovány tyto konflikty a zobrazí se výzva k přepsání souborů, zatímco dříve byly tyto soubory vždy přeskočeny.
 
@@ -71,13 +70,13 @@ Jednou z nejžádanějších funkcí celou dobu byla možnost přepsat soubory o
 
 Nastavte výchozí akce, soubor z balíčku již existuje v cílové projektu. Nastavte na "přepsat, aby vždy přepsat soubory. Přeskočit soubory nastavena na hodnotu 'Ignorovat'. Pokud není zadáno, zobrazí výzvu pro každý konfliktní soubor.
 
-## <a name="automatic-import-of-msbuild-targets-and-props-files"></a>Automatické import MSBuild cíle a soubory props
+### <a name="automatic-import-of-msbuild-targets-and-props-files"></a>Automatické import MSBuild cíle a soubory props
 
 Byla vytvořena konvenční novou složku na nejvyšší úrovni balíček NuGet.  Jako partnera, který `\lib`, `\content`, a `\tools`, teď můžete zahrnout `\build` složky v balíčku.  V této složce, můžete umístit dva soubory s pevnou názvy `{packageid}.targets` nebo `{packageid}.props`. Tyto dva soubory mohou být buď přímo `build` nebo pod konkrétní rozhraní složky stejně jako jiných složkách. Pravidlo pro výběr nejlépe odpovídající složku je přesně stejné jako ty.
 
 Při instalaci balíčku NuGet se soubory \build přidá MSBuild `<Import>` element v souboru projektu přejdete `.targets` a `.props` soubory. `.props` Soubor přidán v horní části, zatímco `.targets` soubor přidán do dolní části.
 
-## <a name="specify-different-references-per-platform-using-references-element"></a>Zadejte jiný odkazy na platformě pomocí `<References/>` – element
+### <a name="specify-different-references-per-platform-using-references-element"></a>Zadejte jiný odkazy na platformě pomocí `<References/>` – element
 
 Před 2.5 v `.nuspec` souboru uživatele můžete jenom zadat referenčních souborů, který se má přidat pro všechny framework. Teď pomocí této nové funkce v 2.5, můžete vytvořit uživatele `<reference/>` element pro každou podporovanou platformu, například:
 
@@ -105,7 +104,7 @@ Tato nová funkce vám umožní použít funkci odkazy na používání podmnož
 
 Poznámka: v současné době můžete nuget.exe pack k použití této funkce; Průzkumník balíček NuGet ještě ji nepodporuje.
 
-## <a name="update-all-button-to-allow-updating-all-packages-at-once"></a>Aktualizovat všechny tlačítko umožňující aktualizuje všechny balíčky současně
+### <a name="update-all-button-to-allow-updating-all-packages-at-once"></a>Aktualizovat všechny tlačítko umožňující aktualizuje všechny balíčky současně
 
 Řada z vás vědět o rutiny prostředí PowerShell "Balíček aktualizace" k aktualizaci všech vašich balíčků; Nyní je snadný způsob, jak to provést prostřednictvím uživatelského rozhraní také.
 
@@ -118,7 +117,7 @@ Můžete vyzkoušet tuto funkci na:
 
 ![Aktualizovat všechny tlačítka v dialogovém okně](./media/NuGet-2.5/update-all.png)
 
-## <a name="improved-project-reference-support-for-nugetexe-pack"></a>Vylepšené projektu odkaz na podporu pro nuget.exe Pack
+### <a name="improved-project-reference-support-for-nugetexe-pack"></a>Vylepšené projektu odkaz na podporu pro nuget.exe Pack
 
 Nyní nuget.exe pack příkaz procesy odkazuje projekty s následující pravidla:
 
@@ -132,7 +131,7 @@ To umožňuje odkazované projektu jsou považovány za závislost, pokud dojde 
 
 Další podrobnosti zde: [http://nuget.codeplex.com/workitem/936](http://nuget.codeplex.com/workitem/936)
 
-## <a name="add-a-minimum-nuget-version-property-to-packages"></a>Přidat do balíčků vlastnost 'minimální verze NuGet.
+### <a name="add-a-minimum-nuget-version-property-to-packages"></a>Přidat do balíčků vlastnost 'minimální verze NuGet.
 
 Nový atribut metadat volat 'minClientVersion' můžete teď určit minimální verzi klienta NuGet požadované využívat balíček.
 
@@ -146,7 +145,7 @@ Pokud má uživatel 2.5 NuGet, které jsou nainstalované a balíček je označe
 
 Tím se zvyšuje na stávající prostředí balíčky, kde začít instalovat, ale pak neúspěšné, což značí, že byla identifikována ve schématu nerozpoznané verzi.
 
-## <a name="dependencies-are-no-longer-unnecessarily-updated-during-package-installation"></a>Závislosti jsou už zbytečně aktualizován v průběhu instalace balíčku
+### <a name="dependencies-are-no-longer-unnecessarily-updated-during-package-installation"></a>Závislosti jsou už zbytečně aktualizován v průběhu instalace balíčku
 
 Před 2.5 NuGet Pokud byla nainstalována balíček, který závisí na balíčku již nainstalované v projektu, závislost by aktualizovat v rámci nové instalace i v případě, že stávající verze uspokojit závislost.
 
@@ -167,13 +166,13 @@ Od verze NuGet 2.5, pokud je již splnit verze závislosti, závislost nebude ak
 
 Další informace o této změně, najdete v podrobné [pracovní položka](http://nuget.codeplex.com/workitem/1681) a také související [diskusní téma](http://nuget.codeplex.com/discussions/436712).
 
-## <a name="nugetexe-outputs-http-requests-with-detailed-verbosity"></a>nuget.exe výstupy požadavky http s podrobné podrobností
+### <a name="nugetexe-outputs-http-requests-with-detailed-verbosity"></a>nuget.exe výstupy požadavky http s podrobné podrobností
 
 Pokud jsou řešení potíží s nuget.exe nebo právě zvědaví jaké požadavky HTTP jsou vytvářeny během operací '-podrobností podrobné ' přepínač teď výstup všech požadavků HTTP, které jsou provedeny.
 
 ![Výstup HTTP z nuget.exe](./media/NuGet-2.5/verbosity.png)
 
-## <a name="nugetexe-push-now-supports-unc-and-folder-sources"></a>nuget.exe nabízené teď podporuje UNC a složku zdroje
+### <a name="nugetexe-push-now-supports-unc-and-folder-sources"></a>nuget.exe nabízené teď podporuje UNC a složku zdroje
 
 Před NuGet 2.5 Pokud jste se pokusili spustit "nuget.exe push" ke zdroji balíčku na základě cesty UNC nebo místní složky nabízeného oznámení skončí s chybou. Nedávno přidané hierarchické konfigurace funkce s měl stát běžné nuget.exe potřebovat cílit na zdroji UNC nebo složku nebo Galerie NuGet založené na protokolu HTTP.
 
@@ -185,7 +184,7 @@ Nyní bude fungovat následující příkaz:
 nuget push -source \\mycompany\repo\ mypackage.1.0.0.nupkg
 ```
 
-## <a name="nugetexe-supports-explicitly-specified-config-files"></a>nuget.exe podporuje explicitně zadat konfigurační soubory
+### <a name="nugetexe-supports-explicitly-specified-config-files"></a>nuget.exe podporuje explicitně zadat konfigurační soubory
 
 podporují novou nuget.exe příkazy, které nyní získat přístup ke konfiguraci, (všechny kromě 'specifikace' a 'pack') '-ConfigFile' možnost, která vynutí konkrétní konfiguračním souboru, který se má použít místo výchozí konfigurační soubor % AppData%\nuget\Nuget.Config.
 
@@ -195,7 +194,7 @@ Příklad:
 nuget sources add -name test -source http://test -ConfigFile C:\test\.nuget\Nuget.Config
 ```
 
-## <a name="support-for-native-projects"></a>Podpora pro nativní projekty
+### <a name="support-for-native-projects"></a>Podpora pro nativní projekty
 
 S NuGet 2.5 nástrojů NuGet je teď dostupná pro nativní projekty v sadě Visual Studio. Očekáváme, že většina nativní balíčky budou využívat funkci MSBuild importy výš, pomocí nástroje vytvořené [CoApp projektu](http://coapp.org). Další informace najdete v tématu [podrobné informace o nástroji](http://coapp.org/news/2013-03-27-The-Long-Awaited-post.html) na webu coapp.org.
 

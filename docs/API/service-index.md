@@ -11,26 +11,22 @@ ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 2f6d6cf2-53fb-417a-b1d8-e0ac591c1699
 description: "Index služby je vstupní bod rozhraní API HTTP NuGet a vytvoří výčet možností serveru."
 keywords: "Rozhraní API NuGet vstupní bod, NuGetA PI koncový bod zjišťování"
 ms.reviewer:
 - karann
 - unnir
-ms.openlocfilehash: 0c43a09d8564964bd0140b9ac5deb9d3063e4dc5
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 9d0bb421c163520df4a1f0e9f3f71aab823aace3
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="service-index"></a>Index služby
 
 Index služby je dokument JSON, který je vstupní bod pro zdroje balíčku NuGet a umožňuje implementace klienta ke zjištění schopnosti zdroji balíčku. Index služby je objekt JSON s dvěma požadované vlastnosti: `version` (verze schématu indexu služby) a `resources` (koncových bodů nebo možnosti zdrojových souborů balíčku).
 
-index služby nuget.org se nachází zde:
-```
-https://api.nuget.org/v3/index.json
-```
+index služby nuget.org je umístěn v `https://api.nuget.org/v3/index.json`.
 
 ## <a name="versioning"></a>Správa verzí
 
@@ -63,9 +59,7 @@ comment       | odkazy řetězců | Ne       | Lidské čitelný popis prostřed
 
 `@type` Slouží k identifikaci konkrétní protokol bude použit při interakci s prostředků. Typ prostředku je neprůhledný řetězec, ale obvykle má formát:
 
-```
-{RESOURCE_NAME}/{RESOURCE_VERSION}
-```
+    {RESOURCE_NAME}/{RESOURCE_VERSION}
 
 Klienti se očekává, pevné kódu `@type` hodnoty, pochopit a jejich vyhledat ve zdroji balíčku služby index. Přesné `@type` hodnoty v současnosti jsou uvedené na dokumenty odkaz jednotlivých prostředků uvedené v [přehled rozhraní API](overview.md#resources-and-schema).
 
@@ -75,9 +69,7 @@ Není potřeba, aby každý prostředek má jedinečnou `@id` nebo `@type`. Je i
 
 ### <a name="sample-request"></a>Ukázková žádost
 
-```
 GET https://api.nuget.org/v3/index.json
-```
 
 ### <a name="sample-response"></a>Ukázková odpověď
 

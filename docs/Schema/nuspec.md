@@ -3,22 +3,21 @@ title: "Odkaz na soubor příponou .nuspec pro NuGet | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 8/29/2017
+ms.date: 08/29/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: d4a4db9b-5c2d-46aa-9107-d2b01733df7c
 description: "Soubor s příponou .nuspec obsahuje metadata balíčků použít při vytváření balíčku a poskytnout informace k příjemce balíčku."
 keywords: "odkaz na soubor nuspec, metadata balíčků NuGet, manifest balíčku NuGet, nuspec schématu"
 ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b8c286b9a5705526e2e8fcf259c6503d48e5d181
-ms.sourcegitcommit: d576d84fb4b6a178eb2ac11f55deb08ac771ba1c
+ms.openlocfilehash: 95f86d8cd11bce8f0f1fed068370311f575601de
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuspec-reference"></a>referenční dokumentace příponou .nuspec
 
@@ -68,7 +67,7 @@ Pro zřetelné vizuální reprezentace schématu, otevřete soubor schématu v s
 
 | Atribut | Požadováno | Popis |
 | --- | --- | --- | 
-| **minClientVersion** | Ne | *(2.5 +)*  Určuje minimální verzi klienta NuGet, který můžete nainstalovat tento balíček vynucováno nuget.exe a Správce balíčků Visual Studio. Používá se vždy, když balíček závisí na specifické funkce `.nuspec` souborů, které byly přidány v konkrétní verzi klienta NuGet. Například balíčku pomocí `developmentDependency` atribut by měl určovat "2.8" pro `minClientVersion`. Podobně balíčku pomocí `contentFiles` (viz další část) musí nastavit element `minClientVersion` k "3.3". Poznámka: protože klienty NuGet před 2.5 nerozpoznávají tento příznak, budou *vždy* odmítnout k instalaci balíčku bez ohledu na to, co `minClientVersion` obsahuje. |
+| **minClientVersion** | Ne | Určuje minimální verzi klienta NuGet, který můžete nainstalovat tento balíček vynucováno nuget.exe a Správce balíčků Visual Studio. Používá se vždy, když balíček závisí na specifické funkce `.nuspec` souborů, které byly přidány v konkrétní verzi klienta NuGet. Například balíčku pomocí `developmentDependency` atribut by měl určovat "2.8" pro `minClientVersion`. Podobně balíčku pomocí `contentFiles` (viz další část) musí nastavit element `minClientVersion` k "3.3". Poznámka: protože klienty NuGet před 2.5 nerozpoznávají tento příznak, budou *vždy* odmítnout k instalaci balíčku bez ohledu na to, co `minClientVersion` obsahuje. |
 
 ### <a name="required-metadata-elements"></a>Požadovaná metadata elementy
 
@@ -260,8 +259,6 @@ Podobně explicitní odkazy lze systémů testů jednotek, jako je například X
 
 ### <a name="reference-groups"></a>Odkazové skupiny
 
-*Verze 2.5 +*
-
 Jako alternativu k jediný plochý seznam odkazů na lze podle profil framework cílový projekt pomocí `<group>` elementů v rámci `<references>`.
 
 Každá skupina obsahuje atribut s názvem `targetFramework` a obsahuje nula nebo více `<reference>` elementy. Tyto odkazy se přidají do projektu, když cílovém Frameworku, který je kompatibilní s profilem framework projektu.
@@ -331,7 +328,7 @@ Nepoužívat toto automatické chování a explicitně řídit soubory, které j
 </files>
 ```
 
-U balíčku NuGet 2.x a starší a projektů pomocí `packages.config`, `<files>` element se používá i k zahrnují neměnné soubory obsahu při instalaci balíčku. S NuGet 3.3 + a projektů pomocí `project.json` pr PackageReference, `<contentFiles>` element se používá místo. V tématu [včetně soubory obsahu](#including-content-files) níže podrobnosti.
+U balíčku NuGet 2.x a starší a projektů pomocí `packages.config`, `<files>` element se používá i k zahrnují neměnné soubory obsahu při instalaci balíčku. S NuGet 3.3 + a projekty PackageReference `<contentFiles>` element se používá místo. V tématu [včetně soubory obsahu](#including-content-files) níže podrobnosti.
 
 ### <a name="file-element-attributes"></a>Element atributy souboru
 
@@ -416,7 +413,7 @@ Soubory obsahu jsou neměnné soubory, které je potřeba zahrnout do projektu b
 - Skripty, které musí být součástí výstupu sestavení projektu
 - Konfigurační soubory pro balíček, který mají být zahrnuti v projektu, ale nemusí změny specifické pro projekt
 
-Obsahu souborů jsou součástí balíčku pomocí `<files>` elementu, určení `content` složky v `target` atribut. Ale tyto soubory jsou při instalaci balíčku do projektu pomocí ignorovány `project.json` systém NuGet 3.3 + nebo PackageReference v NuGet 4 +, která místo toho používá `<contentFiles>` elementu.
+Obsahu souborů jsou součástí balíčku pomocí `<files>` elementu, určení `content` složky v `target` atribut. Ale tyto soubory jsou při instalaci balíčku v projektu pomocí PackageReference, který používá místo ignorovány `<contentFiles>` elementu.
 
 Pro maximální kompatibility s využívání projekty balíček v ideálním případě Určuje soubory obsahu v obou elementů.
 
@@ -533,7 +530,7 @@ V takovém případě protože přípony souborů zdrojové a cílové shodují,
 
 ### <a name="using-the-contentfiles-element-for-content-files"></a>Pomocí elementu contentFiles souborů obsahu
 
-*Verze 3.3 + s project.json a 4.0 + s PackageReference*
+*NuGet 4.0 + s PackageReference*
 
 Výchozí umístění obsahu v balíčku `contentFiles` složky (viz níže) a `nuget pack` zahrnuty všechny soubory v této složce pomocí výchozí atributy. V takovém případě není nutné zahrnovat `contentFiles` uzlu `.nuspec` vůbec.
 

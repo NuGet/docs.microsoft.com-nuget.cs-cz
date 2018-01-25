@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 39ceaeb3-2d33-4b1c-b195-eba36c6cbf9a
 description: "Poznámky k verzi pro NuGet 2.2.1 včetně – známé problémy, opravy chyb, přidaných funkcí a chcete."
 keywords: "NuGet 2.2.1 poznámky k verzi, opravy chyb známé problémy, přidat funkce, chcete"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c31150572b4b6e066643ebcf0d92be16b25c6e19
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: c3e912dcabeb3a26c880b42560a3cec6f7bf2db9
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-221-release-notes"></a>Poznámky k verzi NuGet 2.2.1
 

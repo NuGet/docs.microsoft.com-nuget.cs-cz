@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 6f972803-9e17-43f5-b77b-973c3accf695
 description: "Poznámky k verzi pro NuGet 2.1 včetně známé problémy, opravy chyb, přidaných funkcí a chcete."
 keywords: "NuGet 2.1 poznámky k verzi, opravy chyb známé problémy, přidat funkce, chcete"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: dafe575eedbfed215c0b1c86795bea281de97252
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 05cdb898cc674ac7eadb238d41896638d8e3488c
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-21-release-notes"></a>Poznámky k verzi 2.1 NuGet
 
@@ -25,7 +24,7 @@ ms.lasthandoff: 01/05/2018
 
 4. října 2012 byla vydána NuGet 2.1.
 
-## <a name="hierarchical-nugetconfig"></a>Hierarchická soubor nuget.config.
+## <a name="hierarchical-nugetconfig"></a>Hierarchical Nuget.Config
 NuGet 2.1 vám dává větší flexibilitu při řízení nastavení NuGet prostřednictvím rekurzivně proti si strukturu složek hledání `NuGet.Config` soubory a pak vytváření konfigurace ze sady všech nalezených souborů.  Jako příklad vezměte v úvahu scénář, kde má tým úložiště interní balíčků pro položky konfigurace sestavení z jiných vnitřní závislosti. Struktura složek pro jednotlivé projekt může vypadat následovně:
 
     C:\
@@ -101,16 +100,16 @@ Pro aplikace pro Windows 8 Store identifikátory vypadat takto:
 
 |NuGet 2.0 a starší|NuGet 2.1|
 |----------------|-----------|
-|winRT45. NETCore45|Windows, Windows8, win, win8|
+|winRT45, .NETCore45|Windows, Windows8, win, win8|
 
 <br/>
 Pro projekty Windows Phone identifikátorů vypadat takto:
 
 |Phone OS|NuGet 2.0 a starší|NuGet 2.1
 |----------------|-----------|-----------|
-|Windows Phone 7|silverlight3 wp|webové části, WindowsPhone7 wp7, WindowsPhone,|
-|Windows Phone 7.5 (Mango)|silverilght4 wp71|wp71 WindowsPhone71|
-|Windows Phone 8|(není podporována)|wp8 WindowsPhone8|
+|Windows Phone 7|silverlight3-wp|wp, wp7, WindowsPhone, WindowsPhone7|
+|Windows Phone 7.5 (Mango)|silverilght4-wp71|wp71, WindowsPhone71|
+|Windows Phone 8|(není podporována)|wp8, WindowsPhone8|
 <br/>
 Ve všech výše uvedených změny budou nadále původní názvy framework plně podporovat NuGet 2.1.  Klouzavý dopředu, nové názvy je třeba použít jak budou stabilnější v budoucích verzích příslušné platformy. Nové názvy bude *není* se nepodporuje ve verzích NuGet před 2.1, ale, takže podle toho naplánovat pro případ, aby přepínač.
 

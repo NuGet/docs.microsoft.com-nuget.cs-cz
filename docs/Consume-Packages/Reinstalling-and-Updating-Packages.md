@@ -13,11 +13,11 @@ keywords: "NuGet balíček instalace, přeinstalování balíčku NuGet, obnoven
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6a198b371c86166e2bcdee7f6cf2a6c971bea0a3
-ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
+ms.openlocfilehash: 75d53bb6d2fecf6ba4c44ea3f03af6834e3fd46c
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>Jak znovu nainstalovat a aktualizovat balíčky
 
@@ -25,11 +25,11 @@ Existuje několik situací, popisujeme níže v části [při přeinstalaci bal�
 
 Aktualizace a opětovné instalace balíčků se provádí následujícím způsobem:
 
-| Metoda | Aktualizace | Přeinstalujte | 
+| Metoda | Aktualizace | Přeinstalujte |
 | --- | --- | --- |
 | Konzola správce balíčků (popsané v [použití aktualizace balíčku](#using-update-package)) | `Update-Package`příkaz | `Update-Package -reinstall`příkaz |
 | Uživatelského rozhraní Správce balíčků | Na **aktualizace** kartě, vyberte jeden nebo více balíčků a vyberte **aktualizace** | Na **nainstalovaná** , vyberte balíček, zaznamenejte jeho název a potom vyberte **odinstalovat**. Přepnout **Procházet** kartě, vyhledejte název balíčku, vyberte ho a pak vyberte **nainstalovat**). |
-| nuget.exe rozhraní příkazového řádku | `nuget update`příkaz | Pro všechny balíčky, odstraňte složku balíček a potom spusťte `nuget install`. Pro jeden balíček, odstraňte složku balíčku a použít `nuget install <id>` stejný jako ten, přeinstalujte. |
+| nuget.exe CLI | `nuget update`příkaz | Pro všechny balíčky, odstraňte složku balíček a potom spusťte `nuget install`. Pro jeden balíček, odstraňte složku balíčku a použít `nuget install <id>` stejný jako ten, přeinstalujte. |
 
 V tomto článku:
 
@@ -85,6 +85,7 @@ Ve výchozím nastavení `Update-Package` ovlivňuje všechny balíčky v řeše
 # Reinstall the package in just MyProject
 Update-Package <package_name> -ProjectName MyProject -reinstall
 ```
+
 K *aktualizace* všechny balíčky v projektu (nebo přeinstalovat pomocí `-reinstall`), použijte `-ProjectName` bez zadání žádné konkrétní balíček:
 
 ```ps
@@ -98,7 +99,7 @@ Pokud chcete aktualizovat všechny balíčky v řešení, použijte `Update-Pack
 Update-Package 
 ```
 
-Aktualizace balíčky v projektu nebo řešení pomocí `project.json` nebo [balíček odkazy v souborech projektu](../Consume-Packages/Package-References-in-Project-Files.md) vždy aktualizuje na nejnovější verzi balíčku (s výjimkou předběžné verze balíčků). Projekty využívající `packages.config` můžete v případě potřeby omezit verze aktualizací jak je popsáno níže v [Constraining upgradu verze](#constraining-upgrade-versions).
+Aktualizace balíčky v projektu nebo řešení pomocí [PackageReference](../Consume-Packages/Package-References-in-Project-Files.md) vždy aktualizuje na nejnovější verzi balíčku (s výjimkou předběžné verze balíčků). Projekty využívající `packages.config` můžete v případě potřeby omezit verze aktualizací jak je popsáno níže v [Constraining upgradu verze](#constraining-upgrade-versions).
 
 Úplné podrobnosti o příkazu najdete v tématu [balíček aktualizace](../Tools/ps-ref-update-package.md) odkaz.
 
@@ -122,4 +123,3 @@ Toto může být ovlivněn při přeinstalaci balíčku:
 
 1. **Opětovné instalace balíčků, pokud jsou zahrnuty závislé verze**
     - Jak je popsáno výše, opětovné instalace balíčku nezmění verzích všechny nainstalované balíčky, které na ní závisí. Je možné, a poté přeinstalovat závislost by mohlo způsobit narušení závislý balíček.
-

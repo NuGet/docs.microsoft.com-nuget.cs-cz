@@ -12,11 +12,11 @@ keywords: "Správce balíčků NuGet, využívání, vytvoření balíčku, bal�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 73c5af1fd06cae3c162446ad56c39a88bfdc3a1d
-ms.sourcegitcommit: d576d84fb4b6a178eb2ac11f55deb08ac771ba1c
+ms.openlocfilehash: e670fa6174f8dc9954ef9eebc06f61e84112117d
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="an-introduction-to-nuget"></a>Úvod do NuGet
 
@@ -86,15 +86,12 @@ S pouze seznam odkazů, můžete znovu NuGet&mdash;tedy *obnovení*&mdash;všech
 
 Počítač, který obdrží projektu, například server sestavení získat kopii projektu v rámci systému automatického nasazení, jednoduše požádá NuGet vždy, když už jste zapotřebí obnovit závislosti. Sestavte systémy jako Visual Studio Team Services popisují "NuGet restore" pro tento účel přesný. Podobně když vývojáři získejte kopii souboru projektu (stejně jako při klonování úložiště), se může vyvolat příkaz jako `nuget restore` (NuGet rozhraní příkazového řádku), `dotnet restore` (dotnet rozhraní příkazového řádku), nebo `Install-Package` (konzolu Správce balíčků) a získat všechny nezbytné balíčků. Visual Studio pro jeho část automaticky obnoví balíčky při vytváření projektu.
 
-Je zřejmé pak NuGet primární roli, kde jsou příslušné vývojáři udržuje tento odkaz seznam jménem projektu a poskytuje možnosti pro efektivní obnovení (a aktualizovat) tyto odkazované balíčky.
-
-Jak přesně tomu má vyvinuly přes různé verze NuGet, což vede k několik *balíček správy formáty*, jak se nazývají se:
+Je zřejmé pak NuGet primární roli, kde jsou příslušné vývojáři udržuje tento odkaz seznam jménem projektu a poskytuje možnosti pro efektivní obnovení (a aktualizovat) tyto odkazované balíčky. Tento seznam se udržuje v jednom ze dvou *balíček správy formáty*, jak se nazývají se:
 
 - [`packages.config`](Schema/packages-config.md): *(NuGet 1.0 +)* soubor ve formátu XML, který udržuje plochý seznam všechny závislosti v projektu, včetně závislostí jiné nainstalované balíčky.
 - [PackageReference](Consume-Packages/Package-References-in-Project-Files.md) (nebo "balíček odkazy v souborech projektu") | *(NuGet 4.0 +)* udržuje seznam nejvyšší úrovně závislosti projektu přímo v souboru projektu, aby bylo možné žádný samostatný soubor. Přidružený soubor, `project.assets.json`, se dynamicky vygeneruje ke správě celkové graf závislostí.
-- [`project.json`](Schema/project-json.md): *(nepoužívané)* A JSON soubor, který udržuje seznam závislosti projektu s celkové balíček grafu v přidružený soubor, `project.lock.json`. Tento formát je zastaralý považuje PackageReference.
 
-Formát balíčku správy zaměstnání v jakékoli dané projektu závisí na typu projektu a dostupná verze NuGet (nebo v sadě Visual Studio). Pokud chcete zkontrolovat, jaký formát se používá, jednoduše vyhledejte `packages.config` nebo `project.json` v kořenu projektu po instalaci vašeho prvního balíčku. Pokud nevidíte buď soubor, vyhledejte v souboru projektu přímo pro &lt;PackageReference&gt;element.
+Formát balíčku správy zaměstnání v jakékoli dané projektu závisí na typu projektu a dostupná verze NuGet (nebo v sadě Visual Studio). Pokud chcete zkontrolovat, jaký formát se používá, jednoduše vyhledejte `packages.config` v kořenu projektu po instalaci vašeho prvního balíčku. Pokud není tento soubor hledat v souboru projektu přímo pro &lt;PackageReference&gt;element.
 
 ## <a name="what-else-does-nuget-do"></a>Co dalšího NuGet dělá?
 

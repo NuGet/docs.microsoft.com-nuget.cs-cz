@@ -3,35 +3,35 @@ title: "Návod balíček NuGet obnovit pomocí aplikace Team Foundation Build | 
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 1/9/2017
+ms.date: 01/09/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 3113cccd-35f7-4980-8a6e-fc06556b5064
 description: "Návod, jak balíček NuGet obnovení s Team Foundation Build (sady TFS a Visual Studio Team Services)."
 keywords: "Obnovení balíčku NuGet, NuGet a sady TFS, NuGet a služby VSTS, systémy sestavení NuGet, team foundation build, vlastní projektů MSBuild cloudu, nepřetržité integrace sestavení"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 82decfa1a39cb99c405840a8f13b0bc993111c09
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: a90b4bb9bd3a5b9200179ab16f16b276abcda981
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="setting-up-package-restore-with-team-foundation-build"></a>Nastavení obnovení balíčků s Team Foundation Build
 
-> Platí pro:
->  - Vlastní projektů MSBuild spuštěna v libovolné verzi sady TFS
->  - Team Foundation Server 2012 nebo starším
->  - Vlastní Team Foundation sestavení šablony procesů migrovat do sady TFS 2013 nebo novější
->  - Šablony procesu sestavení odebrané funkce obnovení Nuget
->
-> Pokud používáte Visual Studio Team Services nebo na místním Team Foundation Server 2013 s jeho šablony procesu sestavení, automatické obnovení balíčků se stane, jako součást procesu sestavení.
-
-V této části vám poskytne podrobný návod k obnovení balíčků jako součást [Team Services Build](/vsts/build-release/index) i pro Git a správě verzí Team Services.
+Tento článek obsahuje podrobný návod k obnovení balíčků jako součást [Team Services Build](/vsts/build-release/index) i pro Git a správě verzí Team Services.
 
 I když Tento názorný postup je specifická pro scénář použití Visual Studio Team Services, koncepty také použít pro další ovládací prvek verze a sestavit systémy.
+
+Platí pro:
+
+- Vlastní projektů MSBuild spuštěna v libovolné verzi sady TFS
+- Team Foundation Server 2012 nebo starším
+- Vlastní Team Foundation sestavení šablony procesů migrovat do sady TFS 2013 nebo novější
+- Šablony procesu sestavení odebrané funkce obnovení Nuget
+
+Pokud používáte Visual Studio Team Services nebo Team Foundation Server 2013 s jeho šablony procesu sestavení, se stane balíček automatické obnovení jako součást procesu sestavení.
 
 ## <a name="the-general-approach"></a>Obecný přístup
 
@@ -43,7 +43,7 @@ Obsahoval podporované NuGet [obnovují se balíčky](../consume-packages/packag
 
 Vytvrdit tohoto problému je zajistit jistotu, že jsou balíčky obnovit jako první krok v procesu sestavení. NuGet 2.7 + to výrazně usnadňuje prostřednictvím zjednodušené příkazového řádku:
 
-```
+```cli
 nuget restore path\to\solution.sln
 ```
 
@@ -87,7 +87,7 @@ Jsme k dispozici, ale vráceno se změnami `nuget.exe` potřeby během sestaven�
 
 Zdrojový kód je v části `src` složky. I když naše Ukázka používá jenom jedno řešení, můžete snadno představte, že tato složka obsahuje více než jedno řešení.
 
-### <a name="ignore-files"></a>Ignorovat soubory
+### <a name="ignore-files"></a>Ignorování souborů
 
 > [!Note]
 > V současné době není [známého problému v klientovi NuGet](https://nuget.codeplex.com/workitem/4072) který způsobuje, že klient stále přidat `packages` složky do správy verzí. Alternativní řešení je zakázat integrace ovládacích prvků zdrojového. Aby bylo možné provést, budete potřebovat `Nuget.Config ` v soubor `.nuget` složky, která je paralelní k řešení. Pokud tato složka ještě neexistuje, budete potřebovat k jeho vytvoření. V [ `Nuget.Config` ](../consume-packages/configuring-nuget-behavior.md), přidejte do něj následující obsah:
@@ -100,8 +100,7 @@ Zdrojový kód je v části `src` složky. I když naše Ukázka používá jeno
 </configuration>
 ```
 
-
-Komunikovat do správy verzí, že nepodporujeme záměr vrácení se změnami **balíčky** složek, jsme také doplnili ignorovat soubory pro oba git (`.gitignore`) a také TF správy verzí (`.tfignore`). Tyto soubory popisuje vzory soubory, které nechcete použít k vrácení se změnami.
+Pro komunikaci se správa verzí, že nepodporujeme záměr vrácení se změnami **balíčky** složek, jsme také doplnili ignorovat soubory pro oba git (`.gitignore`) a také TF správy verzí (`.tfignore`). Tyto soubory popisuje vzory soubory, které nechcete použít k vrácení se změnami.
 
 `.gitignore` Souboru vypadá takto:
 
@@ -127,7 +126,7 @@ Správa verzí TF podporuje velmi podobné mechanismus prostřednictvím [.tfign
     obj
     packages
 
-## <a name="buildproj"></a>Build.proj
+## <a name="buildproj"></a>build.proj
 
 Pro naše ukázka jsme zjednodušení procesu sestavení poměrně. Vytvoříme projektu MSBuild, který sestavuje všechny řešení při a ujistěte se, že jsou balíčky obnovit před vytvořením řešení.
 

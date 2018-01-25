@@ -3,35 +3,26 @@ title: "NuGet pack a obnovit jako cíle MSBuild | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 4/3/2017
+ms.date: 04/03/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 86f7e724-2509-4d7d-aa8d-4a3fb913ded6
 description: "NuGet pack a obnovení můžete pracovat přímo jako cíle MSBuild s NuGet 4.0 +."
 keywords: "NuGet a MSBuild NuGet pack cíl, cíl obnovení NuGet"
 ms.reviewer: karann-msft
-ms.openlocfilehash: d4778a21a96de6d76d7a20ff9a305960dd6c2bf1
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 169d73709eeb17aade7d99da66bbb4f346f8093f
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet pack a obnovení jako cíle nástroje MSBuild
 
 *NuGet 4.0 +*
 
-NuGet 4.0 + může spolupracovat přímo s informace v `.csproj` souboru bez nutnosti samostatné `.nuspec` nebo `project.json` souboru. Všechna metadata, která byla dříve uložená v těchto konfigurační soubory se místo toho uloží `.csproj` souboru přímo, jak je popsáno v tomto poli.
+Ve formátu PackageReference NuGet 4.0 + můžete ukládat všechny manifestu metadata přímo v souboru projektu místo pomocí samostatné `.nuspec` souboru.
 
 Pomocí nástroje MSBuild 15.1 + NuGet je také prvotřídní MSBuild občanem s `pack` a `restore` cílem, jak je popsáno níže. Tyto cíle umožňují pracovat s NuGet, stejně jako s jinými úlohy nástroje MSBuild nebo cíl. (Pro NuGet 3.x a starší, použijte [pack](../tools/cli-ref-pack.md) a [obnovení](../tools/cli-ref-restore.md) příkazy prostřednictvím rozhraní příkazového řádku NuGet místo.)
-
-V tomto tématu:
-
-- [Pořadí sestavení cílů](#target-build-order)
-- [cíl Pack](#pack-target)
-- [scénáře aktualizací Service Pack](#pack-scenarios)
-- [Cíl obnovení](#restore-target)
-- [PackageTargetFallback](#packagetargetfallback)
 
 ## <a name="target-build-order"></a>Pořadí sestavení cílů
 
@@ -50,25 +41,24 @@ Podobně můžete napsat úlohy nástroje MSBuild, zápis vlastní cíl a využ�
 
 ## <a name="pack-target"></a>cíl Pack
 
-Při použití pack cíl, který je `msbuild /t:pack`, MSBuild nevykresluje vstupy z `.csproj` souboru místo `project.json` nebo `.nuspec` soubory. Následující tabulka popisuje vlastnosti nástroje MSBuild, které mohou být přidány do `.csproj` soubor v první `<PropertyGroup>` uzlu. Můžete provést tyto úpravy snadno v Visual Studio 2017 a později kliknutím pravým tlačítkem na projekt a výběrem **upravit {název_projektu}** v místní nabídce. Pro usnadnění práce v tabulce je seřazená podle vlastnost ekvivalentní v [ `.nuspec` soubor](../schema/nuspec.md).
+Při použití pack cíl, který je `msbuild /t:pack`, MSBuild nevykresluje vstupy ze souboru projektu. Následující tabulka popisuje vlastnosti nástroje MSBuild, které mohou být přidány do souboru projektu v první `<PropertyGroup>` uzlu. Můžete provést tyto úpravy snadno v Visual Studio 2017 a později kliknutím pravým tlačítkem na projekt a výběrem **upravit {název_projektu}** v místní nabídce. Pro usnadnění práce v tabulce je seřazená podle vlastnost ekvivalentní v [ `.nuspec` soubor](../schema/nuspec.md).
 
 Všimněte si, že `Owners` a `Summary` vlastnosti z `.nuspec` nejsou podporovány pomocí nástroje MSBuild.
-
 
 | Hodnota atributu/NuSpec | Vlastnosti nástroje MSBuild | Výchozí | Poznámky |
 |--------|--------|--------|--------|
 | ID | ID balíčku | AssemblyName | $(AssemblyName) z nástroje MSBuild |
 | Version | PackageVersion | Version | Toto je semver kompatibilní, například "1.0.0", "1.0.0-beta" nebo "1.0.0-beta-00345" |
 | VersionPrefix | PackageVersionPrefix | empty | Nastavení PackageVersion přepíše PackageVersionPrefix |
-| VersionSuffix | PackageVersionSuffix | empty | $(VersionSuffix) z nástroje MSBuild. Nastavení PackageVersion přepíše PackageVersionSuffix | 
+| VersionSuffix | PackageVersionSuffix | empty | $(VersionSuffix) z nástroje MSBuild. Nastavení PackageVersion přepíše PackageVersionSuffix |
 | Autoři | Autoři | Uživatelské jméno aktuálního uživatele | |
 | Vlastníci | Není k dispozici | Není k dispozici v NuSpec | |
 | Název | Název | ID balíčku| |
 | Popis | Popis | "Balíček popis" | |
 | Copyright | Copyright | empty | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false | |
-| Adresa LicenseUrl | PackageLicenseUrl | empty | |
-| Adrese ProjectUrl | PackageProjectUrl | empty | |
+| LicenseUrl | PackageLicenseUrl | empty | |
+| ProjectUrl | PackageProjectUrl | empty | |
 | IconUrl | PackageIconUrl | empty | |
 | Značky | PackageTags | empty | Značky jsou oddělené středníky. |
 | ReleaseNotes | PackageReleaseNotes | empty | |
@@ -76,7 +66,6 @@ Všimněte si, že `Owners` a `Summary` vlastnosti z `.nuspec` nejsou podporová
 | RepositoryType | RepositoryType | empty | |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
 | Souhrn | Nepodporováno | | |
-
 
 ### <a name="pack-target-inputs"></a>vstupy cíl Pack
 
@@ -158,7 +147,7 @@ Chcete-li zahrnout obsah, přidejte doplňující metadata do existující `<Con
 Ve výchozím nastavení, vše, co přidá do kořenového adresáře `content` a `contentFiles\any\<target_framework>` složky v balíčku a uchovává složce relativní struktury, pokud zadáte cestu k balíčku:
 
 ```xml
-<Content Include="..\win7-x64\libuv.txt">        
+<Content Include="..\win7-x64\libuv.txt">
     <Pack>true</Pack>
     <PackagePath>content\myfiles\</PackagePath>
 </Content>
@@ -179,9 +168,8 @@ Je také ve vlastnosti nástroje MSBuild `$(IncludeContentInPack)`, což výchoz
 
 Zahrnuje další konkrétní metadata aktualizací Service pack, kterou můžete nastavit na některou z výše uvedených položek ```<PackageCopyToOutput>``` a ```<PackageFlatten>``` které nastaví ```CopyToOutput``` a ```Flatten``` hodnoty na ```contentFiles``` položku v výstupní soubor nuspec.
 
-
 > [!Note]
-> Vedle položky obsahu `<Pack>` a `<PackagePath>` metadata můžete také nastavit na soubory pomocí akce sestavení kompilace, EmbeddedResource, ApplicationDefinition, stránky, prostředků, SplashScreen, DesignData, DesignDataWithDesignTimeCreatableTypes, CodeAnalysisDictionary, AndroidAsset, AndroidResource, BundleResource nebo žádný.
+> Vedle položky obsahu `<Pack>` a `<PackagePath>` metadata můžete také nastavit na soubory pomocí akce sestavení kompilace, EmbeddedResource, ApplicationDefinition, stránky, prostředků, SplashScreen, DesignData, DesignDataWithDesignTimeCreateableTypes , CodeAnalysisDictionary, AndroidAsset, AndroidResource, BundleResource nebo hodnotu None.
 >
 > Pro pack připojit název souboru pro cestu k balíčku, při použití vzory expanze názvů cestu k balíčku musí končit složky oddělovací znak, jinak hodnota cestou balíčku je považován za úplnou cestu včetně názvu souboru.
 
@@ -209,13 +197,13 @@ Můžete použít `.nuspec` soubor pack projektu za předpokladu, že soubor pro
 
 Pokud používáte `dotnet.exe` pack projektu, použijte příkaz takto:
 
-```
+```cli
 dotnet pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:NuspecProperties=<> /p:NuspecBasePath=<Base path> 
 ```
 
 Pokud pomocí nástroje MSBuild pack projektu, použijte příkaz takto:
 
-```
+```cli
 msbuild /t:pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:NuspecProperties=<> /p:NuspecBasePath=<Base path> 
 ```
 
@@ -229,7 +217,6 @@ msbuild /t:pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:Nu
 1. Spustit obnovení
 1. Stáhnout balíčky
 1. Zápis soubor prostředků, cílů a props
-
 
 ### <a name="restore-properties"></a>Obnovit vlastnosti
 
@@ -247,11 +234,11 @@ Nastavení další obnovení mohou pocházet z vlastnosti nástroje MSBuild v so
 | RestoreGraphProjectInput | Seznam oddělený středníkem projekty k obnovení, který by měl obsahovat absolutní cesty. |
 | RestoreOutputPath | Výstupní složky, jako výchozí bude použit `obj` složky. |
 
-**Příklady**
+#### <a name="examples"></a>Příklady
 
 Příkazový řádek:
 
-```
+```cli
 msbuild /t:restore /p:RestoreConfigFile=<path>
 ```
 
@@ -273,10 +260,9 @@ Obnovení vytvoří následující soubory v sestavení `obj` složky:
 | `{projectName}.projectFileExtension.nuget.g.props` | Odkazy na MSBuild props součástí balíčků |
 | `{projectName}.projectFileExtension.nuget.g.targets` | Odkazy na cíle MSBuild součástí balíčků |
 
+### <a name="packagetargetfallback"></a>PackageTargetFallback
 
-### <a name="packagetargetfallback"></a>PackageTargetFallback 
-
-`PackageTargetFallback` Element umožňuje určit sadu kompatibilní cíle, který se má použít při obnovování balíčků (ekvivalent [ `imports` v `project.json` ](../schema/project-json.md#imports)). Je navržen tak, aby balíčky, které používají dotnet. [TxM](../schema/target-frameworks.md) k práci s kompatibilní balíčky, které nejsou deklarovat dotnet TxM. To znamená, pokud projektu používá dotnet TxM, pak všechny balíčky, které závisí na musí také mít dotnet TxM, pokud přidáte `<PackageTargetFallback>` do projektu, aby bylo možné povolit platformy bez dotnet. aby bylo kompatibilní s dotnet. 
+`PackageTargetFallback` Element umožňuje určit sadu kompatibilní cíle, který se má použít při obnovování balíčků. Je navržen tak, aby balíčky, které používají dotnet. [TxM](../schema/target-frameworks.md) k práci s kompatibilní balíčky, které nejsou deklarovat dotnet TxM. To znamená, pokud projektu používá dotnet TxM, pak všechny balíčky, které závisí na musí také mít dotnet TxM, pokud přidáte `<PackageTargetFallback>` do projektu, aby bylo možné povolit platformy bez dotnet. aby bylo kompatibilní s dotnet.
 
 Například, pokud je projekt pomocí `netstandard1.6` TxM a závislý balíček obsahuje pouze `lib/net45/a.dll` a `lib/portable-net45+win81/a.dll`, pak projektu se nepovede. Pokud chcete mají být předány se druhé knihovny DLL, pak můžete přidat `PackageTargetFallback` následujícím způsobem. Tím vyjádříte, který `portable-net45+win81` DLL je kompatibilní:
 
@@ -293,7 +279,6 @@ Deklarovat zálohu pro všechny cíle v projektu, nechte `Condition` atribut. M�
     $(PackageTargetFallback);portable-net45+win81
 </PackageTargetFallback >
 ```
-
 
 ### <a name="replacing-one-library-from-a-restore-graph"></a>Nahrazení jedna knihovna z obnovení grafu
 

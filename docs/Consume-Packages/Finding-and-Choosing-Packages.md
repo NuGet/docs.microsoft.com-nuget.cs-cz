@@ -13,21 +13,15 @@ keywords: "NuGet balíček spotřebu, zjišťování balíčku NuGet, nejlepší
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 23ef9832af0bd864b6dcd31ab8666ac21c7b2f67
-ms.sourcegitcommit: 122bf7ce308365ea45da018b0768f0536de76a1f
+ms.openlocfilehash: e1640ce478184dbbd8d8aad565f2247942db62e2
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Hledání a vyhodnocení balíčky NuGet pro projekt
 
 Při spouštění všech rozhraní .NET projektu, nebo vždy, když identifikovat funkční potřebu aplikace nebo služby, můžete si ušetřit spoustu času a řešení problémů pomocí existující balíčky NuGet, které kterém musí splnit. Tyto balíčky mohou pocházet z veřejné kolekce [nuget.org](http://www.nuget.org/packages/), nebo privátní zdroj, který poskytuje vaší organizace nebo jiným třetí strany.
-
-Na této stránce:
-
-- [Hledání balíčků](#finding-packages)
-- [Vyhodnocení balíčky](#evaluating-packages)
-- [Syntaxe vyhledávání](#search-syntax)
 
 ## <a name="finding-packages"></a>Hledání balíčků
 

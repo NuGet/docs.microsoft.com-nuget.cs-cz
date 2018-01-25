@@ -3,21 +3,20 @@ title: "Příkaz config NuGet rozhraní příkazového řádku | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 10/24/2017
+ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: a50295ff-8be9-47d9-a260-822e899334cb
 description: "Referenční dokumentace pro příkaz nuget.exe konfigurace"
 keywords: "referenční dokumentace týkající se konfigurace nuget, příkazu config"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: f49751d9747687177e3b6c1890ee9d2919be8d0e
-ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
+ms.openlocfilehash: 31abc5c1ade0aff9a2f23ec89ec7082acedb3653
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="config-command-nuget-cli"></a>příkaz config (NuGet CLI)
 
@@ -27,7 +26,7 @@ Získá nebo nastaví hodnoty konfigurace NuGet. Další využití, najdete v č
 
 ## <a name="usage"></a>Použití
 
-```
+```cli
 nuget config -Set <name>=[<value>] [<name>=<value> ...] [options]
 nuget config -AsPath <name> [options]
 ```
@@ -43,17 +42,17 @@ V NuGet 3.4 + `<value>` můžete použít [proměnné prostředí](cli-ref-envir
 | Možnost | Popis |
 | --- | --- |
 | AsPath | Vrátí hodnotu konfigurace jako cesta, ignorovat při `-Set` se používá. |
-| ConfigFile | *(2.5 +)*  NuGet konfiguračním souboru chcete upravit. Pokud není zadaný, *%AppData%\NuGet\NuGet.Config* se používá. |
+| ConfigFile | Konfigurační soubor NuGet chcete upravit. Pokud není zadaný, *%AppData%\NuGet\NuGet.Config* se používá. |
 | ForceEnglishOutput | *(3.5 +)*  Vynutí nuget.exe ke spuštění pomocí invariantní, na základě angličtina jazykové verze. |
 | Nápověda | Zobrazí nápovědu pro příkaz. |
 | Neinteraktivní | Potlačí výzvy pro vstup uživatele nebo potvrzení. |
-| Podrobnosti | Určuje množství podrobností, které jsou zobrazené ve výstupu: *normální*, *quiet*, *podrobné (2.5 +)*. |
+| Podrobnosti | Určuje množství podrobností, které jsou zobrazené ve výstupu: *normální*, *quiet*, *podrobné*. |
 
 Viz také [proměnné prostředí](cli-ref-environment-variables.md)
 
 ### <a name="examples"></a>Příklady
 
-```
+```cli
 nuget config -Set repositoryPath=c:\packages -configfile c:\my.config
 
 nuget config -Set repositoryPath=

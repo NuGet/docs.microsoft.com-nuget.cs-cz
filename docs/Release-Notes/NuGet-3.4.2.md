@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: b514da09-da1f-416b-9bfc-692f08fb6957
 description: "Poznámky k verzi pro NuGet 3.4.2 včetně – známé problémy, opravy chyb, přidaných funkcí a chcete."
 keywords: "NuGet 3.4.2 poznámky k verzi, opravy chyb známé problémy, přidat funkce, chcete"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6761c59b6dc85b9a8503041928c2707549006d9c
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 892a965e67762af2ae42c2d6ee75d2838104d1c2
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-342-release-notes"></a>Poznámky k verzi NuGet 3.4.2
 
@@ -36,7 +35,7 @@ Si můžete stáhnout na verzi release candidate z nuget.exe 3.4.2 [zde](https:/
 * Kromě tuto změnu vyřešili jsme problém kde jsme byly dvakrát při načítání aktualizace počet v uživatelském rozhraní VS stiskne sítě. To je částečně zodpovědná za někteří zákazníci problémy časový limit zkušenosti s 3.4 nebo 3.4.1.
 * Přidaná podpora pro no_proxy nastavení
 
-##<a name="fixes"></a>Opravy
+## <a name="fixes"></a>Opravy
 
 * Kde nuget.org zdroje nebyl nalezen v NuGet nastavení nebo konfigurace po aktualizaci 3.4.1 opraven problém.
 * Kde se malá a velká písmena změnu FindPackagesById v 3.4.1 dělí Artifactory opraven problém.

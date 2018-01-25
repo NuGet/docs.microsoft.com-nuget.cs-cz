@@ -3,21 +3,20 @@ title: "Referenční dokumentace rozhraní příkazového řádku (CLI) NuGet | 
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 10/24/2017
+ms.date: 01/23/2018
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: d777c424-0cf3-4bc0-8abd-7ca16c22192b
 description: "Reference k příkazovému řádku index pro nuget.exe rozhraní příkazového řádku"
 keywords: "Rejstřík referenční dokumentace nuget.exe, rozhraní příkazového řádku nuget.exe, nuget.exe rozhraní příkazového řádku, příkaz nuget"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 5dba358b1dda46f551721461e0460219f8210f9a
-ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
+ms.openlocfilehash: 8b1ee17702f5a54a77dc2cd663e13729a9b4a39f
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-cli-reference"></a>Referenční dokumentace rozhraní příkazového řádku NuGet
 
@@ -31,11 +30,16 @@ Tato dokumentace odráží nejnovější verzi rozhraní příkazového řádku 
 
 [!INCLUDE[install-cli](../includes/install-cli.md)]
 
+> [!Tip]
+> Chcete-li k dispozici v konzoli správce balíčků NuGet příkazového řádku v sadě Visual Studio, najdete v části [pomocí nuget.exe rozhraní příkazového řádku v konzole](package-manager-console.md#using-the-nugetexe-cli-in-the-console).
+
 ## <a name="availability"></a>Dostupnost
 
+V tématu [dostupnost funkcí](../install-nuget-client-tools.md#feature-availability) najdete přesné informace.
+
 - Všechny příkazy jsou k dispozici v systému Windows.
-- Všechny příkazy pro práci s [nuget.exe systémem Mono](../guides/install-nuget.md#mac-osx-and-linux) s výjimkou uvedenou pro `pack`, `restore`, a `update`.
-- `pack`, `restore`, `delete`, `locals`, A `push` příkazy jsou také k dispozici na Mac a Linux pomocí [dotnet rozhraní příkazového řádku](dotnet-Commands.md).
+- Všechny příkazy pro práci s nuget.exe systémem Mono, pokud není uvedeno pro jinak `pack`, `restore`, a `update`.
+- `pack`, `restore`, `delete`, `locals`, A `push` příkazy jsou také k dispozici na Mac a Linux pomocí rozhraní příkazového řádku dotnet.
 
 ## <a name="commands-and-applicability"></a>Příkazy a použitelnosti
 
@@ -51,7 +55,6 @@ Dostupné příkazy a použitelnost k vytvoření balíčku, balíčku spotřebu
 | [restore](cli-ref-restore.md) | Spotřeba | 2.7+ | Obnoví všechny balíčky odkazuje formátu odkaz balíčku používán. Při spuštění na Mono, Probíhá obnovení balíčků formátu PackageReference není podporována. |
 | [setapikey](cli-ref-setapikey.md) | Publikování, spotřeba | Všechny | Pokud tento zdroj balíčku vyžaduje klíče pro přístup, uloží klíč rozhraní API pro zdroj daného balíčku. |
 | [spec](cli-ref-spec.md) | Vytvoření | Všechny | Generuje `.nuspec` souboru pomocí tokenů, je-li generování souboru z projektu sady Visual Studio. |
-
 
 | Sekundární příkazy | Platných rolí | Verze NuGet | Popis |
 | --- | --- | --- | --- |

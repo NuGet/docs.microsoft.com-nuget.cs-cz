@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: d99bbf29-2b9a-4dc5-a823-5eb4f9e30f7f
 description: "Poznámky k verzi pro včetně známé problémy, opravy chyb, přidaných funkcí a chcete 2.6 NuGet."
 keywords: "NuGet 2.6 poznámky k verzi, opravy chyb známé problémy, přidat funkce, chcete"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b34c0049a5ba42f6bcd5b36fa5b0ba261e27ecd5
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: c2df9721e6941c110948af1a2d4ec4b7aeb476dd
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-26-release-notes"></a>Poznámky k verzi 2.6 NuGet
 
@@ -38,7 +37,7 @@ Od verze NuGet 2.6, budeme publikovat dvě rozšíření, jak je uvedeno níže:
 1. [Správce balíčků NuGet](https://marketplace.visualstudio.com/items?itemName=NuGetTeam.NuGetPackageManager) (platí pro Visual Studio 2010 a 2012)
 1. [Správce balíčků NuGet pro Visual Studio 2013](https://marketplace.visualstudio.com/items?itemName=NuGetTeam.NuGetPackageManagerforVisualStudio2013)
 
-S toto rozdělení [nuget.org](https://nuget.org) tlačítko "Nainstalovat NuGet" domovskou stránku teď přejdete k [instalace NuGet](../guides/install-nuget.md) stránky, kde můžete najít další informace o instalaci různých klientů NuGet.
+S toto rozdělení [nuget.org](https://nuget.org) domovské stránky "Nainstalovat NuGet" tlačítko přejdete k [instalace NuGet](../install-nuget-client-tools.md) stránky, kde můžete najít další informace o instalaci různých klientů NuGet.
 
 <a name="xdt"></a>
 
@@ -53,8 +52,8 @@ V duben 2013 jsme provedli dva big oznámení týkajících se podpory NuGet XDT
 Abyste mohli využívat podpory XDT NuGet, vypadat podobně jako u mechanismů [funkce transformace aktuální konfigurace](../create-packages/source-and-config-file-transformations.md).
 Transformace soubory budou přidány do složky obsahu balíčku. Ale při transformace konfigurace používat jeden soubor pro instalaci a odinstalaci, XDT transformace povolit jemně odstupňovanou kontrolu nad oba tyto procesy pomocí následující soubory:
 
-- Web.config.Install.XDT
-- Web.config.Uninstall.XDT
+- Web.config.install.xdt
+- Web.config.uninstall.xdt
 
 Kromě toho NuGet používá přípona souboru k určení které modul pro transformace, aby do balíčky pomocí existující web.config.transforms budou nadále fungovat. Transformace XDT je také možné použít na libovolný soubor XML (nikoli pouze soubor web.config), takže můžete využít to u ostatních aplikací ve vašem projektu.
 
@@ -71,8 +70,8 @@ NuGet 2.6 rozšiřuje logiku pro hledání hierarchii složek na cestě % Progra
 
 1. %ProgramData%\NuGet\Config\*.config
 2. %ProgramData%\NuGet\Config\{IDE}\*.config
-3. %ProgramData%\NuGet\Config\{IDE}\{verze}\*.config
-4. %ProgramData%\NuGet\Config\{IDE}\{verze}\{SKU}\*.config
+3. %ProgramData%\NuGet\Config\{IDE}\{Version}\*.config
+4. %ProgramData%\NuGet\Config\{IDE}\{Version}\{SKU}\*.config
 
 V tomto seznamu je zástupný symbol {IDE} specifické pro prostředí IDE, ve kterém běží NuGet, tak v případě Visual Studio, bude "Visual Studio". {Version} a {SKU} zástupné symboly jsou poskytovány rozhraní IDE (např.) "11.0" a "WDExpress", "VWDExpress" a "Pro", v uvedeném pořadí). Složka pak může obsahovat mnoho různých *.config souborů.
 Proto můžete, společnost součást pokusná jako součást své instalační program produktu, přidat zdroj vlastní balíček, který bude zobrazen pouze verze Professional a Ultimate sady Visual Studio 2012, a to vytvořením následující cesta k souboru:

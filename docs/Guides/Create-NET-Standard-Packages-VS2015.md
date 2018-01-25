@@ -3,21 +3,20 @@ title: "Vytvoření balíčků NuGet standardní .NET s Visual Studiem 2015 | Mi
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 1/9/2017
+ms.date: 01/09/2017
 ms.topic: get-started-article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 29b3bceb-0f35-4cdd-bbc3-a04eb823164c
 description: "Návod začátku do konce, vytváření balíčků NuGet pro rozhraní .NET standardní pomocí nástroje NuGet 3.x a Visual Studio 2015."
 keywords: "Vytvoření balíčku, .NET Standard balíčky, .NET Standard mapování tabulky"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: e02888bf552997afe25e967f13e021e78e40d48d
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 24089eba93d80dca32632a8c1e174aef849ee72d
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="create-net-standard-packages-with-visual-studio-2015"></a>Vytvoření balíčků .NET Standard s Visual Studio 2015
 
@@ -35,7 +34,6 @@ Tato příručka vás provede procesem vytvoření balíčku nuget cílení na r
 1. [.NET standard mapování tabulky](#net-standard-mapping-table)
 1. [Související témata](#related-topics)
 
-
 ## <a name="pre-requisites"></a>Předpoklady
 
 1. Visual Studio 2015. Instalaci edice Community zdarma z [visualstudio.com](https://www.visualstudio.com/); samozřejmě můžete taky edice Professional a Enterprise.
@@ -45,8 +43,6 @@ Tato příručka vás provede procesem vytvoření balíčku nuget cílení na r
 > [!Note]
 > nuget.exe je že nástroj příkazového řádku, není instalační program, takže je nutné z prohlížeče namísto spuštění ho uložte stažený soubor.
 
-
-
 ## <a name="create-the-class-library-project"></a>Vytvoření projektu knihovny tříd
 
 1. V sadě Visual Studio **soubor > Nový > projekt**, rozbalte **Visual C# > Windows** uzlu, vyberte **knihovny tříd (přenositelností)**, změňte název na AppLogger a klikněte na tlačítko OK.
@@ -54,11 +50,13 @@ Tato příručka vás provede procesem vytvoření balíčku nuget cílení na r
     ![Vytvoření nového projektu knihovny tříd](media/NetStandard-NewProject.png)
 
 1. V **přidat Přenosná knihovna tříd** dialog, který se zobrazí, vyberte `.NET Framework 4.6` a `ASP.NET Core 1.0` možnosti.
+
 1. Klikněte pravým tlačítkem myši `AppLogger (Portable)` v Průzkumníku řešení, vyberte **vlastnosti**, vyberte **knihovny** a potom klikněte na tlačítko **Standard platformy cílové rozhraní .NET** v **Cílení** části. Zobrazí se výzva k potvrzení, po kterém můžete vybrat `.NET Standard 1.4` v rozevíracím seznamu:
 
     ![Nastavení cíl na standardní 1.4 rozhraní .NET](media/NetStandard-ChangeTarget.png)
 
 1. Klikněte na **sestavení** změňte **konfigurace** k `Release`a zaškrtněte políčko pro **souborů dokumentace XML**.
+
 1. Přidáte kód pro součásti, například:
 
     ```cs
@@ -80,7 +78,7 @@ Tato příručka vás provede procesem vytvoření balíčku nuget cílení na r
 
 1. Otevřete příkazový řádek, přejděte do složky obsahující `AppLogg.csproj` složky (o jednu úroveň pod where `.sln` soubor), a spusťte NuGet `spec` příkaz pro vytvoření počáteční `AppLogger.nuspec` souboru:
 
-```
+```cli
 nuget spec
 ```
 
@@ -116,12 +114,11 @@ nuget spec
 
 1. Klikněte pravým tlačítkem na řešení a vyberte **sestavit řešení** ke generování všechny soubory pro balíček.
 
-
 ## <a name="package-the-component"></a>Balíček součásti
 
 S dokončené `.nuspec` odkazující na všechny soubory, které je potřeba zahrnout do balíčku, jste připraveni ke spuštění `pack` příkaz:
 
-```
+```cli
 nuget pack AppLogger.nuspec
 ```
 
@@ -205,11 +202,8 @@ Další podrobnosti o použití Tato technika, najdete v části [podpora více 
 
 V některých případech můžete chtít přidat vlastní sestavovací cíle nebo vlastnosti v projektech, které využívají vašeho balíčku, jako je například spuštění vlastního nástroje nebo procesu během vytváření sestavení. To uděláte tak, že přidáte soubory v `\build` složky, jak je popsáno v následujících krocích. Při instalaci balíčku NuGet se soubory \build přidá MSBuild element v souboru projektu odkazující na soubory .targets a props.
 
-> [!Note]
-> Při použití `project.json`, cíle nejsou přidány do projektu, ale jsou k dispozici prostřednictvím `project.lock.json`.
-
-
 1. V projektu složku obsahující vaše `.nuspec` souboru, vytvořte složku s názvem `build`.
+
 1. Uvnitř `build`, vytváření složek pro všechny podporované a v rámci ty umístit vaše `.targets` a `.props` soubory:
 
         \build
@@ -236,7 +230,6 @@ V některých případech můžete chtít přidat vlastní sestavovací cíle ne
 1. Vytvořit balíček znovu s použitím `nuget pack AppLogger.nuspec`.
 
 Další podrobnosti najdete v části [zahrnují MSBuild props a cíle v balíčku](../create-packages/creating-a-package.md#including-msbuild-props-and-targets-in-a-package).
-
 
 ### <a name="creating-localized-packages"></a>Vytvoření lokalizovaných balíčků
 
@@ -283,14 +276,12 @@ Pokud chcete vytvořit lokalizované verze knihovny, můžete vytvořit samostat
 
 1. Vytvořit balíček znovu s použitím `nuget pack AppLogger.nuspec`.
 
-
 ### <a name="adding-a-readme"></a>Přidání soubor readme
 
 Pokud zahrnete `readme.txt` souboru v kořenu balíčku, Visual Studio se zobrazí se při instalaci balíčku přímo.
 
 > [!Note]
 > Soubory Readme nejsou zobrazeny pro balíčky, které se instalují jako závislost, nebo pro projekty .NET Core.
-
 
 Chcete-li to provést, vytvořte vaše `readme.txt` souboru, umístěte do kořenové složky projektu a najdete ji v `.nuspec` souboru:
 
@@ -305,7 +296,6 @@ Chcete-li to provést, vytvořte vaše `readme.txt` souboru, umístěte do koře
 </package>
 ```
 
-
 ## <a name="net-standard-mapping-table"></a>.NET standard mapování tabulky
 
 |Název platformy |Alias|
@@ -313,13 +303,11 @@ Chcete-li to provést, vytvořte vaše `readme.txt` souboru, umístěte do koře
 |Standardní rozhraní .NET | monikerů netstandard| 1.0| 1.1| 1.2| 1.3| 1.4| 1.5| 1.6|
 |.NET Core | netcoreapp| &#x2192;| &#x2192;| &#x2192;| &#x2192;| &#x2192;| &#x2192;| 1.0|
 |.NET Framework| NET| 4.5| 4.5.1| 4.6| 4.6.1| 4.6.2| 4.6.3|
-|Platformy mono nebo Xamarin| &#x2192;| &#x2192;| &#x2192;| &#x2192;| &#x2192;| &#x2192;|
+|Mono/Xamarin Platforms| &#x2192;| &#x2192;| &#x2192;| &#x2192;| &#x2192;| &#x2192;|
 |Univerzální platforma pro Windows| uap| &#x2192;| &#x2192;| &#x2192;| &#x2192;|10.0|
 |Windows| Win| &#x2192;| 8.0| 8.1|
-|Windows Phone| WPA| &#x2192;| &#x2192;|8.1|
-|Windows Phone Silverlight| webové části| 8.0|
-
-
+|Windows Phone| wpa| &#x2192;| &#x2192;|8.1|
+|Windows Phone Silverlight| wp| 8.0|
 
 ## <a name="related-topics"></a>Související témata
 

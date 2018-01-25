@@ -3,21 +3,20 @@ title: "Specifikace příkaz NuGet rozhraní příkazového řádku | Microsoft 
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 10/24/2017
+ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 85611449-87e6-489b-8c6c-fe1d7be76c13
 description: "Referenční dokumentace pro příkaz specifikace nuget.exe"
 keywords: "Specifikace odkaz nuget, specifikace příkaz"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c32b23e66c8eb4db1c8fa6dc615589219c00239f
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: cc7e772e737a0f74929d13e2b126f7796b6d0dc7
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="spec-command-nuget-cli"></a>Specifikace příkazu (NuGet CLI)
 
@@ -27,7 +26,7 @@ Generuje `.nuspec` soubor pro nový balíček. Pokud ve stejné složce jako sou
 
 ## <a name="usage"></a>Použití
 
-```
+```cli
 nuget spec [<packageID>] [options]
 ```
 
@@ -42,13 +41,13 @@ kde `<packageID>` je identifikátor volitelné balíček uložit v `.nuspec` sou
 | ForceEnglishOutput | *(3.5 +)*  Vynutí nuget.exe ke spuštění pomocí invariantní, na základě angličtina jazykové verze. |
 | Nápověda | Zobrazí nápovědu pro příkaz. |
 | Neinteraktivní | Potlačí výzvy pro vstup uživatele nebo potvrzení. |
-| Podrobnosti | Určuje množství podrobností, které jsou zobrazené ve výstupu: *normální*, *quiet*, *podrobné (2.5 +)*. |
+| Podrobnosti | Určuje množství podrobností, které jsou zobrazené ve výstupu: *normální*, *quiet*, *podrobné*. |
 
 Viz také [proměnné prostředí](cli-ref-environment-variables.md)
 
 ## <a name="examples"></a>Příklady
 
-```
+```cli
 nuget spec
 
 nuget spec MyPackage

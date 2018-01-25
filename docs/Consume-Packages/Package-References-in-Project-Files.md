@@ -1,32 +1,31 @@
 ---
-title: NuGet PackageReference v souborech projektu sady Visual Studio | Microsoft Docs
+title: "Formát NuGet PackageReference (odkazů balíčku v souborech projektu) | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 7/17/2017
+ms.date: 07/17/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 5a554e9d-1266-48c2-92e8-6dd00b1d6810
-description: Podrobnosti o NuGet PackageReference v souborech projektu podporuje NuGet 4.0 + a VS2017
-keywords: "Závislosti balíčků NuGet, balíček odkazuje projektu soubory, PackageReference, souboru packages.config, project.json, VS2017, Visual Studio 2017, NuGet 4"
+description: Podrobnosti o NuGet PackageReference v souborech projektu podporuje NuGet 4.0 + a VS2017 a .NET Core 2.0
+keywords: "Závislosti balíčků NuGet, balíček odkazuje projektu soubory, PackageReference, souboru packages.config, VS2017, Visual Studio 2017, NuGet 4, .NET Core 2.0"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 275957c94e4a4bb45f359cd48816acf4f286ebad
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 24a977f9de535559dcb0392749298ea502c3c7ce
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Balíček odkazuje (PackageReference) v souborech projektu
 
-Balíček odkazů, pomocí `PackageReference` uzlu, umožňují spravovat závislosti NuGet přímo v rámci soubory projektu, místo nutnosti samostatné `packages.config` nebo `project.json` souboru. Tato metoda neovlivňuje dalších aspektů NuGet; například nastavení v `NuGet.Config` soubory (včetně zdroje balíčků) jsou stále použít, jak je popsáno v [konfigurace chování NuGet](Configuring-NuGet-Behavior.md).
+Balíček odkazů, pomocí `PackageReference` uzlu, umožňují spravovat závislosti NuGet přímo v rámci soubory projektu, místo nutnosti samostatné `packages.config` souboru. Tato metoda neovlivňuje dalších aspektů NuGet; například nastavení v `NuGet.Config` soubory (včetně zdroje balíčků) jsou stále použít, jak je popsáno v [konfigurace chování NuGet](Configuring-NuGet-Behavior.md).
 
 > [!Important]
 > V současné době balíček odkazuje jsou podporovány ve Visual Studio 2017 pouze pro projekty .NET Core, .NET Standard projekty a UWP projektech zacílených na Windows 10 sestavení 15063 (Creators aktualizace).
 
-`PackageReference` Přístup umožňuje používat podmínky nástroje MSBuild vybrat balíček odkazuje na cílové rozhraní, konfigurace, platformu nebo jiných seskupení. Umožňuje také pro jemně odstupňovanou kontrolu nad závislosti a obsahu toku. Z hlediska chování a [řešení závislostí](Dependency-Resolution.md), je stejná jako `project.json`.
+`PackageReference` Přístup umožňuje používat podmínky nástroje MSBuild vybrat balíček odkazuje na cílové rozhraní, konfigurace, platformu nebo jiných seskupení. Umožňuje také pro jemně odstupňovanou kontrolu nad závislosti a obsahu toku.
 
 Další informace o integraci s odkazů balíčku v souborech projektu nástroje MSBuild v [NuGet pack a obnovit jako cíle MSBuild](../schema/msbuild-targets.md).
 
@@ -37,14 +36,14 @@ Přidáte závislost v souboru projektu pomocí následující syntaxe:
 ```xml
 <ItemGroup>
     <!-- ... -->
-    <PackageReference Include="Contoso.Utility.UsefulStuff" Version="3.6.0" />    
+    <PackageReference Include="Contoso.Utility.UsefulStuff" Version="3.6.0" />
     <!-- ... -->
 </ItemGroup>
 ```
 
 ## <a name="controlling-dependency-version"></a>Řízení verze závislosti
 
-Konvence pro určení verze balíčku je stejný jako při použití `packages.config` nebo `project.json`:
+Konvence pro určení verze balíčku je stejný jako při použití `packages.config`:
 
 ```xml
 <ItemGroup>
@@ -90,15 +89,14 @@ Následující značky metadata řídit prostředky závislost:
 | Značka | Popis | Výchozí hodnota |
 | --- | --- | --- |
 | IncludeAssets | Tyto prostředky budou využívat. | všechny |
-| ExcludeAssets | Tyto prostředky nebudou využívat. | žádná | 
+| ExcludeAssets | Tyto prostředky nebudou využívat. | žádná |
 | PrivateAssets | Tyto prostředky budou využívat, ale nebude tok nadřazený projekt | contentfiles; analyzátorů; sestavení |
-
 
 Povolené hodnoty pro tyto značky jsou následující, s více hodnotami, které jsou odděleny středníkem kromě s `all` a `none` která se musí nacházet ve vlastní účet:
 
 | Hodnota | Popis |
 | --- | ---
-| Kompilace | Obsah `lib` složky |
+| compile | Obsah `lib` složky |
 | modul runtime | Obsah `runtime` složky |
 | contentFiles | Obsah `contentfiles` složky |
 | sestavení | Props a cílem v `build` složky |
@@ -134,7 +132,7 @@ Můžete vytvořit podmínku, kterou chcete řízení a zda balíček je součá
 ```xml
 <ItemGroup>
     <!-- ... -->
-    <PackageReference Include="Newtonsoft.json" Version="9.0.1" Condition="'$(TargetFramework)' == 'net452'" />    
+    <PackageReference Include="Newtonsoft.json" Version="9.0.1" Condition="'$(TargetFramework)' == 'net452'" />
     <!-- ... -->
 </ItemGroup>
 ```

@@ -7,19 +7,18 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 75a9b496-5762-48b6-922f-fdddf1369c45
 description: "Poznámky k verzi pro NuGet 3.5 RC včetně známé problémy, opravy chyb, přidaných funkcí a chcete."
 keywords: "NuGet 3.5 k vydání verze RC, opravy chyb známé problémy, přidat funkce, chcete"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 09d566de6f53bc0f0ddd8049143dc647f3075671
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: fdb84da5f1648ce4508afe6ddcf04bddd41284d3
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
-#<a name="35-rc-release-notes"></a>3.5 poznámky k verzi RC
+# <a name="nuget-35-rc-release-notes"></a>Poznámky k verzi RC NuGet 3.5
 
 [Poznámky k verzi 3.5 Beta2 NuGet](../release-notes/nuget-3.5-Beta2.md) | [NuGet 3.5 – poznámky k verzi RTM](../release-notes/nuget-3.5-RTM.md)
 
@@ -95,7 +94,7 @@ ms.lasthandoff: 12/14/2017
 
 * Řešení problémů s výkonem ReSharper v aktualizaci NuGet - [#3044](https://github.com/NuGet/Home/issues/3044): na ukázkový projekt čas potřebný k instalaci balíčků zmenšeny z 140s 68s.
 
-## <a name="dcrs"></a>Chcete
+## <a name="dcrs"></a>DCRs
 
 * NuGet je potřeba upozornit uživatele, že upgrade nebo instalace v dotnet tfm, na základě PCL může způsobit problémy - [#3138](https://github.com/NuGet/Home/issues/3138)
 

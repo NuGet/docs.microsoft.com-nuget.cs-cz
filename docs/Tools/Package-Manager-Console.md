@@ -3,28 +3,27 @@ title: "Průvodce konzoly Správce balíčků NuGet | Microsoft Docs"
 author: kraigb
 hms.author: kraigb
 manager: ghogen
-ms.date: 10/24/2017
+ms.date: 01/23/2018
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 2b92b119-6861-406c-82af-9d739af230e4
 f1_keywords: vs.nuget.packagemanager.console
 description: "Pokyny k používání konzoly Správce balíčků NuGet v sadě Visual Studio pro práci s balíčky."
 keywords: "Konzole Správce balíčků NuGet, NuGet powershell, spravovat balíčky NuGet"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b8f1df23d1a43412868c14e508ee5221d48dcc7c
-ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
+ms.openlocfilehash: b89c51812cee0f64c6f5c39cd9d86bc4a0be068e
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="package-manager-console"></a>Konzola správce balíčků
 
 Konzola správce balíčků NuGet je integrovaná v sadě Visual Studio v systému Windows verze 2012 a novější. (Není součástí sady Visual Studio pro Mac nebo Visual Studio Code.)
 
-Konzole vám umožní používat [příkazy prostředí NuGet PowerShell](../tools/powershell-reference.md) najít, instalaci, odinstalaci a aktualizovat balíčky NuGet. Pomocí konzoly je nutné v případech, kde uživatelského rozhraní Správce balíčků neposkytuje způsob, jak provést operaci.
+Konzole vám umožní používat [příkazy prostředí NuGet PowerShell](../tools/powershell-reference.md) najít, instalaci, odinstalaci a aktualizovat balíčky NuGet. Pomocí konzoly je nutné v případech, kde uživatelského rozhraní Správce balíčků neposkytuje způsob, jak provést operaci. Použít `nuget.exe` příkazy v konzole, najdete v části [pomocí nuget.exe rozhraní příkazového řádku v konzole](#using-the-nugetexe-cli-in-the-console).
 
 Například hledání a instalaci balíčku provádí pomocí tří jednoduché kroky:
 
@@ -43,17 +42,6 @@ Například hledání a instalaci balíčku provádí pomocí tří jednoduché 
     # Install the Elmah package to the project named MyProject.
     Install-Package Elmah -ProjectName MyProject
     ```
-
-V tomto tématu:
-
-- [Otevření konzole](#opening-the-console-and-console-controls)
-- [Instalace balíčku](#installing-a-package)
-- [Odinstalace balíčku](#uninstalling-a-package)
-- [Hledání balíčku](#finding-a-package)
-- [Aktualizace balíčku](#updating-a-package)
-- [Dostupnost konzoly nástroje](#availability-of-the-console)
-- [Rozšíření konzole Správce balíčků](#extending-the-package-manager-console)
-- [Nastavení profilu NuGet PowerShell](#setting-up-a-nuget-powershell-profile)
 
 > [!Important]
 > Všechny operace, které jsou k dispozici v konzole můžete také provést s [NuGet CLI](../tools/nuget-exe-cli-reference.md). Příkazy konzoly ale provoz v rámci kontextu Visual Studio a uložené projekt nebo řešení a často dosáhnout více než jejich ekvivalentní příkazy rozhraní příkazového řádku. Například instalaci balíčku přes konzolu přidá odkaz na projekt zatímco rozhraní příkazového řádku příkaz neexistuje. Z tohoto důvodu vývojáře, kteří pracují v sadě Visual Studio obvykle dáváte přednost, pomocí konzoly nástroje rozhraní příkazového řádku.
@@ -96,8 +84,8 @@ Instalaci balíčku, provede následující akce:
 - Zobrazí v okně konzoly se smlouvou předpokládané příslušných licenčních podmínek. Pokud nesouhlasíte s podmínkami, byste měli okamžitě odinstalovat balíček.
 - Přidá odkaz na projekt v jakémkoli formát reference je používán. Odkazy se následně zobrazí v Průzkumníku řešení a formátu souboru použít referenční. Upozorňujeme však, že s PackageReference, je nutné uložit projektu a podívejte se změny v souboru projektu přímo.
 - Ukládá do mezipaměti balíčku:
-    - PackageReference: balíčku je uloží do mezipaměti na `%USERPROFILE%\.nuget\packages` a zámek souboru tj `project.assets.json` se aktualizuje.
-    - `packages.config`: vytvoří `packages` složky v kořenové řešení a zkopíruje soubory balíčku do podsložky v něm. `package.config` Aktualizaci souboru.
+  - PackageReference: balíčku je uloží do mezipaměti na `%USERPROFILE%\.nuget\packages` a zámek souboru tj `project.assets.json` se aktualizuje.
+  - `packages.config`: vytvoří `packages` složky v kořenové řešení a zkopíruje soubory balíčku do podsložky v něm. `package.config` Aktualizaci souboru.
 - Aktualizace `app.config` nebo `web.config` Pokud balíček používá [zdroje a konfiguračním souboru transformace](../create-packages/source-and-config-file-transformations.md).
 - Nainstaluje všechny závislosti, pokud ještě není přítomný v projektu. To může aktualizovat verze balíčku v procesu, jak je popsáno v [řešení závislostí](../consume-packages/dependency-resolution.md).
 - Zobrazí soubor readme balíčku, pokud je k dispozici, v okně Visual Studio.
@@ -182,13 +170,11 @@ Některé balíčky nainstalujte nové příkazy pro konzolu. Například `MvcSc
 
 ![Instalace a použití MvcScaffold](media/PackageManagerConsoleInstall.png)
 
-## <a name="setting-up-a-nuget-powershell-profile"></a>Nastavení profilu NuGet prostředí PowerShell
+## <a name="setting-up-a-nuget-powershell-profile"></a>Nastavení profilu NuGet PowerShell
 
 Profil prostředí PowerShell umožňuje zpřístupnit běžně používané příkazy bez ohledu na pomocí prostředí PowerShell. NuGet podporuje NuGet konkrétní profil většinou nacházejí v následujícím umístění:
 
-```
-%UserProfile%\Documents\WindowsPowerShell\NuGet_profile.ps1
-```
+    %UserProfile%\Documents\WindowsPowerShell\NuGet_profile.ps1
 
 Chcete-li vyhledat profil, zadejte `$profile` v konzole:
 
@@ -198,3 +184,12 @@ C:\Users\<user>\Documents\WindowsPowerShell\NuGet_profile.ps1
 ```
 
 Další podrobnosti najdete v části [profily Windows PowerShell](https://technet.microsoft.com/library/bb613488.aspx).
+
+## <a name="using-the-nugetexe-cli-in-the-console"></a>Pomocí nuget.exe rozhraní příkazového řádku v konzole
+
+Chcete-li [ `nuget.exe` rozhraní příkazového řádku](nuget-exe-CLI-Reference.md) k dispozici v konzoli správce balíčků nainstalujte [NuGet.CommandLine](http://www.nuget.org/packages/NuGet.CommandLine/) balíček z konzoly:
+
+```ps
+# Other versions are available, see http://www.nuget.org/packages/NuGet.CommandLine/
+Install-Package NuGet.CommandLine -Version 4.4.1
+```

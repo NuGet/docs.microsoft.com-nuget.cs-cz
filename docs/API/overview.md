@@ -11,17 +11,16 @@ ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 8c81f1ac-18c7-44d1-b2e3-584fe85dee6f
 description: "Rozhraní API NuGet je sada koncových bodů protokolu HTTP, které je možné stáhnout balíčky, načíst metadata, publikujte nové balíčky atd."
 keywords: "Rozhraní API V3 NuGet, rozhraní API NuGet V2, NuGet JSON, rozhraní API registrace NuGet NuGet API ploché kontejner, NuGet nupkg rozhraní API, NuGet metadat rozhraní API, hledání NuGet rozhraní API a NuGet nabízené rozhraní API, NuGe publikovat rozhraní API, NuGet odstranit rozhraní API, rozhraní API, protokol NuGet unlist NuGet"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 05ed17f12f413d29d97a253d7d55f154d4910834
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: c28b0912be6dbccab06078100cb71821c3658e08
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-api"></a>NuGet rozhraní API
 
@@ -79,7 +78,7 @@ Všechny časová razítka vrácený rozhraní API jsou UTC nebo zadávají jina
 
 ## <a name="http-methods"></a>Metody HTTP
 
-Příkaz   | Použití
+Verb   | Použití
 ------ | -----------
 GET    | Provede operaci jen pro čtení, obvykle načítání dat.
 HEAD   | Načte hlavičky odpovědi pro příslušné `GET` požadavku.
@@ -113,7 +112,7 @@ V případě úrovni 500 stavový kód klienta můžete implementovat mechanismu
 Název                     | Popis
 ------------------------ | -----------
 X-NuGet-ApiKey           | Požadované pro nabízené a odstranění, najdete v části [ `PackagePublish` prostředků](package-publish-resource.md)
-X-NuGet klienta Version   | **Zastaralé** a nahradit`X-NuGet-Protocol-Version`
+X-NuGet-Client-Version   | **Zastaralé** a nahradit`X-NuGet-Protocol-Version`
 X-NuGet-Protocol-Version | V některých případech pouze v nuget.org potřeba, najdete v části [nuget.org protokoly](NuGet-Protocols.md)
 
 ## <a name="authentication"></a>Ověřování

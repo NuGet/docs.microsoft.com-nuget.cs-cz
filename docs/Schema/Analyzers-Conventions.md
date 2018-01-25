@@ -3,21 +3,20 @@ title: "Pro NuGet formátů analyzátor platformy .NET kompilátoru | Microsoft 
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 1/9/2017
+ms.date: 01/09/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: a86e2080-93dd-4081-ac9b-d3bd66ba3799
 description: "Konvence pro analyzátory .NET, které se zabalí a distribuovat s balíčky NuGet, které implementují rozhraní API nebo knihovny."
 keywords: "Konvence analyzátor NuGet, .NET analyzátorů, NuGet a kompilátoru platformy .NET, NuGet a Roslyn"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: d26e879cc37047ce88aa7292c8c0b1e08e5fd89f
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: e44cfa609c14422d50769e512108844cbd2f96a4
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="analyzer-nuget-formats"></a>Analyzátor NuGet formáty
 

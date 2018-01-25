@@ -3,21 +3,20 @@ title: "Vytvoření balíčků NuGet pro univerzální platformu Windows | Micro
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 7/17/2017
+ms.date: 07/17/2017
 ms.topic: get-started-article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: d98524b1-a674-4803-8ac5-3c6bce867f86
 description: "Začátku do konce návod, jak vytvořit balíčky NuGet používání komponent prostředí Windows Runtime pro univerzální platformu Windows."
 keywords: "Vytvoření balíčku, balíčky pro UPW, součásti systému Windows Runtime"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0513ad063d01e573672b6c84a9e819b6df516f03
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: ef0343fcf6c156a8597df42fe006f9f805903714
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="create-uwp-packages"></a>Vytvořit balíčky UWP
 
@@ -38,7 +37,6 @@ V tomto návodu vytvoříte balíček NuGet s nativní UWP komponentou (včetně
 
 > [!Note]
 > nuget.exe je že nástroj příkazového řádku, není instalační program, takže je nutné z prohlížeče namísto spuštění ho uložte stažený soubor.
-
 
 ## <a name="create-a-uwp-windows-runtime-component"></a>Vytvoření komponenty UWP Windows Runtime
 
@@ -63,7 +61,6 @@ V tomto návodu vytvoříte balíček NuGet s nativní UWP komponentou (včetně
 > [!Note]
 > V tomto návodu budete používat artefakty ladění pro balíček. Pro balíček bez ladění místo toho zkontrolujte verzi možností v dialogovém okně dávkové sestavení a odkazovat na výsledný složky verze v krocích, které následují.
 
-
 ## <a name="create-and-update-the-nuspec-file"></a>Vytvářet a aktualizovat soubor s příponou .nuspec
 
 Chcete-li vytvořit počáteční `.nuspec` souboru, proveďte následující tři kroky. V následujících pak provede další potřebné aktualizace.
@@ -71,7 +68,7 @@ Chcete-li vytvořit počáteční `.nuspec` souboru, proveďte následující t�
 1. Otevřete příkazový řádek a přejděte do složky obsahující `ImageEnhancer.vcxproj` (to se stane podsložky níže, kde je soubor řešení).
 1. Spustit NuGet `spec` příkazu vygenerujte `ImageEnhancer.nuspec` (název souboru je převzat z názvu `.vcxproj` souborů):
 
-    ```
+    ```cli
     nuget spec
     ```
 
@@ -97,8 +94,6 @@ Chcete-li vytvořit počáteční `.nuspec` souboru, proveďte následující t�
 
 > [!Note]
 > Pro balíčky vytvořené pro veřejné spotřeby, věnujte zvláštní pozornost `<tags>` elementu, jako jsou tyto značky ostatní najít váš balíček a co provádí.
-
-
 
 ### <a name="adding-windows-metadata-to-the-package"></a>Přidávání metadat Windows do balíčku
 
@@ -247,12 +242,11 @@ Váš koncový `.nuspec` soubor by měl nyní vypadat jako následující, kde z
 </package>
 ```
 
-
 ## <a name="package-the-component"></a>Balíček součásti
 
 S dokončené `.nuspec` odkazující na všechny soubory, které je potřeba zahrnout do balíčku, jste připraveni ke spuštění `pack` příkaz:
 
-```
+```cli
 nuget pack ImageEnhancer.nuspec
 ```
 

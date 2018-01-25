@@ -7,21 +7,20 @@ ms.author:
 - joelverhagen
 - kraigb
 manager: skofman
-ms.date: 11/2/2017
+ms.date: 11/02/2017
 ms.topic: get-started-article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 5d017cd4-3d75-4341-ba90-3c57be093b7d
 description: "Pomocí rozhraní API NuGet, se můžete dotazovat pro všechny balíčky, které jsou publikovány do nuget.org a vždy aktuální v průběhu času."
 keywords: "Rozhraní API NuGet výčet všechny balíčky, replikace balíčky NuGet rozhraní API, publikovat nejnovější balíčky do nuget.org"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 5559a7cd104861b1a10aa8d1513696e609c51c15
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: eb5374916f1afcd7a6758b3af03fd2abb88332c1
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="query-for-all-packages-published-to-nugetorg"></a>Dotaz pro všechny balíčky, které jsou publikovány do nuget.org
 
@@ -64,27 +63,21 @@ DateTime cursor = DateTime.UtcNow.AddHours(-1);
 
 Umístění všech prostředků (koncový bod) v rozhraní API NuGet by měly být zjištěny pomocí [indexu služby](../../api/service-index.md). Protože tato příručka se zaměřuje na nuget.org, budeme používat nuget.org služby index.
 
-```
-GET https://api.nuget.org/v3/index.json
-```
+    GET https://api.nuget.org/v3/index.json
 
-Dokument služby je dokument JSON obsahující všechny prostředky v nuget.org. Vyhledejte prostředek s `@type` hodnota vlastnosti `Catalog/3.0.0`. Přidruženého `@id` hodnota vlastnosti je adresu URL katalogu index sám sebe.
+Dokument služby je dokument JSON obsahující všechny prostředky v nuget.org. Vyhledejte prostředek s `@type` hodnota vlastnosti `Catalog/3.0.0`. Přidruženého `@id` hodnota vlastnosti je adresu URL katalogu index sám sebe. 
 
 ## <a name="find-new-catalog-leaves"></a>Najít nové nechá katalogu
 
 Pomocí `@id` stáhnout index katalogu nalezena v předchozím kroku, hodnota vlastnosti:
 
-```
-GET https://api.nuget.org/v3/catalog0/index.json
-```
+    GET https://api.nuget.org/v3/catalog0/index.json
 
 Deserializovat [katalogu index](../../api/catalog-resource.md#catalog-index). Filtrovat všechny [katalogu objekty stránky](../../api/catalog-resource.md#catalog-page-object-in-the-index) s `commitTimeStamp` menší než nebo rovna hodnotě aktuální kurzor.
 
 Pro každý zbývající stránku katalogu stahování celého dokumentu pomocí `@id` vlastnost.
 
-```
-GET https://api.nuget.org/v3/catalog0/page2926.json
-```
+    GET https://api.nuget.org/v3/catalog0/page2926.json
 
 Deserializovat [katalogu stránky](../../api/catalog-resource.md#catalog-page). Filtrovat všechny [katalogu objekty listu](../../api/catalog-resource.md#catalog-item-object-in-a-page) s `commitTimeStamp` menší než nebo rovna hodnotě aktuální kurzor.
 
@@ -96,9 +89,7 @@ V tomto okamžiku můžete provést všechny vlastní zpracování, které si p�
 
 Pokud vás zajímá metadata o balíčku (například na popis, závislostí, velikost .nupkg atd), může načíst [katalogu listu dokumentu](../../api/catalog-resource.md#catalog-leaf) pomocí `@id` vlastnost.
 
-```
-GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
-```
+    GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
 
 Tento dokument obsahuje všechny metadat, které jsou součástí [balíček prostředek metadat](../../api/registration-base-url-resource.md)a další!
 
@@ -122,14 +113,13 @@ Protože katalogu je sada dokumentů JSON, které jsou k dispozici prostřednict
 
 Jsou k dispozici v C# – ukázky [úložiště NuGet/Samples](https://github.com/NuGet/Samples/tree/master/CatalogReaderExample).
 
-```
+```cli
 git clone https://github.com/NuGet/Samples.git
 ```
 
 ### <a name="catalog-sdk"></a>Katalogu SDK
 
-Nejjednodušší způsob, jak využívat katalogu je použití balíčku SDK Předběžná verze rozhraní .NET katalogu: [NuGet.Protocol.Catalog](https://dotnet.myget.org/feed/nuget-build/package/nuget/NuGet.Protocol.Catalog).
-Tento balíček je k dispozici na `nuget-build` MyGet kanálu, pro které použijete adresu URL zdroje balíčku NuGet `https://dotnet.myget.org/F/nuget-build/api/v3/index.json`.
+Nejjednodušší způsob, jak využívat katalogu je použití balíčku SDK Předběžná verze rozhraní .NET katalogu: [NuGet.Protocol.Catalog](https://dotnet.myget.org/feed/nuget-build/package/nuget/NuGet.Protocol.Catalog). Tento balíček je k dispozici na `nuget-build` MyGet kanálu, pro které použijete adresu URL zdroje balíčku NuGet `https://dotnet.myget.org/F/nuget-build/api/v3/index.json`.
 
 Instalaci tohoto balíčku do projektu kompatibilní s `netstandard1.3` nebo větší (například rozhraní .NET Framework 4.6).
 
@@ -137,7 +127,7 @@ Ukázka použití tento balíček je dostupná na Githubu v [NuGet.Protocol.Cata
 
 #### <a name="sample-output"></a>Ukázkový výstup
 
-```
+```output
 2017-11-10T22:16:44.8689025+00:00: Found package details leaf for xSkrape.APIWrapper.REST 1.0.2.
 2017-11-10T22:16:54.6972769+00:00: Found package details leaf for xSkrape.APIWrapper.REST 1.0.1.
 2017-11-10T22:19:20.6385542+00:00: Found package details leaf for Platform.EnUnity 1.0.8.
@@ -171,14 +161,13 @@ warn: NuGet.Protocol.Catalog.CatalogProcessor[0]
 
 ### <a name="minimal-sample"></a>Minimální ukázka
 
-Příklad s méně závislosti který znázorňuje interakci s katalogem podrobněji, naleznete v části [CatalogReaderExample ukázkový projekt](https://github.com/NuGet/Samples/tree/master/CatalogReaderExample/CatalogReaderExample).
-Cíle projektu `netcoreapp2.0` a závisí na [NuGet.Protocol 4.4.0](https://www.nuget.org/packages/NuGet.Protocol/4.4.0) (pro řešení služby index) a [Newtonsoft.Json 9.0.1](https://www.nuget.org/packages/Newtonsoft.Json/9.0.1) (pro deserializaci JSON).
+Příklad s méně závislosti který znázorňuje interakci s katalogem podrobněji, naleznete v části [CatalogReaderExample ukázkový projekt](https://github.com/NuGet/Samples/tree/master/CatalogReaderExample/CatalogReaderExample). Cíle projektu `netcoreapp2.0` a závisí na [NuGet.Protocol 4.4.0](https://www.nuget.org/packages/NuGet.Protocol/4.4.0) (pro řešení služby index) a [Newtonsoft.Json 9.0.1](https://www.nuget.org/packages/Newtonsoft.Json/9.0.1) (pro deserializaci JSON).
 
 Hlavní logika kódu se zobrazí na [souboru Program.cs](https://github.com/NuGet/Samples/blob/master/CatalogReaderExample/CatalogReaderExample/Program.cs).
 
 #### <a name="sample-output"></a>Ukázkový výstup
 
-```
+```output
 No cursor found. Defaulting to 11/2/2017 9:41:28 PM.
 Fetched catalog index https://api.nuget.org/v3/catalog0/index.json.
 Fetched catalog page https://api.nuget.org/v3/catalog0/page2935.json.

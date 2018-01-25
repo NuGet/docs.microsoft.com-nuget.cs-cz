@@ -7,19 +7,18 @@ ms.date: 12/07/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 207b9547-4558-41dc-9f3f-4bbdfb1d74e3
 description: "V některých typů projektu souboru packages.config udržuje seznam balíčky NuGet použité v projektu."
 keywords: "Soubor packages.config NuGet, odkazů na balíček NuGet se závislostí NuGet"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: d851a09fad45ca25edc95ecee496bbf399f5e255
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 3523b108f4d3ef86436e2bda89b5a656c11000b6
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
-# <a name="packagesconfig-reference"></a>odkaz na soubor Packages.config
+# <a name="packagesconfig-reference"></a>packages.config reference
 
 `packages.config` Soubor se používá v některé typy projektů k údržbě seznamu balíčků odkazuje projektu. To umožňuje správci balíčků NuGet snadno obnovte závislosti projektu při projekt, který má být přenosu na jiný počítač, například server sestavení bez tyto balíčky.
 

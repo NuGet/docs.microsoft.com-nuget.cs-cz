@@ -3,21 +3,20 @@ title: "Vytvoření balíčků NuGet a platformy (pro iOS, Android a Windows) | 
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 1/9/2017
+ms.date: 01/09/2017
 ms.topic: get-started-article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: ae24824b-a138-4d12-a810-1f653ddffd32
 description: "Návod začátku do konce vytváření balíčků NuGet pro Xamarin pomocí nativních rozhraní API pro iOS, Android a Windows."
 keywords: "Vytvoření balíčku, balíčky pro Xamarin, balíčky a platformy"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: f372856232f151efcf972881cffbe7d4bb7ed6ee
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: fbb1c3fccf04202dedc686583b3a2f27f105266a
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="create-cross-platform-packages"></a>Vytváření balíčků a platformy
 
@@ -39,7 +38,6 @@ V tomto návodu vytvoříte balíček NuGet a platformy, který lze použít v m
 
 > [!Note]
 > nuget.exe je že nástroj příkazového řádku, není instalační program, takže je nutné z prohlížeče namísto spuštění ho uložte stažený soubor.
-
 
 ## <a name="create-the-project-structure-and-abstraction-code"></a>Vytvoření projektu strukturu a abstrakce kód
 
@@ -110,12 +108,11 @@ K implementaci specifické pro platformu provádění `ILoggingLibrary` rozhran�
 > [!Note]
 > K vytvoření pro iOS potřebujete síťově připojeného počítače Mac připojené k sadě Visual Studio, jak je popsáno na [Úvod do Xamarin.iOS pro sadu Visual Studio](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/introduction_to_xamarin_ios_for_visual_studio/). Pokud nemáte k dispozici Mac, zrušte projekt pro iOS v configuration Manageru (krok 3 výše).
 
-
 ## <a name="create-and-update-the-nuspec-file"></a>Vytvářet a aktualizovat soubor s příponou .nuspec
 
 1. Otevřete příkazový řádek, přejděte na `LoggingLibrary` složky, která je jednu úroveň pod where `.sln` souboru a spusťte NuGet `spec` příkaz pro vytvoření počáteční `Package.nuspec` souboru:
 
-```
+```cli
 nuget spec
 ```
 
@@ -139,7 +136,7 @@ nuget spec
         </metadata>
     </package>
     ```
-    
+
 > [!Tip]
 > Můžete přípona vaší verzí balíčku `-alpha`, `-beta` nebo `-rc` označit jako předběžné verze vašeho balíčku, zkontrolujte [předprodejní verze](../create-packages/prerelease-packages.md) Další informace o předběžné verze.
 
@@ -172,7 +169,6 @@ Pokud chcete specifické pro platformu referenční sestavení, přidejte násle
 
 > [!Note]
 > Tak, aby zkrátil názvy souborů DLL a XML, klikněte pravým tlačítkem na jakékoli dané projekt, vyberte **knihovny** kartě a změnit názvy sestavení.
-
 
 ### <a name="add-dependencies"></a>Přidat závislosti
 
@@ -259,7 +255,7 @@ Váš koncový `.nuspec` soubor by měl nyní vypadat jako následující, kde z
 
 S dokončené `.nuspec` odkazující na všechny soubory, které je potřeba zahrnout do balíčku, jste připraveni ke spuštění `pack` příkaz:
 
-```
+```cli
 nuget pack LoggingLibrary.nuspec
 ```
 
@@ -269,7 +265,6 @@ Tím se vygeneruje `LoggingLibrary.YOUR_NAME.1.0.0.nupkg`. Otevření tohoto sou
 
 > [!Tip]
 > A `.nupkg` soubor je právě soubor ZIP s jiné rozšíření. Můžete také zkontrolovat obsah balíčku, potom změnou `.nupkg` k `.zip`, ale nezapomeňte obnovit rozšíření před balíčku se nahrávají na nuget.org.
-
 
 Pokud chcete zpřístupnit vašeho balíčku jinými vývojáři, postupujte podle pokynů [publikování balíčku](../create-packages/publish-a-package.md).
 

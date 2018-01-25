@@ -7,36 +7,22 @@ ms.date: 01/11/2018
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 199a915d-9595-4ae2-a1fb-b15da6d7735a
 description: "Běžné otázky a odpovědi na příkazovém řádku a v sadě Visual Studio pomocí nástroje NuGet a práce s galerii NuGet."
 keywords: "Verze balíčku NuGet otázek a odpovědí, otázky a odpovědi, běžné problémy, verze NuGet"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: f029af78edfcc5e542c5df2d4d6db8eeaebc3068
-ms.sourcegitcommit: d576d84fb4b6a178eb2ac11f55deb08ac771ba1c
+ms.openlocfilehash: 9bbd73643b830b1e63de18324667e1b1b88eaf3e
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-frequently-asked-questions"></a>Nejčastější dotazy NuGet
 
-V tomto tématu:
-
-- [Začínáme](#getting-started)
-- [NuGet v sadě Visual Studio](#nuget-in-visual-studio)
-- [NuGet příkazového řádku](#nuget-command-line)
-- [Konzola správce balíčků NuGet](#nuget-package-manager-console)
-- [Vytváření a publikování balíčků](#creating-and-publishing-packages)
-- [Práce s balíčky](#working-with-packages)
-- [Spravovat balíčky v nuget.org](#managing-packages-on-nugetorg)
-- [není k dispozici nuget.org](#nugetorg-not-accessible)
-
-## <a name="getting-started"></a>Začínáme
-
 **Co je potřeba spustit NuGet?**
 
-Všechny informace ohledně uživatelského rozhraní a nástroje příkazového řádku je k dispozici v [instalace Průvodce](../guides/install-nuget.md).
+Všechny informace ohledně uživatelského rozhraní a nástroje příkazového řádku je k dispozici v [instalace Průvodce](../install-nuget-client-tools.md).
 
 **Podporuje NuGet Mono?**
 
@@ -85,13 +71,13 @@ Aktualizovat šablonu sám sebe, musíte ručně aktualizovat úložiště šabl
 
 **Můžete použít balíček NuGet mimo Visual Studio?**
 
-Ano, NuGet pracuje přímo z příkazového řádku. Najdete v článku [instalace Průvodce](../guides/install-nuget.md) a [referenční dokumentace rozhraní příkazového řádku](../tools/nuget-exe-CLI-Reference.md).
+Ano, NuGet pracuje přímo z příkazového řádku. Najdete v článku [instalace Průvodce](../install-nuget-client-tools.md) a [referenční dokumentace rozhraní příkazového řádku](../tools/nuget-exe-CLI-Reference.md).
 
 ## <a name="nuget-command-line"></a>NuGet příkazového řádku
 
 **Jak lze získat nejnovější verzi nástroje příkazového řádku NuGet?**
 
-Najdete v článku [instalace Průvodce](../guides/install-nuget.md).
+Najdete v článku [instalace Průvodce](../install-nuget-client-tools.md).
 
 **Co je licence k nuget.exe?**
 

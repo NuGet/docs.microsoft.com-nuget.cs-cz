@@ -7,18 +7,17 @@ ms.date: 12/08/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 6ee3c826-dd3a-4fa9-863f-1fd80bc4230f
 description: "Přesné informace o zadání čísla verzí a rozsahy adres pro jiné balíčky, na který závislý balíček NuGet, a způsob instalace závislosti."
 keywords: "Správa verzí, závislosti balíčků NuGet, verze závislostí NuGet, čísla verzí NuGet, verze balíčku NuGet, verze rozsahy, specifikace verze, normalizované verze čísla"
 ms.reviewer:
 - anandr
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: cb5624a2fd99e8afd8a8226fd786343f485041c4
-ms.sourcegitcommit: c27e565de485cbe836e6c2a66e44a50b35b487ff
+ms.openlocfilehash: 70472d7d97d073009237a047e0fdf528b221dfd0
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="package-versioning"></a>Správa verzí balíčku
 
@@ -42,12 +41,11 @@ V tomto tématu:
 - *-Přípona* (volitelné): pomlčka následuje řetězec představující předběžné verze (následující [sémantické verze nebo SemVer 1.0 konvence](http://semver.org/spec/v1.0.0.html)).
 
 **Příklady:**
-```
-1.0.1
-6.11.1231
-4.3.1-rc
-2.2.44-beta1
-```
+
+    1.0.1
+    6.11.1231
+    4.3.1-rc
+    2.2.44-beta1
 
 > [!Important]
 > nuget.org odmítne všechny nahrávání balíčku, který představuje počet přesnou verzi chybí. Verze musí být zadán v `.nuspec` nebo projektu soubor použitý k vytvoření balíčku.
@@ -67,16 +65,14 @@ Ale nutné dodat, balíček vývojáři obvykle podle rozpoznaný zásady vytvá
 
 Při rozpoznávání, že balíček odkazuje a více verzí balíčku liší pouze příponu, NuGet vybere první verze bez přípony a pak použije prioritu pro předběžné verze verze ve vzestupném abecedním pořadí. Například by být zvolena následující verze v uvedeném pořadí:
 
-```
-1.0.1
-1.0.1-zzz
-1.0.1-rc
-1.0.1-open
-1.0.1-beta
-1.0.1-alpha2
-1.0.1-alpha
-1.0.1-aaa
-```
+    1.0.1
+    1.0.1-zzz
+    1.0.1-rc
+    1.0.1-open
+    1.0.1-beta
+    1.0.1-alpha2
+    1.0.1-alpha
+    1.0.1-aaa
 
 ## <a name="semantic-versioning-200"></a>Sémantické verze 2.0.0
 
@@ -97,7 +93,7 @@ Pokud balíček v2.0.0 specifické SemVer nahrajete do nuget.org, je balíček n
 - NuGet 4.3.0+
 - Visual Studio 2017 verze 15.3 +
 - Visual Studio 2015 se [v3.6.0 NuGet VSIX](https://dist.nuget.org/visualstudio-2015-vsix/latest/NuGet.Tools.vsix)
-- DotNet.exe (2.0.0+ .NET SDK)
+- dotnet.exe (.NET SDK 2.0.0+)
 
 Klienti třetí strany:
 
@@ -123,7 +119,7 @@ Při odkazování na závislosti balíčků, NuGet podporuje notaci interval pro
 | [1.0,2.0) | 1.0 ≤ x < 2.0 | Smíšená (včetně) minimální a výhradní maximální verze |
 | (1.0)    | neplatné | neplatné |
 
-Při použití PackageReference nebo `project.json` balíček odkaz formáty, NuGet také podporuje notaci zástupný znak, \*, pro hlavní, vedlejší, opravy a příponu předběžné verze součástí číslo. Zástupné znaky nejsou podporovány `packages.config` formátu.
+Při použití formátu PackageReference, NuGet podporuje také notaci zástupný znak, \*, pro hlavní, vedlejší, opravy a příponu předběžné verze součástí číslo. Zástupné znaky nejsou podporovány `packages.config` formátu.
 
 > [!Note]
 > Předběžné verze nejsou zahrnuty při rozpoznávání rozsahy verze. Předběžné verze verze *jsou* zahrnuty při pomocí zástupného znaku (\*). Rozsah verze *[1.0,2.0]*, například nezahrnuje 2.0 beta, ale zápis zástupný znak _2.0-*_ nepodporuje. V tématu [vydání 912](https://github.com/NuGet/Home/issues/912) Další informace o předběžné verze zástupné znaky.
@@ -228,18 +224,14 @@ Při získávání balíčky z úložiště během instalace, znovu nainstalovat
 
 - Úvodní nuly jsou odebrány z čísla verzí:
 
-    ```
-    1.00 is treated as 1.0
-    1.01.1 is treated as 1.1.1
-    1.00.0.1 is treated as 1.0.0.1
-    ```
+        1.00 is treated as 1.0
+        1.01.1 is treated as 1.1.1
+        1.00.0.1 is treated as 1.0.0.1
 
 - Nula v čtvrtá součást číslo verze bude vynechán.
 
-    ```
-    1.0.0.0 is treated as 1.0.0
-    1.0.01.0 is treated as 1.0.1
-    ```
+        1.0.0.0 is treated as 1.0.0
+        1.0.01.0 is treated as 1.0.1
 
 Tato hodnota normalization nemá vliv na čísla verze v balíčcích sami; ovlivňuje způsob NuGet odpovídá jen verze při řešení závislostí.
 

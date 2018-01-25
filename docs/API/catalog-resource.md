@@ -11,19 +11,18 @@ ms.date: 10/30/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: cfd338b5-6253-48c0-88ba-17c6b98fc935
 description: "Katalog je index všech balíčků, vytvoření a na nuget.org odstraněn."
 keywords: "Rozhraní API V3 NuGet katalogu, nuget.org transakčního protokolu, replikaci NuGet.org, klonování NuGet.org připojovacího záznam NuGet.org"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 4c98b7cbd92575f6905e98a5bca5602a4d8ac0dd
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: d1a24be68a60085a40361c374ffb34dc221f09c4
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
-# <a name="catalog"></a>Katalogu
+# <a name="catalog"></a>Catalog
 
 **Katalogu** je na prostředek, který zaznamenává všechny operace balíček ve zdroji balíčku, například vytváření a odstranění. Katalog prostředků má `Catalog` zadejte [indexu služby](service-index.md).
 
@@ -73,9 +72,7 @@ Položky katalogu jsou vždy přidaných do katalogu v monotónně se zvyšujíc
 
 Následující požadavek načte index katalogu.
 
-```
-GET {@id}
-```
+    GET {@id}
 
 Index katalogu je dokument JSON, který obsahuje objekt s následujícími vlastnostmi:
 
@@ -107,9 +104,7 @@ Rozdíl k [balíček prostředek metadat](registration-base-url-resource.md) co�
 
 ### <a name="sample-request"></a>Ukázková žádost
 
-```
-GET https://api.nuget.org/v3/catalog0/index.json
-```
+    GET https://api.nuget.org/v3/catalog0/index.json
 
 ### <a name="sample-response"></a>Ukázková odpověď
 
@@ -161,9 +156,7 @@ Další podrobnosti o jaké každý typ znamená, najdete v článku [odpovídaj
 
 ### <a name="sample-request"></a>Ukázková žádost
 
-```
-GET https://api.nuget.org/v3/catalog0/page2926.json
-```
+    GET https://api.nuget.org/v3/catalog0/page2926.json
 
 ### <a name="sample-response"></a>Ukázková odpověď
 
@@ -178,8 +171,8 @@ Dokument listu katalogu je objekt JSON s následujícími vlastnostmi:
 Název                    | Typ                       | Požadováno | Poznámky
 ----------------------- | -------------------------- | -------- | -----
 @type                   | řetězec nebo pole řetězců. | Ano      | Typy položek katalogu
-katalog: commitId        | odkazy řetězců                     | Ano      | Potvrzení ID spojené s této položky katalogu
-katalog: commitTimeStamp | odkazy řetězců                     | Ano      | Časové razítko potvrzení této položky katalogu
+catalog:commitId        | odkazy řetězců                     | Ano      | Potvrzení ID spojené s této položky katalogu
+catalog:commitTimeStamp | odkazy řetězců                     | Ano      | Časové razítko potvrzení této položky katalogu
 id                      | odkazy řetězců                     | Ano      | ID balíčku položky katalogu
 Publikovat               | odkazy řetězců                     | Ano      | Datum publikování balíčku položka katalogu
 verze                 | odkazy řetězců                     | Ano      | Verze balíčku položky katalogu
@@ -215,13 +208,13 @@ description             | odkazy řetězců                     | Ne       |
 IconUrl                 | odkazy řetězců                     | Ne       |
 isPrerelease            | Logická hodnota                    | Ano      | Zda je předprodejní verze balíčku
 jazyk                | odkazy řetězců                     | Ne       |
-Adresa LicenseUrl              | odkazy řetězců                     | Ne       |
+licenseUrl              | odkazy řetězců                     | Ne       |
 uvedené v seznamu                  | Logická hodnota                    | Ne       | Zda je balíček uvedený
 MinClientVersion        | odkazy řetězců                     | Ne       |
 packageHash             | odkazy řetězců                     | Ano      | Hodnota hash balíčku, kódování pomocí [standardní base 64](https://tools.ietf.org/html/rfc4648#section-4)
 packageHashAlgorithm    | odkazy řetězců                     | Ano      |
 packageSize             | integer                    | Ano      | Velikost balíčku .nupkg v bajtech
-Adrese ProjectUrl              | odkazy řetězců                     | Ne       |
+projectUrl              | odkazy řetězců                     | Ne       |
 ReleaseNotes            | odkazy řetězců                     | Ne       |
 requireLicenseAgreement | Logická hodnota                    | Ne       | Předpokládejme `false` li vyloučit
 souhrn                 | odkazy řetězců                     | Ne       |
@@ -242,9 +235,7 @@ Balíček `version` vlastnost je řetězec úplné, normalizované verze. To zna
 
 #### <a name="sample-request"></a>Ukázková žádost
 
-```
 GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
-```
 
 #### <a name="sample-response"></a>Ukázková odpověď
 
@@ -265,9 +256,7 @@ Položky katalogu odstranit balíček mít žádné další vlastnosti kromě t�
 
 #### <a name="sample-request"></a>Ukázková žádost
 
-```
 GET https://api.nuget.org/v3/catalog0/data/2017.11.02.00.40.00/netstandard1.4_lib.1.0.0-test.json
-```
 
 #### <a name="sample-response"></a>Ukázková odpověď
 

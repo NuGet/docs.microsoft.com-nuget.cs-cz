@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: d27c3bb9-8db1-439a-a134-54e20b7a7766
 description: "Poznámky k verzi pro NuGet 3.2.1 včetně – známé problémy, opravy chyb, přidaných funkcí a chcete."
 keywords: "NuGet 3.2.1 poznámky k verzi, opravy chyb známé problémy, přidat funkce, chcete"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b2001d9518a34bbd5f2879de6123ec13abf4ae08
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 7c9c2457c33eb3630f632c98bf0cf96703c3a548
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-321-release-notes"></a>Poznámky k verzi NuGet 3.2.1
 

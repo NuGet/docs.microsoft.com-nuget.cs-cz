@@ -3,7 +3,7 @@ title: "Balíčky NuGet ve šablony sady Visual Studio | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 1/3/2018
+ms.date: 01/03/2018
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
@@ -12,11 +12,11 @@ keywords: "NuGet v sadě Visual Studio, šablony projektů Visual Studio, polož
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 45a2ca2c08660be650f9cf38301f628923e1f8be
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 65b914e1fa59c28615f195b470880a12bf80efbb
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="packages-in-visual-studio-templates"></a>Balíčky v šablony sady Visual Studio
 
@@ -149,4 +149,4 @@ Sady SDK, které se instalují pomocí souboru MSI mohou instalovat balíčky Nu
 
 1. Vyžadovat šablon projektu nebo položek uložit na vytváření zahrnutím [ `<PromptForSaveOnCreation>true</PromptForSaveOnCreation>` ](/visualstudio/extensibility/promptforsaveoncreation-element-visual-studio-templates) v `.vstemplate` souboru.
 
-1. Šablony neobsahují `packages.config` nebo `project.json` souboru a nezahrnují nebo žádné odkazy nebo obsah, který by byl přidán, když se instalují balíčky NuGet.
+1. Šablony neobsahují `packages.config` souboru a nezahrnují nebo žádné odkazy nebo obsah, který by byl přidán, když se instalují balíčky NuGet.

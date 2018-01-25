@@ -3,21 +3,20 @@ title: "Odstranění balíčků NuGet z nuget.org | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 1/9/2017
+ms.date: 01/18/2018
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: a348ca2e-0a5d-40ad-ba33-9bb37e1d980b
 description: "Zásady pro unlisting balíčky z nuget.org; trvalé odstranění nepodporuje kromě při balíčky porušují jiné zásady."
 keywords: "Odstranění balíčku NuGet, balíček NuGet unlisting, zakázané používá balíčků"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 9e388171f83fae7deb4f20033184dfa91bfab3da
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 6169e46e55176757bc1ad471a3d80885cb50e403
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="deleting-packages"></a>Odstraněním balíčků
 

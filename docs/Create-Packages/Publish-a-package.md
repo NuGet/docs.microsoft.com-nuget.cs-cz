@@ -3,22 +3,21 @@ title: "Postup publikování balíčku NuGet | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 10/5/2017
+ms.date: 10/05/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 2342aabd-983e-4db1-9230-57c84fa36969
 description: "Podrobné pokyny pro publikování balíčku NuGet nuget.org nebo privátní informačních kanálů a jak spravovat vlastnictví balíčku na nuget.org."
 keywords: "Publikování balíčku NuGet, publikování balíčku NuGet, vlastnictví balíčku NuGet, publikovat do nuget.org, privátní kanály NuGet"
 ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: fab25931165afb65aa3fd09c5bc37492ce814a49
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 2b57845d79c3ba45aa06a934a30d41e6f4d3057e
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="publishing-packages"></a>Publikování balíčků
 
@@ -35,38 +34,39 @@ Pro nuget.org, musíte nejdřív [zaregistrovat bezplatný účet](https://www.n
 
 ![NuGet registrace a přihlášení umístění](media/publish_NuGetSignIn.png)
 
-Dále můžete buď nahrání balíčku přes webový portál nuget.org, nabízená nuget.org z příkazového řádku nebo publikovat v rámci procesu CI/CD prostřednictvím Visual Studio Team Services, jak je popsáno v následujících částech.
+Dále můžete buď nahrání balíčku přes webový portál nuget.org, nabízená nuget.org z příkazového řádku (vyžaduje `nuget.exe` 4.1.0+), nebo publikovat v rámci procesu CI/CD prostřednictvím Visual Studio Team Services, jak je popsáno v následujících částech.
 
-### <a name="web-portal-use-the-upload-package-tab-on-nugetorg"></a>Webový portál: karta odeslat balíček na nuget.org:
+### <a name="web-portal-use-the-upload-package-tab-on-nugetorg"></a>Webový portál: karta odeslat balíček v nuget.org
 
 ![Nahrání balíčku s Správce balíčků NuGet](media/publish_UploadYourPackage.PNG)
 
-### <a name="command-line"></a>Příkazový řádek:
+### <a name="command-line"></a>Příkazový řádek
+
 > [!Important]
 > K nabízení balíčků nuget.org je nutné použít [nuget.exe v4.1.0 nebo vyšší](https://www.nuget.org/downloads), který implementuje požadovaná [NuGet protokoly](../api/nuget-protocols.md).
 
 1. Klikněte na jméno uživatele, přejděte na nastavení svého účtu.
-2. V části **klíč rozhraní API**, klikněte na tlačítko **kopírovat do schránky** načíst přístup klíčů budete potřebovat v rozhraní příkazového řádku:
+1. V části **klíč rozhraní API**, klikněte na tlačítko **kopírovat do schránky** načíst přístup klíčů budete potřebovat v rozhraní příkazového řádku:
 
     ![Kopírování klíč rozhraní API z nastavení účtu](media/publish_APIKey.png)
 
-3. Na příkazovém řádku spusťte následující příkaz:
+1. Na příkazovém řádku spusťte následující příkaz:
 
-    ```
+    ```cli
     nuget setApiKey Your-API-Key
     ```
 
     To ukládá klíč rozhraní API na počítači, aby nemusí proveďte tento krok opakujte na stejném počítači.
 
-4. Nabízená vašeho balíčku Galerie NuGet pomocí příkazu:
+1. Nabízená vašeho balíčku Galerie NuGet pomocí příkazu:
 
-    ```
+    ```cli
     nuget push YourPackage.nupkg -Source https://api.nuget.org/v3/index.json
     ```
 
-5. Před prováděné veřejný, jsou všechny balíčky nahrán do nuget.org zkontrolovat viry a odmítnuta, pokud nejsou nalezeny žádné viry. Všechny balíčky uvedené v nuget.org také jsou pravidelně kontrolovány.
+1. Před prováděné veřejný, jsou všechny balíčky nahrán do nuget.org zkontrolovat viry a odmítnuta, pokud nejsou nalezeny žádné viry. Všechny balíčky uvedené v nuget.org také jsou pravidelně kontrolovány.
 
-6. Ve vašem účtu na nuget.org, klikněte na tlačítko **spravovat vlastní balíčky** zobrazíte ten, který jste právě publikovaná; také obdržíte e-mail s potvrzením. Všimněte si, že může trvat nějakou dobu vašeho balíčku indexovat a zobrazit ve výsledcích hledání, kde je během této doby se zobrazí tato zpráva na stránce balíček můžete najít jiné:
+1. Ve vašem účtu na nuget.org, klikněte na tlačítko **spravovat vlastní balíčky** zobrazíte ten, který jste právě publikovaná; také obdržíte e-mail s potvrzením. Všimněte si, že může trvat nějakou dobu vašeho balíčku indexovat a zobrazit ve výsledcích hledání, kde je během této doby se zobrazí tato zpráva na stránce balíček můžete najít jiné:
 
     ![Zpráva oznamující, že balíček není ještě indexované](media/publish_NotYetIndexed.png)
 
@@ -78,7 +78,7 @@ Ověřování balíčku a indexování obvykle trvá v části 15 minut. Pokud b
 
 ### <a name="visual-studio-team-services-cicd"></a>Visual Studio Team Services (CI/CD)
 
-Pokud jste nabízená balíčky nuget.org pomocí Visual Studio Team Services jako součást procesu průběžnou integraci a nasazení, musíte použít nuget.exe 4.1 nebo vyšší v úlohách NuGet. Podrobnosti najdete na [pomocí nejnovější NuGet v buildu](https://blogs.msdn.microsoft.com/devops/2017/09/29/using-the-latest-nuget-in-your-build/) (blog Microsoft DevOps).
+Pokud jste nabízená balíčky nuget.org pomocí Visual Studio Team Services jako součást procesu průběžnou integraci a nasazení, musíte použít `nuget.exe` 4.1 nebo vyšší v úlohách NuGet. Podrobnosti najdete na [pomocí nejnovější NuGet v buildu](https://blogs.msdn.microsoft.com/devops/2017/09/29/using-the-latest-nuget-in-your-build/) (blog Microsoft DevOps).
 
 ## <a name="managing-package-owners-on-nugetorg"></a>Správa vlastníků balíčku v nuget.org
 

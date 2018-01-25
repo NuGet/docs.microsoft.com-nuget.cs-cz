@@ -3,21 +3,20 @@ title: "Podpora NuGet pro projekt systému Visual Studio | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 1/9/2017
+ms.date: 01/09/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 9d7fa7f6-82ed-4df6-9734-f43a3d8e3b98
 description: "Integrace NuGet do projektu systému Visual Studio pro typy projektů třetích stran."
 keywords: "NuGet v sadě Visual Studio, typy vlastních projektů, projektů sady Visual Studio"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 9c8cad46f18578bec41bd9280985e42972a9b3c1
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: e2f7c4a32f80b96360f08d04efb8af639af2ddd3
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-support-for-the-visual-studio-project-system"></a>Podpora NuGet pro projekt systému Visual Studio
 
@@ -25,24 +24,22 @@ Pro podporu typy třetích stran projektů v sadě Visual Studio, podporuje NuGe
 
 K integraci s NuGet, musí systému projektu inzerovat vlastní podporu pro všechny možnosti projektu popsaných v tomto tématu.
 
-
-> [!NOTE]
-> Nedeklarujte možnosti, které projektu nemá ve skutečnosti z důvodu povolení balíčků pro instalaci ve vašem projektu. Mnoho funkcí sady Visual Studio a další rozšíření závisí na možnostech projektu kromě klienta NuGet. Možnosti projektu nesprávně inzerování může způsobit, že tyto součásti fungovat správně a zkušenosti uživatelů snižovat.
+> [!Note]
+> Nemáte deklarovat možnosti, které projektu nemá ve skutečnosti z důvodu povolení balíčků pro instalaci ve vašem projektu. Mnoho funkcí sady Visual Studio a další rozšíření závisí na možnostech projektu kromě klienta NuGet. Možnosti projektu nesprávně inzerování může způsobit, že tyto součásti fungovat správně a zkušenosti uživatelů snižovat.
 
 ## <a name="advertise-project-capabilities"></a>Inzerovat možnosti projektu
 
 NuGet klienta Určuje, které balíčky jsou kompatibilní s typem vašeho projektu na základě [možnosti projektu](https://github.com/Microsoft/VSProjectSystem/blob/master/doc/overview/about_project_capabilities.md), jak je popsáno v následující tabulce.
 
-
-|Funkce|Popis|
-|----------------|-----------|
-|AssemblyReferences|Označuje, že projekt podporuje odkazy na sestavení (liší od WinRTReferences)|
-|DeclaredSourceItems|Označuje, že projekt je typické projektu nástroje MSBuild (ne DNX) v tom, že deklaruje položky zdroje v projektu (ne `project.json` soubor, který se předpokládá, všechny soubory ve složce jsou součástí kompilace).|
-|UserSourceItems|Označuje, že uživatel může přidat libovolné soubory do svého projektu.|
+| Funkce | Popis |
+| --- | --- |
+| AssemblyReferences | Označuje, že projekt podporuje odkazy na sestavení (liší od WinRTReferences). |
+| DeclaredSourceItems | Označuje, že projekt je typické projektu nástroje MSBuild (ne DNX) v tom, že deklaruje položky zdroje v projektu. |
+| UserSourceItems|Označuje, že uživatel může přidat libovolné soubory do svého projektu. |
 
 U systémů, na základě CPS projektu jsou prováděny podrobnosti implementace pro možnosti projektu popsané ve zbývající části této části pro vás. V tématu [deklarace možnosti projektu v projektech CPS](https://github.com/Microsoft/VSProjectSystem/blob/master/doc/overview/about_project_capabilities.md#how-to-declare-project-capabilities-in-your-project).
 
-## <a name="implementing-vsprojectcapabilitiespresencechecker"></a>Implementace VsProjectCapabilitiesPresenceChecker
+## <a name="implementing-vsprojectcapabilitiespresencechecker"></a>Implementing VsProjectCapabilitiesPresenceChecker
 
 `VsProjectCapabilitiesPresenceChecker` Musí implementovat třídu `IVsBooleanSymbolPresenceChecker` rozhraní, což je definován následujícím způsobem:
 
@@ -76,9 +73,8 @@ public interface IVsBooleanSymbolPresenceChecker
 }
 ```
 
-
 Ukázka implementace tohoto rozhraní by pak bylo:
-    
+
 ```cs
 class VsProjectCapabilitiesPresenceChecker : IVsBooleanSymbolPresenceChecker
 {

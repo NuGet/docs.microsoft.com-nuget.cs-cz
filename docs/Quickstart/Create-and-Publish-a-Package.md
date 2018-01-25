@@ -3,30 +3,24 @@ title: "Úvodní příručka o vytváření a publikování balíčku NuGet | Mi
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 10/3/2017
+ms.date: 10/03/2017
 ms.topic: get-started-article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 91781ed6-da5c-49f0-b973-16dd8ad84229
 description: "Návod kurz týkající se vytváření a publikování balíčku NuGet pomocí rozhraní příkazového řádku nuget.exe a Visual Studio."
 keywords: "Vytvoření balíčku NuGet, publikování, balíček NuGet kurzu NuGet"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 9ec7091b0984c53fb883bbace9ee55d10ece773c
-ms.sourcegitcommit: 9ac1fa23a4a8ce098692de93328b1db4136fe3d2
+ms.openlocfilehash: 53d29283c9e786fc27e9a608d7d251d8d0b5b0b2
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="create-and-publish-a-package"></a>Vytvoření a publikování balíčku
 
-Je jednoduchý proces vytvoření balíčku NuGet z knihovny tříd rozhraní .NET a publikujete ho v nuget.org. Následující kroky vás provedou procesem, pomocí rozhraní NuGet příkazového řádku (CLI) a Visual Studio:
-
-- [Předpoklady](#install-pre-requisites)
-- [Vytvoření souboru manifestu balíčku příponou .nuspec](#create-the-nuspec-package-manifest-file)
-- [Spusťte příkaz pack](#run-the-pack-command)
-- [Umožňuje publikovat balíček](#publish-the-package)
+Je jednoduchý proces vytvoření balíčku NuGet z knihovny tříd rozhraní .NET a publikujete ho v nuget.org. Tento článek vás provede procesem, pomocí rozhraní NuGet příkazového řádku (CLI) a Visual Studio.
 
 ## <a name="pre-requisites"></a>Předpoklady
 
@@ -48,7 +42,7 @@ Každý balíček NuGet musí manifestu&mdash; `.nuspec` soubor&mdash;k popisu j
 
 1. Spuštění rozhraní příkazového řádku NuGet `spec` příkaz pro generování manifestu, který se nazývá po projektu, například `AppLogger.nuspec`:
 
-    ```
+    ```cli
     nuget spec
     ```
 
@@ -102,7 +96,7 @@ Každý balíček NuGet musí manifestu&mdash; `.nuspec` soubor&mdash;k popisu j
 
 K vytvoření balíčku NuGet ( `.nupkg` souboru) z projektu, spusťte `pack` příkaz:
 
-```
+```cli
 nuget pack AppLogger.csproj
 ```
 
@@ -130,13 +124,13 @@ Jakmile máte `.nupkg` souboru ji publikujete pomocí nuget.org `push` příkaz.
 
 1. Na příkazovém řádku spusťte následující příkaz zadáte název balíčku a klíč nahraďte hodnotou zkopírovali v kroku 4:
 
-    ```
+    ```cli
     nuget push AppLogger.1.0.0.0.nupkg 47be3377-c434-4c29-8576-af7f6993a54b -Source https://api.nuget.org/v3/index.json
     ```
 
 1. nuget.exe zobrazuje výsledky procesu publikování:
 
-    ```
+    ```output
     Pushing AppLogger.1.0.0.0.nupkg to 'https://www.nuget.org/api/v2/package'...
         PUT https://www.nuget.org/api/v2/package/
         Created https://www.nuget.org/api/v2/package/ 6829ms

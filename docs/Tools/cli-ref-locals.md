@@ -3,23 +3,22 @@ title: "Příkaz místní hodnoty – NuGet rozhraní příkazového řádku | M
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 10/24/2017
+ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 7f672c7c-74c9-4296-bc27-4d47882b541c
 description: "Referenční dokumentace pro nuget.exe místní hodnoty – příkaz"
 keywords: "místní hodnoty – odkaz nuget, místní hodnoty – příkaz"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 8cc06eedc20507e2bdd210e40c471ff551b89563
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: b2f62a9ab5699bfb486eee146ab7046f5240aa50
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
-## <a name="locals-command-nuget-cli"></a>místní hodnoty – příkaz (NuGet CLI)
+# <a name="locals-command-nuget-cli"></a>místní hodnoty – příkaz (NuGet CLI)
 
 **Platí pro:** balíček spotřeba &bullet; **podporované verze:** 3.3 +
 
@@ -27,7 +26,7 @@ Vymaže nebo vypíše místní prostředky NuGet například mezipaměti požada
 
 ## <a name="usage"></a>Použití
 
-```
+```cli
 nuget locals <cache> [options]
 ```
 
@@ -49,7 +48,7 @@ Viz také [proměnné prostředí](cli-ref-environment-variables.md)
 
 ## <a name="examples"></a>Příklady
 
-```
+```cli
 nuget locals all -list
 nuget locals http-cache -clear
 ```

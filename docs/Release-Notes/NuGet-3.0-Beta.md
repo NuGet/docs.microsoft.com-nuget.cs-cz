@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 4153ff3f-f97f-4e54-b638-e844f70edf22
 description: "Poznámky k verzi pro NuGet 3.0 Beta včetně známé problémy, opravy chyb, přidaných funkcí a chcete."
 keywords: "NuGet 3.0 Beta poznámky k verzi, opravy chyb známé problémy, přidat funkce, chcete"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 46b2a81845f5ac06b8c80975c55fcfc33b86636e
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 618d140c443d51f4d7eb87bac2381ad961ed85d1
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-30-beta-release-notes"></a>Poznámky k verzi 3.0 Beta NuGet
 
@@ -27,7 +26,7 @@ NuGet 3.0 Beta byla vydána 23 únor 2015 pro verze Visual Studio 2015 CTP 6. Ta
 
 Důrazně doporučujeme, abyste před instalací této nové verzi odinstalovali všechny předchozí verze rozšíření NuGet sady Visual Studio 2015.  Pokud máte potíže s touto verzí rozšíření, doporučujeme vrátit k [předchozí verze](http://nuget.codeplex.com/downloads/get/909582) pro použití s Visual Studio 2015 preview.
 
-## <a name="visual-studio-2012"></a>Visual Studio 2012 +
+## <a name="visual-studio-2012"></a>Visual Studio 2012+
 
 Této beta verzi 3.0 NuGet je k dispozici pro instalaci ve Visual Studio 2015 CTP 6 Galerie rozšíření. Pracujeme na velmi brzy získat vyřazuje preview pro sadu Visual Studio 2012 a Visual Studio 2013. Jsme předtím sdílené naše záměr [přestali aktualizace pro sadu Visual Studio 2010](http://blog.nuget.org/20141002/visual-studio-2010.html), a jsme Ujistěte se, že obtížné rozhodnutí.
 

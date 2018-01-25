@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 80a429f5-7569-4349-ad7f-4fe9218eac23
 description: "Poznámky k verzi pro NuGet 3.4, včetně známé problémy, opravy chyb, přidaných funkcí a chcete."
 keywords: "NuGet 3.4 poznámky k verzi, opravy chyb známé problémy, přidat funkce, chcete"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 911e4377ad9c8b1f865b0721f43ff73b62df6d1e
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 515fb888aca2a8eb138c8fea1fb5b3f5a8f4e275
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-34-release-notes"></a>NuGet 3.4 poznámky
 

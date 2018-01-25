@@ -7,19 +7,18 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 3ec1ff28-18fc-4d53-bd43-208619a7270a
 description: "Poznámky k verzi pro NuGet 1.5 včetně známé problémy, opravy chyb, přidaných funkcí a chcete."
 keywords: "NuGet 1.5 poznámky k verzi, opravy chyb známé problémy, přidat funkce, chcete"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 29792f4c7399155bcf5fb3361d7f10ddd1b18ca1
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 261cfbbd262bad28f142b0c3dff8a541641d9fda
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
- # <a name="nuget-15-release-notes"></a>Poznámky k verzi 1.5 verzi NuGet
+# <a name="nuget-15-release-notes"></a>Poznámky k verzi 1.5 verzi NuGet
 
 [Poznámky k verzi NuGet 1.4](../release-notes/nuget-1.4.md) | [NuGet 1.6 poznámky k verzi](../release-notes/nuget-1.6.md)
 
@@ -35,6 +34,7 @@ Při vytváření nové šablony projektu ASP.NET MVC 3, knihovny skriptů jQuer
 Další podrobnosti o této funkci najdete v tématu to [příspěvku na blogu vývojáře funkce](http://blogs.msdn.com/b/marcinon/archive/2011/07/08/project-templates-and-preinstalled-nuget-packages.aspx).
 
 ### <a name="explicit-assembly-references"></a>Odkazy na explicitní sestavení
+
 Přidat novou `<references />` elementu použitého k explicitnímu zadání sestavení, v rámci na balíček by měl odkazovat.
 
 Například přidejte následující:

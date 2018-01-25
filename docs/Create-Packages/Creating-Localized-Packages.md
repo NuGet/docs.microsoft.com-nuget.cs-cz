@@ -3,28 +3,27 @@ title: "Vytvoření lokalizovaných balíčků NuGet | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 1/9/2017
+ms.date: 01/18/2018
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 824c3f45-c6c2-4c82-9d6d-62a19bfdc4a4
 description: "Podrobnosti o dva způsoby vytvoření lokalizované balíčky NuGet, včetně všech sestaveních ve jeden balíček nebo publikování samostatné sestavení."
 keywords: "Lokalizace balíčku NuGet, NuGet satelitní sestavení, vytvoření lokalizovaných balíčků NuGet lokalizace konvence"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: aa48e77bd0e64cf45292687a2d4cada198ff5749
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: efe2cde93b30c5fc2f4ee7ebe6a1a0c84645e070
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="creating-localized-nuget-packages"></a>Vytvoření lokalizovaných balíčků NuGet
 
 Existují dva způsoby vytvoření lokalizované verze knihovny:
 
 1. Zahrňte všechna sestavení lokalizované prostředky jeden balíček.
-2. Vytvořte samostatné lokalizované satelitní balíčky (NuGet 1,8 a novější), pomocí následujících o striktní sadu pravidel.
+1. Vytvořte samostatné lokalizované satelitní balíčky (NuGet 1,8 a novější), pomocí následujících o striktní sadu pravidel.
 
 Obě metody mít jejich výhody a nevýhody, jak je popsáno v následujících částech.
 
@@ -80,19 +79,18 @@ Pomocí těchto složek na místě, budete pak odkazovat všechny soubory ve va�
 
 Jeden balíček příklad, který používá tento přístup je [Microsoft.Data.OData 5.4.0](http://nuget.org/packages/Microsoft.Data.OData/5.4.0).
 
-### <a name="advantages-and-disadvantages"></a>Výhody a nevýhody
+### <a name="advantages-and-disadvantages-localized-resource-assemblies"></a>Výhody a nevýhody (lokalizovaný prostředek sestavení)
 
 Sdružování všechny jazyky do jednoho balíčku má několik nevýhody:
 
 1. **Sdílené metadata**: vzhledem k tomu, že balíček NuGet může obsahovat pouze jeden `.nuspec` souboru, můžete zadat metadata pouze jeden jazyk. To znamená NuGet nemá k dispozici podpora lokalizované metadat.
-2. **Velikost balíčku**: v závislosti na počet jazyků, které podporujete, knihovně, může být výrazně velký, což zpomalí instalace a obnovení balíčku.
-3. **Souběžné verze**: sdružování lokalizované soubory do jednoho balíčku vyžaduje verzi všechny prostředky v tomto balíčku současně, místo bude možné verze jednotlivých lokalizace samostatně. Kromě toho jakékoliv aktualizace jakékoli jeden lokalizace vyžaduje novou verzi celý balíček.
+1. **Velikost balíčku**: v závislosti na počet jazyků, které podporujete, knihovně, může být výrazně velký, což zpomalí instalace a obnovení balíčku.
+1. **Souběžné verze**: sdružování lokalizované soubory do jednoho balíčku vyžaduje verzi všechny prostředky v tomto balíčku současně, místo bude možné verze jednotlivých lokalizace samostatně. Kromě toho jakékoliv aktualizace jakékoli jeden lokalizace vyžaduje novou verzi celý balíček.
 
 Však také má několik výhod:
 
 1. **Jednoduchost**: příjemci balíčku získat všechny podporované jazyky v jedné instalaci, namísto nutnosti instalovat samostatně jednotlivé jazyky. Snazší najít v nuget.org je také jeden balíček.
-2. **Doplněná verze**: vzhledem k tomu, že jsou všechny sestavení prostředků ve stejném balíčku jako primární sestavení, všechny sdílet stejné číslo verze a nespouštět riziko získávání chybnou informací odpojené.
-
+1. **Doplněná verze**: vzhledem k tomu, že jsou všechny sestavení prostředků ve stejném balíčku jako primární sestavení, všechny sdílet stejné číslo verze a nespouštět riziko získávání chybnou informací odpojené.
 
 ## <a name="localized-satellite-packages"></a>Lokalizovaná satelitní balíčky
 
@@ -127,11 +125,11 @@ Pokud jsou splněny všechny tyto konvence, NuGet rozpozná balíček jako balí
 
 Měli byste vytvořit další satelitní sestavení stejným způsobem pro každý podporovaný jazyk. Příklad zkontrolujte sadu rozhraní ASP.NET MVC balíčků:
 
-* [Microsoft.AspNet.Mvc](http://nuget.org/packages/Microsoft.AspNet.Mvc) (anglické primární)
-* [Microsoft.AspNet.Mvc.de](http://nuget.org/packages/Microsoft.AspNet.Mvc.de) (němčina)
-* [Microsoft.AspNet.Mvc.ja](http://nuget.org/packages/Microsoft.AspNet.Mvc.ja) (japonština)
-* [Microsoft.AspNet.Mvc.zh Hans](http://nuget.org/packages/Microsoft.AspNet.Mvc.zh-Hans) (čínština (zjednodušená))
-* [Microsoft.AspNet.Mvc.zh Hant](http://nuget.org/packages/Microsoft.AspNet.Mvc.zh-Hant) (čínština (tradiční))
+- [Microsoft.AspNet.Mvc](http://nuget.org/packages/Microsoft.AspNet.Mvc) (anglické primární)
+- [Microsoft.AspNet.Mvc.de](http://nuget.org/packages/Microsoft.AspNet.Mvc.de) (German)
+- [Microsoft.AspNet.Mvc.ja](http://nuget.org/packages/Microsoft.AspNet.Mvc.ja) (Japanese)
+- [Microsoft.AspNet.Mvc.zh-Hans](http://nuget.org/packages/Microsoft.AspNet.Mvc.zh-Hans) (Chinese (Simplified))
+- [Microsoft.AspNet.Mvc.zh-Hant](http://nuget.org/packages/Microsoft.AspNet.Mvc.zh-Hant) (Chinese (Traditional))
 
 ### <a name="summary-of-required-conventions"></a>Souhrn požadované konvence
 
@@ -141,16 +139,16 @@ Měli byste vytvořit další satelitní sestavení stejným způsobem pro každ
 - Satelitní balíčku musí deklarovat závislost na přesnou verzi systému primární notaci [] v jeho `.nuspec` souboru. Rozsahy nejsou podporovány.
 - Satelitní balíčku musíte umístit soubory v `lib\[{framework}\]{language}` složky, který přesně odpovídá `{language}` v názvu souboru.
 
-### <a name="advantages-and-disadvantages"></a>Výhody a nevýhody
+### <a name="advantages-and-disadvantages-satellite-packages"></a>Výhody a nevýhody (satelitní balíčky)
 
 Použití balíčků satelitní má několik výhod:
 
 1. **Velikost balíčku**: celkové nároky na primární balíčku je minimalizován, a spotřebitelé pouze vynakládá jednotlivé jazyky, které chtějí používat.
-2. **Samostatné metadata**: každý balíček satelitní má svou vlastní `.nuspec` soubor a proto jeho vlastní lokalizované metadata protože. To umožňuje snadno najít balíčků tak, že nuget.org s podmínkami lokalizované některé příjemcům.
-3. **Odpojené verze**: satelitní sestavení, se uvolní v čase, nikoli všechny najednou, umožňuje šíření vaše snahy o lokalizaci.
+1. **Samostatné metadata**: každý balíček satelitní má svou vlastní `.nuspec` soubor a proto jeho vlastní lokalizované metadata protože. To umožňuje snadno najít balíčků tak, že nuget.org s podmínkami lokalizované některé příjemcům.
+1. **Odpojené verze**: satelitní sestavení, se uvolní v čase, nikoli všechny najednou, umožňuje šíření vaše snahy o lokalizaci.
 
 Satelitní balíčky však mít vlastní sadu nevýhody:
 
 1. **Zbytečné soubory**: místo jeden balíček, máte velký počet balíčků, které může vést k nepřehlednost výsledků na nuget.org a dlouhý seznam odkazů v projektu sady Visual Studio.
-2. **Striktní konvence**. Satelitní balíčky musí přesně odpovídat daným nebo lokalizované verze nesmí být zachyceny správně.
-3. **Správa verzí**: každý balíček satelitní musí mít přesnou verzi závislostí na primární balíčku. To znamená, že primární balíček aktualizace může vyžadovat aktualizaci všech balíčků satelitní taky i v případě, že prostředky nezměnil.
+1. **Striktní konvence**. Satelitní balíčky musí přesně odpovídat daným nebo lokalizované verze nesmí být zachyceny správně.
+1. **Správa verzí**: každý balíček satelitní musí mít přesnou verzi závislostí na primární balíčku. To znamená, že primární balíček aktualizace může vyžadovat aktualizaci všech balíčků satelitní taky i v případě, že prostředky nezměnil.

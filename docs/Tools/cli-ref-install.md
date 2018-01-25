@@ -3,21 +3,20 @@ title: "Příkaz instalovat NuGet rozhraní příkazového řádku | Microsoft D
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 12/07/2017
+ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 59ac622f-837c-4545-bc93-a56330e02d71
 description: "Referenční dokumentace pro příkaz nuget.exe instalace"
 keywords: "nuget nainstalujte odkaz, nainstalujte balíček příkaz"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 88c123a7f2a3d628713cefcc4b110fb0205093b4
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: b77e0e6ce045d1a1e59b29f770b5aca13fc4e7e3
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="install-command-nuget-cli"></a>nainstalovat příkaz (NuGet CLI)
 
@@ -26,19 +25,19 @@ ms.lasthandoff: 12/14/2017
 Stáhne a nainstaluje balíček do projektu, jako výchozí bude použit na aktuální složku, pomocí zadaného balíčku zdroje.
 
 > [!Tip]
-> Stažení balíčku přímo mimo kontext projektu, navštivte stránku balíčku na [nuget.org](https://www.nuget.org) a vyberte **Stáhnout** odkaz. 
+> Stažení balíčku přímo mimo kontext projektu, navštivte stránku balíčku na [nuget.org](https://www.nuget.org) a vyberte **Stáhnout** odkaz.
 
-Pokud nejsou zadány žádné zdroje, ty uvedené v souboru globální konfiguraci `%APPDATA%\NuGet\NuGet.Config`, se používají. V tématu [konfigurace chování NuGet](../consume-packages/configuring-nuget-behavior.md) další podrobnosti.
+Pokud nejsou zadány žádné zdroje, ty uvedené v souboru globální konfiguraci `%APPDATA%\NuGet\NuGet.Config`, se používají. V tématu [konfigurace NuGet chování](../consume-packages/configuring-nuget-behavior.md) další podrobnosti.
 
-Pokud nejsou zadány žádné konkrétní balíčky, `install` nainstaluje všechny balíčky uvedené v projektu `packages.config` souboru, takže je podobná [ `restore` ](#restore). ( `install` Příkaz nefunguje s `project.json`.)
+Pokud nejsou zadány žádné konkrétní balíčky, `install` nainstaluje všechny balíčky uvedené v projektu `packages.config` souboru, takže je podobná [ `restore` ](cli-ref-restore.md).
 
 `install` Příkaz nedojde ke změně souboru projektu nebo `packages.config`; tímto způsobem je podobná `restore` v tom pouze přidá balíčky na disk ale nemění závislosti projektu.
 
-Pokud chcete přidat závislost, přidejte projektu přes uživatelské rozhraní Správce balíčků nebo konzoly v sadě Visual Studio nebo upravit `packages.config` a spusťte buď `install` nebo `restore`. Pro projekty pomocí `project.json`, můžete upravit tento soubor a pak spusťte `restore`.
+Pokud chcete přidat závislost, přidejte projektu přes uživatelské rozhraní Správce balíčků nebo konzoly v sadě Visual Studio nebo upravit `packages.config` a spusťte buď `install` nebo `restore`.
 
 ## <a name="usage"></a>Použití
 
-```
+```cli
 nuget install <packageID | configFilePath> [options]
 ```
 
@@ -48,7 +47,8 @@ kde `<packageID>` názvy balíček k instalaci (pomocí nejnovější verze), ne
 
 | Možnost | Popis |
 | --- | --- |
-| ConfigFile | *(2.5 +)*  NuGet konfiguračním souboru použít. Pokud není zadaný, *%AppData%\NuGet\NuGet.Config* se používá. |
+| ConfigFile | Konfigurační soubor NuGet použít. Pokud není zadaný, *%AppData%\NuGet\NuGet.Config* se používá. |
+| DependencyVersion | *(4.4 +)*  Určuje konkrétní verzi, přepisování výchozího chování řešení závislostí. |
 | DisableParallelProcessing | Zakáže instalaci více balíčků paralelně. |
 | ExcludeVersion | Nainstaluje balíček do složky s názvem se pouze název balíčku a není číslo verze. |
 | FallbackSource | *(3.2 +)*  Seznam zdroje balíčku pro použití jako případech přejít v případě, že daný balíček nebyl nalezen v primární nebo výchozí zdroj. |
@@ -63,14 +63,14 @@ kde `<packageID>` názvy balíček k instalaci (pomocí nejnovější verze), ne
 | RequireConsent | Ověří, že probíhá obnovení balíčků je zapnutá před stažením a instalací balíčky. Podrobnosti najdete v tématu [obnovení balíčků](../consume-packages/package-restore.md). |
 | SolutionDirectory | Určuje kořenové složky řešení pro pro obnovení balíčků. |
 | Zdroj | Určuje seznam zdrojů balíčku (jako adresy URL) používat. Pokud tento parametr vynechán, příkaz používá zdrojů, součástí konfigurační soubory, najdete v části [konfigurace NuGet chování](../Consume-Packages/Configuring-NuGet-Behavior.md). |
-| Podrobnosti | Určuje množství podrobností, které jsou zobrazené ve výstupu: *normální*, *quiet*, *podrobné (2.5 +)*. |
+| Podrobnosti | Určuje množství podrobností, které jsou zobrazené ve výstupu: *normální*, *quiet*, *podrobné*. |
 | Version | Určuje verzi balíčku pro instalaci. |
 
 Viz také [proměnné prostředí](cli-ref-environment-variables.md)
 
 ## <a name="examples"></a>Příklady
 
-```
+```cli
 nuget install elmah
 
 nuget install packages.config

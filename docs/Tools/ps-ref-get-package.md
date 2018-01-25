@@ -7,17 +7,16 @@ ms.date: 12/07/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 42476008-64b3-480e-a966-98b2fa38b681
 description: "Referenční dokumentace pro příkaz prostředí PowerShell Get-balíčku v konzole Správce balíčků NuGet v sadě Visual Studio."
 keywords: "NuGet konzoly Správce balíčků, příkazy prostředí NuGet Powershell, NuGet Powershell odkaz, Get-Package"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 632936fe4dd9736f7c3740a2f763173dc725424a
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: c38e0da2e98d2e5bf5b4fc165462e9abcfdd73c0
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="get-package-package-manager-console-in-visual-studio"></a>Get-Package (konzola Správce balíčků v sadě Visual Studio)
 
@@ -83,4 +82,3 @@ Get-Package -Updates
 # Lists packages installed in a specific project that have available updates
 Get-Package -Updates -ProjectName MyProject
 ```
-

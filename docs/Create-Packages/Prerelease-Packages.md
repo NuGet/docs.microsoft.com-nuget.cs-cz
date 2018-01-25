@@ -3,21 +3,20 @@ title: "Předběžné verze verze v balíčky NuGet | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 8/14/2017
+ms.date: 08/14/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: df6a366a-22c1-47bb-8017-18231311ce88
 description: "Pokyny pro vytváření předběžné verze balíčků"
 keywords: "Správa verzí, verze balíčku NuGet, předprodejní verze NuGet, předběžné verze balíčků NuGet, verze balíčku preview, verze RC balíčku, Beta verze balíčku, sémantické verze NuGet"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 07cb9b9bdeeea6f283e95a11a06d7f2043c9b17c
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: f07b4a0428685b036640a7153190fd8454885608
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="building-pre-release-packages"></a>Vytváření předběžné verze balíčků
 
@@ -47,7 +46,6 @@ Tyto verze můžete určit dvěma způsoby:
 
 Až budete připraveni k uvolnění stabilní verze, právě odeberte příponu a balíček má přednost před všechny předprodejní verze. Znovu, najdete v části [Správa verzí balíčku](../reference/package-versioning.md#pre-release-versions).
 
-
 ## <a name="installing-and-updating-pre-release-packages"></a>Instalace a aktualizace předběžné verze balíčků
 
 Ve výchozím nastavení NuGet nezahrnuje předprodejní verze při práci s balíčky, ale toto chování lze změnit takto:
@@ -61,7 +59,6 @@ Ve výchozím nastavení NuGet nezahrnuje předprodejní verze při práci s bal
 - **Konzola správce balíčků**: použití `-IncludePrerelease` přepínač s `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package`, a `Update-Package` příkazy. Odkazovat [referenční informace prostředí PowerShell](../tools/powershell-reference.md).
 
 - **Rozhraní příkazového řádku NuGet**: použití `-prerelease` přepínač s `install`, `update`, `delete`, a `mirror` příkazy. Odkazovat [odkaz NuGet rozhraní příkazového řádku](../tools/nuget-exe-cli-reference.md)
-
 
 ## <a name="semantic-versioning"></a>Sémantické verze
 
@@ -86,16 +83,14 @@ Myslete na to je obvykle dobrou sledovat rozpoznaný zásady vytváření názv�
 
 Ať přípony, které používáte, ale NuGet získáte jejich prioritu ve vzestupném abecedním pořadí:
 
-```
-1.0.1
-1.0.1-zzz
-1.0.1-rc
-1.0.1-open
-1.0.1-beta12
-1.0.1-beta05
-1.0.1-beta
-1.0.1-alpha2
-1.0.1-alpha
-```
+    1.0.1
+    1.0.1-zzz
+    1.0.1-rc
+    1.0.1-open
+    1.0.1-beta12
+    1.0.1-beta05
+    1.0.1-beta
+    1.0.1-alpha2
+    1.0.1-alpha
 
 Jak je znázorněno, verze bez žádné přípony bude vždy přednost předběžné verze. Všimněte si také, že pokud používáte číselné přípony s předběžné verze značky, které můžou používat dvoumístných čísel (nebo více), použít úvodní nuly jako beta01 a beta05 zajistit, že budou řadit správně při získání větší čísla.

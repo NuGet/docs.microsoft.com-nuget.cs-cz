@@ -3,21 +3,20 @@ title: "Zásady správného řízení projektu NuGet | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 1/9/2017
+ms.date: 01/18/2018
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 94c088ce-ec96-4876-a210-fbdae743942c
 description: "Model zásad správného řízení pro NuGet, včetně role a zodpovědnosti committers, přispěvatelé a uživatelů."
 keywords: "Zásady správného řízení NuGet, NuGet benevolent dictator, committer odpovědnosti, Přispěvatel odpovědnosti, odpovědnosti uživatele"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0437b7d41f965da6a7ad44a7d0675916ed655fe1
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: ea1ddcc3e145afe3b905b23db37e1e61500200bb
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-governance"></a>Zásady správného řízení NuGet
 
@@ -31,7 +30,7 @@ Je úloha benevolent dictator řešení sporů v rámci komunity a zajistěte, a
 
 Existují čtyři role postupu popsaného tady: Benevolent Dictator, Committers, přispěvatelé a uživatelů.
 
-### <a name="benevolent-dictator"></a>Benevolent Dictator
+### <a name="benevolent-dictator"></a>Benevolent dictator
 
 Tým core NuGet je samoobslužné určené jako realizace Benevolent Dictator nebo projektu. Ale protože komunity vždy má schopnost rozvětvení, týmem je plně zodpovědět komunitě. Realizace projektu se očekává pochopit komunity jako celek a snažit splnit mnoho konfliktní stačit nejdříve, a zajistit, že projekt odolává z dlouhodobého hlediska.
 
@@ -81,21 +80,22 @@ Uživatelé by měly při účastnit dobu životnosti NuGet a co nejvíce komuni
 Uživatelé, kteří se spojte s projekt a její komunitě i nadále často najít sami stal více zahrnuta. Tyto uživatele může potom přejděte se přispěvatele, jak je popsáno výše.
 
 ## <a name="package-succession-under-special-circumstances"></a>Balíček po sobě zvláštní okolnosti
+
 V velice nepříjemná situaci kterých držitel účtu NuGet je jejich vyřazení z funkce nebo zemřelý jsme budete pracovat s komunitou přidání odpovídající vlastníka nebo s do balíčku, kde uvedené účet má jedinou vlastnictví a balíček je publikována v části [OSI schválení licence](https://opensource.org/licenses/alphabetical). Požádat o vlastnictví, je potřeba poslat nám v následujících dokumentech:
 
-1.  Fotokopie ID vašeho vydané vládou fotografii.
-2.  Jedna z následujících dokumentech prokázání stav předchozí držitel účtu: 
+1. Fotokopie ID vašeho vydané vládou fotografii.
+1. Jedna z následujících dokumentech prokázání stav předchozí držitel účtu: 
     - Certifikát oficiální, vydané vládou smrti Pokud předchozí držitel účtu zemřelý, nebo,
     - Dokument, certifikovaným třeba certifikát podepsaný službou lékařské professional starosti péče o držitel nezpůsobilých účtu.
-3.  Jedna z následujících dokumentech prokázání vaše právo na vlastnictví: 
+1. Jedna z následujících dokumentech prokázání vaše právo na vlastnictví: 
     - Certifikát manželství zobrazující, že jste hostujícího manžela vlastníka účtu
     - Podepsaný moci power
     - Kopie budou nebo vztahu důvěryhodnosti dokumentu pojmenování můžete jako vykonavatele nebo oprávněná osoba,
     - Certifikát narození pro vlastníka účtu, pokud je jeho nadřazeným prvkem, nebo,
     - Pokud jste právní ochrany vlastníka účtu opatrovníka doklady.
-    
+
 Pokud se přistihnete potřeba zkontrolovat vyvolání tuto zásadu, nám prosím pošlete e-mail na [ support@nuget.org ](mailto:support@nuget.org) s ID a verzi balíčku.
-    
+
 ## <a name="transparency"></a>Průhlednost
 
 Vytvoření vztahu důvěryhodnosti komunity v zásad správného řízení open source projektu je potřeba jeho úspěch. Za tímto účelem je třeba provést rozhodování transparentní, otevřete způsobem. Diskuze o projektu směru, je třeba provést veřejně. Komunita by měl být nikdy zachycena rozhodnutím podle Benevolent Dictator nepřipravené. Kromě toho musí diskuzi o projektu rozhodnutí archivovat tak, aby členové komunity můžete porozumět celou historii rozhodnutí a jeho kontextu.

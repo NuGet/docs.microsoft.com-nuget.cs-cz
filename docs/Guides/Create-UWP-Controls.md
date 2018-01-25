@@ -3,41 +3,38 @@ title: "Jak zabalit UWP ovládací prvky s NuGet | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 3/21/2017
+ms.date: 03/21/2017
 ms.topic: get-started-article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 1f9de20a-f394-4cf2-8e40-ba0f4239cd5e
 description: "Postup vytvoření balíčků NuGet, které obsahují UWP řídí včetně nezbytné metadata a podpůrné soubory pro Visual Studio a nástroj Blend návrháře."
 keywords: "Ovládací prvky NuGet UWP, Návrhář Visual Studio XAML, Návrhář Blend, vlastní ovládací prvky"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 8756ce472c11a05370914841245295361b3f179b
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 3af17121f73b878decd5f0c933696fc1b0c786d7
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="creating-uwp-controls-as-nuget-packages"></a>Vytváření ovládacích prvků UPW jako balíčků NuGet
 
 Visual Studio 2017 můžete využít přidané možnosti pro ovládací prvky UWP přinášející balíčky NuGet. Tento průvodce vás provede tyto možnosti [ExtensionSDKasNuGetPackage ukázka](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage). 
 
-## <a name="pre-requisites"></a>Předpoklady:
+## <a name="pre-requisites"></a>Předpoklady
 
-1.  Visual Studio 2017
-1.  Přehled o tom, jak [vytvořit balíčky UWP](create-uwp-packages.md)
+1. Visual Studio 2017
+1. Přehled o tom, jak [vytvořit balíčky UWP](create-uwp-packages.md)
 
 ## <a name="add-toolboxassets-pane-support-for-xaml-controls"></a>Přidání podpory podokna nástrojů nebo prostředky pro ovládací prvky jazyka XAML
 
 Pokud chcete, aby ovládacího prvku XAML, zobrazí v sadě nástrojů Návrhář XAML v sadě Visual Studio a podokně prostředky Blend, vytvořte `VisualStudioToolsManifest.xml` soubor v kořenovém `tools` složky balíčku projektu. Tento soubor se nevyžaduje, pokud nepotřebujete, než se objeví v soupravy nástrojů nebo prostředky podokně ovládacího prvku.
 
-```
-\build
-\lib
-\tools
-    \VisualStudioToolsManifest.xml
-```    
+    \build
+    \lib
+    \tools
+        VisualStudioToolsManifest.xml
 
 Struktura souboru je následující:
 
@@ -98,22 +95,18 @@ V následujícím příkladu projekt obsahuje soubor bitové kopie s názvem "Ma
 
 Balíčky UWP mít TargetPlatformVersion (TPV) a TargetPlatformMinVersion (TPMinV), které definují horní a dolní meze verze operačního systému nainstalovanou aplikaci. Další TPV Určuje verzi sady SDK, pro kterou je integrovaná aplikace. Mějte na paměti tyto vlastnosti při vytváření balíčku UWP: použití rozhraní API mimo hranice verze platforem, které jsou definované v aplikaci způsobí selhání sestavení nebo aplikaci k selhání za běhu.
 
-Například Řekněme, že jste nastavili TPMinV pro ovládací prvky balíček Windows 10 Anniversary Edition (10.0; Sestavení 14393), takže chcete zajistit, že balíček je spotřebovávají pouze UWP projekty odpovídající dolní mez. Umožňuje vašemu balíčku uplatníte `project.json` UWP projekty založené na vaše ovládací prvky s následující názvy složek musí balíčku:
+Například Řekněme, že jste nastavili TPMinV pro ovládací prvky balíček Windows 10 Anniversary Edition (10.0; Sestavení 14393), takže chcete zajistit, že balíček je spotřebovávají pouze UWP projekty odpovídající dolní mez. Povolit vašeho balíčku pro projekty UWP, musí balíček vaše ovládací prvky s následující názvy složek:
 
-```
-\lib\uap10.0\*
-\ref\uap10.0\*
-```
+    \lib\uap10.0\*
+    \ref\uap10.0\*
 
 Chcete-li vynutit příslušné kontroly TPMinV, vytvořit [souboru cíle MSBuild](/visualstudio/msbuild/msbuild-targets) a balíčků ve složce sestavení (nahrazení "your_assembly_name" s název vaší konkrétní sestavení):
 
-```
-\build
-    \uap10.0
+    \build
+      \uap10.0
         your_assembly_name.targets
-\lib
-\tools
-```
+    \lib
+    \tools
 
 Tady je příklad, jak by měla vypadat soubor cíle:
 
@@ -135,22 +128,18 @@ Tady je příklad, jak by měla vypadat soubor cíle:
 
 Konfigurace, kde vlastnosti ovládacích prvků zobrazí v inspector vlastnost, přidejte vlastní ozdobného prvku atd., umístěte vaše `design.dll` souboru uvnitř `lib\<platform>\Design` složku v závislosti na cílové platformy. Také zajistit, aby  **[upravit šablonu > Upravit kopii](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)**  funkce funguje, je nutné zahrnout `Generic.xaml` a všechny slovnících prostředků, které se sloučí v `<AssemblyName>\Themes` složky. (Tento soubor nemá žádný vliv na modul runtime chování ovládacího prvku.)
 
-
-```
-\build
-\lib
-    \uap10.0.14393.0
+    \build
+    \lib
+      \uap10.0.14393.0
         \Design
-            \MyControl.design.dll
+          \MyControl.design.dll
         \your_assembly_name
-            \Themes     
-                Generic.xaml
-\tools
-```
+          \Themes
+            Generic.xaml
+    \tools
 
 > [!Note]
 > Ve výchozím nastavení vlastností ovládacího prvku se zobrazí na různé kategorie v inspector vlastnost.
-
 
 ## <a name="use-strings-and-resources"></a>Použití řetězců a prostředky
 
@@ -162,15 +151,13 @@ Příklad najdete v části [MyCustomControl.cs](https://github.com/NuGet/Sample
 
 Obsah balíčku, například bitové kopie, které mohou být využívána vlastní ovládací prvek nebo využívání projektu UPW. Přidejte tyto soubory `lib\uap10.0.14393.0` složky následujícím způsobem ("your_assembly_name" znovu shodovat s vaší konkrétní ovládací prvek):
 
-```
-\build
-\lib
-    \uap10.0.14393.0
+    \build
+    \lib
+      \uap10.0.14393.0
         \Design
-        \your_assembly_name
-\contosoSampleImage.jpg
-\tools
-```
+          \your_assembly_name
+    \contosoSampleImage.jpg
+    \tools
 
 Mohou také vytvářet[souboru cíle MSBuild](/visualstudio/msbuild/msbuild-targets) zajistit asset se zkopíruje do výstupní složky náročné projektu:
 

@@ -3,21 +3,20 @@ title: "Přehled ekosystému NuGet | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 1/9/2017
+ms.date: 01/18/2018
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 8971dcf5-1d05-46e1-adf2-ce0f55521a49
 description: "Komplexní prostředky v ekosystému NuGet, včetně zdroje NuGet, Microsoft NuGet projekty, nástrojů a školicích materiálů."
 keywords: "NuGet ekosystém, projekty Microsoft NuGet, NuGet s otevřeným zdrojem, nástroje NuGet, NuGet školicí materiály"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: de64cf96595825b7c1bf2e235e370f5a95c64096
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 7c1e457c034f239fbea4e75f24851ea38182a294
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="an-overview-of-the-nuget-ecosystem"></a>Přehled ekosystému NuGet
 
@@ -41,38 +40,37 @@ Microsoft má hojně podílí na vývoji jejích NuGet. Všechny příspěvky pr
 
 Mnoho jednotlivce a společností významně přispěli k ekosystému NuGet. Každý projekt tady může mít licenci jinou než základní součásti NuGet, tak ověřte, jestli jsou před použít přípustné s licenčními podmínkami:
 
-* [AppVeyor CI](https://www.appveyor.com/)
-* [Artifactory](https://www.jfrog.com/artifactory/)
-* [BoxStarter](http://boxstarter.org/)
-* [Chocolatey](https://chocolatey.org/)
-* [CoApp](http://coapp.org/)
-* [JetBrains ReSharper](https://resharper-plugins.jetbrains.com/)
-* [JetBrains TeamCity](https://www.jetbrains.com/teamcity/)
-* [Klondike](https://github.com/themotleyfool/Klondike)
-* [MinimalNugetServer](https://github.com/TanukiSharp/MinimalNugetServer)
-* [MyGet (nebo NuGet jako služba)](http://www.myget.org/)
-* [Balíček NuGet Explorer](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer)
-* [NuGet Server](http://nugetserver.net/)
-* [OctopusDeploy](https://octopus.com/)
-* [Stáhnout](https://fsprojects.github.io/Paket/)
-* [ProGet (Inedo)](http://inedo.com/proget)
-* [scriptcs](http://scriptcs.net/)
-* [SharpDevelop](http://community.sharpdevelop.net/blogs/mattward/archive/2011/01/23/NuGetSupportInSharpDevelop.aspx)
-* [Sonatype Nexus](http://www.sonatype.com/nexus-repository-sonatype)
-* [SymbolSource](http://www.symbolsource.org/Public)
-* [Xamarin a MonoDevelop](https://github.com/mrward/monodevelop-nuget-addin)
-
+- [AppVeyor CI](https://www.appveyor.com/)
+- [Artifactory](https://www.jfrog.com/artifactory/)
+- [BoxStarter](http://boxstarter.org/)
+- [Chocolatey](https://chocolatey.org/)
+- [CoApp](http://coapp.org/)
+- [JetBrains ReSharper](https://resharper-plugins.jetbrains.com/)
+- [JetBrains TeamCity](https://www.jetbrains.com/teamcity/)
+- [Klondike](https://github.com/themotleyfool/Klondike)
+- [MinimalNugetServer](https://github.com/TanukiSharp/MinimalNugetServer)
+- [MyGet (or NuGet-as-a-service)](http://www.myget.org/)
+- [Balíček NuGet Explorer](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer)
+- [NuGet Server](http://nugetserver.net/)
+- [OctopusDeploy](https://octopus.com/)
+- [Paket](https://fsprojects.github.io/Paket/)
+- [ProGet (Inedo)](http://inedo.com/proget)
+- [scriptcs](http://scriptcs.net/)
+- [SharpDevelop](http://community.sharpdevelop.net/blogs/mattward/archive/2011/01/23/NuGetSupportInSharpDevelop.aspx)
+- [Sonatype Nexus](http://www.sonatype.com/nexus-repository-sonatype)
+- [SymbolSource](http://www.symbolsource.org/Public)
+- [Xamarin a MonoDevelop](https://github.com/mrward/monodevelop-nuget-addin)
 
 ## <a name="other-nuget-based-utilities"></a>Další nástroje na základě NuGet
 
 Jsou to nástrojů a pomůcek založený na NuGet:
 
-* [Rozšíření balíčku glimpse](http://getglimpse.com/Packages) (moduly plug-in jsou balíčky)
-* [NuGetMustHaves.com](http://nugetmusthaves.com/)
-* [Orchard](http://www.orchardproject.net/) (V1 NuGet kanálu hostované v galerii Orchard CMS moduly načtené)
-* [Implementace Java serveru NuGet](http://jonnyzzz.com/blog/2012/03/07/nuget-server-in-pure-java/)
-* [NuGetLatest](https://twitter.com/NuGetLatest) (Twitter robota klientské nový balíček publikace)
-* [DefinitelyTyped](http://definitelytyped.org/) ([automatické](https://github.com/DefinitelyTyped/NugetAutomation/) TypeScript typ [definice publikovaná NuGet](http://www.nuget.org/packages?q=DefinitelyTyped))
+- [Rozšíření balíčku glimpse](http://getglimpse.com/Packages) (moduly plug-in jsou balíčky)
+- [NuGetMustHaves.com](http://nugetmusthaves.com/)
+- [Orchard](http://www.orchardproject.net/) (V1 NuGet kanálu hostované v galerii Orchard CMS moduly načtené)
+- [Implementace Java serveru NuGet](http://jonnyzzz.com/blog/2012/03/07/nuget-server-in-pure-java/)
+- [NuGetLatest](https://twitter.com/NuGetLatest) (Twitter robota klientské nový balíček publikace)
+- [DefinitelyTyped](http://definitelytyped.org/) ([automatické](https://github.com/DefinitelyTyped/NugetAutomation/) TypeScript typ [definice publikovaná NuGet](http://www.nuget.org/packages?q=DefinitelyTyped))
 
 ## <a name="training-materials-and-references"></a>Výukové materiály a odkazy
 
@@ -83,8 +81,8 @@ Ale nutné dodat, vytváření balíčků – a zvlášť vhodné balíčky – 
 - [NuGet Blog](http://blog.nuget.org/)
 - [NuGet týmu na Twitteru,@nuget](http://twitter.com/nuget)
 - Knihy:
-    * [Apress Pro NuGet](http://bit.ly/ProNuGet)
-    * [Essentials NuGet 2](http://www.amazon.com/NuGet-2-Essentials-Damir-Arh-ebook/dp/B00GTQD5M4)
+  - [Apress Pro NuGet](http://bit.ly/ProNuGet)
+  - [Essentials NuGet 2](http://www.amazon.com/NuGet-2-Essentials-Damir-Arh-ebook/dp/B00GTQD5M4)
 
 ## <a name="documentation-for-individual-packages"></a>Dokumentace pro jednotlivé balíčky
 

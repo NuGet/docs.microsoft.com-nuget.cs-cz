@@ -3,35 +3,28 @@ title: "Vytvoření balíčků NuGet standardní 2.0 .NET s Visual Studio 2017 |
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 5/23/2017
+ms.date: 05/23/2017
 ms.topic: get-started-article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 2c1de334-fdc9-4e1e-8ef6-a90b3e77ff0f
 description: "Návod začátku do konce, vytváření balíčků NuGet pro standardní 2.0 rozhraní .NET pomocí nástroje NuGet 4.x a Visual Studio 2017."
 keywords: "Vytvoření balíčku, .NET Standard balíčky .NET Core"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 5b48ad2f062fd3a9b99985dbda6f89e6039dac4d
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: aae38dd141c688a6eccc18cabea9e8245dbc36c5
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="create-net-standard-20-packages-with-visual-studio-2017"></a>Vytvoření balíčků standardní rozhraní .NET 2.0 s Visual Studio 2017
 
-*Platí pro NuGet 4.x+ a MSBuild 15.3 + v souladu s Visual Studio 2017 Update 3. U starších verzí Visual Studio 2017, tyto pokyny platí pro standardní 1.4 .NET 1.6 změnou \<TargetFramework\> vlastnost. Viz také [vytvořit .NET standardní balíčky s Visual Studiem 2015](../guides/create-net-standard-packages-vs2015.md) pro práci s NuGet 3.x+.*
+*Platí pro NuGet 4.x+ a MSBuild 15.3 + v souladu s Visual Studio 2017 Update 3 nebo novější. U starších verzí Visual Studio 2017, tyto pokyny platí pro standardní 1.4 .NET 1.6 změnou \<TargetFramework\> vlastnost. Viz také [vytvořit .NET standardní balíčky s Visual Studiem 2015](../guides/create-net-standard-packages-vs2015.md) pro práci s NuGet 3.x+.*
 
 [Standardní knihovny .NET](/dotnet/articles/standard/library) je formální specifikaci rozhraní API technologie .NET by měla být k dispozici pro všechny moduly runtime rozhraní .NET, tím větší jednotnost vytváří v ekosystému .NET. Standardní knihovny .NET definuje jednotnou sadu BCL (základní třída knihovna) rozhraní API pro všechny platformy .NET implementovat, nezávisle na zatížení. Ji umožňuje vývojářům vytvářet PCLs, které jsou použitelné pro všechny moduly runtime rozhraní .NET, a snižuje, pokud není eliminuje direktivy specifické pro platformu Podmíněná kompilace v sdíleného kódu.
 
-Tato příručka vás provede procesem vytvoření balíčku nuget cílení na rozhraní .NET standardní knihovny 2.0 s Visual Studio 2017 Update 3 a NuGet 4.0.
-
-1. [Předpoklady](#pre-requisites)
-1. [Vytvoření projektu knihovny tříd](#create-the-netstandard-class-library-project)
-1. [Upravit metadata v souboru .csproj](#edit-metadata-in-the-csproj-file)
-1. [Balíček součásti](#package-the-component)
-1. [Související témata](#related-topics)
+Tento průvodce vás provede procesem vytváření balíčku nuget cílení na rozhraní .NET standardní knihovny 2.0 s Visual Studio 2017.
 
 ## <a name="pre-requisites"></a>Předpoklady
 
@@ -88,7 +81,6 @@ S projekty NuGet 4.0 a .NET Core, metadata balíčků je obsažena přímo v `.c
     ```
 
 1. Uložte projekt, pak pravým tlačítkem na řešení a vyberte **sestavit řešení** znovu vygenerovat všechny soubory pro balíček, tentokrát s metadaty správné.
-
 
 ## <a name="package-the-component"></a>Balíček součásti
 

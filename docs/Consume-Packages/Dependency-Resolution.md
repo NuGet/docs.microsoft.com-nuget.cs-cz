@@ -3,21 +3,20 @@ title: "Balíček NuGet závislostí řešení | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 8/14/2017
+ms.date: 08/14/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 1d530a72-3486-4a0d-b6fb-017524616f91
 description: "Informace o procesu, pomocí kterého se balíček NuGet závislosti vyřešen a nainstalované v obou NuGet 2.x a NuGet 3.x+."
 keywords: "Závislosti balíčků NuGet, Správa verzí NuGet, verze závislosti, verze grafu, verze rozlišení, přenositelné obnovení"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 91af96eb1f4bf0ee5a46ea8c418440eff20c768d
-ms.sourcegitcommit: 9ac1fa23a4a8ce098692de93328b1db4136fe3d2
+ms.openlocfilehash: b94ebe0eab5cc0316f78539c17cabadbee644d5f
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>Jak NuGet řeší závislosti balíčků
 
@@ -27,20 +26,13 @@ Tyto okamžité závislosti potom také může mít závislosti na jejich vlastn
 
 Pokud více balíčků stejné závislosti, pak stejné ID balíčku může vyskytovat v grafu vícekrát, potenciálně s omezeními jinou verzi. Jenom jedna verze nástroje daného balíčku můžete však použít v projektu, tak NuGet, musíte zvolit, která verze se má použít. Přesný postup závisí na formátu odkaz balíčku, který je používán.
 
-V tomto tématu:
-- [Řešení závislostí s PackageReference a project.json](#dependency-resolution-with-packagereference-and-projectjson)
-- [Řešení závislostí s souboru Packages.config je.](#dependency-resolution-with-packagesconfig)
-- [S výjimkou odkazy](#excluding-references), který je nezbytný, pokud dojde ke konfliktu mezi závislost zadanou v jednom projektu a sestavení, které se vytvářejí pomocí jiného.
-- [Instalace aktualizací závislostí během balíčku](#dependency-updates-during-package-install)
-- [Řešení chyb při nekompatibilní balíčku](#resolving-incompatible-package-errors)
+## <a name="dependency-resolution-with-packagereference"></a>Řešení závislostí s PackageReference
 
-## <a name="dependency-resolution-with-packagereference-and-projectjson"></a>Řešení závislostí s PackageReference a project.json
+Při instalaci balíčků do projektů formátu PackageReference, NuGet přidá reference na graf ploché balíčku v příslušný soubor a řeší konflikty předem. Tento proces se označuje jako *přenositelné obnovení*. Přeinstalovat nebo při obnovování balíčků je pak proces stahování balíčky uvedené v tomto grafu, výsledkem je rychlejší a předvídatelnější sestavení. Můžete také využít výhod zástupný znak (plovoucí) verze, jako je například 2.8. \*, zabraňující nákladné a Chyba volání náchylné k chybám `nuget update` na klientské počítače a servery sestavení.
 
-Při instalaci balíčků do projektů pomocí PackageReference nebo `project.json` formátů, NuGet přidá reference na graf ploché balíčku v příslušný soubor a řeší konflikty předem. Tento proces se označuje jako *přenositelné obnovení*. Přeinstalovat nebo při obnovování balíčků je pak proces stahování balíčky uvedené v tomto grafu, výsledkem je rychlejší a předvídatelnější sestavení. Můžete také využít výhod zástupný znak (plovoucí) verze, jako je například 2.8. \*, zabraňující nákladné a Chyba volání náchylné k chybám `nuget update` na klientské počítače a servery sestavení.
+Když je proces obnovení NuGet spuštěna před sestavení, nejprve přeloží závislosti v paměti a pak zapíše výsledný grafu do souboru s názvem `project.assets.json` v `obj` složky projektu pomocí PackageReference. MSBuild pak přečte tento soubor a překládá do sady složek, kde naleznete potenciální odkazy a přidá je do stromu projektu v paměti.
 
-Když je proces obnovení NuGet spuštěna před sestavení, nejprve přeloží závislosti v paměti a pak zapíše výsledný grafu do souboru s názvem `project.assets.json` v `obj` složce projektu pomocí PackageReference nebo do souboru s názvem `project.lock.json` spolu s `project.json`. MSBuild pak přečte tento soubor a překládá do sady složek, kde naleznete potenciální odkazy a přidá je do stromu projektu v paměti.
-
-Soubor zámků je dočasný a by neměly být přidávány do správy zdrojového kódu. Je uvedena ve výchozím nastavení v obou `.gitignore` a `.tfignore`. V tématu [balíčky a Správa zdrojového kódu](Packages-and-Source-Control.md).
+Soubor zámků je dočasný a by neměly být přidávány do správy zdrojového kódu. Je uvedena ve výchozím nastavení v obou `.gitignore` a `.tfignore`. V tématu [balíčky a Správa zdrojového kódu](packages-and-source-control.md).
 
 ### <a name="dependency-resolution-rules"></a>Pravidla řešení závislostí
 
@@ -115,16 +107,15 @@ S `packages.config`, závislosti projektu se zapisují do `packages.config` jako
 
 S `packages.config`, NuGet pokusí o řešení konfliktů závislostí při instalaci jednotlivých jednotlivých balíčků. To znamená, pokud balíček A probíhá instalace a závisí na balíčku B a B balíček je již uveden v `packages.config` jako závislost něco jiného, porovná verze balíčku B požadovanou NuGet a pokusí se najít na verzi, která splňuje všechny verze omezení. Konkrétně NuGet vybere dolní *major.minor* verzi, která splňuje závislosti.
 
-Ve výchozím nastavení, vyřeší nejvyšší NuGet 2.7 a starší *oprava* verze (pomocí *major.minor.patch.build* convention). [NuGet 2,8 a vyšší](../release-notes/nuget-2.8.md#patch-resolution-for-dependencies) toto chování má být vyhledán nejnižší verze opravy ve výchozím nastavení se změní. Můžete řídit prostřednictvím toto nastavení `DependencyVersion` atribut `Nuget.Config` a `-DependencyVersion` přepnout na příkazovém řádku.  
+Ve výchozím nastavení, NuGet 2.8 vyhledá nejnižší verze oprava (najdete v části [poznámky k verzi NuGet 2.8](../release-notes/nuget-2.8.md#patch-resolution-for-dependencies)). Můžete řídit prostřednictvím toto nastavení `DependencyVersion` atribut `Nuget.Config` a `-DependencyVersion` přepnout na příkazovém řádku.  
 
 `packages.config` Zpracování pro řešení závislostí získá složitý pro větší grafy závislostí. Každé nové instalace balíčku vyžaduje přecházení přes celou grafu a vyvolá riziko pro konflikty verzí. Když dojde ke konfliktu, instalace se zastaví, nechat projektu v neurčitém stavu, zejména s potenciální úpravy samotný soubor projektu. Nejedná se o problém při použití jiných formátů odkaz na balíček.
 
-
 ## <a name="managing-dependency-assets"></a>Správa závislostí prostředky
 
-Při použití `project.json` nebo PackageReference formáty, které prostředky z toku závislosti do nejvyšší úrovně projektu můžete řídit. Podrobnosti najdete v tématu [project.json](../Schema/project-json.md) a [balíček odkazy v souborech projektu](Package-References-in-Project-Files.md#controlling-dependency-assets).
+Při použití formátu PackageReference, můžete určit, které prostředky z toku závislosti do nejvyšší úrovně projektu. Podrobnosti najdete v tématu [PackageReference](package-references-in-project-files.md#controlling-dependency-assets).
 
-Pokud nejvyšší úrovně projektu samotné je balíček, máte také kontrolu nad tento tok pomocí `include` a `exclude` atributy s uvedené v závislosti `.nuspec` souboru. V tématu [příponou .nuspec odkaz - závislosti](../Schema/nuspec.md#dependencies).
+Pokud nejvyšší úrovně projektu samotné je balíček, máte také kontrolu nad tento tok pomocí `include` a `exclude` atributy s uvedené v závislosti `.nuspec` souboru. V tématu [příponou .nuspec odkaz - závislosti](../schema/nuspec.md#dependencies).
 
 ## <a name="excluding-references"></a>S výjimkou odkazy
 
@@ -140,34 +131,9 @@ Chcete-li tento problém vyřešili, musíte přímý odkaz `C.dll` mají (nebo 
 
 - `packages.config`: odeberte odkaz na PackageC z `.csproj` tak, aby odkazuje jenom verze `C.dll` , které chcete.
     
-- `project.json`: Přidejte `"exclude" : "all"` v závislost PackageC:
-
-    ```json
-    {
-        "dependencies": {
-            "PackageC": {
-            "version": "1.0.0",
-            "exclude": "all"
-            }
-        }
-    }
-    ```
-
-- S [balíček odkazy v souborech projektu](../consume-packages/package-references-in-project-files.md) (NuGet 4.0 + pouze), přidejte `ExcludeAssets="All"` v závislost:
-
-    ```xml
-    <PackageReference Include="packageC" Version="1.0.0" ExcludeAssets="All" />
-    ```
-
 ## <a name="dependency-updates-during-package-install"></a>Instalace aktualizací závislostí během balíčku 
 
-U balíčku NuGet 2.4.x a dříve, pokud balíček je nainstalovaná, jejichž závislostí v projektu již existuje, závislost se aktualizuje na nejnovější verzi, která splňuje omezení verze i v případě, že stávající verzi také splňuje tyto omezení. 
-
-Představte si třeba balíček A, který závisí na balíčku B a určuje 1.0 pro číslo verze. Zdrojové úložiště obsahuje obě verze 1.0, 1.1 a 1.2 balíčku B. Pokud v projektu, který již obsahuje B verze 1.0 je nainstalovaná A, B se aktualizuje verze 1.2. 
-
-S NuGet 2.5 nebo novější Pokud je již splnit verze závislosti, závislost neaktualizuje během instalace dalších balíčků. 
-
-V tomto příkladě výše instalaci balíčku, který zůstane balíček B 1.0 v projektu A do projektu s NuGet 2.5 nebo novější, protože již splňuje omezení verze. Ale pokud balíček A měli požadavky verze 1.1 nebo vyšší b, B 1.2 by možné nainstalovat. 
+Pokud už je splnit verze závislosti, není během instalace dalších balíčků aktualizovat závislost. Představte si třeba balíček A, který závisí na balíčku B a určuje 1.0 pro číslo verze. Zdrojové úložiště obsahuje verze 1.0, 1.1 a 1.2 balíčku B. Pokud A je nainstalován v projektu, který již obsahuje B verze 1.0, pak B 1.0 dál používá vzhledem k tomu, že splňují omezení verze. Ale pokud balíček A měli požadavky verze 1.1 nebo vyšší b, B 1.2 by možné nainstalovat. 
 
 ## <a name="resolving-incompatible-package-errors"></a>Řešení chyb při nekompatibilní balíčku
 
@@ -195,4 +161,4 @@ Pro vyřešení problémům s kompatibilitou, proveďte jednu z těchto možnost
 
 - Změňte cíl projektu pro rozhraní, které podporuje balíčky, které chcete použít.
 - Obraťte se na autora balíčků a pracovat s nimi přidání podpory pro vaši zvolenou framework. Každý balíček výpis stránky na [nuget.org](https://www.nuget.org/) má **kontaktujte vlastníky** odkaz pro tento účel.
-- **Nedoporučuje se**: jako dočasné řešení při práci s autora balíčku projekty cílení na `netcore`, `netstandard`, a `netcoreapp` mohou ostatní platformy jako kompatibilní, a tím umožní balíčky cílené na těch, které označují ostatní platformy, který se má použít. V tématu [project.json importuje](../Schema/project-json.md#imports) a [cíl obnovení MSBuild PackageTargetFallback](../Schema/msbuild-targets.md#packagetargetfallback). To může způsobit neočekávané chování, proto znovu, je vhodné řešení nekompatibility balíček ve spolupráci s autora balíčku na aktualizace.
+

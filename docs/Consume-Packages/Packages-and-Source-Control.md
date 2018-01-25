@@ -3,21 +3,20 @@ title: "Balíčky NuGet a Správa zdrojového kódu | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 7/17/2017
+ms.date: 07/17/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 2c874e6f-99eb-46dd-997f-f67d98d0237e
 description: "Důležité informace týkající se má stát s balíčků NuGet v rámci správy verzí a zdroj řízení systémů a jak vynechejte balíčky s git a TFVC."
 keywords: "Řízení úložiště NuGet zdrojového kódu, NuGet verzí, NuGet a git, NuGet a sady TFS, NuGet a TFVC, vynechejte balíčky, zdrojová ovládací prvek úložiště, verze"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c73dea74f2363f49fb476a5812c29de63fec89a3
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 274492f2b1d05c781dadaab70cdc7d281549d002
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="omitting-nuget-packages-in-source-control-systems"></a>Vynechání balíčky NuGet ve zdrojových systémech ovládací prvek
 
@@ -38,7 +37,7 @@ Použití [soubor .gitignore](https://git-scm.com/docs/gitignore) předejdete v�
 
 Důležitou součástí `.gitignore` souboru jsou:
 
-```
+```gitignore
 # Ignore NuGet Packages
 *.nupkg
 
@@ -85,9 +84,9 @@ Postup při zakázání integrace ovládacích prvků zdrojového s TFVC pro vyb
 
 1. V sadě TFS 2012 nebo novější, nebo s Visual Studio Team Services, vytvořit `.tfignore` souboru, jak je popsáno na [AddFiles k serveru](https://www.visualstudio.com/en-us/docs/tfvc/add-files-server#tfignore). V tomto souboru zahrnout obsah níže explicitně Ignorovat změny `\packages` složky na úrovni úložiště a několik dalších zprostředkující soubory. (Soubor můžete vytvořit v Průzkumníku Windows pomocí názvu `.tfignore.` s koncovou tečku, ale může být nutné zakázat "Skrýt známému souboru rozšíření" možnost nejprve.):
 
-   ```
+   ```cli
    # Ignore NuGet Packages
-   *.nupkg   
+   *.nupkg
 
    # Ignore the NuGet packages folder in the root of the repository. If needed, prefix 'packages'
    # with additional folder names if it's not in the same folder as .tfignore.   

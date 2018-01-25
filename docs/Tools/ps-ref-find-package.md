@@ -7,17 +7,16 @@ ms.date: 6/1/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 2f7b8847-8259-4366-98c0-13cab88d6e1b
 description: "Referenční dokumentace pro příkaz prostředí PowerShell najít balíčku v konzole Správce balíčků NuGet v sadě Visual Studio."
 keywords: "NuGet konzoly Správce balíčků, příkazy prostředí NuGet Powershell, NuGet Powershell odkaz, najít balíček"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: fb55cc71e0d4b8eee28b232e64d2cc42364fc153
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 47b8420cc49d0a76709cf3268af69fcff310d165
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="find-package-package-manager-console-in-visual-studio"></a>Najít Package (konzola Správce balíčků v sadě Visual Studio)
 

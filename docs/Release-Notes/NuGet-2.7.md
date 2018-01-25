@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: ba2edaad-4795-47a0-a572-d0e1716bd540
 description: "Poznámky k verzi pro NuGet 2.7 včetně známé problémy, opravy chyb, přidaných funkcí a chcete."
 keywords: "NuGet 2.7 poznámky k verzi, opravy chyb známé problémy, přidat funkce, chcete"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 502cb5e68f905e9ad8f4003bb0690d3e676f6bb7
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: b0e12f7e2cffa6e721dd13c117b7b3727cfcb5d7
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-27-release-notes"></a>Poznámky k verzi 2.7 NuGet
 
@@ -53,7 +52,7 @@ Rádi bychom se Děkujeme, že následující externí přispěvatele pro jejich
     - [#3307](http://nuget.codeplex.com/workitem/3307) -oprava chyb `NuGet.targets` nepředává $(Platform) do nuget.exe, když probíhá obnovení balíčků.
 1. [Brian Federici](http://www.codeplex.com/site/users/view/benerdin)
     - [#3294](http://nuget.codeplex.com/workitem/3294) -oprava chyb v příkazu nuget.exe balíček, který by umožnil přidávání souborů se stejným názvem, ale s jinou velká a malá písmena, eventuálně vyvolá výjimku "Položka už existuje".
-1. [ADAM Cazzulino](http://www.codeplex.com/site/users/view/dcazzulino) ([@kzu](https://twitter.com/kzu))
+1. [Daniel Cazzulino](http://www.codeplex.com/site/users/view/dcazzulino) ([@kzu](https://twitter.com/kzu))
     - [#2990](http://nuget.codeplex.com/workitem/2990) -verze přidat vlastnost do třídy NetPortableProfile.
 1. [David Simner](https://www.codeplex.com/site/users/view/DavidSimner)
     - [#3460](https://nuget.codeplex.com/workitem/3460) -oprava chyb NullReferenceException Pokud requireApiKey = true, ale záhlaví X-NUGET-APIKEY není přítomna
@@ -103,7 +102,7 @@ NuGet 2.7 zavádí novou funkci pro nuget.exe:`nuget.exe restore`
 
 Tento nový příkaz Obnovit umožňuje snadno obnovit všechny balíčky pro řešení pomocí jednoho příkazu, přijetím řešení souboru nebo složky jako argument. Kromě toho tento argument je zahrnuta, jestliže existuje pouze jeden řešení v aktuální složce. To znamená, že všechny následující fungovat ze složky, která obsahuje soubor jediném řešení (MySolution.sln):
 
-1. obnovení nuget.exe MySolution.sln
+1. nuget.exe restore MySolution.sln
 1. nuget.exe obnovení.
 1. obnovení nuget.exe
 

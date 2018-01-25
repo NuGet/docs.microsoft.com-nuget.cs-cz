@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 42e7a619-1c69-454b-8243-16e2f9f950d0
 description: "Známé problémy s NuGet, včetně ověřování, instalace balíčku a nástroje."
 keywords: "Známé problémy, problémy NuGet NuGet"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: ce145212da3830216e123f39257a6707712f88c9
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: bd85d9da61753d25c8918c7d55fab775820b017b
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="known-issues-with-nuget"></a>Známé problémy s nástrojem NuGet
 
@@ -68,7 +67,6 @@ install-package log4net
         FullyQualifiedErrorId : NuGetCmdletUnhandledException,NuGet.PowerShell.Commands.InstallPackageCommand
 ```
 
-
 Je to způsobeno knihovnu typů pro `VSLangProj.dll` komponenty modelu COM rušena ve vašem systému. K tomu může dojít, například když máte dvě verze sady Visual Studio nainstalované souběžně sdílená a pak odinstalujte starší verzi. Díky tomu může nechtěně registraci výše uvedené knihovny COM.
 
 **Řešení:**:
@@ -82,12 +80,12 @@ Pokud se příkaz nezdaří, zkontrolujte, zda soubor existuje v tomto umístěn
 Další informace o této chybě naleznete v tématu to [pracovní položka](https://nuget.codeplex.com/workitem/3609 "pracovní položka 3609").
 
 ## <a name="build-failure-after-package-update-in-vs-2012"></a>Chyba sestavení po aktualizace balíčku v VS 2012
+
 Problém: používáte VS 2012 RTM. Při aktualizaci balíčků NuGet se vám tato zpráva: "jeden nebo více balíčků nelze dokončit, odinstalovat." a zobrazí se výzva k restartování sady Visual Studio. Po restartování VS, dojde k chybám divné sestavení.
 
-Příčinou je, některé soubory v původním balíčcích je uzamčený MSBuild proces na pozadí.
-I po restartování VS, MSBuild proces na pozadí pořád používají soubory v původním balíčcích způsobuje selhání sestavení.
+Příčinou je, některé soubory v původním balíčcích je uzamčený MSBuild proces na pozadí. I po restartování VS, MSBuild proces na pozadí pořád používají soubory v původním balíčcích způsobuje selhání sestavení.
 
-Je třeba nainstalovat aktualizaci VS 2012, [VS 2012 Update 2](http://www.microsoft.com/download/details.aspx?id=38188).
+Je k instalaci aktualizace produktu VS 2012, například VS 2012 Update 2.
 
 ## <a name="upgrading-to-latest-nuget-from-an-older-version-causes-a-signature-verification-error"></a>Upgrade na nejnovější NuGet ze starší verze způsobí chybu ověření podpisu
 
@@ -157,15 +155,13 @@ Může se zobrazí tyto chyby při pokusu o otevření konzole Správce balíčk
 
 Pokud ano, využijte řešení [popsané na StackOverflow](http://stackoverflow.com/questions/12638289/embedding-powershell-v2-0-in-net-app-on-windows-8-rtm) opravit je.
 
-## <a name="the-add-package-library-reference-dialog-throws-an-exception-if-the-solution-contains-installshield-limited-edition-project"></a>Dialogové okno Přidat odkaz na balíček knihovny vyvolá výjimku, pokud řešení obsahuje projekt InstallShield Limited Edition.
+## <a name="the-add-package-library-reference-dialog-throws-an-exception-if-the-solution-contains-installshield-limited-edition-project"></a>Dialogové okno Přidat odkaz na balíček knihovny vyvolá výjimku, pokud řešení obsahuje projekt InstallShield Limited Edition
 
 Myslíme, že by, pokud vaše řešení obsahuje jeden nebo více projekt InstallShield Limited Edition, **přidat odkaz na balíček knihovny** dialogové okno vyvolá výjimku při otevření. Aktuálně neexistuje žádné řešení ještě kromě odebrání InstallShield projekty nebo jejich uvolnění.
 
 ## <a name="uninstall-button-greyed-out-nuget-requires-admin-privileges-to-installuninstall"></a>Odinstalovat, tlačítko šedá? NuGet vyžaduje oprávnění správce pro instalace nebo odinstalace
 
-Pokud se pokusíte odinstalovat NuGet prostřednictvím Správce rozšíření sady Visual Studio, můžete si všimnout, že k dispozici tlačítko odinstalovat.
-NuGet potřebuje přístup správce k instalaci a odinstalaci. Visual Studio spusťte jako správce a odinstalovat rozšíření.
-NuGet nevyžaduje přístup správce ke ho použít.
+Pokud se pokusíte odinstalovat NuGet prostřednictvím Správce rozšíření sady Visual Studio, můžete si všimnout, že k dispozici tlačítko odinstalovat. NuGet potřebuje přístup správce k instalaci a odinstalaci. Visual Studio spusťte jako správce a odinstalovat rozšíření. NuGet nevyžaduje přístup správce ke ho použít.
 
 ## <a name="the-package-manager-console-crashes-when-i-open-it-in-windows-xp-whats-wrong"></a>Konzola správce balíčků dojde k chybě při otevírání v systému Windows XP. Co je?
 
@@ -173,24 +169,23 @@ NuGet vyžaduje modul runtime Powershell 2.0. Windows XP, nemá ve výchozím na
 
 ## <a name="visual-studio-2010-sp1-beta-crashes-on-exit-if-the-package-manager-console-is-open"></a>Visual Studio 2010 SP1 Beta chyby při ukončení, pokud Konzola správce balíčků je otevřený.
 
-Pokud jste nainstalovali Visual Studio 2010 SP1 Beta, můžete si všimnout, že pokud zůstat otevřeno, konzola Správce balíčků a zavřete Visual Studio, ho dojde k chybě. Toto je známý problém sady Visual Studio a bude vyřešený v SP1 RTM verzi.
-Prozatím ignorovat havárii nebo odinstalovat beta verzi SP1, pokud je to možné.
+Pokud jste nainstalovali Visual Studio 2010 SP1 Beta, můžete si všimnout, že pokud zůstat otevřeno, konzola Správce balíčků a zavřete Visual Studio, ho dojde k chybě. Toto je známý problém sady Visual Studio a bude vyřešený v SP1 RTM verzi. Prozatím ignorovat havárii nebo odinstalovat beta verzi SP1, pokud je to možné.
 
 ## <a name="the-element-metadata--has-invalid-child-element-exception-occurs"></a>Element 'metadata'... má neplatný podřízený element výjimce dochází
 
 Pokud jste nainstalovali balíčky vytvořené s nástroji předběžné verze balíčku nuget, chybová zpráva s oznámením "elementu 'metadata" v oboru názvů "schemas.microsoft.com/packaging/2010/07/nuspec.xsd" má neplatným podřízeným elementem"může dojít při spuštění verzi RTM verze balíčku NuGet s daného projektu. Budete muset odinstalovat a potom znovu nainstalovat každý balíček pomocí verzi RTM programu NuGet.
 
-## <a name="attempting-to-install-or-uninstall-results-in-the-error-cannot-create-a-file-when-that-file-already-existsrdquo"></a>Probíhá pokus o instalaci nebo odinstalaci výsledkem chyba "nelze vytvořit soubor daný soubor již existuje.&rdquo;
+## <a name="attempting-to-install-or-uninstall-results-in-the-error-cannot-create-a-file-when-that-file-already-exists"></a>Probíhá pokus o instalaci nebo odinstalaci výsledkem chyba "Nelze vytvořit soubor tento soubor již existuje."
 
 Z nějakého důvodu můžete v divné stavu, kde jste odinstalována VSIX rozšíření, ale některé soubory byly ponechány získat rozšíření Visual Studia. Alternativní řešení tohoto problému:
 
-1. Ukončení Visual Studio
-2. Otevřete následující složku (může být na jinou jednotku na počítači)
+1. Exit Visual Studio
+1. Otevřete následující složku (může být na jinou jednotku na počítači)
 
-    C:\Program soubory (x86) \Microsoft Visual Studio 10.0\Common7\IDE\Extensions\Microsoft Správce balíčků Corporation\NuGet\<verze > \
+    C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\Extensions\Microsoft Corporation\NuGet Package Manager\<version>\
 
-3. Odstraní všechny soubory s *.deleteme* rozšíření.
-4. Znovu otevřete Visual Studio
+1. Odstraní všechny soubory s *.deleteme* rozšíření.
+1. Znovu otevřete Visual Studio
 
 Po následujícím postupem, byste měli moci pokračovat.
 
@@ -217,6 +212,7 @@ Jedná se o známý problém. Namísto volání Write-Error, zkuste volání thr
     throw "My error message"
 
 ## <a name="installing-nuget-with-restricted-access-on-windows-2003-can-crash-visual-studio"></a>Instalace NuGet s omezeným přístupem v systému Windows 2003 můžete chybu sady Visual Studio
+
 Při pokusu o instalaci NuGet pomocí Správce rozšíření Visual Studio a není spuštěna jako správce &#8220; Spustit jako &#8221; Zobrazí se dialogové okno s zaškrtávací políčko s názvem bez přípony &#8220; Spuštění tohoto programu s omezeným přístupem &#8221; ve výchozím nastavení zaškrtnuto.
 
 ![Spustit jako dialogové okno s omezeným přístupem](./media/RunAsRestricted.png)
@@ -224,13 +220,15 @@ Při pokusu o instalaci NuGet pomocí Správce rozšíření Visual Studio a nen
 Kliknutím na OK s třídou zaškrtnuto, dojde k chybě Visual Studio. Ujistěte se, zrušte tuto možnost před instalací NuGet.
 
 ## <a name="cannot-uninstall-nuget-for-windows-phone-tools"></a>Nelze odinstalovat nástroje NuGet pro Windows Phone
+
 Nástroje pro Windows Phone nemá podporu pro správce rozšíření sady Visual Studio. Chcete-li odinstalovat NuGet, spusťte následující příkaz.
 
      vsixinstaller.exe /uninstall:NuPackToolsVsix.Microsoft.67e54e40-0ae3-42c5-a949-fddf5739e7a5
 
 ## <a name="changing-the-capitalization-of-nuget-package-ids-breaks-package-restore"></a>Změna velikosti písmen ID balíčků NuGet dělí obnovení balíčků
+
 Jak je popsáno v length na [potíže Githubu](https://github.com/Particular/NServiceBus/issues/1271#issuecomment-20865932), změna velikosti písmen balíčků NuGet se dá dělat formou podporu NuGet, ale příčiny komplikace při obnovování balíčků pro uživatele, kteří mají existující, jinak použita, balíčky v balíček místní mezipaměti. Doporučujeme, abyste pouze požaduje případu změnu, když máte způsob, jak komunikovat s stávající uživatele vašeho balíčku o přerušení, ke kterému může dojít k jejich obnovení balíčků čase vytvoření buildu.
 
 ## <a name="reporting-issues"></a>Hlášení problémů
-Pro hlášení problémů na klienty NuGet, přejděte prosím [zde](https://nuget.codeplex.com/WorkItem/Create).
-Pro hlášení problémů v galerii NuGet, přejděte prosím [zde](https://github.com/nuget/nugetgallery/issues).
+
+Chcete-li nahlásit problém NuGet, navštivte [https://github.com/nuget/home/issues](https://github.com/nuget/home/issues).

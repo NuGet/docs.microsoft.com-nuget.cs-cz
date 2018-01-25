@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: ca7ec738-142a-40ab-a9e5-282a8a89281b
 description: "Poznámky k verzi pro včetně NuGet 2.8.7 – známé problémy, opravy chyb, přidaných funkcí a chcete."
 keywords: "NuGet 2.8.7 poznámky k verzi, opravy chyb známé problémy, přidat funkce, chcete"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 4927b859c7996d58dbaac18947b2ecd0af95de49
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: bfce53cb983bbf531dc93770e1fc40b6608d0d27
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-287-release-notes"></a>Poznámky k verzi NuGet 2.8.7
 

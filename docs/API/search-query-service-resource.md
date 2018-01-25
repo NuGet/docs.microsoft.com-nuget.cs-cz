@@ -11,17 +11,16 @@ ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 11ca2092-67dc-41a9-a7af-afe610d8febb
 description: "Služba vyhledávání umožňuje klientům dotazu pro balíčků – klíčové slovo a výsledky filtru na určitá pole balíčku."
 keywords: "Rozhraní API search NuGet, NuGet zjistit balíčky, rozhraní API pro balíčky NuGet dotazu, rozhraní API procházet balíčky NuGet"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 8b37c1bfb66290de49641a8b6197cb83cd35318a
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 612ce0f46b654335a29bb36a64b27525994162ed
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="search"></a>Hledat
 
@@ -51,9 +50,7 @@ Hledání rozhraní API umožňuje klientovi dotazu pro stránku balíčků odpo
 
 Balíček není uveden v seznamu by se nikdy zobrazit ve výsledcích hledání.
 
-```
-GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
-```
+    GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
 
 ### <a name="request-parameters"></a>Parametry žádosti
 
@@ -101,9 +98,9 @@ description    | odkazy řetězců                     | Ne       |
 verze       | Pole objektů           | Ano      | Všechny verze balíčku odpovídajících `prerelease` parametr
 Autoři        | řetězec nebo pole řetězců. | Ne       | 
 IconUrl        | odkazy řetězců                     | Ne       | 
-Adresa LicenseUrl     | odkazy řetězců                     | Ne       | 
+licenseUrl     | odkazy řetězců                     | Ne       | 
 Vlastníci         | řetězec nebo pole řetězců. | Ne       | 
-Adrese ProjectUrl     | odkazy řetězců                     | Ne       | 
+projectUrl     | odkazy řetězců                     | Ne       | 
 registrace   | odkazy řetězců                     | Ne       | Absolutní adresa URL s příslušnými [index registrace](registration-base-url-resource.md#registration-index)
 souhrn        | odkazy řetězců                     | Ne       | 
 značky           | řetězec nebo pole řetězců. | Ne       | 
@@ -123,9 +120,7 @@ Soubory ke stažení | integer | Ano      | Počet souborů ke stažení pro tut
 
 ### <a name="sample-request"></a>Ukázková žádost
 
-```
-GET https://api-v2v3search-0.nuget.org/query?q=NuGet.Versioning&prerelease=false
-```
+    GET https://api-v2v3search-0.nuget.org/query?q=NuGet.Versioning&prerelease=false
 
 ### <a name="sample-response"></a>Ukázková odpověď
 

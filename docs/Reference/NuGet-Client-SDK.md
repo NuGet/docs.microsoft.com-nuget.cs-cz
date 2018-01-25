@@ -3,21 +3,20 @@ title: "NuGet v3 klienta a rozhraní API NuGetGallery | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 1/9/2017
+ms.date: 01/09/2018
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: d1a393b7-51b1-4840-b1a8-fdd76455077d
 description: "Rozhraní API NuGetGallery a NuGet jsou vývoji a ještě zdokumentovaných, ale příklady jsou k dispozici na blogu Dave Glick."
 keywords: "Rozhraní API NuGet, NuGetGallery API NuGet v3 knihovny"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 43a2e569b64f5e9d6e93cc6c279faf91a6dda9ee
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 3eeb4d4df06c235e3b6af50859899c12db3f8f18
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-client-sdk"></a>Klienta NuGet sady SDK
 

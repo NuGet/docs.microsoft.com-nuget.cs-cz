@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: e4856d0a-b408-4c60-ac51-f80ea06d9f79
 description: "Poznámky k verzi pro včetně známé problémy, opravy chyb, přidaných funkcí a chcete 1.4 NuGet."
 keywords: "NuGet 1.4 poznámky k verzi, opravy chyb známé problémy, přidat funkce, chcete"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c4c27861c8697c75a06712b8ca6243b3b206cbb3
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: a69f4f5c7172817d711fa5e995cf6db3875c4810
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-14-release-notes"></a>Poznámky k verzi 1,4 NuGet
 
@@ -150,10 +149,10 @@ NuGet 1.4 měl celkem 88 pracovní položky, které jsou pevné. 71 těchto byly
 * [Problém 1036](http://nuget.codeplex.com/workitem/1036): přidání `NuGet Pack SomeProject.csproj` po už vytvořit událost způsobí, že nekonečné smyčce.
 * [Problém 961](http://nuget.codeplex.com/workitem/961): `-Source` příznak podporuje relativní cesty.
 
-# <a name="nuget-14-update"></a>Aktualizace NuGet 1.4
+## <a name="nuget-14-update"></a>Aktualizace NuGet 1.4
 Krátce po vydání NuGet 1.4 zjistili jsme několik problémů, které by bylo potřeba opravit.
 Číslo konkrétní verze této aktualizace 1.4 je 1.4.20615.9020.
 
-## <a name="bug-fixes"></a>Opravy chyb
+### <a name="bug-fixes"></a>Opravy chyb
 * [Problém 1220](http://nuget.codeplex.com/workitem/1220): balíček aktualizace neprovede `install.ps1` / `uninstall.ps1` ve všech projektech po více než jeden projektu
 * [Problém 1156](http://nuget.codeplex.com/workitem/1156): konzole Správce balíčků zablokované na W2K3/Windows XP (Pokud není nainstalované prostředí Powershell 2)

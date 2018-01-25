@@ -3,21 +3,20 @@ title: "Příkaz pack NuGet rozhraní příkazového řádku | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 12/08/2017
+ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 55e9e4d2-8039-4e9b-bdd9-c8b3eb0e894b
 description: "Referenční dokumentace pro příkaz nuget.exe pack"
 keywords: "odkaz na pack nuget, příkaz pack"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0dbecb8f01acf781ab8d2e77e8df7fa405f74cf1
-ms.sourcegitcommit: d576d84fb4b6a178eb2ac11f55deb08ac771ba1c
+ms.openlocfilehash: 732a712f88c6267caae361673a05af0781877cf4
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="pack-command-nuget-cli"></a>příkaz Pack (NuGet CLI)
 
@@ -30,7 +29,7 @@ Vytvoří balíček NuGet založený na zadaný `.nuspec` nebo soubor projektu. 
 
 ## <a name="usage"></a>Použití
 
-```
+```cli
 nuget pack <nuspecPath | projectPath> [options]
 ```
 
@@ -57,7 +56,7 @@ kde `<nuspecPath>` a `<projectPath>` zadejte `.nuspec` nebo projektu soubor, v u
 | Přípona | *(3.4.4+)*  Připojí příponu k číslo verze generované interně, obvykle se používá pro připojování sestavení nebo dalších identifikátorů předběžné verze. Například pomocí `-suffix nightly` vytvoří balíček s jako číslo verze `1.2.3-nightly`. Přípony musí začínat písmenem, aby se zabránilo upozornění, chyby a potenciální nekompatibilitu s různými verzemi nástroje NuGet a Správce balíčků NuGet. |
 | Symboly | Určuje, zda balíček obsahuje zdroje a symboly. Při použití s `.nuspec` souboru, tím se vytvoří soubor regulární balíčku NuGet a odpovídající balíčku symbolů. |
 | Nástroj | Určuje, že výstupních souborů projektu mají být umístěny v `tool` složky. |
-| Podrobnosti | Určuje množství podrobností, které jsou zobrazené ve výstupu: *normální*, *quiet*, *podrobné (2.5 +)*. |
+| Podrobnosti | Určuje množství podrobností, které jsou zobrazené ve výstupu: *normální*, *quiet*, *podrobné*. |
 | Version | Přepsání číslo verze z `.nuspec` souboru. |
 
 Viz také [proměnné prostředí](cli-ref-environment-variables.md)
@@ -83,7 +82,7 @@ Pro tento projekt balíček vytvořený `nuget pack` bude mít závislost na `jQ
 
 ## <a name="examples"></a>Příklady
 
-```
+```cli
 nuget pack
 
 nuget pack foo.nuspec

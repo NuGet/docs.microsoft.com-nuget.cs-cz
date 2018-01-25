@@ -3,21 +3,20 @@ title: "Cílení na více verzí pro balíčky NuGet | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 9/27/2017
+ms.date: 09/27/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 2646ffcd-83ae-4086-8915-a7fba3f53e45
 description: "Popis různých metod k cílení na více verzí rozhraní .NET Framework z v rámci jednoho balíčku NuGet."
 keywords: "Balíček NuGet cílení na rozhraní .NET Framework verze, NuGet a rozhraní .NET, cílení na více rozhraní, vytvoření balíčku NuGet"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: d23158c6dab838b723764994e94fc21cab52f553
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 5a04116aaceaa21a4c57a617d942daec09686bfe
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="supporting-multiple-net-framework-versions"></a>Podpora více verzí rozhraní .NET framework
 
@@ -26,15 +25,6 @@ ms.lasthandoff: 12/14/2017
 Mnoho knihovny cílení na konkrétní verzi rozhraní .NET Framework. Například můžete mít jednu verzi knihovnu, která je specifická pro UPW a jinou verzi, která využívá funkce v rozhraní .NET Framework 4.6.
 
 Pro přizpůsobení, podporuje NuGet uvedení více verzí stejnou knihovnu v jeden balíček, při použití založené na konvenci pracovní adresář metoda popsaná v [vytváření balíčku](../create-packages/creating-a-package.md#from-a-convention-based-working-directory).
-
-V tomto tématu:
-
-- [Struktura složek Framework verze](#framework-version-folder-structure)
-- [Odpovídající verze sestavení a cílové rozhraní v projektu](#matching-assembly-versions-and-the-target-framework-in-a-project)
-- [Seskupování podle framework, verze sestavení](#grouping-assemblies-by-framework-version)
-- [Určení, který NuGet cíle použít](#determining-which-nuget-target-to-use)
-- [Soubory obsahu a skriptů prostředí PowerShell](#content-files-and-powershell-scripts)
-
 
 ## <a name="framework-version-folder-structure"></a>Struktura složek Framework verze
 
@@ -83,7 +73,6 @@ Pokud máte specifické pro architekturu sestavení, to znamená, samostatné se
 
 V tématu [vytvořit balíčky UWP](../Guides/Create-UWP-Packages.md) příklad odkazující na tyto soubory v `.nuspec` manifest.
 
-
 ## <a name="matching-assembly-versions-and-the-target-framework-in-a-project"></a>Odpovídající verze sestavení a cílové rozhraní v projektu
 
 Když NuGet nainstaluje balíček, který má více verzí sestavení, pokusí se shodovat s názvem framework sestavení s cílový framework projektu.
@@ -97,7 +86,6 @@ Zvažte například následující strukturu složek v balíčku:
             \MyAssembly.dll
         \net461
             \MyAssembly.dll
-
 
 Pokud při instalaci tohoto balíčku do projektu, jehož cílem rozhraní .NET Framework 4.6, NuGet nainstaluje sestavení v `net45` složky, protože se jedná o nejvyšší verzi k dispozici, která je menší než nebo rovna 4.6.
 
@@ -144,7 +132,7 @@ Při vytváření balíčků knihovny cílení na přenosné knihovny tříd mů
 ## <a name="content-files-and-powershell-scripts"></a>Soubory obsahu a skriptů prostředí PowerShell
 
 > [!Warning]
-> Měnitelný soubory obsahu a spouštění skriptů jsou k dispozici `packages.config` pouze formátu; jsou zastaralé při použití `project.json` a PackagesReference naformátuje a nesmí se mají použít pro všechny nové balíčky.
+> Měnitelný soubory obsahu a spouštění skriptů jsou k dispozici `packages.config` formát pouze; se nepoužívají v jiném formátu a by nemělo být použito pro všechny nové balíčky.
 
 S `packages.config`, obsahu, soubory a skripty prostředí PowerShell lze seskupovat podle cílové rozhraní, pomocí stejné konvence složky uvnitř `content` a `tools` složek. Příklad:
 

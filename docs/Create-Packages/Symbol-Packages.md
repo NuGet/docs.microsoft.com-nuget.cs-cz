@@ -3,29 +3,27 @@ title: "Postup vytvoření balíčků NuGet symbol | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 9/12/2017
+ms.date: 09/12/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 4667a70d-5a17-4f1e-b2f2-b8d0c6af3882
 description: "Jak vytvořit balíčky NuGet, které obsahují pouze symboly pro podporu ladění dalších balíčcích NuGet v sadě Visual Studio."
 keywords: "Symbol balíčky NuGet, balíček NuGet ladění, podpora ladění, balíček symboly, konvence symbol balíček NuGet"
 ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2bdb8a2c946618b0c297c70bf7fcf6a9038b2a02
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: e25c34442861c36e9002120afc03cb39ea396f54
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="creating-symbol-packages"></a>Vytváření balíčků – symbol
 
 Kromě vytváření balíčků pro nuget.org nebo jiné zdroje NuGet také podporuje vytváření balíčků přidružených symbol a jejich publikování [SymbolSource úložiště](http://www.symbolsource.org/Public).
 
 Poté můžete přidat balíček příjemci `http://srv.symbolsource.org/pdb/Public` k jejich symbol zdroje v sadě Visual Studio, což umožňuje zanoříte se do balíčku kódu v ladicím programu sady Visual Studio. V tématu [zadejte symbolu (.pdb) a zdrojových souborů v ladicím programu sady Visual Studio](/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger) podrobnosti o tomto procesu.
-
 
 ## <a name="creating-a-symbol-package"></a>Vytváření balíčku – symbol
 
@@ -36,7 +34,7 @@ Chcete-li vytvořit balíček symbol, postupujte podle těchto konvence:
 
 Můžete vytvořit oba balíčky s `-Symbols` možnosti, buď z `.nuspec` soubor nebo soubor projektu:
 
-```
+```cli
 nuget pack MyPackage.nuspec -Symbols
 
 nuget pack MyProject.csproj -Symbols
@@ -108,13 +106,13 @@ Symbol balíčku se dají vytvářet konvencemi z struktury složek, jak je pops
 
 1. Pro větší pohodlí si nejprve uložit klíč rozhraní API s NuGet (viz [publikování balíčku](../create-packages/publish-a-package.md), které bude platit pro nuget.org a symbolsource.org, protože symbolsource.org zkontroluje s nuget.org ověřit, zda jste vlastníkem balíčku.
 
-    ```
+    ```cli
     nuget SetApiKey Your-API-Key
     ```
 
 1. Po publikování primární balíček nuget.org, push balíček symbol následujícím způsobem, které budou automaticky používat symbolsource.org jako cíl z důvodu `.symbols` v názvu souboru:
 
-    ```
+    ```cli
     nuget push MyPackage.symbols.nupkg
     ```
 > [!Note]
@@ -122,13 +120,13 @@ Symbol balíčku se dají vytvářet konvencemi z struktury složek, jak je pops
 
 1. K publikování do různých symbol úložiště, nebo tak, aby nabízel symbol balíček, který není postupujte podle zásad vytváření názvů, použít `-Source` možnost:
 
-    ```
+    ```cli
     nuget push MyPackage.symbols.nupkg -source https://nuget.smbsrc.net/
     ```
 
 1. Můžete také push obě primární a symbolů balíčky do obou úložiště ve stejnou dobu pomocí tohoto vzorce:
 
-    ```
+    ```cli
     nuget push MyPackage.nupkg
     ```
 
@@ -136,4 +134,4 @@ V takovém případě bude publikovat NuGet `MyPackage.symbols.nupkg`, pokud je 
 
 ## <a name="see-also"></a>Viz také
 
- - <a href="https://www.symbolsource.org/Public/Wiki/Using" target="_blank">Pomocí SymbolSource</a> (symbolsource.org)
+[Pomocí SymbolSource](https://www.symbolsource.org/Public/Wiki/Using) (symbolsource.org)
