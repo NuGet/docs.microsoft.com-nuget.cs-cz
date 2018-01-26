@@ -1,9 +1,9 @@
-# [Co je NuGet?](What-is-NuGet.md)
+# [Co je NuGet?](what-is-nuget.md)
+# [Instalace klientských nástrojů NuGetu](install-nuget-client-tools.md)
 # Rychlý start
 ## [Vytvoření a publikování balíčku](Quickstart/Create-and-Publish-a-Package.md)
 ## [Použití balíčku](Quickstart/Use-a-Package.md)
 # Příručky
-## [Instalace klientských nástrojů NuGetu](Guides/Install-NuGet.md)
 ## [Vytvoření balíčků pro .NET Standard (Visual Studio 2017)](Guides/Create-NET-Standard-Packages-VS2017.md)
 ## [Vytvoření balíčků pro .NET Standard (Visual Studio 2015)](Guides/Create-NET-Standard-Packages-VS2015.md)
 ## [Vytvoření balíčků UPW](Guides/Create-UWP-Packages.md)
@@ -19,8 +19,6 @@
 ## [Nativní balíčky](Create-Packages/Native-Packages.md)
 ## [Balíčky symbolů](Create-Packages/Symbol-Packages.md)
 ## [Publikování balíčku](Create-Packages/Publish-a-package.md)
-## [project.json a UPW](Create-Packages/project-json-and-UWP.md)
-## [Dopad project.json](Create-Packages/project-json-Impact.md)
 # Využívání balíčků
 ## [Přehled a pracovní postup](Consume-Packages/Overview-and-Workflow.md)
 ## [Vyhledání a výběr balíčků](Consume-Packages/Finding-and-Choosing-Packages.md)
@@ -71,7 +69,6 @@
 # Odkaz
 ## [.nuspec](Schema/nuspec.md)
 ## [packages.config](Schema/packages-config.md)
-## [project.json](Schema/project-json.md)
 ## [Správa verzí balíčků](reference/package-versioning.md)
 ## [Soubor Nuget.Config](Schema/nuget-config-file.md)
 ## [Cíle nástroje MSBuild](Schema/msbuild-targets.md)
@@ -83,6 +80,10 @@
 ## Rozšiřitelnost
 ### [Poskytovatelé pověření NuGetu pro Visual Studio](Reference/extensibility/Nuget-Credential-Providers-for-Visual-Studio.md)
 ### [Poskytovatelé pověření v nuget.exe](Reference/extensibility/nuget-exe-Credential-Providers.md)
+## Archivovaný obsah
+### [Formát referencí project.json](archive/project-json.md)
+### [project.json a UPW](archive/project-json-and-UWP.md)
+### [Dopad project.json](archive/project-json-impact.md)
 # rozhraní API
 ## [Přehled](API/overview.md)
 ## [Postup: Vytvoření dotazu na všechny balíčky pomocí rozhraní API](Guides/api/query-for-all-published-packages.md)
