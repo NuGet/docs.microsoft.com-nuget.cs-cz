@@ -12,11 +12,11 @@ keywords: "NuGet konfigurační soubory, NuGet konfigurace, nastavení chování
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 84bd351a8ce850d281f60dfd675a284d5de17645
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: 834f0181573f8ae793ddb5f246b90e5448ee31ae
+ms.sourcegitcommit: 24997b5345a997501fff846c9bd73610245ae0a6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="configuring-nuget-behavior"></a>Konfigurace chování NuGet
 
@@ -31,7 +31,7 @@ Chování NuGet doprovází Akumulovaná nastavení v jedné nebo více `NuGet.C
 | Počítače | Windows: %ProgramFiles(x86)%\NuGet\Config<br/>Mac/Linux: $XDG_DATA_HOME (obvykle ~/.local/share) | Nastavení platí pro všechny operace v počítači, ale jsou elementem podle všechna nastavení na úrovni uživatele nebo projektu. |
 
 Poznámky pro starší verze balíčku nuget:
-- NuGet 3.3 a dříve slouží `.nuget` složku pro nastavení celé řešení. Tento soubor není používán NuGet 3.4 +.
+- NuGet 3.3 a dříve slouží `.nuget` složku pro nastavení celé řešení. Tento soubor není použit v NuGet 3.4 +.
 - Pro NuGet 2.6 k 3.x, úrovni počítače konfiguračním souboru v systému Windows se nacházel v % ProgramData%\NuGet\Config [\\{IDE} [\\{Version} [\\{SKU}]]]\NuGet.Config, kde *{IDE}* může být  *Visual Studio*, *{Version}* verzi sady Visual Studio, jako byl *14.0*, a *{SKU}* je buď *komunity*, *Pro*, nebo *Enterprise*. Migrace nastavení na NuGet 4.0 +, jednoduše zkopírujte do konfiguračního souboru % ProgramFiles(x86) % \NuGet\Config. V systému Linux, byl tento předchozího umístění /etc/opt a v systému Mac, Library/Application Support.
 
 ## <a name="changing-config-settings"></a>Změna nastavení konfigurace

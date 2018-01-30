@@ -12,11 +12,11 @@ keywords: "Soubor NuGet.Config, referenci na konfigurační NuGet, možnosti kon
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 97f19239bcfb7a1c3a3b9b53ea11d73c8b339079
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: 9a183b67ae18f4fa5c042f1806f8abcc9b799b77
+ms.sourcegitcommit: 24997b5345a997501fff846c9bd73610245ae0a6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="nugetconfig-reference"></a>Odkaz na soubor nuget.config.
 
@@ -30,7 +30,8 @@ V tomto tématu:
 - [část bindingRedirects](#bindingredirects-section)
 - [část packageRestore](#packagerestore-section)
 - [část řešení](#solution-section)
-- [Balíček zdrojové oddíly](#package-source-sections): - [packageSources](#packagesources)
+- [Balíček zdrojové oddíly](#package-source-sections):
+  - [packageSources](#packagesources)
   - [packageSourceCredentials](#packagesourcecredentials)
   - [apikeys](#apikeys)
   - [disabledPackageSources](#disabledpackagesources)
