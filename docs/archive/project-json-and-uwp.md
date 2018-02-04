@@ -12,11 +12,11 @@ keywords: "NuGet závislosti, NuGet a UPW, UWP a project.json, soubor project.js
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0063c959a6d638d7ba1d579d35ff660dccae282c
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: f1ec086d6404c441ca5ad53028af2265a2344905
+ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="projectjson-and-uwp"></a>Project.JSON a UWP
 
@@ -75,7 +75,7 @@ MSBuild zná hledání tyto dva soubory a automaticky je importuje téměř zač
 
 ## <a name="lib-and-ref"></a>LIB a Ref
 
-Chování `lib` složky významně nezměnilo ve NuGet v3. Musí být v rámci dílčí složky s názvem po TxM však ve všech sestaveních a už může být umístěno přímo ve `lib` složky. TxM je název platformu, která by měla fungovat pro daný prostředek v balíčku. Logicky Toto jsou rozšíření z Monikery cílový Framework (TFM), například `net45`, `net46`, `netcore50`, a `dnxcore50` jsou všechny příklady TxMs (najdete v části [cílové rozhraní](../Schema/Target-Frameworks.md). TxM mohou odkazovat na rozhraní (TFM) a také další oblasti povrchu specifické pro platformu. Například TxM UWP (`uap10.0`) představuje možnosti útoku na rozhraní .NET, jakož i prostor oblasti systému Windows pro aplikace UWP.
+Chování `lib` složky významně nezměnilo ve NuGet v3. Musí být v rámci dílčí složky s názvem po TxM však ve všech sestaveních a už může být umístěno přímo ve `lib` složky. TxM je název platformu, která by měla fungovat pro daný prostředek v balíčku. Logicky Toto jsou rozšíření z Monikery cílový Framework (TFM), například `net45`, `net46`, `netcore50`, a `dnxcore50` jsou všechny příklady TxMs (najdete v části [cílové rozhraní](../reference/target-frameworks.md). TxM mohou odkazovat na rozhraní (TFM) a také další oblasti povrchu specifické pro platformu. Například TxM UWP (`uap10.0`) představuje možnosti útoku na rozhraní .NET, jakož i prostor oblasti systému Windows pro aplikace UWP.
 
 Příklad lib struktury:
 

@@ -12,11 +12,11 @@ keywords: Soubor project.json NuGet
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 1cca7304ee3dbecaed3fbb337ad2d31f383f4c43
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: 42a40c6c637839c13effc9e476ac5702a92cfd2a
+ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="projectjson-archive"></a>Project.JSON archivu
 
@@ -60,19 +60,19 @@ Funguje s `project.json`.
 
 ## <a name="dependency-resolution-with-packagereference"></a>Řešení závislostí s PackageReference
 
-*Původně v [řešení závislostí](../Consume-Packages/dependency-resolution.md#dependency-resolution-with-packagereference).*
+*Původně v [řešení závislostí](../consume-packages/dependency-resolution.md#dependency-resolution-with-packagereference).*
 
 Chování PackageReference platí také pro `project.json`. NuGet restore zapisuje do souboru s názvem graf závislostí `project.lock.json` spolu s `project.json`.
 
 ## <a name="managing-dependency-assets"></a>Správa závislostí prostředky
 
-*Původně v [řešení závislostí](../Consume-Packages/dependency-resolution.md#managing-dependency-assets).*
+*Původně v [řešení závislostí](../consume-packages/dependency-resolution.md#managing-dependency-assets).*
 
 Při použití `project.json` formátu, můžete řídit, které prostředky z toku závislosti do nejvyšší úrovně projektu. Podrobnosti najdete v tématu [project.json](project-json.md).
 
 ## <a name="excluding-references"></a>S výjimkou odkazy
 
-*Původně v [řešení závislostí](../Consume-Packages/dependency-resolution.md#excluding-references).*
+*Původně v [řešení závislostí](../consume-packages/dependency-resolution.md#excluding-references).*
 
 - `project.json`: Přidejte `"exclude" : "all"` v závislost PackageC:
 
@@ -89,21 +89,21 @@ Při použití `project.json` formátu, můžete řídit, které prostředky z t
 
 ## <a name="resolving-incompatible-package-errors"></a>Řešení chyb při nekompatibilní balíčku
 
-*Původně v [řešení závislostí](../Consume-Packages/dependency-resolution.md#resolving-incompatible-package-errors).*
+*Původně v [řešení závislostí](../consume-packages/dependency-resolution.md#resolving-incompatible-package-errors).*
 
 Přidání způsob řešení chyb:
 
-- **Nedoporučuje se**: jako dočasné řešení při práci s autora balíčku projekty cílení na `netcore`, `netstandard`, a `netcoreapp` mohou ostatní platformy jako kompatibilní, a tím umožní balíčky cílené na těch, které označují ostatní platformy, který se má použít. V tématu [project.json importuje](project-json.md#imports) a [cíl obnovení MSBuild PackageTargetFallback](../schema/msbuild-targets.md#packagetargetfallback). To může způsobit neočekávané chování, proto znovu, je vhodné řešení nekompatibility balíček ve spolupráci s autora balíčku na aktualizace.
+- **Nedoporučuje se**: jako dočasné řešení při práci s autora balíčku projekty cílení na `netcore`, `netstandard`, a `netcoreapp` mohou ostatní platformy jako kompatibilní, a tím umožní balíčky cílené na těch, které označují ostatní platformy, který se má použít. V tématu [project.json importuje](project-json.md#imports) a [cíl obnovení MSBuild PackageTargetFallback](../reference/msbuild-targets.md#packagetargetfallback). To může způsobit neočekávané chování, proto znovu, je vhodné řešení nekompatibility balíček ve spolupráci s autora balíčku na aktualizace.
 
 ## <a name="target-frameworks"></a>Cílové rozhraní
 
-*Původně v [cílové rozhraní](../schema/target-frameworks.md).*
+*Původně v [cílové rozhraní](../reference/target-frameworks.md).*
 
 - [Project.JSON](project-json.md): `frameworks` uzlu určuje framework verze, které mohou být zkompilovány projektu proti.
 
 ## <a name="creating-a-package"></a>Vytváření balíčku
 
-*Původně v [vytváření balíčku](../Create-Packages/creating-a-package.md)*
+*Původně v [vytváření balíčku](../create-packages/creating-a-package.md)*
 
 ### <a name="setting-a-package-type"></a>Balíček typ nastavení
 
@@ -136,24 +136,24 @@ Při použití `project.json` formátu, NuGet také podporuje notaci zástupný 
 
 ### <a name="nugetconfig-reference"></a>Odkaz na soubor nuget.config.
 
-*Původně v [NuGet.Config odkaz](../schema/nuget-config-file.md).*
+*Původně v [NuGet.Config odkaz](../reference/nuget-config-file.md).*
 
 `globalPackagesFolder`platí pouze pro `project.json`.
 
 ### <a name="nuspec-file-reference"></a>odkaz na soubor nuspec
 
-*Původně v [odkaz na soubor nuspec](../schema/nuspec.md).*
+*Původně v [odkaz na soubor nuspec](../reference/nuspec.md).*
 
 `<contentFiles>` Element se používá namísto `<files>` s `project.json`.
 
 ### <a name="package-manager-options-control"></a>Balíček správce možnosti řízení
 
-*Původně v [reference k uživatelskému rozhraní Správce balíčků](../tools/Package-Manager-UI.md).*
+*Původně v [reference k uživatelskému rozhraní Správce balíčků](../tools/package-manager-ui.md).*
 
 Projekty pomocí `project.json` odkazovat jenom zobrazit formát **zobrazit okno náhledu** možnost.
 
 ### <a name="visual-studio-templates"></a>Šablony aplikace Visual Studio
 
-*Původně v [balíčky NuGet ve šablony sady Visual Studio](../Visual-Studio-Extensibility/visual-studio-templates.md).*
+*Původně v [balíčky NuGet ve šablony sady Visual Studio](../visual-studio-extensibility/visual-studio-templates.md).*
 
 Osvědčené postupy: šablony neobsahují `project.json` souboru a nezahrnují nebo žádné odkazy nebo obsah, který by byl přidán, když se instalují balíčky NuGet.

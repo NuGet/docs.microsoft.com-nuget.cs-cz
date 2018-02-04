@@ -12,15 +12,15 @@ keywords: "DotNet.exe rozhraní příkazového řádku, nuget.exe rozhraní př�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b94da0ea6a6b7f1e269767a7395d81c3a97a2d0c
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
-ms.translationtype: MT
+ms.openlocfilehash: 07ca66b44a981f7fcc108e1b4d97c0cf5e206a6f
+ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="installing-nuget-client-tools"></a>Instalace nástrojů klienta NuGet
 
-> **Hledáte nainstalovat balíček? V tématu [rychlý start - použití balíček](quickstart/use-a-package.md).**
+> **Hledáte nainstalovat balíček? V tématu [způsoby instalace balíčků NuGet](consume-packages/ways-to-install-a-package.md).**
 
 Chcete-li pracovat s NuGet, jako balíček příjemce nebo creator, můžete použít [multiplatformního rozhraní příkazového řádku (CLI) nástroje](#cli-tools) a také [funkce NuGet v sadě Visual Studio](#visual-studio). Tento článek stručně popisuje možnosti různých nástrojů, jak nainstalovat a jejich srovnávacích [dostupnost funkcí](#feature-availability).
 
@@ -30,7 +30,7 @@ Chcete-li pracovat s NuGet, jako balíček příjemce nebo creator, můžete pou
 | [nuget.exe](#nugetexe-cli) | Nabízí všechny funkce NuGet v systémech Windows a většinu funkcí spuštěna pod [Mono](http://www.mono-project.com/docs/getting-started/install/) na Mac a Linux. | [nuget.exe](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe) |
 | [Visual Studio](#visual-studio) | Poskytuje možnosti NuGet prostřednictvím uživatelského rozhraní Správce balíčků a konzoly Správce balíčků. | [Visual Studio 2017](https://www.visualstudio.com/downloads/) |
 
-[Rozhraní příkazového řádku nástroje MSBuild](schema/msbuild-targets.md) také nabízí možnost obnovení a vytváření balíčků, což je užitečné hlavně na serverech sestavení. MSBuild jinak není nástroj pro obecné účely pro práci s NuGet.
+[Rozhraní příkazového řádku nástroje MSBuild](reference/msbuild-targets.md) také nabízí možnost obnovení a vytváření balíčků, což je užitečné hlavně na serverech sestavení. MSBuild jinak není nástroj pro obecné účely pro práci s NuGet.
 
 ## <a name="cli-tools"></a>Nástrojů příkazového řádku
 

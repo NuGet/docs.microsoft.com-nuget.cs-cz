@@ -13,11 +13,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 95f86d8cd11bce8f0f1fed068370311f575601de
-ms.sourcegitcommit: 24997b5345a997501fff846c9bd73610245ae0a6
+ms.openlocfilehash: 56cb9d5b40bbfbd722e611e0e86945eddbe9d19a
+ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="nuspec-reference"></a>referenční dokumentace příponou .nuspec
 
@@ -215,7 +215,7 @@ Jako alternativu k jediný plochý seznam závislosti lze podle profil framework
 
 Každá skupina obsahuje atribut s názvem `targetFramework` a obsahuje nula nebo více `<dependency>` elementy. Tyto závislosti jsou nainstalovány společně při cílovém Frameworku, který je kompatibilní s profilem framework projektu.
 
-`<group>` Element bez `targetFramework` atribut se používá jako výchozí nebo záložní seznam závislosti. V tématu [cílové rozhraní](../schema/target-frameworks.md) pro identifikátory přesný framework.
+`<group>` Element bez `targetFramework` atribut se používá jako výchozí nebo záložní seznam závislosti. V tématu [cílové rozhraní](../reference/target-frameworks.md) pro identifikátory přesný framework.
 
 > [!Important]
 > Formát skupiny nelze smíšeného s jako plochý seznam.
@@ -263,7 +263,7 @@ Jako alternativu k jediný plochý seznam odkazů na lze podle profil framework 
 
 Každá skupina obsahuje atribut s názvem `targetFramework` a obsahuje nula nebo více `<reference>` elementy. Tyto odkazy se přidají do projektu, když cílovém Frameworku, který je kompatibilní s profilem framework projektu.
 
-`<group>` Element bez `targetFramework` atribut se používá jako výchozí nebo záložní seznam odkazů. V tématu [cílové rozhraní](../schema/target-frameworks.md) pro identifikátory přesný framework.
+`<group>` Element bez `targetFramework` atribut se používá jako výchozí nebo záložní seznam odkazů. V tématu [cílové rozhraní](../reference/target-frameworks.md) pro identifikátory přesný framework.
 
 > [!Important]
 > Formát skupiny nelze smíšeného s jako plochý seznam.
@@ -297,7 +297,7 @@ Sestavení architektury jsou ty, které jsou součástí rozhraní .NET framewor
 | Atribut | Popis |
 | --- | --- |
 | **assemblyName** | (Povinné) Plně kvalifikovaný název. |
-| **targetFramework** | (Volitelné) Určuje cílový framework, pro kterou platí tento odkaz. Pokud tento parametr vynechán, označuje, že odkaz na použije pro všechna rozhraní. V tématu [cílové rozhraní](../schema/target-frameworks.md) pro identifikátory přesný framework. |
+| **targetFramework** | (Volitelné) Určuje cílový framework, pro kterou platí tento odkaz. Pokud tento parametr vynechán, označuje, že odkaz na použije pro všechna rozhraní. V tématu [cílové rozhraní](../reference/target-frameworks.md) pro identifikátory přesný framework. |
 
 Následující příklad ukazuje odkaz na `System.Net` pro všechny cílové architektury a odkaz na `System.ServiceModel` pro pouze rozhraní .NET Framework 4.0:
 
@@ -337,7 +337,7 @@ Každý `<file>` element určuje následující atributy:
 | Atribut | Popis |
 | --- | --- |
 | **src** | Umístění souboru nebo soubory, které chcete zahrnout, podstoupí vyloučení určeného `exclude` atribut. Cesta je vzhledem k `.nuspec` souboru uvedeno absolutní cesta. Zástupný znak `*` je povolen a dvojité zástupných znaků `**` znamená rekurzivní složky hledání. |
-| **target** | Relativní cesta ke složce v rámci balíčku umístění zdrojových souborů, které musí začínat `lib`, `content`, `build`, nebo `tools`. V tématu [vytváření příponou .nuspec z pracovního adresáře založené na konvenci](../Create-Packages/Creating-a-Package.md#from-a-convention-based-working-directory). |
+| **target** | Relativní cesta ke složce v rámci balíčku umístění zdrojových souborů, které musí začínat `lib`, `content`, `build`, nebo `tools`. V tématu [vytváření příponou .nuspec z pracovního adresáře založené na konvenci](../create-packages/creating-a-package.md#from-a-convention-based-working-directory). |
 | **exclude** | Seznam oddělený středníkem souborů nebo vzorů souborů, které chcete vyloučit z `src` umístění. Zástupný znak `*` je povolen a dvojité zástupných znaků `**` znamená rekurzivní složky hledání. |
 
 ### <a name="examples"></a>Příklady
@@ -555,7 +555,7 @@ Balíček projekt by měl struktury obsah pomocí následujícího vzorce:
     /contentFiles/{codeLanguage}/{TxM}/{any?}
 
 - `codeLanguages`může být `cs`, `vb`, `fs`, `any`, nebo malá ekvivalent danou`$(ProjectLanguage)`
-- `TxM`je všechny Přezdívka právní cílový framework, který NuGet podporuje (viz [cílové rozhraní](../schema/target-frameworks.md)).
+- `TxM`je všechny Přezdívka právní cílový framework, který NuGet podporuje (viz [cílové rozhraní](../reference/target-frameworks.md)).
 - Libovolné struktury složek může připojen na konec této syntaxe.
 
 Příklad:

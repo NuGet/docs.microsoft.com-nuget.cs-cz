@@ -13,19 +13,19 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c69ff6efca2dcc4a5c1242277f537012e9f4610f
-ms.sourcegitcommit: 24997b5345a997501fff846c9bd73610245ae0a6
+ms.openlocfilehash: dbeec1d3332571d8e9616dfe9675b5fcf3c85589
+ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="target-frameworks"></a>Cílové rozhraní
 
 NuGet používá cílový framework odkazy v různých místech konkrétně identifikovat a izolovat framework závislé součásti balíčku:
 
-- [manifest příponou .nuspec](../schema/nuspec.md): balíček může naznačovat jedinečné balíčky, které mají být zahrnuty v projektu v závislosti na cílový framework projektu na.
+- [manifest příponou .nuspec](../reference/nuspec.md): balíček může naznačovat jedinečné balíčky, které mají být zahrnuty v projektu v závislosti na cílový framework projektu na.
 - [název složky .nupkg](../create-packages/creating-a-package.md#from-a-convention-based-working-directory): složky uvnitř balíček `lib` může mít název složky podle cílové rozhraní, z nichž každý obsahuje knihoven DLL a další obsah, které jsou vhodné pro dané platformy.
-- [soubor Packages.config](../schema/packages-config.md): `targetframework` atribut závislost určuje variantu balíček pro instalaci.
+- [soubor Packages.config](../reference/packages-config.md): `targetframework` atribut závislost určuje variantu balíček pro instalaci.
 
 > [!Note]
 > Zdrojový kód klienta NuGet, který vypočítá následující tabulky se nachází v následujících umístěních:

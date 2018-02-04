@@ -11,11 +11,11 @@ description: "NuGet pack a obnovení můžete pracovat přímo jako cíle MSBuil
 keywords: "NuGet a MSBuild NuGet pack cíl, cíl obnovení NuGet"
 ms.reviewer:
 - karann-msft
-ms.openlocfilehash: 169d73709eeb17aade7d99da66bbb4f346f8093f
-ms.sourcegitcommit: 24997b5345a997501fff846c9bd73610245ae0a6
+ms.openlocfilehash: 6c488f49e12b014e7bd197d57041745387a4d7b4
+ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet pack a obnovení jako cíle nástroje MSBuild
 
@@ -42,7 +42,7 @@ Podobně můžete napsat úlohy nástroje MSBuild, zápis vlastní cíl a využ�
 
 ## <a name="pack-target"></a>cíl Pack
 
-Při použití pack cíl, který je `msbuild /t:pack`, MSBuild nevykresluje vstupy ze souboru projektu. Následující tabulka popisuje vlastnosti nástroje MSBuild, které mohou být přidány do souboru projektu v první `<PropertyGroup>` uzlu. Můžete provést tyto úpravy snadno v Visual Studio 2017 a později kliknutím pravým tlačítkem na projekt a výběrem **upravit {název_projektu}** v místní nabídce. Pro usnadnění práce v tabulce je seřazená podle vlastnost ekvivalentní v [ `.nuspec` soubor](../schema/nuspec.md).
+Při použití pack cíl, který je `msbuild /t:pack`, MSBuild nevykresluje vstupy ze souboru projektu. Následující tabulka popisuje vlastnosti nástroje MSBuild, které mohou být přidány do souboru projektu v první `<PropertyGroup>` uzlu. Můžete provést tyto úpravy snadno v Visual Studio 2017 a později kliknutím pravým tlačítkem na projekt a výběrem **upravit {název_projektu}** v místní nabídce. Pro usnadnění práce v tabulce je seřazená podle vlastnost ekvivalentní v [ `.nuspec` soubor](../reference/nuspec.md).
 
 Všimněte si, že `Owners` a `Summary` vlastnosti z `.nuspec` nejsou podporovány pomocí nástroje MSBuild.
 
@@ -263,7 +263,7 @@ Obnovení vytvoří následující soubory v sestavení `obj` složky:
 
 ### <a name="packagetargetfallback"></a>PackageTargetFallback
 
-`PackageTargetFallback` Element umožňuje určit sadu kompatibilní cíle, který se má použít při obnovování balíčků. Je navržen tak, aby balíčky, které používají dotnet. [TxM](../schema/target-frameworks.md) k práci s kompatibilní balíčky, které nejsou deklarovat dotnet TxM. To znamená, pokud projektu používá dotnet TxM, pak všechny balíčky, které závisí na musí také mít dotnet TxM, pokud přidáte `<PackageTargetFallback>` do projektu, aby bylo možné povolit platformy bez dotnet. aby bylo kompatibilní s dotnet.
+`PackageTargetFallback` Element umožňuje určit sadu kompatibilní cíle, který se má použít při obnovování balíčků. Je navržen tak, aby balíčky, které používají dotnet. [TxM](../reference/target-frameworks.md) k práci s kompatibilní balíčky, které nejsou deklarovat dotnet TxM. To znamená, pokud projektu používá dotnet TxM, pak všechny balíčky, které závisí na musí také mít dotnet TxM, pokud přidáte `<PackageTargetFallback>` do projektu, aby bylo možné povolit platformy bez dotnet. aby bylo kompatibilní s dotnet.
 
 Například, pokud je projekt pomocí `netstandard1.6` TxM a závislý balíček obsahuje pouze `lib/net45/a.dll` a `lib/portable-net45+win81/a.dll`, pak projektu se nepovede. Pokud chcete mají být předány se druhé knihovny DLL, pak můžete přidat `PackageTargetFallback` následujícím způsobem. Tím vyjádříte, který `portable-net45+win81` DLL je kompatibilní:
 
