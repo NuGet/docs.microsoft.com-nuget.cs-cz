@@ -9,12 +9,13 @@ ms.prod: nuget
 ms.technology: 
 description: "Poznámky k verzi pro NuGet 4.0 RC včetně známé problémy, opravy chyb, přidaných funkcí a chcete."
 keywords: "NuGet 4.0 k vydání verze RC, opravy chyb známé problémy, přidat funkce, chcete"
-ms.reviewer: kraigb
+ms.reviewer:
+- kraigb
 ms.openlocfilehash: 9156f75edc9cf72cbb1d122f01d8a071ed56a124
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/02/2018
 ---
 # <a name="nuget-40-rc-release-notes"></a>Poznámky k verzi RC NuGet 4.0
 
