@@ -13,22 +13,22 @@ ms.reviewer:
 - karann-msft
 - unniravindranathan
 ms.openlocfilehash: 84bc34e02572a912fb86ce1a5cf54d8ff212ac6e
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/02/2018
 ---
-# <a name="managing-the-nuget-cache"></a><span data-ttu-id="ed0aa-104">Správa mezipaměti NuGet</span><span class="sxs-lookup"><span data-stu-id="ed0aa-104">Managing the NuGet cache</span></span>
+# <a name="managing-the-nuget-cache"></a><span data-ttu-id="52da7-104">Správa mezipaměti NuGet</span><span class="sxs-lookup"><span data-stu-id="52da7-104">Managing the NuGet cache</span></span>
 
-<span data-ttu-id="ed0aa-105">NuGet spravuje několik místní mezipaměti, aby se zabránilo stahovali balíčky, které jsou již v počítači a zajistit podporu offline režimu.</span><span class="sxs-lookup"><span data-stu-id="ed0aa-105">NuGet manages several local caches to avoid downloading packages that are already on the computer, and to provide offline support.</span></span> <span data-ttu-id="ed0aa-106">NuGet automaticky spadne zpět do mezipaměti při instalaci nebo přeinstalování balíčky bez připojení k síti.</span><span class="sxs-lookup"><span data-stu-id="ed0aa-106">NuGet automatically falls back to the cache when installing or reinstalling packages without a network connection.</span></span>
+<span data-ttu-id="52da7-105">NuGet spravuje několik místní mezipaměti, aby se zabránilo stahovali balíčky, které jsou již v počítači a zajistit podporu offline režimu.</span><span class="sxs-lookup"><span data-stu-id="52da7-105">NuGet manages several local caches to avoid downloading packages that are already on the computer, and to provide offline support.</span></span> <span data-ttu-id="52da7-106">NuGet automaticky spadne zpět do mezipaměti při instalaci nebo přeinstalování balíčky bez připojení k síti.</span><span class="sxs-lookup"><span data-stu-id="52da7-106">NuGet automatically falls back to the cache when installing or reinstalling packages without a network connection.</span></span>
 
-<span data-ttu-id="ed0aa-107">Umístění mezipaměti, jsou k dispozici pomocí [místní hodnoty – příkaz](../tools/cli-ref-locals.md):</span><span class="sxs-lookup"><span data-stu-id="ed0aa-107">Cache locations are available using the [locals command](../tools/cli-ref-locals.md):</span></span>
+<span data-ttu-id="52da7-107">Umístění mezipaměti, jsou k dispozici pomocí [místní hodnoty – příkaz](../tools/cli-ref-locals.md):</span><span class="sxs-lookup"><span data-stu-id="52da7-107">Cache locations are available using the [locals command](../tools/cli-ref-locals.md):</span></span>
 
 ```cli
 nuget locals all -list
 ```
 
-<span data-ttu-id="ed0aa-108">Typické výstup vypadá takto:</span><span class="sxs-lookup"><span data-stu-id="ed0aa-108">Typical output is as follows:</span></span>
+<span data-ttu-id="52da7-108">Typické výstup vypadá takto:</span><span class="sxs-lookup"><span data-stu-id="52da7-108">Typical output is as follows:</span></span>
 
 ```output
 http-cache: C:\Users\user\AppData\Local\NuGet\v3-cache   #NuGet 3.x+ cache
@@ -37,7 +37,7 @@ global-packages: C:\Users\user\.nuget\packages\          #Global packages folder
 temp: C:\Users\user\AppData\Local\Temp\NuGetScratch      #Temp folder
 ```
 
-<span data-ttu-id="ed0aa-109">Pokud dojde k potížím instalace balíčku nebo jinak potřeba zajistit, že instalujete balíčky ze vzdáleného galerie, použijte `locals -clear` možnost:</span><span class="sxs-lookup"><span data-stu-id="ed0aa-109">If you encounter package installation problems or otherwise want to ensure that you're installing packages from a remote gallery, use the `locals -clear` option:</span></span>
+<span data-ttu-id="52da7-109">Pokud dojde k potížím instalace balíčku nebo jinak potřeba zajistit, že instalujete balíčky ze vzdáleného galerie, použijte `locals -clear` možnost:</span><span class="sxs-lookup"><span data-stu-id="52da7-109">If you encounter package installation problems or otherwise want to ensure that you're installing packages from a remote gallery, use the `locals -clear` option:</span></span>
 
 ```cli
 nuget locals http-cache -clear        #Clear the 3.x+ cache
@@ -47,11 +47,11 @@ nuget locals temp -clear              #Clear the temporary cache
 nuget locals all -clear               #Clear all caches
 ```
 
-<span data-ttu-id="ed0aa-110">Všimněte si, že správa mezipaměti v současné době podporuje pouze z příkazového řádku NuGet a není v sadě Visual Studio nebo pomocí konzoly Správce balíčků.</span><span class="sxs-lookup"><span data-stu-id="ed0aa-110">Note that managing the cache is presently supported only from the NuGet command line, and not within Visual Studio or through the Package Manager Console.</span></span> <span data-ttu-id="ed0aa-111">Navíc Správa mezipaměti 2.x není podporována v NuGet 3.6 nebo novější.</span><span class="sxs-lookup"><span data-stu-id="ed0aa-111">Also, managing the 2.x cache is not supported in NuGet 3.6 and later.</span></span>
+<span data-ttu-id="52da7-110">Všimněte si, že správa mezipaměti v současné době podporuje pouze z příkazového řádku NuGet a není v sadě Visual Studio nebo pomocí konzoly Správce balíčků.</span><span class="sxs-lookup"><span data-stu-id="52da7-110">Note that managing the cache is presently supported only from the NuGet command line, and not within Visual Studio or through the Package Manager Console.</span></span> <span data-ttu-id="52da7-111">Navíc Správa mezipaměti 2.x není podporována v NuGet 3.6 nebo novější.</span><span class="sxs-lookup"><span data-stu-id="52da7-111">Also, managing the 2.x cache is not supported in NuGet 3.6 and later.</span></span>
 
-<span data-ttu-id="ed0aa-112">Následující chyby může stát při použití `nuget locals`:</span><span class="sxs-lookup"><span data-stu-id="ed0aa-112">The following errors can occur when using `nuget locals`:</span></span>
+<span data-ttu-id="52da7-112">Následující chyby může stát při použití `nuget locals`:</span><span class="sxs-lookup"><span data-stu-id="52da7-112">The following errors can occur when using `nuget locals`:</span></span>
 
-- <span data-ttu-id="ed0aa-113">**Vymazání místních prostředků se nezdařilo: nelze odstranit jeden nebo více souborů**</span><span class="sxs-lookup"><span data-stu-id="ed0aa-113">**Clearing local resources failed: Unable to delete one or more files**</span></span>
-- <span data-ttu-id="ed0aa-114">**Adresář není prázdná**</span><span class="sxs-lookup"><span data-stu-id="ed0aa-114">**The directory is not empty**</span></span>
+- <span data-ttu-id="52da7-113">**Vymazání místních prostředků se nezdařilo: nelze odstranit jeden nebo více souborů**</span><span class="sxs-lookup"><span data-stu-id="52da7-113">**Clearing local resources failed: Unable to delete one or more files**</span></span>
+- <span data-ttu-id="52da7-114">**Adresář není prázdná**</span><span class="sxs-lookup"><span data-stu-id="52da7-114">**The directory is not empty**</span></span>
 
-<span data-ttu-id="ed0aa-115">Ty naznačují, buď nemáte oprávnění k odstranění souborů v mezipaměti, nebo že jeden nebo více souborů v mezipaměti jsou v používá jiný proces, který musí být uzavřeny před ty soubory je možné odstranit.</span><span class="sxs-lookup"><span data-stu-id="ed0aa-115">These indicate that you either do not have permission to delete files in the cache, or that one or more files in the cache are in use by another process, which must be closed before the those files can be removed.</span></span>
+<span data-ttu-id="52da7-115">Ty naznačují, buď nemáte oprávnění k odstranění souborů v mezipaměti, nebo že jeden nebo více souborů v mezipaměti jsou v používá jiný proces, který musí být uzavřeny před ty soubory je možné odstranit.</span><span class="sxs-lookup"><span data-stu-id="52da7-115">These indicate that you either do not have permission to delete files in the cache, or that one or more files in the cache are in use by another process, which must be closed before the those files can be removed.</span></span>
