@@ -8,11 +8,11 @@
       items:
         - name: Rychlý start
           tocHref: /nuget/quickstart/
-          topicHref: /nuget/quickstart/create-and-publish-a-package
+          topicHref: /nuget/quickstart/install-and-use-a-package-using-the-dotnet-cli
         - name: Příručky
           tocHref: /nuget/guides/
-          topicHref: /nuget/guides/install-nuget
-        - name: Vytvoření balíčků
+          topicHref: /nuget/guides/create-net-standard-packages-vs2017
+        - name: Vytváření balíčků
           tocHref: /nuget/create-packages/
           topicHref: /nuget/create-packages/overview-and-workflow
         - name: Využívání balíčků
@@ -26,7 +26,7 @@
           topicHref: /nuget/tools/nuget-exe-cli-reference
         - name: Odkaz
           tocHref: /nuget/reference/
-          topicHref: /nuget/schema/nuspec
+          topicHref: /nuget/reference/nuspec
         - name: rozhraní API
           tocHref: /nuget/api/
           topicHref: /nuget/api/overview
@@ -36,6 +36,6 @@
         - name: Zásady
           tocHref: /nuget/policies/
           topicHref: /nuget/policies/nuget-faq
-        - name: Poznámky k vydané verzi
+        - name: Zpráva k vydání verze
           tocHref: /nuget/release-notes/
           topicHref: /nuget/release-notes/index
