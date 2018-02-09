@@ -12,11 +12,11 @@ keywords: "Balíček NuGet a project.json, project.json dopad vytváření aspek
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6104b4dac330869bc5724ffcf15cc0ac9ee26c1f
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: b732d48b169825764d614c338658f8c6ef45e765
+ms.sourcegitcommit: eabd401616a98dda2ae6293612acb3b81b584967
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="impact-of-projectjson-when-creating-packages"></a>Dopad project.json při vytváření balíčků
 
@@ -61,7 +61,7 @@ Balíčky, které se pokusí změnit projekt, který má obvykle usnadňují spu
 
 Většina stávajících balíčků by neměl muset použít formát balíčku, který je popsaný níže.
 
-Formát umožňuje nativní obsah jako první třídy scénáře. To znamená, že spravované sestavení v závislosti na blízko implementace hardwaru pro odeslání binární implementace spolu s spravované sestavení založená na cílové platformy. System.IO.Compression balíčku je třeba využitím této technologie. [https://www.nuget.org/packages/System.IO.Compression](https://www.nuget.org/packages/System.IO.Compression)
+Formát umožňuje nativní obsah jako první třídy scénáře. To znamená, že spravovaná sestavení závisí na blízko implementace hardwaru pro odeslání binární implementace spolu s spravované sestavení založená na cílové platformy. System.IO.Compression balíčku je třeba využitím této technologie. [https://www.nuget.org/packages/System.IO.Compression](https://www.nuget.org/packages/System.IO.Compression)
 
 V souhrnu Pokud funkci výše není nezbytně nutné, doporučujeme provedením vykrvovacího vpichu s formátem existující balíček jako formát popsaný v tomto poli je podporován pouze NuGet 3.x+.
 
