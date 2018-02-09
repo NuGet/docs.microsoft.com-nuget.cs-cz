@@ -1,0 +1,11 @@
+1. <span data-ttu-id="a58aa-101">[Přihlaste se k účtu nuget.org](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) nebo vytvoření účtu, pokud již nemáte.</span><span class="sxs-lookup"><span data-stu-id="a58aa-101">[Sign into your nuget.org account](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) or create an account if you don't have one already.</span></span>
+
+1. <span data-ttu-id="a58aa-102">Vyberte jméno uživatele (v pravém horním rohu) a pak vyberte **klíče rozhraní API**.</span><span class="sxs-lookup"><span data-stu-id="a58aa-102">Select your user name (on the upper right), then select **API Keys**.</span></span>
+
+1. <span data-ttu-id="a58aa-103">Vyberte **vytvořit**, zadejte název klíče, vyberte **vyberte obory > Push**pod **klíč rozhraní API**, zadejte \* pro **Glob vzor**, pak Vyberte **vytvořit**.</span><span class="sxs-lookup"><span data-stu-id="a58aa-103">Select **Create**, provide a name for your key, select **Select Scopes > Push**Under **API Key**, enter \* for **Glob pattern**, then select **Create**.</span></span>
+
+1. <span data-ttu-id="a58aa-104">Po vytvoření klíče, vyberte **kopie** načíst přístup klíče je nutné v rozhraní příkazového řádku:</span><span class="sxs-lookup"><span data-stu-id="a58aa-104">Once the key is created, select **Copy** to retrieve the access key you need in the CLI:</span></span>
+
+    ![Klíč rozhraní API kopírování do schránky.](../media/QS_Create-02-APIKey.png)
+
+1. <span data-ttu-id="a58aa-106">**Důležité**: Uložit klíč v zabezpečeném umístění, protože nelze zkopírovat klíč znovu později na.</span><span class="sxs-lookup"><span data-stu-id="a58aa-106">**Important**: Save your key in a secure location because you cannot copy the key again later on.</span></span> <span data-ttu-id="a58aa-107">Pokud se vrátíte na stránku klíče rozhraní API, budete muset znovu vygenerovat klíč a zkopírujte ho.</span><span class="sxs-lookup"><span data-stu-id="a58aa-107">If you return to the API key page, you need to regenerate the key to copy it.</span></span> <span data-ttu-id="a58aa-108">Klíč rozhraní API můžete také odebrat, pokud již nechcete push balíčky prostřednictvím rozhraní příkazového řádku.</span><span class="sxs-lookup"><span data-stu-id="a58aa-108">You can also remove the API key if you no longer want to push packages via the CLI.</span></span>
