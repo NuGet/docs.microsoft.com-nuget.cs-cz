@@ -12,17 +12,17 @@ keywords: "Soubor NuGet.Config, referenci na konfigurační NuGet, možnosti kon
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 9a183b67ae18f4fa5c042f1806f8abcc9b799b77
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: df602cb561a19f0eac085695de80db1fbaa1a313
+ms.sourcegitcommit: 33436d122873249dbb20616556cd8c6783f38909
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/12/2018
 ---
 # <a name="nugetconfig-reference"></a>Odkaz na soubor nuget.config.
 
 Chování NuGet je řízena nastavením v různých `NuGet.Config` souborů, jak je popsáno v [konfigurace chování NuGet](../consume-packages/configuring-nuget-behavior.md).
 
-`NuGet.Config`je soubor XML obsahující nejvyšší úrovni `<configuration>` uzlu, který pak obsahuje část prvky popsané v tomto tématu. Každý oddíl obsahuje nula nebo více `<add>` prvky s `key` a `value` atributy. Najdete v článku [příklady konfiguračního souboru](#example-config-file). Následující názvy nastavení jsou velká a malá písmena a můžete použít hodnoty [proměnné prostředí](#using-environment-variables).
+`NuGet.Config` je soubor XML obsahující nejvyšší úrovni `<configuration>` uzlu, který pak obsahuje část prvky popsané v tomto tématu. Každý oddíl obsahuje nula nebo více `<add>` prvky s `key` a `value` atributy. Najdete v článku [příklady konfiguračního souboru](#example-config-file). Následující názvy nastavení jsou velká a malá písmena a můžete použít hodnoty [proměnné prostředí](#using-environment-variables).
 
 V tomto tématu:
 
@@ -48,7 +48,7 @@ V tomto tématu:
 
 Obsahuje nastavení různé konfigurace, které se dá nastavit pomocí [ `nuget config` příkaz](../tools/cli-ref-config.md).
 
-Poznámka: `dependencyVersion` a `repositoryPath` se vztahují pouze na projektů pomocí `packages.config`. `globalPackagesFolder`platí pouze pro projekty PackageReference formátu.
+Poznámka: `dependencyVersion` a `repositoryPath` se vztahují pouze na projektů pomocí `packages.config`. `globalPackagesFolder` platí pouze pro projekty PackageReference formátu.
 
 | Key | Hodnota |
 | --- | --- |
@@ -131,7 +131,7 @@ Všimněte si, že je adresa URL zdroje pro nuget.org `https://api.nuget.org/v3/
 
 ### <a name="packagesources"></a>packageSources
 
-Zobrazí seznam všech zdrojů známé balíčku.
+Zobrazí seznam všech zdrojů známé balíčku. Pořadí je ignorován během operace obnovení a s žádným projektem v PackageReference formátu. Pořadí zdrojů pro instalace respektuje NuGet a aktualizovat operace s projekty pomocí `packages.config`.
 
 | Key | Hodnota |
 | --- | --- |
@@ -157,7 +157,7 @@ Ukládá uživatelská jména a hesla pro zdroje, obvykle zadaným `-username` a
 | Heslo | Zašifrované heslo pro zdroj. |
 | cleartextpassword | Nezašifrované heslo pro zdroj. |
 
-**Příklad:**
+Příklad:
 
 V konfiguračním souboru `<packageSourceCredentials>` element obsahuje podřízené uzly pro každý název příslušným zdrojovým (s nahrazením mezer v názvu `_x0020+`). To znamená zdrojů s názvem "Contoso" a "Test zdroj", konfigurační soubor obsahuje následující při použití šifrovaných hesel:
 
@@ -213,7 +213,7 @@ Identifikovat aktuálně zakázané zdroje. Může být prázdná.
 | --- | --- |
 | (název zdroje) | Logická hodnota určující, zda je neaktivní zdroj. |
 
-**Příklad:**
+Příklad:
 
 ```xml
 <disabledPackageSources>
@@ -232,7 +232,7 @@ Identifikuje ke zdroji aktuálně aktivní, nebo označuje agregace všech zdroj
 
 | Key | Hodnota |
 | --- | --- |
-| (název zdroje) nebo`All` | Pokud klíč je název zdroje, hodnota je zdrojová cesta nebo adresa URL. Pokud `All`, hodnota by měla být `(Aggregate source)` kombinovat všechny zdroje balíčků, které jinak nejsou zakázány. |
+| (název zdroje) nebo `All` | Pokud klíč je název zdroje, hodnota je zdrojová cesta nebo adresa URL. Pokud `All`, hodnota by měla být `(Aggregate source)` kombinovat všechny zdroje balíčků, které jinak nejsou zakázány. |
 
 **Příklad**:
 
