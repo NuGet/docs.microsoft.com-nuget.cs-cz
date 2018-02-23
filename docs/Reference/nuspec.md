@@ -13,11 +13,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 56cb9d5b40bbfbd722e611e0e86945eddbe9d19a
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: c52d0a7c0da507cb9688c8a7b2c4eaf54a8ca5c2
+ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="nuspec-reference"></a>referenční dokumentace příponou .nuspec
 
@@ -78,7 +78,7 @@ Tyto prvky musí být v rámci `<metadata>` elementu.
 | Prvek | Popis |
 | --- | --- |
 | **id** | Identifikátor balíčku velká a malá písmena, která musí být jedinečný v rámci nuget.org nebo jiná balíčku se nachází v galerii. ID nesmí obsahovat mezery nebo znaky, které nejsou platné pro adresu URL a obecně podle oboru názvů pravidla technologie .NET. V tématu [výběr balíčku jedinečný identifikátor](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number) pokyny. |
-| **verze** | Verze balíčku, následující *major.minor.patch* vzor. Čísla verzí může zahrnovat příponu předběžné verze, jak je popsáno v [Správa verzí balíčku](../reference/package-versioning.md#pre-release-versions). |
+| **Verze** | Verze balíčku, následující *major.minor.patch* vzor. Čísla verzí může zahrnovat příponu předběžné verze, jak je popsáno v [Správa verzí balíčku](../reference/package-versioning.md#pre-release-versions). |
 | **Popis** | Dlouhý popis balíčku pro zobrazení uživatelského rozhraní. |
 | **Autoři** | Seznam balíčků autoři, odpovídající profil názvy v nuget.org oddělených čárkami. Tyto jsou zobrazeny v galerii NuGet v nuget.org a jsou používané pro křížovou balíčky autory stejné. |
 
@@ -94,14 +94,14 @@ Může se zobrazit tyto prvky v rámci `<metadata>` elementu.
 | **Vlastníci** | Seznam creators balíček pomocí profilu názvy v nuget.org oddělených čárkami. Tento problém je často seznamu stejné jako v `authors`a při odesílání balíčku pro nuget.org ignorováno. V tématu [Správa vlastníků balíčku na nuget.org](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg). |
 | **projectUrl** | Zobrazí adresu URL pro domovskou stránku balíčku, často se zobrazí v uživatelském rozhraní a také nuget.org. |
 | **licenseUrl** | Adresa URL pro balíčku licenci, často se zobrazí v zobrazení uživatelského rozhraní, jakož i nuget.org. |
-| **iconUrl** | Adresu URL pro bitovou kopii 64 x 64 s průhlednost pozadí chcete použít jako ikonu balíčku v zobrazení uživatelského rozhraní. Ujistěte se, obsahuje tento element *přímá adresa URL obrázku* nikoli adresa URL webové stránky, který obsahuje bitovou kopii. Například pokud chcete použít bitovou kopii z Githubu, použijte soubor raw, jako adresa URL `https://github.com/<username>/<repository>/raw/<branch>/<logo.png>`. |
+| **iconUrl** | Adresu URL pro bitovou kopii 64 x 64 s průhlednost pozadí chcete použít jako ikonu balíčku v zobrazení uživatelského rozhraní. Ujistěte se, obsahuje tento element *přímá adresa URL obrázku* nikoli adresa URL webové stránky, který obsahuje bitovou kopii. Například pokud chcete použít bitovou kopii z Githubu, použijte soubor raw, jako adresa URL *https://github.com/\<uživatelské jméno\>/\<úložiště\>/raw/\<větve\> / \<logo.png\>*. |
 | **requireLicenseAcceptance** | Logická hodnota určující, jestli klient musí zobrazovat výzvu k příjemce tak, aby přijímal licenční balíček před instalací balíčku. |
 | **developmentDependency** | *(2.8 +)*  A logickou hodnotu určující, zda tento balíček je označit jako vývoj jen závislost, která zabraňuje balíček zahrnutí v závislosti na dalších balíčků. |
 | **summary** | Stručný popis balíčku pro zobrazení uživatelského rozhraní. Pokud tento parametr vynechán, zkrácený verzi `description` se používá. |
 | **releaseNotes** | *(1.5 +)*  Popis změn provedených v této verzi balíčku, často se používá v uživatelském rozhraní, jako **aktualizace** karta nástroje Visual Studio Správce balíčků místo Popis balíčku. |
 | **copyright** | *(1.5 +)*  Copyright podrobnosti balíčku. |
-| **jazyk** | ID národního prostředí pro daný balíček. V tématu [vytvoření lokalizovaných balíčků](../create-packages/creating-localized-packages.md). |
-| **značky** | Mezerami oddělený seznam značek a klíčová slova, která popisují možnosti rozpoznání balíčku a podpory balíčků prostřednictvím vyhledávání a filtrování. |
+| **Jazyk** | ID národního prostředí pro daný balíček. V tématu [vytvoření lokalizovaných balíčků](../create-packages/creating-localized-packages.md). |
+| **Značky** | Mezerami oddělený seznam značek a klíčová slova, která popisují možnosti rozpoznání balíčku a podpory balíčků prostřednictvím vyhledávání a filtrování. |
 | **možnost změny** | *(3.3 +)*  Pouze pro interní NuGet použít. |
 
 #### <a name="collection-elements"></a>Elementy v kolekci
@@ -109,9 +109,9 @@ Může se zobrazit tyto prvky v rámci `<metadata>` elementu.
 | Prvek | Popis |
 | --- | --- |
 **packageTypes** | *(3.5 +)*  Kolekce nula nebo více `<packageType>` elementy určení typu balíčku Pokud než tradiční závislost balíčku. Každý packageType má atributy *název* a *verze*. V tématu [nastavení typ balíčku](../create-packages/creating-a-package.md#setting-a-package-type). |
-| **závislosti** | Kolekce nula nebo více `<dependency>` elementy určení závislostí pro balíček. Každá závislost má atributy *id*, *verze*, *zahrnují* (3.x+), a *vyloučit* (3.x+). V tématu [závislosti](#dependencies) níže. |
+| **Závislosti** | Kolekce nula nebo více `<dependency>` elementy určení závislostí pro balíček. Každá závislost má atributy *id*, *verze*, *zahrnují* (3.x+), a *vyloučit* (3.x+). V tématu [závislosti](#dependencies) níže. |
 | **frameworkAssemblies** | *(1.2 +)*  Kolekce nula nebo více `<frameworkAssembly>` elementy identifikace odkazy na sestavení rozhraní .NET Framework, které tento balíček vyžaduje, což zajistí, že odkazy jsou přidány do projekty využívající balíčku. Má každý frameworkAssembly *assemblyName* a *targetFramework* atributy. V tématu [zadání sestavení rozhraní odkazuje GAC](#specifying-framework-assembly-references-gac) níže. |
-| **odkazy** | *(1.5 +)*  Kolekce nula nebo více `<reference>` elementy pojmenování sestavení v balíčku `lib` složky, které jsou přidány jako odkazy na projekt. Má každý odkaz *souboru* atribut. `<references>`může také obsahovat `<group>` element s *targetFramework* atribut, který pak obsahuje `<reference>` elementy. Pokud tento parametr vynechán, všechny odkazy v `lib` jsou zahrnuty. V tématu [zadání odkazy na sestavení explicitní](#specifying-explicit-assembly-references) níže. |
+| **Odkazy** | *(1.5 +)*  Kolekce nula nebo více `<reference>` elementy pojmenování sestavení v balíčku `lib` složky, které jsou přidány jako odkazy na projekt. Má každý odkaz *souboru* atribut. `<references>` může také obsahovat `<group>` element s *targetFramework* atribut, který pak obsahuje `<reference>` elementy. Pokud tento parametr vynechán, všechny odkazy v `lib` jsou zahrnuty. V tématu [zadání odkazy na sestavení explicitní](#specifying-explicit-assembly-references) níže. |
 | **contentFiles** | *(3.3 +)*  Kolekce `<files>` prvky, které identifikují soubory obsahu pro zahrnutí do projektu náročná. Tyto soubory jsou určeny sadu atributů, které popisují, jak mají být použity v rámci systému projektu. V tématu [určující soubory, které chcete zahrnout do balíčku](#specifying-files-to-include-in-the-package) níže. |
 
 ### <a name="files-element"></a>Files – element
@@ -554,8 +554,8 @@ Balíček projekt by měl struktury obsah pomocí následujícího vzorce:
 
     /contentFiles/{codeLanguage}/{TxM}/{any?}
 
-- `codeLanguages`může být `cs`, `vb`, `fs`, `any`, nebo malá ekvivalent danou`$(ProjectLanguage)`
-- `TxM`je všechny Přezdívka právní cílový framework, který NuGet podporuje (viz [cílové rozhraní](../reference/target-frameworks.md)).
+- `codeLanguages` může být `cs`, `vb`, `fs`, `any`, nebo malá ekvivalent danou `$(ProjectLanguage)`
+- `TxM` je všechny Přezdívka právní cílový framework, který NuGet podporuje (viz [cílové rozhraní](../reference/target-frameworks.md)).
 - Libovolné struktury složek může připojen na konec této syntaxe.
 
 Příklad:
@@ -677,7 +677,7 @@ Můžete použít prázdné složky `.` pro vyjádření výslovného nesouhlasu
 V tomto příkladu následující se nainstalují pro konkrétní projekt cíle:
 
 - .NET4 -> `System.Web`, `System.Net`
-- . NET4 -> Client Profile`System.Net`
-- -> Silverlight 3`System.Json`
-- Silverlight 4 ->`System.Windows.Controls.DomainServices`
+- . NET4 -> Client Profile `System.Net`
+- -> Silverlight 3 `System.Json`
+- Silverlight 4 -> `System.Windows.Controls.DomainServices`
 - WindowsPhone -> `Microsoft.Devices.Sensors`

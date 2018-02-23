@@ -12,11 +12,11 @@ keywords: "Vytvoření balíčku, balíčky pro UPW, součásti systému Windows
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6d35b484ff708d7174c19791ab1ad7904bea0d2f
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: 6787704d41364a165270d56e8980f24d311b07b3
+ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="create-uwp-packages"></a>Vytvořit balíčky UWP
 
@@ -156,7 +156,7 @@ V rámci vaší komponenty základní logika typu ImageEnhancer je v nativním k
 
 ### <a name="adding-targets"></a>Přidání .targets
 
-Projekty C++ a JavaScript, které může využívat vašeho balíčku NuGet v dalším kroku třeba souboru .targets pro identifikaci potřebné soubory sestavení a souboru winmd. (C# a Visual Basic projekty k tomu automaticky.) Tento soubor vytvořte tak, že zkopírujete následující text do `ImageEnhancer.targets` a uložte ho ve stejné složce jako `.nuspec` souboru:
+Projekty C++ a JavaScript, které může využívat vašeho balíčku NuGet v dalším kroku třeba souboru .targets pro identifikaci potřebné soubory sestavení a souboru winmd. (C# a Visual Basic projekty k tomu automaticky.) Tento soubor vytvořte tak, že zkopírujete následující text do `ImageEnhancer.targets` a uložte ho ve stejné složce jako `.nuspec` souboru. _Poznámka:_: to `.targets` soubor musí být stejný název jako ID balíčku (například `<Id>` element v `.nupspec` souboru):
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

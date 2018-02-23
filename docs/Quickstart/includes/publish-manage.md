@@ -1,6 +1,6 @@
 Váš profil na nuget.org vyberte **spravovat balíčky** zobrazíte ten právě publikovaný. Také obdržíte e-mail s potvrzením. Všimněte si, že může trvat nějakou dobu vašeho balíčku indexovat a zobrazit ve výsledcích hledání tam, kde ostatní můžete najít. Během této doby stránku balíčku zobrazuje následující zpráva:
 
-    ![This package has not been indexed yet. It will appear in search results and will be available for install/restore after indexing is complete.](../media/QS_Create-03-NotIndexed.png)
+![Tento balíček nebyl nebyly indexovány. To se zobrazí ve výsledcích hledání a bude k dispozici pro instalaci nebo obnovení po dokončení indexování.](../media/QS_Create-03-NotIndexed.png)
 
 A je to! Právě jste publikovali vaše první balíček NuGet do nuget.org, jinými vývojáři můžete použít ve svých vlastních projektů.
 

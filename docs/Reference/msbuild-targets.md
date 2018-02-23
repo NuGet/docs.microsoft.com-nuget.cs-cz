@@ -11,11 +11,11 @@ description: "NuGet pack a obnovení můžete pracovat přímo jako cíle MSBuil
 keywords: "NuGet a MSBuild NuGet pack cíl, cíl obnovení NuGet"
 ms.reviewer:
 - karann-msft
-ms.openlocfilehash: 6c488f49e12b014e7bd197d57041745387a4d7b4
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 4d448af3d31e0907cba223c0ccec55604e94f055
+ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet pack a obnovení jako cíle nástroje MSBuild
 
@@ -63,8 +63,10 @@ Všimněte si, že `Owners` a `Summary` vlastnosti z `.nuspec` nejsou podporová
 | IconUrl | PackageIconUrl | empty | |
 | Značky | PackageTags | empty | Značky jsou oddělené středníky. |
 | ReleaseNotes | PackageReleaseNotes | empty | |
-| RepositoryUrl | RepositoryUrl | empty | |
-| RepositoryType | RepositoryType | empty | |
+| Úložiště nebo adresa Url | RepositoryUrl | empty | Úložiště adresa URL používaná ke klonování nebo načíst zdrojového kódu. Příklad: *https://github.com/NuGet/NuGet.Client.git* |
+| Úložiště/typu | RepositoryType | empty | Typ úložiště. Příklady: *git*, *tfs*. |
+| Úložiště nebo větev | RepositoryBranch | empty | Informace o větve volitelné úložiště. *RepositoryUrl* musí být zadaná také pro tuto vlastnost, která mají být zahrnuty. Příklad: *hlavní* (NuGet 4.7.0+) |
+| Úložiště a potvrdit | RepositoryCommit | empty | Potvrzení volitelné úložiště nebo sada changeset k označení, které zdroje balíčku byl sestaven s. *RepositoryUrl* musí být zadaná také pro tuto vlastnost, která mají být zahrnuty. Příklad: *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0+) |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
 | Souhrn | Nepodporováno | | |
 
@@ -90,6 +92,8 @@ Všimněte si, že `Owners` a `Summary` vlastnosti z `.nuspec` nejsou podporová
 - IsTool
 - RepositoryUrl
 - RepositoryType
+- RepositoryBranch
+- RepositoryCommit
 - NoPackageAnalysis
 - MinClientVersion
 - IncludeBuildOutput
@@ -108,7 +112,7 @@ Jako součást změny pro [NuGet problém 2582](https://github.com/NuGet/Home/is
 
 ### <a name="output-assemblies"></a>Výstup sestavení
 
-`nuget pack`kopie výstupní soubory s příponami `.exe`, `.dll`, `.xml`, `.winmd`, `.json`, a `.pri`. Výstupní soubory, které jste zkopírovali závisí na MSBuild poskytuje z `BuiltOutputProjectGroup` cíl.
+`nuget pack` kopie výstupní soubory s příponami `.exe`, `.dll`, `.xml`, `.winmd`, `.json`, a `.pri`. Výstupní soubory, které jste zkopírovali závisí na MSBuild poskytuje z `BuiltOutputProjectGroup` cíl.
 
 Existují dvě vlastnosti nástroje MSBuild, které můžete použít v souboru projektu nebo příkazového řádku na ovládací prvek kde přejděte výstup sestavení:
 
@@ -156,7 +160,7 @@ Ve výchozím nastavení, vše, co přidá do kořenového adresáře `content` 
 
 Pokud chcete kopírovat veškerý obsah pouze na konkrétní kořenových složek bylo (místo `content` a `contentFiles` oba), můžete použít vlastnost MSBuild `ContentTargetFolders`, což výchozí nastavení "obsah; contentFiles", ale může být nastavena na žádné jiné názvy složek. Všimněte si, aby pouze určení "contentFiles" v `ContentTargetFolders` převádí soubory v `contentFiles\any\<target_framework>` nebo `contentFiles\<language>\<target_framework>` na základě `buildAction`.
 
-`PackagePath`může být sadu cílových cest oddělený středníkem. Zadání cesty prázdný balíček by soubor přidat do kořenového adresáře balíčku. Například následující přidá `libuv.txt` k `content\myfiles`, `content\samples`a kořenového adresáře balíčku:
+`PackagePath` může být sadu cílových cest oddělený středníkem. Zadání cesty prázdný balíček by soubor přidat do kořenového adresáře balíčku. Například následující přidá `libuv.txt` k `content\myfiles`, `content\samples`a kořenového adresáře balíčku:
 
 ```xml
 <Content Include="..\win7-x64\libuv.txt">
@@ -210,7 +214,7 @@ msbuild /t:pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:Nu
 
 ## <a name="restore-target"></a>Cíl obnovení
 
-`MSBuild /t:restore`(která `nuget restore` a `dotnet restore` použít s projekty .NET Core), obnoví balíčky, kterou se odkazuje v souboru projektu následujícím způsobem:
+`MSBuild /t:restore` (která `nuget restore` a `dotnet restore` použít s projekty .NET Core), obnoví balíčky, kterou se odkazuje v souboru projektu následujícím způsobem:
 
 1. Číst všechny odkazy na projekt na projekt
 1. Přečtěte si vlastnosti projektu najít zprostředkující složku a cíl rozhraní
@@ -257,7 +261,7 @@ Obnovení vytvoří následující soubory v sestavení `obj` složky:
 
 | Soubor | Popis |
 |--------|--------|
-| `project.assets.json` | Dříve`project.lock.json` |
+| `project.assets.json` | Dříve `project.lock.json` |
 | `{projectName}.projectFileExtension.nuget.g.props` | Odkazy na MSBuild props součástí balíčků |
 | `{projectName}.projectFileExtension.nuget.g.targets` | Odkazy na cíle MSBuild součástí balíčků |
 

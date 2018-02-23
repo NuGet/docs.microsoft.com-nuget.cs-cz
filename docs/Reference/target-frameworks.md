@@ -13,11 +13,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: dbeec1d3332571d8e9616dfe9675b5fcf3c85589
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 7e3621f01312e3b4fdbef116e5044869416b851c
+ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="target-frameworks"></a>Cílové rozhraní
 
@@ -129,7 +129,7 @@ Je několik rozhraní související s a kompatibilní s sebou, ale není nutně 
 ## <a name="portable-class-libraries"></a>Knihovny přenosných tříd
 
 > [!Warning]
-> **Nedoporučuje se PCLs**. I když jsou podporované PCLs, balíček autoři by měly podporovat monikerů netstandard místo. Na Standard platformy .NET je PCLs a představuje binární přenositelnost napříč platformami pomocí jednoho přezdívka, který není vázaný na static, jako jsou třeba *přenosné-+ b + c* zástupných názvů.
+> **Nedoporučuje se PCLs**. I když jsou podporované PCLs, balíček autoři by měly podporovat monikerů netstandard místo. Na Standard platformy .NET je PCLs a představuje binární přenositelnost napříč platformami pomocí jednoho přezdívka, který není vázaný na statickou knihovnu, jako je *přenosné-+ b + c* zástupných názvů.
 
 K definování cílové rozhraní, které odkazuje na více podřízených target – rozhraní, `portable` – klíčové slovo použití používat jako předpona seznam odkazované architektury. Vyhněte se uměle navíc rozhraní, které nejsou přímo kompilovány proti protože může vést k neočekávaným vedlejší efekty při tyto architektury.
 

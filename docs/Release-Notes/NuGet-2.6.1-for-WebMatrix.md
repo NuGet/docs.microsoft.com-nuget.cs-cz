@@ -13,23 +13,23 @@ keywords: "Funkce, chcete přidat NuGet 2.6.1 pro poznámky k verzi služby WebM
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6150fc34dd05c2e7ce132d2d6744b823daeb1a07
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: 633b71011dd1bc897ad95fd706337cef3aeef34c
+ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="nuget-261-for-webmatrix-release-notes"></a>NuGet 2.6.1 poznámky k verzi služby WebMatrix
 
 [Poznámky k verzi NuGet 2.6](../release-notes/nuget-2.6.md) | [NuGet 2.7 poznámky k verzi](../release-notes/nuget-2.7.md)
 
-Týmem NuGet vydala aktualizované rozšíření Správce balíčků NuGet pro službu WebMatrix 26 března 2014.  Tato aktualizace se dá nainstalovat z [Galerie rozšíření prostředí WebMatrix](http://extensions.webmatrix.com/packages/NuGetPackageManager/) pomocí následujících kroků:
+Týmem NuGet vydala aktualizované rozšíření Správce balíčků NuGet pro službu WebMatrix 26 března 2014.  Tato aktualizace se dá nainstalovat z [Galerie rozšíření prostředí WebMatrix](https://blogs.iis.net/webmatrix/retiring-the-webmatrix-extensions-gallery) pomocí následujících kroků:
 
 1. Otevřete službu WebMatrix 3
-2. Klikněte na ikonu rozšíření na pásu karet Domů
-3. Vyberte kartu aktualizace
-4. Klikněte na tlačítko Aktualizovat na verzi 2.6.1 Správce balíčků NuGet
-6. Zavřete a znovu spusťte službu WebMatrix 3
+1. Klikněte na ikonu rozšíření na pásu karet Domů
+1. Vyberte kartu aktualizace
+1. Klikněte na tlačítko Aktualizovat na verzi 2.6.1 Správce balíčků NuGet
+1. Zavřete a znovu spusťte službu WebMatrix 3
 
 ## <a name="notable-changes"></a>Upozorňují na důležité změny
 
