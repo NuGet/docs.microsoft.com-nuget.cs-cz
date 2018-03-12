@@ -26,6 +26,7 @@
 ## [Předběžné verze balíčků](create-packages/prerelease-packages.md)
 ## [Nativní balíčky](create-packages/native-packages.md)
 ## [Balíčky symbolů](create-packages/symbol-packages.md)
+## [Podepsání balíčků](create-packages/sign-a-package.md)
 ## [Publikování balíčku](create-packages/publish-a-package.md)
 ## Příručky
 ### [Vytvoření balíčků UPW](guides/create-uwp-packages.md)
@@ -51,9 +52,11 @@
 ### [push](tools/cli-ref-push.md)
 ### [restore](tools/cli-ref-restore.md)
 ### [setapikey](tools/cli-ref-setapikey.md)
+### [sign](tools/cli-ref-sign.md)
 ### [sources](tools/cli-ref-sources.md)
 ### [spec](tools/cli-ref-spec.md)
 ### [update](tools/cli-ref-update.md)
+### [verify](tools/cli-ref-verify.md)
 ### [Proměnné prostředí](tools/cli-ref-environment-variables.md)
 ## [Uživatelské rozhraní Správce balíčků](tools/package-manager-ui.md)
 ## [Konzola Správce balíčků](tools/package-manager-console.md)
@@ -79,6 +82,7 @@
 ## [Chyby a upozornění](reference/errors-and-warnings.md)
 ## [Rezervace předpony ID](reference/id-prefix-reservation.md)
 ## [Sada SDK pro klienta NuGet](reference/nuget-client-sdk.md)
+## [Referenční informace o podepsaných balíčcích](reference/signed-packages-reference.md)
 ## Rozšiřitelnost
 ### [Poskytovatelé přihlašovacích údajů NuGetu pro Visual Studio](reference/extensibility/nuget-credential-providers-for-visual-studio.md)
 ### [Poskytovatelé přihlašovacích údajů v nuget.exe](reference/extensibility/nuget-exe-credential-providers.md)
@@ -108,7 +112,6 @@
 ## [Ekosystém](policies/ecosystem.md)
 ## [Řešení sporů](policies/dispute-resolution.md)
 ## [Odstranění balíčků](policies/deleting-packages.md)
-# [Úložiště GitHub](https://github.com/NuGet)
 # Zpráva k vydání verze
 ## [Známé problémy](release-notes/known-issues.md)
 ## [NuGet 4.5 RTM](release-notes/NuGet-4.5-RTM.md)
