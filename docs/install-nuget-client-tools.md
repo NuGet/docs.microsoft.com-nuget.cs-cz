@@ -12,11 +12,11 @@ keywords: "DotNet.exe rozhraní příkazového řádku, nuget.exe rozhraní př�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: ec8de83c9e05981016215e487888ab68a616d977
-ms.sourcegitcommit: dbcb872ec10430e1d761f34b851650e31c87a96d
+ms.openlocfilehash: 462557e939e769f26fe05d6f9e2994eaf43c6e11
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="installing-nuget-client-tools"></a>Instalace nástrojů klienta NuGet
 
@@ -28,7 +28,7 @@ Chcete-li pracovat s NuGet, jako balíček příjemce nebo creator, můžete pou
 |:------------- |:-------------|:-----|
 | [dotnet.exe](#dotnetexe-cli) | Součástí rozhraní .NET Core SDK a poskytuje základní funkce NuGet na všech platformách. | [.NET core SDK](https://www.microsoft.com/net/download/) |
 | [nuget.exe](#nugetexe-cli) | Nabízí všechny funkce NuGet v systémech Windows a většinu funkcí spuštěna pod [Mono](http://www.mono-project.com/docs/getting-started/install/) na Mac a Linux. | [nuget.exe](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe) |
-| [Visual Studio](#visual-studio) | Poskytuje možnosti NuGet prostřednictvím uživatelského rozhraní Správce balíčků a konzoly Správce balíčků. | [Visual Studio 2017](https://www.visualstudio.com/downloads/) |
+| [Visual Studio](#visual-studio) | Poskytuje možnosti NuGet prostřednictvím uživatelského rozhraní Správce balíčků a konzoly Správce balíčků; součástí. NET související úlohy. | [Visual Studio 2017](https://www.visualstudio.com/downloads/) |
 
 [Rozhraní příkazového řádku nástroje MSBuild](reference/msbuild-targets.md) také nabízí možnost obnovení a vytváření balíčků, což je užitečné hlavně na serverech sestavení. MSBuild jinak není nástroj pro obecné účely pro práci s NuGet.
 
@@ -38,7 +38,7 @@ Jsou dva NuGet rozhraní příkazového řádku nástroje `dotnet.exe` a `nuget.
 
 ### <a name="dotnetexe-cli"></a>dotnet.exe CLI
 
-Rozhraní .NET Core 2.0 příkazového řádku, `dotnet.exe`, funguje na všech platformách (Windows, Mac a Linux) a poskytuje základní funkce NuGet, jako je instalace, obnovení a publikování balíčků. 'dotnet' poskytuje přímá integrace s .NET Core soubory projektu (například `.csproj`), což je užitečné, ve většině scénářů. `dotnet`je také vytvořené přímo pro každou platformu a nevyžaduje instalaci Mono.
+Rozhraní .NET Core 2.0 příkazového řádku, `dotnet.exe`, funguje na všech platformách (Windows, Mac a Linux) a poskytuje základní funkce NuGet, jako je instalace, obnovení a publikování balíčků. 'dotnet' poskytuje přímá integrace s .NET Core soubory projektu (například `.csproj`), což je užitečné, ve většině scénářů. `dotnet` je také vytvořené přímo pro každou platformu a nevyžaduje instalaci Mono.
 
 Instalace:
 
@@ -67,10 +67,10 @@ Instalace:
 - Visual Studio pro Mac: některé funkce NuGet jsou vytvořené přímo. V tématu [balíček včetně NuGet ve vašem projektu](/visualstudio/mac/nuget-walkthrough) návod. Pro další možnosti, použijte `dotnet.exe` nebo `nuget.exe` nástrojů příkazového řádku.
 
 - Visual Studio v systému Windows: **Správce balíčků NuGet** je součástí sady Visual Studio 2012 a novějším. Poskytuje správce balíčků [uživatelského rozhraní Správce balíčků](tools/package-manager-ui.md) a [Konzola správce balíčků](tools/package-manager-console.md), pomocí kterého můžete spustit většinu operací NuGet.
+  - Instalační program Visual Studio 2017 zahrnuje Správce balíčků NuGet s libovolnou úlohu, kterou využívá rozhraní .NET. Chcete-li instalovat samostatně, nebo ověřte, zda je nainstalován Správce balíčků, spusťte instalační program Visual Studio 2017 a zkontrolujte příslušné možnosti v nabídce **jednotlivých součástí > Code nástroje > Správce balíčků NuGet**.
   - Uživatelské rozhraní Správce balíčků a konzoly jsou jedinečné pro Visual Studio v systému Windows. Nejsou k dispozici v sadě Visual Studio pro Mac v současné době.
   - Visual Studio automaticky nezahrnuje `nuget.exe` rozhraní příkazového řádku, které je nutné nainstalovat samostatně, jak je popsáno výše.
   - Konzola správce balíčků příkazy lze použít pouze v sadě Visual Studio v systému Windows a ne do dalších prostředí PowerShell.
-  - Instalační program Visual Studio 2017 zahrnuje Správce balíčků NuGet s libovolnou úlohu, kterou využívá rozhraní .NET. Chcete-li instalovat samostatně, nebo ověřte, zda je nainstalován Správce balíčků, spusťte instalační program Visual Studio 2017 a zkontrolujte příslušné možnosti v nabídce **jednotlivých součástí > Code nástroje > Správce balíčků NuGet**.
   - Pro sadu Visual Studio 2010 a starší nainstalujte rozšíření "NuGet balíček správce pro Visual Studio".
   - Rozšíření NuGet pro Visual Studio 2013 a 2015 můžete také stáhnout z [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html).
   - Pokud chcete zobrazit náhled chystaných funkcí NuGet, nainstalujte [Visual Studio 2017 Preview](https://www.visualstudio.com/vs/preview/), který funguje souběžného s stabilní verze sady Visual Studio. Pokud chcete odesílat zprávy o problémech nebo sdílet nápady pro verze Preview, otevřete na problém [úložiště NuGet GitHub](https://github.com/Nuget/Home/issues).
@@ -104,12 +104,12 @@ Instalace:
 
 ### <a name="related-topics"></a>Související témata
 
-- [příkazy DotNet.](tools/dotnet-commands.md)
+- [Příkazy dotnet](tools/dotnet-commands.md)
 - [Referenční dokumentace rozhraní příkazového řádku NuGet](tools/nuget-exe-cli-reference.md)
 - [Odkaz uživatelského rozhraní Správce balíčků](tools/package-manager-ui.md)
 - [Konzola správce balíčků odkaz](tools/package-manager-console.md)
 - [Referenční informace prostředí PowerShell konzoly Správce balíčků](tools/powershell-reference.md)
-- [Vytváření balíčku](create-packages/creating-a-package.md)
+- [Vytvoření balíčku](create-packages/creating-a-package.md)
 - [Publikování balíčku](create-packages/publish-a-package.md)
 
 Můžete také zkoumat vývojáře, kteří pracují v systému Windows [Explorer balíček NuGet](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer), nástroj na open source, samostatné vizuálně zkoumat, vytvořit a upravit balíčky NuGet. Je například velmi užitečné, změnit experimentální struktura balíček bez nutnosti opětovného sestavení balíčku.

@@ -12,17 +12,17 @@ keywords: "Balíček NuGet vytvoření, publikování balíčku NuGet, kurzu NuG
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: a4d60fdc0f27f9c4080266e212ac1cfe470ba925
-ms.sourcegitcommit: eabd401616a98dda2ae6293612acb3b81b584967
+ms.openlocfilehash: 75cc425263447e2ca90db705c3bf314250dacb06
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-and-publish-a-package-using-visual-studio"></a>Vytvoření a publikování balíčku pomocí sady Visual Studio
 
 Je jednoduchý proces vytvoření balíčku NuGet z knihovny tříd rozhraní .NET v sadě Visual Studio, a potom jej publikujte do nuget.org pomocí rozhraní příkazového řádku nástroje.
 
-## <a name="pre-requisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 1. Nainstalujte všechny edice Visual Studio 2017 z [visualstudio.com](https://www.visualstudio.com/) s žádným. NET související úlohy. Visual Studio 2017 automaticky zahrnuje NuGet možností při instalaci rozhraní .NET zatížení.
 

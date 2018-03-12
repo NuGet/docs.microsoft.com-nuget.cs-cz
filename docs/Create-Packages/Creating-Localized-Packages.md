@@ -12,18 +12,18 @@ keywords: "Lokalizace balíčku NuGet, NuGet satelitní sestavení, vytvoření 
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 1ce8cff07bf629fcdeeaace901a185f2446b077a
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: 5946ba6b43d3c418a1624aeb27d12b385d66b2fb
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="creating-localized-nuget-packages"></a>Vytvoření lokalizovaných balíčků NuGet
 
 Existují dva způsoby vytvoření lokalizované verze knihovny:
 
 1. Zahrňte všechna sestavení lokalizované prostředky jeden balíček.
-1. Vytvořte samostatné lokalizované satelitní balíčky (NuGet 1,8 a novější), pomocí následujících o striktní sadu pravidel.
+1. Vytvořte balíčky samostatném lokalizovaná satelitní o striktní sadu pravidel.
 
 Obě metody mít jejich výhody a nevýhody, jak je popsáno v následujících částech.
 

@@ -12,11 +12,11 @@ keywords: "Soubor NuGet.Config, referenci na konfigurační NuGet, možnosti kon
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: df602cb561a19f0eac085695de80db1fbaa1a313
-ms.sourcegitcommit: 33436d122873249dbb20616556cd8c6783f38909
+ms.openlocfilehash: c76ebcb06adc5e5b862647de6b6f4e19bde87b91
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="nugetconfig-reference"></a>Odkaz na soubor nuget.config.
 
@@ -87,7 +87,7 @@ Nakonfiguruje, jestli NuGet nemá přesměrování vazby automatické při insta
 
 ## <a name="packagerestore-section"></a>část packageRestore
 
-*Ignorovat v 2.7 +*
+*Ignorovat všechny aktuální verze (2.7 +)*
 
 Ovládací prvky obnovení balíčků během sestavení.
 
@@ -157,7 +157,7 @@ Ukládá uživatelská jména a hesla pro zdroje, obvykle zadaným `-username` a
 | Heslo | Zašifrované heslo pro zdroj. |
 | cleartextpassword | Nezašifrované heslo pro zdroj. |
 
-Příklad:
+**Příklad:**
 
 V konfiguračním souboru `<packageSourceCredentials>` element obsahuje podřízené uzly pro každý název příslušným zdrojovým (s nahrazením mezer v názvu `_x0020+`). To znamená zdrojů s názvem "Contoso" a "Test zdroj", konfigurační soubor obsahuje následující při použití šifrovaných hesel:
 
@@ -213,7 +213,7 @@ Identifikovat aktuálně zakázané zdroje. Může být prázdná.
 | --- | --- |
 | (název zdroje) | Logická hodnota určující, zda je neaktivní zdroj. |
 
-Příklad:
+**Příklad:**
 
 ```xml
 <disabledPackageSources>

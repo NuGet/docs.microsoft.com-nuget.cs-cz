@@ -16,11 +16,11 @@ keywords: "Rozhraní API NuGet vstupní bod, NuGetA PI koncový bod zjišťován
 ms.reviewer:
 - karann
 - unnir
-ms.openlocfilehash: 9d0bb421c163520df4a1f0e9f3f71aab823aace3
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 8de0bc15edc358d091d84da54b8b67c085f29645
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="service-index"></a>Index služby
 
@@ -30,12 +30,11 @@ index služby nuget.org je umístěn v `https://api.nuget.org/v3/index.json`.
 
 ## <a name="versioning"></a>Správa verzí
 
-`version` Hodnota je řetězec parseable verze SemVer 2.0.0, který označuje verzi schématu indexu služby.
-Rozhraní API vyžaduje, aby řetězec verze má hlavní verzi počet `3`. Při provedení změn pevné na schéma indexu služby, zvýší se podverze řetězec verze.
+`version` Hodnota je řetězec parseable verze SemVer 2.0.0, který označuje verzi schématu indexu služby. Rozhraní API vyžaduje, aby řetězec verze má hlavní verzi počet `3`. Při provedení změn pevné na schéma indexu služby, zvýší se podverze řetězec verze.
 
 Každý prostředek v indexu služby je verzí nezávisle na verzi schématu indexu služby.
 
-Aktuální verze schématu `3.0.0-beta.1`.
+Aktuální verze schématu `3.0.0`. `3.0.0` Je funkčně srovnatelný starší verze `3.0.0-beta.1` verze ale měl by být upřednostňované zřetelněji komunikuje stabilní, definované schéma.
 
 ## <a name="http-methods"></a>Metody HTTP
 

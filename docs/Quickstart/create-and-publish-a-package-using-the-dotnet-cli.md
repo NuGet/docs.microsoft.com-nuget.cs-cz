@@ -12,17 +12,17 @@ keywords: "Balíček NuGet vytvoření, publikování balíčku NuGet, NuGet kur
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 32cbe5dea180daa5b9d21102b996bf160d4ee511
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.openlocfilehash: 086de5378fe4ae928e6bd00cd3a87afd7c366a01
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-and-publish-a-package"></a>Vytvoření a publikování balíčku
 
 Je jednoduchý proces vytvoření balíčku NuGet z knihovny tříd rozhraní .NET a publikujete ho pomocí nuget.org `dotnet` rozhraní příkazového řádku (CLI).
 
-## <a name="pre-requisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 1. Nainstalujte [.NET Core SDK](https://www.microsoft.com/net/download/), což zahrnuje `dotnet` rozhraní příkazového řádku.
 
@@ -106,3 +106,4 @@ Jakmile máte `.nupkg` souboru ji publikujete pomocí nuget.org `dotnet nuget pu
 - [Podpora více cílové rozhraní](../create-packages/supporting-multiple-target-frameworks.md)
 - [Správa verzí balíčků](../reference/package-versioning.md)
 - [Vytvoření lokalizovaných balíčků](../create-packages/creating-localized-packages.md)
+- [Podepsání balíčků](../create-packages/Sign-a-package.md)

@@ -11,11 +11,11 @@ description: "NuGet pack a obnovení můžete pracovat přímo jako cíle MSBuil
 keywords: "NuGet a MSBuild NuGet pack cíl, cíl obnovení NuGet"
 ms.reviewer:
 - karann-msft
-ms.openlocfilehash: 4d448af3d31e0907cba223c0ccec55604e94f055
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.openlocfilehash: 798b3550718294072d86b6e4827ec5017178d2cc
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet pack a obnovení jako cíle nástroje MSBuild
 
@@ -55,7 +55,7 @@ Všimněte si, že `Owners` a `Summary` vlastnosti z `.nuspec` nejsou podporová
 | Autoři | Autoři | Uživatelské jméno aktuálního uživatele | |
 | Vlastníci | Není k dispozici | Není k dispozici v NuSpec | |
 | Název | Název | ID balíčku| |
-| Popis | Popis | "Balíček popis" | |
+| Popis | PackageDescription | "Balíček popis" | |
 | Copyright | Copyright | empty | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false | |
 | LicenseUrl | PackageLicenseUrl | empty | |
@@ -222,6 +222,9 @@ msbuild /t:pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:Nu
 1. Spustit obnovení
 1. Stáhnout balíčky
 1. Zápis soubor prostředků, cílů a props
+
+> [!Note]
+> `restore` MSBuild cíl funguje výhradně u projektů pomocí `PackageReference` položky a neobnoví odkazovat pomocí balíčků `packages.config` souboru.
 
 ### <a name="restore-properties"></a>Obnovit vlastnosti
 

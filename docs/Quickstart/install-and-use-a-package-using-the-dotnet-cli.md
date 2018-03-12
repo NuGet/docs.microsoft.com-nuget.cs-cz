@@ -12,11 +12,11 @@ keywords: "Nainstalujte NuGet, využívání balíčku NuGet, instalace balíčk
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 11b417644a46008f91fdcd5e0ba0a1fcf0bdc0e0
-ms.sourcegitcommit: eabd401616a98dda2ae6293612acb3b81b584967
+ms.openlocfilehash: accc6d7bb5abff43ffaa083fa55c13cd5b10ce10
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="install-and-use-a-package-using-the-dotnet-cli"></a>Instalace a použití balíčku pomocí rozhraní příkazového řádku dotnet.
 
@@ -27,7 +27,7 @@ Po instalaci odkazovat na balíček v kódu pomocí `using <namespace>` kde \<ob
 > [!Tip]
 > **Začněte s nuget.org**: procházení nuget.org je, jak .NET vývojáři obvykle najít součásti můžete opakovaně použít ve svých vlastních aplikacích. Můžete hledat nuget.org přímo nebo najít a nainstalovat balíčky v sadě Visual Studio, jak je znázorněno v tomto článku.
 
-## <a name="pre-requisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 - [.NET Core SDK](https://www.microsoft.com/net/download/), který poskytuje `dotnet` nástroj příkazového řádku.
 

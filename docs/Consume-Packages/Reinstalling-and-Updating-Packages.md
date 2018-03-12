@@ -13,11 +13,11 @@ keywords: "NuGet balíček instalace, přeinstalování balíčku NuGet, obnoven
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c2d62f34819138c51bd9ccc698a8a2495a45824d
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.openlocfilehash: e2875630b24fbe04fc7bcab52335d849e54160de
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>Jak znovu nainstalovat a aktualizovat balíčky
 
@@ -41,7 +41,7 @@ V tomto článku:
 1. **Přerušený odkazy po obnovení balíčků**: Pokud jste otevřeli projekt a obnovení balíčků NuGet, ale stále poškozený najdete odkazy, zkuste znovu nainstalovat každou z těchto balíčků.
 1. **Projekt je přerušený kvůli odstraněných souborů**: NuGet není vám zabrání odebrat položky přidané z balíčků, tak, aby byl snadno nechtěně změna nainstalované z balíčku obsahu a rozdělit projektu. Chcete-li obnovit projekt, přeinstalujte ovlivněných balíčků.
 1. **Aktualizace balíčku překročila projektu**: Pokud aktualizace balíčku dělí na projekt, selhání je obvykle způsobeno závislost balíčku, který může mít také aktualizován. Chcete-li obnovit stav závislost, přeinstalujte tento konkrétní balíček.
-1. **Změna orientace projektu nebo upgrade**: to může být užitečné, když projektu byla změnit cíl necílené nebo upgradovat, a pokud balíček vyžaduje přeinstalace z důvodu změny v cílové rozhraní. NuGet 2.7 a novější zobrazuje chybu sestavení v takových případech hned po Změna orientace projektu a následné sestavení upozornění vám oznamuje, že balíček pravděpodobně nutné přeinstalovat. Pro upgrade projektu NuGet ukazuje chybu v protokolu Upgrade projektu.
+1. **Změna orientace projektu nebo upgrade**: to může být užitečné, když projektu byla změnit cíl necílené nebo upgradovat, a pokud balíček vyžaduje přeinstalace z důvodu změny v cílové rozhraní. NuGet obsahuje chyby sestavení v takových případech hned po Změna orientace projektu a následné sestavení upozornění vám oznamuje, že balíček pravděpodobně nutné přeinstalovat. Pro upgrade projektu NuGet ukazuje chybu v protokolu Upgrade projektu.
 1. **Opětovné instalace balíčku při jeho vývoji**: balíček Autoři často nutné přeinstalovat stejnou verzi balíčku se vyvíjí k testování chování. `Install-Package` Příkaz nenabízí možnost vynutit přeinstalovat, takže použití `Update-Package -reinstall` místo.
 
 ## <a name="constraining-upgrade-versions"></a>Omezení upgradu verze

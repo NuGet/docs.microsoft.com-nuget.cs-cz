@@ -13,23 +13,23 @@ ms.reviewer:
 - karann-msft
 - unniravindranathan
 - anangaur
-ms.openlocfilehash: 8bcf054a497e1069a11f96ba675853fb0f2ed667
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.openlocfilehash: 47d02d160a7e40f323edcbd87e2c8642905b8ddf
+ms.sourcegitcommit: df21fe770900644d476d51622a999597a6f20ef8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="transforming-source-code-and-configuration-files"></a>Transformace zdrojového kódu a konfiguračních souborů
 
-Pro projekty pomocí `packages.config`, NuGet podporuje schopnost provádět transformace ke zdrojovému kódu a konfigurační soubory v balíčku instalaci a odinstalaci časy. Transformace se nepoužívají při instalaci balíčku do projektu pomocí [PackageReference](../consume-packages/package-references-in-project-files.md).
+Pro projekty pomocí `packages.config`, NuGet podporuje schopnost provádět transformace ke zdrojovému kódu a konfigurační soubory v balíčku instalaci a odinstalaci časy. Pouze transformace zdrojového kódu se použijí při instalaci balíčku do projektu pomocí [PackageReference](../consume-packages/package-references-in-project-files.md).
 
-A **zdrojového kódu transformace** jednosměrný tokenu nahrazení se vztahují na soubory v balíčku `content` složku, když je balíček nainstalován, kde najdete tokeny pro Visual Studio [projektu vlastnosti](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7) . To umožňuje vložit soubor do projektu obor názvů nebo přizpůsobit kód, který obvykle přejde do `global.asax` v projektu aplikace ASP.NET.
+A **zdrojového kódu transformace** jednosměrný tokenu nahrazení se vztahují na soubory v balíčku `content` nebo `contentFiles` složky (`content` pro zákazníky používající `packages.config` a `contentFiles` pro `PackageReference`) při instalaci balíčku, kde tokeny najdete v sadě Visual Studio [projektu vlastnosti](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7). To umožňuje vložit soubor do projektu obor názvů nebo přizpůsobit kód, který obvykle přejde do `global.asax` v projektu aplikace ASP.NET.
 
 A **transformace souboru config** umožňuje upravit soubory, které již existují v cílovém projektu, například `web.config` a `app.config`. Například může být nutné přidat položku, kterou chcete vašeho balíčku `modules` oddíl v konfiguračním souboru. Tato transformace je potřeba včetně speciální soubory v balíčku, který popisuje oddíly pro přidání konfiguračních souborů. Při odinstalaci balíčku, tyto změny budou stejně jsou pak vrátit zpět, provedení to obousměrný transformace.
 
 ## <a name="specifying-source-code-transformations"></a>Určení transformace zdrojového kódu
 
-1. Soubory, které chcete vložit z balíčku do projektu musí být umístěn v balíčku `content` složky. Například, pokud chcete do souboru s názvem `ContosoData.cs` být nainstalovaný v `Models` složky cílový projekt, musí být uvnitř `content\Models` složky v balíčku.
+1. Soubory, které chcete vložit z balíčku do projektu musí být umístěn v balíčku `content` a `contentFiles` složek. Například, pokud chcete do souboru s názvem `ContosoData.cs` být nainstalovaný v `Models` složky cílový projekt, musí být uvnitř `content\Models` a `contentFiles\{lang}\{tfm}\Models` složky v balíčku.
 
 1. Dáte pokyn, aby správci balíčků NuGet použít token nahrazení během instalace, připojte `.pp` k názvu souboru zdrojového kódu. Po instalaci, soubor nebude mít `.pp` rozšíření.
 
@@ -60,7 +60,7 @@ A **transformace souboru config** umožňuje upravit soubory, které již existu
 Jak je popsáno v následujících částech, konfigurační soubor transformace lze provést dvěma způsoby:
 
 - Zahrnout `app.config.transform` a `web.config.transform` soubory do balíčku `content` složku, kde `.transform` rozšíření informuje NuGet, že tyto soubory obsahují soubor XML sloučit s existující konfigurační soubory, když je balíček nainstalován. Při odinstalaci balíčku, odeberou se tento stejný XML.
-- (NuGet 2.6 a novější) Zahrnout `app.config.install.xdt` a `web.config.install.xdt` soubory do balíčku `content` složky, pomocí [XDT syntaxe](https://msdn.microsoft.com/library/dd465326.aspx) k popisu požadované změny. Pomocí této možnosti můžete použít také `.uninstall.xdt` souboru můžete vrátit změny, pokud balíček je odebrán z projektu.
+- Zahrnout `app.config.install.xdt` a `web.config.install.xdt` soubory do balíčku `content` složky, pomocí [XDT syntaxe](https://msdn.microsoft.com/library/dd465326.aspx) k popisu požadované změny. Pomocí této možnosti můžete použít také `.uninstall.xdt` souboru můžete vrátit změny, pokud balíček je odebrán z projektu.
 
 > [!Note]
 > Transformace se nepoužije `.config` souborů, který je odkazováno jako na odkaz v sadě Visual Studio.
@@ -120,7 +120,7 @@ Informace o účinku instalace a odinstalace balíčku, vytvořte nový projekt 
 
 ### <a name="xdt-transforms"></a>Transformuje XDT
 
-S NuGet 2.6 nebo novější, můžete upravit konfigurační soubory pomocí [XDT syntaxe](https://msdn.microsoft.com/library/dd465326.aspx). Můžete taky nechat NuGet nahradit tokeny se [projektu vlastnosti](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7) zahrnutím název vlastnosti v rámci `$` delimeters (velká a malá písmena).
+Můžete upravit konfigurační soubory pomocí [XDT syntaxe](https://msdn.microsoft.com/library/dd465326.aspx). Můžete taky nechat NuGet nahradit tokeny se [projektu vlastnosti](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7) zahrnutím název vlastnosti v rámci `$` delimeters (velká a malá písmena).
 
 Například následující `app.config.install.xdt` vloží soubor `appSettings` element do `app.config` obsahující `FullPath`, `FileName`, a `ActiveConfigurationSettings` hodnoty z projektu:
 

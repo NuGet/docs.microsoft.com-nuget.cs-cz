@@ -12,11 +12,11 @@ keywords: "Vytvoření balíčku, .NET Standard balíčky, .NET Standard mapová
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 07624f524e6cfa77bdf182271c47cf725ef05c19
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.openlocfilehash: c15ffd709856fc9d5b9a9fb2fe87c0029b82650d
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-net-standard-packages-with-visual-studio-2015"></a>Vytvoření balíčků .NET Standard s Visual Studio 2015
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 02/20/2018
 
 Tento průvodce vás provede procesem vytváření balíčku NuGet cílení .NET standardní knihovny 1.4. Tuto knihovnu funguje napříč rozhraní .NET Framework 4.6.1, Universal Windows Platform 10, .NET Core a Mono nebo Xamarin. Podrobnosti najdete v tématu [.NET Standard mapovací tabulku](#net-standard-mapping-table) dál v tomto tématu.
 
-## <a name="pre-requisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 1. Visual Studio 2015 Update 3
 1. [.NET core SDK](https://www.microsoft.com/net/download/)

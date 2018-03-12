@@ -12,11 +12,11 @@ keywords: "Vytvoření balíčku, balíčky pro UPW, součásti systému Windows
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6787704d41364a165270d56e8980f24d311b07b3
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.openlocfilehash: af650b6cd67855a67d0f49cdbd9f510bf90a60f6
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-uwp-packages"></a>Vytvořit balíčky UWP
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 02/20/2018
 
 V tomto návodu vytvoříte balíček NuGet s nativní UWP komponentou (včetně ovládacího prvku XAML) mohou být používány spravované a nativní projekty.
 
-## <a name="pre-requisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 1. Visual Studio 2017 nebo Visual Studio 2015. Instalaci edice Community 2017 zdarma z [visualstudio.com](https://www.visualstudio.com/); můžete použít také edice Professional a Enterprise.
 

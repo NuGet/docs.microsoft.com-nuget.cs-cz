@@ -13,11 +13,11 @@ keywords: "Vytvoření balíčku NuGet, vytváření balíčku, nuspec manifest,
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 81305b889bb3d988c98c0eee04126e432053c5ef
-ms.sourcegitcommit: a40a6ce6897b2d9411397b2e29b1be234eb6e50c
+ms.openlocfilehash: 613e3eb9d08a0da96340f32b13c486508fa32439
+ms.sourcegitcommit: df21fe770900644d476d51622a999597a6f20ef8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="creating-nuget-packages"></a>Vytváření balíčků NuGet
 
@@ -174,7 +174,7 @@ Konvence složky jsou následující:
 | lib / {tfm} | Sestavení (`.dll`), dokumentace (`.xml`) a symbol (`.pdb`) soubory pro danou cílový Framework Přezdívka (TFM) | Sestavení jsou přidány jako odkazy; `.xml` a `.pdb` zkopírovány do složky projektu. V tématu [podpora více cílové rozhraní](supporting-multiple-target-frameworks.md) pro vytvoření framework specifické pro cílové podsložky. |
 | Moduly runtime | Architektura konkrétní sestavení (`.dll`), symbol (`.pdb`) a nativní prostředků (`.pri`) souborů | Sestavení jsou přidány jako odkazy; ostatní soubory se zkopírují do složky projektu. V tématu [podpora více cílové rozhraní](supporting-multiple-target-frameworks.md). |
 | obsah | Různé soubory | Obsah je zkopírován do kořenového adresáře projektu. Představte si, že **obsah** složky jako kořen cílová aplikace, který nakonec využívá balíčku. Do mají balíček přidat bitovou kopii do aplikace */image* složku, umístěte ji do balíčku *obsah nebo obrázky* složky. |
-| sestavení | MSBuild `.targets` a `.props` soubory | Automaticky vloží do souboru projektu (NuGet 2.5 +) nebo `project.lock.json` (NuGet 3.x+). |
+| sestavení | MSBuild `.targets` a `.props` soubory | Automaticky vloží do souboru projektu nebo `project.lock.json` (NuGet 3.x+). |
 | nástroje | Skripty prostředí PowerShell a programy, které jsou přístupné z konzoly Správce balíčků | `tools` Se přidá složka `PATH` proměnnou prostředí pro konzolu Správce balíčků (konkrétně *není* k `PATH` jako sada pro MSBuild při sestavování projektu). |
 
 Protože struktury složky může obsahovat libovolný počet sestavení pro libovolný počet cílové rozhraní, tato metoda je nutné při vytváření balíčků, které podporují více rozhraní 
@@ -349,9 +349,9 @@ Potom v `.nuspec` souboru, ujistěte se, který bude odkazovat na těchto soubor
 </package>
 ```
 
-Včetně MSBuild props a cíle v balíčku je funkce, která byla jenom [zavedené verze NuGet 2.5](../release-notes/NuGet-2.5.md#automatic-import-of-msbuild-targets-and-props-files), proto se doporučuje přidat `minClientVersion="2.5"` atribut `metadata` element udávajících minimální NuGet klienta verzi, která využívají balíček.
+Včetně MSBuild props a cíle v balíčku byla [zavedené NuGet 2.5](../release-notes/NuGet-2.5.md#automatic-import-of-msbuild-targets-and-props-files), proto se doporučuje přidat `minClientVersion="2.5"` atribut `metadata` element udávajících minimální verzi klienta NuGet potřeba využívat balíčku.
 
-Když NuGet 2.5 + nainstaluje balíček s `\build` soubory, přidá MSBuild `<Import>` elementy v souboru projektu odkazující na `.targets` a `.props` soubory. (`.props` se přidá na začátek souboru projektu; `.targets` se přidá na dolní.)
+Když NuGet nainstaluje balíček s `\build` soubory, přidá MSBuild `<Import>` elementy v souboru projektu odkazující na `.targets` a `.props` soubory. (`.props` se přidá na začátek souboru projektu; `.targets` se přidá na dolní.)
 
 U balíčku NuGet 3.x, cíle nejsou přidány do projektu, ale místo toho jsou k dispozici prostřednictvím `project.lock.json`.
 
@@ -441,7 +441,7 @@ Můžete otestovat instalace ručně v sadě Visual Studio nebo na příkazovém
 Pro automatizované testování základní proces je následující:
 
 1. Kopírování `.nupkg` soubor do místní složky.
-1. Přidat složku do vaší zdroje balíčku pomocí `nuget sources -name <name> -source <path>` příkazu (najdete v části [zdroje nuget](../tools/cli-ref-sources.md)). Všimněte si, že budete potřebovat pouze jednou nastavit tento místní zdroj libovolného daného počítače.
+1. Přidat složku do vaší zdroje balíčku pomocí `nuget sources add -name <name> -source <path>` příkazu (najdete v části [zdroje nuget](../tools/cli-ref-sources.md)). Všimněte si, že budete potřebovat pouze jednou nastavit tento místní zdroj libovolného daného počítače.
 1. Nainstalujte balíček z tohoto zdroje pomocí `nuget install <packageID> -source <name>` kde `<name>` odpovídá názvu zdrojového přidělený `nuget sources`. Zadání zdrojové zajistí, že balíček je nainstalovat z tohoto zdroje samostatně.
 1. Zkontrolujte a zkontrolujte, zda jsou soubory správně nainstalovány v systému souborů.
 

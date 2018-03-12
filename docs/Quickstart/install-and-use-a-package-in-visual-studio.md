@@ -12,11 +12,11 @@ keywords: "Nainstalujte NuGet, využívání balíčku NuGet, instalace balíčk
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c0030877803ac7403f26e27ac3c5a0303d69c489
-ms.sourcegitcommit: eabd401616a98dda2ae6293612acb3b81b584967
+ms.openlocfilehash: b2cfe2d9b929d43f733fd28ba7336c0b04f718e6
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="install-and-use-a-package-in-visual-studio"></a>Instalace a použití balíčku v sadě Visual Studio
 
@@ -27,7 +27,7 @@ Po instalaci odkazovat na balíček v kódu pomocí `using <namespace>` kde \<ob
 > [!Tip]
 > **Začněte s nuget.org**: procházení nuget.org je, jak .NET vývojáři obvykle najít součásti můžete opakovaně použít ve svých vlastních aplikacích. Můžete hledat nuget.org přímo nebo najít a nainstalovat balíčky v sadě Visual Studio, jak je znázorněno v tomto článku.
 
-## <a name="pre-requisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 - Visual Studio 2017 se zatížením, vývoj pro univerzální platformu Windows, nebo
 - Visual Studio 2015 Update 3 pomocí nástrojů pro univerzální aplikace pro Windows.

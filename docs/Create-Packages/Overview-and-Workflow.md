@@ -12,11 +12,11 @@ keywords: "Vytvoření balíčku NuGet, Přehled vytváření NuGet, pracovní p
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6dcb531fc0c8a2fc68372b78af7de1a3bc592bc0
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.openlocfilehash: 84587ad1f511416cc03b6fee153d1df44d0e7aa7
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="package-creation-workflow"></a>Pracovní postup vytvoření balíčku
 
@@ -45,6 +45,7 @@ Odtud můžete zvážit několik dalších možností pro svůj balíček:
 - [Symbolů balíčky](../create-packages/symbol-packages.md) nabízí pokyny k zadávání symboly pro své knihovny, které umožňují příjemcům kroku do kódu při ladění.
 - [Správa verzí balíčku](../reference/package-versioning.md) popisuje, jak určit přesné verze, které umožňují pro svoje závislosti (další balíčky, které spotřebujete ze svého balíčku).
 - [Nativní balíčky](../create-packages/native-packages.md) popisuje proces vytváření balíčku pro spotřebitele C++.
+- [Podepisování balíčků](../create-packages/sign-a-package.md) popisuje postup pro přidání digitální podpis balíčku.
 
 Pokud pak budete připraveni k publikování balíčku do nuget.org, postupujte podle jednoduchý proces v [publikování balíčku](../create-packages/publish-a-package.md).
 

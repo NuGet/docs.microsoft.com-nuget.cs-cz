@@ -12,11 +12,11 @@ keywords: "NuGet závislosti, NuGet a UPW, UWP a project.json, soubor project.js
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: f1ec086d6404c441ca5ad53028af2265a2344905
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 3ef3703b2be92f84d37866bce9934ebcfed3a9f7
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="projectjson-and-uwp"></a>Project.JSON a UWP
 
@@ -31,7 +31,7 @@ Pokud máte existující balíček a chcete přidat podporu pro aplikace UWP, pa
 
 ## <a name="i-already-target-netcore45"></a>I již cíle netcore45
 
-Pokud cílíte `netcore45` již a nemusíte zde využít výhod funkcí, není vyžadována žádná akce. `netcore45`balíčky mohou být spotřebovávána aplikace UWP.
+Pokud cílíte `netcore45` již a nemusíte zde využít výhod funkcí, není vyžadována žádná akce. `netcore45` balíčky mohou být spotřebovávána aplikace UWP.
 
 ## <a name="i-want-to-take-advantage-of-windows-10-specific-apis"></a>Chcete využít výhod konkrétní rozhraní API systému Windows 10
 
@@ -61,11 +61,11 @@ Balíčky NuGet formátu mají následující dobře známou složku a chování
 | Folder | Chování |
 | --- | --- |
 | Sestavení | Obsahuje nástroje MSBuild cíle a soubory props v této složce jsou jinak integrované do projektu, ale jinak není žádná změna. |
-| Nástroje | `install.ps1`a `uninstall.ps1` se nespustí. `init.ps1`funguje jako má vždy. |
+| Nástroje | `install.ps1` a `uninstall.ps1` se nespustí. `init.ps1` funguje jako má vždy. |
 | Obsah | Obsah není automaticky zkopírují do projektu uživatele. Podpora pro zahrnutí obsahu v projektu je plánovaná pro novější verzi. |
 | Lib | Pro mnoho balíčky `lib` funguje stejným způsobem jako v NuGet 2.x, ale s rozšířené možnosti pro jaké názvy dá se použít uvnitř ho a lepší logiku pro výběr správné podsložky při využívání balíčky. Ale při použití ve spojení s `ref`, `lib` složka obsahuje sestavení, které implementují plochy definované v sestavení `ref` složky. |
-| REF | `ref`je volitelné složka, který obsahuje sestavení .NET definování veřejnosti prostor (veřejné typy a metody) pro aplikaci zkompilovat proti. Sestavení v této složce může mít žádné implementace, se používají výhradně k definování povrchu pro kompilátor. Pokud balíček neobsahuje žádné `ref` složku, pak se `lib` je referenční sestavení a implementace sestavení. |
-| Moduly runtime | `runtimes`je volitelné složka, která obsahuje konkrétní kódu operačního systému, třeba architektura procesoru a binární soubory závislé na platformu operačního systému konkrétní nebo jinak. |
+| REF | `ref` je volitelné složka, který obsahuje sestavení .NET definování veřejnosti prostor (veřejné typy a metody) pro aplikaci zkompilovat proti. Sestavení v této složce může mít žádné implementace, se používají výhradně k definování povrchu pro kompilátor. Pokud balíček neobsahuje žádné `ref` složku, pak se `lib` je referenční sestavení a implementace sestavení. |
+| Moduly runtime | `runtimes` je volitelné složka, která obsahuje konkrétní kódu operačního systému, třeba architektura procesoru a binární soubory závislé na platformu operačního systému konkrétní nebo jinak. |
 
 ## <a name="msbuild-targets-and-props-files-in-packages"></a>MSBuild cíle a soubory props do balíčků
 
@@ -121,7 +121,7 @@ V tomto příkladu sestavení v `ref` adresáře by být identické.
 
 Moduly runtime složka obsahuje sestavení a nativní knihovny potřebné ke spuštění na konkrétní "moduly runtime", které jsou obvykle definovány Architektura operačního systému a procesoru. Tyto moduly runtime jsou identifikovány pomocí [Runtime identifikátorů (RID)](/dotnet/core/rid-catalog) například `win`, `win-x86`, `win7-x86`, `win8-64`atd.
 
-## <a name="native-light-up"></a>Nativní lehký up
+## <a name="native-helpers-to-use-platform-specific-apis"></a>Nativní Pomocníci používat rozhraní API pro příslušnou platformu
 
 Následující příklad ukazuje balíček, který má čistě spravované implementace pro několik platforem, ale používá nativní Pomocné rutiny v systému Windows 8, kde můžete volání do nativního rozhraní API systému Windows 8 specifické.
 
@@ -187,7 +187,7 @@ Pokud chcete vytvořit balíček, který mohou být spotřebovávána projektů 
 
 - REF a moduly runtime fungovat jenom na NuGet 3. Obě jsou ignorovány NuGet 2.
 
-- Nelze spoléhat na `install.ps1` nebo `uninstall.ps1` funkce. Tyto soubory provést při použití `packages.config`, ale jsou ignorovány s `project.json`. Takže vašeho balíčku musí být možné bez je spuštěná. `init.ps1`stále běží na NuGet 3.
+- Nelze spoléhat na `install.ps1` nebo `uninstall.ps1` funkce. Tyto soubory provést při použití `packages.config`, ale jsou ignorovány s `project.json`. Takže vašeho balíčku musí být možné bez je spuštěná. `init.ps1` stále běží na NuGet 3.
 
 - Cíle a Props instalace je jiné, proto se ujistěte, že váš balíček funguje podle očekávání na obou klientských počítačích.
 

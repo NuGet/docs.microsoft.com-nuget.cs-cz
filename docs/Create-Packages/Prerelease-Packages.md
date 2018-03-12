@@ -12,11 +12,11 @@ keywords: "Správa verzí, verze balíčku NuGet, předprodejní verze NuGet, p�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: f07b4a0428685b036640a7153190fd8454885608
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 03f744a96841a8c49d9f1dde89620b85de968d6f
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="building-pre-release-packages"></a>Vytváření předběžné verze balíčků
 
@@ -30,7 +30,7 @@ Pro podporu životního cyklu verze softwaru, NuGet 1.6 nebo novější umožňu
 
 Tyto verze můžete určit dvěma způsoby:
 
-- `.nuspec`soubor: zahrnují příponou sémantickou verzi v `version` element:
+- `.nuspec` soubor: zahrnují příponou sémantickou verzi v `version` element:
 
     ```xml
     <version>1.0.1-alpha</version>
@@ -79,7 +79,7 @@ Myslete na to je obvykle dobrou sledovat rozpoznaný zásady vytváření názv�
 - `-rc`: Release candidate, obvykle verzi, která je potenciálně konečné (stable), pokud vznikat významné chyby.
 
 > [!Note]
-> NuGet nepodporuje [SemVer kompatibilní (v2.0.0)](http://semver.org/spec/v2.0.0.html) předběžné verze čísla pomocí zápisu s tečkou, jako v `1.0.1-build.23`. Můžete použít formuláře jako `1.0.1-build23` , ale je vždy to předběžné verze.
+> Podporuje NuGet 4.3.0+ [sémantické verze v2.0.0](http://semver.org/spec/v2.0.0.html), který podporuje předběžné verze čísla s zápisu s tečkou, jako v `1.0.1-build.23`. Verze NuGet před 4.3.0 nepodporuje zápisu s tečkou. V dřívějších verzích systému NuGet, můžete použít formuláře jako `1.0.1-build23` ale vždycky to považovaná předběžné verze.
 
 Ať přípony, které používáte, ale NuGet získáte jejich prioritu ve vzestupném abecedním pořadí:
 

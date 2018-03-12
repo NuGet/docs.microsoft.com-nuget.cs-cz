@@ -12,11 +12,11 @@ keywords: "Obnovení balíčku NuGet, NuGet a sady TFS, NuGet a služby VSTS, sy
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b18cdab2c32ad135c0fc07fa0cf976ee33880a19
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.openlocfilehash: 9e3ef6e3bcc55705315fcb6ccf3e917963c62250
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="setting-up-package-restore-with-team-foundation-build"></a>Nastavení obnovení balíčků s Team Foundation Build
 
@@ -41,7 +41,7 @@ To je zajímavé hlavně, pokud používáte [distribuované verzí](http://en.w
 
 Obsahoval podporované NuGet [obnovují se balíčky](../consume-packages/package-restore.md) jako součást sestavení pro typ long čas nyní. Předchozí implementace došlo k potížím kuřecí a vaječných pro balíčky, které chcete rozšíření procesu sestavení, protože NuGet při sestavování projektu obnovení balíčků. Ale MSBuild neumožňuje rozšíření sestavení během vytváření sestavení; jeden může uvádějí, které tento problém v nástroji MSBuild, ale I by uvádějí, že se jedná o problém s vyplývajících. V závislosti na tom, které aspekt potřebujete rozšířit může být příliš pozdní registrovat, a v době obnovení vašeho balíčku.
 
-Vytvrdit tohoto problému je zajistit jistotu, že jsou balíčky obnovit jako první krok v procesu sestavení. NuGet 2.7 + to výrazně usnadňuje prostřednictvím zjednodušené příkazového řádku:
+Vytvrdit tento problém je ubezpečit, že jsou balíčky obnovit jako první krok v procesu sestavení:
 
 ```cli
 nuget restore path\to\solution.sln
@@ -100,7 +100,7 @@ Zdrojový kód je v části `src` složky. I když naše Ukázka používá jeno
 </configuration>
 ```
 
-Pro komunikaci se správa verzí, že nepodporujeme záměr vrácení se změnami **balíčky** složek, jsme také doplnili ignorovat soubory pro oba git (`.gitignore`) a také TF správy verzí (`.tfignore`). Tyto soubory popisuje vzory soubory, které nechcete použít k vrácení se změnami.
+Pro komunikaci se správa verzí, že nepodporujeme záměr vrácení se změnami **balíčky** složek, jsme také doplnili ignorovat soubory pro oba git (`.gitignore`) a také TF správy verzí (`.tfignore`). Tyto soubory popisují vzorů souborů, které nechcete použít k vrácení se změnami.
 
 `.gitignore` Souboru vypadá takto:
 

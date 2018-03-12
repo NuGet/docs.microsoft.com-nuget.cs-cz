@@ -12,11 +12,11 @@ keywords: "Vytvoření balíčku, balíčky pro Xamarin, balíčky a platformy"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2f0131e4f447e2e0ab5a1d17e476a425eaa01b61
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 185a0e1e424d1ceb2d8bacbcc1502b38412c4c41
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-cross-platform-packages"></a>Vytváření balíčků a platformy
 
@@ -24,14 +24,14 @@ Napříč platformami balíček obsahuje kód, který používá nativních rozh
 
 V tomto návodu vytvoříte balíček NuGet a platformy, který lze použít v mobilních projekty pro iOS, Android a Windows.
 
-1. [Předpoklady](#pre-requisites)
+1. [Požadavky](#prerequisites)
 1. [Vytvoření projektu strukturu a abstrakce kód](#create-the-project-structure-and-abstraction-code)
 1. [Zadejte kód, podle platformy](#write-your-platform-specific-code)
 1. [Vytvářet a aktualizovat soubor s příponou .nuspec](#create-and-update-the-nuspec-file)
 1. [Balíček součásti](#package-the-component)
 1. [Související témata](#related-topics)
 
-## <a name="pre-requisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 1. Visual Studio 2015 se univerzální platformu Windows (UWP) a Xamarin. Instalaci edice Community zdarma z [visualstudio.com](https://www.visualstudio.com/); samozřejmě můžete taky edice Professional a Enterprise. Zahrnout nástroje pro UPW a Xamarin, vyberte vlastní instalaci a zkontrolujte příslušné možnosti.
 1. Rozhraní příkazového řádku NuGet. Stáhněte si nejnovější verzi nuget.exe z [nuget.org/downloads](https://nuget.org/downloads), ukládání do umístění podle vaší volby. Pak přidejte tohoto umístění do vaší proměnné prostředí PATH, pokud již není.
@@ -271,8 +271,8 @@ Pokud chcete zpřístupnit vašeho balíčku jinými vývojáři, postupujte pod
 ## <a name="related-topics"></a>Související témata
 
 - [Odkaz na soubor Nuspec](../reference/nuspec.md)
-- [Symbol balíčky](../create-packages/symbol-packages.md)
-- [Správa verzí balíčku](../reference/package-versioning.md)
+- [Balíčky symbolů](../create-packages/symbol-packages.md)
+- [Správa verzí balíčků](../reference/package-versioning.md)
 - [Podpora více verzí rozhraní .NET Framework](../create-packages/supporting-multiple-target-frameworks.md)
 - [Včetně MSBuild props a cíle v balíčku](../create-packages/creating-a-package.md#including-msbuild-props-and-targets-in-a-package)
 - [Vytvoření lokalizovaných balíčků](../create-packages/creating-localized-packages.md)

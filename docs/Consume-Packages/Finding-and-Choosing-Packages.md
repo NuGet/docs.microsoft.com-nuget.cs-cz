@@ -13,11 +13,11 @@ keywords: "NuGet balíček spotřebu, zjišťování balíčku NuGet, nejlepší
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: fe49d3c5548da2bde1bfdf4515b49232f6933e18
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.openlocfilehash: 0c52fa237a663fcf227e8336534d344e432523b4
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Hledání a vyhodnocení balíčky NuGet pro projekt
 
@@ -73,11 +73,9 @@ V sadě Visual Studio a při použití rozhraní příkazového řádku NuGet ne
 
 ### <a name="native-c-packages"></a>Nativní balíčky C++
 
-NuGet (2.5 +) podporuje nativní C++ balíčky můžete použitého v projektech C++ v sadě Visual Studio. Díky tomu **spravovat balíčky NuGet** zavádí příkaz kontextové nabídky pro projekty, `native` cílový framework a aby poskytuje integraci nástroje MSBuild.
+NuGet podporuje nativní C++ balíčky můžete použitého v projektech C++ v sadě Visual Studio. Díky tomu **spravovat balíčky NuGet** zavádí příkaz kontextové nabídky pro projekty, `native` cílový framework a aby poskytuje integraci nástroje MSBuild.
 
 Najít nativní balíčky na [nuget.org](https://www.nuget.org/packages), vyhledávání pomocí `tag:native`. Tyto balíčky obvykle poskytují `.targets` a `.props` soubory, které NuGet importuje automaticky při přidání balíčku do projektu.
-
-Informace o vytváření balíčků nativní najdete v tématu [nativní balíčky](../create-packages/native-packages.md).
 
 ## <a name="evaluating-packages"></a>Vyhodnocení balíčky
 
