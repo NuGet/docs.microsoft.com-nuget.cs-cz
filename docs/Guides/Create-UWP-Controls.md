@@ -3,7 +3,7 @@ title: "Jak zabalit UWP ovládací prvky s NuGet | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 03/21/2017
+ms.date: 03/14/2018
 ms.topic: get-started-article
 ms.prod: nuget
 ms.technology: 
@@ -12,17 +12,17 @@ keywords: "Ovládací prvky NuGet UWP, Návrhář Visual Studio XAML, Návrhář
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 3af17121f73b878decd5f0c933696fc1b0c786d7
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 1af5118eb71836d8b8bcfa8ff713d9fef3c86374
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="creating-uwp-controls-as-nuget-packages"></a>Vytváření ovládacích prvků UPW jako balíčků NuGet
 
 Visual Studio 2017 můžete využít přidané možnosti pro ovládací prvky UWP přinášející balíčky NuGet. Tento průvodce vás provede tyto možnosti [ExtensionSDKasNuGetPackage ukázka](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage). 
 
-## <a name="pre-requisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 1. Visual Studio 2017
 1. Přehled o tom, jak [vytvořit balíčky UWP](create-uwp-packages.md)
@@ -100,13 +100,7 @@ Například Řekněme, že jste nastavili TPMinV pro ovládací prvky balíček 
     \lib\uap10.0\*
     \ref\uap10.0\*
 
-Chcete-li vynutit příslušné kontroly TPMinV, vytvořit [souboru cíle MSBuild](/visualstudio/msbuild/msbuild-targets) a balíčků ve složce sestavení (nahrazení "your_assembly_name" s název vaší konkrétní sestavení):
-
-    \build
-      \uap10.0
-        your_assembly_name.targets
-    \lib
-    \tools
+K vynucení příslušné kontroly TPMinV, vytvořit [souboru cíle MSBuild](/visualstudio/msbuild/msbuild-targets) a balíček je v části `build\uap10.0" folder as `.targets < your_assembly_name >`, replacing `< your_assembly_name >' s názvem konkrétní sestavení.
 
 Tady je příklad, jak by měla vypadat soubor cíle:
 
@@ -114,7 +108,7 @@ Tady je příklad, jak by měla vypadat soubor cíle:
 <?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
-  <Target Name="TPMinVCheck" BeforeTargets="Build;ReBuild" Condition="'$(TargetPlatformMinVersion)' != ''">
+  <Target Name="TPMinVCheck" BeforeTargets="ResolveAssemblyReferences" Condition="'$(TargetPlatformMinVersion)' != ''">
     <PropertyGroup>
       <RequiredTPMinV>10.0.14393</RequiredTPMinV>
       <ActualTPMinV>$(TargetPlatformMinVersion)</ActualTPMinV>
@@ -126,17 +120,15 @@ Tady je příklad, jak by měla vypadat soubor cíle:
 
 ## <a name="add-design-time-support"></a>Přidání podpory návrhu
 
-Konfigurace, kde vlastnosti ovládacích prvků zobrazí v inspector vlastnost, přidejte vlastní ozdobného prvku atd., umístěte vaše `design.dll` souboru uvnitř `lib\<platform>\Design` složku v závislosti na cílové platformy. Také zajistit, aby  **[upravit šablonu > Upravit kopii](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)**  funkce funguje, je nutné zahrnout `Generic.xaml` a všechny slovnících prostředků, které se sloučí v `<AssemblyName>\Themes` složky. (Tento soubor nemá žádný vliv na modul runtime chování ovládacího prvku.)
+Konfigurace, kde vlastnosti ovládacích prvků zobrazí v inspector vlastnost, přidejte vlastní ozdobného prvku atd., umístěte vaše `design.dll` souboru uvnitř `lib\uap10.0\Design` složku v závislosti na cílové platformy. Také zajistit, aby  **[upravit šablonu > Upravit kopii](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)**  funkce funguje, je nutné zahrnout `Generic.xaml` a všechny slovnících prostředků, které se sloučí v `<your_assembly_name>\Themes` složky (znovu s použitím název vašeho skutečné sestavení). (Tento soubor nemá žádný vliv na modul runtime chování ovládacího prvku.) Struktura složek by proto vypadat takto:
 
-    \build
     \lib
-      \uap10.0.14393.0
+      \uap10.0
         \Design
           \MyControl.design.dll
         \your_assembly_name
           \Themes
             Generic.xaml
-    \tools
 
 > [!Note]
 > Ve výchozím nastavení vlastností ovládacího prvku se zobrazí na různé kategorie v inspector vlastnost.
@@ -149,23 +141,15 @@ Příklad najdete v části [MyCustomControl.cs](https://github.com/NuGet/Sample
 
 ## <a name="package-content-such-as-images"></a>Obsah balíčku, jako jsou bitové kopie
 
-Obsah balíčku, například bitové kopie, které mohou být využívána vlastní ovládací prvek nebo využívání projektu UPW. Přidejte tyto soubory `lib\uap10.0.14393.0` složky následujícím způsobem ("your_assembly_name" znovu shodovat s vaší konkrétní ovládací prvek):
+Do balíčku obsahu, například bitové kopie, které mohou být využívána vlastní ovládací prvek nebo využívání projektu UPW, umístěte těchto souborů v rámci `lib\uap10.0` složky.
 
-    \build
-    \lib
-      \uap10.0.14393.0
-        \Design
-          \your_assembly_name
-    \contosoSampleImage.jpg
-    \tools
-
-Mohou také vytvářet[souboru cíle MSBuild](/visualstudio/msbuild/msbuild-targets) zajistit asset se zkopíruje do výstupní složky náročné projektu:
+Mohou také vytvářet [souboru cíle MSBuild](/visualstudio/msbuild/msbuild-targets) zajistit asset se zkopíruje do výstupní složky náročné projektu:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <ItemGroup Condition="'$(TargetPlatformIdentifier)' == 'UAP'">
-        <Content Include="$(MSBuildThisFileDirectory)..\..\lib\uap10.0.14393.0\contosoSampleImage.jpg">
+        <Content Include="$(MSBuildThisFileDirectory)..\..\lib\uap10.0\contosoSampleImage.jpg">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
     </ItemGroup>

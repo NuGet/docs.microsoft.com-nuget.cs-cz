@@ -12,15 +12,15 @@ ms.topic: reference
 ms.prod: nuget
 ms.technology: 
 description: "Šablona sestavy zneužití URL umožňuje klientům zobrazit odkaz v jejich uživatelského rozhraní."
-keywords: "Rozhraní API NuGet oznámení zneužití, rozhraní API NuGet souboru předpisy, šablona adresy URL sestavy NuGet.org"
+keywords: "Rozhraní API NuGet oznámení zneužití, rozhraní API NuGet souboru předpisy, šablona adresy URL sestavy nuget.org"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: c12be294c71547fbce421c72aa091e0eee15aacd
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: efbe5704e6e6028f9382fea3fe5ec453f573a2e9
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="report-abuse-url-template"></a>Šablona sestavy zneužití adresy URL
 
@@ -32,10 +32,10 @@ Je prostředku používaného pro načítání obsahu balíčku `ReportAbuseUriT
 
 Následující `@type` se používají hodnoty:
 
-@typeHodnota                       | Poznámky
+@type Hodnota                       | Poznámky
 --------------------------------- | -----
 ReportAbuseUriTemplate/3.0.0-beta | Původní verze
-ReportAbuseUriTemplate/3.0.0-rc   | Alias`ReportAbuseUriTemplate/3.0.0-beta`
+ReportAbuseUriTemplate/3.0.0-rc   | Alias `ReportAbuseUriTemplate/3.0.0-beta`
 
 ## <a name="url-template"></a>Adresa URL šablony
 
@@ -58,7 +58,7 @@ Název        | Typ    | Požadováno | Poznámky
 `{id}`      | odkazy řetězců  | Ne       | ID balíčku k oznámení zneužití pro
 `{version}` | odkazy řetězců  | Ne       | Verze balíčku k oznámení zneužití pro
 
-`{id}` a `{version}` hodnoty interpretovány implementací serveru musí být malá insenstive a zda je verze normalizovány není citlivé.
+`{id}` a `{version}` hodnoty interpretovány implementací serveru musí být malá a velká písmena a zda je verze normalizovány není citlivé.
 
 Šablona zneužití sestavy nuget.org například vypadá takto:
 

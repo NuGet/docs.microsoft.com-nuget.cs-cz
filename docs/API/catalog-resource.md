@@ -12,15 +12,15 @@ ms.topic: reference
 ms.prod: nuget
 ms.technology: 
 description: "Katalog je index všech balíčků, vytvoření a na nuget.org odstraněn."
-keywords: "Rozhraní API V3 NuGet katalogu, nuget.org transakčního protokolu, replikaci NuGet.org, klonování NuGet.org připojovacího záznam NuGet.org"
+keywords: "Rozhraní API V3 NuGet katalogu, nuget.org transakčního protokolu, replikaci nuget.org, klonování nuget.org připojovacího záznam nuget.org"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: d1a24be68a60085a40361c374ffb34dc221f09c4
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: be30b21d488c323c439a59fff290a95adaefd902
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="catalog"></a>Catalog
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 02/02/2018
 
 Následující `@type` hodnota se používá:
 
-@typeHodnota   | Poznámky
+@type Hodnota   | Poznámky
 ------------- | -----
 CATALOG/3.0.0 | Původní verze
 
@@ -50,7 +50,7 @@ Všechny adresy URL v podpoře prostředků katalogu nalezen jenom metody HTTP `
 
 ## <a name="catalog-index"></a>Index katalogu
 
-Index katalogu je dokument v dobře známé umístění, které obsahuje seznam položek katalogu, uspořádány cronologically. Je vstupní bod katalogu prostředku.
+Index katalogu je dokument v dobře známé umístění, které obsahuje seznam položek katalogu, časovém pořadí řazení. Je vstupní bod katalogu prostředku.
 
 Index se skládá z katalogu stránky. Každé stránce katalogu obsahuje položky katalogu. Každá položka katalogu představuje události týkající se jeden balíček v určitém bodě v čase. Položka katalogu, kterou může představovat balíček, který byl vytvořen, neuvedené, relisted nebo odstraněn ze zdroje balíčků. Zpracováním položek katalogu v chronologickém pořadí, můžete vytvořit klienta aktuální přehled o každý balíček, který existuje ve zdroji balíčku V3.
 
@@ -128,7 +128,7 @@ Nadřazené          | odkazy řetězců           | Ano      | Adresu URL katal
 
 Každý prvek v `items` pole je objekt s některé minimální podrobnosti o položka katalogu. Tyto položky objekty nebudou obsahovat všechna data položka katalogu. Pořadí položek na stránce `items` pole není definováno. Položky lze provést řazení podle klienta v paměti pomocí jejich `commitTimeStamp` vlastnost.
 
-Počet položek katalogu na stránce je definován implementaci serveru. Pro nuget.org je maximálně 550 položek v každé stránce, ale skutečný počet může být menší pro některé dependong stránky na velikosti další dávku potvrzení v bodě v čase.
+Počet položek katalogu na stránce je definován implementaci serveru. Pro nuget.org je maximálně 550 položek v každé stránce, ale skutečný počet může být menší pro některé stránky v závislosti na velikosti další dávku potvrzení v bodě v čase.
 
 Zavedeném nové položky `count` je katalog zvýšena a nové položky objekty se zobrazí v `items` pole.
 
@@ -164,7 +164,7 @@ Další podrobnosti o jaké každý typ znamená, najdete v článku [odpovídaj
 
 ## <a name="catalog-leaf"></a>Katalog listu
 
-Katalog listu obsahuje metadata o konkrétní ID a verzi balíčku v určitém okamžiku v čase. Je to dokument načtena pomocí `@id` nalezena hodnota na stránce katalogu. Adresu URL katalogu listu neměla být predictedable a by měly být zjištěny pomocí pouze na stránce katalogu.
+Katalog listu obsahuje metadata o konkrétní ID a verzi balíčku v určitém okamžiku v čase. Je to dokument načtena pomocí `@id` nalezena hodnota na stránce katalogu. Adresu URL katalogu listu neměla být předvídatelný a by měly být zjištěny pomocí pouze na stránce katalogu.
 
 Dokument listu katalogu je objekt JSON s následujícími vlastnostmi:
 
@@ -226,12 +226,12 @@ Balíček `version` vlastnost je řetězec úplné, normalizované verze. To zna
 
 `created` Časové razítko je, když balíček je napřed přijata sadou zdroj balíčku, který je obvykle po krátkou dobu před časové razítko potvrzení položka katalogu.
 
-`packageHashAlgorithm` Se, řetězce definované represeting implementace serveru používají k vytvoření algoritmu hash `packageHash`. nuget.org vždycky použijí `packageHashAlgorithm` hodnotu `SHA512`.
+`packageHashAlgorithm` Je řetězec definované implementaci serveru představující algoritmu hash použít k vytvoření `packageHash`. nuget.org vždycky použijí `packageHashAlgorithm` hodnotu `SHA512`.
 
 `published` Časové razítko je čas, pokud byl poslední uvedený balíček.
 
 > [!Note]
-> V nuget.org `published` hodnota nastavena na rok 1900 po neuvedené balíčku.
+> V nuget.org `published` hodnota nastavena na rok 1900, kdy neuvedené balíčku.
 
 #### <a name="sample-request"></a>Ukázková žádost
 
@@ -307,7 +307,7 @@ Pomocí základního algoritmu můžete vytvořit implementace klienta kompletn�
 
 ### <a name="dependent-cursors"></a>Závislé kurzory
 
-Předpokládejme, že existují dvě katalogu klienti, kteří mají inherant závislostí, kde výstup jednoho klienta závisí na výstupu jiného klienta. 
+Předpokládejme, že existují dvě katalogu klienti, kteří mají vyplývajících závislostí, kde výstup jednoho klienta závisí na výstupu jiného klienta. 
 
 #### <a name="example"></a>Příklad
 
@@ -317,7 +317,7 @@ Vzhledem k tomu, že oba prostředky jsou vytvořené z katalogu, kurzor katalog
 
 #### <a name="algorithm"></a>Algoritmus
 
-Pokud chcete implementovat toto omezení, upravte jednoduchý algoritmus výše uvedené jako:
+Pokud chcete implementovat toto omezení, stačí upravte algoritmus výše uvedené jako:
 
 1. Načtení kurzoru zaznamenaná hodnota z místního úložiště.
 1. Stáhněte si a deserializovat index katalogu.

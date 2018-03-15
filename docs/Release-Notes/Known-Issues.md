@@ -12,11 +12,11 @@ keywords: "Známé problémy, problémy NuGet NuGet"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2b9190c058215d9e63894de45c0c55c8ddae0e0f
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: ac00e3f11c54290a31319e7f2946fd965a0a9288
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="known-issues-with-nuget"></a>Známé problémy s nástrojem NuGet
 
@@ -45,7 +45,7 @@ V NuGet 3.4 a 3.4.1 při použití doplňku NuGet, jsou hlášeny jako dostupné
 
 ![Konfigurace NuGet se žádné zdroje](./media/knownIssue-34-NoSources.PNG)
 
-`NuGet.Config` Ve vaší `%AppData%\NuGet\` omylem vyprázdnění složky. Tento problém lze vyřešit: zavřete Visual Studio 2015, odstranit `NuGet.Config` v soubor `%AppData%\NuGet\` složky a restartujte Visual Studio.  Nový `NuGet.Config` soubor bude vytvořen a budete moci pokračovat.
+`NuGet.Config` Ve vaší `%AppData%\NuGet\` (Windows) nebo `~/.nuget/` (Mac/Linux) omylem vyprázdnění složky. Chcete-li: zavřete Visual Studio (v systému Windows, pokud je k dispozici), odstraňte `NuGet.Config` souboru a operaci opakujte. NuGet vygeneroval nový `NuGet.Config` a mělo by být možné pokračovat.
 
 ## <a name="error-installing-packages-with-nuget-27"></a>Chyba při instalaci balíčků s NuGet 2.7
 
@@ -96,7 +96,7 @@ Pokud používáte VS 2010 SP1, může dojít k následující chybová zpráva 
 Při prohlížení protokolů, může se zobrazit poznámku o `SignatureMismatchException`.
 
 Chcete-li tomu zabránit, že je [oprava hotfix Visual Studio 2010 SP1](http://bit.ly/vsixcertfix) můžete nainstalovat.
-Alternativně řešením je jednoduše odinstalovat NuGet (při spuštění sady Visual Studio jako správce) a nainstalujte ji z Galerie rozšíření VS.  V tématu [http://support.microsoft.com/kb/2581019](http://support.microsoft.com/kb/2581019) Další informace.
+Alternativně řešením je jednoduše odinstalovat NuGet (při spuštění sady Visual Studio jako správce) a nainstalujte ji z Galerie rozšíření VS.  V tématu [ http://support.microsoft.com/kb/2581019 ](http://support.microsoft.com/kb/2581019) Další informace.
 
 ## <a name="package-manager-console-throws-an-exception-when-the-reflector-visual-studio-add-in-is-also-installed"></a>Konzola správce balíčků vyvolá výjimku, pokud Reflector Visual Studio Add-In je také nainstalován.
 
@@ -165,7 +165,7 @@ Pokud se pokusíte odinstalovat NuGet prostřednictvím Správce rozšíření s
 
 ## <a name="the-package-manager-console-crashes-when-i-open-it-in-windows-xp-whats-wrong"></a>Konzola správce balíčků dojde k chybě při otevírání v systému Windows XP. Co je?
 
-NuGet vyžaduje modul runtime Powershell 2.0. Windows XP, nemá ve výchozím nastavení, prostředí Powershell 2.0. Můžete si stáhnout modul runtime Powershell 2.0 z [http://support.microsoft.com/kb/968929](http://support.microsoft.com/kb/968929). Po instalaci, restartujte Visual Studio a nyní byste měli mít otevřete konzolu Správce balíčků.
+NuGet vyžaduje modul runtime Powershell 2.0. Windows XP, nemá ve výchozím nastavení, prostředí Powershell 2.0. Můžete si stáhnout modul runtime Powershell 2.0 z [ http://support.microsoft.com/kb/968929 ](http://support.microsoft.com/kb/968929). Po instalaci, restartujte Visual Studio a nyní byste měli mít otevřete konzolu Správce balíčků.
 
 ## <a name="visual-studio-2010-sp1-beta-crashes-on-exit-if-the-package-manager-console-is-open"></a>Visual Studio 2010 SP1 Beta chyby při ukončení, pokud Konzola správce balíčků je otevřený.
 
@@ -213,7 +213,7 @@ Jedná se o známý problém. Namísto volání Write-Error, zkuste volání thr
 
 ## <a name="installing-nuget-with-restricted-access-on-windows-2003-can-crash-visual-studio"></a>Instalace NuGet s omezeným přístupem v systému Windows 2003 můžete chybu sady Visual Studio
 
-Při pokusu o instalaci NuGet pomocí Správce rozšíření Visual Studio a není spuštěna jako správce &#8220; Spustit jako &#8221; Zobrazí se dialogové okno s zaškrtávací políčko s názvem bez přípony &#8220; Spuštění tohoto programu s omezeným přístupem &#8221; ve výchozím nastavení zaškrtnuto.
+Při pokusu o instalaci NuGet pomocí Správce rozšíření Visual Studio a není spuštěna jako správce, &#8220;spustit jako&#8221; zobrazí dialog s zaškrtávací políčko s názvem bez přípony &#8220;spuštění tohoto programu s omezeným přístupem&#8221; zkontrolovat nástrojem výchozí.
 
 ![Spustit jako dialogové okno s omezeným přístupem](./media/RunAsRestricted.png)
 
@@ -231,4 +231,4 @@ Jak je popsáno v length na [potíže Githubu](https://github.com/Particular/NSe
 
 ## <a name="reporting-issues"></a>Hlášení problémů
 
-Chcete-li nahlásit problém NuGet, navštivte [https://github.com/nuget/home/issues](https://github.com/nuget/home/issues).
+Chcete-li nahlásit problém NuGet, navštivte [ https://github.com/nuget/home/issues ](https://github.com/nuget/home/issues).

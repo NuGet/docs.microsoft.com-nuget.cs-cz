@@ -1,5 +1,5 @@
 ---
-title: "Vytvoření balíčků NuGet a platformy (pro iOS, Android a Windows) | Microsoft Docs"
+title: "Vytvoření balíčků NuGet pro Xamarin (pro iOS, Android a Windows) | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
@@ -12,13 +12,13 @@ keywords: "Vytvoření balíčku, balíčky pro Xamarin, balíčky a platformy"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 185a0e1e424d1ceb2d8bacbcc1502b38412c4c41
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.openlocfilehash: 3e1460de060980365a5eaa2ef91c052cc359bb70
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="create-cross-platform-packages"></a>Vytváření balíčků a platformy
+# <a name="create-packages-for-xamarin"></a>Vytvoření balíčků pro Xamarin
 
 Napříč platformami balíček obsahuje kód, který používá nativních rozhraní API pro iOS, Android a Windows, v závislosti na spuštění operačního systému. Přestože je toto přehledné udělat, je vhodnější, aby mohli vývojáři využívat balíček PCL nebo .NET Standard knihovny prostřednictvím společné rozhraní API surface oblasti.
 
@@ -112,9 +112,9 @@ K implementaci specifické pro platformu provádění `ILoggingLibrary` rozhran�
 
 1. Otevřete příkazový řádek, přejděte na `LoggingLibrary` složky, která je jednu úroveň pod where `.sln` souboru a spusťte NuGet `spec` příkaz pro vytvoření počáteční `Package.nuspec` souboru:
 
-```cli
-nuget spec
-```
+    ```cli
+    nuget spec
+    ```
 
 1. Přejmenujte tento soubor do `LoggingLibrary.nuspec` a otevře ji v editoru.
 1. Aktualizujte, aby se shodoval s následujícím, nahraďte vaše_jméno odpovídající hodnotu. `<id>` Hodnotu, konkrétně musí být jedinečný v rámci nuget.org (viz zásady vytváření názvů, které jsou popsané v [vytváření balíčku](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number)). Všimněte si také, zda je nutné také aktualizovat autora a popis značky nebo dojde k chybě během kroku okolních.

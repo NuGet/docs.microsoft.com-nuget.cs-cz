@@ -1,26 +1,26 @@
 ---
-title: "Úvodní příručka k vytváření a publikování balíčku NuGet pomocí sady Visual Studio | Microsoft Docs"
+title: "Úvodní příručka k vytváření a publikování .NET standardní balíčku NuGet pomocí sady Visual Studio | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 02/02/2018
+ms.date: 03/18/2018
 ms.topic: get-started-article
 ms.prod: nuget
 ms.technology: 
-description: "Návod kurz týkající se vytváření a publikování Visual Studio 2017 pomocí balíčku NuGet."
+description: "Návod kurz týkající se vytváření a publikování balíčku NuGet pro standardní rozhraní .NET pomocí Visual Studio 2017."
 keywords: "Balíček NuGet vytvoření, publikování balíčku NuGet, kurzu NuGet sady Visual Studio vytvořit balíček NuGet, aktualizací Service pack nástroje msbuild"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 75cc425263447e2ca90db705c3bf314250dacb06
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.openlocfilehash: 733fee616601e1d15d8fb5814b5bfb7905ff4a33
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="create-and-publish-a-package-using-visual-studio"></a>Vytvoření a publikování balíčku pomocí sady Visual Studio
+# <a name="create-and-publish-a-package-using-visual-studio-net-standard"></a>Vytvoření a publikování balíčku pomocí sady Visual Studio (.NET Standard)
 
-Je jednoduchý proces vytvoření balíčku NuGet z knihovny tříd rozhraní .NET v sadě Visual Studio, a potom jej publikujte do nuget.org pomocí rozhraní příkazového řádku nástroje.
+Je jednoduchý proces vytvoření balíčku NuGet z knihovny .NET standardní třídy v sadě Visual Studio, a potom jej publikujte do nuget.org pomocí rozhraní příkazového řádku nástroje.
 
 ## <a name="prerequisites"></a>Požadavky
 
@@ -34,7 +34,7 @@ Je jednoduchý proces vytvoření balíčku NuGet z knihovny tříd rozhraní .N
 
 ## <a name="create-a-class-library-project"></a>Vytvoření projektu knihovny tříd
 
-Můžete použít existující projekt knihovna tříd rozhraní .NET pro kód, který chcete balíček nebo vytvořit jednoduchý takto:
+Můžete použít existující projekt standardní knihovna tříd rozhraní .NET pro kód, který chcete balíček nebo vytvořit jednoduchý takto:
 
 1. V sadě Visual Studio, vyberte **soubor > Nový > projekt**, rozbalte **Visual C# > .NET Standard** uzlu, vyberte šablonu, "Knihovny tříd (.NET Standard)", název projektu AppLogger a klikněte na tlačítko **OK**.
 
@@ -60,7 +60,7 @@ namespace AppLogger
 
 ## <a name="configure-package-properties"></a>Konfigurovat vlastnosti balíčku
 
-1. Vyberte **Projekt > vlastnosti** nabídky příkazu a pak vyberte **balíček** karty:
+1. Vyberte **Projekt > vlastnosti** nabídky příkazu a pak vyberte **balíček** kartě. ( **Balíček** karta se zobrazí pouze u projektů knihovny tříd rozhraní .NET standardní; Pokud cílíte na rozhraní .NET Framework, přečtěte si téma [vytvořit a publikovat balíček pro rozhraní .NET Framework](create-and-publish-a-package-using-visual-studio-net-framework.md) místo.)
 
     ![Vlastnosti balíčku NuGet v projektu sady Visual Studio](media/qs_create-vs-01-package-properties.png)
 
@@ -95,7 +95,7 @@ namespace AppLogger
 
 ### <a name="alternate-option-pack-with-msbuild"></a>Alternativní možnost: pack pomocí nástroje MSBuild
 
-Jako náhradní pomocí **Pack** příkaz nabídky, NuGet 4.x+ a podporuje MSBuild 15.1 + `pack` cíle Pokud projekt obsahuje data nezbytná balíčku:
+Jako náhradní pomocí **Pack** příkaz nabídky, NuGet 4.x+ a podporuje MSBuild 15.1 + `pack` cíle Pokud projekt obsahuje data nezbytná balíčku. Otevřete příkazový řádek, přejděte do složky projektu a spusťte následující příkaz. (Obvykle chcete spustit "Vývojáře příkazového řádku pro sady Visual Studio" z nabídky Start, jak bude nakonfigurován s všechny nezbytné cesty pro MSBuild.)
 
 ```cli
 msbuild /t:pack /p:Configuration=Release
@@ -119,7 +119,7 @@ Až budete mít `.nupkg` souboru ji publikujete do nuget.org buď pomocí `nuget
 
 Tento krok je alternativu k použití `dotnet.exe`.
 
-1. Změnit na složku, která obsahuje `.nupkg` souboru...
+1. Změnit na složku, která obsahuje `.nupkg` souboru.
 
 1. Spusťte následující příkaz, zadáte název balíčku a nahraďte hodnotu klíče klíč rozhraní API:
 

@@ -12,11 +12,11 @@ keywords: "referenční dokumentace nabízené nuget, nabízené příkaz"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: df8ef42f650a20b92a281fff3e597ac8d484544e
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: 095e81406df3db5fbfc6c5202362894b2c6d7cf8
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="push-command-nuget-cli"></a>příkaz nabízené (NuGet CLI)
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/14/2018
 
 Nabízených oznámení balíček ke zdroji balíčku a vydává je.
 
-NuGet výchozí konfiguraci se získávají načtením `%AppData%\NuGet\NuGet.Config`, pak všechny načítání `Nuget.Config` nebo `.nuget\Nuget.Config` soubory z kořenové složky jednotky počáteční a koncovou v aktuálním adresáři (najdete v části [konfigurace chování NuGet](../consume-packages/configuring-nuget-behavior.md))
+NuGet výchozí konfiguraci se získávají načtením `%AppData%\NuGet\NuGet.Config` (Windows) nebo `~/.nuget/NuGet/NuGet.Config` (Mac/Linux), pak načítání všechny `Nuget.Config` nebo `.nuget\Nuget.Config` soubory z kořenové složky jednotky počáteční a koncovou v aktuálním adresáři (viz [konfigurace Chování NuGet](../consume-packages/configuring-nuget-behavior.md))
 
 ## <a name="usage"></a>Použití
 
@@ -41,8 +41,8 @@ kde `<packagePath>` identifikuje balíček k replikaci na server.
 
 | Možnost | Popis |
 | --- | --- |
-| ApiKey | Klíč rozhraní API pro cílové úložiště. Pokud není přítomný, ten zadat *%AppData%\NuGet\NuGet.Config* se používá. |
-| ConfigFile | Konfigurační soubor NuGet použít. Pokud není zadaný, *%AppData%\NuGet\NuGet.Config* se používá. |
+| ApiKey | Klíč rozhraní API pro cílové úložiště. Pokud není přítomný, použije se verze zadaná v konfiguračním souboru. |
+| ConfigFile | Konfigurační soubor NuGet použít. Pokud není zadaný, `%AppData%\NuGet\NuGet.Config` (Windows) nebo `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) se používá.|
 | DisableBuffering | Zakáže ukládání do vyrovnávací paměti při nabízení do serveru http (s), aby se snížila paměti. Upozornění: Pokud tato možnost se používá, nemusí fungovat integrované ověřování systému Windows. |
 | ForceEnglishOutput | *(3.5 +)*  Vynutí nuget.exe ke spuštění pomocí invariantní, na základě angličtina jazykové verze. |
 | Nápověda | Zobrazí nápovědu pro příkaz. |

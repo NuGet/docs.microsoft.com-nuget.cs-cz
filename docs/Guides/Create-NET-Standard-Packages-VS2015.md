@@ -12,11 +12,11 @@ keywords: "Vytvoření balíčku, .NET Standard balíčky, .NET Standard mapová
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c15ffd709856fc9d5b9a9fb2fe87c0029b82650d
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.openlocfilehash: abf6a56cbc84bdd066e31e77c7883825a8456144
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="create-net-standard-packages-with-visual-studio-2015"></a>Vytvoření balíčků .NET Standard s Visual Studio 2015
 
@@ -70,29 +70,29 @@ Tento průvodce vás provede procesem vytváření balíčku NuGet cílení .NET
 
 1. Otevřete příkazový řádek, přejděte do složky obsahující `AppLogger.csproj` složky (o jednu úroveň pod where `.sln` soubor), a spusťte NuGet `spec` příkaz pro vytvoření počáteční `AppLogger.nuspec` souboru:
 
-```cli
-nuget spec
-```
+    ```cli
+    nuget spec
+    ```
 
 1. Otevřete `AppLogger.nuspec` v editoru a aktualizovat ji tak, aby odpovídala následující, nahraďte vaše_jméno odpovídající hodnotu. `<id>` Hodnotu, konkrétně musí být jedinečný v rámci nuget.org (viz zásady vytváření názvů, které jsou popsané v [vytváření balíčku](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number). Všimněte si také, zda je nutné také aktualizovat autora a popis značky nebo dojde k chybě během kroku okolních.
 
-```xml
-<?xml version="1.0"?>
-<package >
-    <metadata>
-    <id>AppLogger.YOUR_NAME</id>
-    <version>1.0.0</version>
-    <title>AppLogger</title>
-    <authors>YOUR_NAME</authors>
-    <owners>YOUR_NAME</owners>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Awesome application logging utility</description>
-    <releaseNotes>First release</releaseNotes>
-    <copyright>Copyright 2018 (c) Contoso Corporation. All rights reserved.</copyright>
-    <tags>logger logging logs</tags>
-    </metadata>
-</package>
-```
+    ```xml
+    <?xml version="1.0"?>
+    <package >
+        <metadata>
+        <id>AppLogger.YOUR_NAME</id>
+        <version>1.0.0</version>
+        <title>AppLogger</title>
+        <authors>YOUR_NAME</authors>
+        <owners>YOUR_NAME</owners>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Awesome application logging utility</description>
+        <releaseNotes>First release</releaseNotes>
+        <copyright>Copyright 2018 (c) Contoso Corporation. All rights reserved.</copyright>
+        <tags>logger logging logs</tags>
+        </metadata>
+    </package>
+    ```
 
 1. Přidat odkaz na sestavení, které chcete `.nuspec` souboru, a to knihovně DLL a soubor IntelliSense XML:
 

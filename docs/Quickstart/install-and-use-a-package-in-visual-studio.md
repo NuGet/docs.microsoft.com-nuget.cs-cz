@@ -12,11 +12,11 @@ keywords: "Nainstalujte NuGet, využívání balíčku NuGet, instalace balíčk
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b2cfe2d9b929d43f733fd28ba7336c0b04f718e6
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.openlocfilehash: ff905fec6d6af4fa40fd4331cb970121b6eb0879
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="install-and-use-a-package-in-visual-studio"></a>Instalace a použití balíčku v sadě Visual Studio
 
@@ -40,7 +40,7 @@ Balíčky NuGet lze nainstalovat do projektu .NET určitého druhu. V tomto náv
 
 ## <a name="add-the-newtonsoftjson-nuget-package"></a>Přidejte balíček Newtonsoft.Json NuGet
 
-Chcete-li nainstalovat balíček, můžete použít uživatelského rozhraní Správce balíčků nebo konzole Správce balíčků.
+Chcete-li nainstalovat balíček, můžete použít uživatelského rozhraní Správce balíčků nebo konzole Správce balíčků. Při instalaci balíčku NuGet zaznamenává závislost buď souboru projektu nebo `packages.config` souboru. Další informace najdete v tématu [balíček spotřeba přehled a pracovní postup](../consume-packages/Overview-and-Workflow.md).
 
 ### <a name="package-manager-ui"></a>Uživatelského rozhraní Správce balíčků
 

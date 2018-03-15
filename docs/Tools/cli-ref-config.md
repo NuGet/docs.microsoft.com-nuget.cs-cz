@@ -12,11 +12,11 @@ keywords: "referenční dokumentace týkající se konfigurace nuget, příkazu 
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 34d156a29207122bac3c21c3307cbe7373b5f031
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.openlocfilehash: 7cf7c06000904a617752567ed7612c0c48042db9
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="config-command-nuget-cli"></a>příkaz config (NuGet CLI)
 
@@ -42,7 +42,7 @@ V NuGet 3.4 + `<value>` můžete použít [proměnné prostředí](cli-ref-envir
 | Možnost | Popis |
 | --- | --- |
 | AsPath | Vrátí hodnotu konfigurace jako cesta, ignorovat při `-Set` se používá. |
-| ConfigFile | Konfigurační soubor NuGet chcete upravit. Pokud není zadaný, *%AppData%\NuGet\NuGet.Config* se používá. |
+| ConfigFile | Konfigurační soubor NuGet chcete upravit. Pokud není zadaný, `%AppData%\NuGet\NuGet.Config` (Windows) nebo `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) se používá.|
 | ForceEnglishOutput | *(3.5 +)*  Vynutí nuget.exe ke spuštění pomocí invariantní, na základě angličtina jazykové verze. |
 | Nápověda | Zobrazí nápovědu pro příkaz. |
 | Neinteraktivní | Potlačí výzvy pro vstup uživatele nebo potvrzení. |

@@ -12,11 +12,11 @@ keywords: "Balíček NuGet podepisování NuGet zabezpečení, vytváření bal�
 ms.reviewer:
 - karann-msft
 - anangaur
-ms.openlocfilehash: 226b2af13a4559dfc7266e941617dca25ccd2245
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.openlocfilehash: aaf6ab7d7a9e66d4d9519d8aa79f0d0fac646d3a
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="signing-nuget-packages"></a>Podepisování balíčků NuGet
 
@@ -31,7 +31,7 @@ Podpis balíčku je proces, který zajistí, že balíček nebyl změněn od sv�
 1. [Certifikát pro podpis kódu](../reference/signed-packages-reference.md#get-a-code-signing-certificate).
 
 > [!Warning]
-> NuGet.org aktuálně nepřijímá podepsané balíčky. Můžete si balíčky pro publikování vlastních informačních kanálů.
+> nuget.org aktuálně nepřijímá podepsané balíčky. Můžete si balíčky pro publikování vlastních informačních kanálů.
 
 ## <a name="sign-a-package"></a>Podepisování balíčku
 

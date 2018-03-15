@@ -12,11 +12,11 @@ keywords: "Verze balíčku NuGet otázek a odpovědí, otázky a odpovědi, bě�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: ccad93c72ff20ef3bc197280b5602ec2b2d40199
-ms.sourcegitcommit: df7158169e84900d135416cd5e52f937df0beb52
+ms.openlocfilehash: 3782fe5dcf8df002d99446aa7548a6eacc62211c
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="nuget-frequently-asked-questions"></a>Nejčastější dotazy NuGet
 
@@ -156,7 +156,7 @@ To není problém při použití PackageReference, protože každý soubor proje
 **Nuget.org se nezobrazí v seznamu úložišť, jak lze získat ho zpátky?**
 
 - Přidat `https://api.nuget.org/v3/index.json` si na seznam zdrojů, nebo
-- Odstranit `%appdata%\.nuget\NuGet.Config` a nechat NuGet znovu vytvořit.
+- Odstranit `%appdata%\.nuget\NuGet.Config` (Windows) nebo `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) a umožní NuGet znovu vytvořit.
 
 **Jaké jsou výchozí licenční podmínky Pokud balíček neposkytuje konkrétní informace o licencích?**
 

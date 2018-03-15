@@ -12,11 +12,11 @@ keywords: "NuGet konfigurační soubory, NuGet konfigurace, nastavení chování
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2ab3e6dad852214ac9bb93f7df0a8c3fef10b9dc
-ms.sourcegitcommit: df21fe770900644d476d51622a999597a6f20ef8
+ms.openlocfilehash: c46f23fcbec5dfcb6122434d43097212f6230fb0
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="configuring-nuget-behavior"></a>Konfigurace chování NuGet
 
@@ -27,8 +27,8 @@ Chování NuGet doprovází Akumulovaná nastavení v jedné nebo více `NuGet.C
 | Rozsah | Umístění souboru NuGet.Config | Popis |
 | --- | --- | --- |
 | Projekt | Aktuální složce (neboli složky projektu) nebo libovolné složky až kořenové jednotce.| Ve složce projektu nastavení platí pouze pro tento projekt. V nadřazené složky, které obsahují více projektů podsložky nastavení se vztahují na všechny projekty v těchto podsložky. |
-| Uživatel | Windows: %APPDATA%\NuGet\NuGet.Config<br/>Mac/Linux: ~/.nuget/NuGet.Config | Nastavení platí pro všechny operace, ale jsou přepsány jakékoli nastavení projektu. |
-| Počítače | Windows: %ProgramFiles(x86)%\NuGet\Config<br/>Mac/Linux: $XDG_DATA_HOME (obvykle ~/.local/share) | Nastavení platí pro všechny operace v počítači, ale jsou elementem podle všechna nastavení na úrovni uživatele nebo projektu. |
+| Uživatel | Windows: `%APPDATA%\NuGet\NuGet.Config`<br/>Mac/Linux: `~/.nuget/NuGet/NuGet.Config` | Nastavení platí pro všechny operace, ale jsou přepsány jakékoli nastavení projektu. |
+| Počítače | Windows: `%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux: `$XDG_DATA_HOME` (obvykle `~/.local/share`) | Nastavení platí pro všechny operace v počítači, ale jsou elementem podle všechna nastavení na úrovni uživatele nebo projektu. |
 
 Poznámky pro starší verze balíčku nuget:
 - NuGet 3.3 a dříve slouží `.nuget` složku pro nastavení celé řešení. Tento soubor není použit v NuGet 3.4 +.
@@ -137,7 +137,7 @@ Může se stát, že máte následující strukturu složek na dvě samostatné 
 
 Budete mít čtyři `NuGet.Config` soubory v následujících umístěních s daný obsah. (Soubor úrovni počítače není zahrnutý v tomto příkladu, ale budou chovat podobně do souboru úrovni uživatele.)
 
-Soubor A. individuální soubor (%APPDATA%\NuGet\NuGet.Config v systému Windows, ~/.nuget/NuGet.Config na Mac/Linux):
+Soubor A. individuální souborů, (`%APPDATA%\NuGet\NuGet.Config` v systému Windows, `~/.nuget/NuGet/NuGet.Config` na Mac/Linux):
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

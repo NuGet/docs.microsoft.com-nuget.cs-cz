@@ -13,11 +13,11 @@ keywords: "Obnovení balíčku NuGet, instalace balíčku NuGet, instalace balí
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 1980e00f865344927d105513f62923d14971b17b
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.openlocfilehash: 761ef86a70e0a681449dc9fe86d6a52ac2b19bb1
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="package-restore"></a>Obnovení balíčku
 
@@ -58,7 +58,7 @@ Obnovení balíčku je primárně povolená díky **nástroje > Možnosti > Spr�
 
 ![Řízení chování obnovení balíčku prostřednictvím možnosti Správce balíčků NuGet](media/Restore-01-AutoRestoreOptions.png)
 
-- **Povolit aplikaci NuGet stáhnout chybějící balíčky**: řídí všechny formy obnovení balíčků změnou `packageRestore/enabled` nastavení v `%AppData%\NuGet\NuGet.Config` souboru, jak je uvedeno níže.
+- **Povolit aplikaci NuGet stáhnout chybějící balíčky**: řídí všechny formy obnovení balíčků změnou `packageRestore/enabled` nastavení v `NuGet.Config` souboru, jak je uvedeno níže (`%AppData%\NuGet\NuGet.Config` v systému Windows, `~/.nuget/NuGet/NuGet.Config` na Mac/Linux). V sadě Visual Studio, toto nastavení umožňuje **obnovení balíčků NuGet** příkaz v místní nabídce na řešení pro práci.
 
     ```xml
     <configuration>
@@ -73,7 +73,7 @@ Obnovení balíčku je primárně povolená díky **nástroje > Možnosti > Spr�
     > [!Note]
     >  `packageRestore/enabled` Nastavení je možné přepsat globálně nastavením proměnné prostředí názvem **EnableNuGetPackageRestore** s hodnotou PRAVDA nebo NEPRAVDA před spuštění sady Visual Studio nebo spuštění sestavení.
 
-- **Automaticky Zkontrolujte chybějící balíčky během sestavení v sadě Visual Studio**: ovládací prvky Automatické obnovení změnou `packageRestore/automatic` nastavení v `%AppData%\NuGet\NuGet.Config` souboru, jak je uvedeno níže.
+- **Automaticky Zkontrolujte chybějící balíčky během sestavení v sadě Visual Studio**: ovládací prvky Automatické obnovení změnou `packageRestore/automatic` nastavení v `NuGet.Config` souboru, jak je uvedeno níže (`%AppData%\NuGet\NuGet.Config` v systému Windows, `~/.nuget/NuGet/NuGet.Config` na Mac/Linux). Pokud je tato možnost nastavená, spuštění sestavení ze sady Visual Studio automaticky obnoví všechny chybějící balíčky. Možnost nemá vliv na sestavení, spusťte z příkazového řádku pomocí nástroje MSBuild.
 
     ```xml
     ...

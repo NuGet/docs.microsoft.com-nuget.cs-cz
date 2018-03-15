@@ -3,7 +3,7 @@ title: "NuGet pack a obnovit jako cíle MSBuild | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 04/03/2017
+ms.date: 03/13/2018
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
@@ -11,11 +11,11 @@ description: "NuGet pack a obnovení můžete pracovat přímo jako cíle MSBuil
 keywords: "NuGet a MSBuild NuGet pack cíl, cíl obnovení NuGet"
 ms.reviewer:
 - karann-msft
-ms.openlocfilehash: 798b3550718294072d86b6e4827ec5017178d2cc
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.openlocfilehash: bb0ade1b0f5f81d7c8822d3c2b2f9dd45745fb8d
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet pack a obnovení jako cíle nástroje MSBuild
 
@@ -42,7 +42,9 @@ Podobně můžete napsat úlohy nástroje MSBuild, zápis vlastní cíl a využ�
 
 ## <a name="pack-target"></a>cíl Pack
 
-Při použití pack cíl, který je `msbuild /t:pack`, MSBuild nevykresluje vstupy ze souboru projektu. Následující tabulka popisuje vlastnosti nástroje MSBuild, které mohou být přidány do souboru projektu v první `<PropertyGroup>` uzlu. Můžete provést tyto úpravy snadno v Visual Studio 2017 a později kliknutím pravým tlačítkem na projekt a výběrem **upravit {název_projektu}** v místní nabídce. Pro usnadnění práce v tabulce je seřazená podle vlastnost ekvivalentní v [ `.nuspec` soubor](../reference/nuspec.md).
+Pro rozhraní .NET standardní projekty formátu PackageReference, pomocí `msbuild /t:pack` nevykresluje vstupy ze souboru projektu použít při vytváření balíčku NuGet.
+
+Následující tabulka popisuje vlastnosti nástroje MSBuild, které mohou být přidány do souboru projektu v první `<PropertyGroup>` uzlu. Můžete provést tyto úpravy snadno v Visual Studio 2017 a později kliknutím pravým tlačítkem na projekt a výběrem **upravit {název_projektu}** v místní nabídce. Pro usnadnění práce v tabulce je seřazená podle vlastnost ekvivalentní v [ `.nuspec` soubor](../reference/nuspec.md).
 
 Všimněte si, že `Owners` a `Summary` vlastnosti z `.nuspec` nejsou podporovány pomocí nástroje MSBuild.
 
@@ -194,7 +196,7 @@ Při použití `MSBuild /t:pack /p:IsTool=true`, všechny výstupní soubory, ja
 
 ### <a name="packing-using-a-nuspec"></a>Balení pomocí příponou .nuspec
 
-Můžete použít `.nuspec` soubor pack projektu za předpokladu, že soubor projektu k importu `NuGet.Build.Tasks.Pack.targets` tak, aby úloha sady mohou být provedeny. Následující tři vlastnosti nástroje MSBuild jsou relevantní pro balení, použití `.nuspec`:
+Můžete použít `.nuspec` soubor pack projektu za předpokladu, že soubor projektu sady SDK k importu `NuGet.Build.Tasks.Pack.targets` tak, aby úloha sady mohou být provedeny. Potřebujete stále obnovení projektu, než můžete pack soubor nuspec. Cílový framework projektu soubor je důležité a nepoužívá se při balení nuspec. Následující tři vlastnosti nástroje MSBuild jsou relevantní pro balení, použití `.nuspec`:
 
 1. `NuspecFile`: relativní nebo absolutní cesta k `.nuspec` soubor používá pro okolních.
 1. `NuspecProperties`: středníky oddělený seznam klíč = hodnota páry. Vzhledem ke způsobu MSBuild příkazového řádku analýzy funguje více vlastností se musí zadat následujícím způsobem: `/p:NuspecProperties=\"key1=value1;key2=value2\"`.  
@@ -212,6 +214,23 @@ Pokud pomocí nástroje MSBuild pack projektu, použijte příkaz takto:
 msbuild /t:pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:NuspecProperties=<> /p:NuspecBasePath=<Base path> 
 ```
 
+Upozorňujeme, že balení nuspec pomocí dotnet.exe nebo msbuild také vede k vytváření projektu ve výchozím nastavení. Tím se vyhnout předáním ```--no-build``` vlastnost dotnet.exe, která je ekvivalentní nastavení ```<NoBuild>true</NoBuild> ``` v souboru projektu se nastavení ```<IncludeBuildOutput>false</IncludeBuildOutput> ``` v souboru projektu
+
+Je například csproj soubor pro soubor nuspec pack:
+
+```
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <NoBuild>true</NoBuild>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <NuspecFile>PATH_TO_NUSPEC_FILE</NuspecFile>
+    <NuspecProperties>add nuspec properties here</NuspecProperties>
+    <NuspecBasePath>optional to provide</NuspecBasePath>
+  </PropertyGroup>
+</Project>
+```
+
 ## <a name="restore-target"></a>Cíl obnovení
 
 `MSBuild /t:restore` (která `nuget restore` a `dotnet restore` použít s projekty .NET Core), obnoví balíčky, kterou se odkazuje v souboru projektu následujícím způsobem:
@@ -223,8 +242,7 @@ msbuild /t:pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:Nu
 1. Stáhnout balíčky
 1. Zápis soubor prostředků, cílů a props
 
-> [!Note]
-> `restore` MSBuild cíl funguje výhradně u projektů pomocí `PackageReference` položky a neobnoví odkazovat pomocí balíčků `packages.config` souboru.
+`restore` Cíle funguje **pouze** pro projekty PackageReference formátu. Provede **není** pracovní pro projekty pomocí `packages.config` formát; použít [obnovení nuget](../tools/cli-ref-restore.md) místo.
 
 ### <a name="restore-properties"></a>Obnovit vlastnosti
 

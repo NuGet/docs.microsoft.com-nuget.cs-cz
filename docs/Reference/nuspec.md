@@ -13,11 +13,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c52d0a7c0da507cb9688c8a7b2c4eaf54a8ca5c2
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.openlocfilehash: 90693b09fce966e3bc28ca24360a3fb4e1f73386
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="nuspec-reference"></a>referenční dokumentace příponou .nuspec
 
@@ -94,7 +94,7 @@ Může se zobrazit tyto prvky v rámci `<metadata>` elementu.
 | **Vlastníci** | Seznam creators balíček pomocí profilu názvy v nuget.org oddělených čárkami. Tento problém je často seznamu stejné jako v `authors`a při odesílání balíčku pro nuget.org ignorováno. V tématu [Správa vlastníků balíčku na nuget.org](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg). |
 | **projectUrl** | Zobrazí adresu URL pro domovskou stránku balíčku, často se zobrazí v uživatelském rozhraní a také nuget.org. |
 | **licenseUrl** | Adresa URL pro balíčku licenci, často se zobrazí v zobrazení uživatelského rozhraní, jakož i nuget.org. |
-| **iconUrl** | Adresu URL pro bitovou kopii 64 x 64 s průhlednost pozadí chcete použít jako ikonu balíčku v zobrazení uživatelského rozhraní. Ujistěte se, obsahuje tento element *přímá adresa URL obrázku* nikoli adresa URL webové stránky, který obsahuje bitovou kopii. Například pokud chcete použít bitovou kopii z Githubu, použijte soubor raw, jako adresa URL *https://github.com/\<uživatelské jméno\>/\<úložiště\>/raw/\<větve\> / \<logo.png\>*. |
+| **iconUrl** | Adresu URL pro bitovou kopii 64 x 64 s průhlednost pozadí chcete použít jako ikonu balíčku v zobrazení uživatelského rozhraní. Ujistěte se, obsahuje tento element *přímá adresa URL obrázku* nikoli adresa URL webové stránky, který obsahuje bitovou kopii. Například pokud chcete použít bitovou kopii z Githubu, použijte soubor raw, jako adresa URL  *https://github.com/ \<uživatelské jméno\>/\<úložiště\>/raw/\<větve\> / \<logo.png\>*. |
 | **requireLicenseAcceptance** | Logická hodnota určující, jestli klient musí zobrazovat výzvu k příjemce tak, aby přijímal licenční balíček před instalací balíčku. |
 | **developmentDependency** | *(2.8 +)*  A logickou hodnotu určující, zda tento balíček je označit jako vývoj jen závislost, která zabraňuje balíček zahrnutí v závislosti na dalších balíčků. |
 | **summary** | Stručný popis balíčku pro zobrazení uživatelského rozhraní. Pokud tento parametr vynechán, zkrácený verzi `description` se používá. |
@@ -143,9 +143,10 @@ S výjimkou produktů `$configuration$`, jsou všechny přiřazen stejný token 
 
 | Token | Hodnota zdroje | Hodnota
 | --- | --- | ---
-| **$id$** | soubor projektu | AssemblyName ze souboru projektu |
+| **$id$** | soubor projektu | AssemblyName (title) ze souboru projektu |
 | **$version$** | AssemblyInfo | AssemblyInformationalVersion, pokud existuje, jinak hodnota AssemblyVersion |
 | **$author$** | AssemblyInfo | AssemblyCompany |
+| **$title$** | AssemblyInfo | AssemblyTitle |
 | **$description$** | AssemblyInfo | AssemblyDescription |
 | **$copyright$** | AssemblyInfo | AssemblyCopyright |
 | **$configuration$** | Sestavení knihovny DLL | Konfigurace použitá k vytvoření sestavení, jako výchozí bude použit k ladění. Upozorňujeme, že pokud chcete vytvořit balíček pomocí konfigurace verze, můžete vždy použít `-properties Configuration=Release` na příkazovém řádku. |
@@ -543,7 +544,7 @@ Tyto soubory jsou určeny sadu atributů, které popisují, jak mají být použ
 | **Zahrnout** | (Povinné) Umístění souboru nebo soubory, které chcete zahrnout, podstoupí vyloučení určeného `exclude` atribut. Cesta je vzhledem k `.nuspec` souboru uvedeno absolutní cesta. Zástupný znak `*` je povolen a dvojité zástupných znaků `**` znamená rekurzivní složky hledání. |
 | **exclude** | Seznam oddělený středníkem souborů nebo vzorů souborů, které chcete vyloučit z `src` umístění. Zástupný znak `*` je povolen a dvojité zástupných znaků `**` znamená rekurzivní složky hledání. |
 | **buildAction** | Akce sestavení přiřadit položku obsahu pro MSBuild, jako například `Content`, `None`, `Embedded Resource`, `Compile`atd. Výchozí hodnota je `Compile`. |
-| **copyToOutput** | Logická hodnota, která určuje, zda zkopírovat položky obsahu do výstupní složky sestavení. Výchozí hodnota je false. |
+| **copyToOutput** | Logická hodnota, která určuje, zda zkopírovat obsahu položky do sestavení (nebo publikování) výstupní složky. Výchozí hodnota je false. |
 | **flatten** | Logická hodnota, která určuje, jestli kopírování obsahu položky do jediné složky ve výstupu sestavení (true) nebo chcete zachovat struktura složek v balíčku (false). Tento příznak pouze funguje, když je příznak copyToOutput nastaven na hodnotu true. Výchozí hodnota je false. |
 
 Při instalaci balíčku, NuGet platí podřízených elementů `<contentFiles>` shora dolů. Pokud stejný soubor shodovat s více položek se použijí všechny položky. Položka nejvyšší přepíše nižší položky, pokud dojde ke konfliktu pro stejný atribut.

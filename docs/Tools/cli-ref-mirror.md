@@ -12,11 +12,11 @@ keywords: "referenční dokumentace zrcadlení nuget, příkaz zrcadlení"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 80b8f9a3b74030ffd3f1c7b784204d98be67d684
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: 0c1969cc04b2e2cead5e9dadf9739fdabdf65f6c
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="mirror-command-nuget-cli"></a>příkaz zrcadlení (NuGet CLI)
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 02/14/2018
 Odráží balíček a jeho závislosti z zadaná zdrojová úložiště do cílového úložiště.
 
 > [!NOTE]
-> Chcete-li příkaz pro verze NuGet před 3.2, přejděte na [https://nuget.codeplex.com/releases](https://nuget.codeplex.com/releases)vyberte nejnovější stabilní verze, stáhněte si `NuGet.ServerExtensions.dll` a `Nuget-Signed.exe` na váš místní disk a přejmenování `Nuget-Signed.exe` na `nuget.exe`.
+> Chcete-li příkaz pro verze NuGet před 3.2, přejděte na [ https://nuget.codeplex.com/releases ](https://nuget.codeplex.com/releases)vyberte nejnovější stabilní verze, stáhněte si `NuGet.ServerExtensions.dll` a `Nuget-Signed.exe` na váš místní disk a přejmenování `Nuget-Signed.exe` k `nuget.exe`.
 
 ## <a name="usage"></a>Použití
 
@@ -43,12 +43,12 @@ Pokud vaše cílové úložiště na `https://machine/repo` na kterém běží [
 
 | Možnost | Popis |
 | --- | --- |
-| ApiKey | Klíč rozhraní API pro cílové úložiště. Pokud není přítomný, ten zadat *%AppData%\NuGet\NuGet.Config* se používá. |
+| ApiKey | Klíč rozhraní API pro cílové úložiště. Pokud není přítomný, verze zadaná v konfiguračním souboru se používá (`%AppData%\NuGet\NuGet.Config` (Windows) nebo `~/.nuget/NuGet/NuGet.Config` (Mac/Linux)). |
 | Nápověda | Zobrazí nápovědu pro příkaz. |
 | NoCache | NuGet bránit v použití balíčky z mezipaměti místního počítače. |
 | Nedojde k žádné akci | Protokoly co provádějí, ale neprovádí akce; předpokládá úspěch pro operace push. |
 | Předběžné verze | Obsahuje předběžné verze balíčků v zrcadlení operaci. |
-| Zdroj | Seznam zdrojů balíčku pro zrcadlení. Pokud nejsou zadány žádné zdroje, těm, které jsou definované v *%AppData%\NuGet\NuGet.Config* se používají jako výchozí bude použit nuget.org-li zadán žádný. |
+| Zdroj | Seznam zdrojů balíčku pro zrcadlení. Pokud nejsou zadány žádné zdroje, těm, které jsou definována v konfiguračním souboru (viz výše ApiKey) se používají, jako výchozí bude použit nuget.org-li zadán žádný. |
 | Časový limit | Určuje časový limit v sekundách pro vkládání na server. Výchozí hodnota je 300 sekund (5 minut). |
 | Version | Verze balíčku pro instalaci. Pokud není zadáno, je Zrcadleno na nejnovější verzi. |
 

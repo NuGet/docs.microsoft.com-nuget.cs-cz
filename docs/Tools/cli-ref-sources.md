@@ -12,18 +12,17 @@ keywords: "nuget zdroje odkazu, zdroje příkaz"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 1e8204f5e1bf712f65d8efb14ca2a4bd802e3f90
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.openlocfilehash: 139a9494e1ea898c90ce79d5990530fbe08642bd
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="sources-command-nuget-cli"></a>příkaz zdroje (NuGet CLI)
 
 **Platí pro:** spotřeba balíčku, publikování &bullet; **podporované verze:** všechny
 
-Spravuje seznam zdrojů, na které se nacházejí v oboru konfigurační soubor uživatele nebo v určeném konfiguračním souboru. Konfigurační soubor uživatele rozsah se nachází v `%APPDATA%\NuGet\NuGet.Config` v systému Windows a na `~/.nuget/NuGet.Config` v Mac/Linux.
-
+Spravuje seznam zdrojů, na které se nacházejí v oboru konfigurační soubor uživatele nebo v určeném konfiguračním souboru. Konfigurační soubor uživatele rozsah se nachází v `%APPDATA%\NuGet\NuGet.Config` (Windows) a `~/.nuget/NuGet/NuGet.Config` (Mac/Linux).
 
 Všimněte si, že je adresa URL zdroje pro nuget.org `https://api.nuget.org/v3/index.json`.
 
@@ -39,7 +38,7 @@ kde `<operation>` je jedním z *seznamu, přidat, odebrat, povolit, zakázat,* n
 
 | Možnost | Popis |
 | --- | --- |
-| ConfigFile | Konfigurační soubor NuGet použít. Pokud není zadaný, *%AppData%\NuGet\NuGet.Config* se používá. |
+| ConfigFile | Konfigurační soubor NuGet použít. Pokud není zadaný, `%AppData%\NuGet\NuGet.Config` (Windows) nebo `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) se používá.|
 | ForceEnglishOutput | *(3.5 +)*  Vynutí nuget.exe ke spuštění pomocí invariantní, na základě angličtina jazykové verze. |
 | Formát | Platí pro `list` akce a může být `Detailed` (výchozí) nebo `Short`. |
 | Nápověda | Zobrazí nápovědu pro příkaz. |
