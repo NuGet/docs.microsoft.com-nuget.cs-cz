@@ -3,8 +3,9 @@
 # Rychlý start
 ## [Instalace a použití balíčku (rozhraní příkazového řádku dotnet)](quickstart/install-and-use-a-package-using-the-dotnet-cli.md)
 ## [Instalace a použití balíčku (Visual Studio)](quickstart/install-and-use-a-package-in-visual-studio.md)
-## [Vytvoření a publikování balíčku (rozhraní příkazového řádku dotnet)](quickstart/create-and-publish-a-package-using-the-dotnet-cli.md)
-## [Vytvoření a publikování balíčku (Visual Studio)](quickstart/create-and-publish-a-package-using-visual-studio.md)
+## [Vytvoření a publikování balíčku .NET Standard (rozhraní příkazového řádku dotnet)](quickstart/create-and-publish-a-package-using-the-dotnet-cli.md)
+## [Vytvoření a publikování balíčku .NET Standard (Visual Studio)](quickstart/create-and-publish-a-package-using-visual-studio.md)
+## [Vytvoření a publikování balíčku .NET Framework (Visual Studio)](quickstart/create-and-publish-a-package-using-visual-studio-net-framework.md)
 # Využívání balíčků
 ## [Přehled a pracovní postup](consume-packages/overview-and-workflow.md)
 ## [Vyhledání a výběr balíčků](consume-packages/finding-and-choosing-packages.md)
