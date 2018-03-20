@@ -17,7 +17,6 @@
 ## [Správa mezipaměti NuGetu](consume-packages/managing-the-nuget-cache.md)
 ## [Konfigurace chování NuGetu](consume-packages/configuring-nuget-behavior.md)
 ## [Řešení závislostí](consume-packages/dependency-resolution.md)
-## [Odkazy na balíčky v souborech projektů](consume-packages/package-references-in-project-files.md)
 # Vytváření balíčků
 ## [Přehled a pracovní postup](create-packages/overview-and-workflow.md)
 ## [Vytvoření balíčku](create-packages/creating-a-package.md)
@@ -74,6 +73,7 @@
 ## [Příkazy dotnet](tools/dotnet-Commands.md)
 # Odkaz
 ## [.nuspec](reference/nuspec.md)
+## [Odkazy na balíčky v souborech projektů](consume-packages/package-references-in-project-files.md)
 ## [packages.config](reference/packages-config.md)
 ## [Správa verzí balíčků](reference/package-versioning.md)
 ## [Soubor Nuget.Config](reference/nuget-config-file.md)
