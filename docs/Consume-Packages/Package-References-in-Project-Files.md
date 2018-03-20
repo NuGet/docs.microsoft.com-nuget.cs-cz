@@ -3,7 +3,7 @@ title: "Formát NuGet PackageReference (odkazů balíčku v souborech projektu) 
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 07/17/2017
+ms.date: 03/16/2018
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
@@ -12,11 +12,11 @@ keywords: "Závislosti balíčků NuGet, balíček odkazuje projektu soubory, Pa
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 679871a280c158c863e0daf790af1b7cef509943
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.openlocfilehash: e1880c9b294e19ef1b71c7b17b02df8ff1cf1b73
+ms.sourcegitcommit: 718e6cb88e45fa07c85d653f216bf92eaaf81625
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/20/2018
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Balíček odkazuje (PackageReference) v souborech projektu
 
@@ -24,7 +24,7 @@ Balíček odkazů, pomocí `PackageReference` uzlu, Správa závislostí NuGet p
 
 S PackageReference můžete taky podmínky nástroje MSBuild vybrat balíček odkazuje na cílové rozhraní, konfigurace, platformu nebo jiných seskupení. Umožňuje také pro jemně odstupňovanou kontrolu nad závislosti a obsahu toku. (Další podrobnosti najdete v [NuGet pack a obnovit jako cíle MSBuild](../reference/msbuild-targets.md).)
 
-Ve výchozím nastavení, PackageReference slouží pro projekty .NET Core, .NET Standard projekty a UWP projektech zacílených na Windows 10 sestavení 15063 (Creators aktualizace) a novější. Projekty rozhraní .NET framework úplnou podporu PackageReference, ale aktuálně výchozí `packages.config`. Chcete-li použít PackageReference, migrujte závislostí z `packages.config` v souboru projektu odeberte souboru Packages.config je.
+Ve výchozím nastavení PackageReference se používá pro projekty .NET Core, .NET Standard projekty a UWP projektech zacílených na Windows 10 sestavení 15063 (Creators aktualizace) a novější, s výjimkou projektů C++ UWP. Projekty rozhraní .NET framework úplnou podporu PackageReference, ale aktuálně výchozí `packages.config`. Chcete-li použít PackageReference, migrujte závislostí z `packages.config` v souboru projektu odeberte souboru Packages.config je.
 
 ## <a name="adding-a-packagereference"></a>Přidání PackageReference
 
@@ -94,7 +94,7 @@ Povolené hodnoty pro tyto značky jsou následující, s více hodnotami, kter�
 | Hodnota | Popis |
 | --- | ---
 | compile | Obsah `lib` složky |
-| modul runtime | Obsah `runtime` složky |
+| modul runtime | Obsah `runtimes` složky |
 | contentFiles | Obsah `contentfiles` složky |
 | sestavení | Props a cílem v `build` složky |
 | Analyzátory | Analyzátory rozhraní .NET |
