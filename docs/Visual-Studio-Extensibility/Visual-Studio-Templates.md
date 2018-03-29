@@ -1,22 +1,25 @@
 ---
-title: "Balíčky NuGet ve šablony sady Visual Studio | Microsoft Docs"
+title: Balíčky NuGet ve šablony sady Visual Studio | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/03/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Pokyny včetně balíčků NuGet v rámci šablon projektů a položek v sadě Visual Studio."
-keywords: "NuGet v sadě Visual Studio, šablony projektů Visual Studio, položka šablony sady Visual Studio, balíčky v projektu šablony, balíčky v šablonách položek"
+ms.technology: ''
+description: Pokyny včetně balíčků NuGet v rámci šablon projektů a položek v sadě Visual Studio.
+keywords: NuGet v sadě Visual Studio, šablony projektů Visual Studio, položka šablony sady Visual Studio, balíčky v projektu šablony, balíčky v šablonách položek
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 65b914e1fa59c28615f195b470880a12bf80efbb
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 8c1751ba9caf5e71ace7a81575e4e5448b1e4185
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="packages-in-visual-studio-templates"></a>Balíčky v šablony sady Visual Studio
 
@@ -50,7 +53,7 @@ Postup do šablony zahrnout balíčky:
     </WizardExtension>
     ```
 
-    `NuGet.VisualStudio.Interop.dll`je sestavení obsahující pouze `TemplateWizard` třídy, která představuje jednoduchý obálku, který volá do skutečné implementace v `NuGet.VisualStudio.dll`. Verze sestavení se nikdy změnit tak, aby šablon projektu nebo položek pokračovat v práci s novými verzemi nástroje NuGet.
+    `NuGet.VisualStudio.Interop.dll` je sestavení obsahující pouze `TemplateWizard` třídy, která představuje jednoduchý obálku, který volá do skutečné implementace v `NuGet.VisualStudio.dll`. Verze sestavení se nikdy změnit tak, aby šablon projektu nebo položek pokračovat v práci s novými verzemi nástroje NuGet.
 
 1. Přidáte seznam balíčků pro instalaci v projektu:
 
@@ -62,7 +65,7 @@ Postup do šablony zahrnout balíčky:
     </WizardData>
     ```
 
-    *(NuGet 2.2.1+)*  Průvodce podporuje více `<package>` elementy pro podporu více zdrojů balíčků. Jak `id` a `version` atributy jsou požadovány, což znamená, že konkrétní verze balíčku se nainstalují i v případě, že je k dispozici novější verze. Aktualizace balíčků zabrání nejnovější šablony, a rozhodnout pro daný balíček aktualizovat vývojáře pomocí šablony.
+    Průvodce podporuje více `<package>` elementy pro podporu více zdrojů balíčků. Jak `id` a `version` atributy jsou požadovány, což znamená, že konkrétní verze balíčku se nainstalují i v případě, že je k dispozici novější verze. Aktualizace balíčků zabrání nejnovější šablony, a rozhodnout pro daný balíček aktualizovat vývojáře pomocí šablony.
 
 1. Zadejte úložiště NuGet kde najdete balíčky, jak je popsáno v následujících částech.
 
@@ -118,7 +121,7 @@ Sady SDK, které se instalují pomocí souboru MSI mohou instalovat balíčky Nu
 
 1. Zapsat klíč registru pro určení umístění balíčku:
 
-    - Klíč umístění: buď úrovni celého `HKEY_LOCAL_MACHINE\SOFTWARE[\Wow6432Node]\NuGet\Repository` nebo pokud je nainstalována na uživatele šablony a balíčky, případně použít.`HKEY_CURRENT_USER\SOFTWARE\NuGet\Repository`
+    - Klíč umístění: buď úrovni celého `HKEY_LOCAL_MACHINE\SOFTWARE[\Wow6432Node]\NuGet\Repository` nebo pokud je nainstalována na uživatele šablony a balíčky, případně použít. `HKEY_CURRENT_USER\SOFTWARE\NuGet\Repository`
     - Název klíče: použijte název, který je jedinečný pro vás. Například šablony ASP.NET MVC 4 pro sadu VS 2012 použití `AspNetMvc4VS11`.
     - Hodnoty: úplná cesta ke složce balíčků.
 

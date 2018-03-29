@@ -1,28 +1,31 @@
 ---
-title: "Vytvoření balíčků NuGet pro Xamarin (pro iOS, Android a Windows) | Microsoft Docs"
+title: Vytvoření balíčků NuGet pro Xamarin (pro iOS, Android a Windows) s Visual Studiem 2015 | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/09/2017
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.prod: nuget
-ms.technology: 
-description: "Návod začátku do konce vytváření balíčků NuGet pro Xamarin pomocí nativních rozhraní API pro iOS, Android a Windows."
-keywords: "Vytvoření balíčku, balíčky pro Xamarin, balíčky a platformy"
+ms.technology: ''
+description: Návod začátku do konce vytváření balíčků NuGet pro Xamarin pomocí nativních rozhraní API pro iOS, Android a Windows.
+keywords: Vytvoření balíčku, balíčky pro Xamarin, balíčky a platformy
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 3e1460de060980365a5eaa2ef91c052cc359bb70
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: e101ca2d124a19d2cf758776717b3680aa5bbdd8
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="create-packages-for-xamarin"></a>Vytvoření balíčků pro Xamarin
+# <a name="create-packages-for-xamarin-with-visual-studio-2015"></a>Vytvoření balíčků pro Xamarin s Visual Studiem 2015
 
-Napříč platformami balíček obsahuje kód, který používá nativních rozhraní API pro iOS, Android a Windows, v závislosti na spuštění operačního systému. Přestože je toto přehledné udělat, je vhodnější, aby mohli vývojáři využívat balíček PCL nebo .NET Standard knihovny prostřednictvím společné rozhraní API surface oblasti.
+Balíček pro Xamarin obsahuje kód, který používá nativních rozhraní API pro iOS, Android a Windows, v závislosti na spuštění operačního systému. Přestože je toto přehledné udělat, je vhodnější, aby mohli vývojáři využívat balíček PCL nebo .NET Standard knihovny prostřednictvím společné rozhraní API surface oblasti.
 
-V tomto návodu vytvoříte balíček NuGet a platformy, který lze použít v mobilních projekty pro iOS, Android a Windows.
+V tomto návodu, které můžete použít Visual Studio 2015 vytvoření balíčku NuGet a platformy, který lze použít v mobilních projekty pro iOS, Android a Windows.
 
 1. [Požadavky](#prerequisites)
 1. [Vytvoření projektu strukturu a abstrakce kód](#create-the-project-structure-and-abstraction-code)

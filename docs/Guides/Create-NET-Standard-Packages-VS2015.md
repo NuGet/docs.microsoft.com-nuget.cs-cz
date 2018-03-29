@@ -1,35 +1,38 @@
 ---
-title: "Vytvoření balíčků NuGet standardní .NET s Visual Studiem 2015 | Microsoft Docs"
+title: Vytvořte standardní rozhraní .NET a balíčky NuGet rozhraní .NET Framework s Visual Studiem 2015 | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 02/02/2018
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.prod: nuget
-ms.technology: 
-description: "Návod začátku do konce, vytváření balíčků NuGet pro rozhraní .NET standardní pomocí nástroje NuGet 3.x a Visual Studio 2015."
-keywords: "Vytvoření balíčku, .NET Standard balíčky, .NET Standard mapování tabulky"
+ms.technology: ''
+description: Návod začátku do konce, vytváření balíčků NuGet pro rozhraní .NET Framework a .NET Standard pomocí nástroje NuGet 3.x a Visual Studio 2015.
+keywords: Vytvoření balíčku, .NET Standard balíčky, balíčky rozhraní .NET Framework
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: abf6a56cbc84bdd066e31e77c7883825a8456144
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: dbe0a0788b5fc9ba37f7db601bd51c3e4f78f5b8
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="create-net-standard-packages-with-visual-studio-2015"></a>Vytvoření balíčků .NET Standard s Visual Studio 2015
+# <a name="create-net-standard-and-net-framework-packages-with-visual-studio-2015"></a>Vytvoření balíčků .NET Standard a rozhraní .NET Framework s Visual Studio 2015
 
-*Platí pro NuGet 3.x. V tématu [vytvoření a publikování balíčku s Visual Studio 2017](../quickstart/create-and-publish-a-package-using-visual-studio.md) pro práci s NuGet 4.x+.*
+**Poznámka:** Visual Studio 2017 se doporučuje pro vývoj .NET standardní knihovny. Visual Studio 2015 můžete pracovat, ale nástrojů .NET Core byla uvedena do režimu pouze pro náhled stavu. V tématu [vytvoření a publikování balíčku s Visual Studio 2017](../quickstart/create-and-publish-a-package-using-visual-studio.md) pro práci s NuGet 4.x+ a Visual Studio 2017.
 
 [Standardní knihovny .NET](/dotnet/articles/standard/library) je formální specifikaci rozhraní API technologie .NET by měla být k dispozici pro všechny moduly runtime rozhraní .NET, tím větší jednotnost vytváří v ekosystému .NET. Standardní knihovny .NET definuje jednotnou sadu BCL (základní třída knihovna) rozhraní API pro všechny platformy .NET implementovat, nezávisle na zatížení. Umožňuje vývojářům vytvářet kód, který je použitelný přes všechny moduly runtime rozhraní .NET a snižuje není eliminuje direktivy specifické pro platformu Podmíněná kompilace v sdíleného kódu.
 
-Tento průvodce vás provede procesem vytváření balíčku NuGet cílení .NET standardní knihovny 1.4. Tuto knihovnu funguje napříč rozhraní .NET Framework 4.6.1, Universal Windows Platform 10, .NET Core a Mono nebo Xamarin. Podrobnosti najdete v tématu [.NET Standard mapovací tabulku](#net-standard-mapping-table) dál v tomto tématu.
+Tento průvodce vás provede procesem vytváření balíčku NuGet cílení na rozhraní .NET standardní knihovně 1,4 nebo balíček cílení na rozhraní .NET Framework 4.6. Knihovna .NET standardní 1.4 funguje napříč rozhraní .NET Framework 4.6.1, Universal Windows Platform 10, .NET Core a Mono nebo Xamarin. Podrobnosti najdete v tématu [.NET Standard mapovací tabulku](/dotnet/standard/net-standard#net-implementation-support) (.NET dokumentaci). Pokud chcete, můžete druhou verzi standardní knihovny .NET.
 
 ## <a name="prerequisites"></a>Požadavky
 
 1. Visual Studio 2015 Update 3
-1. [.NET core SDK](https://www.microsoft.com/net/download/)
+1. (Jenom .NET standard) [.NET core SDK](https://www.microsoft.com/net/download/)
 1. Rozhraní příkazového řádku NuGet. Stáhněte si nejnovější verzi nuget.exe z [nuget.org/downloads](https://nuget.org/downloads), ukládání do umístění podle vaší volby. Pak přidejte tohoto umístění do vaší proměnné prostředí PATH, pokud již není.
 
     > [!Note]
@@ -37,13 +40,13 @@ Tento průvodce vás provede procesem vytváření balíčku NuGet cílení .NET
 
 ## <a name="create-the-class-library-project"></a>Vytvoření projektu knihovny tříd
 
-1. V sadě Visual Studio **soubor > Nový > projekt**, rozbalte **Visual C# > Windows** uzlu, vyberte **knihovny tříd (přenositelností)**, změňte název na AppLogger a klikněte na tlačítko OK.
+1. V sadě Visual Studio **soubor > Nový > projekt**, rozbalte **Visual C# > Windows** uzlu, vyberte **knihovny tříd (přenositelností)**, změňte název na AppLogger a vyberte **OK**.
 
     ![Vytvoření nového projektu knihovny tříd](media/NetStandard-NewProject.png)
 
-1. V **přidat Přenosná knihovna tříd** dialog, který se zobrazí, vyberte `.NET Framework 4.6` a `ASP.NET Core 1.0` možnosti.
+1. V **přidat Přenosná knihovna tříd** dialog, který se zobrazí, vyberte možnosti pro `.NET Framework 4.6` a `ASP.NET Core 1.0`. (Pokud cílení na rozhraní .NET Framework, můžete vybrat kteroukoli možnosti jsou vhodné.)
 
-1. Klikněte pravým tlačítkem myši `AppLogger (Portable)` v Průzkumníku řešení, vyberte **vlastnosti**, vyberte **knihovny** a potom klikněte na tlačítko **Standard platformy cílové rozhraní .NET** v **Cílení** části. Zobrazí se výzva k potvrzení, po kterém můžete vybrat `.NET Standard 1.4` v rozevíracím seznamu:
+1. Pokud cílení na rozhraní .NET standardní, klikněte pravým tlačítkem `AppLogger (Portable)` v Průzkumníku řešení, vyberte **vlastnosti**, vyberte **knihovny** a potom vyberte **cíl Standard platformy .NET** v **cílení na** oddílu. Tato akce zobrazí výzvu k potvrzení, po kterém můžete vybrat `.NET Standard 1.4` (nebo jinou verzi k dispozici) z rozevíracího seznamu:
 
     ![Nastavení cíl na standardní 1.4 rozhraní .NET](media/NetStandard-ChangeTarget.png)
 
@@ -96,11 +99,23 @@ Tento průvodce vás provede procesem vytváření balíčku NuGet cílení .NET
 
 1. Přidat odkaz na sestavení, které chcete `.nuspec` souboru, a to knihovně DLL a soubor IntelliSense XML:
 
+    Cílení na rozhraní .NET standardní, položky se zobrazí podobná této:
+
     ```xml
     <!-- Insert below <metadata> element -->
     <files>
         <file src="bin\Release\AppLogger.dll" target="lib\netstandard1.4\AppLogger.dll" />
         <file src="bin\Release\AppLogger.xml" target="lib\netstandard1.4\AppLogger.xml" />
+    </files>
+    ```
+
+    Pokud cílení na rozhraní .NET Framework, se objeví položky podobné následujícímu:
+
+    ```xml
+    <!-- Insert below <metadata> element -->
+    <files>
+        <file src="bin\Release\AppLogger.dll" target="lib\net46\AppLogger.dll" />
+        <file src="bin\Release\AppLogger.xml" target="lib\net46\AppLogger.xml" />
     </files>
     ```
 
@@ -146,7 +161,7 @@ S dokončené `.nuspec` odkazující na všechny soubory, které je potřeba zah
 nuget pack AppLogger.nuspec
 ```
 
-Tím se vygeneruje `AppLogger.YOUR_NAME.1.0.0.nupkg`. Otevření tohoto souboru v nástroje, jako [Explorer balíček NuGet](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer) a rozšiřování všechny uzly, můžete zobrazit následující obsah:
+Tím se vygeneruje `AppLogger.YOUR_NAME.1.0.0.nupkg`. Otevření tohoto souboru v nástroje, jako [Explorer balíček NuGet](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer) a rozšiřování všechny uzly, můžete zobrazit následující obsah (zobrazené pro .NET Standard):
 
 ![Průzkumník balíček NuGet zobrazující AppLogger balíčku](media/NetStandard-PackageExplorer.png)
 
@@ -156,19 +171,6 @@ Tím se vygeneruje `AppLogger.YOUR_NAME.1.0.0.nupkg`. Otevření tohoto souboru 
 Pokud chcete zpřístupnit vašeho balíčku jinými vývojáři, postupujte podle pokynů [publikování balíčku](../create-packages/publish-a-package.md).
 
 Všimněte si, že `pack` vyžaduje Mono 4.4.2 na Mac OS X a nefunguje v systémech Linux. V systému Mac, je nutné také převést Windows názvy cest v `.nuspec` souboru do cesty formátu UNIX.
-
-## <a name="net-standard-mapping-table"></a>.NET standard mapování tabulky
-
-| Název platformy | Alias |
-| --- | --- |
-| Standardní rozhraní .NET | monikerů netstandard | 1.0 | 1.1 | 1.2 | 1.3 | 1.4 | 1.5 | 1.6 |
-| .NET Core | netcoreapp | &#x2192; | &#x2192; | &#x2192; | &#x2192; | &#x2192; | &#x2192; | 1.0 |
-| .NET Framework | NET | 4.5 | 4.5.1 | 4.6 | 4.6.1 | 4.6.2 | 4.6.3 |
-| Mono/Xamarin Platforms | &#x2192; | &#x2192; | &#x2192; | &#x2192; | &#x2192; | &#x2192; |
-| Univerzální platforma pro Windows | uap | &#x2192; | &#x2192; | &#x2192; | &#x2192; |10.0 |
-| Windows | Win| &#x2192; | 8.0 | 8.1 |
-| Windows Phone | wpa| &#x2192;| &#x2192; | 8.1 |
-| Windows Phone Silverlight | wp | 8.0 |
 
 ## <a name="related-topics"></a>Související témata
 

@@ -6,17 +6,20 @@ manager: ghogen
 ms.date: 10/25/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Odkaz na soubor NuGet.Config včetně konfigurace, bindingRedirects, packageRestore, řešení a packageSource oddíly."
-keywords: "Soubor NuGet.Config, referenci na konfigurační NuGet, možnosti konfigurace NuGet"
+ms.technology: ''
+description: Odkaz na soubor NuGet.Config včetně konfigurace, bindingRedirects, packageRestore, řešení a packageSource oddíly.
+keywords: Soubor NuGet.Config, referenci na konfigurační NuGet, možnosti konfigurace NuGet
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6a5be1ebcca0accafcdaf32f0b1b7ca66ec53425
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: e2a9d4f10ac6af4e5bc7386d4f78e18c2a5752c4
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nugetconfig-reference"></a>Odkaz na soubor nuget.config.
 
@@ -48,13 +51,13 @@ V tomto tématu:
 
 Obsahuje nastavení různé konfigurace, které se dá nastavit pomocí [ `nuget config` příkaz](../tools/cli-ref-config.md).
 
-Poznámka: `dependencyVersion` a `repositoryPath` se vztahují pouze na projektů pomocí `packages.config`. `globalPackagesFolder` platí pouze pro projekty PackageReference formátu.
+`dependencyVersion` a `repositoryPath` se vztahují pouze na projektů pomocí `packages.config`. `globalPackagesFolder` platí pouze pro projekty PackageReference formátu.
 
 | Key | Hodnota |
 | --- | --- |
 | dependencyVersion (`packages.config` pouze) | Výchozí `DependencyVersion` hodnotu pro instalaci balíčku, obnovení a aktualizace, když `-DependencyVersion` přepínač není zadán přímo. Tato hodnota se používá také pomocí uživatelského rozhraní Správce balíčků NuGet. Hodnoty jsou `Lowest`, `HighestPatch`, `HighestMinor`, `Highest`. |
-| globalPackagesFolder (projekty nepoužíváte `packages.config`) | Umístění složky výchozí globální balíčky. Výchozí hodnota je `%USERPROFILE%\.nuget\packages` (Windows) nebo `~/.nuget/packages` (Mac/Linux). Relativní cesta mohou být používány specifické pro projekt `Nuget.Config` soubory. |
-| repositoryPath (`packages.config` pouze) | Umístění, v němž instalace balíčků NuGet místo výchozího `$(Solutiondir)/packages` složky. Relativní cesta mohou být používány specifické pro projekt `Nuget.Config` soubory. |
+| globalPackagesFolder (pouze pomocí PackageReference projekty) | Umístění složky výchozí globální balíčky. Výchozí hodnota je `%userprofile%\.nuget\packages` (Windows) nebo `~/.nuget/packages` (Mac/Linux). Relativní cesta mohou být používány specifické pro projekt `Nuget.Config` soubory. Toto nastavení je přepsat proměnnou prostředí NUGET_PACKAGES, která má přednost před. |
+| repositoryPath (`packages.config` pouze) | Umístění, v němž instalace balíčků NuGet místo výchozího `$(Solutiondir)/packages` složky. Relativní cesta mohou být používány specifické pro projekt `Nuget.Config` soubory. Toto nastavení je přepsat proměnnou prostředí NUGET_PACKAGES, která má přednost před. |
 | defaultPushSource | Určuje adresu URL nebo cestu zdroje balíčku, který se má použít jako výchozí pro operace nebyly nalezeny žádné jiné zdroje balíčku. |
 | http_proxy http_proxy.user http_proxy.password no_proxy | Nastavení proxy serveru používat při připojování ke zdroji balíčků; `http_proxy` by měl být ve formátu `http://<username>:<password>@<domain>`. Hesla se šifrují a nelze ji přidat ručně. Pro `no_proxy`, hodnota je čárkami oddělený seznam domén Nepoužívat proxy server. Případně můžete http_proxy a no_proxy proměnných prostředí pro tyto hodnoty. Další podrobnosti najdete v tématu [nastavení proxy serveru NuGet](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (skolima.blogspot.com). |
 
@@ -64,7 +67,7 @@ Poznámka: `dependencyVersion` a `repositoryPath` se vztahují pouze na projekt�
 <config>
     <add key="dependencyVersion" value="Highest" />
     <add key="globalPackagesFolder" value="c:\packages" />
-    <add key="repositoryPath" value="c:\repo" />
+    <add key="repositoryPath" value="c:\installed_packages" />
     <add key="http_proxy" value="http://company-squid:3128@contoso.com" />
 </config>
 ```

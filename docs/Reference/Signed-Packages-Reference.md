@@ -1,23 +1,26 @@
 ---
-title: "Podepsané balíčky odkaz | Microsoft Docs"
+title: Podepsané balíčky odkaz | Microsoft Docs
 author: rido-min
 ms.author: rido-min
 manager: unniravindranathan
 ms.date: 03/06/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Popis funkce balíčky se znaménkem"
-keywords: "Přihlašovací balíčku NuGet, podpisu certifikátu"
+ms.technology: ''
+description: Popis funkce balíčky se znaménkem
+keywords: Přihlašovací balíčku NuGet, podpisu certifikátu
 ms.reviewer:
 - ananguar
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 9bf9885aaf42bedb681a5d916202fa8b26749a0c
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: a2a338596f7d98ded11da6fb02bafba3521249ab
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="signed-packages"></a>Podepsané balíčky
 

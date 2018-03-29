@@ -1,21 +1,25 @@
 ---
-title: "NuGet pack a obnovit jako cíle MSBuild | Microsoft Docs"
+title: NuGet pack a obnovit jako cíle MSBuild | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 03/13/2018
+ms.date: 03/23/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "NuGet pack a obnovení můžete pracovat přímo jako cíle MSBuild s NuGet 4.0 +."
-keywords: "NuGet a MSBuild NuGet pack cíl, cíl obnovení NuGet"
+ms.technology: ''
+description: NuGet pack a obnovení můžete pracovat přímo jako cíle MSBuild s NuGet 4.0 +.
+keywords: NuGet a MSBuild NuGet pack cíl, cíl obnovení NuGet
 ms.reviewer:
 - karann-msft
-ms.openlocfilehash: bb0ade1b0f5f81d7c8822d3c2b2f9dd45745fb8d
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+- unniravindranathan
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: a9c2c2229d717dff8472dce0ba568e4a21900b19
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet pack a obnovení jako cíle nástroje MSBuild
 
@@ -110,7 +114,7 @@ Všimněte si, že `Owners` a `Summary` vlastnosti z `.nuspec` nejsou podporová
 
 ### <a name="packageiconurl"></a>PackageIconUrl
 
-Jako součást změny pro [NuGet problém 2582](https://github.com/NuGet/Home/issues/2582), `PackageIconUrl` bude nakonec změnit tak, aby `PackageIconUri` a může být relativní cesta k ikonu souboru, který bude zahrnut v kořenovém adresáři výsledné balíčku.
+Jako součást změny pro [NuGet problém 352](https://github.com/NuGet/Home/issues/352), `PackageIconUrl` bude nakonec změnit tak, aby `PackageIconUri` a může být relativní cesta k ikonu souboru, který bude zahrnut v kořenovém adresáři výsledné balíčku.
 
 ### <a name="output-assemblies"></a>Výstup sestavení
 
@@ -231,6 +235,61 @@ Je například csproj soubor pro soubor nuspec pack:
 </Project>
 ```
 
+### <a name="advanced-extension-points-to-create-customized-package"></a>Rozšířené body rozšíření pro vytvoření přizpůsobené balíčku
+
+`pack` Cíl poskytuje dva body rozšíření, které běží v informacích o vnitřní, cílový framework konkrétní sestavení. Body rozšíření podpory včetně cílový framework konkrétní obsah a sestavení do balíčku:
+
+- `TargetsForTfmSpecificBuildOutput` Cíl: použití pro soubory `lib` nebo složky, zadán pomocí `BuildOutputTargetFolder`.
+- `TargetsForTfmSpecificContentInPackage` Cíl: použití pro soubory mimo `BuildOutputTargetFolder`.
+
+#### <a name="targetsfortfmspecificbuildoutput"></a>TargetsForTfmSpecificBuildOutput
+
+Napsat vlastní cíl a zadejte jako hodnotu `$(TargetsForTfmSpecificBuildOutput)` vlastnost. Pro všechny soubory, které muset přejít do `BuildOutputTargetFolder` (lib ve výchozím nastavení), cíl by měl zápisu těchto souborů do ItemGroup `BuildOutputInPackage` a nastavte tyto dvě hodnoty metadat:
+
+- `FinalOutputPath`: Absolutní cestu k souboru; Pokud není zadaná, identita se používá k vyhodnocení cestu ke zdroji.
+- `TargetPath`: (Volitelné) nastavená, pokud je třeba soubor přejděte do podsložky v rámci `lib\<TargetFramework>` , například satelitní sestavení tohoto přejděte v části jejich složky příslušné jazykové verze. Výchozí hodnota je název souboru.
+
+Příklad:
+
+```
+<PropertyGroup>
+  <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);GetMyPackageFiles</TargetsForTfmSpecificBuildOutput>
+</PropertyGroup>
+
+<Target Name="GetMyPackageFiles">
+  <ItemGroup>
+    <BuildOutputInPackage Include="$(OutputPath)cs\$(AssemblyName).resources.dll">
+        <TargetPath>cs</TargetPath>
+    </BuildOutputInPackage>
+  </ItemGroup>
+</Target>
+```
+
+#### <a name="targetsfortfmspecificcontentinpackage"></a>TargetsForTfmSpecificContentInPackage
+
+Napsat vlastní cíl a zadejte jako hodnotu `$(TargetsForTfmSpecificContentInPackage)` vlastnost. Pro všechny soubory, které chcete zahrnout do balíčku, cíl zápisu těchto souborů do ItemGroup `TfmSpecificPackageFile` a nastavte následující volitelné metadata:
+
+- `PackagePath`: Cesta kde souboru by se měly zobrazovat v balíčku. NuGet vydá upozornění, pokud je více než jeden soubor přidaný do stejné cesty k balíčku.
+- `BuildAction`: Akce sestavení přiřadit k souboru, povinné, pokud cesta balíčku je v `contentFiles` složky. Výchozí hodnota je "Žádný".
+
+Příklad:
+```
+<PropertyGroup>
+    <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);CustomContentTarget</TargetsForTfmSpecificContentInPackage>
+</PropertyGroup>
+
+<Target Name=""CustomContentTarget"">
+    <ItemGroup>
+      <TfmSpecificPackageFile Include=""abc.txt"">
+        <PackagePath>mycontent/$(TargetFramework)</PackagePath>
+      </TfmSpecificPackageFile>
+      <TfmSpecificPackageFile Include=""Extensions/ext.txt"" Condition=""'$(TargetFramework)' == 'net46'"">
+        <PackagePath>net46content</PackagePath>
+      </TfmSpecificPackageFile>  
+    </ItemGroup>
+  </Target>  
+```
+
 ## <a name="restore-target"></a>Cíl obnovení
 
 `MSBuild /t:restore` (která `nuget restore` a `dotnet restore` použít s projekty .NET Core), obnoví balíčky, kterou se odkazuje v souboru projektu následujícím způsobem:
@@ -254,7 +313,7 @@ Nastavení další obnovení mohou pocházet z vlastnosti nástroje MSBuild v so
 | RestorePackagesPath | Cesta ke složce balíčků uživatele. |
 | RestoreDisableParallel | Limit stahování do jeden po druhém. |
 | RestoreConfigFile | Cesta k `Nuget.Config` lze uplatnit. |
-| RestoreNoCache | V případě hodnoty true nevyužívá webové mezipaměti. |
+| RestoreNoCache | V případě hodnoty true nevyužívá balíčky v mezipaměti. V tématu [správy globální balíčky a složky mezipaměti](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
 | RestoreIgnoreFailedSources | V případě hodnoty true ignoruje chybě nebo chybějící zdroje balíčků. |
 | RestoreTaskAssemblyFile | Cesta k `NuGet.Build.Tasks.dll`. |
 | RestoreGraphProjectInput | Seznam oddělený středníkem projekty k obnovení, který by měl obsahovat absolutní cesty. |
@@ -282,7 +341,7 @@ Obnovení vytvoří následující soubory v sestavení `obj` složky:
 
 | Soubor | Popis |
 |--------|--------|
-| `project.assets.json` | Dříve `project.lock.json` |
+| `project.assets.json` | Obsahuje graf závislostí všechny odkazy balíčku. |
 | `{projectName}.projectFileExtension.nuget.g.props` | Odkazy na MSBuild props součástí balíčků |
 | `{projectName}.projectFileExtension.nuget.g.targets` | Odkazy na cíle MSBuild součástí balíčků |
 

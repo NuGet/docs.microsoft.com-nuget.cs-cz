@@ -1,22 +1,25 @@
 ---
-title: "Řešení potíží s balíček NuGet obnovit v sadě Visual Studio | Microsoft Docs"
+title: Řešení potíží s balíček NuGet obnovit v sadě Visual Studio | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 03/13/2018
+ms.date: 03/16/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Popis běžné NuGet obnovit chyby v sadě Visual Studio a řešení potíží s nimi."
-keywords: "Řešení potíží s obnovení balíčku NuGet, obnovení balíčků, řešení potíží"
+ms.technology: ''
+description: Popis běžné NuGet obnovit chyby v sadě Visual Studio a řešení potíží s nimi.
+keywords: Řešení potíží s obnovení balíčku NuGet, obnovení balíčků, řešení potíží
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 8efaed497a596921af3c73ab919831c73bf598e0
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 27a43ceaefdf3a7842183a64ea57d05416d6cb02
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="troubleshooting-package-restore-errors"></a>Řešení potíží s chybami obnovení balíčku
 
@@ -48,7 +51,10 @@ This project references NuGet package(s) that are missing on this computer.
 Use NuGet Package Restore to download them. The missing file is {name}.
 ```
 
-K této chybě dojde, pokusíte sestavení projektu, který obsahuje odkazy na jeden nebo více balíčků NuGet, ale tyto balíčky nejsou uložené v mezipaměti v současné době v projektu. (Balíčky jsou uložené v `packages` složku v kořenovém adresáři řešení, pokud projekt používá `packages.config`, nebo v `obj/project.assets.json` souboru Pokud projekt používá formát PackageReference.)
+K této chybě dojde, pokusíte sestavení projektu, který obsahuje odkazy na jeden nebo více balíčků NuGet, ale tyto balíčky nejsou nainstalovány v současné době na počítači nebo v projektu.
+
+- Při použití formátu PackageReference správy, chyba znamená, že balíček není nainstalovaný v *globální balíčky* složky, jak je popsáno na, jak je popsáno na [správy globální balíčky a složky mezipaměti](managing-the-global-packages-and-cache-folders.md).
+- Při použití `packages.config`, chyba znamená, že balíček není nainstalovaný v `packages` složku v kořenovém adresáři řešení.
 
 K této situaci dochází běžně při získání zdrojového kódu projektu ze správy zdrojového kódu nebo jiného stahování. Balíčky jsou obvykle ze zdrojového kódu nebo stahování vynechána, protože bylo možné obnovit z balíčku kanály jako nuget.org (viz [balíčky a Správa zdrojového kódu](Packages-and-Source-Control.md)). Včetně jejich by jinak nafouknutí úložiště nebo vytvořte .zip zbytečně velké soubory.
 
@@ -59,7 +65,7 @@ Aby se obnovily balíčky, použijte jednu z následujících metod:
 - Na příkazovém řádku spusťte `nuget restore` (s výjimkou projektů vytvořených s `dotnet`, v takovém případě použijte `dotnet restore`).
 - Na příkazovém řádku s projekty formátu PackageReference, spusťte `msbuild /t:restore`.
 
-Po úspěšné obnovení, měli byste vidět buď `packages` složky (při použití `packages.config`) nebo `obj/project.assets.json` souboru (při použití PackageReference). Projekt má nyní sestavit úspěšně. Pokud ne, [souboru problém na Githubu](https://github.com/NuGet/docs.microsoft.com-nuget/issues) tak nám s vámi následnou akci.
+Po úspěšné obnovení mají být dostupné v balíčku *globální balíčky* složky. Pro projekty pomocí PackageReference, by měl znovu obnovení `obj/project.assets.json` souboru; pro projekty pomocí `packages.config`, by se měla objevit balíček v projektu `packages` složky. Projekt má nyní sestavit úspěšně. Pokud ne, [souboru problém na Githubu](https://github.com/NuGet/docs.microsoft.com-nuget/issues) tak nám s vámi následnou akci.
 
 <a name="assets"></a>
 
@@ -71,7 +77,9 @@ Dokončení chybová zpráva:
 Assets file '<path>\project.assets.json' not found. Run a NuGet package restore to generate this file.
 ```
 
-Tato chyba nastane ze stejných důvodů, jak je popsáno v [předchozí části](#missing), a má stejné náhrad. Například běžet `msbuild` na .NET Core projektu, který byl získán od správy zdrojového kódu nebude automaticky obnovení balíčků. V takovém případě spusťte `msbuild /t:restore` následuje `msbuild`, nebo použijte `dotnet build` (což obnoví balíčky automaticky).
+`project.assets.json` Souboru udržuje graf závislostí projektu při použití formátu PackageReference správy, který se používá a ujistěte se, že všechny potřebné balíčky jsou nainstalované v počítači. Protože tento soubor je generována dynamicky prostřednictvím obnovení balíčku, není obvykle přidán do správy zdrojového kódu. V důsledku toho k této chybě dojde při sestavování projektu nástroj, jako `msbuild` , ale neobnoví automaticky balíčky.
+
+V takovém případě spusťte `msbuild /t:restore` následuje `msbuild`, nebo použijte `dotnet build` (což obnoví balíčky automaticky). Můžete také použít některou z metod obnovení balíčku v [předchozí části](#missing).
 
 <a name="consent"></a>
 
@@ -103,11 +111,12 @@ Můžete také upravit tato nastavení přímo v příslušné `nuget.config` so
 </configuration>
 ```
 
-Všimněte si, že pokud chcete upravit `packageRestore` nastavení přímo v `nuget.config`, restartujte Visual Studio, aby se dialogové okno Možnosti zobrazuje aktuální hodnoty.
+> [!Important]
+> Pokud chcete upravit `packageRestore` nastavení přímo v `nuget.config`, restartujte Visual Studio, aby se dialogové okno Možnosti zobrazuje aktuální hodnoty.
 
 ## <a name="other-potential-conditions"></a>Další potenciální podmínky
 
-- Chyby sestavení z důvodu chybějících souborů, může dojít u zpráva, že je stáhnout pomocí obnovení NuGet. Však spuštění obnovení říci, "všechny balíčky jsou už nainstalované a neexistuje žádné položky k obnovení." V takovém případě odstraňte `packages` složky (při použití `packages.config`) nebo `obj/project.assets.json` souboru (při použití PackageReference) a spusťte obnovení znovu.
+- Chyby sestavení z důvodu chybějících souborů, může dojít u zpráva, že je stáhnout pomocí obnovení NuGet. Však spuštění obnovení říci, "všechny balíčky jsou už nainstalované a neexistuje žádné položky k obnovení." V takovém případě odstraňte `packages` složky (při použití `packages.config`) nebo `obj/project.assets.json` souboru (při použití PackageReference) a spusťte obnovení znovu. Pokud chyba stále přetrvává, použijte `nuget locals all -clear` nebo `dotnet locals all --clear` z příkazového řádku zrušte *globální balíčky* a složky mezipaměti, jak je popsáno na [správy globální balíčky a složky mezipaměti](managing-the-global-packages-and-cache-folders.md).
 
 - Při získávání projektu od správy zdrojového kódu, může být vaše složky projektu nastaven jen pro čtení. Změňte oprávnění složky a znovu Probíhá obnovení balíčků.
 

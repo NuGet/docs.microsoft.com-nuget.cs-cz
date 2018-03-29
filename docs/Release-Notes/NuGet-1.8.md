@@ -1,22 +1,25 @@
 ---
-title: "Poznámky k verzi NuGet 1.8 | Microsoft Docs"
+title: Poznámky k verzi NuGet 1.8 | Microsoft Docs
 author: karann-msft
 ms.author: karann-msft
 manager: ghogen
 ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Poznámky k verzi pro včetně známé problémy, opravy chyb, přidaných funkcí a chcete 1.8 NuGet."
-keywords: "NuGet 1.8 poznámky k verzi, opravy chyb známé problémy, přidat funkce, chcete"
+ms.technology: ''
+description: Poznámky k verzi pro včetně známé problémy, opravy chyb, přidaných funkcí a chcete 1.8 NuGet.
+keywords: NuGet 1.8 poznámky k verzi, opravy chyb známé problémy, přidat funkce, chcete
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 139c30e29d8148eab7298329a07d8e412259e595
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: b94382f79143cac6bd5deccb5e5253ba8c6f60ec
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-18-release-notes"></a>Poznámky k verzi 1,8 NuGet
 
@@ -27,7 +30,7 @@ NuGet 1.8 byla vydána 23 květen 2012.
 ## <a name="known-installation-issue"></a>Instalace známý problém
 Pokud používáte VS 2010 SP1, můžete spustit došlo k chybě instalace při pokusu o upgrade NuGet, pokud máte nainstalovaný starší verze.
 
-Alternativní řešení je jednoduše odinstalovat NuGet a nainstalujte ji z Galerie rozšíření VS.  V tématu [http://support.microsoft.com/kb/2581019](http://support.microsoft.com/kb/2581019) Další informace, nebo [přejděte přímo na opravu hotfix VS](http://bit.ly/vsixcertfix).
+Alternativní řešení je jednoduše odinstalovat NuGet a nainstalujte ji z Galerie rozšíření VS.  V tématu [ http://support.microsoft.com/kb/2581019 ](http://support.microsoft.com/kb/2581019) Další informace, nebo [přejděte přímo na opravu hotfix VS](http://bit.ly/vsixcertfix).
 
 Poznámka: Pokud Visual Studio nebude možné odinstalovat rozšíření (k dispozici tlačítko Odinstalovat), bude pravděpodobně nutné restartujte Visual Studio pomocí "Spustit jako správce."
 
@@ -60,7 +63,7 @@ Při instalaci balíčku satelit, navíc NuGet také rozpozná zásady vytváře
 
 Jeden existující chyby na mějte na paměti, satelitní balíčků je, že NuGet nekopíruje lokalizované prostředky k `bin` složku pro webové projekty.  Tento problém bude vyřešený v příští verzi balíčku nuget.
 
-Kompletní příklad, který ukazuje, jak vytvořit a používat satelitní balíčky, najdete v části [https://github.com/NuGet/SatellitePackageSample](https://github.com/NuGet/SatellitePackageSample).
+Kompletní příklad, který ukazuje, jak vytvořit a používat satelitní balíčky, najdete v části [ https://github.com/NuGet/SatellitePackageSample ](https://github.com/NuGet/SatellitePackageSample).
 
 ### <a name="package-restore-consent"></a>Balíček obnovení souhlasu
 V NuGet 1.8 jsme umístěné základ pro podporu důležité omezení pro obnovení balíčků pro ochrany osobních údajů uživatele. Toto omezení vyžaduje vývojářům vytvářet projekty a řešení, které používáte obnovení balíčků pro výslovně souhlasit s obnovení balíčků je přechod do režimu online na stahovat balíčky ze zdroje balíčků nakonfigurované.

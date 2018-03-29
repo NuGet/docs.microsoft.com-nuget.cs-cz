@@ -1,22 +1,25 @@
 ---
-title: "Konfigurace chování NuGet | Microsoft Docs"
+title: Konfigurace chování NuGet | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 10/25/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "NuGet.Config soubory řídit chování NuGet globálně i na jednotlivých projektů a jsou upraveny pomocí příkazu config nuget."
-keywords: "NuGet konfigurační soubory, NuGet konfigurace, nastavení chování NuGet, nastavení NuGet, Nuget.Config, NuGetDefaults.Config, výchozí hodnoty"
+ms.technology: ''
+description: NuGet.Config soubory řídit chování NuGet globálně i na jednotlivých projektů a jsou upraveny pomocí příkazu config nuget.
+keywords: NuGet konfigurační soubory, NuGet konfigurace, nastavení chování NuGet, nastavení NuGet, Nuget.Config, NuGetDefaults.Config, výchozí hodnoty
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c46f23fcbec5dfcb6122434d43097212f6230fb0
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: a575868894d5ca9992b1c9984cf4920bd2858209
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configuring-nuget-behavior"></a>Konfigurace chování NuGet
 
@@ -27,7 +30,7 @@ Chování NuGet doprovází Akumulovaná nastavení v jedné nebo více `NuGet.C
 | Rozsah | Umístění souboru NuGet.Config | Popis |
 | --- | --- | --- |
 | Projekt | Aktuální složce (neboli složky projektu) nebo libovolné složky až kořenové jednotce.| Ve složce projektu nastavení platí pouze pro tento projekt. V nadřazené složky, které obsahují více projektů podsložky nastavení se vztahují na všechny projekty v těchto podsložky. |
-| Uživatel | Windows: `%APPDATA%\NuGet\NuGet.Config`<br/>Mac/Linux: `~/.nuget/NuGet/NuGet.Config` | Nastavení platí pro všechny operace, ale jsou přepsány jakékoli nastavení projektu. |
+| Uživatel | Windows: `%appdata%\NuGet\NuGet.Config`<br/>Mac/Linux: `~/.nuget/NuGet/NuGet.Config` | Nastavení platí pro všechny operace, ale jsou přepsány jakékoli nastavení projektu. |
 | Počítače | Windows: `%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux: `$XDG_DATA_HOME` (obvykle `~/.local/share`) | Nastavení platí pro všechny operace v počítači, ale jsou elementem podle všechna nastavení na úrovni uživatele nebo projektu. |
 
 Poznámky pro starší verze balíčku nuget:
@@ -94,7 +97,7 @@ nuget config -set repositoryPath= -configfile /home/my.Config
 
 ### <a name="creating-a-new-config-file"></a>Vytvoření nového souboru config
 
-Zkopírujte šablony níže do nového souboru a pak použijte `nuget config --configFile <filename>` nastavit hodnoty:
+Zkopírujte šablony níže do nového souboru a pak použijte `nuget config -configFile <filename>` nastavit hodnoty:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -137,7 +140,7 @@ Může se stát, že máte následující strukturu složek na dvě samostatné 
 
 Budete mít čtyři `NuGet.Config` soubory v následujících umístěních s daný obsah. (Soubor úrovni počítače není zahrnutý v tomto příkladu, ale budou chovat podobně do souboru úrovni uživatele.)
 
-Soubor A. individuální souborů, (`%APPDATA%\NuGet\NuGet.Config` v systému Windows, `~/.nuget/NuGet/NuGet.Config` na Mac/Linux):
+Soubor A. individuální souborů, (`%appdata%\NuGet\NuGet.Config` v systému Windows, `~/.nuget/NuGet/NuGet.Config` na Mac/Linux):
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -220,7 +223,7 @@ Následující tabulka popisuje, kde `NuGetDefaults.Config` souboru by měly bý
 
 ### <a name="nugetdefaultsconfig-settings"></a>Nastavení NuGetDefaults.Config
 
-- `packageSources`: Tato kolekce nemá stejný význam jako `packageSources` v regulárním konfigurační soubory a určí výchozí zdroje. NuGet používá zdroje v pořadí při instalaci nebo aktualizaci balíčků v projektech pomocí `packages.config` formát reference. Pro projekty formátu PackageReference NuGet nejprve používá místní zdroje a pak zdroje v síťové sdílené složky a zdrojů HTTP, bez ohledu na pořadí v konfiguračních souborech. NuGet vždy ignoruje pořadí zdrojů s operací obnovení.
+- `packageSources`: Tato kolekce nemá stejný význam jako `packageSources` v regulárním konfigurační soubory a určí výchozí zdroje. NuGet používá zdroje v pořadí při instalaci nebo aktualizaci balíčků v projektech pomocí `packages.config` formátu správy. Pro projekty formátu PackageReference NuGet nejprve používá místní zdroje a pak zdroje v síťové sdílené složky a zdrojů HTTP, bez ohledu na pořadí v konfiguračních souborech. NuGet vždy ignoruje pořadí zdrojů s operací obnovení.
 
 - `disabledPackageSources`: Tato kolekce také nemá stejný význam jako v `NuGet.Config` soubory, kde každý ovlivněných zdroj uvedené podle jeho název a hodnotu true nebo false, která určuje, zda je zakázána. To umožňuje zdroj název a adresu URL zůstat v `packageSources` bez nutnosti ho ve výchozím nastavení zapnuto. Jednotlivé vývojáři mohou pak znovu povolit zdroj nastavením hodnoty na zdroji na hodnotu false v jiných `NuGet.Config` soubory bez nutnosti znovu najít správnou adresu URL. To je užitečné k poskytování vývojářům úplný seznam adres URL vnitřní zdroj pro organizaci při povolování pouze jednotlivé team zdroje ve výchozím nastavení.
 

@@ -1,22 +1,25 @@
 ---
-title: "Poznámky k verzi RC NuGet 4.0 | Microsoft Docs"
+title: Poznámky k verzi RC NuGet 4.0 | Microsoft Docs
 author: anangaur
 ms.author: anangaur
 manager: unniravindranathan
 ms.date: 03/03/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Poznámky k verzi pro NuGet 4.0 RTM, včetně známé problémy, opravy chyb, přidaných funkcí a chcete."
-keywords: "NuGet 4.0 RTM poznámky k verzi, opravy chyb známé problémy, přidat funkce, chcete"
+ms.technology: ''
+description: Poznámky k verzi pro NuGet 4.0 RTM, včetně známé problémy, opravy chyb, přidaných funkcí a chcete.
+keywords: NuGet 4.0 RTM poznámky k verzi, opravy chyb známé problémy, přidat funkce, chcete
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: d1ab89f0decb64a64d04dc293e5273b577e8398b
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 75ce757c209afd74f8d4f45d58d4e13a23b3b743
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-40-rtm-release-notes"></a>Poznámky k verzi 4.0 RTM NuGet
 

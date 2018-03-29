@@ -1,22 +1,25 @@
 ---
-title: "Příkaz Obnovit NuGet rozhraní příkazového řádku | Microsoft Docs"
+title: Příkaz Obnovit NuGet rozhraní příkazového řádku | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Referenční dokumentace pro příkaz restore nuget.exe"
-keywords: "nuget restore odkaz, balíčky příkazu Obnovit"
+ms.technology: ''
+description: Referenční dokumentace pro příkaz restore nuget.exe
+keywords: nuget restore odkaz, balíčky příkazu Obnovit
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2416ad652244e0ea60651147ad74a1513cdb75ff
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 64f12fdedc8fbfcee15c1dcddc445148f458c030
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="restore-command-nuget-cli"></a>příkaz Restore (NuGet CLI)
 
@@ -46,15 +49,15 @@ kde `<projectPath>` Určuje umístění řešení nebo `packages.config` souboru
 | Nápověda | Zobrazí nápovědu pro příkaz. |
 | MSBuildPath | *(4.0 +)*  Určuje cestu MSBuild používat pomocí příkazu, přednost před `-MSBuildVersion`. |
 | MSBuildVersion | *(3.2 +)*  Určuje verzi nástroje MSBuild k použití se tento příkaz. Podporované hodnoty jsou 4, 12, 14, 15. Ve výchozím nastavení je zachyceny MSBuild ve své cestě jinak bude výchozí nejvyšší nainstalovanou verzi nástroje MSBuild. |
-| NoCache | NuGet bránit v použití balíčky z mezipaměti místního počítače. |
+| NoCache | NuGet bránit v použití balíčky v mezipaměti. V tématu [správy globální balíčky a složky mezipaměti](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
 | Neinteraktivní | Potlačí výzvy pro vstup uživatele nebo potvrzení. |
-| Výstupnísložka | Určuje složku, ve kterém jsou nainstalované balíčky. Pokud není zadaný žádný složky, se používá aktuální složky. |
+| Výstupnísložka | Určuje složku, ve kterém jsou nainstalované balíčky. Pokud není zadaný žádný složky, se používá aktuální složky. Při obnovení s vyžaduje `packages.config` souboru Pokud `PackagesDirectory` nebo `SolutionDirectory` se používá.|
 | PackageSaveMode | Určuje typy souborů, uložte po instalaci balíčku: jeden z `nuspec`, `nupkg`, nebo `nuspec;nupkg`. |
-| PackagesDirectory | Stejné jako `OutputDirectory`. |
+| PackagesDirectory | Stejné jako `OutputDirectory`. Při obnovení s vyžaduje `packages.config` souboru Pokud `OutputDirectory` nebo `SolutionDirectory` se používá. |
 | Project2ProjectTimeOut | Časový limit v sekundách pro odkazy na projekt na projekt řešení. |
 | Rekurzivní | *(4.0 +)*  Obnoví všechny odkazy na projekty pro projekty UWP a .NET Core. Nelze použít u projektů pomocí `packages.config`. |
 | RequireConsent | Ověří, že probíhá obnovení balíčků je zapnutá před stažením a instalací balíčky. Podrobnosti najdete v tématu [obnovení balíčků](../consume-packages/package-restore.md). |
-| SolutionDirectory | Určuje složku řešení. Není platný při obnovení balíčků pro řešení. |
+| SolutionDirectory | Určuje složku řešení. Není platný při obnovení balíčků pro řešení. Při obnovení s vyžaduje `packages.config` souboru Pokud `PackagesDirectory` nebo `OutputDirectory` se používá. |
 | Zdroj | Určuje seznam zdrojů balíčku (jako adresy URL) pro obnovení. Pokud tento parametr vynechán, příkaz používá zdrojů, součástí konfigurační soubory, najdete v části [konfigurace NuGet chování](../consume-packages/configuring-nuget-behavior.md). |
 | Podrobnosti |> určuje množství podrobností, které jsou zobrazené ve výstupu: *normální*, *quiet*, *podrobné*. |
 

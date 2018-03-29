@@ -1,22 +1,25 @@
 ---
-title: "Balíček NuGet závislostí řešení | Microsoft Docs"
+title: Balíček NuGet závislostí řešení | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 08/14/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Informace o procesu, pomocí kterého se balíček NuGet závislosti vyřešen a nainstalované v obou NuGet 2.x a NuGet 3.x+."
-keywords: "Závislosti balíčků NuGet, Správa verzí NuGet, verze závislosti, verze grafu, verze rozlišení, přenositelné obnovení"
+ms.technology: ''
+description: Informace o procesu, pomocí kterého se balíček NuGet závislosti vyřešen a nainstalované v obou NuGet 2.x a NuGet 3.x+.
+keywords: Závislosti balíčků NuGet, Správa verzí NuGet, verze závislosti, verze grafu, verze rozlišení, přenositelné obnovení
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: aa2537a2538d0ea665944784ef183dc12faa9b38
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: d387acd369c88a64abaa2cb94a913fe211df8da1
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>Jak NuGet řeší závislosti balíčků
 
@@ -24,7 +27,7 @@ Vždy, když je balíček nainstalován, nebo přeinstalovat, včetně instaluje
 
 Tyto okamžité závislosti potom také může mít závislosti na jejich vlastní, které můžete pokračovat v libovolné hloubka. To vytváří, co se nazývá *graf závislostí* která popisuje vztahy mezi balíčky na všech úrovních.
 
-Pokud více balíčků stejné závislosti, pak stejné ID balíčku může vyskytovat v grafu vícekrát, potenciálně s omezeními jinou verzi. Jenom jedna verze nástroje daného balíčku můžete však použít v projektu, tak NuGet, musíte zvolit, která verze se má použít. Přesný postup závisí na formátu odkaz balíčku, který je používán.
+Pokud více balíčků stejné závislosti, pak stejné ID balíčku může vyskytovat v grafu vícekrát, potenciálně s omezeními jinou verzi. Jenom jedna verze nástroje daného balíčku můžete však použít v projektu, tak NuGet, musíte zvolit, která verze se má použít. Přesný postup závisí na formátu správu balíčku, který je používán.
 
 ## <a name="dependency-resolution-with-packagereference"></a>Řešení závislostí s PackageReference
 
@@ -109,7 +112,7 @@ S `packages.config`, NuGet pokusí o řešení konfliktů závislostí při inst
 
 Ve výchozím nastavení, NuGet 2.8 vyhledá nejnižší verze oprava (najdete v části [poznámky k verzi NuGet 2.8](../release-notes/nuget-2.8.md#patch-resolution-for-dependencies)). Můžete řídit prostřednictvím toto nastavení `DependencyVersion` atribut `Nuget.Config` a `-DependencyVersion` přepnout na příkazovém řádku.  
 
-`packages.config` Zpracování pro řešení závislostí získá složitý pro větší grafy závislostí. Každé nové instalace balíčku vyžaduje přecházení přes celou grafu a vyvolá riziko pro konflikty verzí. Když dojde ke konfliktu, instalace se zastaví, nechat projektu v neurčitém stavu, zejména s potenciální úpravy samotný soubor projektu. Nejedná se o problém při použití jiných formátů odkaz na balíček.
+`packages.config` Zpracování pro řešení závislostí získá složitý pro větší grafy závislostí. Každé nové instalace balíčku vyžaduje přecházení přes celou grafu a vyvolá riziko pro konflikty verzí. Když dojde ke konfliktu, instalace se zastaví, nechat projektu v neurčitém stavu, zejména s potenciální úpravy samotný soubor projektu. Nejedná se o problém při použití jiných formátů balíček správy.
 
 ## <a name="managing-dependency-assets"></a>Správa závislostí prostředky
 
@@ -121,7 +124,7 @@ Pokud nejvyšší úrovně projektu samotné je balíček, máte také kontrolu 
 
 Existují scénáře, ve kterých sestavení se stejným názvem může odkazovat více než jednou v projektu generovala chyby při návrhu a čase vytvoření buildu. Zvažte projekt, který obsahuje vlastní verzi `C.dll`a odkazuje na C balíček, který také obsahuje `C.dll`. Ve stejnou dobu, projekt také závisí na balíčku B, který také závisí na balíčku C a `C.dll`. V důsledku toho by který NuGet nelze určit `C.dll` chcete použít, ale projektu závislost na balíček C nelze právě odebrat, protože balíček B také na něm závisí.
 
-Chcete-li tento problém vyřešili, musíte přímý odkaz `C.dll` mají (nebo použijte jiný balíček, který odkazuje na ten správný) a potom ho přidat závislost na C balíček, který vyloučí všechny její prostředky. To v závislosti na formátu odkaz balíčku používá provádí následujícím způsobem:
+Chcete-li tento problém vyřešili, musíte přímý odkaz `C.dll` mají (nebo použijte jiný balíček, který odkazuje na ten správný) a potom ho přidat závislost na C balíček, který vyloučí všechny její prostředky. To v závislosti na formátu balíček správy používá provádí následujícím způsobem:
 
 - [PackageReference](../consume-packages/package-references-in-project-files.md): Přidejte `Exclude="All"` v závislost:
 

@@ -1,26 +1,29 @@
 ---
-title: "Balíčky NuGet a Správa zdrojového kódu | Microsoft Docs"
+title: Balíčky NuGet a Správa zdrojového kódu | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 07/17/2017
+ms.date: 03/16/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Důležité informace týkající se má stát s balíčků NuGet v rámci správy verzí a zdroj řízení systémů a jak vynechejte balíčky s git a TFVC."
-keywords: "Řízení úložiště NuGet zdrojového kódu, NuGet verzí, NuGet a git, NuGet a sady TFS, NuGet a TFVC, vynechejte balíčky, zdrojová ovládací prvek úložiště, verze"
+ms.technology: ''
+description: Důležité informace týkající se má stát s balíčků NuGet v rámci správy verzí a zdroj řízení systémů a jak vynechejte balíčky s git a TFVC.
+keywords: Řízení úložiště NuGet zdrojového kódu, NuGet verzí, NuGet a git, NuGet a sady TFS, NuGet a TFVC, vynechejte balíčky, zdrojová ovládací prvek úložiště, verze
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6261625d5d7eaa748f9ad15510b7b2af3c814e44
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 43fc1653616091b0f974903147645c0c99c8f57b
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="omitting-nuget-packages-in-source-control-systems"></a>Vynechání balíčky NuGet ve zdrojových systémech ovládací prvek
 
-Vývojáři obvykle vynechejte balíčky NuGet z jejich zdrojová ovládací prvek úložiště a místo toho spoléhají na [obnovení balíčků](../consume-packages/package-restore.md) přeinstalovat projektu závislosti před sestavení.
+Vývojáři obvykle vynechejte balíčky NuGet z jejich zdrojová ovládací prvek úložiště a místo toho spoléhají na [obnovení balíčků](package-restore.md) přeinstalovat projektu závislosti před sestavení.
 
 Důvody pro spoléhat na obnovení balíčků zahrnují následující:
 
@@ -29,11 +32,11 @@ Důvody pro spoléhat na obnovení balíčků zahrnují následující:
 1. Bude těžší Vyčistit řešení nepoužívá balíček složek, jako je třeba zajistit, že nemáte odstranit všechny složky balíčku stále používáno.
 1. Díky vynechání balíčky, Udržovat čistou hranice vlastnictví až balíčky od ostatních, které závisí na kódu. Mnoho balíčky NuGet jsou zachována ve své vlastní zdrojová úložiště ovládací prvek již.
 
-I když se obnovení balíčku je výchozí chování u balíčku NuGet, některé ručního nastavení je potřeba vynechejte balíčky&mdash;konkrétně, `packages` složku ve vašem projektu&mdash;od správy zdrojového kódu, jak je popsáno v následujících částech.
+I když se obnovení balíčku je výchozí chování u balíčku NuGet, některé ručního nastavení je potřeba vynechejte balíčky&mdash;konkrétně, `packages` složku ve vašem projektu&mdash;od správy zdrojového kódu, jak je popsáno v tomto článku.
 
 ## <a name="omitting-packages-with-git"></a>Vynechání balíčky s Gitem
 
-Použití [soubor .gitignore](https://git-scm.com/docs/gitignore) předejdete včetně `packages` složky ve správě zdrojového kódu. Odkaz, najdete v článku [ukázka `.gitignore` pro projekty v sadě Visual Studio](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore).
+Použití [soubor .gitignore](https://git-scm.com/docs/gitignore) ignorovat balíčky NuGet (`.nupkg`) `packages` složku, a `project.assets.json`, mimo jiné. Odkaz, najdete v článku [ukázka `.gitignore` pro projekty v sadě Visual Studio](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore):
 
 Důležitou součástí `.gitignore` souboru jsou:
 
@@ -41,20 +44,24 @@ Důležitou součástí `.gitignore` souboru jsou:
 # Ignore NuGet Packages
 *.nupkg
 
-# Ignore the packages folder
-**/packages/*
+# The packages folder can be ignored because of Package Restore
+**/[Pp]ackages/*
 
-# Include packages/build/, which is used as an MSBuild target
-!**/packages/build/
+# except build/, which is used as an MSBuild target.
+!**/[Pp]ackages/build/
 
-# Uncomment if necessary; generally it's regenerated when needed
-#!**/packages/repositories.config
+# Uncomment if necessary however generally it will be regenerated when needed
+#!**/[Pp]ackages/repositories.config
+
+# NuGet v3's project.json files produces more ignorable files
+*.nuget.props
+*.nuget.targets
 
 # Ignore other intermediate files that NuGet might create. project.lock.json is used in conjunction
-# with project.json; project.assets.json is used in conjunction with the PackageReference format.
+# with project.json (NuGet v3); project.assets.json is used in conjunction with the PackageReference
+# format (NuGet v4 and .NET Core).
 project.lock.json
 project.assets.json
-*.nuget.props
 ```
 
 ## <a name="omitting-packages-with-team-foundation-version-control"></a>Vynechání balíčky s verzí Team Foundation
@@ -92,7 +99,7 @@ Postup při zakázání integrace ovládacích prvků zdrojového s TFVC pro vyb
    # with additional folder names if it's not in the same folder as .tfignore.   
    packages
 
-   # Include package target files which may be required for MSBuild, again prefixing the folder name as needed.
+   # Exclude package target files which may be required for MSBuild, again prefixing the folder name as needed.
    !packages/*.targets
 
    # Omit temporary files

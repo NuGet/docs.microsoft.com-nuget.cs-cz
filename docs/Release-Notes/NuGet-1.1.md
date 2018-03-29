@@ -1,22 +1,25 @@
 ---
-title: "Poznámky k verzi NuGet 1.0 a 1.1 | Microsoft Docs"
+title: Poznámky k verzi NuGet 1.0 a 1.1 | Microsoft Docs
 author: karann-msft
 ms.author: karann-msft
 manager: ghogen
 ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Poznámky k verzi pro včetně známé problémy, opravy chyb, přidaných funkcí a chcete 1.1 NuGet."
-keywords: "NuGet 1.1 poznámky k verzi, opravy chyb známé problémy, přidat funkce, chcete"
+ms.technology: ''
+description: Poznámky k verzi pro včetně známé problémy, opravy chyb, přidaných funkcí a chcete 1.1 NuGet.
+keywords: NuGet 1.1 poznámky k verzi, opravy chyb známé problémy, přidat funkce, chcete
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6a596e61f144e7269f703f2dba3dddb4fd338e6a
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: dd320df2d725e58182cd908ce621571ea018b350
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-10-and-11-release-notes"></a>Poznámky k verzi NuGet 1.0 a 1.1
 
@@ -49,7 +52,7 @@ Chcete-li použít [nejnovější verze](http://nuget.codeplex.com/releases/view
 
 * Nejprve odinstalujte starší buildu. Budete muset spustit jako správce k tomu VS.
 * Odeberte všechny existující kanály, které máte.
-* Přidat nový kanál odkazující na [http://go.microsoft.com/fwlink/?LinkId=206669](http://go.microsoft.com/fwlink/?LinkId=206669).
+* Přidat nový kanál odkazující na [ http://go.microsoft.com/fwlink/?LinkId=206669 ](http://go.microsoft.com/fwlink/?LinkId=206669).
 
 ## <a name="nuget-11"></a>NuGet 1.1
 
@@ -135,7 +138,7 @@ Níže jsou změny provedené v této verzi Release Candidate od verze CTP 2. P�
 
 Tady jsou nejdůležitější změny provedené v CTP 2:
 
-* Přepnout balíček informační kanál z ATOM koncový bod služby OData: Pokud upgradujete na verzi CTP2 NuGet, je nutné přidat následující adresy URL jako zdroj balíčků: https://feed.nuget.org/ctp2/odata/v1/.
+* Přepnout balíček informační kanál z ATOM koncový bod služby OData: Pokud upgradujete na verzi CTP2 NuGet, je nutné přidat následující adresy URL jako zdroj balíčků: `https://feed.nuget.org/ctp2/odata/v1/`.
 * Přejmenovat příkaz Add-Package k *Install-Package*.
 * Aktualizovat `.nuspec` formátu. `.nuspec` Formátu nyní zahrnuje *iconUrl* pole pro zadání ikonou png 32 x 32, který se zobrazí v dialogovém okně Přidat balíček. Proto nezapomeňte nastavit, které k rozlišení vašeho balíčku. `.nuspec` Formátu obsahuje také nové *adrese projectUrl* pole, které můžete použít tak, aby odkazoval na webové stránce, která poskytuje další informace o vašeho balíčku.
 

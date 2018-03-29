@@ -1,22 +1,25 @@
 ---
-title: "Project.JSON dopad na autoři balíček NuGet | Microsoft Docs"
+title: Project.JSON dopad na autoři balíček NuGet | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/18/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Podrobnosti o tom, jak implementace project.json v NuGet 3.x ovlivňuje balíček autoři, jako je například nepodporované funkce, obsahu a formátu balíčku."
-keywords: "Balíček NuGet a project.json, project.json dopad vytváření aspekty, project.json funkce"
+ms.technology: ''
+description: Podrobnosti o tom, jak implementace project.json v NuGet 3.x ovlivňuje balíček autoři, jako je například nepodporované funkce, obsahu a formátu balíčku.
+keywords: Balíček NuGet a project.json, project.json dopad vytváření aspekty, project.json funkce
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b732d48b169825764d614c338658f8c6ef45e765
-ms.sourcegitcommit: eabd401616a98dda2ae6293612acb3b81b584967
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 6e8af98504a2866106e84943989aeb91f2e9c1fb
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="impact-of-projectjson-when-creating-packages"></a>Dopad project.json při vytváření balíčků
 
@@ -51,7 +54,7 @@ Podpora pro obsah je nyní zakázána pro podobné důvody pro skripty a transfo
 
 Obsah souborů se dá pořád provést uvnitř balíčky a ignorují aktuálně, ale koncový uživatel kopírovat je na správné místo.
 
-Najdete v jednom návrhů přináší zpět soubory obsahu a postupujte podle jeho průběh zde: [https://github.com/NuGet/Home/issues/627](https://github.com/NuGet/Home/issues/627).
+Najdete v jednom návrhů přináší zpět soubory obsahu a postupujte podle jeho průběh zde: [ https://github.com/NuGet/Home/issues/627 ](https://github.com/NuGet/Home/issues/627).
 
 ## <a name="impact-for-package-authors"></a>Dopad pro autory balíčku
 

@@ -1,22 +1,25 @@
 ---
-title: "Příkaz instalovat NuGet rozhraní příkazového řádku | Microsoft Docs"
+title: Příkaz instalovat NuGet rozhraní příkazového řádku | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Referenční dokumentace pro příkaz nuget.exe instalace"
-keywords: "nuget nainstalujte odkaz, nainstalujte balíček příkaz"
+ms.technology: ''
+description: Referenční dokumentace pro příkaz nuget.exe instalace
+keywords: nuget nainstalujte odkaz, nainstalujte balíček příkaz
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 8d5f53c833fb42c9fe37d0629eab33e8f0bc70d7
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 121d7b50767f1d466d6d0d8494f324b02d8ff6f1
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="install-command-nuget-cli"></a>nainstalovat příkaz (NuGet CLI)
 
@@ -27,7 +30,7 @@ Stáhne a nainstaluje balíček do projektu, jako výchozí bude použit na aktu
 > [!Tip]
 > Stažení balíčku přímo mimo kontext projektu, navštivte stránku balíčku na [nuget.org](https://www.nuget.org) a vyberte **Stáhnout** odkaz.
 
-Pokud nejsou zadány žádné zdroje, ty uvedené v souboru globální konfiguraci `%APPDATA%\NuGet\NuGet.Config` (Windows) nebo `~/.nuget/NuGet/NuGet.Config` (Mac/Linux), se používají. V tématu [konfigurace NuGet chování](../consume-packages/configuring-nuget-behavior.md) další podrobnosti.
+Pokud nejsou zadány žádné zdroje, ty uvedené v souboru globální konfiguraci `%appdata%\NuGet\NuGet.Config` (Windows) nebo `~/.nuget/NuGet/NuGet.Config` (Mac/Linux), se používají. V tématu [konfigurace NuGet chování](../consume-packages/configuring-nuget-behavior.md) další podrobnosti.
 
 Pokud nejsou zadány žádné konkrétní balíčky, `install` nainstaluje všechny balíčky uvedené v projektu `packages.config` souboru, takže je podobná [ `restore` ](cli-ref-restore.md).
 
@@ -55,7 +58,7 @@ kde `<packageID>` názvy balíček k instalaci (pomocí nejnovější verze), ne
 | ForceEnglishOutput | *(3.5 +)*  Vynutí nuget.exe ke spuštění pomocí invariantní, na základě angličtina jazykové verze. |
 | Rozhraní .NET Framework | *(4.4 +)*  Cílovém Frameworku, který slouží k výběru závislosti. Výchozí hodnota je 'Libovolný' není-li zadána. |
 | Nápověda | Zobrazí nápovědu pro příkaz. |
-| NoCache | NuGet bránit v použití balíčky z mezipaměti místního počítače. |
+| NoCache | NuGet bránit v použití balíčky v mezipaměti. V tématu [správy globální balíčky a složky mezipaměti](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
 | Neinteraktivní | Potlačí výzvy pro vstup uživatele nebo potvrzení. |
 | Výstupnísložka | Určuje složku, ve kterém jsou nainstalované balíčky. Pokud není zadaný žádný složky, se používá aktuální složky. |
 | PackageSaveMode | Určuje typy souborů, uložte po instalaci balíčku: jeden z `nuspec`, `nupkg`, nebo `nuspec;nupkg`. |

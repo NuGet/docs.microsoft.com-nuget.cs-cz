@@ -1,26 +1,29 @@
 ---
-title: "Pro NuGet formátů analyzátor platformy .NET kompilátoru | Microsoft Docs"
+title: Pro NuGet formátů analyzátor platformy .NET kompilátoru | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/09/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Konvence pro analyzátory .NET, které se zabalí a distribuovat s balíčky NuGet, které implementují rozhraní API nebo knihovny."
-keywords: "Konvence analyzátor NuGet, .NET analyzátorů, NuGet a kompilátoru platformy .NET, NuGet a Roslyn"
+ms.technology: ''
+description: Konvence pro analyzátory .NET, které se zabalí a distribuovat s balíčky NuGet, které implementují rozhraní API nebo knihovny.
+keywords: Konvence analyzátor NuGet, .NET analyzátorů, NuGet a kompilátoru platformy .NET, NuGet a Roslyn
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: e44cfa609c14422d50769e512108844cbd2f96a4
-ms.sourcegitcommit: 24997b5345a997501fff846c9bd73610245ae0a6
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 26e40346b1d76d2f4f0e4177dbe0670f10db164c
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="analyzer-nuget-formats"></a>Analyzátor NuGet formáty
 
-Kompilátoru platformu .NET (také označované jako "Roslyn") umožňují vývojářům vytvářet [analyzátorů] (https://github.com/dotnet/roslyn/wiki/How-To-Write-a-C%23-Analyzer-and-Code-Fix), podívejte se na strom syntaxe a sémantiku kódu se zapsané. To poskytuje vývojářům způsob, jak vytvořit a specifické pro doménu analytické nástroje, jako jsou ty, které pomohou průvodce použít konkrétní rozhraní API nebo knihovny. Další informace najdete na [.NET/Roslyn](https://github.com/dotnet/roslyn/wiki) wiki Githubu. Také najdete v článku [Roslyn použití k zápisu Live analyzátor kódu pro vaše rozhraní API](https://msdn.microsoft.com/magazine/dn879356.aspx) v časopise MSDN.
+Kompilátoru platformu .NET (také označované jako "Roslyn") umožňují vývojářům vytvářet [analyzátorů] (https://github.com/dotnet/roslyn/wiki/How-To-Write-a-C%23-Analyzer-and-Code-Fix) , podívejte se na strom syntaxe a sémantiku kódu se zapsané. To poskytuje vývojářům způsob, jak vytvořit a specifické pro doménu analytické nástroje, jako jsou ty, které pomohou průvodce použít konkrétní rozhraní API nebo knihovny. Další informace najdete na [.NET/Roslyn](https://github.com/dotnet/roslyn/wiki) wiki Githubu. Také najdete v článku [Roslyn použití k zápisu Live analyzátor kódu pro vaše rozhraní API](https://msdn.microsoft.com/magazine/dn879356.aspx) v časopise MSDN.
 
 Analyzátory sami jsou obvykle zabalené a distribuovat jako součást balíčky NuGet, které implementují rozhraní API nebo knihovny nejistá.
 
@@ -51,7 +54,7 @@ Použití `analyzers` složka je podobná používá pro [cílové rozhraní](..
 
     $/analyzers/{framework_name}{version}/{supported_architecture}/{supported_language}}/{analyzer_name}.dll
 
-- **framework_name**: *volitelné* rozhraní API útoku na rozhraní .NET Framework, která obsahují knihovny DLL je potřeba spustit. `dotnet`protože Roslyn je jenom hostitele, který můžete spustit analyzátorů je v současné době jedinou platnou hodnotou. Pokud není zadaný žádný cíl, knihovny DLL se předpokládá, že pokud chcete použít pro *všechny* cíle.
+- **framework_name**: *volitelné* rozhraní API útoku na rozhraní .NET Framework, která obsahují knihovny DLL je potřeba spustit. `dotnet` protože Roslyn je jenom hostitele, který můžete spustit analyzátorů je v současné době jedinou platnou hodnotou. Pokud není zadaný žádný cíl, knihovny DLL se předpokládá, že pokud chcete použít pro *všechny* cíle.
 - **supported_language**: jazyk, pro kterou knihovnu DLL platí, jeden z `cs` (C#) a `vb` (Visual Basic), a `fs` (F #). Jazyk označuje, že nástroje analyzer by měly být načteny pouze pro projekt pomocí daného jazyka. Pokud je zadán žádný jazyk, pak DLL se předpokládá, že pokud chcete použít pro *všechny* jazyky, které podporují analyzátorů.
 - **analyzer_name**: Určuje knihovny DLL analyzéru. Pokud potřebujete další soubory nad rámec knihovny DLL, musí být zahrnuty v souborech cíle nebo vlastnosti.
 

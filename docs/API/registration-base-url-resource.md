@@ -1,5 +1,5 @@
 ---
-title: "Balíček Metadata, NuGet rozhraní API | Microsoft Docs"
+title: Balíček Metadata, NuGet rozhraní API | Microsoft Docs
 author:
 - joelverhagen
 - kraigb
@@ -10,17 +10,20 @@ manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Balíček registrace základní adresu URL umožňuje načítání metadat o balíčcích."
-keywords: "Metadata balíčků NuGet rozhraní API, rozhraní API NuGet registrace, rozhraní API NuGet neuvedené balíčky"
+ms.technology: ''
+description: Balíček registrace základní adresu URL umožňuje načítání metadat o balíčcích.
+keywords: Metadata balíčků NuGet rozhraní API, rozhraní API NuGet registrace, rozhraní API NuGet neuvedené balíčky
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: c098d70d58011bad7f9829f0c95c87c1339dd362
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: c7b32e1d2bb9250de1e0b707405a75184b2bd8b4
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="package-metadata"></a>Metadata balíčků
 
@@ -32,11 +35,11 @@ Kolekce dokumentů v `RegistrationsBaseUrl` se často nazývají "registrace" ne
 
 Následující `@type` se používají hodnoty:
 
-@typeHodnota                     | Poznámky
+@type Hodnota                     | Poznámky
 ------------------------------- | -----
 RegistrationsBaseUrl            | Původní verze
-RegistrationsBaseUrl/3.0.0-beta | Alias`RegistrationsBaseUrl`
-RegistrationsBaseUrl/3.0.0-rc   | Alias`RegistrationsBaseUrl`
+RegistrationsBaseUrl/3.0.0-beta | Alias `RegistrationsBaseUrl`
+RegistrationsBaseUrl/3.0.0-rc   | Alias `RegistrationsBaseUrl`
 RegistrationsBaseUrl/3.4.0      | Algoritmem gzip odpovědí
 RegistrationsBaseUrl/3.6.0      | Zahrnuje SemVer 2.0.0 balíčky
 
@@ -146,7 +149,7 @@ Název                     | Typ                       | Požadováno | Poznámk
 ------------------------ | -------------------------- | -------- | -----
 @id                      | odkazy řetězců                     | Ano      | Adresa URL dokumentu se používají k vytvoření tohoto objektu
 Autoři                  | řetězec nebo pole řetězců. | Ne       | 
-dependencyGroups         | Pole objektů           | Ne       | Adresa URL obsah balíčku (.nupkg)
+dependencyGroups         | Pole objektů           | Ne       | Závislosti balíčku, seskupené podle cílové rozhraní
 description              | odkazy řetězců                     | Ne       | 
 IconUrl                  | odkazy řetězců                     | Ne       | 
 id                       | odkazy řetězců                     | Ano      | ID balíčku

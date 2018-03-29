@@ -1,22 +1,25 @@
 ---
-title: "Zásady správného řízení projektu NuGet | Microsoft Docs"
+title: Zásady správného řízení projektu NuGet | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/18/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Model zásad správného řízení pro NuGet, včetně role a zodpovědnosti committers, přispěvatelé a uživatelů."
-keywords: "Zásady správného řízení NuGet, NuGet benevolent dictator, committer odpovědnosti, Přispěvatel odpovědnosti, odpovědnosti uživatele"
+ms.technology: ''
+description: Model zásad správného řízení pro NuGet, včetně role a zodpovědnosti committers, přispěvatelé a uživatelů.
+keywords: Zásady správného řízení NuGet, NuGet benevolent dictator, committer odpovědnosti, Přispěvatel odpovědnosti, odpovědnosti uživatele
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: ea1ddcc3e145afe3b905b23db37e1e61500200bb
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: aa48b95482c65de47d54daff142402dd2ff6558a
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-governance"></a>Zásady správného řízení NuGet
 
@@ -40,7 +43,7 @@ Kromě toho .NET Foundation pracovníci zvažte realizace projektu primární ne
 
 ### <a name="committers"></a>Committers
 
-Committers jsou přispěvatelé, kteří provedli dlouhodobě cenné příspěvky NuGet a jmenuje Benevolent Dictator. Třetího, jsou committers spoléhat k zápisu kódu přímo do úložiště a obrazovky příspěvky jiných. Committers jsou často vývojáři ale můžete přispívat jinými způsoby.
+Committers jsou přispěvatelé, kteří provedli dlouhodobě cenné příspěvky NuGet a jmenuje Benevolent Dictator. Jakmile jmenováno, spoléhat committers k zápisu kódu přímo do úložiště a obrazovky příspěvky jiných. Committers jsou často vývojáři ale můžete přispívat jinými způsoby.
 
 Obvykle committer se zaměřuje na konkrétních aspektů projektu a přináší úroveň znalosti a pochopení, která je mírou dodržování komunity a realizace projektu. Role committer není oficiální jeden, je jednoduše pozici, která předpokládá vliv členové komunity služby jako vypadá realizace projektu jim pokyny a podporu.
 

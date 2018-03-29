@@ -1,5 +1,5 @@
 ---
-title: "Přehled, NuGet rozhraní API | Microsoft Docs"
+title: Přehled, NuGet rozhraní API | Microsoft Docs
 author:
 - joelverhagen
 - kraigb
@@ -10,17 +10,20 @@ manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Rozhraní API NuGet je sada koncových bodů protokolu HTTP, které je možné stáhnout balíčky, načíst metadata, publikujte nové balíčky atd."
-keywords: "Rozhraní API V3 NuGet, rozhraní API NuGet V2, NuGet JSON, rozhraní API registrace NuGet NuGet API ploché kontejner, NuGet nupkg rozhraní API, NuGet metadat rozhraní API, hledání NuGet rozhraní API a NuGet nabízené rozhraní API, NuGe publikovat rozhraní API, NuGet odstranit rozhraní API, rozhraní API, protokol NuGet unlist NuGet"
+ms.technology: ''
+description: Rozhraní API NuGet je sada koncových bodů protokolu HTTP, které je možné stáhnout balíčky, načíst metadata, publikujte nové balíčky atd.
+keywords: Rozhraní API V3 NuGet, rozhraní API NuGet V2, NuGet JSON, rozhraní API registrace NuGet NuGet API ploché kontejner, NuGet nupkg rozhraní API, NuGet metadat rozhraní API, hledání NuGet rozhraní API a NuGet nabízené rozhraní API, NuGe publikovat rozhraní API, NuGet odstranit rozhraní API, rozhraní API, protokol NuGet unlist NuGet
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: c28b0912be6dbccab06078100cb71821c3658e08
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 7053a971c80a94cf035e8f149c332b36e66a9ea9
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-api"></a>NuGet rozhraní API
 
@@ -32,8 +35,7 @@ Poznámka: v některých případech nuget.org má další požadavky, které ne
 
 ## <a name="service-index"></a>Index služby
 
-Vstupní bod pro rozhraní API je dokument JSON v dobře známé umístění. Tento dokument je volána **indexu služby**.
-Umístění indexu služby pro nuget.org je `https://api.nuget.org/v3/index.json`.
+Vstupní bod pro rozhraní API je dokument JSON v dobře známé umístění. Tento dokument je volána **indexu služby**. Umístění indexu služby pro nuget.org je `https://api.nuget.org/v3/index.json`.
 
 Tento dokument JSON obsahuje seznam *prostředky* který poskytují různé funkce a splnění použití v odlišných situacích.
 
@@ -112,8 +114,9 @@ V případě úrovni 500 stavový kód klienta můžete implementovat mechanismu
 Název                     | Popis
 ------------------------ | -----------
 X-NuGet-ApiKey           | Požadované pro nabízené a odstranění, najdete v části [ `PackagePublish` prostředků](package-publish-resource.md)
-X-NuGet-Client-Version   | **Zastaralé** a nahradit`X-NuGet-Protocol-Version`
+X-NuGet-Client-Version   | **Zastaralé** a nahradit `X-NuGet-Protocol-Version`
 X-NuGet-Protocol-Version | V některých případech pouze v nuget.org potřeba, najdete v části [nuget.org protokoly](NuGet-Protocols.md)
+X-NuGet-Session-Id       | *Volitelné*. NuGet klienti v4.7 + identifikovat požadavky HTTP, které jsou součástí stejné relaci klienta NuGet. Pro `PackageReference` existuje operace obnovení je id jedné relace, pro další scénáře, jako je automatické dokončení, a `packages.config` obnovení může být několik různých id relace je z důvodu jak promítnou kód.
 
 ## <a name="authentication"></a>Ověřování
 

@@ -1,22 +1,25 @@
 ---
-title: "Příkaz Přidat NuGet rozhraní příkazového řádku | Microsoft Docs"
+title: Příkaz Přidat NuGet rozhraní příkazového řádku | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Referenční dokumentace pro nuget.exe přidat – příkaz"
-keywords: "Přidat odkaz nuget, přidat balíček – příkaz"
+ms.technology: ''
+description: Referenční dokumentace pro nuget.exe přidat – příkaz
+keywords: Přidat odkaz nuget, přidat balíček – příkaz
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 70c86f8d240bd308224f6b7887b630cc1e953bf8
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 48e093cbae2cecb1652e17a9b26920107aa8aef7
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="add-command-nuget-cli"></a>Přidat – příkaz (NuGet CLI)
 
@@ -47,7 +50,7 @@ kde `<packagePath>` je název cesty k balíčku, který chcete přidat, a `<sour
 
 | Možnost | Popis |
 | --- | --- |
-| ConfigFile | Konfigurační soubor NuGet použít. Pokud není zadaný, *%AppData%\NuGet\NuGet.Config* se používá.| 
+| ConfigFile | Konfigurační soubor NuGet použít. Pokud není zadaný, `%AppData%\NuGet\NuGet.Config` (Windows) nebo `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) se používá.|
 | Rozbalte položku | Přidá všechny soubory v balíčku ke zdroji balíčku. |
 | ForceEnglishOutput | *(3.5 +)*  Vynutí nuget.exe ke spuštění pomocí invariantní, na základě angličtina jazykové verze. |
 | Nápověda | Zobrazí nápovědu pro příkaz. |

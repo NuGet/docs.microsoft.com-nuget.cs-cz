@@ -1,24 +1,27 @@
 ---
-title: "Průvodce konzoly Správce balíčků NuGet | Microsoft Docs"
+title: Průvodce konzoly Správce balíčků NuGet | Microsoft Docs
 author: kraigb
 hms.author: kraigb
 manager: ghogen
 ms.date: 01/23/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
+ms.technology: ''
 f1_keywords:
 - vs.nuget.packagemanager.console
-description: "Pokyny k používání konzoly Správce balíčků NuGet v sadě Visual Studio pro práci s balíčky."
-keywords: "Konzole Správce balíčků NuGet, NuGet powershell, spravovat balíčky NuGet"
+description: Pokyny k používání konzoly Správce balíčků NuGet v sadě Visual Studio pro práci s balíčky.
+keywords: Konzole Správce balíčků NuGet, NuGet powershell, spravovat balíčky NuGet
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 60c7edd0497e162cc511424e9acfbbfd6f53fd46
-ms.sourcegitcommit: a40a6ce6897b2d9411397b2e29b1be234eb6e50c
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: af22a524f6b4a41a4c24077fe396846da6fb1ff8
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="package-manager-console"></a>Konzola správce balíčků
 
@@ -80,19 +83,10 @@ Install-Package Elmah -ProjectName UtilitiesLib
 
 V tématu [Install-Package](../tools/ps-ref-install-package.md).
 
-Instalaci balíčku, provede následující akce:
+Instalace balíčku v konzole provádí stejný postup, jak je popsáno na [co se stane, když je nainstalován balíček](../consume-packages/ways-to-install-a-package.md#what-happens-when-a-package-is-installed), s těmito přídavky:
 
-- Zobrazí v okně konzoly se smlouvou předpokládané příslušných licenčních podmínek. Pokud nesouhlasíte s podmínkami, byste měli okamžitě odinstalovat balíček.
-- Přidá odkaz na projekt v jakémkoli formát reference je používán. Odkazy se následně zobrazí v Průzkumníku řešení a formátu souboru použít referenční. Upozorňujeme však, že s PackageReference, je nutné uložit projektu a podívejte se změny v souboru projektu přímo.
-- Ukládá do mezipaměti balíčku:
-  - PackageReference: balíčku je uloží do mezipaměti na `%USERPROFILE%\.nuget\packages` a zámek souboru tj `project.assets.json` se aktualizuje.
-  - `packages.config`: vytvoří `packages` složky v kořenové řešení a zkopíruje soubory balíčku do podsložky v něm. `package.config` Aktualizaci souboru.
-- Aktualizace `app.config` nebo `web.config` Pokud balíček používá [zdroje a konfiguračním souboru transformace](../create-packages/source-and-config-file-transformations.md).
-- Nainstaluje všechny závislosti, pokud ještě není přítomný v projektu. To může aktualizovat verze balíčku v procesu, jak je popsáno v [řešení závislostí](../consume-packages/dependency-resolution.md).
-- Zobrazí soubor readme balíčku, pokud je k dispozici, v okně Visual Studio.
-
-> [!Tip]
-> Jednou z výhod primární instalace balíčků s `Install-Package` příkaz v konzole je, který přidá odkaz na projekt stejně, jako by se použít uživatelské rozhraní Správce balíčků. Naopak `nuget install` rozhraní příkazového řádku příkaz pouze stáhne balíček a automaticky nepřidá odkaz.
+- Konzole zobrazí příslušných licenčních podmínek v jeho okno s předpokládané smlouvy. Pokud nesouhlasíte s podmínkami, byste měli okamžitě odinstalovat balíček.
+- Také odkaz na balíček, přidá se do souboru projektu a zobrazí se v **Průzkumníku řešení** pod **odkazy** uzlu, je nutné uložit projektu a podívejte se změny v souboru projektu přímo.
 
 ## <a name="uninstalling-a-package"></a>Odinstalace balíčku
 
@@ -111,12 +105,9 @@ V tématu [odinstalovat balíček](../tools/ps-ref-uninstall-package.md). Použi
 
 Odinstalace balíčku, provede následující akce:
 
-- Odebere odkazy na balíček z projektu (a jakýkoli formát odkaz se používá). Odkazy se nebude zobrazovat v Průzkumníku řešení. (Možná budete muset znovu sestavte projekt nevidíte odebrán z **Bin** složky.)
+- Odebere odkazy na balíček z projektu (a ať formátu správy se používá). Odkazy na nebude zobrazovat v **Průzkumníku řešení**. (Možná budete muset znovu sestavte projekt nevidíte odebrán z **Bin** složky.)
 - Vrátí zpět změny provedené v `app.config` nebo `web.config` Pokud byl balíček nainstalován.
 - Pokud žádné zbývající balíčky pomocí těchto závislostí odebere dříve nainstalovali závislosti.
-
-> [!Tip]
-> Jako `Install-Package`, `Uninstall-Package` příkaz má výhodu Správa odkazů v projektu, na rozdíl od `nuget uninstall` rozhraní příkazového řádku příkaz.
 
 ## <a name="updating-a-package"></a>Aktualizace balíčku
 
@@ -159,7 +150,7 @@ V tématu [najít balíček](../tools/ps-ref-find-package.md). V sadě Visual St
 
 V aplikaci Visual Studio 2017 NuGet a Správce balíčků NuGet jsou automaticky nainstalovány po výběru některé. Úlohy související s NET; Můžete také nainstalovat ji jednotlivě kontrolou **jednotlivých součástí > Code nástroje > Správce balíčků NuGet** možnosti v instalačním programu Visual Studio 2017.
 
-Zkontrolujte také, pokud jste chybí Správce balíčků NuGet v sadě Visual Studio 2015 a starší, **nástroje > rozšíření a aktualizace...**  a vyhledejte rozšíření Správce balíčků NuGet. Pokud nemůžete použít instalační program rozšíření v sadě Visual Studio, si můžete stáhnout rozšíření přímo z [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html).
+Zkontrolujte také, pokud jste chybí Správce balíčků NuGet v sadě Visual Studio 2015 a starší, **nástroje > rozšíření a aktualizace...**  a vyhledejte rozšíření Správce balíčků NuGet. Pokud nemůžete použít instalační program rozšíření v sadě Visual Studio, si můžete stáhnout rozšíření přímo z [ https://dist.nuget.org/index.html ](https://dist.nuget.org/index.html).
 
 Konzola správce balíčků není v současné době dostupné pomocí sady Visual Studio for Mac. Ekvivalentní příkazy, ale jsou k dispozici prostřednictvím [NuGet CLI](nuget-exe-CLI-reference.md). Visual Studio pro Mac nemá uživatelského rozhraní pro správu balíčků NuGet. V tématu [balíček včetně NuGet ve vašem projektu](/visualstudio/mac/nuget-walkthrough).
 

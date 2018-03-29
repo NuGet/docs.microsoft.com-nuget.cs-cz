@@ -1,18 +1,21 @@
 ---
-title: "NuGet chyby a upozornění odkaz | Microsoft Docs"
+title: NuGet chyby a upozornění odkaz | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 03/06/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Úplný referenční varování a chyby vystavené NuGet během různé operace NuGet."
-keywords: "NuGet chyby, upozornění NuGet diagnostiky"
+ms.technology: ''
+description: Úplný referenční varování a chyby vystavené NuGet během různé operace NuGet.
+keywords: NuGet chyby, upozornění NuGet diagnostiky
 ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
+ms.workload:
+- dotnet
+- aspnet
 f1_keywords:
 - NU1000
 - NU1001
@@ -50,11 +53,11 @@ f1_keywords:
 - NU3008
 - NU3018
 - NU3028
-ms.openlocfilehash: 59bbe37d1a965e5167800148603869645fc5e0b2
-ms.sourcegitcommit: df21fe770900644d476d51622a999597a6f20ef8
+ms.openlocfilehash: 020e31dc8646c43b86bcee555f1772e8b1db7761
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="errors-and-warnings"></a>Chyby a upozornění
 
@@ -136,7 +139,7 @@ S chybami a upozorněními tady jsou k dispozici jenom s [na základě PackageRe
 | --- | --- |
 | **Problém** | Identifikátor balíčku se nenašel, ale nenašla se verze v rozsahu zadaná závislost na některý ze zdrojů. Rozsah může být určena balíček a nikoli uživatele. |
 | **Příklad zprávy** | *Nejde najít balíček NuGet.Versioning s verzí (> = 9.0.1)<br/> -30 nalezena verze v nuget.org [nejbližší verze: 4.0.0]<br/> -nalezen 10 verze v dotnet buildtools [nejbližší verze: 4.0.0-rc-2129]<br/> -nalezen 9 verze v NuGetVolatile [nejbližší verze: 3.0.0-beta-00032]<br/> -0 verze součástí dotnet základní<br/> -0 verze součástí roslyn dotnet.* |
-| **Řešení** | Upravte soubor projektu nebo `packages.config` opravit verze balíčku. Také zkontrolujte, zda [NuGet konfigurace](../consume-packages/Configuring-NuGet-Behavior.md) identifikuje zdroje balíčku vaší očekávají, že používat. Potřebujete verzi requeted změnit, pokud tento balíček je odkazován objektem projektu přímo. |
+| **Řešení** | Upravte soubor projektu a opravte verze balíčku. Také zkontrolujte, zda [NuGet konfigurace](../consume-packages/Configuring-NuGet-Behavior.md) identifikuje zdroje balíčku vaší očekávají, že používat. Potřebujete verzi requeted změnit, pokud tento balíček je odkazován objektem projektu přímo. |
 
 ### <a name="nu1103"></a>NU1103
 
@@ -144,7 +147,7 @@ S chybami a upozorněními tady jsou k dispozici jenom s [na základě PackageRe
 | --- | --- |
 | **Problém** | Projektu zadána stabilní verze pro rozsah závislostí, ale v tomto rozsahu nebyly nalezeny žádné stabilní verze. Nebyly nalezeny předběžných verzí, ale nejsou povoleny. |
 | **Příklad zprávy** | *Nelze najít stabilní balíček NuGet.Versioning s verzí (> = 3.0.0)<br/> -nalezen 10 verze v dotnet buildtools [nejbližší verze: 4.0.0-rc-2129]<br/> -verze 9 najít v NuGetVolatile [nejbližší verze: 3.0.0-beta-00032] <br/> -0 verze součástí dotnet základní<br/> -0 verze součástí roslyn dotnet.* |
-| **Řešení** |  Upravit rozsah verze v souboru projektu nebo `packages.config` zahrnout předběžné verze. V tématu [Správa verzí balíčku](../reference/Package-Versioning.md). |
+| **Řešení** |  Upravte rozsah verze v souboru projektu zahrnout předběžné verze. V tématu [Správa verzí balíčku](../reference/Package-Versioning.md). |
 
 ### <a name="nu1104"></a>NU1104
 
@@ -167,8 +170,8 @@ S chybami a upozorněními tady jsou k dispozici jenom s [na základě PackageRe
 | | |
 | --- | --- |
 | **Problém** | Omezení závislostí nelze přeložit. |
-| **Příklad zprávy** | *Nelze vyhovět konfliktním žádostem pro {id}: {cesta konflikt} Framework: {cíl grafu}* 
-| **Řešení** | Upravte soubor projektu nebo `packages.config` k určení širší rozsahy závislost, nikoli přesnou verzi. |
+| **Příklad zprávy** | *Nelze vyhovět konfliktním žádostem pro {id}: {cesta konflikt} Framework: {cíl grafu}* |
+| **Řešení** | Upravte soubor projektu k určení širší rozsahy závislost, nikoli přesnou verzi. |
 |
 
 <a name="nu1107"></a>
@@ -179,7 +182,7 @@ S chybami a upozorněními tady jsou k dispozici jenom s [na základě PackageRe
 | --- | --- |
 | **Problém** | Nelze vyřešit omezení závislost mezi balíčky. |
 | **Příklad zprávy** | *Pro NuGet.Versioning zjištěn konflikt verzí. Odkazují na balíček přímo z projektu k vyřešení tohoto problému.<br/>  NuGet.Packaging 3.5.0 -> NuGet.Versioning (= 3.5.0)<br/> NuGet.Configuration 4.0.0 -> NuGet.Versioning (= 4.0.0)* |
-| **Řešení** | Balíčky s omezeními závislosti na přesné verze neumožňují dalších balíčků v případě potřeby zvýšit verze. Přidat odkaz na projekt přímo (v souboru projektu nebo `packages.config`) s přesnou verzi vyžaduje. |
+| **Řešení** | Balíčky s omezeními závislosti na přesné verze neumožňují dalších balíčků v případě potřeby zvýšit verze. Přidáte odkaz na projekt přímo (v souboru projektu) s přesnou verzi vyžaduje. |
 
 <a name="nu1108"></a>
 

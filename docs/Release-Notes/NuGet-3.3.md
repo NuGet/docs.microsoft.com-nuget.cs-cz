@@ -1,22 +1,25 @@
 ---
-title: "Poznámky k verzi NuGet 3.3 | Microsoft Docs"
+title: Poznámky k verzi NuGet 3.3 | Microsoft Docs
 author: karann-msft
 ms.author: karann-msft
 manager: ghogen
 ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Poznámky k verzi pro NuGet 3.3 včetně známé problémy, opravy chyb, přidaných funkcí a chcete."
-keywords: "NuGet 3.3 poznámky k verzi, opravy chyb známé problémy, přidat funkce, chcete"
+ms.technology: ''
+description: Poznámky k verzi pro NuGet 3.3 včetně známé problémy, opravy chyb, přidaných funkcí a chcete.
+keywords: NuGet 3.3 poznámky k verzi, opravy chyb známé problémy, přidat funkce, chcete
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 4d077fb53abd8033aad6da01ad090297109aa68c
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: ab5e1ca550297c608017cb56dff32f4bd4bbb885
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-33-release-notes"></a>Poznámky k verzi 3.3 NuGet
 
@@ -65,4 +68,4 @@ Seznam chyby v 3.3 příkazového řádku verze se zaznamenávají [3.3 příkaz
 
 ## <a name="known-issues"></a>Známé problémy
 
-Abychom mohli pokračovat ke sledování problémů na našich seznamu problémy Githubu, které naleznete na adrese: [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)
+Abychom mohli pokračovat ke sledování problémů na našich seznamu Githubu problémy, které najdete na: [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)

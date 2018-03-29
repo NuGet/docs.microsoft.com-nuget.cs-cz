@@ -1,27 +1,30 @@
 ---
-title: "Odkaz uživatelského rozhraní Správce balíčků NuGet | Microsoft Docs"
+title: Odkaz uživatelského rozhraní Správce balíčků NuGet | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 12/08/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
+ms.technology: ''
 f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager
 - vs.toolsoptionspages.nuget_package_manager.general
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
-description: "Pokyny k používání uživatelského rozhraní Správce balíčků NuGet v sadě Visual Studio pro práci s balíčky NuGet."
-keywords: "NuGet, uživatelského rozhraní Správce balíčků NuGet uživatelského rozhraní, NuGet v sadě Visual Studio, Správa balíčků NuGet, NuGet uživatelské rozhraní Správce balíčků v sadě Visual Studio"
+description: Pokyny k používání uživatelského rozhraní Správce balíčků NuGet v sadě Visual Studio pro práci s balíčky NuGet.
+keywords: NuGet, uživatelského rozhraní Správce balíčků NuGet uživatelského rozhraní, NuGet v sadě Visual Studio, Správa balíčků NuGet, NuGet uživatelské rozhraní Správce balíčků v sadě Visual Studio
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 35bb856ccff43c77af7eac67da4614d83dcdc533
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: ad36c2ab0c6e62c7fe624b35d92e852303ecfdfb
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-package-manager-ui"></a>Uživatelského rozhraní Správce balíčků NuGet
 
@@ -37,7 +40,7 @@ V tomto tématu:
 - [Ovládání možnosti Správce balíčku](#package-manager-options-control)
 
 > [!Note]
-> Pokud jste chybí Správce balíčků NuGet v sadě Visual Studio 2015, zkontrolujte **nástroje > rozšíření a aktualizace...**  a vyhledejte *Správce balíčků NuGet* rozšíření. Pokud nemůžete použít instalační program rozšíření v sadě Visual Studio, stáhněte si rozšíření přímo z [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html).
+> Pokud jste chybí Správce balíčků NuGet v sadě Visual Studio 2015, zkontrolujte **nástroje > rozšíření a aktualizace...**  a vyhledejte *Správce balíčků NuGet* rozšíření. Pokud nemůžete použít instalační program rozšíření v sadě Visual Studio, stáhněte si rozšíření přímo z [ https://dist.nuget.org/index.html ](https://dist.nuget.org/index.html).
 >
 > V aplikaci Visual Studio 2017 jsou NuGet a Správce balíčků NuGet automaticky nainstalovány s žádným. NET související úlohy. Nainstalujte ji jednotlivě výběrem **jednotlivých součástí > Code nástroje > Správce balíčků NuGet** možnosti v instalačním programu Visual Studio 2017.
 
@@ -125,7 +128,7 @@ Správa zdrojů balíčků:
 
     ![Možnosti zdroje balíčku](media/options.png)
 
-1. Přidat zdroj, vyberte  **+** , upravit název, zadejte adresu URL nebo cestu **zdroj** řízení a vyberte **aktualizace**. Zdroj se teď zobrazí v modulu pro výběr rozevíracího seznamu.
+1. Přidat zdroj, vyberte **+**, upravit název, zadejte adresu URL nebo cestu **zdroj** řízení a vyberte **aktualizace**. Zdroj se teď zobrazí v modulu pro výběr rozevíracího seznamu.
 1. Chcete-li změnit zdroj balíčku, vyberte ho, proveďte úpravy v **název** a **zdroj** pole a vyberte **aktualizace**.
 1. Zakázat zdroj balíčku, zrušte zaškrtnutí políčka nalevo od názvu v seznamu.
 1. Pokud chcete odebrat zdroj balíčku, vyberte ho a pak vyberte **X** tlačítko.

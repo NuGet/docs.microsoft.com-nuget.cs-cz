@@ -1,23 +1,26 @@
 ---
-title: "Postup vytvoření balíčků NuGet symbol | Microsoft Docs"
+title: Postup vytvoření balíčků NuGet symbol | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 09/12/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Jak vytvořit balíčky NuGet, které obsahují pouze symboly pro podporu ladění dalších balíčcích NuGet v sadě Visual Studio."
-keywords: "Symbol balíčky NuGet, balíček NuGet ladění, podpora ladění, balíček symboly, konvence symbol balíček NuGet"
+ms.technology: ''
+description: Jak vytvořit balíčky NuGet, které obsahují pouze symboly pro podporu ladění dalších balíčcích NuGet v sadě Visual Studio.
+keywords: Symbol balíčky NuGet, balíček NuGet ladění, podpora ladění, balíček symboly, konvence symbol balíček NuGet
 ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: e1d90009c739a7f358e9581c7032523b8b284936
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 6b6ddb0ca8ac5d7589dc5cb6de66ee3aa5faf8b6
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="creating-symbol-packages"></a>Vytváření balíčků – symbol
 
@@ -130,7 +133,7 @@ Symbol balíčku se dají vytvářet konvencemi z struktury složek, jak je pops
     nuget push MyPackage.nupkg
     ```
 
-V takovém případě bude publikovat NuGet `MyPackage.symbols.nupkg`, pokud je k dispozici, k https://nuget.smbsrc.net/ (nabízené URL pro symbolsource.org), po jeho publikuje primární balíček do nuget.org.
+V takovém případě bude publikovat NuGet `MyPackage.symbols.nupkg`, pokud je k dispozici na https://nuget.smbsrc.net/ (nabízené URL pro symbolsource.org), po jeho publikuje primární balíček do nuget.org.
 
 ## <a name="see-also"></a>Viz také
 

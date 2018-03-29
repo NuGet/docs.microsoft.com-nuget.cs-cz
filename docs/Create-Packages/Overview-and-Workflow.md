@@ -1,22 +1,25 @@
 ---
-title: "Přehled a pracovní postup vytváření balíčků NuGet | Microsoft Docs"
+title: Přehled a pracovní postup vytváření balíčků NuGet | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 07/26/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Přehled procesu vytváření a publikování balíčku NuGet, s odkazy na další konkrétní části procesu."
-keywords: "Vytvoření balíčku NuGet, Přehled vytváření NuGet, pracovní postup vytvoření NuGet, pracovní postup vytvoření balíčku, Přehled vytváření balíčku."
+ms.technology: ''
+description: Přehled procesu vytváření a publikování balíčku NuGet, s odkazy na další konkrétní části procesu.
+keywords: Vytvoření balíčku NuGet, Přehled vytváření NuGet, pracovní postup vytvoření NuGet, pracovní postup vytvoření balíčku, Přehled vytváření balíčku.
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 84587ad1f511416cc03b6fee153d1df44d0e7aa7
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: df08e15c2632a88ea7cc3333d64f4844c78c278d
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="package-creation-workflow"></a>Pracovní postup vytvoření balíčku
 

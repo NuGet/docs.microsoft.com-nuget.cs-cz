@@ -1,23 +1,26 @@
 ---
-title: "Zdroj a konfiguračním souboru transformace pro balíčky NuGet | Microsoft Docs"
+title: Zdroj a konfiguračním souboru transformace pro balíčky NuGet | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 04/24/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Podrobnosti na možnost pro balíčky NuGet pro transformaci zdrojového kódu a konfigurační soubory (XML) při instalaci."
-keywords: "Instalace balíčku NuGet, transformace balíčku NuGet, úprava konfiguračních souborů, úprava zdrojového kódu"
+ms.technology: ''
+description: Podrobnosti na možnost pro balíčky NuGet pro transformaci zdrojového kódu a konfigurační soubory (XML) při instalaci.
+keywords: Instalace balíčku NuGet, transformace balíčku NuGet, úprava konfiguračních souborů, úprava zdrojového kódu
 ms.reviewer:
 - karann-msft
 - unniravindranathan
 - anangaur
-ms.openlocfilehash: 47d02d160a7e40f323edcbd87e2c8642905b8ddf
-ms.sourcegitcommit: df21fe770900644d476d51622a999597a6f20ef8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: b2c25acdd37489a2965d29356742a826b62afa2c
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="transforming-source-code-and-configuration-files"></a>Transformace zdrojového kódu a konfiguračních souborů
 

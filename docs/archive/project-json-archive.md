@@ -6,21 +6,24 @@ manager: ghogen
 ms.date: 01/17/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Různé bity project.json obsah byl odebrán z jiných oblastí v dokumentaci NuGet."
+ms.technology: ''
+description: Různé bity project.json obsah byl odebrán z jiných oblastí v dokumentaci NuGet.
 keywords: Soubor project.json NuGet
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 42a40c6c637839c13effc9e476ac5702a92cfd2a
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 16361fe16d8ecc7064af4b6d636435a31a5663dc
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="projectjson-archive"></a>Project.JSON archivu
 
-`project.json` Formát reference byla zavedena v systému NuGet 3.x a použít pro určité typy projektů. Byl již nepoužívá, se zavedením PackageReference formát, ve kterém jsou uvedeny závislosti přímo v souboru projektu.
+`project.json` Formátu správy byla zavedena v systému NuGet 3.x a použít pro určité typy projektů. Byl již nepoužívá, se zavedením PackageReference formát, ve kterém jsou uvedeny závislosti přímo v souboru projektu.
 
 Viz také:
 
@@ -28,11 +31,11 @@ Viz také:
 - [Project.JSON dopad na autoři balíčku](project-json-impact.md)
 - [project.json a UPW](project-json-and-uwp.md)
 
-## <a name="projectjson-reference-format"></a>Formát souboru Project.JSON reference
+## <a name="projectjson-management-format"></a>Formát souboru Project.JSON správy
 
 *Původně v [obnovení balíčků](../what-is-nuget.md).*
 
-V seznamu odkaz formátů:
+V seznamu správy formátů:
 
 - [`project.json`](project-json.md): *(nepoužívané)* A JSON soubor, který udržuje seznam závislosti projektu s celkové balíček grafu v přidružený soubor, `project.lock.json`. Tento formát je zastaralý považuje PackageReference.
 
@@ -54,7 +57,7 @@ Funguje s `project.json`.
 
 ## <a name="nuget-cli-commands"></a>NuGet rozhraní příkazového řádku
 
-- `nuget install`nefunguje s `project.json`.
+- `nuget install` nefunguje s `project.json`.
 - `nuget restore`: pomocí projektů pomocí `project.json`, generuje `project.lock.json` souboru a `<project>.nuget.props` souborů, v případě potřeby. (Oba soubory lze vynechat od správy zdrojového kódu.) `<projectPath>` Argument může ukazovat `project.json` souborů a má stejné chování jako odkazující na `packages.config` nebo soubor projektu. V pořadí podle priority pro složky balíčku `%userprofile%\.nuget\packages` prohledají se nejprve při použití `project.json`.
 - `nuget update`: Na Mono, tento příkaz nefunguje s projektů pomocí `project.json`.
 
@@ -138,7 +141,7 @@ Při použití `project.json` formátu, NuGet také podporuje notaci zástupný 
 
 *Původně v [NuGet.Config odkaz](../reference/nuget-config-file.md).*
 
-`globalPackagesFolder`platí pouze pro `project.json`.
+`globalPackagesFolder` platí pouze pro `project.json`. (Byla přidána poznámka: platí také pro PackageReference.)
 
 ### <a name="nuspec-file-reference"></a>odkaz na soubor nuspec
 
@@ -150,7 +153,7 @@ Při použití `project.json` formátu, NuGet také podporuje notaci zástupný 
 
 *Původně v [reference k uživatelskému rozhraní Správce balíčků](../tools/package-manager-ui.md).*
 
-Projekty pomocí `project.json` odkazovat jenom zobrazit formát **zobrazit okno náhledu** možnost.
+Projekty pomocí `project.json` správu formátu zobrazit pouze **zobrazit okno náhledu** možnost.
 
 ### <a name="visual-studio-templates"></a>Šablony aplikace Visual Studio
 

@@ -1,22 +1,25 @@
 ---
-title: "příkazy pro balíčky NuGet dotNet. | Microsoft Docs"
+title: příkazy pro balíčky NuGet dotNet. | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/23/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Krátký odkaz pro související NuGet příkazy, pomocí rozhraní příkazového řádku dotnet."
-keywords: "příkazy pro balíčky NuGet DotNet, dotnet. pack, dotnet obnovení, dotnet nuget místní hodnoty –, dotnet nuget nabízené, odstranění nuget dotnet."
+ms.technology: ''
+description: Krátký odkaz pro související NuGet příkazy, pomocí rozhraní příkazového řádku dotnet.
+keywords: příkazy pro balíčky NuGet DotNet, dotnet. pack, dotnet obnovení, dotnet nuget místní hodnoty –, dotnet nuget nabízené, odstranění nuget dotnet.
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2851938cd43b35454d8e4ad595fbd93229d4dd72
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 352145701fba509e21e774a429d227e7427a1f0d
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="dotnet-commands"></a>příkazy dotNet.
 
@@ -29,7 +32,7 @@ ms.lasthandoff: 02/20/2018
 - [**DotNet. Přidejte balíček**](/dotnet/core/tools/dotnet-add-package): Přidá odkaz na soubor projektu balíček a potom spustí `dotnet restore` k instalaci balíčku.
 - [**DotNet. odeberte balíček**](/dotnet/core/tools/dotnet-remove-package): Odebere odkaz balíčku ze souboru projektu.
 - [**obnovení DotNet**](/dotnet/core/tools/dotnet-restore?tabs=netcore2x): Obnoví závislosti a nástroje projektu. Od verze NuGet 4.0, toto spouští stejný kód jako `nuget restore`.
-- [**místní hodnoty nuget DotNet**](/dotnet/core/tools/dotnet-nuget-locals): vymaže nebo vypíše místní prostředky NuGet například mezipaměti požadavek http, dočasnou vyrovnávací paměť a složce globální balíčky celého systému.
+- [**místní hodnoty nuget DotNet**](/dotnet/core/tools/dotnet-nuget-locals): uvádí umístění *globální balíčky*, *http mezipaměti*, a *temp* složek a vymaže obsah Tyto složky.
 
 ## <a name="package-creation"></a>Vytvoření balíčku
 

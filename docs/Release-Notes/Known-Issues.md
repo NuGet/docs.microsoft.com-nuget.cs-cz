@@ -1,22 +1,25 @@
 ---
-title: "NuGet známé problémy | Microsoft Docs"
+title: NuGet známé problémy | Microsoft Docs
 author: karann-msft
 ms.author: karann-msft
 manager: ghogen
 ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Známé problémy s NuGet, včetně ověřování, instalace balíčku a nástroje."
-keywords: "Známé problémy, problémy NuGet NuGet"
+ms.technology: ''
+description: Známé problémy s NuGet, včetně ověřování, instalace balíčku a nástroje.
+keywords: Známé problémy, problémy NuGet NuGet
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: ac00e3f11c54290a31319e7f2946fd965a0a9288
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: c36da5dc73dddbd540a36d171583cbf542e0678f
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="known-issues-with-nuget"></a>Známé problémy s nástrojem NuGet
 
@@ -227,7 +230,7 @@ Nástroje pro Windows Phone nemá podporu pro správce rozšíření sady Visual
 
 ## <a name="changing-the-capitalization-of-nuget-package-ids-breaks-package-restore"></a>Změna velikosti písmen ID balíčků NuGet dělí obnovení balíčků
 
-Jak je popsáno v length na [potíže Githubu](https://github.com/Particular/NServiceBus/issues/1271#issuecomment-20865932), změna velikosti písmen balíčků NuGet se dá dělat formou podporu NuGet, ale příčiny komplikace při obnovování balíčků pro uživatele, kteří mají existující, jinak použita, balíčky v balíček místní mezipaměti. Doporučujeme, abyste pouze požaduje případu změnu, když máte způsob, jak komunikovat s stávající uživatele vašeho balíčku o přerušení, ke kterému může dojít k jejich obnovení balíčků čase vytvoření buildu.
+Jak je popsáno v length na [potíže Githubu](https://github.com/Particular/NServiceBus/issues/1271#issuecomment-20865932), změna velikosti písmen balíčků NuGet se dá dělat formou podporu NuGet, ale příčiny komplikace při obnovování balíčků pro uživatele, kteří mají existující, jinak použita, balíčky v jejich *globální balíčky* složky. Doporučujeme, abyste pouze požaduje případu změnu, když máte způsob, jak komunikovat s stávající uživatele vašeho balíčku o přerušení, ke kterému může dojít k jejich obnovení balíčků čase vytvoření buildu.
 
 ## <a name="reporting-issues"></a>Hlášení problémů
 

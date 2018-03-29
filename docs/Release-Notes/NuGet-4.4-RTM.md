@@ -1,23 +1,26 @@
 ---
-title: "Poznámky k verzi RTM NuGet 4.4 | Microsoft Docs"
+title: Poznámky k verzi RTM NuGet 4.4 | Microsoft Docs
 author: karann-msft
 ms.author: karann-msft
 manager: unniravindranathan
 ms.date: 08/14/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Poznámky k verzi pro NuGet 4.3 RTM, včetně známé problémy, opravy chyb, přidaných funkcí a chcete."
-keywords: "NuGet 4.3 RTM poznámky k verzi, opravy chyb známé problémy, přidat funkce, chcete"
+ms.technology: ''
+description: Poznámky k verzi pro NuGet 4.3 RTM, včetně známé problémy, opravy chyb, přidaných funkcí a chcete.
+keywords: NuGet 4.3 RTM poznámky k verzi, opravy chyb známé problémy, přidat funkce, chcete
 ms.reviewer:
 - karann-msft
 - unniravindranathan
 - anangaur
-ms.openlocfilehash: 25f41649807b29d39900aa86e2c26f05463e91eb
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 6c122dc3d9b576a2ea5f094746a830e5fab5637e
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-44-rtm-release-notes"></a>Poznámky k verzi 4.4 RTM NuGet
 

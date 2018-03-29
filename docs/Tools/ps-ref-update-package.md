@@ -1,22 +1,25 @@
 ---
-title: "Aktualizace balíčku NuGet referenční informace prostředí PowerShell | Microsoft Docs"
+title: Aktualizace balíčku NuGet referenční informace prostředí PowerShell | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 12/07/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Referenční dokumentace pro příkaz prostředí PowerShell balíček aktualizace v konzole Správce balíčků NuGet v sadě Visual Studio."
-keywords: "NuGet konzoly Správce balíčků, příkazy prostředí NuGet Powershell, NuGet Powershell odkaz, balíček aktualizace"
+ms.technology: ''
+description: Referenční dokumentace pro příkaz prostředí PowerShell balíček aktualizace v konzole Správce balíčků NuGet v sadě Visual Studio.
+keywords: NuGet konzoly Správce balíčků, příkazy prostředí NuGet Powershell, NuGet Powershell odkaz, balíček aktualizace
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 293d9a7fdcce633eb5a97e5f76398deb5c13bdb4
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 05772159d62f73e7d25f71ad36809f5ae8ef6aae
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="update-package-package-manager-console-in-visual-studio"></a>Balíček aktualizace (konzola Správce balíčků v sadě Visual Studio)
 
@@ -47,7 +50,7 @@ Update-Package Microsoft.AspNet.MVC -Version 5.0.0.
 | ProjectName | Název projektu obsahující balíčky aktualizace, jako výchozí bude použit na všechny projekty. |
 | Version | Verze se má použít k upgradu, jako výchozí bude použit na nejnovější verzi. V NuGet 3.0 a pozdější verze hodnota musí být jeden z *nejnižší, nejvyšší, HighestMinor*, nebo *HighestPatch* (ekvivalentní - bezpečné). |
 | Bezpečné | Omezí upgrade na pouze verze se stejnou hlavní a vedlejší verzi jako s aktuálně nainstalovaným balíčkem. |
-| Zdroj | Cestu adresy URL nebo ke složce zdroji balíčků pro vyhledávání. Cesty k místní složce může být absolutní, nebo relativně vzhledem k aktuální složce. Pokud tento parametr vynechán, `Uninstall-Package` hledá aktuálně vybraném zdroji balíčku. |
+| Zdroj | Cestu adresy URL nebo ke složce zdroji balíčků pro vyhledávání. Cesty k místní složce může být absolutní, nebo relativně vzhledem k aktuální složce. Pokud tento parametr vynechán, `Update-Package` hledá aktuálně vybraném zdroji balíčku. |
 | IncludePrerelease | Obsahuje předběžné verze balíčků aktualizací. |
 | Přeinstalujte | Balíčky Resintalls pomocí jejich aktuálně nainstalované verze. V tématu [Reinstalling a aktualizaci balíčků](../consume-packages/reinstalling-and-updating-packages.md). |
 | FileConflictAction | Akce, který se má provést, když se zobrazí výzva k přepsání nebo ignorovat existující soubory, které se odkazuje na projekt. Možné hodnoty jsou *přepsat, ignorovat, None, OverwriteAll*, a *IgnoreAll* (3.0 +). |

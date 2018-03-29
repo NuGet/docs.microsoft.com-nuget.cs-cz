@@ -6,17 +6,20 @@ manager: ghogen
 ms.date: 07/17/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Popis použití souboru project.json k sledování závislostí NuGet v projektech pro univerzální platformu Windows (UWP)."
-keywords: "NuGet závislosti, NuGet a UPW, UWP a project.json, soubor project.json NuGet"
+ms.technology: ''
+description: Popis použití souboru project.json k sledování závislostí NuGet v projektech pro univerzální platformu Windows (UWP).
+keywords: NuGet závislosti, NuGet a UPW, UWP a project.json, soubor project.json NuGet
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 3ef3703b2be92f84d37866bce9934ebcfed3a9f7
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 453a38456670db850d3d2845b23bd4ad36fc8fd2
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="projectjson-and-uwp"></a>Project.JSON a UWP
 

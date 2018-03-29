@@ -1,23 +1,25 @@
 ---
-title: "Postup vytvoření balíčku NuGet | Microsoft Docs"
+title: Postup vytvoření balíčku NuGet | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 12/12/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-ms.assetid: 456797cb-e3e4-4b88-9b01-8b5153cee802
-description: "Podrobný průvodce do procesu návrhu a vytvoření balíčku NuGet, včetně klíče rozhodovací body, jako jsou soubory a správu verzí."
-keywords: "Vytvoření balíčku NuGet, vytváření balíčku, nuspec manifest, konvence balíčku NuGet, verze balíčku NuGet"
+ms.technology: ''
+description: Podrobný průvodce do procesu návrhu a vytvoření balíčku NuGet, včetně klíče rozhodovací body, jako jsou soubory a správu verzí.
+keywords: Vytvoření balíčku NuGet, vytváření balíčku, nuspec manifest, konvence balíčku NuGet, verze balíčku NuGet
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 613e3eb9d08a0da96340f32b13c486508fa32439
-ms.sourcegitcommit: df21fe770900644d476d51622a999597a6f20ef8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 7bb7e16a317aff908effe0b6c603ea53c9e8a563
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="creating-nuget-packages"></a>Vytváření balíčků NuGet
 
@@ -131,7 +133,7 @@ Toto je typické (ale fiktivní) `.nuspec` soubor s komentáři popisující vla
 
 Podrobnosti o deklarace závislosti a zadání čísla verzí, naleznete v části [Správa verzí balíčku](../reference/package-versioning.md). Je také možné do prostor prostředky z závislosti přímo v balíčku pomocí `include` a `exclude` atributy na `dependency` elementu. V tématu [příponou .nuspec odkaz - závislosti](../reference/nuspec.md#dependencies).
 
-Manifest je zahrnutý v balíčku vytvořit z něj, proto vyhledejte libovolný počet Další příklady tak, že prověří existující balíčky. Je dobré zdroj mezipaměti globální balíčku na počítači, umístění, které vrátí následující příkaz:
+Manifest je zahrnutý v balíčku vytvořit z něj, proto vyhledejte libovolný počet Další příklady tak, že prověří existující balíčky. Je dobré zdroj *globální balíčky* složky v počítači, umístění, které vrátí následující příkaz:
 
 ```cli
 nuget locals -list global-packages
@@ -351,7 +353,9 @@ Potom v `.nuspec` souboru, ujistěte se, který bude odkazovat na těchto soubor
 
 Včetně MSBuild props a cíle v balíčku byla [zavedené NuGet 2.5](../release-notes/NuGet-2.5.md#automatic-import-of-msbuild-targets-and-props-files), proto se doporučuje přidat `minClientVersion="2.5"` atribut `metadata` element udávajících minimální verzi klienta NuGet potřeba využívat balíčku.
 
-Když NuGet nainstaluje balíček s `\build` soubory, přidá MSBuild `<Import>` elementy v souboru projektu odkazující na `.targets` a `.props` soubory. (`.props` se přidá na začátek souboru projektu; `.targets` se přidá na dolní.)
+Když NuGet nainstaluje balíček s `\build` soubory, přidá MSBuild `<Import>` elementy v souboru projektu odkazující na `.targets` a `.props` soubory. (`.props` se přidá na začátek souboru projektu; `.targets` se přidá na dolní.) Samostatné podmíněného MSBuild `<Import>` prvek přidán pro každé cílové rozhraní.
+
+MSBuild `.props` a `.targets` souborům pro cílení na mezi framework mohou být umístěny v `\buildCrossTargeting` složky. Během instalace balíčku NuGet přidá k odpovídající položce `<Import>` elementy k souboru projektu s podmínku, která cílovém Frameworku, který není nastavena (vlastnosti MSBuild `$(TargetFramework)` musí být prázdný).
 
 U balíčku NuGet 3.x, cíle nejsou přidány do projektu, ale místo toho jsou k dispozici prostřednictvím `project.lock.json`.
 
@@ -372,7 +376,7 @@ Balíčky, které obsahují sestavení vzájemné spolupráce COM musí obsahova
 </Target>
 ```
 
-Všimněte si, že při použití `packages.config` NuGet a sady Visual Studio pro kontrolu sestavení vzájemné spolupráce COM a nastavit přidávání odkazů na sestavení z balíčků způsobí, že formát reference `EmbedInteropTypes` na hodnotu true v souboru projektu. V tomto případě jsou cíle elementem.
+Všimněte si, že při použití `packages.config` formátu správy přidávání odkazů na sestavení z balíčků způsobí, že NuGet a sady Visual Studio pro kontrolu sestavení vzájemné spolupráce COM a nastavit `EmbedInteropTypes` na hodnotu true v souboru projektu. V tomto případě jsou cíle elementem.
 
 Kromě toho ve výchozím nastavení [toku prostředky sestavení není přechodně](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets). Balíčky vytvořené podle postupu popsaného tady pracovní jinak po jejich vyjmutí jako přenositelné závislost z odkaz na projekt na projekt. Příjemce balíček můžete jim toku změnou výchozí hodnota PrivateAssets tak, aby neobsahoval sestavení povolit.
 

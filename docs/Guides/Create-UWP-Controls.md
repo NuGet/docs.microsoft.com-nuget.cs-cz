@@ -1,22 +1,25 @@
 ---
-title: "Jak zabalit UWP ovládací prvky s NuGet | Microsoft Docs"
+title: Jak zabalit UWP ovládací prvky s NuGet | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 03/14/2018
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.prod: nuget
-ms.technology: 
-description: "Postup vytvoření balíčků NuGet, které obsahují UWP řídí včetně nezbytné metadata a podpůrné soubory pro Visual Studio a nástroj Blend návrháře."
-keywords: "Ovládací prvky NuGet UWP, Návrhář Visual Studio XAML, Návrhář Blend, vlastní ovládací prvky"
+ms.technology: ''
+description: Postup vytvoření balíčků NuGet, které obsahují UWP řídí včetně nezbytné metadata a podpůrné soubory pro Visual Studio a nástroj Blend návrháře.
+keywords: Ovládací prvky NuGet UWP, Návrhář Visual Studio XAML, Návrhář Blend, vlastní ovládací prvky
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 1af5118eb71836d8b8bcfa8ff713d9fef3c86374
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: f024fd1823c77d57d30c4f841bf03494194c8339
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="creating-uwp-controls-as-nuget-packages"></a>Vytváření ovládacích prvků UPW jako balíčků NuGet
 
@@ -120,7 +123,7 @@ Tady je příklad, jak by měla vypadat soubor cíle:
 
 ## <a name="add-design-time-support"></a>Přidání podpory návrhu
 
-Konfigurace, kde vlastnosti ovládacích prvků zobrazí v inspector vlastnost, přidejte vlastní ozdobného prvku atd., umístěte vaše `design.dll` souboru uvnitř `lib\uap10.0\Design` složku v závislosti na cílové platformy. Také zajistit, aby  **[upravit šablonu > Upravit kopii](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)**  funkce funguje, je nutné zahrnout `Generic.xaml` a všechny slovnících prostředků, které se sloučí v `<your_assembly_name>\Themes` složky (znovu s použitím název vašeho skutečné sestavení). (Tento soubor nemá žádný vliv na modul runtime chování ovládacího prvku.) Struktura složek by proto vypadat takto:
+Konfigurace, kde vlastnosti ovládacích prvků zobrazí v inspector vlastnost, přidejte vlastní ozdobného prvku atd., umístěte vaše `design.dll` souboru uvnitř `lib\uap10.0\Design` složku v závislosti na cílové platformy. Také zajistit, aby **[upravit šablonu > Upravit kopii](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)** funkce funguje, je nutné zahrnout `Generic.xaml` a všechny slovnících prostředků, které se sloučí v `<your_assembly_name>\Themes` složky (znovu s použitím název vašeho skutečné sestavení). (Tento soubor nemá žádný vliv na modul runtime chování ovládacího prvku.) Struktura složek by proto vypadat takto:
 
     \lib
       \uap10.0

@@ -1,80 +1,99 @@
 ---
-title: "Postup publikování balíčku NuGet | Microsoft Docs"
+title: Postup publikování balíčku NuGet | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 10/05/2017
+ms.date: 03/19/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Podrobné pokyny pro publikování balíčku NuGet nuget.org nebo privátní informačních kanálů a jak spravovat vlastnictví balíčku na nuget.org."
-keywords: "Publikování balíčku NuGet, publikování balíčku NuGet, vlastnictví balíčku NuGet, publikovat do nuget.org, privátní kanály NuGet"
+ms.technology: ''
+description: Podrobné pokyny pro publikování balíčku NuGet nuget.org nebo privátní informačních kanálů a jak spravovat vlastnictví balíčku na nuget.org.
+keywords: Publikování balíčku NuGet, publikování balíčku NuGet, vlastnictví balíčku NuGet, publikovat do nuget.org, privátní kanály NuGet
 ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6cb582c036392ae2792f2fa4d307370e91c4f961
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 68db25276297353fab03258adecd9169149dbe51
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="publishing-packages"></a>Publikování balíčků
 
 Po vytvoření balíčku a mít vaše `.nukpg` souboru v ručně, je jednoduchý proces, aby byl k dispozici pro ostatní vývojáři veřejných nebo soukromých:
 
-- Veřejné balíčky jsou k dispozici pro všechny vývojáře globálně přes [nuget.org](https://www.nuget.org/packages/manage/upload) jak je popsáno v tomto tématu.
+- Veřejné balíčky jsou k dispozici pro všechny vývojáře globálně přes [nuget.org](https://www.nuget.org/packages/manage/upload) jak je popsáno v tomto článku (vyžaduje NuGet 4.1.0+).
 - Soukromé balíčky jsou k dispozici pouze tým nebo organizace, hostování je buď sdílenou složku, server privátní NuGet [Visual Studio Team Services balíček Management](https://www.visualstudio.com/docs/package/nuget/publish), nebo jako je například myget ProGet, Nexus úložiště jiných výrobců Úložiště a Artifactory. Další podrobnosti najdete v tématu [hostování přehled balíčky](../hosting-packages/overview.md).
 
-Toto téma popisuje publikování nuget.org; pro publikování na Visual Studio Team Services, najdete v části [správy balíčků](https://www.visualstudio.com/docs/package/nuget/publish).
+Tento článek se zabývá publikování nuget.org; pro publikování na Visual Studio Team Services, najdete v části [správy balíčků](https://www.visualstudio.com/docs/package/nuget/publish).
 
 ## <a name="publish-to-nugetorg"></a>Publikovat do nuget.org
 
-Pro nuget.org, musíte nejdřív [zaregistrovat bezplatný účet](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) nebo přihlásit, pokud již zaregistrován:
+Pro nuget.org musíte se přihlásit s účtem Microsoft, pomocí kterého budete vyzváni k registraci účet s nuget.org. Také se můžete přihlásit pomocí účet nuget.org vytvořené pomocí starší verze portálu.
 
-![NuGet registrace a přihlášení umístění](media/publish_NuGetSignIn.png)
+![Místo přihlášení NuGet](media/publish_NuGetSignIn.png)
 
 Dále můžete buď nahrání balíčku přes webový portál nuget.org, nabízená nuget.org z příkazového řádku (vyžaduje `nuget.exe` 4.1.0+), nebo publikovat v rámci procesu CI/CD prostřednictvím Visual Studio Team Services, jak je popsáno v následujících částech.
 
 ### <a name="web-portal-use-the-upload-package-tab-on-nugetorg"></a>Webový portál: karta odeslat balíček v nuget.org
 
-![Nahrání balíčku s Správce balíčků NuGet](media/publish_UploadYourPackage.PNG)
+1. Vyberte **nahrát** v horní nabídce nuget.org a přejděte do umístění balíčku.
+
+    ![Nahrání balíčku v nuget.org](media/publish_UploadYourPackage.PNG)
+
+1. nuget.org zjistíte, zda je název balíčku k dispozici. Pokud není, změnit identifikátor balíčku v projektu, znovu sestavit a opakujte odeslání.
+
+1. Pokud je dostupný název balíčku, otevře se nuget.org **ověřte** části, ve kterém můžete zkontrolovat metadata z manifestu balíčku. Chcete-li změnit některé z metadat, upravte projektu (soubor projektu nebo `.nuspec` soubor), znovu vytvořit, znovu vytvořte balíček a odešlete znovu.
+
+1. V části **Import dokumentaci** můžete vložit Markdownu, přejděte na svoje dokumenty s adresou URL nebo odeslat soubor dokumentace.
+
+1. Když je připraven všechny informace, vyberte **odeslání** tlačítko
 
 ### <a name="command-line"></a>Příkazový řádek
 
-> [!Important]
-> K nabízení balíčků nuget.org je nutné použít [nuget.exe v4.1.0 nebo vyšší](https://www.nuget.org/downloads), který implementuje požadovaná [NuGet protokoly](../api/nuget-protocols.md).
+K nabízení balíčků nuget.org je nutné použít [nuget.exe v4.1.0 nebo vyšší](https://www.nuget.org/downloads), který implementuje požadovaná [NuGet protokoly](../api/nuget-protocols.md). Musíte také klíč rozhraní API, která je vytvořena na nuget.org.
 
-1. Klikněte na jméno uživatele, přejděte na nastavení svého účtu.
-1. V části **klíč rozhraní API**, klikněte na tlačítko **kopírovat do schránky** načíst přístup klíče je nutné v rozhraní příkazového řádku:
+#### <a name="create-api-keys"></a>Vytvoření klíče rozhraní API
 
-    ![Kopírování klíč rozhraní API z nastavení účtu](media/publish_APIKey.png)
+[!INCLUDE[publish-api-key](../quickstart/includes/publish-api-key.md)]
 
-1. Na příkazovém řádku spusťte následující příkaz:
+#### <a name="publish-with-dotnet-nuget-push"></a>Publikování pomocí nabízených nuget dotnet.
+
+[!INCLUDE[publish-dotnet](../quickstart/includes/publish-dotnet.md)]
+
+#### <a name="publish-with-nuget-push"></a>Publikování pomocí nabízených nuget
+
+1. Na příkazovém řádku spusťte následující příkaz, nahraďte `<your_API_key>` klíčem získané z nuget.org:
 
     ```cli
-    nuget setApiKey Your-API-Key
+    nuget setApiKey <your_API_key>
     ```
 
-    To ukládá klíč rozhraní API na počítači, aby nemusí proveďte tento krok opakujte na stejném počítači.
+    Tento příkaz uloží klíč rozhraní API v konfiguraci NuGet tak, aby potřebovat opakujte tento krok opakujte na stejném počítači.
 
-1. Nabízená vašeho balíčku Galerie NuGet pomocí příkazu:
+1. Nabízená vašeho balíčku Galerie NuGet pomocí následujícího příkazu:
 
     ```cli
     nuget push YourPackage.nupkg -Source https://api.nuget.org/v3/index.json
     ```
 
-1. Před prováděné veřejný, jsou všechny balíčky nahrán do nuget.org zkontrolovat viry a odmítnuta, pokud nejsou nalezeny žádné viry. Všechny balíčky uvedené v nuget.org také jsou pravidelně kontrolovány.
-
-1. Ve vašem účtu na nuget.org, klikněte na tlačítko **spravovat vlastní balíčky** zobrazíte ten, který jste právě publikovaná; obdržíte e-mail s potvrzením. Všimněte si, že může trvat nějakou dobu vašeho balíčku indexovat a zobrazit ve výsledcích hledání, kde je během této doby zobrazí se následující zpráva na stránce balíček můžete najít jiné:
-
-    ![Zpráva oznamující, že balíček není ještě indexované](media/publish_NotYetIndexed.png)
-
 ### <a name="package-validation-and-indexing"></a>Ověřování balíčku a indexování
 
-Balíčky nabídnutých do nuget.org podstoupit několik ověření. Když balíček uplynutí všechny ověřovací kontroly, může trvat nějakou dobu se indexovat a zobrazí ve výsledcích hledání. Po dokončení indexování obdržíte e-mail s potvrzením, že byl balíček úspěšně publikovala. Pokud se balíček nezdaří ověřování pravosti, stránce s podrobnostmi o balíčku se aktualizuje a zobrazí související chybu a taky dostane e-mail s upozorněním o něm.
+Balíčky nabídnutých do nuget.org podstoupit několik ověření, jako jsou antivirové kontroly. (Všechny balíčky v nuget.org jsou pravidelně kontrolovány.)
+
+. Když balíček uplynutí všechny ověřovací kontroly, může trvat nějakou dobu se indexovat a zobrazí ve výsledcích hledání. Po dokončení indexování obdržíte e-mail s potvrzením, že byl balíček úspěšně publikovala. Pokud se balíček nezdaří ověřování pravosti, stránce s podrobnostmi o balíčku se aktualizuje a zobrazí související chybu a taky dostane e-mail s upozorněním o něm.
 
 Ověřování balíčku a indexování obvykle trvá v části 15 minut. Pokud balíček publikování trvá déle, než se očekávalo, navštivte [status.nuget.org](https://status.nuget.org/) ke kontrole, pokud nuget.org dochází k žádné přerušení. Pokud jsou všechny systémy provozní a balíčku nebyla publikována úspěšně v rámci hodiny, přihlaste se prosím na nuget.org a kontaktujte nás na stránce balíček pomocí odkazu obraťte se na podporu.
+
+Chcete-li zobrazit stav balíčku, vyberte **spravovat balíčky** pod názvem vašeho účtu na nuget.org. Po dokončení ověření obdržíte e-mail s potvrzením.
+
+Všimněte si, že může trvat nějakou dobu vašeho balíčku indexovat a zobrazit ve výsledcích hledání, kde je během této doby zobrazí se následující zpráva na stránce balíček můžete najít jiné:
+
+![Zpráva oznamující, že balíček ještě není publikována.](media/publish_NotYetIndexed.png)
 
 ### <a name="visual-studio-team-services-cicd"></a>Visual Studio Team Services (CI/CD)
 
@@ -89,14 +108,14 @@ Všechny vlastníky balíček mít úplná oprávnění pro daný balíček, vč
 Chcete-li změnit vlastnictví balíčku, postupujte takto:
 
 1. Přihlaste se k nuget.org pomocí účtu, který je vlastníkem aktuální balíčku.
-1. Klikněte na své uživatelské jméno, pak na **spravovat vlastní balíčky**, pak na balíčku, kterou chcete spravovat.
-1. Klikněte **Spravovat vlastníky** odkaz na levé straně.
+1. Vyberte název účtu, vyberte **spravovat balíčky**a rozbalte **publikované balíčky**.
+1. Vyberte na balíček, který chcete spravovat a pak na pravé straně vyberte **Spravovat vlastníky**.
 
 Zde máte několik možností:
 
-1. Chcete-li přidat vlastníka, zadejte název účtu jejich NuGet a klikněte na **přidat**. Tím se odešle e-mail do této nové spoluvlastník s odkazem potvrzení. Po potvrzení, tento uživatel má úplná oprávnění k přidání a odebrání vlastníky. (Dokud potvrzen, **Spravovat vlastníky** stránky označuje "čekající na schválení" pro tuto osobu).
-1. Odebrat vlastníka, vyberte své jméno na **Spravovat vlastníky** a klikněte na tlačítko **odebrat**.
-1. Jednoduše převést vlastnictví (jako když změny vlastnictví nebo balíčku byla publikována v části nesprávný účet), přidejte nový vlastník a po jejich jste potvrzen vlastnictví jejich můžete odebrat ze seznamu.
+1. Odeberte všechny vlastníka uvedený v seznamu **aktuální vlastníky**.
+1. Přidat vlastníka pod **přidat vlastníka** zadáním uživatelského jména, zprávu, a výběrem **přidat**. Tato akce odešle e-mail na tuto novou spoluvlastník s odkazem potvrzení. Po potvrzení, tento uživatel má úplná oprávnění k přidání a odebrání vlastníky. (Dokud potvrzen, **aktuální vlastníky** části označuje čekající na schválení pro tuto osobu.)
+1. Převést vlastnictví (jako když změny vlastnictví nebo balíčku byla publikována v části nesprávný účet), přidejte nový vlastník a po jejich jste potvrzen vlastnictví jejich můžete odebrat ze seznamu.
 
 K přiřazení vlastnictví společnosti nebo skupiny, vytvořte účet nuget.org pomocí alias e-mailu, který se předají odpovídající jednotlivým členům. Například různé Microsoft ASP.NET balíčky jsou společně vlastněny [microsoft](http://nuget.org/profiles/microsoft) a [aspnet](http://nuget.org/profiles/aspnet) účty, které jednoduše takové aliasy.
 

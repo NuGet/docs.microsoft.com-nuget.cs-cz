@@ -1,23 +1,26 @@
 ---
-title: "Poznámky k verzi RTM NuGet 4.5 | Microsoft Docs"
+title: Poznámky k verzi RTM NuGet 4.5 | Microsoft Docs
 author: anangaur
 ms.author: anangaur
 manager: unniravindranathan
 ms.date: 12/4/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Poznámky k verzi pro NuGet 4.5 RTM, včetně známé problémy, opravy chyb, přidaných funkcí a chcete."
-keywords: "NuGet 4.5 RTM poznámky k verzi, opravy chyb známé problémy, přidat funkce, chcete"
+ms.technology: ''
+description: Poznámky k verzi pro NuGet 4.5 RTM, včetně známé problémy, opravy chyb, přidaných funkcí a chcete.
+keywords: NuGet 4.5 RTM poznámky k verzi, opravy chyb známé problémy, přidat funkce, chcete
 ms.reviewer:
 - karann-msft
 - unniravindranathan
 - anangaur
-ms.openlocfilehash: e4727d46812cbfeb2e7094ddf28bf4e738e8aeea
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: dbde7256ed5526761107272792d7c7cdc324a3ef
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-45-rtm-release-notes"></a>Poznámky k verzi 4.5 RTM NuGet
 
@@ -72,7 +75,7 @@ Chyby v NuGet 4.4 RTM, naleznete v [NuGet 4.4 RTM poznámky](../release-notes/nu
 - [Regrese] v 15.5p1: bylo přeskočeno Portable0.0 - [#6105](https://github.com/NuGet/Home/issues/6105)
 - Po obnovení – chybí prostředky z balíčků [#5995](https://github.com/NuGet/Home/issues/5995)
 - Poskytovatelé přihlašovacích údajů modulu plug-in nefungují s identifikátory URI obsahující mezery - [#5982](https://github.com/NuGet/Home/issues/5982)
-- Pokud balíček se nepodařilo obnovit, má být vytištěn chyba i výstupu i s minimálním podrobností ON - [#5658](https://github.com/NuGet/Home/issues/5658)
+- Pokud balíček se nepodařilo obnovit, chyba by měl být vytištěn v výstupu i s minimálním podrobností ON - [#5658](https://github.com/NuGet/Home/issues/5658)
 - DotNet. obnovení na úrovni řešení není podle ProjectReference s ReferenceOutputAssembly false úvodní náhodných sestavení chyby - [#5490](https://github.com/NuGet/Home/issues/5490)
 - Automatické dokončování v funguje pomocí PMC nesprávně pomocí metod objektu - [#4800](https://github.com/NuGet/Home/issues/4800)
 - nuget.exe obnovení se nezdaří pomocí nástrojů Visual Studio 2015 - [#4713](https://github.com/NuGet/Home/issues/4713)

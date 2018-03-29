@@ -1,22 +1,25 @@
 ---
-title: "Poznámky k verzi NuGet 2.7 | Microsoft Docs"
+title: Poznámky k verzi NuGet 2.7 | Microsoft Docs
 author: karann-msft
 ms.author: karann-msft
 manager: ghogen
 ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Poznámky k verzi pro NuGet 2.7 včetně známé problémy, opravy chyb, přidaných funkcí a chcete."
-keywords: "NuGet 2.7 poznámky k verzi, opravy chyb známé problémy, přidat funkce, chcete"
+ms.technology: ''
+description: Poznámky k verzi pro NuGet 2.7 včetně známé problémy, opravy chyb, přidaných funkcí a chcete.
+keywords: NuGet 2.7 poznámky k verzi, opravy chyb známé problémy, přidat funkce, chcete
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 43638626661ae034bb0a1cc28958a2e2929f047f
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 71ced70af127c8219001069739a6cec59d7d1684
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-27-release-notes"></a>Poznámky k verzi 2.7 NuGet
 

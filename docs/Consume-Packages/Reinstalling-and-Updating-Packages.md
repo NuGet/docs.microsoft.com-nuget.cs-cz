@@ -1,23 +1,25 @@
 ---
-title: "Opětovné instalace a aktualizace balíčků NuGet | Microsoft Docs"
+title: Opětovné instalace a aktualizace balíčků NuGet | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 12/07/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-ms.assetid: 2785879b-97f0-4a85-b3cc-bf4eaa5c39bf
-description: "Údaje na to, kdy je potřeba znovu nainstalovat a aktualizovat balíčky, stejně jako u poškozený balíček odkazy v sadě Visual Studio."
-keywords: "NuGet balíček instalace, přeinstalování balíčku NuGet, obnovení balíčků NuGet aktualizaci balíčku, Probíhá obnovení balíčků, opravě poškozenými odkazy"
+ms.technology: ''
+description: Údaje na to, kdy je potřeba znovu nainstalovat a aktualizovat balíčky, stejně jako u poškozený balíček odkazy v sadě Visual Studio.
+keywords: NuGet balíček instalace, přeinstalování balíčku NuGet, obnovení balíčků NuGet aktualizaci balíčku, Probíhá obnovení balíčků, opravě poškozenými odkazy
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: e2875630b24fbe04fc7bcab52335d849e54160de
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 9da385f51abf5877589c29ebdeffefc9a1a20a2e
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>Jak znovu nainstalovat a aktualizovat balíčky
 
@@ -48,7 +50,7 @@ V tomto článku:
 
 Ve výchozím nastavení, opětovné instalace nebo aktualizace balíčku *vždy* nainstaluje nejnovější verzi, která je k dispozici ve zdroji balíčků.
 
-V projektech pomocí `packages.config` formát reference však můžete konkrétně omezit rozsah verze. Například pokud víte, že aplikace funguje pouze s verzí 1.x balíčku ale není 2.0 a vyšší, pravděpodobně kvůli změně hlavní v balíčku rozhraní API, pak by chcete omezit upgrade na 1.x verze. Tím se zabrání náhodnému aktualizace, které by rozdělit aplikace.
+V projektech pomocí `packages.config` formátu správy však můžete konkrétně omezit rozsah verze. Například pokud víte, že aplikace funguje pouze s verzí 1.x balíčku ale není 2.0 a vyšší, pravděpodobně kvůli změně hlavní v balíčku rozhraní API, pak by chcete omezit upgrade na 1.x verze. Tím se zabrání náhodnému aktualizace, které by rozdělit aplikace.
 
 Pokud chcete nastavit omezení, otevřete `packages.config` v textovém editoru, vyhledejte dotyčném závislostí a přidat `allowedVersions` atribut s rozsahem verze. Například můžete omezit aktualizace na verzi 1.x, nastavte `allowedVersions` k `[1,2)`:
 

@@ -1,22 +1,25 @@
 ---
-title: "Pomocí NuGet.Server k hostování NuGet kanály | Microsoft Docs"
+title: Pomocí NuGet.Server k hostování NuGet kanály | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 03/13/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Postup vytvoření a hostování balíčku NuGet informačního kanálu na libovolném serveru služby IIS pomocí NuGet.Server, zpřístupnění balíčků prostřednictvím protokolu HTTP a OData."
-keywords: "NuGet kanálu, galerie NuGet vzdálených balíčků informačního kanálu, NuGet.Server"
+ms.technology: ''
+description: Postup vytvoření a hostování balíčku NuGet informačního kanálu na libovolném serveru služby IIS pomocí NuGet.Server, zpřístupnění balíčků prostřednictvím protokolu HTTP a OData.
+keywords: NuGet kanálu, galerie NuGet vzdálených balíčků informačního kanálu, NuGet.Server
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: d85c1ca88ca44c8f8bfa5cb9c453279f65f26f50
-ms.sourcegitcommit: 9adf5349eab91bd1d044e11f34836d53cfb115b3
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: a8996fed537e5745a1dbeb1c3d12b2a0670e744d
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nugetserver"></a>NuGet.Server
 

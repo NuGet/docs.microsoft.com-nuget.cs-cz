@@ -1,23 +1,26 @@
 ---
-title: "Odkaz na balíček NuGet verze | Microsoft Docs"
+title: Odkaz na balíček NuGet verze | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 12/08/2017
+ms.date: 03/23/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Přesné informace o zadání čísla verzí a rozsahy adres pro jiné balíčky, na který závislý balíček NuGet, a způsob instalace závislosti."
-keywords: "Správa verzí, závislosti balíčků NuGet, verze závislostí NuGet, čísla verzí NuGet, verze balíčku NuGet, verze rozsahy, specifikace verze, normalizované verze čísla"
+ms.technology: ''
+description: Přesné informace o zadání čísla verzí a rozsahy adres pro jiné balíčky, na který závislý balíček NuGet, a způsob instalace závislosti.
+keywords: Správa verzí, závislosti balíčků NuGet, verze závislostí NuGet, čísla verzí NuGet, verze balíčku NuGet, verze rozsahy, specifikace verze, normalizované verze čísla
 ms.reviewer:
 - anandr
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 70472d7d97d073009237a047e0fdf528b221dfd0
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 678ad79d9106a9f592ae4f47bc93cc117496e2c9
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="package-versioning"></a>Správa verzí balíčku
 
@@ -109,8 +112,8 @@ Při odkazování na závislosti balíčků, NuGet podporuje notaci interval pro
 
 | Zápis | Použité pravidlo | Popis |
 |----------|--------------|-------------|
-| 1.0 | 1.0 ≤ x | Minimální verze, včetně. |
-| (1.0,) | 1.0 < x | Minimální verze, exkluzivní |
+| 1.0 | x ≥ 1.0 | Minimální verze, včetně. |
+| (1.0,) | x > 1.0 | Minimální verze, exkluzivní |
 | [1.0] | x == 1.0 | Shoda přesnou verzi |
 | (,1.0] | x ≤ 1.0 | Maximální verze, včetně. |
 | (,1.0) | x < 1.0 | Maximální verze, exkluzivní |

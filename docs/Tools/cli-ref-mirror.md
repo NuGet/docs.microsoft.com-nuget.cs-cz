@@ -1,22 +1,25 @@
 ---
-title: "Příkaz zrcadlení NuGet rozhraní příkazového řádku | Microsoft Docs"
+title: Příkaz zrcadlení NuGet rozhraní příkazového řádku | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Referenční dokumentace pro příkaz nuget.exe zrcadlení"
-keywords: "referenční dokumentace zrcadlení nuget, příkaz zrcadlení"
+ms.technology: ''
+description: Referenční dokumentace pro příkaz nuget.exe zrcadlení
+keywords: referenční dokumentace zrcadlení nuget, příkaz zrcadlení
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0c1969cc04b2e2cead5e9dadf9739fdabdf65f6c
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 512bd72d568cda81eb7c6a1555c36ead66b5c438
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="mirror-command-nuget-cli"></a>příkaz zrcadlení (NuGet CLI)
 
@@ -45,7 +48,7 @@ Pokud vaše cílové úložiště na `https://machine/repo` na kterém běží [
 | --- | --- |
 | ApiKey | Klíč rozhraní API pro cílové úložiště. Pokud není přítomný, verze zadaná v konfiguračním souboru se používá (`%AppData%\NuGet\NuGet.Config` (Windows) nebo `~/.nuget/NuGet/NuGet.Config` (Mac/Linux)). |
 | Nápověda | Zobrazí nápovědu pro příkaz. |
-| NoCache | NuGet bránit v použití balíčky z mezipaměti místního počítače. |
+| NoCache | NuGet bránit v použití balíčky v mezipaměti. V tématu [správy globální balíčky a složky mezipaměti](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
 | Nedojde k žádné akci | Protokoly co provádějí, ale neprovádí akce; předpokládá úspěch pro operace push. |
 | Předběžné verze | Obsahuje předběžné verze balíčků v zrcadlení operaci. |
 | Zdroj | Seznam zdrojů balíčku pro zrcadlení. Pokud nejsou zadány žádné zdroje, těm, které jsou definována v konfiguračním souboru (viz výše ApiKey) se používají, jako výchozí bude použit nuget.org-li zadán žádný. |

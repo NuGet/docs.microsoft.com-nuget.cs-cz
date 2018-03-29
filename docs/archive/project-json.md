@@ -6,27 +6,30 @@ manager: ghogen
 ms.date: 07/27/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "V některých typů projektu project.json udržuje seznam balíčky NuGet použité v projektu."
-keywords: "Balíček NuGet NuGet project.json, odkazy, závislostí NuGet, project.lock.json"
+ms.technology: ''
+description: V některých typů projektu project.json udržuje seznam balíčky NuGet použité v projektu.
+keywords: Balíček NuGet NuGet project.json, odkazy, závislostí NuGet, project.lock.json
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2e2c521b18dd67e49942cc20eafef0be7f91573a
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 21542a219faa3d1fa0c32a838645d4471c5aa935
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="projectjson-reference"></a>odkaz na Project.JSON
 
 *NuGet 3.x+*
 
-`project.json` Souboru udržuje seznam balíčků používat v projektu, označuje jako formátu odkaz na balíček. Nahrazuje `packages.config` ale zase nahrazena [PackageReference](../consume-packages/package-references-in-project-files.md) s NuGet 4.0 +.
+`project.json` Souboru udržuje seznam balíčků používat v projektu, označuje jako balíček správy formátu. Nahrazuje `packages.config` ale zase nahrazena [PackageReference](../consume-packages/package-references-in-project-files.md) s NuGet 4.0 +.
 
 [ `project.lock.json` ](#projectlockjson) Souboru (popsaný níže) se také používá v projektech nasazení `project.json`.
 
-`project.json`má následující základní strukturu, kde každý z čtyři nejvyšší úrovně objektů může mít libovolný počet podřízených objektů:
+`project.json` má následující základní strukturu, kde každý z čtyři nejvyšší úrovně objektů může mít libovolný počet podřízených objektů:
 
 ```json
 {
@@ -122,7 +125,7 @@ Uvádí rozhraní, které spouští projektu, například `net45`, `netcoreapp`,
     }
  ```
 
-V je povolen pouze jeden záznam `frameworks` oddílu. (Výjimkou je `project.json` soubory pro projekty ASP.NET, které jsou sestavení s nepoužívané sada DNX, který umožňuje více cílů.)
+V je povolen pouze jeden záznam `frameworks` oddílu. (Výjimkou je `project.json` soubory pro projekty ASP.NET, které jsou sestavení s nepoužívané DNX nástroj řetězec, který umožňuje více cílů.)
 
 ## <a name="runtimes"></a>Moduly runtime
 
@@ -184,4 +187,4 @@ V NuGet 3 + vývojáři neočekává se ručně upravit, pokud `project.json`, p
 
 `project.lock.json` Soubor je generován právě probíhá obnovení balíčků NuGet v projektech, které používají `project.json`. Drží snímek všechny informace, které jsou generovány jako provede grafu balíčků NuGet a zahrnuje verze, obsah a závislých součástí pro všechny balíčky v projektu. Systém sestavení pomocí to balíčky z globální umístění, které jsou relevantní při sestavování projektu místo v závislosti na složku místní balíčky v projektu. Výsledkem je vyšší výkon sestavení vzhledem k tomu, že je potřeba jen pro čtení `project.lock.json` místo mnoho oddělení `.nuspec` soubory.
 
-`project.lock.json`se automaticky vygeneroval na obnovení balíčků, tak ho lze vynechat od správy zdrojového kódu, přidejte je do `.gitignore` a `.tfignore` soubory (viz [balíčky a Správa zdrojového kódu](../consume-packages/packages-and-source-control.md). Ale pokud zahrnete ji do správy zdrojového kódu, historii změn zobrazuje změny v závislosti přeložit v čase.
+`project.lock.json` se automaticky vygeneroval na obnovení balíčků, tak ho lze vynechat od správy zdrojového kódu, přidejte je do `.gitignore` a `.tfignore` soubory (viz [balíčky a Správa zdrojového kódu](../consume-packages/packages-and-source-control.md). Ale pokud zahrnete ji do správy zdrojového kódu, historii změn zobrazuje změny v závislosti přeložit v čase.

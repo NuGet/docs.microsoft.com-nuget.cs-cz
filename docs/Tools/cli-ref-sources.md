@@ -1,28 +1,31 @@
 ---
-title: "Příkaz zdroje NuGet rozhraní příkazového řádku | Microsoft Docs"
+title: Příkaz zdroje NuGet rozhraní příkazového řádku | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Referenční dokumentace pro nuget.exe zdroje příkaz"
-keywords: "nuget zdroje odkazu, zdroje příkaz"
+ms.technology: ''
+description: Referenční dokumentace pro nuget.exe zdroje příkaz
+keywords: nuget zdroje odkazu, zdroje příkaz
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 139a9494e1ea898c90ce79d5990530fbe08642bd
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: f682a5209556ec6741473ccf2648e8f38bb568b9
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="sources-command-nuget-cli"></a>příkaz zdroje (NuGet CLI)
 
 **Platí pro:** spotřeba balíčku, publikování &bullet; **podporované verze:** všechny
 
-Spravuje seznam zdrojů, na které se nacházejí v oboru konfigurační soubor uživatele nebo v určeném konfiguračním souboru. Konfigurační soubor uživatele rozsah se nachází v `%APPDATA%\NuGet\NuGet.Config` (Windows) a `~/.nuget/NuGet/NuGet.Config` (Mac/Linux).
+Spravuje seznam zdrojů, na které se nacházejí v oboru konfigurační soubor uživatele nebo v určeném konfiguračním souboru. Konfigurační soubor uživatele rozsah se nachází v `%appdata%\NuGet\NuGet.Config` (Windows) a `~/.nuget/NuGet/NuGet.Config` (Mac/Linux).
 
 Všimněte si, že je adresa URL zdroje pro nuget.org `https://api.nuget.org/v3/index.json`.
 

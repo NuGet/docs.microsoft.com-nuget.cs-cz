@@ -1,22 +1,25 @@
 ---
-title: "Návod balíček NuGet obnovit pomocí aplikace Team Foundation Build | Microsoft Docs"
+title: Návod balíček NuGet obnovit pomocí aplikace Team Foundation Build | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/09/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Návod, jak balíček NuGet obnovení s Team Foundation Build (sady TFS a Visual Studio Team Services)."
-keywords: "Obnovení balíčku NuGet, NuGet a sady TFS, NuGet a služby VSTS, systémy sestavení NuGet, team foundation build, vlastní projektů MSBuild cloudu, nepřetržité integrace sestavení"
+ms.technology: ''
+description: Návod, jak balíček NuGet obnovení s Team Foundation Build (sady TFS a Visual Studio Team Services).
+keywords: Obnovení balíčku NuGet, NuGet a sady TFS, NuGet a služby VSTS, systémy sestavení NuGet, team foundation build, vlastní projektů MSBuild cloudu, nepřetržité integrace sestavení
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 9e3ef6e3bcc55705315fcb6ccf3e917963c62250
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: f46a7402214bf965918a5195605027913a8c60c2
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="setting-up-package-restore-with-team-foundation-build"></a>Nastavení obnovení balíčků s Team Foundation Build
 
@@ -110,6 +113,9 @@ Pro komunikaci se správa verzí, že nepodporujeme záměr vrácení se změnam
     bin
     obj
     packages
+    *.nupkg
+    project.lock.json
+    project.assets.json
 
 `.gitignore` Soubor [velmi výkonné](https://www.kernel.org/pub/software/scm/git/docs/gitignore.html). Například, pokud chcete obecně není vrácení se změnami obsah `packages` složka ale chcete přejít s předchozí pokyny k vrácení se změnami `.targets` soubory můžete mít následující pravidlo místo:
 
@@ -125,6 +131,9 @@ Správa verzí TF podporuje velmi podobné mechanismus prostřednictvím [.tfign
     bin
     obj
     packages
+    *.nupkg
+    project.lock.json
+    project.assets.json
 
 ## <a name="buildproj"></a>build.proj
 

@@ -1,22 +1,25 @@
 ---
-title: "Příkaz setapikey NuGet rozhraní příkazového řádku | Microsoft Docs"
+title: Příkaz setapikey NuGet rozhraní příkazového řádku | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Referenční dokumentace pro příkaz setapikey nuget.exe"
-keywords: "referenční dokumentace setapikey nuget, setapikey příkaz"
+ms.technology: ''
+description: Referenční dokumentace pro příkaz setapikey nuget.exe
+keywords: referenční dokumentace setapikey nuget, setapikey příkaz
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: ca6caddbf1404bcaa1ca068c9556f7cf0c651947
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 696ccf9df5af487d3bf75925c1c1e0d1d1bf7f7b
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="setapikey-command-nuget-cli"></a>příkaz setapikey (NuGet CLI)
 
@@ -36,7 +39,7 @@ kde `<source>` identifikuje server a `<key>` je klíč nebo heslo, abyste uloži
 
 | Možnost | Popis |
 | --- | --- |
-| ConfigFile | Konfigurační soubor NuGet chcete upravit. Pokud není zadaný, *%AppData%\NuGet\NuGet.Config* se používá. |
+| ConfigFile | Konfigurační soubor NuGet použít. Pokud není zadaný, `%AppData%\NuGet\NuGet.Config` (Windows) nebo `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) se používá.|
 | ForceEnglishOutput | *(3.5 +)*  Vynutí nuget.exe ke spuštění pomocí invariantní, na základě angličtina jazykové verze. |
 | Nápověda | Zobrazí nápovědu pro příkaz. |
 | Neinteraktivní | Potlačí výzvy pro vstup uživatele nebo potvrzení. |

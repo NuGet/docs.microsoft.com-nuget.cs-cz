@@ -1,22 +1,25 @@
 ---
-title: "Příkaz init NuGet rozhraní příkazového řádku | Microsoft Docs"
+title: Příkaz init NuGet rozhraní příkazového řádku | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Referenční dokumentace pro nuget.exe init – příkaz"
-keywords: "Init – odkaz nuget, Init – příkaz"
+ms.technology: ''
+description: Referenční dokumentace pro nuget.exe init – příkaz
+keywords: Init – odkaz nuget, Init – příkaz
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6d7710cd024e2c2956fb73aa767c3be55b9fb0f9
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 01a3553622020b5868e33ece09cd7555cb712fd3
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="init-command-nuget-cli"></a>Init – příkaz (NuGet CLI)
 
@@ -38,7 +41,7 @@ kde `<source>` je složka, která obsahuje balíčky a `<destination>` je místn
 
 | Možnost | Popis |
 | --- | --- |
-| ConfigFile | Konfigurační soubor NuGet použít. Pokud není zadaný, *%AppData%\NuGet\NuGet.Config* se používá. |
+| ConfigFile | Konfigurační soubor NuGet použít. Pokud není zadaný, `%AppData%\NuGet\NuGet.Config` (Windows) nebo `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) se používá.|
 | ForceEnglishOutput | *(3.5 +)*  Vynutí nuget.exe ke spuštění pomocí invariantní, na základě angličtina jazykové verze. |
 | Rozbalte položku | Přidá všechny soubory v každý balíček, který je přidán ke zdroji balíčku; stejné jako `-Expand` s `add` příkaz. |
 | Nápověda | Zobrazí nápovědu pro příkaz. |

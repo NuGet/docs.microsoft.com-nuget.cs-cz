@@ -1,26 +1,29 @@
 ---
-title: "Úvodní příručka k používání balíčků NuGet z Visual Studia | Microsoft Docs"
+title: Úvodní příručka k používání balíčků NuGet z Visual Studia | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/23/2018
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.prod: nuget
-ms.technology: 
-description: "Návod kurz týkající se procesu instalace a použití balíčku NuGet v sadě Visual Studio projektu."
-keywords: "Nainstalujte NuGet, využívání balíčku NuGet, instalace balíčků NuGet, odkazů na balíček NuGet, pomocí balíčků NuGet"
+ms.technology: ''
+description: Návod kurz týkající se procesu instalace a použití balíčku NuGet v sadě Visual Studio projektu.
+keywords: Nainstalujte NuGet, využívání balíčku NuGet, instalace balíčků NuGet, odkazů na balíček NuGet, pomocí balíčků NuGet
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: ff905fec6d6af4fa40fd4331cb970121b6eb0879
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 4205893cc02cffff8926513a555393d10c046f43
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="install-and-use-a-package-in-visual-studio"></a>Instalace a použití balíčku v sadě Visual Studio
 
-Balíčky NuGet obsahovat opakovaně použitelný kód, který jinými vývojáři zpřístupnění pro použití ve vašich projektů. V tématu [co je NuGet?](../What-is-NuGet.md) pozadí. Balíčky jsou nainstalovány do projektu Visual Studia pomocí uživatelského rozhraní Správce balíčků nebo konzole Správce balíčků, jak je popsáno v tomto článku Oblíbené [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) balíček a projekt univerzální platformu Windows (UWP).
+Balíčky NuGet obsahovat opakovaně použitelný kód, který jinými vývojáři zpřístupnění pro použití ve vašich projektů. V tématu [co je NuGet?](../What-is-NuGet.md) pozadí. Balíčky jsou nainstalovány do projektu Visual Studia pomocí uživatelského rozhraní Správce balíčků nebo konzole Správce balíčků. Tento článek ukazuje, proces, pomocí oblíbených [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) balíček a projekt univerzální platformu Windows (UWP). Stejný postup platí pro další .NET nebo .NET Core projektu.
 
 Po instalaci odkazovat na balíček v kódu pomocí `using <namespace>` kde \<obor názvů\> je specifická pro balíček, který používáte. Jakmile se odkazuje, můžete volat balíček prostřednictvím jejího rozhraní API.
 
@@ -36,7 +39,9 @@ Edice Community 2017 můžete nainstalovat zdarma z [visualstudio.com](https://w
 
 ## <a name="create-a-project"></a>Vytvoření projektu
 
-Balíčky NuGet lze nainstalovat do projektu .NET určitého druhu. V tomto návodu použijete jednoduchou aplikaci Universal Windows (UWP). Vytvoření projektu v sadě Visual Studio pomocí **soubor > Nový projekt...**  a výběrem **univerzální pro Windows > prázdná aplikace (univerzální pro Windows)**. Přijměte výchozí hodnoty pro cílovou verzi a minimální verzi po zobrazení výzvy.
+Balíčky NuGet lze nainstalovat do všech rozhraní .NET projektu za předpokladu, že balíček podporuje stejné cílové rozhraní jako projekt.
+
+Pro účely tohoto postupu použijte jednoduchou aplikaci Universal Windows (UWP). Vytvoření projektu v sadě Visual Studio pomocí **soubor > Nový projekt...**  a výběrem **univerzální pro Windows > prázdná aplikace (univerzální pro Windows)**. Přijměte výchozí hodnoty pro cílovou verzi a minimální verzi po zobrazení výzvy.
 
 ## <a name="add-the-newtonsoftjson-nuget-package"></a>Přidejte balíček Newtonsoft.Json NuGet
 
@@ -56,7 +61,7 @@ Chcete-li nainstalovat balíček, můžete použít uživatelského rozhraní Sp
 
 1. (Visual Studio 2017) Po zobrazení výzvy vyberte formát balíček správy, vyberte **PackageReference v souboru projektu**:
 
-    ![Výběr formátu odkaz na balíček](media/QS_Use-03b-SelectFormat.png)
+    ![Výběr formátu balíčku správy](media/QS_Use-03b-SelectFormat.png)
 
 1. Pokud budete vyzváni ke zkontrolování změn, vyberte **OK**.
 
