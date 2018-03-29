@@ -14,7 +14,7 @@
 ### [Odstraňování potíží](consume-packages/package-restore-troubleshooting.md)
 ## [Opětovná instalace a aktualizace balíčků](consume-packages/reinstalling-and-updating-packages.md)
 ## [Balíčky a správa zdrojového kódu](consume-packages/packages-and-source-control.md)
-## [Správa mezipaměti NuGetu](consume-packages/managing-the-nuget-cache.md)
+## [Správa globálních balíčků a složek mezipaměti](consume-packages/managing-the-global-packages-and-cache-folders.md)
 ## [Konfigurace chování NuGetu](consume-packages/configuring-nuget-behavior.md)
 ## [Řešení závislostí](consume-packages/dependency-resolution.md)
 # Vytváření balíčků
@@ -31,8 +31,8 @@
 ## Příručky
 ### [Vytvoření balíčků UPW](guides/create-uwp-packages.md)
 ### [Vytvoření ovládacích prvků UPW jako balíčků NuGet](guides/create-uwp-controls.md)
-### [Vytvoření balíčků pro .NET Standard (Visual Studio 2015)](guides/create-net-standard-packages-vs2015.md)
-### [Vytváření balíčků pro Xamarin](guides/create-packages-for-xamarin.md)
+### [Vytváření balíčků NET Standard/NET Framework pomocí sady Visual Studio 2015](guides/create-net-standard-packages-vs2015.md)
+### [Vytváření balíčků pro Xamarin pomocí sady Visual Studio 2015](guides/create-packages-for-xamarin.md)
 # Hostování balíčků
 ## [Přehled](hosting-packages/overview.md)
 ## [Místní informační kanály](hosting-packages/local-feeds.md)
@@ -88,7 +88,7 @@
 ### [Poskytovatelé přihlašovacích údajů NuGetu pro Visual Studio](reference/extensibility/nuget-credential-providers-for-visual-studio.md)
 ### [Poskytovatelé přihlašovacích údajů v nuget.exe](reference/extensibility/nuget-exe-credential-providers.md)
 ## Archivovaný obsah
-### [Formát referencí project.json](archive/project-json.md)
+### [Formát souboru pro správu project.json](archive/project-json.md)
 ### [project.json a UPW](archive/project-json-and-uwp.md)
 ### [Dopad project.json](archive/project-json-impact.md)
 # rozhraní API
