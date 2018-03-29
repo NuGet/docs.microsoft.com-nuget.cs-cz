@@ -1,70 +1,73 @@
 ---
-title: "Vytvoření balíčků NuGet pro univerzální platformu Windows | Microsoft Docs"
+title: Vytvoření balíčků NuGet pro univerzální platformu Windows | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 03/21/2017
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.prod: nuget
-ms.technology: 
-description: "Začátku do konce návod, jak vytvořit balíčky NuGet používání komponent prostředí Windows Runtime pro univerzální platformu Windows."
-keywords: "Vytvoření balíčku, balíčky pro UPW, součásti systému Windows Runtime"
+ms.technology: ''
+description: Začátku do konce návod, jak vytvořit balíčky NuGet používání komponent prostředí Windows Runtime pro univerzální platformu Windows.
+keywords: Vytvoření balíčku, balíčky pro UPW, součásti systému Windows Runtime
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: af650b6cd67855a67d0f49cdbd9f510bf90a60f6
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 6923cdc87b0a550abb51316e384c79137eeaf63a
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="create-uwp-packages"></a><span data-ttu-id="b9441-104">Vytvořit balíčky UWP</span><span class="sxs-lookup"><span data-stu-id="b9441-104">Create UWP packages</span></span>
+# <a name="create-uwp-packages"></a><span data-ttu-id="05ff4-104">Vytvořit balíčky UWP</span><span class="sxs-lookup"><span data-stu-id="05ff4-104">Create UWP packages</span></span>
 
-<span data-ttu-id="b9441-105">[Univerzální platformu Windows (UWP)](https://developer.microsoft.com/windows) poskytuje společné platformě aplikace pro každé zařízení se systémem Windows 10.</span><span class="sxs-lookup"><span data-stu-id="b9441-105">The [Universal Windows Platform (UWP)](https://developer.microsoft.com/windows) provides a common app platform for every device that runs Windows 10.</span></span> <span data-ttu-id="b9441-106">V rámci tohoto modelu aplikace UWP můžete volat rozhraní API WinRT, které jsou společné pro všechna zařízení i taky rozhraní API (včetně Win32 a rozhraní .NET), které jsou specifické pro dané řadě zařízení, na kterém aplikace běží.</span><span class="sxs-lookup"><span data-stu-id="b9441-106">Within this model, UWP apps can call both the WinRT APIs that are common to all devices, and also APIs (including Win32 and .NET) that are specific to the device family on which the app is running.</span></span>
+<span data-ttu-id="05ff4-105">[Univerzální platformu Windows (UWP)](https://developer.microsoft.com/windows) poskytuje společné platformě aplikace pro každé zařízení se systémem Windows 10.</span><span class="sxs-lookup"><span data-stu-id="05ff4-105">The [Universal Windows Platform (UWP)](https://developer.microsoft.com/windows) provides a common app platform for every device that runs Windows 10.</span></span> <span data-ttu-id="05ff4-106">V rámci tohoto modelu aplikace UWP můžete volat rozhraní API WinRT, které jsou společné pro všechna zařízení i taky rozhraní API (včetně Win32 a rozhraní .NET), které jsou specifické pro dané řadě zařízení, na kterém aplikace běží.</span><span class="sxs-lookup"><span data-stu-id="05ff4-106">Within this model, UWP apps can call both the WinRT APIs that are common to all devices, and also APIs (including Win32 and .NET) that are specific to the device family on which the app is running.</span></span>
 
-<span data-ttu-id="b9441-107">V tomto návodu vytvoříte balíček NuGet s nativní UWP komponentou (včetně ovládacího prvku XAML) mohou být používány spravované a nativní projekty.</span><span class="sxs-lookup"><span data-stu-id="b9441-107">In this walkthrough you create a NuGet package with a native UWP component (including a XAML control) that can be used in both Managed and Native projects.</span></span>
+<span data-ttu-id="05ff4-107">V tomto návodu vytvoříte balíček NuGet s nativní UWP komponentou (včetně ovládacího prvku XAML) mohou být používány spravované a nativní projekty.</span><span class="sxs-lookup"><span data-stu-id="05ff4-107">In this walkthrough you create a NuGet package with a native UWP component (including a XAML control) that can be used in both Managed and Native projects.</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="b9441-108">Požadavky</span><span class="sxs-lookup"><span data-stu-id="b9441-108">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="05ff4-108">Požadavky</span><span class="sxs-lookup"><span data-stu-id="05ff4-108">Prerequisites</span></span>
 
-1. <span data-ttu-id="b9441-109">Visual Studio 2017 nebo Visual Studio 2015.</span><span class="sxs-lookup"><span data-stu-id="b9441-109">Visual Studio 2017 or Visual Studio 2015.</span></span> <span data-ttu-id="b9441-110">Instalaci edice Community 2017 zdarma z [visualstudio.com](https://www.visualstudio.com/); můžete použít také edice Professional a Enterprise.</span><span class="sxs-lookup"><span data-stu-id="b9441-110">Install the 2017 Community edition for free from [visualstudio.com](https://www.visualstudio.com/); you can use the Professional and Enterprise editions as well.</span></span>
+1. <span data-ttu-id="05ff4-109">Visual Studio 2017 nebo Visual Studio 2015.</span><span class="sxs-lookup"><span data-stu-id="05ff4-109">Visual Studio 2017 or Visual Studio 2015.</span></span> <span data-ttu-id="05ff4-110">Instalaci edice Community 2017 zdarma z [visualstudio.com](https://www.visualstudio.com/); můžete použít také edice Professional a Enterprise.</span><span class="sxs-lookup"><span data-stu-id="05ff4-110">Install the 2017 Community edition for free from [visualstudio.com](https://www.visualstudio.com/); you can use the Professional and Enterprise editions as well.</span></span>
 
-1. <span data-ttu-id="b9441-111">Rozhraní příkazového řádku NuGet.</span><span class="sxs-lookup"><span data-stu-id="b9441-111">NuGet CLI.</span></span> <span data-ttu-id="b9441-112">Stáhněte si nejnovější verzi `nuget.exe` z [nuget.org/downloads](https://nuget.org/downloads), ukládání do umístění podle vaší volby (ke stažení je `.exe` přímo).</span><span class="sxs-lookup"><span data-stu-id="b9441-112">Download the latest version of `nuget.exe` from [nuget.org/downloads](https://nuget.org/downloads), saving it to a location of your choice (the download is the `.exe` directly).</span></span> <span data-ttu-id="b9441-113">Pak přidejte tohoto umístění do vaší proměnné prostředí PATH, pokud již není.</span><span class="sxs-lookup"><span data-stu-id="b9441-113">Then add that location to your PATH environment variable if it isn't already.</span></span>
+1. <span data-ttu-id="05ff4-111">Rozhraní příkazového řádku NuGet.</span><span class="sxs-lookup"><span data-stu-id="05ff4-111">NuGet CLI.</span></span> <span data-ttu-id="05ff4-112">Stáhněte si nejnovější verzi `nuget.exe` z [nuget.org/downloads](https://nuget.org/downloads), ukládání do umístění podle vaší volby (ke stažení je `.exe` přímo).</span><span class="sxs-lookup"><span data-stu-id="05ff4-112">Download the latest version of `nuget.exe` from [nuget.org/downloads](https://nuget.org/downloads), saving it to a location of your choice (the download is the `.exe` directly).</span></span> <span data-ttu-id="05ff4-113">Pak přidejte tohoto umístění do vaší proměnné prostředí PATH, pokud již není.</span><span class="sxs-lookup"><span data-stu-id="05ff4-113">Then add that location to your PATH environment variable if it isn't already.</span></span>
 
-## <a name="create-a-uwp-windows-runtime-component"></a><span data-ttu-id="b9441-114">Vytvoření komponenty prostředí Windows Runtime UWP</span><span class="sxs-lookup"><span data-stu-id="b9441-114">Create a UWP Windows Runtime component</span></span>
+## <a name="create-a-uwp-windows-runtime-component"></a><span data-ttu-id="05ff4-114">Vytvoření komponenty prostředí Windows Runtime UWP</span><span class="sxs-lookup"><span data-stu-id="05ff4-114">Create a UWP Windows Runtime component</span></span>
 
-1. <span data-ttu-id="b9441-115">V sadě Visual Studio, vyberte **soubor > Nový > projekt**, rozbalte **Visual C++ > Windows > Universal** uzlu, vyberte **komponenty prostředí Windows Runtime (Universal Windows)**šablony, změňte název na ImageEnhancer a klikněte na tlačítko OK.</span><span class="sxs-lookup"><span data-stu-id="b9441-115">In Visual Studio, choose **File > New > Project**, expand the **Visual C++ > Windows > Universal** node, select the **Windows Runtime Component (Universal Windows)** template, change the name to ImageEnhancer, and click OK.</span></span> <span data-ttu-id="b9441-116">Přijměte výchozí hodnoty pro cílovou verzi a minimální verzi po zobrazení výzvy.</span><span class="sxs-lookup"><span data-stu-id="b9441-116">Accept the default values for Target Version and Minimum Version when prompted.</span></span>
+1. <span data-ttu-id="05ff4-115">V sadě Visual Studio, vyberte **soubor > Nový > projekt**, rozbalte **Visual C++ > Windows > Universal** uzlu, vyberte **komponenty prostředí Windows Runtime (Universal Windows)**šablony, změňte název na ImageEnhancer a klikněte na tlačítko OK.</span><span class="sxs-lookup"><span data-stu-id="05ff4-115">In Visual Studio, choose **File > New > Project**, expand the **Visual C++ > Windows > Universal** node, select the **Windows Runtime Component (Universal Windows)** template, change the name to ImageEnhancer, and click OK.</span></span> <span data-ttu-id="05ff4-116">Přijměte výchozí hodnoty pro cílovou verzi a minimální verzi po zobrazení výzvy.</span><span class="sxs-lookup"><span data-stu-id="05ff4-116">Accept the default values for Target Version and Minimum Version when prompted.</span></span>
 
     ![Vytvoření nového projektu UPW komponenty prostředí Windows Runtime](media/UWP-NewProject.png)
 
-1. <span data-ttu-id="b9441-118">Klikněte pravým tlačítkem na projekt v Průzkumníku řešení, vyberte **Přidat > Nová položka**, klikněte na tlačítko **Visual C++ > XAML** uzlu, vyberte **Šablonované řízení**, změňte název souboru na AwesomeImageControl.cpp a klikněte na tlačítko **přidat**:</span><span class="sxs-lookup"><span data-stu-id="b9441-118">Right click the project in Solution Explorer, select **Add > New Item**, click the **Visual C++ > XAML** node, select **Templated Control**, change the name to AwesomeImageControl.cpp, and click **Add**:</span></span>
+1. <span data-ttu-id="05ff4-118">Klikněte pravým tlačítkem na projekt v Průzkumníku řešení, vyberte **Přidat > Nová položka**, klikněte na tlačítko **Visual C++ > XAML** uzlu, vyberte **Šablonované řízení**, změňte název souboru na AwesomeImageControl.cpp a klikněte na tlačítko **přidat**:</span><span class="sxs-lookup"><span data-stu-id="05ff4-118">Right click the project in Solution Explorer, select **Add > New Item**, click the **Visual C++ > XAML** node, select **Templated Control**, change the name to AwesomeImageControl.cpp, and click **Add**:</span></span>
 
     ![Přidání nové položky podle šablony řízení XAML do projektu](media/UWP-NewXAMLControl.png)
 
-1. <span data-ttu-id="b9441-120">Klikněte pravým tlačítkem na projekt v Průzkumníku řešení a vyberte **vlastnosti.**</span><span class="sxs-lookup"><span data-stu-id="b9441-120">Right-click the project in Solution Explorer and select **Properties.**</span></span> <span data-ttu-id="b9441-121">Na stránce vlastností rozbalte **vlastnosti konfigurace > C/C++** a klikněte na tlačítko **výstupní soubory**.</span><span class="sxs-lookup"><span data-stu-id="b9441-121">In the Properties page, expand **Configuration Properties > C/C++** and click **Output Files**.</span></span> <span data-ttu-id="b9441-122">V podokně na pravé straně, změňte hodnotu **generování souborů dokumentace XML** Ano:</span><span class="sxs-lookup"><span data-stu-id="b9441-122">In the pane on the right, change the value for **Generate XML Documentation Files** to Yes:</span></span>
+1. <span data-ttu-id="05ff4-120">Klikněte pravým tlačítkem na projekt v Průzkumníku řešení a vyberte **vlastnosti.**</span><span class="sxs-lookup"><span data-stu-id="05ff4-120">Right-click the project in Solution Explorer and select **Properties.**</span></span> <span data-ttu-id="05ff4-121">Na stránce vlastností rozbalte **vlastnosti konfigurace > C/C++** a klikněte na tlačítko **výstupní soubory**.</span><span class="sxs-lookup"><span data-stu-id="05ff4-121">In the Properties page, expand **Configuration Properties > C/C++** and click **Output Files**.</span></span> <span data-ttu-id="05ff4-122">V podokně na pravé straně, změňte hodnotu **generování souborů dokumentace XML** Ano:</span><span class="sxs-lookup"><span data-stu-id="05ff4-122">In the pane on the right, change the value for **Generate XML Documentation Files** to Yes:</span></span>
 
     ![Nastavení generování souborů dokumentace XML na Ano](media/UWP-GenerateXMLDocFiles.png)
 
-1. <span data-ttu-id="b9441-124">Klikněte pravým tlačítkem *řešení* nyní, vyberte **dávkové sestavení**, zaškrtněte tři políčka ladění v dialogovém okně, jak je uvedeno níže.</span><span class="sxs-lookup"><span data-stu-id="b9441-124">Right click the *solution* now, select **Batch Build**, check the three Debug boxes in the dialog as shown below.</span></span> <span data-ttu-id="b9441-125">Tím je zajištěno, že při sestavení, vygenerování kompletní artefaktů pro jednotlivé cílové systémy, které podporuje Windows.</span><span class="sxs-lookup"><span data-stu-id="b9441-125">This makes sure that when you do a build, you generate a full set of artifacts for each of the target systems that Windows supports.</span></span>
+1. <span data-ttu-id="05ff4-124">Klikněte pravým tlačítkem *řešení* nyní, vyberte **dávkové sestavení**, zaškrtněte tři políčka ladění v dialogovém okně, jak je uvedeno níže.</span><span class="sxs-lookup"><span data-stu-id="05ff4-124">Right click the *solution* now, select **Batch Build**, check the three Debug boxes in the dialog as shown below.</span></span> <span data-ttu-id="05ff4-125">Tím je zajištěno, že při sestavení, vygenerování kompletní artefaktů pro jednotlivé cílové systémy, které podporuje Windows.</span><span class="sxs-lookup"><span data-stu-id="05ff4-125">This makes sure that when you do a build, you generate a full set of artifacts for each of the target systems that Windows supports.</span></span>
 
     ![Batch sestavení](media/UWP-BatchBuild.png)
 
-1. <span data-ttu-id="b9441-127">V dávce sestavení dialogové okno a klikněte na tlačítko **sestavení** ověření projektu a vytvořit výstupní soubory, které potřebujete pro balíček NuGet.</span><span class="sxs-lookup"><span data-stu-id="b9441-127">In the Batch Build dialog, and click **Build** to verify the project and create the output files that you need for the NuGet package.</span></span>
+1. <span data-ttu-id="05ff4-127">V dávce sestavení dialogové okno a klikněte na tlačítko **sestavení** ověření projektu a vytvořit výstupní soubory, které potřebujete pro balíček NuGet.</span><span class="sxs-lookup"><span data-stu-id="05ff4-127">In the Batch Build dialog, and click **Build** to verify the project and create the output files that you need for the NuGet package.</span></span>
 
 > [!Note]
-> <span data-ttu-id="b9441-128">V tomto názorném postupu použijete artefakty ladění pro balíček.</span><span class="sxs-lookup"><span data-stu-id="b9441-128">In this walkthrough you use the Debug artifacts for the package.</span></span> <span data-ttu-id="b9441-129">Pro balíček bez ladění místo toho zkontrolujte verzi možností v dialogovém okně dávkové sestavení a odkazovat na výsledný složky verze v krocích, které následují.</span><span class="sxs-lookup"><span data-stu-id="b9441-129">For non-debug package, check the Release options in the Batch Build dialog instead, and refer to the resulting Release folders in the steps that follow.</span></span>
+> <span data-ttu-id="05ff4-128">V tomto názorném postupu použijete artefakty ladění pro balíček.</span><span class="sxs-lookup"><span data-stu-id="05ff4-128">In this walkthrough you use the Debug artifacts for the package.</span></span> <span data-ttu-id="05ff4-129">Pro balíček bez ladění místo toho zkontrolujte verzi možností v dialogovém okně dávkové sestavení a odkazovat na výsledný složky verze v krocích, které následují.</span><span class="sxs-lookup"><span data-stu-id="05ff4-129">For non-debug package, check the Release options in the Batch Build dialog instead, and refer to the resulting Release folders in the steps that follow.</span></span>
 
-## <a name="create-and-update-the-nuspec-file"></a><span data-ttu-id="b9441-130">Vytvářet a aktualizovat soubor s příponou .nuspec</span><span class="sxs-lookup"><span data-stu-id="b9441-130">Create and update the .nuspec file</span></span>
+## <a name="create-and-update-the-nuspec-file"></a><span data-ttu-id="05ff4-130">Vytvářet a aktualizovat soubor s příponou .nuspec</span><span class="sxs-lookup"><span data-stu-id="05ff4-130">Create and update the .nuspec file</span></span>
 
-<span data-ttu-id="b9441-131">Chcete-li vytvořit počáteční `.nuspec` souboru, proveďte následující tři kroky.</span><span class="sxs-lookup"><span data-stu-id="b9441-131">To create the initial `.nuspec` file, do the three steps below.</span></span> <span data-ttu-id="b9441-132">V následujících pak provede další potřebné aktualizace.</span><span class="sxs-lookup"><span data-stu-id="b9441-132">The sections that follow then guide you through other necessary updates.</span></span>
+<span data-ttu-id="05ff4-131">Chcete-li vytvořit počáteční `.nuspec` souboru, proveďte následující tři kroky.</span><span class="sxs-lookup"><span data-stu-id="05ff4-131">To create the initial `.nuspec` file, do the three steps below.</span></span> <span data-ttu-id="05ff4-132">V následujících pak provede další potřebné aktualizace.</span><span class="sxs-lookup"><span data-stu-id="05ff4-132">The sections that follow then guide you through other necessary updates.</span></span>
 
-1. <span data-ttu-id="b9441-133">Otevřete příkazový řádek a přejděte do složky obsahující `ImageEnhancer.vcxproj` (to se stane podsložky níže, kde je soubor řešení).</span><span class="sxs-lookup"><span data-stu-id="b9441-133">Open a command prompt and navigate to the folder containing `ImageEnhancer.vcxproj` (this will be a subfolder below where the solution file is).</span></span>
-1. <span data-ttu-id="b9441-134">Spustit NuGet `spec` příkazu vygenerujte `ImageEnhancer.nuspec` (název souboru je převzat z názvu `.vcxproj` souborů):</span><span class="sxs-lookup"><span data-stu-id="b9441-134">Run the NuGet `spec` command to generate `ImageEnhancer.nuspec` (the name of the file is taken from the name of the `.vcxproj` file):</span></span>
+1. <span data-ttu-id="05ff4-133">Otevřete příkazový řádek a přejděte do složky obsahující `ImageEnhancer.vcxproj` (to se stane podsložky níže, kde je soubor řešení).</span><span class="sxs-lookup"><span data-stu-id="05ff4-133">Open a command prompt and navigate to the folder containing `ImageEnhancer.vcxproj` (this will be a subfolder below where the solution file is).</span></span>
+1. <span data-ttu-id="05ff4-134">Spustit NuGet `spec` příkazu vygenerujte `ImageEnhancer.nuspec` (název souboru je převzat z názvu `.vcxproj` souborů):</span><span class="sxs-lookup"><span data-stu-id="05ff4-134">Run the NuGet `spec` command to generate `ImageEnhancer.nuspec` (the name of the file is taken from the name of the `.vcxproj` file):</span></span>
 
     ```cli
     nuget spec
     ```
 
-1. <span data-ttu-id="b9441-135">Otevřete `ImageEnhancer.nuspec` v editoru a aktualizovat ji tak, aby odpovídala následující, nahraďte vaše_jméno odpovídající hodnotu.</span><span class="sxs-lookup"><span data-stu-id="b9441-135">Open `ImageEnhancer.nuspec` in an editor and update it to match the following, replacing YOUR_NAME with an appropriate value.</span></span> <span data-ttu-id="b9441-136">`<id>` Hodnotu, konkrétně musí být jedinečný v rámci nuget.org (viz zásady vytváření názvů, které jsou popsané v [vytváření balíčku](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number)).</span><span class="sxs-lookup"><span data-stu-id="b9441-136">The `<id>` value, specifically, must be unique across nuget.org (see the naming conventions described in [Creating a package](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number)).</span></span> <span data-ttu-id="b9441-137">Všimněte si také, zda je nutné také aktualizovat autora a popis značky nebo dojde k chybě během kroku okolních.</span><span class="sxs-lookup"><span data-stu-id="b9441-137">Also note that you must also update the author and description tags or you get an error during the packing step.</span></span>
+1. <span data-ttu-id="05ff4-135">Otevřete `ImageEnhancer.nuspec` v editoru a aktualizovat ji tak, aby odpovídala následující, nahraďte vaše_jméno odpovídající hodnotu.</span><span class="sxs-lookup"><span data-stu-id="05ff4-135">Open `ImageEnhancer.nuspec` in an editor and update it to match the following, replacing YOUR_NAME with an appropriate value.</span></span> <span data-ttu-id="05ff4-136">`<id>` Hodnotu, konkrétně musí být jedinečný v rámci nuget.org (viz zásady vytváření názvů, které jsou popsané v [vytváření balíčku](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number)).</span><span class="sxs-lookup"><span data-stu-id="05ff4-136">The `<id>` value, specifically, must be unique across nuget.org (see the naming conventions described in [Creating a package](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number)).</span></span> <span data-ttu-id="05ff4-137">Všimněte si také, zda je nutné také aktualizovat autora a popis značky nebo dojde k chybě během kroku okolních.</span><span class="sxs-lookup"><span data-stu-id="05ff4-137">Also note that you must also update the author and description tags or you get an error during the packing step.</span></span>
 
     ```xml
     <?xml version="1.0"?>
@@ -85,13 +88,13 @@ ms.lasthandoff: 03/08/2018
     ```
 
 > [!Note]
-> <span data-ttu-id="b9441-138">Pro balíčky vytvořené pro veřejné spotřeby, věnujte zvláštní pozornost `<tags>` elementu, jako jsou tyto značky ostatní najít váš balíček a co provádí.</span><span class="sxs-lookup"><span data-stu-id="b9441-138">For packages built for public consumption, pay special attention to the `<tags>` element, as these tags help others find your package and understand what it does.</span></span>
+> <span data-ttu-id="05ff4-138">Pro balíčky vytvořené pro veřejné spotřeby, věnujte zvláštní pozornost `<tags>` elementu, jako jsou tyto značky ostatní najít váš balíček a co provádí.</span><span class="sxs-lookup"><span data-stu-id="05ff4-138">For packages built for public consumption, pay special attention to the `<tags>` element, as these tags help others find your package and understand what it does.</span></span>
 
-### <a name="adding-windows-metadata-to-the-package"></a><span data-ttu-id="b9441-139">Přidávání metadat Windows do balíčku</span><span class="sxs-lookup"><span data-stu-id="b9441-139">Adding Windows metadata to the package</span></span>
+### <a name="adding-windows-metadata-to-the-package"></a><span data-ttu-id="05ff4-139">Přidávání metadat Windows do balíčku</span><span class="sxs-lookup"><span data-stu-id="05ff4-139">Adding Windows metadata to the package</span></span>
 
-<span data-ttu-id="b9441-140">Komponent prostředí Windows Runtime vyžaduje metadata, která popisuje všechny veřejně dostupné typy, které umožňuje jiným aplikacím a knihovny využívat komponentu.</span><span class="sxs-lookup"><span data-stu-id="b9441-140">A Windows Runtime Component requires metadata that describes all of its publicly available types, which makes it possible for other apps and libraries to consume the component.</span></span> <span data-ttu-id="b9441-141">Tato metadata je obsažený v souboru .winmd, který se vytvoří při kompilaci projektu a musí být součástí vašeho balíčku NuGet.</span><span class="sxs-lookup"><span data-stu-id="b9441-141">This metadata is contained in a .winmd file, which is created when you compile the project and must be included in your NuGet package.</span></span> <span data-ttu-id="b9441-142">Soubor XML s daty IntelliSense vychází ve stejnou dobu a by měly být zahrnuty i.</span><span class="sxs-lookup"><span data-stu-id="b9441-142">An XML file with IntelliSense data is also built at the same time, and should be included as well.</span></span>
+<span data-ttu-id="05ff4-140">Komponent prostředí Windows Runtime vyžaduje metadata, která popisuje všechny veřejně dostupné typy, které umožňuje jiným aplikacím a knihovny využívat komponentu.</span><span class="sxs-lookup"><span data-stu-id="05ff4-140">A Windows Runtime Component requires metadata that describes all of its publicly available types, which makes it possible for other apps and libraries to consume the component.</span></span> <span data-ttu-id="05ff4-141">Tato metadata je obsažený v souboru .winmd, který se vytvoří při kompilaci projektu a musí být součástí vašeho balíčku NuGet.</span><span class="sxs-lookup"><span data-stu-id="05ff4-141">This metadata is contained in a .winmd file, which is created when you compile the project and must be included in your NuGet package.</span></span> <span data-ttu-id="05ff4-142">Soubor XML s daty IntelliSense vychází ve stejnou dobu a by měly být zahrnuty i.</span><span class="sxs-lookup"><span data-stu-id="05ff4-142">An XML file with IntelliSense data is also built at the same time, and should be included as well.</span></span>
 
-<span data-ttu-id="b9441-143">Přidejte následující `<files>` uzlu `.nuspec` souboru:</span><span class="sxs-lookup"><span data-stu-id="b9441-143">Add the following `<files>` node to the `.nuspec` file:</span></span>
+<span data-ttu-id="05ff4-143">Přidejte následující `<files>` uzlu `.nuspec` souboru:</span><span class="sxs-lookup"><span data-stu-id="05ff4-143">Add the following `<files>` node to the `.nuspec` file:</span></span>
 
 ```xml
 <package>
@@ -107,9 +110,9 @@ ms.lasthandoff: 03/08/2018
 </package>
 ```
 
-### <a name="adding-xaml-content"></a><span data-ttu-id="b9441-144">Přidání součástí obsahu XAML</span><span class="sxs-lookup"><span data-stu-id="b9441-144">Adding XAML content</span></span>
+### <a name="adding-xaml-content"></a><span data-ttu-id="05ff4-144">Přidání součástí obsahu XAML</span><span class="sxs-lookup"><span data-stu-id="05ff4-144">Adding XAML content</span></span>
 
-<span data-ttu-id="b9441-145">Chcete-li zahrnout prvku XAML pomocí příslušné součásti, přidejte soubor XAML, který má výchozí šablonu pro ovládací prvek (generovaná šablony projektu).</span><span class="sxs-lookup"><span data-stu-id="b9441-145">To include a XAML control with your component, you need to add the XAML file that has the default template for the control (as generated by the project template).</span></span> <span data-ttu-id="b9441-146">To také ukládá `<files>` části:</span><span class="sxs-lookup"><span data-stu-id="b9441-146">This also goes in the `<files>` section:</span></span>
+<span data-ttu-id="05ff4-145">Chcete-li zahrnout prvku XAML pomocí příslušné součásti, přidejte soubor XAML, který má výchozí šablonu pro ovládací prvek (generovaná šablony projektu).</span><span class="sxs-lookup"><span data-stu-id="05ff4-145">To include a XAML control with your component, you need to add the XAML file that has the default template for the control (as generated by the project template).</span></span> <span data-ttu-id="05ff4-146">To také ukládá `<files>` části:</span><span class="sxs-lookup"><span data-stu-id="05ff4-146">This also goes in the `<files>` section:</span></span>
 
 ```xml
 <?xml version="1.0"?>
@@ -127,9 +130,9 @@ ms.lasthandoff: 03/08/2018
 </package>
 ```
 
-### <a name="adding-the-native-implementation-libraries"></a><span data-ttu-id="b9441-147">Přidání knihovny nativní implementaci</span><span class="sxs-lookup"><span data-stu-id="b9441-147">Adding the native implementation libraries</span></span>
+### <a name="adding-the-native-implementation-libraries"></a><span data-ttu-id="05ff4-147">Přidání knihovny nativní implementaci</span><span class="sxs-lookup"><span data-stu-id="05ff4-147">Adding the native implementation libraries</span></span>
 
-<span data-ttu-id="b9441-148">V rámci vaší komponenty základní logika typu ImageEnhancer je v nativním kódu, který se nachází v různých `ImageEnhancer.dll` sestavení, které jsou generovány pro každý cílový modul runtime (x 86 a x64 ARM).</span><span class="sxs-lookup"><span data-stu-id="b9441-148">Within your component, the core logic of the ImageEnhancer type is in native code, which is contained in the various `ImageEnhancer.dll` assemblies that are generated for each target runtime (ARM, x86, and x64).</span></span> <span data-ttu-id="b9441-149">Zahrnout tyto v balíčku, odkazujte na ně v `<files>` části spolu s jejich přidružené .pri soubory prostředků:</span><span class="sxs-lookup"><span data-stu-id="b9441-149">To include these in the package, reference them in the `<files>` section along with their associated .pri resource files:</span></span>
+<span data-ttu-id="05ff4-148">V rámci vaší komponenty základní logika typu ImageEnhancer je v nativním kódu, který se nachází v různých `ImageEnhancer.dll` sestavení, které jsou generovány pro každý cílový modul runtime (x 86 a x64 ARM).</span><span class="sxs-lookup"><span data-stu-id="05ff4-148">Within your component, the core logic of the ImageEnhancer type is in native code, which is contained in the various `ImageEnhancer.dll` assemblies that are generated for each target runtime (ARM, x86, and x64).</span></span> <span data-ttu-id="05ff4-149">Zahrnout tyto v balíčku, odkazujte na ně v `<files>` části spolu s jejich přidružené .pri soubory prostředků:</span><span class="sxs-lookup"><span data-stu-id="05ff4-149">To include these in the package, reference them in the `<files>` section along with their associated .pri resource files:</span></span>
 
 ```xml
 <?xml version="1.0"?>
@@ -154,9 +157,9 @@ ms.lasthandoff: 03/08/2018
 </package>
 ```
 
-### <a name="adding-targets"></a><span data-ttu-id="b9441-150">Přidání .targets</span><span class="sxs-lookup"><span data-stu-id="b9441-150">Adding .targets</span></span>
+### <a name="adding-targets"></a><span data-ttu-id="05ff4-150">Přidání .targets</span><span class="sxs-lookup"><span data-stu-id="05ff4-150">Adding .targets</span></span>
 
-<span data-ttu-id="b9441-151">Projekty C++ a JavaScript, které může využívat vašeho balíčku NuGet v dalším kroku třeba souboru .targets pro identifikaci potřebné soubory sestavení a souboru winmd.</span><span class="sxs-lookup"><span data-stu-id="b9441-151">Next, C++ and JavaScript projects that might consume your NuGet package need a .targets file to identify the necessary assembly and winmd files.</span></span> <span data-ttu-id="b9441-152">(C# a Visual Basic projekty k tomu automaticky.) Tento soubor vytvořte tak, že zkopírujete následující text do `ImageEnhancer.targets` a uložte ho ve stejné složce jako `.nuspec` souboru.</span><span class="sxs-lookup"><span data-stu-id="b9441-152">(C# and Visual Basic projects do this automatically.) Create this file by copying the text below into `ImageEnhancer.targets` and save it in the same folder as the `.nuspec` file.</span></span> <span data-ttu-id="b9441-153">_Poznámka:_: to `.targets` soubor musí být stejný název jako ID balíčku (například `<Id>` element v `.nupspec` souboru):</span><span class="sxs-lookup"><span data-stu-id="b9441-153">_Note_: This `.targets` file needs to be the same name as the package ID (e.g. the `<Id>` element in the `.nupspec` file):</span></span>
+<span data-ttu-id="05ff4-151">Projekty C++ a JavaScript, které může využívat vašeho balíčku NuGet v dalším kroku třeba souboru .targets pro identifikaci potřebné soubory sestavení a souboru winmd.</span><span class="sxs-lookup"><span data-stu-id="05ff4-151">Next, C++ and JavaScript projects that might consume your NuGet package need a .targets file to identify the necessary assembly and winmd files.</span></span> <span data-ttu-id="05ff4-152">(C# a Visual Basic projekty k tomu automaticky.) Tento soubor vytvořte tak, že zkopírujete následující text do `ImageEnhancer.targets` a uložte ho ve stejné složce jako `.nuspec` souboru.</span><span class="sxs-lookup"><span data-stu-id="05ff4-152">(C# and Visual Basic projects do this automatically.) Create this file by copying the text below into `ImageEnhancer.targets` and save it in the same folder as the `.nuspec` file.</span></span> <span data-ttu-id="05ff4-153">_Poznámka:_: to `.targets` soubor musí být stejný název jako ID balíčku (například `<Id>` element v `.nupspec` souboru):</span><span class="sxs-lookup"><span data-stu-id="05ff4-153">_Note_: This `.targets` file needs to be the same name as the package ID (e.g. the `<Id>` element in the `.nupspec` file):</span></span>
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -174,7 +177,7 @@ ms.lasthandoff: 03/08/2018
 </Project>
 ```
 
-<span data-ttu-id="b9441-154">Potom se podívejte na `ImageEnhancer.targets` ve vaší `.nuspec` souboru:</span><span class="sxs-lookup"><span data-stu-id="b9441-154">Then refer to `ImageEnhancer.targets` in your `.nuspec` file:</span></span>
+<span data-ttu-id="05ff4-154">Potom se podívejte na `ImageEnhancer.targets` ve vaší `.nuspec` souboru:</span><span class="sxs-lookup"><span data-stu-id="05ff4-154">Then refer to `ImageEnhancer.targets` in your `.nuspec` file:</span></span>
 
 ```xml
 <?xml version="1.0"?>
@@ -192,9 +195,9 @@ ms.lasthandoff: 03/08/2018
 </package>
 ```
 
-### <a name="final-nuspec"></a><span data-ttu-id="b9441-155">Poslední příponou .nuspec.</span><span class="sxs-lookup"><span data-stu-id="b9441-155">Final .nuspec</span></span>
+### <a name="final-nuspec"></a><span data-ttu-id="05ff4-155">Poslední příponou .nuspec.</span><span class="sxs-lookup"><span data-stu-id="05ff4-155">Final .nuspec</span></span>
 
-<span data-ttu-id="b9441-156">Váš koncový `.nuspec` soubor by měl nyní vypadat jako následující, kde znovu vaše_jméno by měla být nahrazená příslušnou hodnotu:</span><span class="sxs-lookup"><span data-stu-id="b9441-156">Your final `.nuspec` file should now look like the following, where again YOUR_NAME should be replaced with an appropriate value:</span></span>
+<span data-ttu-id="05ff4-156">Váš koncový `.nuspec` soubor by měl nyní vypadat jako následující, kde znovu vaše_jméno by měla být nahrazená příslušnou hodnotu:</span><span class="sxs-lookup"><span data-stu-id="05ff4-156">Your final `.nuspec` file should now look like the following, where again YOUR_NAME should be replaced with an appropriate value:</span></span>
 
 ```xml
 <?xml version="1.0"?>
@@ -234,28 +237,28 @@ ms.lasthandoff: 03/08/2018
 </package>
 ```
 
-## <a name="package-the-component"></a><span data-ttu-id="b9441-157">Balíček součásti</span><span class="sxs-lookup"><span data-stu-id="b9441-157">Package the component</span></span>
+## <a name="package-the-component"></a><span data-ttu-id="05ff4-157">Balíček součásti</span><span class="sxs-lookup"><span data-stu-id="05ff4-157">Package the component</span></span>
 
-<span data-ttu-id="b9441-158">S dokončené `.nuspec` odkazující na všechny soubory, které je potřeba zahrnout do balíčku, jste připraveni ke spuštění `pack` příkaz:</span><span class="sxs-lookup"><span data-stu-id="b9441-158">With the completed `.nuspec` referencing all the files you need to include in the package, you're ready to run the `pack` command:</span></span>
+<span data-ttu-id="05ff4-158">S dokončené `.nuspec` odkazující na všechny soubory, které je potřeba zahrnout do balíčku, jste připraveni ke spuštění `pack` příkaz:</span><span class="sxs-lookup"><span data-stu-id="05ff4-158">With the completed `.nuspec` referencing all the files you need to include in the package, you're ready to run the `pack` command:</span></span>
 
 ```cli
 nuget pack ImageEnhancer.nuspec
 ```
 
-<span data-ttu-id="b9441-159">Tím se vygeneruje `ImageEnhancer.YOUR_NAME.1.0.0.nupkg`.</span><span class="sxs-lookup"><span data-stu-id="b9441-159">This generates `ImageEnhancer.YOUR_NAME.1.0.0.nupkg`.</span></span> <span data-ttu-id="b9441-160">Otevření tohoto souboru v nástroje, jako [Explorer balíček NuGet](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer) a rozšiřování všechny uzly, můžete zobrazit následující obsah:</span><span class="sxs-lookup"><span data-stu-id="b9441-160">Opening this file in a tool like the [NuGet Package Explorer](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer) and expanding all the nodes, you see the following contents:</span></span>
+<span data-ttu-id="05ff4-159">Tím se vygeneruje `ImageEnhancer.YOUR_NAME.1.0.0.nupkg`.</span><span class="sxs-lookup"><span data-stu-id="05ff4-159">This generates `ImageEnhancer.YOUR_NAME.1.0.0.nupkg`.</span></span> <span data-ttu-id="05ff4-160">Otevření tohoto souboru v nástroje, jako [Explorer balíček NuGet](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer) a rozšiřování všechny uzly, můžete zobrazit následující obsah:</span><span class="sxs-lookup"><span data-stu-id="05ff4-160">Opening this file in a tool like the [NuGet Package Explorer](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer) and expanding all the nodes, you see the following contents:</span></span>
 
 ![Průzkumník balíček NuGet zobrazující ImageEnhancer balíčku](media/UWP-PackageExplorer.png)
 
 > [!Tip]
-> <span data-ttu-id="b9441-162">A `.nupkg` soubor je právě soubor ZIP s jiné rozšíření.</span><span class="sxs-lookup"><span data-stu-id="b9441-162">A `.nupkg` file is just a ZIP file with a different extension.</span></span> <span data-ttu-id="b9441-163">Můžete také zkontrolovat obsah balíčku, potom změnou `.nupkg` k `.zip`, ale nezapomeňte obnovit rozšíření před balíčku se nahrávají na nuget.org.</span><span class="sxs-lookup"><span data-stu-id="b9441-163">You can also examine package contents, then, by changing `.nupkg` to `.zip`, but remember to restore the extension before uploading a package to nuget.org.</span></span>
+> <span data-ttu-id="05ff4-162">A `.nupkg` soubor je právě soubor ZIP s jiné rozšíření.</span><span class="sxs-lookup"><span data-stu-id="05ff4-162">A `.nupkg` file is just a ZIP file with a different extension.</span></span> <span data-ttu-id="05ff4-163">Můžete také zkontrolovat obsah balíčku, potom změnou `.nupkg` k `.zip`, ale nezapomeňte obnovit rozšíření před balíčku se nahrávají na nuget.org.</span><span class="sxs-lookup"><span data-stu-id="05ff4-163">You can also examine package contents, then, by changing `.nupkg` to `.zip`, but remember to restore the extension before uploading a package to nuget.org.</span></span>
 
-<span data-ttu-id="b9441-164">Pokud chcete zpřístupnit vašeho balíčku jinými vývojáři, postupujte podle pokynů [publikování balíčku](../create-packages/publish-a-package.md).</span><span class="sxs-lookup"><span data-stu-id="b9441-164">To make your package available to other developers,  follow the instructions on [Publish a package](../create-packages/publish-a-package.md).</span></span>
+<span data-ttu-id="05ff4-164">Pokud chcete zpřístupnit vašeho balíčku jinými vývojáři, postupujte podle pokynů [publikování balíčku](../create-packages/publish-a-package.md).</span><span class="sxs-lookup"><span data-stu-id="05ff4-164">To make your package available to other developers,  follow the instructions on [Publish a package](../create-packages/publish-a-package.md).</span></span>
 
-## <a name="related-topics"></a><span data-ttu-id="b9441-165">Související témata</span><span class="sxs-lookup"><span data-stu-id="b9441-165">Related topics</span></span>
+## <a name="related-topics"></a><span data-ttu-id="05ff4-165">Související témata</span><span class="sxs-lookup"><span data-stu-id="05ff4-165">Related topics</span></span>
 
-- [<span data-ttu-id="b9441-166">referenční dokumentace příponou .nuspec</span><span class="sxs-lookup"><span data-stu-id="b9441-166">.nuspec Reference</span></span>](../reference/nuspec.md)
-- [<span data-ttu-id="b9441-167">Balíčky symbolů</span><span class="sxs-lookup"><span data-stu-id="b9441-167">Symbol packages</span></span>](../create-packages/symbol-packages.md)
-- [<span data-ttu-id="b9441-168">Správa verzí balíčků</span><span class="sxs-lookup"><span data-stu-id="b9441-168">Package versioning</span></span>](../reference/package-versioning.md)
-- [<span data-ttu-id="b9441-169">Podpora více verzí rozhraní .NET Framework</span><span class="sxs-lookup"><span data-stu-id="b9441-169">Supporting Multiple .NET Framework Versions</span></span>](../create-packages/supporting-multiple-target-frameworks.md)
-- [<span data-ttu-id="b9441-170">Zahrnout do balíčku nástroje MSBuild props a cíle</span><span class="sxs-lookup"><span data-stu-id="b9441-170">Include MSBuild props and targets in a package</span></span>](../create-packages/creating-a-package.md#including-msbuild-props-and-targets-in-a-package)
-- [<span data-ttu-id="b9441-171">Vytvoření lokalizovaných balíčků</span><span class="sxs-lookup"><span data-stu-id="b9441-171">Creating Localized Packages</span></span>](../create-packages/creating-localized-packages.md)
+- [<span data-ttu-id="05ff4-166">referenční dokumentace příponou .nuspec</span><span class="sxs-lookup"><span data-stu-id="05ff4-166">.nuspec Reference</span></span>](../reference/nuspec.md)
+- [<span data-ttu-id="05ff4-167">Balíčky symbolů</span><span class="sxs-lookup"><span data-stu-id="05ff4-167">Symbol packages</span></span>](../create-packages/symbol-packages.md)
+- [<span data-ttu-id="05ff4-168">Správa verzí balíčků</span><span class="sxs-lookup"><span data-stu-id="05ff4-168">Package versioning</span></span>](../reference/package-versioning.md)
+- [<span data-ttu-id="05ff4-169">Podpora více verzí rozhraní .NET Framework</span><span class="sxs-lookup"><span data-stu-id="05ff4-169">Supporting Multiple .NET Framework Versions</span></span>](../create-packages/supporting-multiple-target-frameworks.md)
+- [<span data-ttu-id="05ff4-170">Zahrnout do balíčku nástroje MSBuild props a cíle</span><span class="sxs-lookup"><span data-stu-id="05ff4-170">Include MSBuild props and targets in a package</span></span>](../create-packages/creating-a-package.md#including-msbuild-props-and-targets-in-a-package)
+- [<span data-ttu-id="05ff4-171">Vytvoření lokalizovaných balíčků</span><span class="sxs-lookup"><span data-stu-id="05ff4-171">Creating Localized Packages</span></span>](../create-packages/creating-localized-packages.md)
