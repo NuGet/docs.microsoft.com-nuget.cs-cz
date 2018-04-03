@@ -102,6 +102,7 @@
 ## [Obsah balíčků](api/package-base-address-resource.md)
 ## [Adresa URL pro ohlášení zneužití](api/report-abuse-resource.md)
 ## [Katalog](api/catalog-resource.md)
+## [Limity počtů požadavků](api/rate-limits.md)
 ## [Protokoly nuget.org](api/nuget-protocols.md)
 # Rozšiřitelnost sady Visual Studio
 ## [Rozhraní API NuGetu ve Visual Studiu](visual-studio-extensibility/nuget-api-in-visual-studio.md)
