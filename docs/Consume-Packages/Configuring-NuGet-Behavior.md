@@ -15,11 +15,11 @@ ms.reviewer:
 ms.workload:
 - dotnet
 - aspnet
-ms.openlocfilehash: a575868894d5ca9992b1c9984cf4920bd2858209
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 88f10cf15e16013ac99f315e572f932fd3948f73
+ms.sourcegitcommit: ecb598c790d4154366bc92757ec7db1a51c34faf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="configuring-nuget-behavior"></a>Konfigurace chování NuGet
 
@@ -30,8 +30,8 @@ Chování NuGet doprovází Akumulovaná nastavení v jedné nebo více `NuGet.C
 | Rozsah | Umístění souboru NuGet.Config | Popis |
 | --- | --- | --- |
 | Projekt | Aktuální složce (neboli složky projektu) nebo libovolné složky až kořenové jednotce.| Ve složce projektu nastavení platí pouze pro tento projekt. V nadřazené složky, které obsahují více projektů podsložky nastavení se vztahují na všechny projekty v těchto podsložky. |
-| Uživatel | Windows: `%appdata%\NuGet\NuGet.Config`<br/>Mac/Linux: `~/.nuget/NuGet/NuGet.Config` | Nastavení platí pro všechny operace, ale jsou přepsány jakékoli nastavení projektu. |
-| Počítače | Windows: `%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux: `$XDG_DATA_HOME` (obvykle `~/.local/share`) | Nastavení platí pro všechny operace v počítači, ale jsou elementem podle všechna nastavení na úrovni uživatele nebo projektu. |
+| Uživatel | Windows: `%appdata%\NuGet\NuGet.Config`<br/>Mac/Linux: `~/.config/NuGet/NuGet.Config` nebo `~/.nuget/NuGet/NuGet.Config` (se liší podle operačního systému distribučního) | Nastavení platí pro všechny operace, ale jsou přepsány jakékoli nastavení projektu. |
+| Počítače | Windows: `%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux: `$XDG_DATA_HOME`. Pokud `$XDG_DATA_HOME` má hodnotu null nebo prázdná, `~/.local/share` nebo `/usr/local/share` se použije (se liší podle operačního systému distribučního)  | Nastavení platí pro všechny operace v počítači, ale jsou všechna nastavení na úrovni uživatele nebo projektu přepsat. |
 
 Poznámky pro starší verze balíčku nuget:
 - NuGet 3.3 a dříve slouží `.nuget` složku pro nastavení celé řešení. Tento soubor není použit v NuGet 3.4 +.
@@ -140,7 +140,7 @@ Může se stát, že máte následující strukturu složek na dvě samostatné 
 
 Budete mít čtyři `NuGet.Config` soubory v následujících umístěních s daný obsah. (Soubor úrovni počítače není zahrnutý v tomto příkladu, ale budou chovat podobně do souboru úrovni uživatele.)
 
-Soubor A. individuální souborů, (`%appdata%\NuGet\NuGet.Config` v systému Windows, `~/.nuget/NuGet/NuGet.Config` na Mac/Linux):
+Soubor A. individuální souborů, (`%appdata%\NuGet\NuGet.Config` v systému Windows, `~/.config/NuGet/NuGet.Config` na Mac/Linux):
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -218,8 +218,8 @@ Následující tabulka popisuje, kde `NuGetDefaults.Config` souboru by měly bý
 
 | Platforma operačního systému  | NuGetDefaults.Config Location |
 | --- | --- |
-| Windows      | **Visual Studio 2017 nebo NuGet 4.x+:** % ProgramFiles (x86) %\NuGet\Config <br />**Visual Studio 2015 a starší nebo NuGet 3.x a starší:** %PROGRAMDATA%\NuGet |
-| Mac/Linux    | XDG_DATA_HOME $ (obvykle ~/.local/share)|
+| Windows      | **Visual Studio 2017 nebo NuGet 4.x+:** `%ProgramFiles(x86)%\NuGet\Config` <br />**Visual Studio 2015 a starší nebo NuGet 3.x a dříve:** `%PROGRAMDATA%\NuGet` |
+| Mac/Linux    | `$XDG_DATA_HOME` (obvykle `~/.local/share` nebo `/usr/local/share`, v závislosti na distribuce operačního systému)|
 
 ### <a name="nugetdefaultsconfig-settings"></a>Nastavení NuGetDefaults.Config
 

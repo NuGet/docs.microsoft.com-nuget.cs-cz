@@ -15,11 +15,11 @@ ms.reviewer:
 ms.workload:
 - dotnet
 - aspnet
-ms.openlocfilehash: 99caf371ca1bd85e6af4e879741e3e2caab6e860
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 7844ace0565b2e70f8f68e6e61548f0f28171689
+ms.sourcegitcommit: 5b223c5814799caa6309e95792a2d338df692778
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/04/2018
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Balíček odkazuje (PackageReference) v souborech projektu
 
@@ -96,8 +96,8 @@ Povolené hodnoty pro tyto značky jsou následující, s více hodnotami, kter�
 
 | Hodnota | Popis |
 | --- | ---
-| compile | Obsah `lib` složky |
-| modul runtime | Obsah `runtimes` složky |
+| compile | Obsah `lib` složku a ovládací prvky jestli můžete zkompilovat projektu proti sestavení ve složce |
+| modul runtime | Obsah `lib` a `runtimes` složku a ovládací prvky jestli tyto sestavení bude zkopírována do sestavení výstupní adresář |
 | contentFiles | Obsah `contentfiles` složky |
 | sestavení | Props a cílem v `build` složky |
 | Analyzátory | Analyzátory rozhraní .NET |
