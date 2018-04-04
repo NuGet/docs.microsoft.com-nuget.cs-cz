@@ -74,6 +74,7 @@
 # Odkaz
 ## [.nuspec](reference/nuspec.md)
 ## [Odkazy na balíčky v souborech projektů](consume-packages/package-references-in-project-files.md)
+## [Migrace souboru packages.config do PackageReference](reference/migrate-packages-config-to-package-reference.md)
 ## [packages.config](reference/packages-config.md)
 ## [Správa verzí balíčků](reference/package-versioning.md)
 ## [Soubor Nuget.Config](reference/nuget-config-file.md)
