@@ -15,11 +15,11 @@ ms.reviewer:
 ms.workload:
 - dotnet
 - aspnet
-ms.openlocfilehash: 9da385f51abf5877589c29ebdeffefc9a1a20a2e
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: fc1417941f1293f39da05552adc3a80352a8c83b
+ms.sourcegitcommit: 55433d3bda7684d978f26d559f801878223675fa
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>Jak znovu nainstalovat a aktualizovat balíčky
 
@@ -31,7 +31,7 @@ Aktualizace a opětovné instalace balíčků se provádí následujícím způs
 | --- | --- | --- |
 | Konzola správce balíčků (popsané v [použití aktualizace balíčku](#using-update-package)) | `Update-Package` příkaz | `Update-Package -reinstall` příkaz |
 | Uživatelského rozhraní Správce balíčků | Na **aktualizace** kartě, vyberte jeden nebo více balíčků a vyberte **aktualizace** | Na **nainstalovaná** , vyberte balíček, zaznamenejte jeho název a potom vyberte **odinstalovat**. Přepnout **Procházet** kartě, vyhledejte název balíčku, vyberte ho a pak vyberte **nainstalovat**). |
-| nuget.exe CLI | `nuget update` příkaz | Pro všechny balíčky, odstraňte složku balíček a potom spusťte `nuget install`. Pro jeden balíček, odstraňte složku balíčku a použít `nuget install <id>` stejný jako ten, přeinstalujte. |
+| nuget.exe rozhraní příkazového řádku | `nuget update` příkaz | Pro všechny balíčky, odstraňte složku balíček a potom spusťte `nuget install`. Pro jeden balíček, odstraňte složku balíčku a použít `nuget install <id>` stejný jako ten, přeinstalujte. |
 
 V tomto článku:
 
@@ -81,7 +81,7 @@ Stejný příkaz bez `-reinstall` aktualizuje balíček na novější verzi, pok
 Update-Package <package_name>
 ```
 
-Ve výchozím nastavení `Update-Package` ovlivňuje všechny balíčky v řešení. Chcete-li omezit akce na konkrétní projekt, použijte `-ProjectName` přepnout, pomocí názvu projektu, jak se objevuje v Průzkumníku řešení:
+Ve výchozím nastavení `Update-Package` má vliv na všechny projekty v řešení. Chcete-li omezit akce na konkrétní projekt, použijte `-ProjectName` přepnout, pomocí názvu projektu, jak se objevuje v Průzkumníku řešení:
 
 ```ps
 # Reinstall the package in just MyProject

@@ -3,7 +3,7 @@ title: Instalace nástrojů klienta NuGet | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 01/24/2018
+ms.date: 04/09/2018
 ms.topic: quickstart
 ms.prod: nuget
 ms.technology: ''
@@ -15,17 +15,17 @@ ms.reviewer:
 ms.workload:
 - dotnet
 - aspnet
-ms.openlocfilehash: e4dfe1102d1e0e2013136b0ae4975e5036e34642
-ms.sourcegitcommit: ecb598c790d4154366bc92757ec7db1a51c34faf
+ms.openlocfilehash: 7976ba94448c15e3d8b45a3630bd49b7ec66b8ae
+ms.sourcegitcommit: 55433d3bda7684d978f26d559f801878223675fa
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="installing-nuget-client-tools"></a>Instalace nástrojů klienta NuGet
 
 > **Hledáte nainstalovat balíček? V tématu [způsoby instalace balíčků NuGet](consume-packages/ways-to-install-a-package.md).**
 
-Chcete-li pracovat s NuGet, jako balíček příjemce nebo creator, můžete použít [nástrojů rozhraní příkazového řádku (CLI)](#cli-tools) a také [funkce NuGet v sadě Visual Studio](#visual-studio). Tento článek stručně popisuje možnosti různých nástrojů, jak nainstalovat a jejich srovnávacích [dostupnost funkcí](#feature-availability).
+Chcete-li pracovat s NuGet, jako balíček příjemce nebo creator, můžete použít [nástrojů rozhraní příkazového řádku (CLI)](#cli-tools) a také [funkce NuGet v sadě Visual Studio](#visual-studio). Tento článek stručně popisuje možnosti různých nástrojů, jak nainstalovat a jejich srovnávacích [dostupnost funkcí](#feature-availability). Chcete-li začít používat využívat balíčky NuGet, přečtěte si téma [instalací a použitím balíčku (.NET rozhraní příkazového řádku)](quickstart/install-and-use-a-package-using-the-dotnet-cli.md) a [instalací a použitím balíčku (Visual Studio)](quickstart/install-and-use-a-package-in-visual-studio.md). Chcete-li začít vytvářet balíčky NuGet, přečtěte si téma [vytvořit a publikovat balíček NET Standard (dotnet rozhraní příkazového řádku)](quickstart/create-and-publish-a-package-using-the-dotnet-cli.md) a [vytvoření a publikování balíčku NET Standard (Visual Studio)](quickstart/create-and-publish-a-package-using-visual-studio.md).
 
 | Nástroj&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Popis | Stahování&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
 |:------------- |:-------------|:-----|
@@ -50,7 +50,7 @@ Instalace:
 
 Další informace najdete v tématu [.NET Core rozhraní příkazového řádku nástroje](/dotnet/core/tools/index?tabs=netcore2x#tabpanel_fXL5YCOYDa_netcore2x).
 
-### <a name="nugetexe-cli"></a>nuget.exe CLI
+### <a name="nugetexe-cli"></a>nuget.exe rozhraní příkazového řádku
 
 Rozhraní příkazového řádku NuGet `nuget.exe`, je nástroj příkazového řádku pro Windows, který nabízí všechny funkce NuGet; můžete spustit také na Mac OSX a Linux pomocí [Mono](http://www.mono-project.com/docs/getting-started/install/) s omezeními. Na rozdíl od `dotnet`, `nuget.exe` rozhraní příkazového řádku nemá vliv na soubory projektu a neaktualizuje `packages.config` při instalaci balíčků.
 
@@ -81,7 +81,7 @@ Instalace:
 
 ## <a name="feature-availability"></a>Dostupnost funkcí
 
-| Funkce | dotnet CLI | nuget rozhraní příkazového řádku (Windows) | nuget rozhraní příkazového řádku (Mono) | Visual Studio (Windows) | Visual Studio for Mac |
+| Funkce | DotNet rozhraní příkazového řádku | nuget rozhraní příkazového řádku (Windows) | nuget rozhraní příkazového řádku (Mono) | Visual Studio (Windows) | Visual Studio for Mac |
 | --- | --- | --- | --- | --- | --- |
 | Hledání balíčků |  | &#10004; | &#10004; | &#10004; | &#10004; |
 | Instalace nebo odinstalace balíčků | &#10004;(1) | &#10004;(2) | &#10004; | &#10004; | &#10004; |

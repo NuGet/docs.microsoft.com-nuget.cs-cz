@@ -12,11 +12,11 @@ keywords: Globální NuGet balíčky složky, mezipaměti balíčku NuGet, uklá
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: e9f4383a3f1700b96e3d6fe9ea4c0a7c24daa45a
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 46cd233dcf36745d9ba556c86088f640923cd063
+ms.sourcegitcommit: 55433d3bda7684d978f26d559f801878223675fa
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="managing-the-global-packages-cache-and-temp-folders"></a>Správa globální balíčky, mezipaměti a dočasné složky
 
@@ -24,7 +24,7 @@ Vždy, když instalace, aktualizace nebo obnovení balíčku NuGet spravuje bal�
 
 | Název | Popis a umístění (na uživatele)|
 | --- | --- |
-| global&#8209;packages | *Globální balíčky* složka je, kde NuGet nainstaluje všechny staženého balíčku. Každý balíček je plně rozšířit do podsložky, která odpovídá identifikátor balíčku a číslo verze. Projektů pomocí PackageReference formátu vždy balíčky pro použití přímo z této složky. Při použití `packages.config`, balíčky instalují *globální balíčky* složky, poté zkopírovat do projektu `packages` složky.<br/><ul><li>Windows: `%userprofile%\.nuget\packages`</li><li>Mac/Linux: `~/.nuget/packages`</li><li>Přepsat pomocí proměnné prostředí NUGET_PACKAGES `globalPackagesFolder` nebo `repositoryPath` [nastavení konfigurace](../reference/nuget-config-file.md#config-section) (při použití PackageReference a `packages.config`, v uvedeném pořadí), nebo `RestorePackagesPath` nástroje MSBuild vlastnost (MSBuild pouze). Proměnné prostředí mají přednost před nastavením konfigurace.</li></ul> |
+| globální&#8209;balíčky | *Globální balíčky* složka je, kde NuGet nainstaluje všechny staženého balíčku. Každý balíček je plně rozšířit do podsložky, která odpovídá identifikátor balíčku a číslo verze. Projektů pomocí PackageReference formátu vždy balíčky pro použití přímo z této složky. Při použití `packages.config`, balíčky instalují *globální balíčky* složky, poté zkopírovat do projektu `packages` složky.<br/><ul><li>Windows: `%userprofile%\.nuget\packages`</li><li>Mac/Linux: `~/.nuget/packages`</li><li>Přepsat pomocí proměnné prostředí NUGET_PACKAGES `globalPackagesFolder` nebo `repositoryPath` [nastavení konfigurace](../reference/nuget-config-file.md#config-section) (při použití PackageReference a `packages.config`, v uvedeném pořadí), nebo `RestorePackagesPath` nástroje MSBuild vlastnost (MSBuild pouze). Proměnné prostředí mají přednost před nastavením konfigurace.</li></ul> |
 | http&#8209;cache | Správce balíčků Visual Studio (NuGet 3.x+) a `dotnet` nástroj úložiště kopie stažených balíčků do mezipaměti, (Uložit jako `.dat` soubory), jsou uspořádány do podsložek pro jednotlivé zdroje balíčku. Balíčky nejsou rozšířit a mezipaměť obsahuje čas vypršení platnosti 30 minut.<br/><ul><li>Windows: `%localappdata%\NuGet\v3-cache`</li><li>Mac/Linux: `~/.local/share/NuGet/v3-cache`</li><li>Přepište pomocí proměnné prostředí NUGET_HTTP_CACHE_PATH.</li></ul> |
 | dočasné | Do složky, kde NuGet ukládá dočasné soubory během jeho různé operace.<br/><li>Windows: `%temp%\NuGetScratch`</li><li>Mac/Linux: `/tmp/NuGetScratch`</li></ul> |
 
@@ -99,7 +99,7 @@ nuget locals all -clear
 
 Všechny balíčky používané projekty, které jsou právě otevřeny v sadě Visual Studio nejsou vymazána z *globální balíčky* složky.
 
-V sadě Visual Studio, použijte **nástroje > Správce balíčků NuGet > Nastavení správce balíčků** nabídky příkazu a pak vyberte **zrušte všechny Cache(s) NuGet**. Správa mezipaměti není v současné době dostupná přes konzolu Správce balíčků.
+V aplikaci Visual Studio 2017, použijte **nástroje > Správce balíčků NuGet > Nastavení správce balíčků** nabídky příkazu a pak vyberte **zrušte všechny Cache(s) NuGet**. Správa mezipaměti není v současné době dostupná přes konzolu Správce balíčků. V sadě Visual Studio 2015 pomocí rozhraní příkazového řádku.
 
 ![Příkaz NuGet možnost pro vymazání mezipaměti](media/options-clear-caches.png)
 
