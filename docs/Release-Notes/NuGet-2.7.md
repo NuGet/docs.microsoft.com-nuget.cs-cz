@@ -1,25 +1,16 @@
 ---
-title: Poznámky k verzi NuGet 2.7 | Microsoft Docs
-author: karann-msft
-ms.author: karann-msft
-manager: ghogen
-ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
+title: Poznámky k verzi 2.7 NuGet
 description: Poznámky k verzi pro NuGet 2.7 včetně známé problémy, opravy chyb, přidaných funkcí a chcete.
-keywords: NuGet 2.7 poznámky k verzi, opravy chyb známé problémy, přidat funkce, chcete
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 71ced70af127c8219001069739a6cec59d7d1684
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+author: karann-msft
+ms.author: karann
+manager: unnir
+ms.date: 11/11/2016
+ms.topic: conceptual
+ms.openlocfilehash: 4b7cea360764e1b069afacabadd9b94d87e21ecc
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="nuget-27-release-notes"></a>Poznámky k verzi 2.7 NuGet
 
@@ -33,36 +24,36 @@ Rádi bychom se Děkujeme, že následující externí přispěvatele pro jejich
 
 1. [Jan Roth](http://www.codeplex.com/site/users/view/mxrss) ([@mxrss](https://twitter.com/mxrss))
     - Zobrazí adresu url licence, když je podrobný výpis balíčky a podrobností.
-1. [ADAM Ralph](http://www.codeplex.com/site/users/view/adamralph) ([@adamralph](https://twitter.com/adamralph))
+2. [ADAM Ralph](http://www.codeplex.com/site/users/view/adamralph) ([@adamralph](https://twitter.com/adamralph))
     - [#1956](http://nuget.codeplex.com/workitem/1956) -přidat atribut developmentDependency `packages.config` a použít ho v příkazu pack zahrnout pouze balíčky modulu runtime
-1. [Rafael Nicoletti](http://www.codeplex.com/site/users/view/tkrafael) ([@tkrafael](https://twitter.com/tkrafael))
+3. [Rafael Nicoletti](http://www.codeplex.com/site/users/view/tkrafael) ([@tkrafael](https://twitter.com/tkrafael))
     - Vyhněte se duplicitní klíč vlastnosti v nuget.exe pack příkazu.
-1. [Ben Phegan](http://www.codeplex.com/site/users/view/benphegan) ([@BenPhegan](https://twitter.com/benphegan))
+4. [Ben Phegan](http://www.codeplex.com/site/users/view/benphegan) ([@BenPhegan](https://twitter.com/benphegan))
     - [#2610](http://nuget.codeplex.com/workitem/2610) -zvětšete velikost mezipaměti počítače na 200.
-1. [Slava Trenogin](http://www.codeplex.com/site/users/view/derigel) ([@derigel](https://twitter.com/derigel))
+5. [Slava Trenogin](http://www.codeplex.com/site/users/view/derigel) ([@derigel](https://twitter.com/derigel))
     - [#3217](http://nuget.codeplex.com/workitem/3217) – dialogové okno vyřešit NuGet zobrazující aktualizace na kartě nesprávný
     - Oprava Project.TargetFramework může mít hodnotu null v Vedoucí_projektu
     - [#3248](http://nuget.codeplex.com/workitem/3248) -opravte SharedPackageRepository FindPackage/FindPackagesById na neexistující packageId selžou
-1. [Kevina Boyle](http://www.codeplex.com/site/users/view/KevinBoyleRG) ([@kevfromireland](https://twitter.com/kevfromireland))
+6. [Kevina Boyle](http://www.codeplex.com/site/users/view/KevinBoyleRG) ([@kevfromireland](https://twitter.com/kevfromireland))
     - [#3234](http://nuget.codeplex.com/workitem/3234) -povolit podporu pro projekt Nomad
-1. [Corin Blaikie](http://www.codeplex.com/site/users/view/corinblaikie) ([@corinblaikie](https://twitter.com/corinblaikie))
+7. [Corin Blaikie](http://www.codeplex.com/site/users/view/corinblaikie) ([@corinblaikie](https://twitter.com/corinblaikie))
     - [#3252](http://nuget.codeplex.com/workitem/3252) -oprava nabízené příkaz selže s ukončovacím kódu 0, pokud soubor neexistuje.
-1. [Martin Veselý](http://www.codeplex.com/site/users/view/veselkamartin)
+8. [Martin Veselý](http://www.codeplex.com/site/users/view/veselkamartin)
     - [#3226](http://nuget.codeplex.com/workitem/3226) -oprava chyb pomocí příkazu přidat BindingRedirect, když projekt odkazuje na projekt databáze.
-1. [Miroslav Bajtos](http://www.codeplex.com/site/users/view/miroslavbajtos) ([@bajtos](https://twitter.com/bajtos))
+9. [Miroslav Bajtos](http://www.codeplex.com/site/users/view/miroslavbajtos) ([@bajtos](https://twitter.com/bajtos))
     - [#2891](http://nuget.codeplex.com/workitem/2891) -oprava chyb z nuget.pack analýza zástupný znak v atribut 'vyloučení, nesprávně.
-1. [Justin Dearing](http://www.codeplex.com/site/users/view/zippy1981) ([@zippy1981](https://twitter.com/zippy1981))
-    - [#3307](http://nuget.codeplex.com/workitem/3307) -oprava chyb `NuGet.targets` nepředává $(Platform) do nuget.exe, když probíhá obnovení balíčků.
-1. [Brian Federici](http://www.codeplex.com/site/users/view/benerdin)
-    - [#3294](http://nuget.codeplex.com/workitem/3294) -oprava chyb v příkazu nuget.exe balíček, který by umožnil přidávání souborů se stejným názvem, ale s jinou velká a malá písmena, eventuálně vyvolá výjimku "Položka už existuje".
-1. [Daniel Cazzulino](http://www.codeplex.com/site/users/view/dcazzulino) ([@kzu](https://twitter.com/kzu))
-    - [#2990](http://nuget.codeplex.com/workitem/2990) -verze přidat vlastnost do třídy NetPortableProfile.
-1. [David Simner](https://www.codeplex.com/site/users/view/DavidSimner)
-    - [#3460](https://nuget.codeplex.com/workitem/3460) -oprava chyb NullReferenceException Pokud requireApiKey = true, ale záhlaví X-NUGET-APIKEY není přítomna
-1. [Michael Friis](https://www.codeplex.com/site/users/view/friism) ([@friism](https://twitter.com/friism))
-    - [#3278](https://nuget.codeplex.com/workitem/3278) -opravy NuGet.Build cíle do souboru, který bude správně fungovat na MonoDevelop
-1. [Pranav Krishnamoorthy](https://www.codeplex.com/site/users/view/pranavkm) ([@pranav_km](https://twitter.com/pranav_km))
-    - Výkon příkaz Restore zvýšením paralelizace
+10. [Justin Dearing](http://www.codeplex.com/site/users/view/zippy1981) ([@zippy1981](https://twitter.com/zippy1981))
+     - [#3307](http://nuget.codeplex.com/workitem/3307) -oprava chyb `NuGet.targets` nepředává $(Platform) do nuget.exe, když probíhá obnovení balíčků.
+11. [Brian Federici](http://www.codeplex.com/site/users/view/benerdin)
+     - [#3294](http://nuget.codeplex.com/workitem/3294) -oprava chyb v příkazu nuget.exe balíček, který by umožnil přidávání souborů se stejným názvem, ale s jinou velká a malá písmena, eventuálně vyvolá výjimku "Položka už existuje".
+12. [ADAM Cazzulino](http://www.codeplex.com/site/users/view/dcazzulino) ([@kzu](https://twitter.com/kzu))
+     - [#2990](http://nuget.codeplex.com/workitem/2990) -verze přidat vlastnost do třídy NetPortableProfile.
+13. [David Simner](https://www.codeplex.com/site/users/view/DavidSimner)
+     - [#3460](https://nuget.codeplex.com/workitem/3460) -oprava chyb NullReferenceException Pokud requireApiKey = true, ale záhlaví X-NUGET-APIKEY není přítomna
+14. [Michael Friis](https://www.codeplex.com/site/users/view/friism) ([@friism](https://twitter.com/friism))
+     - [#3278](https://nuget.codeplex.com/workitem/3278) -opravy NuGet.Build cíle do souboru, který bude správně fungovat na MonoDevelop
+15. [Pranav Krishnamoorthy](https://www.codeplex.com/site/users/view/pranavkm) ([@pranav_km](https://twitter.com/pranav_km))
+     - Výkon příkaz Restore zvýšením paralelizace
 
 ## <a name="notable-features-in-the-release"></a>Upozorňují na důležité funkce ve verzi
 
@@ -105,7 +96,7 @@ NuGet 2.7 zavádí novou funkci pro nuget.exe: `nuget.exe restore`
 
 Tento nový příkaz Obnovit umožňuje snadno obnovit všechny balíčky pro řešení pomocí jednoho příkazu, přijetím řešení souboru nebo složky jako argument. Kromě toho tento argument je zahrnuta, jestliže existuje pouze jeden řešení v aktuální složce. To znamená, že všechny následující fungovat ze složky, která obsahuje soubor jediném řešení (MySolution.sln):
 
-1. nuget.exe restore MySolution.sln
+1. obnovení nuget.exe MySolution.sln
 1. nuget.exe obnovení.
 1. obnovení nuget.exe
 
@@ -161,7 +152,7 @@ V tématu [výchozí konfigurace NuGet](../consume-packages/configuring-nuget-be
 
 ### <a name="renaming-the-default-package-source"></a>Přejmenování zdrojového balíčku výchozí
 
-NuGet vždy zaregistrovala výchozí zdroj balíčku názvem "NuGet oficiální zdroj balíčku" odkazující na nuget.org. Tento název byl podrobné a je také nezadal kde ve skutečnosti odkazuje. Chcete-li vyřešit tyto dva problémy, jsme jste přejmenovat tohoto balíčku zdroje do jednoduše "nuget.org" v uživatelském rozhraní. Adresu URL pro zdroj balíčku se změní taky zahrnout "www". Předpona. Po použití NuGet 2.7, bude vaše stávající "NuGet oficiální zdroj balíčku" automaticky aktualizují na "nuget.org" jako její název a "https://www.nuget.org/api/v2/" jako jeho adresa URL.
+NuGet vždy zaregistrovala výchozí zdroj balíčku názvem "NuGet oficiální zdroj balíčku" odkazující na nuget.org. Tento název byl podrobné a je také nezadal kde ve skutečnosti odkazuje. Chcete-li vyřešit tyto dva problémy, jsme jste přejmenovat tohoto balíčku zdroje do jednoduše "nuget.org" v uživatelském rozhraní. Adresu URL pro zdroj balíčku se změní taky zahrnout "www". Předpona. Po použití NuGet 2.7, bude vaše stávající "NuGet oficiální zdroj balíčku" automaticky aktualizují na "nuget.org" jako její název a "<https://www.nuget.org/api/v2/>" jako jeho adresa URL.
 
 ### <a name="performance-improvements"></a>Zvýšení výkonu
 

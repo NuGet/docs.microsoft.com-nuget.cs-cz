@@ -1,22 +1,16 @@
 ---
-title: "Poznámky k verzi 3.4 RC NuGet | Microsoft Docs"
+title: Poznámky k verzi 3.4 RC NuGet
+description: Poznámky k verzi pro NuGet 3.4 RC včetně známé problémy, opravy chyb, přidaných funkcí a chcete.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Poznámky k verzi pro NuGet 3.4 RC včetně známé problémy, opravy chyb, přidaných funkcí a chcete."
-keywords: "NuGet 3.4 k vydání verze RC, opravy chyb známé problémy, přidat funkce, chcete"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 749068683d6e2a3fd9dd29c69d9ff50137acdd46
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: e40d685a5256fdfee818f0cc1f1bc352c698f3c2
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-34-rc-release-notes"></a>Poznámky k verzi 3.4 RC NuGet
 
@@ -54,4 +48,4 @@ Následující funkce jsou k dispozici v této RC s více plánované pro 3,4 fi
 
 ## <a name="known-issues"></a>Známé problémy
 
-Abychom mohli pokračovat ke sledování problémů na našich seznamu problémy Githubu, které naleznete na adrese: [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)
+Abychom mohli pokračovat ke sledování problémů na našich seznamu Githubu problémy, které najdete na: [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)

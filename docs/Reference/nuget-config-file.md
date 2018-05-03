@@ -1,31 +1,22 @@
 ---
-title: Odkaz na soubor NuGet.Config | Microsoft Docs
+title: Odkaz na soubor soubor nuget.config.
+description: Odkaz na soubor NuGet.Config včetně konfigurace, bindingRedirects, packageRestore, řešení a packageSource oddíly.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 10/25/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Odkaz na soubor NuGet.Config včetně konfigurace, bindingRedirects, packageRestore, řešení a packageSource oddíly.
-keywords: Soubor NuGet.Config, referenci na konfigurační NuGet, možnosti konfigurace NuGet
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: e2a9d4f10ac6af4e5bc7386d4f78e18c2a5752c4
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 871cd05ed010d2a31348151de6b7e225ed2dc915
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
-# <a name="nugetconfig-reference"></a>Odkaz na soubor nuget.config.
+# <a name="nugetconfig-reference"></a>odkaz na soubor nuget.config.
 
 Chování NuGet je řízena nastavením v různých `NuGet.Config` souborů, jak je popsáno v [konfigurace chování NuGet](../consume-packages/configuring-nuget-behavior.md).
 
-`NuGet.Config` je soubor XML obsahující nejvyšší úrovni `<configuration>` uzlu, který pak obsahuje část prvky popsané v tomto tématu. Každý oddíl obsahuje nula nebo více `<add>` prvky s `key` a `value` atributy. Najdete v článku [příklady konfiguračního souboru](#example-config-file). Následující názvy nastavení jsou velká a malá písmena a můžete použít hodnoty [proměnné prostředí](#using-environment-variables).
+`nuget.config` je soubor XML obsahující nejvyšší úrovni `<configuration>` uzlu, který pak obsahuje část prvky popsané v tomto tématu. Každý oddíl obsahuje nula nebo více `<add>` prvky s `key` a `value` atributy. Najdete v článku [příklady konfiguračního souboru](#example-config-file). Následující názvy nastavení jsou velká a malá písmena a můžete použít hodnoty [proměnné prostředí](#using-environment-variables).
 
 V tomto tématu:
 
@@ -56,8 +47,8 @@ Obsahuje nastavení různé konfigurace, které se dá nastavit pomocí [ `nuget
 | Key | Hodnota |
 | --- | --- |
 | dependencyVersion (`packages.config` pouze) | Výchozí `DependencyVersion` hodnotu pro instalaci balíčku, obnovení a aktualizace, když `-DependencyVersion` přepínač není zadán přímo. Tato hodnota se používá také pomocí uživatelského rozhraní Správce balíčků NuGet. Hodnoty jsou `Lowest`, `HighestPatch`, `HighestMinor`, `Highest`. |
-| globalPackagesFolder (pouze pomocí PackageReference projekty) | Umístění složky výchozí globální balíčky. Výchozí hodnota je `%userprofile%\.nuget\packages` (Windows) nebo `~/.nuget/packages` (Mac/Linux). Relativní cesta mohou být používány specifické pro projekt `Nuget.Config` soubory. Toto nastavení je přepsat proměnnou prostředí NUGET_PACKAGES, která má přednost před. |
-| repositoryPath (`packages.config` pouze) | Umístění, v němž instalace balíčků NuGet místo výchozího `$(Solutiondir)/packages` složky. Relativní cesta mohou být používány specifické pro projekt `Nuget.Config` soubory. Toto nastavení je přepsat proměnnou prostředí NUGET_PACKAGES, která má přednost před. |
+| globalPackagesFolder (pouze pomocí PackageReference projekty) | Umístění složky výchozí globální balíčky. Výchozí hodnota je `%userprofile%\.nuget\packages` (Windows) nebo `~/.nuget/packages` (Mac/Linux). Relativní cesta mohou být používány specifické pro projekt `nuget.config` soubory. Toto nastavení je přepsat proměnnou prostředí NUGET_PACKAGES, která má přednost před. |
+| repositoryPath (`packages.config` pouze) | Umístění, v němž instalace balíčků NuGet místo výchozího `$(Solutiondir)/packages` složky. Relativní cesta mohou být používány specifické pro projekt `nuget.config` soubory. Toto nastavení je přepsat proměnnou prostředí NUGET_PACKAGES, která má přednost před. |
 | defaultPushSource | Určuje adresu URL nebo cestu zdroje balíčku, který se má použít jako výchozí pro operace nebyly nalezeny žádné jiné zdroje balíčku. |
 | http_proxy http_proxy.user http_proxy.password no_proxy | Nastavení proxy serveru používat při připojování ke zdroji balíčků; `http_proxy` by měl být ve formátu `http://<username>:<password>@<domain>`. Hesla se šifrují a nelze ji přidat ručně. Pro `no_proxy`, hodnota je čárkami oddělený seznam domén Nepoužívat proxy server. Případně můžete http_proxy a no_proxy proměnných prostředí pro tyto hodnoty. Další podrobnosti najdete v tématu [nastavení proxy serveru NuGet](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (skolima.blogspot.com). |
 
@@ -108,7 +99,7 @@ Ovládací prvky obnovení balíčků během sestavení.
 
 ## <a name="solution-section"></a>část řešení
 
-Ovládací prvky jestli `packages` složku řešení je součástí zdrojového kódu. Tato část funguje pouze v `Nuget.Config` souborů ve složce řešení.
+Ovládací prvky jestli `packages` složku řešení je součástí zdrojového kódu. Tato část funguje pouze v `nuget.config` souborů ve složce řešení.
 
 | Key | Hodnota |
 | --- | --- |
@@ -249,7 +240,7 @@ Identifikuje ke zdroji aktuálně aktivní, nebo označuje agregace všech zdroj
 
 ## <a name="using-environment-variables"></a>Použití proměnných prostředí
 
-Můžete použít proměnné prostředí v `NuGet.Config` hodnoty (NuGet 3.4 +) k aplikování nastavení na dobu běhu.
+Můžete použít proměnné prostředí v `nuget.config` hodnoty (NuGet 3.4 +) k aplikování nastavení na dobu běhu.
 
 Například pokud `HOME` proměnná prostředí v systému Windows je nastavená na `c:\users\username`, pak hodnota `%HOME%\NuGetRepository` v konfiguraci souboru přeloží na `c:\users\username\NuGetRepository`.
 
@@ -259,7 +250,7 @@ Pokud není nalezena proměnná prostředí, používá NuGet literálovou hodno
 
 ## <a name="example-config-file"></a>Příklad konfiguračního souboru
 
-Dole je příklad `NuGet.Config` soubor, který znázorňuje několik nastavení:
+Dole je příklad `nuget.config` soubor, který znázorňuje několik nastavení:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

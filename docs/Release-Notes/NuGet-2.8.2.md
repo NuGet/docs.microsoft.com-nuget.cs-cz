@@ -1,22 +1,16 @@
 ---
-title: "Poznámky k verzi NuGet ve verzi 2.8.2 | Microsoft Docs"
+title: Poznámky k verzi 2.8.2 NuGet
+description: Poznámky k verzi pro NuGet ve verzi 2.8.2 včetně – známé problémy, opravy chyb, přidaných funkcí a chcete.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Poznámky k verzi pro NuGet ve verzi 2.8.2 včetně – známé problémy, opravy chyb, přidaných funkcí a chcete."
-keywords: "NuGet ve verzi 2.8.2 poznámky k verzi, opravy chyb známé problémy, přidat funkce, chcete"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: f50bd1f0c981ef293a4d2ff425e0dffbdf58036c
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: a004c250d60a4ed1ca8dede1e83b2a68e10299bf
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-282-release-notes"></a>Poznámky k verzi 2.8.2 NuGet
 

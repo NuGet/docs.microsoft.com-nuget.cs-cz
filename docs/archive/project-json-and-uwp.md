@@ -1,25 +1,16 @@
 ---
-title: Soubor project.json NuGet s projekty UWP | Microsoft Docs
+title: Soubor project.json NuGet s projekty UWP
+description: Popis použití souboru project.json k sledování závislostí NuGet v projektech pro univerzální platformu Windows (UWP).
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 07/17/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: Popis použití souboru project.json k sledování závislostí NuGet v projektech pro univerzální platformu Windows (UWP).
-keywords: NuGet závislosti, NuGet a UPW, UWP a project.json, soubor project.json NuGet
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 453a38456670db850d3d2845b23bd4ad36fc8fd2
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: 826aed65a69c553bedf661cb5a4f940735dfba2c
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="projectjson-and-uwp"></a>Project.JSON a UWP
 

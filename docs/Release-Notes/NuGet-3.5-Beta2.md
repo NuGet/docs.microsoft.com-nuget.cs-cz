@@ -1,22 +1,16 @@
 ---
-title: "3.5 poznámky k verzi Beta2 | Microsoft Docs"
+title: 3.5 poznámky k verzi Beta2
+description: Poznámky k verzi pro NuGet 3.5 Beta 2 včetně známé problémy, opravy chyb, přidaných funkcí a chcete.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Poznámky k verzi pro NuGet 3.5 Beta 2 včetně známé problémy, opravy chyb, přidaných funkcí a chcete."
-keywords: "NuGet 3.5 Beta 2 poznámky k verzi, opravy chyb známé problémy, přidat funkce, chcete"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 4073b669c19f9e96ebd35ba269919b5f42313e7c
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 08bbae00a3e63c2a1ff42d5cc04981eb02966850
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-35-beta2-release-notes"></a>Poznámky k verzi 3.5 Beta2 NuGet
 
@@ -74,7 +68,7 @@ NuGet 3.5 Beta 2 RTM byla vydána 27. června 2016 pro Visual Studio 2013 a nuge
 
 * Nainstalovat bloky v případě, že jednoho zdroje vyvolá chybu autorizace - [#2034](https://github.com/NuGet/Home/issues/2034)
 
-* `.nuspec`verze rozsahu by měly přepsat verze - IncludeReferencedProjects - [#1983](https://github.com/NuGet/Home/issues/1983)
+* `.nuspec` verze rozsahu by měly přepsat verze - IncludeReferencedProjects - [#1983](https://github.com/NuGet/Home/issues/1983)
 
 * NuGet 3.3.0 aktualizace nezdaří s ' dodatečné omezení... definované v souboru packages.config téhle operaci brání. " - [#1816](https://github.com/NuGet/Home/issues/1816)
 

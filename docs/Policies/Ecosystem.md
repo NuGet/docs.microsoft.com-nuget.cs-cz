@@ -1,22 +1,16 @@
 ---
-title: "Přehled ekosystému NuGet | Microsoft Docs"
+title: Přehled ekosystému NuGet
+description: Komplexní prostředky v ekosystému NuGet, včetně zdroje NuGet, Microsoft NuGet projekty, nástrojů a školicích materiálů.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/18/2018
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Komplexní prostředky v ekosystému NuGet, včetně zdroje NuGet, Microsoft NuGet projekty, nástrojů a školicích materiálů."
-keywords: "NuGet ekosystém, projekty Microsoft NuGet, NuGet s otevřeným zdrojem, nástroje NuGet, NuGet školicí materiály"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 7c1e457c034f239fbea4e75f24851ea38182a294
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: c2ad662659487bf3875dbdaf76529f1834ca82ca
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="an-overview-of-the-nuget-ecosystem"></a>Přehled ekosystému NuGet
 
@@ -49,7 +43,7 @@ Mnoho jednotlivce a společností významně přispěli k ekosystému NuGet. Ka�
 - [JetBrains TeamCity](https://www.jetbrains.com/teamcity/)
 - [Klondike](https://github.com/themotleyfool/Klondike)
 - [MinimalNugetServer](https://github.com/TanukiSharp/MinimalNugetServer)
-- [MyGet (or NuGet-as-a-service)](http://www.myget.org/)
+- [MyGet (nebo NuGet jako služba)](http://www.myget.org/)
 - [Balíček NuGet Explorer](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer)
 - [NuGet Server](http://nugetserver.net/)
 - [OctopusDeploy](https://octopus.com/)
@@ -79,7 +73,7 @@ Pomocí nového nástroje nebo technologie obvykle dodává s křivku. Naštěst
 Ale nutné dodat, vytváření balíčků – a zvlášť vhodné balíčky – společně s osvojují NuGet v automatizované procesy sestavení a nasazení, vyžaduje výdaje trochu delší dobu se v následujících zdrojích informací:
 
 - [NuGet Blog](http://blog.nuget.org/)
-- [NuGet týmu na Twitteru,@nuget](http://twitter.com/nuget)
+- [NuGet týmu na Twitteru, @nuget](http://twitter.com/nuget)
 - Knihy:
   - [Apress Pro NuGet](http://bit.ly/ProNuGet)
   - [Essentials NuGet 2](http://www.amazon.com/NuGet-2-Essentials-Damir-Arh-ebook/dp/B00GTQD5M4)

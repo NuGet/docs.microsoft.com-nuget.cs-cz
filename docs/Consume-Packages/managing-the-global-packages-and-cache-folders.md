@@ -1,22 +1,16 @@
 ---
-title: Jak spravovat globální balíčky, mezipaměť, dočasné složky v NuGet | Microsoft Docs
+title: Jak spravovat globální balíčky, mezipaměť, dočasné složky v NuGet
+description: Jak spravovat globální balíček instalační složku, do mezipaměti balíček a dočasné složky, které existují v počítači, které se použijí při instalaci, obnovení a aktualizaci balíčků.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 03/19/2018
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: Jak spravovat globální balíček instalační složku, do mezipaměti balíček a dočasné složky, které existují v počítači, které se použijí při instalaci, obnovení a aktualizaci balíčků.
-keywords: Globální NuGet balíčky složky, mezipaměti balíčku NuGet, ukládání do mezipaměti balíčku, balíčku instalační složku, mezipaměti NuGet, Správa mezipaměti, místní mezipaměti NuGet, globální mezipaměti NuGet, místní hodnoty – příkaz NuGet, vymazání mezipaměti
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 46cd233dcf36745d9ba556c86088f640923cd063
-ms.sourcegitcommit: 55433d3bda7684d978f26d559f801878223675fa
+ms.topic: conceptual
+ms.openlocfilehash: 354a8ec80e2ba20abe27746dec8c8aaae9b6c96c
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="managing-the-global-packages-cache-and-temp-folders"></a>Správa globální balíčky, mezipaměti a dočasné složky
 

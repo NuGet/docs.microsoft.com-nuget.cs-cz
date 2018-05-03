@@ -1,22 +1,16 @@
 ---
-title: "Poznámky k verzi RC NuGet 3.0 | Microsoft Docs"
+title: Poznámky k verzi RC NuGet 3.0
+description: Poznámky k verzi pro RC 3.0 NuGet včetně známé problémy, opravy chyb, přidaných funkcí a chcete.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Poznámky k verzi pro RC 3.0 NuGet včetně známé problémy, opravy chyb, přidaných funkcí a chcete."
-keywords: "NuGet 3.0 k vydání verze RC, opravy chyb známé problémy, přidat funkce, chcete"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 4693fd8884283e01d3c0a8ad74e0692c1ca00659
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 28ac49d9e9071d16d20b24808abb0acaab214ffd
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-30-rc-release-notes"></a>Poznámky k verzi RC NuGet 3.0
 

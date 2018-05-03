@@ -1,24 +1,18 @@
 ---
-title: Úvodní příručka k vytváření a publikování balíčku NuGet rozhraní .NET Framework pomocí sady Visual Studio | Microsoft Docs
+title: Úvodní příručka k vytváření a publikování balíčku NuGet rozhraní .NET Framework pomocí sady Visual Studio
+description: Návod kurz týkající se vytváření a publikování Visual Studio 2017 pomocí balíčku NuGet pro rozhraní .NET Framework.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 03/13/2018
-ms.topic: get-started-article
-ms.prod: nuget
-ms.technology: ''
-description: Návod kurz týkající se vytváření a publikování Visual Studio 2017 pomocí balíčku NuGet pro rozhraní .NET Framework.
-keywords: Balíček NuGet vytvoření, publikování balíčku NuGet, kurzu NuGet sady Visual Studio vytvořit balíček NuGet, aktualizací Service pack nástroje msbuild
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 613cb6e8cf5762f354d69aa271c1e2f0d4851c97
-ms.sourcegitcommit: 718e6cb88e45fa07c85d653f216bf92eaaf81625
+ms.topic: quickstart
+ms.openlocfilehash: 01760034a121b1ff6f227e006415779898c4cf6d
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="create-and-publish-a-package-using-visual-studio-net-framework"></a>Vytvoření a publikování balíčku pomocí sady Visual Studio (rozhraní .NET Framework)
+# <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework"></a>Rychlý úvod: Vytvoření a publikování balíčku pomocí sady Visual Studio (rozhraní .NET Framework)
 
 Vytvoření balíčku NuGet z knihovny tříd rozhraní .NET Framework zahrnuje vytváření knihovny DLL v sadě Visual Studio a potom pomocí nástroje příkazového řádku nuget.exe vytvoření a publikování balíčku.
 
@@ -118,8 +112,8 @@ Při spuštění `nuget spec` pouze jednou pro generování počátečního mani
 
 1. NuGet vytvoří chybu, pokud se pokusíte vytvořit balíček s výchozími hodnotami ve vaší `.nuspec` souboru, proto je nutné upravit následující pole, než budete pokračovat. V tématu [odkaz na soubor příponou .nuspec - jednotlivé prvky](../reference/nuspec.md#single-elements) popis toho, jak se používají.
 
-    - licenseUrl
-    - projectUrl
+    - Adresa LicenseUrl
+    - Adrese ProjectUrl
     - IconUrl
     - ReleaseNotes
     - značky
@@ -140,11 +134,11 @@ Při spuštění `nuget spec` pouze jednou pro generování počátečního mani
 
 Jakmile máte `.nupkg` souboru ji publikujete pomocí nuget.org `nuget.exe` s klíčem rozhraní API získali z nuget.org. Pro nuget.org je nutné použít `nuget.exe` 4.1.0 nebo vyšší.
 
-[!INCLUDE[publish-notes](includes/publish-notes.md)]
+[!INCLUDE [publish-notes](includes/publish-notes.md)]
 
 ### <a name="acquire-your-api-key"></a>Získat klíč rozhraní API
 
-[!INCLUDE[publish-api-key](includes/publish-api-key.md)]
+[!INCLUDE [publish-api-key](includes/publish-api-key.md)]
 
 ### <a name="publish-with-nuget-push"></a>Publikování pomocí nabízených nuget
 
@@ -169,16 +163,17 @@ V tématu [nuget nabízené](../tools/cli-ref-push.md).
 
 ### <a name="publish-errors"></a>Publikování chyby
 
-[!INCLUDE[publish-errors](includes/publish-errors.md)]
+[!INCLUDE [publish-errors](includes/publish-errors.md)]
 
 ### <a name="manage-the-published-package"></a>Spravovat zveřejněný balíček
 
-[!INCLUDE[publish-manage](includes/publish-manage.md)]
+[!INCLUDE [publish-manage](includes/publish-manage.md)]
 
 ## <a name="related-topics"></a>Související témata
 
 - [Vytvoření balíčku](../create-packages/creating-a-package.md)
 - [Publikování balíčku](../create-packages/publish-a-package.md)
+- [Předběžné verze balíčků](../create-packages/Prerelease-Packages.md)
 - [Podpora více cílové rozhraní](../create-packages/supporting-multiple-target-frameworks.md)
 - [Správa verzí balíčků](../reference/package-versioning.md)
 - [Vytvoření lokalizovaných balíčků](../create-packages/creating-localized-packages.md)

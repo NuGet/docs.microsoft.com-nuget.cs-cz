@@ -1,22 +1,16 @@
 ---
-title: "Poznámky k verzi Beta NuGet 3.5 | Microsoft Docs"
+title: Poznámky k verzi Beta NuGet 3.5
+description: Poznámky k verzi pro včetně známé problémy, opravy chyb, přidaných funkcí a chcete 3.5 NuGet.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Poznámky k verzi pro včetně známé problémy, opravy chyb, přidaných funkcí a chcete 3.5 NuGet."
-keywords: "NuGet 3.5 poznámky k verzi, opravy chyb známé problémy, přidat funkce, chcete"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: ee78ceb2ff032c05c0f8ef9a6623b94cc56ee0a9
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: cdb540229cae0e6e952ac2a0c00c8801ccbbb28d
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-35-release-notes"></a>Poznámky k verzi 3.5 NuGet
 
@@ -80,7 +74,7 @@ ms.lasthandoff: 02/02/2018
 
 * Žádné informace byla zadána při volání metody nuget.exe aktualizace *.csproj při projektu nemá `packages.config`  -  [#1496](https://github.com/NuGet/Home/issues/1496)
 
-* `packages.config`obnovení na stavové kódy 5xx z V2 zdrojů – neopakuje [#1217](https://github.com/NuGet/Home/issues/1217)
+* `packages.config` obnovení na stavové kódy 5xx z V2 zdrojů – neopakuje [#1217](https://github.com/NuGet/Home/issues/1217)
 
 * Dvojité tečky v souboru src v `.nuspec` nefunguje - [#2947](https://github.com/NuGet/Home/issues/2947)
 
@@ -144,11 +138,11 @@ ms.lasthandoff: 02/02/2018
 
 * Instalace Nuget s všechny zdroje balíčků, ale balíček chybí 1 zdroje, selže - [#2322](https://github.com/NuGet/Home/issues/2322)
 
-* [PerfWatson] UIDelay: nuget.packagemanagement.visualstudio.dll!NuGet.PackageManagement.VisualStudio.VSMSBuildNuGetProjectSystem+*lt;&gt;c__DisplayClass_0+&lt;&lt;AddReference&gt;b__&gt;d.MoveNext - [#2285](https://github.com/NuGet/Home/issues/2285)
+* [PerfWatson] UIDelay: nuget.packagemanagement.visualstudio.dll! NuGet.PackageManagement.VisualStudio.VSMSBuildNuGetProjectSystem+*lt; &gt;c__DisplayClass_0 +&lt;&lt;AddReference&gt;b__&gt;d.MoveNext - [#2285](https://github.com/NuGet/Home/issues/2285)
 
 * Nainstalovat bloky v případě, že jednoho zdroje vyvolá chybu autorizace - [#2034](https://github.com/NuGet/Home/issues/2034)
 
-* `.nuspec`verze rozsahu by měly přepsat verze - IncludeReferencedProjects - [#1983](https://github.com/NuGet/Home/issues/1983)
+* `.nuspec` verze rozsahu by měly přepsat verze - IncludeReferencedProjects - [#1983](https://github.com/NuGet/Home/issues/1983)
 
 * Balíček aktualizace super zpomalit - "pokus o získání informací o závislostech" - [#1909](https://github.com/NuGet/Home/issues/1909)
 
@@ -226,7 +220,7 @@ ms.lasthandoff: 02/02/2018
 
 * Modul plug-in přihlašovacích údajů byl ukončen s chybou -1 / Chyba stahování balíčku při použití poskytovatelé přihlašovacích údajů pro více zdrojů - [#2885](https://github.com/NuGet/Home/issues/2885)
 
-* `project.json`nuget restore způsobí, že rekompilace při nic změnit - [#2817](https://github.com/NuGet/Home/issues/2817)
+* `project.json` nuget restore způsobí, že rekompilace při nic změnit - [#2817](https://github.com/NuGet/Home/issues/2817)
 
 * Symboly balíčky by neměl být nikdy použit v instalace nebo aktualizace - [#2807](https://github.com/NuGet/Home/issues/2807)
 
@@ -273,7 +267,7 @@ ms.lasthandoff: 02/02/2018
 
 * Povolit SemVer 2.0.0 sadě - [#3356](https://github.com/NuGet/Home/issues/3356)
 
-## <a name="dcrs"></a>DCRs
+## <a name="dcrs"></a>Chcete
 
 * nuget.exe nabízené - parametr časového limitu nefunguje - [#2785](https://github.com/NuGet/Home/issues/2785)
 

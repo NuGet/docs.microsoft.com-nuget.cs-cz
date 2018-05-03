@@ -1,29 +1,17 @@
 ---
-title: Balíček Metadata, NuGet rozhraní API | Microsoft Docs
-author:
-- joelverhagen
-- kraigb
-ms.author:
-- joelverhagen
-- kraigb
+title: Metadata balíčků NuGet rozhraní API
+description: Balíček registrace základní adresu URL umožňuje načítání metadat o balíčcích.
+author: joelverhagen
+ms.author: jver
 manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Balíček registrace základní adresu URL umožňuje načítání metadat o balíčcích.
-keywords: Metadata balíčků NuGet rozhraní API, rozhraní API NuGet registrace, rozhraní API NuGet neuvedené balíčky
-ms.reviewer:
-- karann
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: c7b32e1d2bb9250de1e0b707405a75184b2bd8b4
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: kraigb
+ms.openlocfilehash: 50064e1450232e9cdedcc042a09c08860f802e76
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="package-metadata"></a>Metadata balíčků
 
@@ -153,12 +141,12 @@ dependencyGroups         | Pole objektů           | Ne       | Závislosti bal�
 description              | odkazy řetězců                     | Ne       | 
 IconUrl                  | odkazy řetězců                     | Ne       | 
 id                       | odkazy řetězců                     | Ano      | ID balíčku
-licenseUrl               | odkazy řetězců                     | Ne       | 
+Adresa LicenseUrl               | odkazy řetězců                     | Ne       | 
 uvedené v seznamu                   | Logická hodnota                    | Ne       | By měly být považovány za uvedené Pokud chybí
 MinClientVersion         | odkazy řetězců                     | Ne       | 
-projectUrl               | odkazy řetězců                     | Ne       | 
+Adrese ProjectUrl               | odkazy řetězců                     | Ne       | 
 Publikovat                | odkazy řetězců                     | Ne       | Řetězec obsahující časové razítko ISO 8601. Pokud byla publikována balíčku
-requireLicenseAcceptance | Logická hodnota                    | Ne       | 
+RequireLicenseAcceptance | Logická hodnota                    | Ne       | 
 souhrn                  | odkazy řetězců                     | Ne       | 
 značky                     | řetězec nebo pole řetězců  | Ne       | 
 Název                    | odkazy řetězců                     | Ne       | 

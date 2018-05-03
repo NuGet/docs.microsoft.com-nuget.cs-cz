@@ -1,25 +1,16 @@
 ---
-title: Rozhraní API NuGet v sadě Visual Studio | Microsoft Docs
+title: Rozhraní API NuGet v sadě Visual Studio
+description: Referenční dokumentace rozhraní API, který NuGet exportuje prostřednictvím rozhraní spravovaných rozšíření v sadě Visual Studio
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/09/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Referenční dokumentace rozhraní API, který NuGet exportuje prostřednictvím rozhraní spravovaných rozšíření v sadě Visual Studio
-keywords: Rozhraní API NuGet, NuGet v sadě Visual Studio, programovací rozhraní NuGet
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 1b23535ae3ec1ea490b513a11906ff1338d1997c
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: c6259f77263ff83ec7161f9422ef8e2f8d601d90
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-api-in-visual-studio"></a>Rozhraní API NuGet v sadě Visual Studio
 
@@ -471,7 +462,7 @@ public interface IVsPackageMetadata
 }
 ```
 
-## <a name="ivspackageprojectmetadata-interface"></a>IVsPackageProjectMetadata interface
+## <a name="ivspackageprojectmetadata-interface"></a>IVsPackageProjectMetadata rozhraní
 
 ```cs
 public interface IVsPackageProjectMetadata

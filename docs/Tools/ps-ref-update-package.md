@@ -1,25 +1,16 @@
 ---
-title: Aktualizace balíčku NuGet referenční informace prostředí PowerShell | Microsoft Docs
+title: Referenční informace prostředí PowerShell aktualizace balíčku NuGet
+description: Referenční dokumentace pro příkaz prostředí PowerShell balíček aktualizace v konzole Správce balíčků NuGet v sadě Visual Studio.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 12/07/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Referenční dokumentace pro příkaz prostředí PowerShell balíček aktualizace v konzole Správce balíčků NuGet v sadě Visual Studio.
-keywords: NuGet konzoly Správce balíčků, příkazy prostředí NuGet Powershell, NuGet Powershell odkaz, balíček aktualizace
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 05772159d62f73e7d25f71ad36809f5ae8ef6aae
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 621e59633117a29c58fe643860ee7e2b40a4fbe2
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="update-package-package-manager-console-in-visual-studio"></a>Balíček aktualizace (konzola Správce balíčků v sadě Visual Studio)
 

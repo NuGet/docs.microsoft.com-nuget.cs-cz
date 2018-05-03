@@ -1,27 +1,18 @@
 ---
-title: Vytváření a publikování balíčku NuGet pomocí rozhraní příkazového řádku dotnet. | Microsoft Docs
+title: Vytváření a publikování balíčku NuGet pomocí rozhraní příkazového řádku dotnet.
+description: Návod kurz týkající se vytváření a publikování balíčku NuGet pomocí rozhraní .NET Core příkazového řádku, dotnet.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/24/2018
 ms.topic: quickstart
-ms.prod: nuget
-ms.technology: ''
-description: Návod kurz týkající se vytváření a publikování balíčku NuGet pomocí rozhraní .NET Core příkazového řádku, dotnet.
-keywords: Balíček NuGet vytvoření, publikování balíčku NuGet, NuGet kurzu balíček NuGet publikovat dotnet.
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 536e39ae64649ca1c11afa95c20872515e9e4c83
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: e47eb5f9b3cd7e915db82f043ebb6190b656fb28
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="create-and-publish-a-package"></a>Vytvoření a publikování balíčku
+# <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>Rychlý úvod: Vytvoření a publikování balíčku (dotnet CLI)
 
 Je jednoduchý proces vytvoření balíčku NuGet z knihovny tříd rozhraní .NET a publikujete ho pomocí nuget.org `dotnet` rozhraní příkazového řádku (CLI).
 
@@ -92,28 +83,29 @@ Pokud chcete automaticky spustit `dotnet pack` při spuštění `dotnet build`, 
 
 Jakmile máte `.nupkg` souboru ji publikujete pomocí nuget.org `dotnet nuget push` příkaz spolu s klíčem rozhraní API získali z nuget.org.
 
-[!INCLUDE[publish-notes](includes/publish-notes.md)]
+[!INCLUDE [publish-notes](includes/publish-notes.md)]
 
 ### <a name="acquire-your-api-key"></a>Získat klíč rozhraní API
 
-[!INCLUDE[publish-api-key](includes/publish-api-key.md)]
+[!INCLUDE [publish-api-key](includes/publish-api-key.md)]
 
 ### <a name="publish-with-dotnet-nuget-push"></a>Publikování pomocí nabízených nuget dotnet.
 
-[!INCLUDE[publish-dotnet](includes/publish-dotnet.md)]
+[!INCLUDE [publish-dotnet](includes/publish-dotnet.md)]
 
 ### <a name="publish-errors"></a>Publikování chyby
 
-[!INCLUDE[publish-errors](includes/publish-errors.md)]
+[!INCLUDE [publish-errors](includes/publish-errors.md)]
 
 ### <a name="manage-the-published-package"></a>Spravovat zveřejněný balíček
 
-[!INCLUDE[publish-manage](includes/publish-manage.md)]
+[!INCLUDE [publish-manage](includes/publish-manage.md)]
 
 ## <a name="related-topics"></a>Související témata
 
 - [Vytvoření balíčku](../create-packages/creating-a-package.md)
 - [Publikování balíčku](../create-packages/publish-a-package.md)
+- [Předběžné verze balíčků](../create-packages/Prerelease-Packages.md)
 - [Podpora více cílové rozhraní](../create-packages/supporting-multiple-target-frameworks.md)
 - [Správa verzí balíčků](../reference/package-versioning.md)
 - [Vytvoření lokalizovaných balíčků](../create-packages/creating-localized-packages.md)

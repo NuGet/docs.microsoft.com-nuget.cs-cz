@@ -1,25 +1,16 @@
 ---
-title: Poznámky k verzi RC NuGet 4.0 | Microsoft Docs
+title: Poznámky k verzi RC NuGet 4.0
+description: Poznámky k verzi pro NuGet 4.0 RTM, včetně známé problémy, opravy chyb, přidaných funkcí a chcete.
 author: anangaur
 ms.author: anangaur
-manager: unniravindranathan
+manager: unnir
 ms.date: 03/03/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: Poznámky k verzi pro NuGet 4.0 RTM, včetně známé problémy, opravy chyb, přidaných funkcí a chcete.
-keywords: NuGet 4.0 RTM poznámky k verzi, opravy chyb známé problémy, přidat funkce, chcete
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 75ce757c209afd74f8d4f45d58d4e13a23b3b743
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: f1c5408f75966068e8fa11e63118426bbf562047
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="nuget-40-rtm-release-notes"></a>Poznámky k verzi 4.0 RTM NuGet
 
@@ -165,7 +156,8 @@ Pro tento problém zatím neexistuje alternativní řešení.
 
 - Přidejte balíček příkaz má přidat verze jako atribut místo element - [#4325](https://github.com/NuGet/Home/issues/4325)
 
-- Obnovení DotNet foo.sln – selže, pokud konfigurace v SLN – způsobit duplicitní (ale konfigurace rozdílové) projekty v grafu obnovení – [#4316](https://github.com/NuGet/Home/issues/4316)
+- DotNet.
+  - Obnovení foo.sln dotnetcore – selže, pokud konfigurace v SLN – způsobit duplicitní (ale konfigurace rozdílové) projekty v grafu obnovení – [#4316](https://github.com/NuGet/Home/issues/4316)
 
 - Obsahu pouze balíčky - [#3668](https://github.com/NuGet/Home/issues/3668)
 
@@ -183,7 +175,8 @@ Pro tento problém zatím neexistuje alternativní řešení.
 
 - PathTooLongException při pokusu o přidání balíčku NuGet do prázdné webové aplikace ASP.NET Core - [#4391](https://github.com/NuGet/Home/issues/4391)
 
-- Pack spouští příliš často – dotnet pack nepodaří a dojde k dispozici je cyklická závislost cílové závislosti grafu zahrnující cílové "Pack" - [#4381](https://github.com/NuGet/Home/issues/4381)
+- Pack spouští příliš často – dotnet.
+  - dotnetcore pack nepodaří a dojde k dispozici je cyklická závislost cílové závislosti grafu zahrnující cílové "Pack" - [#4381](https://github.com/NuGet/Home/issues/4381)
 
 - Pack spouští příliš často – balíček NuGet generovat neobsahuje všechny konfigurace - [#4380](https://github.com/NuGet/Home/issues/4380)
 
@@ -231,7 +224,8 @@ Pro tento problém zatím neexistuje alternativní řešení.
 
 - NuGet 3.5.0 není rozbalování `.targets` z balíčku - [#4171](https://github.com/NuGet/Home/issues/4171)
 
-- DotNet pack nepodporuje název v `.csproj`  -  [#4150](https://github.com/NuGet/Home/issues/4150)
+- DotNet.
+  - dotnetcore pack nepodporuje název v `.csproj`  -  [#4150](https://github.com/NuGet/Home/issues/4150)
 
 - Install-Package výsledkem dialogové okno chyby v VS2017 RC – [#4127](https://github.com/NuGet/Home/issues/4127)
 
@@ -239,7 +233,8 @@ Pro tento problém zatím neexistuje alternativní řešení.
 
 - Zlepšení nerozpoznaný odkaz upozornění - [#3955](https://github.com/NuGet/Home/issues/3955)
 
-- DotNet pack - ProjectReference ztratí informace o verzi - [#3953](https://github.com/NuGet/Home/issues/3953)
+- DotNet.
+  - dotnetcore pack - ProjectReference ztratí informace o verzi - [#3953](https://github.com/NuGet/Home/issues/3953)
 
 - Vytvoření aplikace pro UPW & Vytvořit projekt znovu sestavit Celkem uběhlý čas regresí - [#3873](https://github.com/NuGet/Home/issues/3873)
 
@@ -277,7 +272,8 @@ Pro tento problém zatím neexistuje alternativní řešení.
 
 - Migrace vyvolá "Objekt odkaz výjimky" v NuGet.PackageManagement.VisualStudio.SolutionRestoreWorker - [#4067](https://github.com/NuGet/Home/issues/4067)
 
-- DotNet pack by měla pack nástrojů s verzemi, které balíčku byl sestaven s - [#4063](https://github.com/NuGet/Home/issues/4063)
+- DotNet.
+  - dotnetcore pack by měla pack nástrojů s verzemi, které balíčku byl sestaven s - [#4063](https://github.com/NuGet/Home/issues/4063)
 
 - Nové pozadí obnovení zapisuje milisekund na stavovém řádku při trvá sekund obnovit - [#4036](https://github.com/NuGet/Home/issues/4036)
 
@@ -287,7 +283,8 @@ Pro tento problém zatím neexistuje alternativní řešení.
 
 - Nelze najít nainstalované balíčky v balíčku správci uživatelské rozhraní – [#4015](https://github.com/NuGet/Home/issues/4015)
 
-- DotNet pack selže, když je prázdná - PackagePath [#3993](https://github.com/NuGet/Home/issues/3993)
+- DotNet.
+  - dotnetcore pack selže, když je prázdná - PackagePath [#3993](https://github.com/NuGet/Home/issues/3993)
 
 - Obnovení selže úkol ve scénáři s více uživateli - [#3897](https://github.com/NuGet/Home/issues/3897)
 
@@ -301,9 +298,11 @@ Pro tento problém zatím neexistuje alternativní řešení.
 
 - Úloha sady převádí soubory obsahu v obou se obsah nebo ' a ' contentFiles nebo '- [#3718](https://github.com/NuGet/Home/issues/3718)
 
-- DotNet pack3 velmi značky rozdělení - [#3701](https://github.com/NuGet/Home/issues/3701)
+- DotNet.
+  - dotnetcore pack3 velmi značky rozdělení - [#3701](https://github.com/NuGet/Home/issues/3701)
 
-- DotNet pack: balení projekty s balíčkem odkazuje má za následek upozornění duplicitní import - [#3665](https://github.com/NuGet/Home/issues/3665)
+- DotNet.
+  - dotnetcore pack: balení projekty s balíčkem odkazuje má za následek upozornění duplicitní import - [#3665](https://github.com/NuGet/Home/issues/3665)
 
 - Obnovení protokolování v sadě VS není vždy zobrazovat - [#3633](https://github.com/NuGet/Home/issues/3633)
 
@@ -331,11 +330,14 @@ Pro tento problém zatím neexistuje alternativní řešení.
 
 - Zkontrolujte PackTask pro problémy se službou koncové nebo počáteční prázdné znaky - [#3906](https://github.com/NuGet/Home/issues/3906)
 
-- DotNet pack je balení z obj není bin - [#3880](https://github.com/NuGet/Home/issues/3880)
+- DotNet.
+  - dotnetcore pack je balení z obj není bin - [#3880](https://github.com/NuGet/Home/issues/3880)
 
-- DotNet pack vždy zdá se, že nastavte ProjectReference verzi 1.0.0 - [#3874](https://github.com/NuGet/Home/issues/3874)
+- DotNet.
+  - dotnetcore pack vždy zdá se, že nastavte ProjectReference verzi 1.0.0 - [#3874](https://github.com/NuGet/Home/issues/3874)
 
-- DotNet pack se nezdaří s odkazy na projekt a <TargetFramework>  -  [#3865](https://github.com/NuGet/Home/issues/3865)
+- DotNet.
+  - dotnetcore pack se nezdaří s odkazy na projekt a <TargetFramework>  -  [#3865](https://github.com/NuGet/Home/issues/3865)
 
 - LockRecursionException v ProjectSystemCache.TryGetProjectNameByShortName - [#3861](https://github.com/NuGet/Home/issues/3861)
 
@@ -351,7 +353,7 @@ Pro tento problém zatím neexistuje alternativní řešení.
 
 - Obnovení na sestavení pro Blend selže prvním úspěšné podruhé (VS scénář pevné) - [#2121](https://github.com/NuGet/Home/issues/2121)
 
-### <a name="dcrs"></a>DCRs
+### <a name="dcrs"></a>Chcete
 
 - migrovat vsix ze v2 vsix v3 vsix - [#4196](https://github.com/NuGet/Home/issues/4196)
 
@@ -386,8 +388,8 @@ Pro tento problém zatím neexistuje alternativní řešení.
 - Izolovat VSSDK verze sestavení řešení NuGet.Clients - [#3890](https://github.com/NuGet/Home/issues/3890)
 
 ## <a name="links-to-github-issues-fixed-in-rtm"></a>Odkazy na Githubu chyby v RTM
-[Seznam problémů 1](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.0 RTM")  
-[Seznam problémů 2](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.0 RC4")  
-[Seznam problémů 3](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.0 RC3")  
-[Seznam problémů 4](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.0 RC2")  
-[Seznam problémů 5](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.0 RC")
+[Seznam problémů 1](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.0%20RTM")  
+[Seznam problémů 2](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.0%20RC4")  
+[Seznam problémů 3](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.0%20RC3")  
+[Seznam problémů 4](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.0%20RC2")  
+[Seznam problémů 5](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.0%20RC")

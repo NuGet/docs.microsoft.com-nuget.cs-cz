@@ -1,22 +1,16 @@
 ---
-title: "Poznámky k verzi NuGet 3.4.1 | Microsoft Docs"
+title: Poznámky k verzi NuGet 3.4.1
+description: Poznámky k verzi pro NuGet 3.4.1 včetně – známé problémy, opravy chyb, přidaných funkcí a chcete.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Poznámky k verzi pro NuGet 3.4.1 včetně – známé problémy, opravy chyb, přidaných funkcí a chcete."
-keywords: "NuGet 3.4.1 poznámky k verzi, opravy chyb známé problémy, přidat funkce, chcete"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: c2e22b6c22c55fd51bd1d20d52b4b7b07c5a205c
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: d492afc59fe2f9237aaf54dca56e09f9148a0dcf
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-341-release-notes"></a>Poznámky k verzi NuGet 3.4.1
 
@@ -27,7 +21,7 @@ NuGet 3.4.1 byla vydána 30. března 2016 ve stejnou dobu jako Visual Studio 201
 ## <a name="updates-and-improvements"></a>Aktualizace a vylepšení
 
 * Opravené chyby, která zabránila procházení balíčky z rozhraní Visual Studio s minimální instalací sady Visual Studio
-* Vyřešen problém s umístěním Visual Studio`lucene.net.dll`
+* Vyřešen problém s umístěním Visual Studio `lucene.net.dll`
 * Všechny zdroje nesmí být výchozí zdroj úložiště, po instalaci rozšíření NuGet nebo aktualizovat.  Vám může výslovný souhlas k této funkci z nastavení konfigurace.
 
-Abychom mohli pokračovat ke sledování problémů na našich seznamu problémy Githubu, které naleznete na adrese: [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)
+Abychom mohli pokračovat ke sledování problémů na našich seznamu Githubu problémy, které najdete na: [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)

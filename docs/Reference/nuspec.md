@@ -1,26 +1,17 @@
 ---
-title: Odkaz na soubor příponou .nuspec pro NuGet | Microsoft Docs
+title: Odkaz na soubor příponou .nuspec pro NuGet
+description: Soubor s příponou .nuspec obsahuje metadata balíčků použít při vytváření balíčku a poskytnout informace k příjemce balíčku.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 08/29/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Soubor s příponou .nuspec obsahuje metadata balíčků použít při vytváření balíčku a poskytnout informace k příjemce balíčku.
-keywords: odkaz na soubor nuspec, metadata balíčků NuGet, manifest balíčku NuGet, nuspec schématu
-ms.reviewer:
-- anangaur
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 086826b47402bb5e7066c7a10b1e2ff246fd58ea
-ms.sourcegitcommit: ecb598c790d4154366bc92757ec7db1a51c34faf
+ms.reviewer: anangaur
+ms.openlocfilehash: c11b50aa1637c00f0f0e71a6e20ce5d435db402b
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="nuspec-reference"></a>referenční dokumentace příponou .nuspec
 
@@ -70,7 +61,7 @@ Pro zřetelné vizuální reprezentace schématu, otevřete soubor schématu v s
 
 | Atribut | Požadováno | Popis |
 | --- | --- | --- | 
-| **minClientVersion** | Ne | Určuje minimální verzi klienta NuGet, který můžete nainstalovat tento balíček vynucováno nuget.exe a Správce balíčků Visual Studio. Používá se vždy, když balíček závisí na specifické funkce `.nuspec` souborů, které byly přidány v konkrétní verzi klienta NuGet. Například balíčku pomocí `developmentDependency` atribut by měl určovat "2.8" pro `minClientVersion`. Podobně balíčku pomocí `contentFiles` (viz další část) musí nastavit element `minClientVersion` k "3.3". Poznámka: protože klienty NuGet před 2.5 nerozpoznávají tento příznak, budou *vždy* odmítnout k instalaci balíčku bez ohledu na to, co `minClientVersion` obsahuje. |
+| **MinClientVersion** | Ne | Určuje minimální verzi klienta NuGet, který můžete nainstalovat tento balíček vynucováno nuget.exe a Správce balíčků Visual Studio. Používá se vždy, když balíček závisí na specifické funkce `.nuspec` souborů, které byly přidány v konkrétní verzi klienta NuGet. Například balíčku pomocí `developmentDependency` atribut by měl určovat "2.8" pro `minClientVersion`. Podobně balíčku pomocí `contentFiles` (viz další část) musí nastavit element `minClientVersion` k "3.3". Poznámka: protože klienty NuGet před 2.5 nerozpoznávají tento příznak, budou *vždy* odmítnout k instalaci balíčku bez ohledu na to, co `minClientVersion` obsahuje. |
 
 ### <a name="required-metadata-elements"></a>Požadovaná metadata elementy
 
@@ -93,18 +84,18 @@ Může se zobrazit tyto prvky v rámci `<metadata>` elementu.
 
 | Prvek | Popis |
 | --- | --- |
-| **title** | Lidské popisný název balíčku, obvykle používaných v zobrazení uživatelského rozhraní na nuget.org a Správce balíčků v sadě Visual Studio. Pokud není zadaný, použije se ID balíčku. |
+| **Název** | Lidské popisný název balíčku, obvykle používaných v zobrazení uživatelského rozhraní na nuget.org a Správce balíčků v sadě Visual Studio. Pokud není zadaný, použije se ID balíčku. |
 | **Vlastníci** | Seznam creators balíček pomocí profilu názvy v nuget.org oddělených čárkami. Tento problém je často seznamu stejné jako v `authors`a při odesílání balíčku pro nuget.org ignorováno. V tématu [Správa vlastníků balíčku na nuget.org](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg). |
 | **projectUrl** | Zobrazí adresu URL pro domovskou stránku balíčku, často se zobrazí v uživatelském rozhraní a také nuget.org. |
 | **licenseUrl** | Adresa URL pro balíčku licenci, často se zobrazí v zobrazení uživatelského rozhraní, jakož i nuget.org. |
-| **iconUrl** | Adresu URL pro bitovou kopii 64 x 64 s průhlednost pozadí chcete použít jako ikonu balíčku v zobrazení uživatelského rozhraní. Ujistěte se, obsahuje tento element *přímá adresa URL obrázku* nikoli adresa URL webové stránky, který obsahuje bitovou kopii. Například pokud chcete použít bitovou kopii z Githubu, použijte soubor raw, jako adresa URL  *https://github.com/ \<uživatelské jméno\>/\<úložiště\>/raw/\<větve\> / \<logo.png\>*. |
+| **iconUrl** | Adresu URL pro bitovou kopii 64 x 64 s průhlednost pozadí chcete použít jako ikonu balíčku v zobrazení uživatelského rozhraní. Ujistěte se, obsahuje tento element *přímá adresa URL obrázku* nikoli adresa URL webové stránky, který obsahuje bitovou kopii. Například pokud chcete použít bitovou kopii z Githubu, použijte soubor raw, jako adresa URL  <em>https://github.com/ \<uživatelské jméno\>/\<úložiště\>/raw/\<větve\> / \<logo.png\></em>. |
 | **requireLicenseAcceptance** | Logická hodnota určující, jestli klient musí zobrazovat výzvu k příjemce tak, aby přijímal licenční balíček před instalací balíčku. |
-| **developmentDependency** | *(2.8 +)*  A logickou hodnotu určující, zda tento balíček je označit jako vývoj jen závislost, která zabraňuje balíček zahrnutí v závislosti na dalších balíčků. |
-| **summary** | Stručný popis balíčku pro zobrazení uživatelského rozhraní. Pokud tento parametr vynechán, zkrácený verzi `description` se používá. |
-| **releaseNotes** | *(1.5 +)*  Popis změn provedených v této verzi balíčku, často se používá v uživatelském rozhraní, jako **aktualizace** karta nástroje Visual Studio Správce balíčků místo Popis balíčku. |
-| **copyright** | *(1.5 +)*  Copyright podrobnosti balíčku. |
+| **DevelopmentDependency** | *(2.8 +)*  A logickou hodnotu určující, zda tento balíček je označit jako vývoj jen závislost, která zabraňuje balíček zahrnutí v závislosti na dalších balíčků. |
+| **Souhrn** | Stručný popis balíčku pro zobrazení uživatelského rozhraní. Pokud tento parametr vynechán, zkrácený verzi `description` se používá. |
+| **ReleaseNotes** | *(1.5 +)*  Popis změn provedených v této verzi balíčku, často se používá v uživatelském rozhraní, jako **aktualizace** karta nástroje Visual Studio Správce balíčků místo Popis balíčku. |
+| **Copyright** | *(1.5 +)*  Copyright podrobnosti balíčku. |
 | **Jazyk** | ID národního prostředí pro daný balíček. V tématu [vytvoření lokalizovaných balíčků](../create-packages/creating-localized-packages.md). |
-| **Značky** | Mezerami oddělený seznam značek a klíčová slova, která popisují možnosti rozpoznání balíčku a podpory balíčků prostřednictvím vyhledávání a filtrování. |
+| **Značky**  | Mezerami oddělený seznam značek a klíčová slova, která popisují možnosti rozpoznání balíčku a podpory balíčků prostřednictvím vyhledávání a filtrování. |
 | **možnost změny** | *(3.3 +)*  Pouze pro interní NuGet použít. |
 
 #### <a name="collection-elements"></a>Elementy v kolekci
@@ -183,9 +174,9 @@ A vytváření sestavení jejichž `AssemblyName` je `LoggingLibrary` s `Release
 
 | Zahrnutí a vyloučení značky | Ovlivněné složky cíle |
 | --- | --- |
-| contentFiles | Obsah  |
-| modul runtime | Modul runtime, prostředky a FrameworkAssemblies  |
-| compile | lib |
+| contentFiles | Obsah |
+| modul runtime | Modul runtime, prostředky a FrameworkAssemblies |
+| Kompilace | Lib |
 | sestavení | sestavení (MSBuild props a cíle) |
 | nativní | nativní |
 | žádná | Žádné složky |
@@ -341,8 +332,8 @@ Každý `<file>` element určuje následující atributy:
 | Atribut | Popis |
 | --- | --- |
 | **src** | Umístění souboru nebo soubory, které chcete zahrnout, podstoupí vyloučení určeného `exclude` atribut. Cesta je vzhledem k `.nuspec` souboru uvedeno absolutní cesta. Zástupný znak `*` je povolen a dvojité zástupných znaků `**` znamená rekurzivní složky hledání. |
-| **target** | Relativní cesta ke složce v rámci balíčku umístění zdrojových souborů, které musí začínat `lib`, `content`, `build`, nebo `tools`. V tématu [vytváření příponou .nuspec z pracovního adresáře založené na konvenci](../create-packages/creating-a-package.md#from-a-convention-based-working-directory). |
-| **exclude** | Seznam oddělený středníkem souborů nebo vzorů souborů, které chcete vyloučit z `src` umístění. Zástupný znak `*` je povolen a dvojité zástupných znaků `**` znamená rekurzivní složky hledání. |
+| **cíl** | Relativní cesta ke složce v rámci balíčku umístění zdrojových souborů, které musí začínat `lib`, `content`, `build`, nebo `tools`. V tématu [vytváření příponou .nuspec z pracovního adresáře založené na konvenci](../create-packages/creating-a-package.md#from-a-convention-based-working-directory). |
+| **Vyloučení** | Seznam oddělený středníkem souborů nebo vzorů souborů, které chcete vyloučit z `src` umístění. Zástupný znak `*` je povolen a dvojité zástupných znaků `**` znamená rekurzivní složky hledání. |
 
 ### <a name="examples"></a>Příklady
 
@@ -545,10 +536,10 @@ Tyto soubory jsou určeny sadu atributů, které popisují, jak mají být použ
 | Atribut | Popis |
 | --- | --- |
 | **Zahrnout** | (Povinné) Umístění souboru nebo soubory, které chcete zahrnout, podstoupí vyloučení určeného `exclude` atribut. Cesta je vzhledem k `.nuspec` souboru uvedeno absolutní cesta. Zástupný znak `*` je povolen a dvojité zástupných znaků `**` znamená rekurzivní složky hledání. |
-| **exclude** | Seznam oddělený středníkem souborů nebo vzorů souborů, které chcete vyloučit z `src` umístění. Zástupný znak `*` je povolen a dvojité zástupných znaků `**` znamená rekurzivní složky hledání. |
+| **Vyloučení** | Seznam oddělený středníkem souborů nebo vzorů souborů, které chcete vyloučit z `src` umístění. Zástupný znak `*` je povolen a dvojité zástupných znaků `**` znamená rekurzivní složky hledání. |
 | **buildAction** | Akce sestavení přiřadit položku obsahu pro MSBuild, jako například `Content`, `None`, `Embedded Resource`, `Compile`atd. Výchozí hodnota je `Compile`. |
 | **copyToOutput** | Logická hodnota, která určuje, zda zkopírovat obsahu položky do sestavení (nebo publikování) výstupní složky. Výchozí hodnota je false. |
-| **flatten** | Logická hodnota, která určuje, jestli kopírování obsahu položky do jediné složky ve výstupu sestavení (true) nebo chcete zachovat struktura složek v balíčku (false). Tento příznak pouze funguje, když je příznak copyToOutput nastaven na hodnotu true. Výchozí hodnota je false. |
+| **vyrovnání** | Logická hodnota, která určuje, jestli kopírování obsahu položky do jediné složky ve výstupu sestavení (true) nebo chcete zachovat struktura složek v balíčku (false). Tento příznak pouze funguje, když je příznak copyToOutput nastaven na hodnotu true. Výchozí hodnota je false. |
 
 Při instalaci balíčku, NuGet platí podřízených elementů `<contentFiles>` shora dolů. Pokud stejný soubor shodovat s více položek se použijí všechny položky. Položka nejvyšší přepíše nižší položky, pokud dojde ke konfliktu pro stejný atribut.
 

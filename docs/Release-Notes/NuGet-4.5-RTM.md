@@ -1,26 +1,16 @@
 ---
-title: Poznámky k verzi RTM NuGet 4.5 | Microsoft Docs
+title: Poznámky k verzi 4.5 RTM NuGet
+description: Poznámky k verzi pro NuGet 4.5 RTM, včetně známé problémy, opravy chyb, přidaných funkcí a chcete.
 author: anangaur
 ms.author: anangaur
-manager: unniravindranathan
+manager: unnir
 ms.date: 12/4/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: Poznámky k verzi pro NuGet 4.5 RTM, včetně známé problémy, opravy chyb, přidaných funkcí a chcete.
-keywords: NuGet 4.5 RTM poznámky k verzi, opravy chyb známé problémy, přidat funkce, chcete
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-- anangaur
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: dbde7256ed5526761107272792d7c7cdc324a3ef
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: 1d04c508d029a6d92bbd480fe3bd7dc14727970e
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-45-rtm-release-notes"></a>Poznámky k verzi 4.5 RTM NuGet
 
@@ -76,7 +66,8 @@ Chyby v NuGet 4.4 RTM, naleznete v [NuGet 4.4 RTM poznámky](../release-notes/nu
 - Po obnovení – chybí prostředky z balíčků [#5995](https://github.com/NuGet/Home/issues/5995)
 - Poskytovatelé přihlašovacích údajů modulu plug-in nefungují s identifikátory URI obsahující mezery - [#5982](https://github.com/NuGet/Home/issues/5982)
 - Pokud balíček se nepodařilo obnovit, chyba by měl být vytištěn v výstupu i s minimálním podrobností ON - [#5658](https://github.com/NuGet/Home/issues/5658)
-- DotNet. obnovení na úrovni řešení není podle ProjectReference s ReferenceOutputAssembly false úvodní náhodných sestavení chyby - [#5490](https://github.com/NuGet/Home/issues/5490)
+- DotNet.
+  - dotnetcore obnovení na úrovni řešení není podle ProjectReference s ReferenceOutputAssembly false úvodní náhodných sestavení chyby - [#5490](https://github.com/NuGet/Home/issues/5490)
 - Automatické dokončování v funguje pomocí PMC nesprávně pomocí metod objektu - [#4800](https://github.com/NuGet/Home/issues/4800)
 - nuget.exe obnovení se nezdaří pomocí nástrojů Visual Studio 2015 - [#4713](https://github.com/NuGet/Home/issues/4713)
 - výkonu - pomocí pmc je nákladné doložit v vs2017 - [#4205](https://github.com/NuGet/Home/issues/4205)

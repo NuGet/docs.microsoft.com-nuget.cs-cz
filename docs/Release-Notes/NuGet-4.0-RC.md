@@ -1,21 +1,17 @@
 ---
-title: "Poznámky k verzi RC NuGet 4.0 | Microsoft Docs"
+title: Poznámky k verzi RC NuGet 4.0
+description: Poznámky k verzi pro NuGet 4.0 RC včetně známé problémy, opravy chyb, přidaných funkcí a chcete.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
-ms.date: 11/17/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Poznámky k verzi pro NuGet 4.0 RC včetně známé problémy, opravy chyb, přidaných funkcí a chcete."
-keywords: "NuGet 4.0 k vydání verze RC, opravy chyb známé problémy, přidat funkce, chcete"
-ms.reviewer:
-- kraigb
-ms.openlocfilehash: 9156f75edc9cf72cbb1d122f01d8a071ed56a124
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.author: karann
+manager: unnir
+ms.date: 02/03/2017
+ms.topic: conceptual
+ms.reviewer: ananguar
+ms.openlocfilehash: 8124b11d0489a2c72ffcfdde28e8528c1da1f677
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-40-rc-release-notes"></a>Poznámky k verzi RC NuGet 4.0
 
@@ -39,7 +35,8 @@ ms.lasthandoff: 02/02/2018
 
 - Úprava cíle NuGet do protokolu zdroje balíčku jako vysoké podrobností místo normální – [#3719](https://github.com/NuGet/Home/issues/3719)
 
-- DotNet pack3 by měla obsahovat dokumentace XML ve výchozím nastavení - [#3698](https://github.com/NuGet/Home/issues/3698)
+- DotNet.
+  - dotnetcore pack3 by měla obsahovat dokumentace XML ve výchozím nastavení - [#3698](https://github.com/NuGet/Home/issues/3698)
 
 - Dávková aktualizace selže z uživatelského rozhraní, když je první zdroj bez balíček a všechny zdroj vybraný - [#3696](https://github.com/NuGet/Home/issues/3696)
 
@@ -59,7 +56,7 @@ ms.lasthandoff: 02/02/2018
 
 - System.Xml.XmlException: Nerozpoznaný kořenový element v části základní vlastnosti. Řádek 2, pozice 2. - [#2718](https://github.com/NuGet/Home/issues/2718)
 
-- `.nuspec`s uvozený &lt; nebo &gt; v textové pole už sestavení - [#2651](https://github.com/NuGet/Home/issues/2651)
+- `.nuspec` s uvozený &lt; nebo &gt; v textové pole už sestavení - [#2651](https://github.com/NuGet/Home/issues/2651)
 
 - odstranění nuget.exe nebude vyzvat k zadání pověření (je v interaktivním režimu) - [#2626](https://github.com/NuGet/Home/issues/2626)
 
@@ -69,7 +66,8 @@ ms.lasthandoff: 02/02/2018
 
 - Visual Studio došlo k chybě, pokus po změně výběr v Správce balíčků - [#2551](https://github.com/NuGet/Home/issues/2551)
 
-- Obnovení DotNet. Pokud jsou použity plovoucí verze - provede velká a malá písmena Id vyhledávání v dvojrozměrném seznamu místní úložiště [#2516](https://github.com/NuGet/Home/issues/2516)
+- DotNet.
+  - obnovení dotnetcore provede velká a malá písmena Id vyhledávání v dvojrozměrném seznamu místní úložiště v případě plovoucího verze používají - [#2516](https://github.com/NuGet/Home/issues/2516)
 
 - odstranění nuget.exe je porušený pro informační kanál V2 - [#2509](https://github.com/NuGet/Home/issues/2509)
 
@@ -139,7 +137,7 @@ ms.lasthandoff: 02/02/2018
 
 - Přidání tlačítko Vymazat mezipaměť nastavení správce balíčku VS - [#3289](https://github.com/NuGet/Home/issues/3289)
 
-## <a name="dcrs"></a>DCRs
+## <a name="dcrs"></a>Chcete
 
 - Řešení obnovení by se zablokovat, zatímco se děje automatického obnovení. - [#3797](https://github.com/NuGet/Home/issues/3797)
 
@@ -155,7 +153,8 @@ ms.lasthandoff: 02/02/2018
 
 - Obnovení do projektu s jeden TargetFramework nesmí podmínky props - [#3588](https://github.com/NuGet/Home/issues/3588)
 
-- DotNet restore3 foo.csproj by měl postupujte podle projectref závislosti a ty příliš obnovit. Jako sestavení. - [#3577](https://github.com/NuGet/Home/issues/3577)
+- DotNet.
+  - dotnetcore restore3 foo.csproj by měl postupujte podle projectref závislosti a ty příliš obnovit. Jako sestavení. - [#3577](https://github.com/NuGet/Home/issues/3577)
 
 - "typ": "platformy" závislosti reprezentován jako "typ": "balíček" v souboru zámku - [#2695](https://github.com/NuGet/Home/issues/2695)
 

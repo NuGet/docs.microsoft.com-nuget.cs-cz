@@ -1,25 +1,16 @@
 ---
-title: Vytvořte standardní rozhraní .NET a balíčky NuGet rozhraní .NET Framework s Visual Studiem 2015 | Microsoft Docs
+title: Vytvořte standardní rozhraní .NET a balíčky NuGet rozhraní .NET Framework s Visual Studiem 2015
+description: Návod začátku do konce, vytváření balíčků NuGet pro rozhraní .NET Framework a .NET Standard pomocí nástroje NuGet 3.x a Visual Studio 2015.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 02/02/2018
 ms.topic: tutorial
-ms.prod: nuget
-ms.technology: ''
-description: Návod začátku do konce, vytváření balíčků NuGet pro rozhraní .NET Framework a .NET Standard pomocí nástroje NuGet 3.x a Visual Studio 2015.
-keywords: Vytvoření balíčku, .NET Standard balíčky, balíčky rozhraní .NET Framework
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: dbe0a0788b5fc9ba37f7db601bd51c3e4f78f5b8
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: a77d977b2abc4cfd8be48e97e4c811e68e09bd61
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="create-net-standard-and-net-framework-packages-with-visual-studio-2015"></a>Vytvoření balíčků .NET Standard a rozhraní .NET Framework s Visual Studio 2015
 

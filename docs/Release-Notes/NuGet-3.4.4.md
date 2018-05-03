@@ -1,22 +1,16 @@
 ---
-title: "Poznámky k verzi NuGet 3.4.4 | Microsoft Docs"
+title: Poznámky k verzi NuGet 3.4.4
+description: Poznámky k verzi pro včetně NuGet 3.4.4 – známé problémy, opravy chyb, přidaných funkcí a chcete.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Poznámky k verzi pro včetně NuGet 3.4.4 – známé problémy, opravy chyb, přidaných funkcí a chcete."
-keywords: "NuGet 3.4.4 poznámky k verzi, opravy chyb známé problémy, přidat funkce, chcete"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: fabc10ae5c8e0bd43581f85c7763eb23e9483aaf
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 891d5c7ee884d31f405118739b57a169b9cd93b3
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-344-release-notes"></a>Poznámky k verzi NuGet 3.4.4
 
@@ -26,7 +20,7 @@ Hlavním cílem této verze byla vylepšení kvality 3.4.3 verzi nuget.exe s ně
 
 Si můžete stáhnout VSIX i nuget.exe [zde](https://dist.nuget.org/index.html).
 
-## <a name="344-rtmhttpsgithubcomnugetnugetclienttree344-rtm-2016-05-19"></a>[3.4.4-rtm](https://github.com/NuGet/NuGet.Client/tree/3.4.4-rtm) (2016-05-19)
+## <a name="344-rtmhttpsgithubcomnugetnugetclienttree344-rtm-2016-05-19"></a>[3.4.4-RTM](https://github.com/NuGet/NuGet.Client/tree/3.4.4-rtm) (2016-05-19)
 
 [Úplné protokol změn](https://github.com/NuGet/NuGet.Client/compare/3.5.0-beta-final...3.4.4-rtm)
 
@@ -35,7 +29,7 @@ Si můžete stáhnout VSIX i nuget.exe [zde](https://dist.nuget.org/index.html).
 ### <a name="changes"></a>Změny
 
 - Vylepšení aktualizací Service Pack: Vylepšení balení symboly, balení s `project.json` a další [ \#606](https://github.com/NuGet/NuGet.Client/pull/606)
-- Zobrazit výjimky, když dojde k selhání hledání projekty v příkazu update [\#605] (https://github.com/NuGet/NuGet.Client/pull/605
+- Zobrazit výjimky, když dojde k selhání hledání projekty v příkazu update [\#605] ()https://github.com/NuGet/NuGet.Client/pull/605
 - Typ balíčku číst ze vstupu `.nuspec` a `project.json` při balení [ \#603](https://github.com/NuGet/NuGet.Client/pull/603)
 - Zkontrolujte NuGet.Shared není projektu. [\#602](https://github.com/NuGet/NuGet.Client/pull/602)
 - Použít nabízenou časový limit jako časový limit odpovědi HTTP [ \#599](https://github.com/NuGet/NuGet.Client/pull/599)

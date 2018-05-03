@@ -1,25 +1,16 @@
 ---
-title: Vytvoření balíčků NuGet pro univerzální platformu Windows | Microsoft Docs
+title: Vytvoření balíčků NuGet pro univerzální platformu Windows
+description: Začátku do konce návod, jak vytvořit balíčky NuGet používání komponent prostředí Windows Runtime pro univerzální platformu Windows.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 03/21/2017
 ms.topic: tutorial
-ms.prod: nuget
-ms.technology: ''
-description: Začátku do konce návod, jak vytvořit balíčky NuGet používání komponent prostředí Windows Runtime pro univerzální platformu Windows.
-keywords: Vytvoření balíčku, balíčky pro UPW, součásti systému Windows Runtime
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 6923cdc87b0a550abb51316e384c79137eeaf63a
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 86fbeea0b815d40ffae016a5f76b96d5baf3ff1b
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="create-uwp-packages"></a>Vytvořit balíčky UWP
 
@@ -35,7 +26,7 @@ V tomto návodu vytvoříte balíček NuGet s nativní UWP komponentou (včetně
 
 ## <a name="create-a-uwp-windows-runtime-component"></a>Vytvoření komponenty prostředí Windows Runtime UWP
 
-1. V sadě Visual Studio, vyberte **soubor > Nový > projekt**, rozbalte **Visual C++ > Windows > Universal** uzlu, vyberte **komponenty prostředí Windows Runtime (Universal Windows)**šablony, změňte název na ImageEnhancer a klikněte na tlačítko OK. Přijměte výchozí hodnoty pro cílovou verzi a minimální verzi po zobrazení výzvy.
+1. V sadě Visual Studio, vyberte **soubor > Nový > projekt**, rozbalte **Visual C++ > Windows > Universal** uzlu, vyberte **komponenty prostředí Windows Runtime (Universal Windows)** šablony, změňte název na ImageEnhancer a klikněte na tlačítko OK. Přijměte výchozí hodnoty pro cílovou verzi a minimální verzi po zobrazení výzvy.
 
     ![Vytvoření nového projektu UPW komponenty prostředí Windows Runtime](media/UWP-NewProject.png)
 

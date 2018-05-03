@@ -1,22 +1,16 @@
 ---
-title: "Poznámky k verzi NuGet 2.2 | Microsoft Docs"
+title: Poznámky k verzi 2.2 NuGet
+description: Poznámky k verzi pro včetně známé problémy, opravy chyb, přidaných funkcí a chcete 2.2 NuGet.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Poznámky k verzi pro včetně známé problémy, opravy chyb, přidaných funkcí a chcete 2.2 NuGet."
-keywords: "NuGet 2.2 poznámky k verzi, opravy chyb známé problémy, přidat funkce, chcete"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 63a1ae2315ea0c26fb5d26507ac0bcba8567aa9a
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 21f212de53da5faf1ec0762f97a840968b615b19
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-22-release-notes"></a>Poznámky k verzi 2.2 NuGet
 
@@ -24,7 +18,7 @@ ms.lasthandoff: 02/02/2018
 
 NuGet 2.2 byla vydána 12 prosinec 2012.
 
-## <a name="visual-studio-quick-launch"></a>Visual Studio Quick Launch
+## <a name="visual-studio-quick-launch"></a>Snadné spuštění sady Visual Studio
 Mezi nové funkce, které byl přidán v sadě Visual Studio 2012 byla [dialogové okno Snadné spuštění](/visualstudio/ide/reference/quick-launch-environment-options-dialog-box). NuGet 2.2 rozšiřuje toto dialogové okno, díky kterému jej k chybě při inicializaci dialogové okno Správce balíčku s podmínkami vyhledávání zadané v Snadné spuštění. Například zadáte, jquery, snadné spuštění nyní zahrnuje možnost ve výsledcích hledání balíčků NuGet odpovídající 'jquery'.
 
 ![NuGet v sadě Visual Studio snadné spuštění](./media/quick-launch.png)

@@ -1,25 +1,16 @@
 ---
-title: Postup vytvoření balíčku NuGet | Microsoft Docs
+title: Postup vytvoření balíčku NuGet
+description: Podrobný průvodce do procesu návrhu a vytvoření balíčku NuGet, včetně klíče rozhodovací body, jako jsou soubory a správu verzí.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 12/12/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: Podrobný průvodce do procesu návrhu a vytvoření balíčku NuGet, včetně klíče rozhodovací body, jako jsou soubory a správu verzí.
-keywords: Vytvoření balíčku NuGet, vytváření balíčku, nuspec manifest, konvence balíčku NuGet, verze balíčku NuGet
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 7bb7e16a317aff908effe0b6c603ea53c9e8a563
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: c1e3bfd1c7e80c7deb505ef732d73c2edf3e32f7
+ms.sourcegitcommit: 5fcd6d664749aa720359104ef7a66d38aeecadc2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/27/2018
 ---
 # <a name="creating-nuget-packages"></a>Vytváření balíčků NuGet
 
@@ -27,7 +18,7 @@ Bez ohledu na jaké vašeho balíčku nebo co code je obsahuje, můžete použí
 
 Technicky platí, že balíček NuGet je právě soubor ZIP, který byl přejmenován s `.nupkg` rozšíření, jejichž obsah odpovídají určité konvence. Toto téma popisuje podrobný proces vytvoření balíčku, který splňuje tyto konvence. Podrobný návod, najdete v části [rychlý start: vytvoření a publikování balíčku](../quickstart/create-and-publish-a-package.md).
 
-Balení začíná zkompilovaný kód (sestavení), symboly a další soubory, které chcete doručit jako balíček (viz [přehled a pracovní postup](overview-and-workflow.md)). Tento proces je nezávislé na kompilování nebo jinak generování souborů, které patří do balíčku, i když můžete použít kreslení z informací v souboru projektu pro synchronizaci kompilované sestavení a balíčky.
+Balení začíná zkompilovaný kód (sestavení), symboly a další soubory, které chcete doručit jako balíček (viz [přehled a pracovní postup](overview-and-workflow.md)). Tento proces je nezávislá kompilování nebo jinak generování souborů, které patří do balíčku, i když můžete navrhnout z informací v souboru projektu pro synchronizaci kompilované sestavení a balíčky.
 
 > [!Note]
 > Toto téma se vztahuje na typy projektů než projektů .NET Core pomocí Visual Studio 2017 a NuGet 4.0 +. V těchto projektech .NET Core NuGet používá informace v souboru projektu přímo. Podrobnosti najdete v tématu [vytvořit .NET standardní balíčky s Visual Studio 2017](../guides/create-net-standard-packages-vs2017.md) a [NuGet pack a obnovit jako cíle MSBuild](../reference/msbuild-targets.md).
@@ -81,47 +72,53 @@ Toto je typické (ale fiktivní) `.nuspec` soubor s komentáři popisující vla
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
     <metadata>
-    <!-- The identifier that must be unique within the hosting gallery -->
-    <id>Contoso.Utility.UsefulStuff</id>
+        <!-- The identifier that must be unique within the hosting gallery -->
+        <id>Contoso.Utility.UsefulStuff</id>
 
-    <!-- The package version number that is used when resolving dependencies -->
-    <version>1.8.3-beta</version>
+        <!-- The package version number that is used when resolving dependencies -->
+        <version>1.8.3-beta</version>
 
-    <!-- Authors contain text that appears directly on the gallery -->
-    <authors>Dejana Tesic, Rajeev Dey</authors>
+        <!-- Authors contain text that appears directly on the gallery -->
+        <authors>Dejana Tesic, Rajeev Dey</authors>
 
-    <!-- Owners are typically nuget.org identities that allow gallery
-            users to easily find other packages by the same owners.  -->
-    <owners>dejanatc, rjdey</owners>
+        <!-- 
+            Owners are typically nuget.org identities that allow gallery
+            users to easily find other packages by the same owners.  
+        -->
+        <owners>dejanatc, rjdey</owners>
 
-    <!-- License and project URLs provide links for the gallery -->
-    <licenseUrl>http://opensource.org/licenses/MS-PL</licenseUrl>
-    <projectUrl>http://github.com/contoso/UsefulStuff</projectUrl>
+         <!-- License and project URLs provide links for the gallery -->
+        <licenseUrl>http://opensource.org/licenses/MS-PL</licenseUrl>
+        <projectUrl>http://github.com/contoso/UsefulStuff</projectUrl>
 
-    <!-- The icon is used in Visual Studio's package manager UI -->
-    <iconUrl>http://github.com/contoso/UsefulStuff/nuget_icon.png</iconUrl>
+        <!-- The icon is used in Visual Studio's package manager UI -->
+        <iconUrl>http://github.com/contoso/UsefulStuff/nuget_icon.png</iconUrl>
 
-    <!-- If true, this value prompts the user to accept the license when
-            installing the package. -->
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <!-- 
+            If true, this value prompts the user to accept the license when
+            installing the package. 
+        -->
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
 
-    <!-- Any details about this particular release -->
-    <releaseNotes>Bug fixes and performance improvements</releaseNotes>
+        <!-- Any details about this particular release -->
+        <releaseNotes>Bug fixes and performance improvements</releaseNotes>
 
-    <!-- The description can be used in package manager UI. Note that the
-            nuget.org gallery uses information you add in the portal. -->
-    <description>Core utility functions for web applications</description>
+        <!-- 
+            The description can be used in package manager UI. Note that the
+            nuget.org gallery uses information you add in the portal. 
+        -->
+        <description>Core utility functions for web applications</description>
 
-    <!-- Copyright information -->
-    <copyright>Copyright ©2016 Contoso Corporation</copyright>
+        <!-- Copyright information -->
+        <copyright>Copyright ©2016 Contoso Corporation</copyright>
 
-    <!-- Tags appear in the gallery and can be used for tag searches -->
-    <tags>web utility http json url parsing</tags>
+        <!-- Tags appear in the gallery and can be used for tag searches -->
+        <tags>web utility http json url parsing</tags>
 
-    <!-- Dependencies are automatically installed when the package is installed -->
-    <dependencies>
-        <dependency id="Newtonsoft.Json" version="9.0" />
-    </dependencies>
+        <!-- Dependencies are automatically installed when the package is installed -->
+        <dependencies>
+            <dependency id="Newtonsoft.Json" version="9.0" />
+        </dependencies>
     </metadata>
 
     <!-- A readme.txt to display when the package is installed -->
@@ -150,7 +147,7 @@ Vytváření dokončení manifestu obvykle začíná základní `.nuspec` soubor
 
 - [Založené na konvenci pracovní adresář](#from-a-convention-based-working-directory)
 - [Sestavení knihovny DLL](#from-an-assembly-dll)
-- [A Visual Studio project](#from-a-visual-studio-project)    
+- [Projekt sady Visual Studio](#from-a-visual-studio-project)    
 - [Nový soubor s výchozími hodnotami](#new-file-with-default-values)
 
 Pak upravíte soubor ručně tak, aby popisuje přesný obsah, který chcete v posledním balíčku.
@@ -300,11 +297,11 @@ Pokud chcete přímo zadat soubory, které chcete zahrnout do balíčku, použij
     <!-- ... -->
     </metadata>
     <files>
-    <!-- Add a readme -->
-    <file src="readme.txt" target="" />
+        <!-- Add a readme -->
+        <file src="readme.txt" target="" />
 
-    <!-- Add files from an arbitrary folder that's not necessarily in the project -->
-    <file src="..\..\SomeRoot\**\*.*" target="" />
+        <!-- Add files from an arbitrary folder that's not necessarily in the project -->
+        <file src="..\..\SomeRoot\**\*.*" target="" />
     </files>
 </package>
 ```
@@ -342,11 +339,11 @@ Potom v `.nuspec` souboru, ujistěte se, který bude odkazovat na těchto soubor
     <!-- ... -->
     </metadata>
     <files>
-    <!-- Include everything in \build -->
-    <file src="build\**" target="build" />
+        <!-- Include everything in \build -->
+        <file src="build\**" target="build" />
 
-    <!-- Other files -->
-    <!-- ... -->
+        <!-- Other files -->
+        <!-- ... -->
     </files>
 </package>
 ```

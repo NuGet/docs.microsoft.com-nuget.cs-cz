@@ -1,26 +1,17 @@
 ---
-title: "Automatické dokončování, NuGet rozhraní API | Microsoft Docs"
-author:
-- joelverhagen
-- kraigb
-ms.author:
-- joelverhagen
-- kraigb
+title: Automatické dokončování, NuGet rozhraní API
+description: Službu vyhledávání automatického dokončování podporuje interaktivní zjišťování ID balíčku a verze.
+author: joelverhagen
+ms.author: jver
 manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: 
-description: "Službu vyhledávání automatického dokončování podporuje interaktivní zjišťování ID balíčku a verze."
-keywords: "Rozhraní API funkce automatického dokončování NuGet, ID balíčku NuGet vyhledávání, ID balíčku dílčí řetězec"
-ms.reviewer:
-- karann
-- unniravindranathan
-ms.openlocfilehash: 7c984ca61799293d7832851b80cf3fefc4734288
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.reviewer: kraigb
+ms.openlocfilehash: d5e1936c6c5406a1a376c16b2bad5351320dfb4f
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="autocomplete"></a>Automatické dokončování
 
@@ -30,11 +21,11 @@ Je možné balíček ID a verzi automatického dokončování prostředí pomoc�
 
 Následující `@type` se používají hodnoty:
 
-@typeHodnota                          | Poznámky
+@type Hodnota                          | Poznámky
 ------------------------------------ | -----
 SearchAutocompleteService            | Původní verze
-SearchAutocompleteService/3.0.0-beta | Alias`SearchAutocompleteService`
-SearchAutocompleteService/3.0.0-rc   | Alias`SearchAutocompleteService`
+SearchAutocompleteService/3.0.0-beta | Alias `SearchAutocompleteService`
+SearchAutocompleteService/3.0.0-rc   | Alias `SearchAutocompleteService`
 
 ## <a name="base-url"></a>Základní adresu URL
 
@@ -59,7 +50,7 @@ Název        | V     | Typ    | Požadováno | Poznámky
 q           | Adresa URL    | odkazy řetězců  | Ne       | Řetězec, který má být porovnán balíček ID
 Přeskočit        | Adresa URL    | integer | Ne       | Počet výsledků tak, aby přeskočil pro stránkování
 proveďte        | Adresa URL    | integer | Ne       | Počet výsledků, které má být vrácen pro stránkování
-předběžné verze  | Adresa URL    | Logická hodnota | Ne       | `true`nebo `false` určení, jestli se mají zahrnout [předběžné verze balíčků](../create-packages/prerelease-packages.md)
+předběžné verze  | Adresa URL    | Logická hodnota | Ne       | `true` nebo `false` určení, jestli se mají zahrnout [předběžné verze balíčků](../create-packages/prerelease-packages.md)
 semVerLevel | Adresa URL    | odkazy řetězců  | Ne       | Řetězec verze o SemVer 1.0.0 
 
 Automatické dokončování dotazů `q` je analyzována způsobem, který je definován implementaci serveru. nuget.org podporuje dotazování pro předponu tokenů ID balíčku, které jsou částí ID vyprodukované spliting původní formátu camelCase případ a symbol znaky.
@@ -82,7 +73,7 @@ Kořenový objekt JSON má následující vlastnosti:
 
 Název      | Typ             | Požadováno | Poznámky
 --------- | ---------------- | -------- | -----
-totalHits | integer          | Ano      | Celkový počet shod, bez ohledu na `skip` a`take`
+totalHits | integer          | Ano      | Celkový počet shod, bez ohledu na `skip` a `take`
 data      | Pole řetězců. | Ano      | ID balíčku odpovídala požadavku
 
 ### <a name="sample-request"></a>Ukázková žádost
@@ -106,7 +97,7 @@ Verze balíčku, který neuvedené nezobrazí ve výsledcích.
 Název        | V     | Typ    | Požadováno | Poznámky
 ----------- | ------ | ------- | -------- | -----
 id          | Adresa URL    | odkazy řetězců  | Ano      | ID balíčku se načíst verze pro
-předběžné verze  | Adresa URL    | Logická hodnota | Ne       | `true`nebo `false` určení, jestli se mají zahrnout [předběžné verze balíčků](../create-packages/prerelease-packages.md)
+předběžné verze  | Adresa URL    | Logická hodnota | Ne       | `true` nebo `false` určení, jestli se mají zahrnout [předběžné verze balíčků](../create-packages/prerelease-packages.md)
 semVerLevel | Adresa URL    | odkazy řetězců  | Ne       | Řetězec verze o SemVer 2.0.0 
 
 Pokud `prerelease` není zadána, jsou vyloučeny předběžné verze balíčků.

@@ -1,25 +1,16 @@
 ---
-title: Formát NuGet PackageReference (odkazů balíčku v souborech projektu) | Microsoft Docs
+title: Formát NuGet PackageReference (odkazů balíčku v souborech projektu)
+description: Podrobnosti o NuGet PackageReference v souborech projektu podporuje NuGet 4.0 + a VS2017 a .NET Core 2.0
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 03/16/2018
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: Podrobnosti o NuGet PackageReference v souborech projektu podporuje NuGet 4.0 + a VS2017 a .NET Core 2.0
-keywords: Závislosti balíčků NuGet, balíček odkazuje projektu soubory, PackageReference, souboru packages.config, VS2017, Visual Studio 2017, NuGet 4, .NET Core 2.0
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 7844ace0565b2e70f8f68e6e61548f0f28171689
-ms.sourcegitcommit: 5b223c5814799caa6309e95792a2d338df692778
+ms.topic: conceptual
+ms.openlocfilehash: 8f277a8af7f988d6fdcfa75c43a10b3792c2ae22
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/04/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Balíček odkazuje (PackageReference) v souborech projektu
 
@@ -96,7 +87,7 @@ Povolené hodnoty pro tyto značky jsou následující, s více hodnotami, kter�
 
 | Hodnota | Popis |
 | --- | ---
-| compile | Obsah `lib` složku a ovládací prvky jestli můžete zkompilovat projektu proti sestavení ve složce |
+| Kompilace | Obsah `lib` složku a ovládací prvky jestli můžete zkompilovat projektu proti sestavení ve složce |
 | modul runtime | Obsah `lib` a `runtimes` složku a ovládací prvky jestli tyto sestavení bude zkopírována do sestavení výstupní adresář |
 | contentFiles | Obsah `contentfiles` složky |
 | sestavení | Props a cílem v `build` složky |

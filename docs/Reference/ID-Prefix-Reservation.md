@@ -1,26 +1,17 @@
 ---
-title: Předpona ID rezervace odkaz | Microsoft Docs
+title: Předpona ID rezervace odkaz
+description: Popis funkce rezervace předponu ID balíčku a Průvodce obsahu.
 author: diverdan92
 ms.author: diverdan92
-manager: unniravindranathan
+manager: unnir
 ms.date: 10/09/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Popis funkce rezervace předponu ID balíčku a Průvodce obsahu.
-keywords: ID balíčku NuGet, předpony, rezervace
-ms.reviewer:
-- ananguar
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 7b1956612bd48a1c59503418f1a4d7d9dee900f5
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: ananguar
+ms.openlocfilehash: 63f442ae25b92aacbbf5af7d9b3ea1a5dafe5fc9
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="package-id-prefix-reservation"></a>Rezervace předpona ID balíčku
 
@@ -64,8 +55,8 @@ Existuje několik pokročilejší scénáře rezervace předponu popsané dál, 
 
 Balíček vycházejí z vyhrazenou předponu, uvidíte níže visual ukazatele na [nuget.org](https://www.nuget.org/) galerie a Visual Studio 2017 verze 15,4 nebo novější:
 
-**nuget.org Gallery**
-![nuget.org Gallery](media/nuget-gallery-reserved-prefix.png)
+**Galerie nuget.org**
+![nuget.org Galerie](media/nuget-gallery-reserved-prefix.png)
 
 **Visual Studio**
 ![Visual Studio](media/visual-studio-reserved-prefix.png)
@@ -74,9 +65,9 @@ Balíček vycházejí z vyhrazenou předponu, uvidíte níže visual ukazatele n
 
 1. Zkontrolujte přijetí [kritéria pro předponu ID rezervace](#id-prefix-reservation-criteria).
 
-1. Určit obory názvů, které chcete rezervovat, kromě žádné [pokročilé scénáře rezervace předponu](#advanced-prefix-reservation-scenarios) může vyžadovat.
+2. Určit obory názvů, které chcete rezervovat, kromě žádné [pokročilé scénáře rezervace předponu](#advanced-prefix-reservation-scenarios) může vyžadovat.
 
-1. Odesílat e-maily na [ account@nuget.org ](mailto:account@nuget.org) se na vlastníka zobrazovaný název na [nuget.org](https://www.nuget.org/), a také všechny rezervované předpony, které jste požádali. Pokud na více vlastníky jsou delegování předponu podmnožiny, ujistěte se, zmínili všechny vlastníka zobrazovaných názvů a předpony podmnožin.
+3. Odesílat e-maily na [ account@nuget.org ](mailto:account@nuget.org) se na vlastníka zobrazovaný název na [nuget.org](https://www.nuget.org/), a také všechny rezervované předpony, které jste požádali. Pokud na více vlastníky jsou delegování předponu podmnožiny, ujistěte se, zmínili všechny vlastníka zobrazovaných názvů a předpony podmnožin.
 
 Po odeslání žádosti o přijetí nebo odmítnutí (s kritéria, která způsobila odmítání) budete upozorněni. Musíme ptají další identifikační potvrdit identitu vlastníka.
 

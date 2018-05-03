@@ -1,26 +1,17 @@
 ---
-title: "Vyhledávání, NuGet rozhraní API | Microsoft Docs"
-author:
-- joelverhagen
-- kraigb
-ms.author:
-- joelverhagen
-- kraigb
+title: Hledání, NuGet rozhraní API
+description: Služba vyhledávání umožňuje klientům dotazu pro balíčků – klíčové slovo a výsledky filtru na určitá pole balíčku.
+author: joelverhagen
+ms.author: jver
 manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: 
-description: "Služba vyhledávání umožňuje klientům dotazu pro balíčků – klíčové slovo a výsledky filtru na určitá pole balíčku."
-keywords: "Rozhraní API search NuGet, NuGet zjistit balíčky, rozhraní API pro balíčky NuGet dotazu, rozhraní API procházet balíčky NuGet"
-ms.reviewer:
-- karann
-- unniravindranathan
-ms.openlocfilehash: 612ce0f46b654335a29bb36a64b27525994162ed
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.reviewer: kraigb
+ms.openlocfilehash: 76600ee916305ee01ddfb675c83c184e980c5a42
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="search"></a>Hledat
 
@@ -30,11 +21,11 @@ Je možné vyhledat balíčků dostupných ve zdroji balíčku pomocí rozhraní
 
 Následující `@type` se používají hodnoty:
 
-@typeHodnota                   | Poznámky
+@type Hodnota                   | Poznámky
 ----------------------------- | -----
 SearchQueryService            | Původní verze
-SearchQueryService/3.0.0-beta | Alias`SearchQueryService`
-SearchQueryService/3.0.0-rc   | Alias`SearchQueryService`
+SearchQueryService/3.0.0-beta | Alias `SearchQueryService`
+SearchQueryService/3.0.0-rc   | Alias `SearchQueryService`
 
 ## <a name="base-url"></a>Základní adresu URL
 
@@ -59,7 +50,7 @@ Název        | V     | Typ    | Požadováno | Poznámky
 q           | Adresa URL    | odkazy řetězců  | Ne       | Hledané termíny a slouží jako filtr balíčky
 Přeskočit        | Adresa URL    | integer | Ne       | Počet výsledků tak, aby přeskočil pro stránkování
 proveďte        | Adresa URL    | integer | Ne       | Počet výsledků, které má být vrácen pro stránkování
-předběžné verze  | Adresa URL    | Logická hodnota | Ne       | `true`nebo `false` určení, jestli se mají zahrnout [předběžné verze balíčků](../create-packages/prerelease-packages.md)
+předběžné verze  | Adresa URL    | Logická hodnota | Ne       | `true` nebo `false` určení, jestli se mají zahrnout [předběžné verze balíčků](../create-packages/prerelease-packages.md)
 semVerLevel | Adresa URL    | odkazy řetězců  | Ne       | Řetězec verze o SemVer 1.0.0 
 
 Vyhledávací dotaz `q` je analyzována způsobem, který je definován implementaci serveru. nuget.org podporuje základní filtrování [různých polí](../consume-packages/finding-and-choosing-packages.md#search-syntax). Pokud žádné `q` je zadáno, má být vrácen všechny balíčky v hranicích způsobené přeskočit a proveďte. To umožňuje kartě "Browse" v prostředí NuGet sady Visual Studio.
@@ -82,7 +73,7 @@ Kořenový objekt JSON má následující vlastnosti:
 
 Název      | Typ             | Požadováno | Poznámky
 --------- | ---------------- | -------- | -----
-totalHits | integer          | Ano      | Celkový počet shod, bez ohledu na `skip` a`take`
+totalHits | integer          | Ano      | Celkový počet shod, bez ohledu na `skip` a `take`
 data      | Pole objektů | Ano      | Výsledky hledání odpovídala požadavku
 
 ### <a name="search-result"></a>výsledek hledání
@@ -98,9 +89,9 @@ description    | odkazy řetězců                     | Ne       |
 verze       | Pole objektů           | Ano      | Všechny verze balíčku odpovídajících `prerelease` parametr
 Autoři        | řetězec nebo pole řetězců. | Ne       | 
 IconUrl        | odkazy řetězců                     | Ne       | 
-licenseUrl     | odkazy řetězců                     | Ne       | 
+Adresa LicenseUrl     | odkazy řetězců                     | Ne       | 
 Vlastníci         | řetězec nebo pole řetězců. | Ne       | 
-projectUrl     | odkazy řetězců                     | Ne       | 
+Adrese ProjectUrl     | odkazy řetězců                     | Ne       | 
 registrace   | odkazy řetězců                     | Ne       | Absolutní adresa URL s příslušnými [index registrace](registration-base-url-resource.md#registration-index)
 souhrn        | odkazy řetězců                     | Ne       | 
 značky           | řetězec nebo pole řetězců. | Ne       | 

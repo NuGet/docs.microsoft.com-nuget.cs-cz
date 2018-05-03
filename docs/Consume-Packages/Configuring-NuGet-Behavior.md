@@ -1,25 +1,16 @@
 ---
-title: Konfigurace chování NuGet | Microsoft Docs
+title: Konfigurace chování NuGet
+description: NuGet.Config soubory řídit chování NuGet globálně i na jednotlivých projektů a jsou upraveny pomocí příkazu config nuget.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 10/25/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: NuGet.Config soubory řídit chování NuGet globálně i na jednotlivých projektů a jsou upraveny pomocí příkazu config nuget.
-keywords: NuGet konfigurační soubory, NuGet konfigurace, nastavení chování NuGet, nastavení NuGet, Nuget.Config, NuGetDefaults.Config, výchozí hodnoty
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 88f10cf15e16013ac99f315e572f932fd3948f73
-ms.sourcegitcommit: ecb598c790d4154366bc92757ec7db1a51c34faf
+ms.topic: conceptual
+ms.openlocfilehash: c8cc78be1bd48adc603b9447282a6c4bef7f942f
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="configuring-nuget-behavior"></a>Konfigurace chování NuGet
 
@@ -181,7 +172,7 @@ Soubor C. disk_drive_2/Project1/NuGet.Config:
 </configuration>
 ```
 
-File D. disk_drive_2/Project2/NuGet.Config:
+Soubor D. disk_drive_2/Project2/NuGet.Config:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -216,7 +207,7 @@ NuGet potom načte a aplikuje nastavení následujícím způsobem v závislosti
 
 Následující tabulka popisuje, kde `NuGetDefaults.Config` souboru by měly být uložené v závislosti na cílový operační systém:
 
-| Platforma operačního systému  | NuGetDefaults.Config Location |
+| Platforma operačního systému  | NuGetDefaults.Config umístění |
 | --- | --- |
 | Windows      | **Visual Studio 2017 nebo NuGet 4.x+:** `%ProgramFiles(x86)%\NuGet\Config` <br />**Visual Studio 2015 a starší nebo NuGet 3.x a dříve:** `%PROGRAMDATA%\NuGet` |
 | Mac/Linux    | `$XDG_DATA_HOME` (obvykle `~/.local/share` nebo `/usr/local/share`, v závislosti na distribuce operačního systému)|

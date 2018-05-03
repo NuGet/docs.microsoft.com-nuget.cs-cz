@@ -1,22 +1,16 @@
 ---
-title: "Balíček NuGet název řešení sporů | Microsoft Docs"
+title: Řešení sporů název balíčku NuGet
+description: Proces pro řešení sporů mezi vydavatelů balíček NuGet související s brandingem, ochranné známky a jiných situacích konflikt.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/18/2018
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Proces pro řešení sporů mezi vydavatelů balíček NuGet související s brandingem, ochranné známky a jiných situacích konflikt."
-keywords: "Sporů balíčku NuGet, řešení sporů NuGet, procesu překladu, který sporu"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 589fe4e7d2b05f3d589dcc70e78e7199d7e717c8
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 39fe993d73f11ca4b83ae07b1e8b93ae0682d519
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="resolving-disputes-over-nuget-package-names"></a>Řešení sporů přes názvy balíčků NuGet
 
@@ -31,5 +25,5 @@ Podle následujících instrukcí níže, Northwind a Nancy můžou spolupracova
 ## <a name="process"></a>Proces
 
 1. Obraťte se na vlastníky balíčku máte sporu s použitím **vlastníky obraťte se na** odkaz na stránce s podrobnostmi o balíčku. Popisují problém druh a přímé způsobem.
-1. Odeslat kopie zprávy do [ support@nuget.org ](mailto:support@nuget.org) tak, aby si vědomi spor NuGet a Foundation rozhraní .NET.
-1. Počkejte 30 dnů pro řešení, a upozorní [ support@nuget.org ](mailto:support@nuget.org) znovu. Tým podpory nuget.org bude zapojení a pokuste se pracovat obě strany sporu.
+2. Odeslat kopie zprávy do [ support@nuget.org ](mailto:support@nuget.org) tak, aby si vědomi spor NuGet a Foundation rozhraní .NET.
+3. Počkejte 30 dnů pro řešení, a upozorní [ support@nuget.org ](mailto:support@nuget.org) znovu. Tým podpory nuget.org bude zapojení a pokuste se pracovat obě strany sporu.

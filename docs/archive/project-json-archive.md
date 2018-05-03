@@ -1,25 +1,16 @@
 ---
-title: Obsah archivu project.json NuGet | Microsoft Docs
+title: Obsah archivu project.json NuGet
+description: Různé bity project.json obsah byl odebrán z jiných oblastí v dokumentaci NuGet.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/17/2018
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: Různé bity project.json obsah byl odebrán z jiných oblastí v dokumentaci NuGet.
-keywords: Soubor project.json NuGet
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 16361fe16d8ecc7064af4b6d636435a31a5663dc
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: cd0f4bc44c1acaeed3b3ed0241c501ddd281628d
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="projectjson-archive"></a>Project.JSON archivu
 

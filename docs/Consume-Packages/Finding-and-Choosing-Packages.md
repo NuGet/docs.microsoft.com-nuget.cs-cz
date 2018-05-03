@@ -1,25 +1,16 @@
 ---
-title: Vyhledání a výběr balíčků NuGet | Microsoft Docs
+title: Vyhledání a výběr balíčků NuGet
+description: Přehled o tom, jak najít a vybrat nejlepší balíčky NuGet pro projekt, včetně podrobností o syntaxe vyhledávání NuGet.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 03/16/2018
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: Přehled o tom, jak najít a vybrat nejlepší balíčky NuGet pro projekt, včetně podrobností o syntaxe vyhledávání NuGet.
-keywords: NuGet balíček spotřebu, zjišťování balíčku NuGet, nejlepší balíčky NuGet, rozhodování pro balíčky, využívání balíčky, vyhodnocení balíček NuGet syntaxe vyhledávání
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 319361623e60b8bdfe3c2dbc9bdcae65783a17e3
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: 94d851cfbc860e50b02ca99595ca41bbf4ce21ef
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Hledání a vyhodnocení balíčky NuGet pro projekt
 
@@ -104,6 +95,8 @@ Ve stejnou dobu pomocí balíčku NuGet, znamená, že trvá závislost, takže 
 - *Otevřete zdroj příspěvky*: mnoho balíčky jsou zachována ve open-source úložiště, aby bylo možné pro vývojáře v závislosti na jejich přímo přispívat oprav chyb a vylepšení funkcí. Příspěvek historii libovolný daný balíček je také kolik vývojáři aktivně podílejí vhodný indikátor.
 
 - *Dotazovat vlastníci*: nové vývojáře určitě může být stejně potvrdit k vytváření kvalitních balíčky budete muset používat a je vhodné jim dát šanci, aby něco nové ekosystému NuGet. Myslete na to, oslovení přímo pro vývojáře balíček prostřednictvím **obraťte se na vlastníky** možnost pod **informace o** na stránce výpis. Pravděpodobné, bude se radostí spolupracovat s vámi na slouží vašim potřebám!
+
+- *Rezervované předpony ID balíčku*: jste použili pro mnoho vlastníky balíček a byla udělena [předpona ID vyhrazené balíček](../reference/id-prefix-reservation.md). Až se zobrazí visual zaškrtnutí vedle ID balíčku na [nuget.org](https://www.nuget.org/), nebo v sadě Visual Studio, to znamená, že vlastníka balíčku splnil naše [kritéria](../reference/id-prefix-reservation.md#id-prefix-reservation-criteria) pro ID předpony rezervace. To znamená, že vlastníka balíčku se vymazat o identifikaci sami a jejich balíčku.
 
 > [!Note]
 > Vždycky mějte na paměti balíček licenčních podmínek, které se zobrazí tak, že vyberete **licenční informace** na stránce výpis balíčku v nuget.org. Pokud balíček neurčuje licenční podmínky, obraťte se na vlastníka balíčku přímo pomocí **obraťte se na vlastníky** odkaz na stránce balíček. Společnost Microsoft není licence duševního vlastnictví vám ze zprostředkovatelů balíček třetích stran a není zodpovědná za informace třetích stran.

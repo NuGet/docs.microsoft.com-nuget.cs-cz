@@ -1,22 +1,16 @@
 ---
-title: "Poznámky k verzi NuGet 1.3 | Microsoft Docs"
+title: 1.3 poznámky NuGet
+description: Poznámky k verzi pro včetně známé problémy, opravy chyb, přidaných funkcí a chcete 1.3 NuGet.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Poznámky k verzi pro včetně známé problémy, opravy chyb, přidaných funkcí a chcete 1.3 NuGet."
-keywords: "NuGet 1.3 poznámky k verzi, opravy chyb známé problémy, přidat funkce, chcete"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 59169be5b39ba4436e13e0935a0ad6efa724e08e
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: c0284fe0afb11bf6465897132cccd160674ea3e1
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-13-release-notes"></a>1.3 poznámky NuGet
 
@@ -30,7 +24,7 @@ NuGet 1.3 byla vydána 25 Duben 2011.
 
 Týmem NuGet ve spolupráci s zaměstnance na [SymbolSource.org](http://www.symbolsource.org/) nabízet skutečně jednoduchý způsob publikování zdrojů a na PDB společně s vašeho balíčku. To umožňuje příjemci vašeho balíčku na krok do zdroje balíčku v ladicím programu. Další informace najdete v [vytváření a publikování balíčku Symbol](../create-packages/symbol-packages.md) snadný způsob, jak publikovat balíčky NuGet se zdroji. Můžete také shlédnout této funkce jako součást NuGet podrobněji za provozu ukázkový komunikovat v Mix11. Tato funkce je plně ukázán začínající na 20 minut označit videa.
 
-### <a name="open-packagepage-command"></a>`Open-PackagePage`Příkaz
+### <a name="open-packagepage-command"></a>`Open-PackagePage` příkaz
 
 Tento příkaz lze snadno získat na stránku projektu pro balíček z konzoly Správce balíčků. Obsahuje také možnosti otevřete adresu URL licence a zneužití stránka sestavy pro daný balíček.
 Syntaxe příkazu je:

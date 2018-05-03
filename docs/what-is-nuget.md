@@ -1,25 +1,16 @@
 ---
-title: Co je NuGet a co se dělá? | Microsoft Docs
+title: Co je NuGet a co se dělá?
+description: Komplexní úvod do jaké NuGet je a nemá
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/10/2018
 ms.topic: overview
-ms.prod: nuget
-ms.technology: ''
-description: Komplexní úvod do jaké NuGet je a nemá
-keywords: Správce balíčků NuGet, spotřebu, vytvoření balíčku, který je hostitelem balíčku, rozhraní .NET balíčky, .NET Core balíčky
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 0d2094177f919d27b9a8320e60c8d1d75ec18fb6
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 7237db8f3be3d9a1d46b9e6be41bff5c06593a20
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="an-introduction-to-nuget"></a>Úvod do NuGet
 
@@ -55,7 +46,7 @@ Kromě hostování podpory, NuGet taky poskytuje celou řadu nástrojů použív
 | Nástroj | Platformy | Použít scénáře | Popis |
 | --- | --- | --- | --- |
 | [nuget.exe CLI](tools/nuget-exe-cli-reference.md) | Všechny | Vytváření, spotřeba | Nabízí všechny funkce NuGet, se některé příkazy platného pro balíček tvůrcích, použití pouze k příjemce, a ostatní použití na obojí. Například balíček creators použití `nuget pack` příkazu vytvořit balíček z různých sestavení a související soubory, balíček příjemci použití `nuget install` mají být zahrnuty balíčků ve složce projektu a everyone používá `nuget config` nastavit konfiguraci NuGet proměnné. Jako nástroj bez ohledu na platformu rozhraní příkazového řádku NuGet nekomunikuje s projektů sady Visual Studio. |
-| [dotnet CLI](tools/dotnet-Commands.md) | Všechny | Vytváření, spotřeba | Poskytuje rozhraní příkazového řádku určité NuGet možnosti přímo v řetězu nástroj .NET Core. Stejně jako u rozhraní příkazového řádku NuGet dotnet rozhraní příkazového řádku nekomunikuje s projektů sady Visual Studio. |
+| [DotNet rozhraní příkazového řádku](tools/dotnet-Commands.md) | Všechny | Vytváření, spotřeba | Poskytuje rozhraní příkazového řádku určité NuGet možnosti přímo v řetězu nástroj .NET Core. Stejně jako u rozhraní příkazového řádku NuGet dotnet rozhraní příkazového řádku nekomunikuje s projektů sady Visual Studio. |
 | [Konzola Správce balíčků](tools/package-manager-console.md) | Visual Studio v systému Windows | Spotřeba | Poskytuje [příkazy prostředí PowerShell](tools/Powershell-Reference.md) k instalaci a správě balíčků v projektech Visual Studio. |
 | [Uživatelské rozhraní Správce balíčků](tools/package-manager-ui.md) | Visual Studio v systému Windows | Spotřeba | Poskytuje snadno použitelné uživatelské rozhraní pro instalaci a správě balíčků v projektech Visual Studio. |
 | [Spravovat NuGet uživatelského rozhraní](/visualstudio/mac/nuget-walkthrough) | Visual Studio for Mac | Spotřeba | Zadejte snadno použitelné uživatelské rozhraní pro instalaci a správě balíčků v sadě Visual Studio pro Mac projekty. |

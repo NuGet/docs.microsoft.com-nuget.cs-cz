@@ -1,22 +1,16 @@
 ---
-title: "Poznámky k verzi NuGet 3.4 | Microsoft Docs"
+title: NuGet 3.4 poznámky
+description: Poznámky k verzi pro NuGet 3.4, včetně známé problémy, opravy chyb, přidaných funkcí a chcete.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Poznámky k verzi pro NuGet 3.4, včetně známé problémy, opravy chyb, přidaných funkcí a chcete."
-keywords: "NuGet 3.4 poznámky k verzi, opravy chyb známé problémy, přidat funkce, chcete"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 515fb888aca2a8eb138c8fea1fb5b3f5a8f4e275
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 3f2a945b628022bdcc6e69a7a4b1be6c53b65626
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-34-release-notes"></a>NuGet 3.4 poznámky
 
@@ -24,9 +18,9 @@ ms.lasthandoff: 02/02/2018
 
 NuGet 3.4 byl vydané 30. března 2016 jako součást sady Visual Studio 2015 Update 2 a Visual Studio 15 Preview verze a byl sestaven s několika principů v rozhodnutí:
 
-*  Podpora více platforem
-*  Vylepšení výkonu
-*  Méně závažné vylepšení uživatelského rozhraní
+* Podpora více platforem
+* Vylepšení výkonu
+* Méně závažné vylepšení uživatelského rozhraní
 
 Následující funkce byly dříve přidány v RC a byly aktualizovány nebo dokončit 3,4 verzi:
 
@@ -72,4 +66,4 @@ Vlastní úložiště NuGet, které směrují požadavky na alternativního host
 * **Alternativní řešení:** tento problém obejít, nakonfigurujte identifikátor URI úložiště balíčků tak, aby odkazoval na přesměrované umístění serveru.
 Další informace najdete v tématu [Githubu žádost o přijetí změn #387](https://github.com/NuGet/NuGet.Client/pull/387).
 
-Abychom mohli pokračovat ke sledování problémů na našich seznamu problémy Githubu, které naleznete na adrese: [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)
+Abychom mohli pokračovat ke sledování problémů na našich seznamu Githubu problémy, které najdete na: [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)

@@ -1,22 +1,16 @@
 ---
-title: "Poznámky k verzi NuGet 2.6 | Microsoft Docs"
+title: Poznámky k verzi 2.6 NuGet
+description: Poznámky k verzi pro NuGet 2.6.1 pro službu WebMatrix, včetně známé problémy, opravy chyb, přidaných funkcí a chcete.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Poznámky k verzi pro včetně známé problémy, opravy chyb, přidaných funkcí a chcete 2.6 NuGet."
-keywords: "NuGet 2.6 poznámky k verzi, opravy chyb známé problémy, přidat funkce, chcete"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: c2df9721e6941c110948af1a2d4ec4b7aeb476dd
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 39ce6ac3d36464d26966b0dabb0893f09ad4afdc
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-26-release-notes"></a>Poznámky k verzi 2.6 NuGet
 
@@ -70,8 +64,8 @@ NuGet 2.6 rozšiřuje logiku pro hledání hierarchii složek na cestě % Progra
 
 1. %ProgramData%\NuGet\Config\*.config
 2. %ProgramData%\NuGet\Config\{IDE}\*.config
-3. %ProgramData%\NuGet\Config\{IDE}\{Version}\*.config
-4. %ProgramData%\NuGet\Config\{IDE}\{Version}\{SKU}\*.config
+3. %ProgramData%\NuGet\Config\{IDE}\{verze}\*.config
+4. %ProgramData%\NuGet\Config\{IDE}\{verze}\{SKU}\*.config
 
 V tomto seznamu je zástupný symbol {IDE} specifické pro prostředí IDE, ve kterém běží NuGet, tak v případě Visual Studio, bude "Visual Studio". {Version} a {SKU} zástupné symboly jsou poskytovány rozhraní IDE (např.) "11.0" a "WDExpress", "VWDExpress" a "Pro", v uvedeném pořadí). Složka pak může obsahovat mnoho různých *.config souborů.
 Proto můžete, společnost součást pokusná jako součást své instalační program produktu, přidat zdroj vlastní balíček, který bude zobrazen pouze verze Professional a Ultimate sady Visual Studio 2012, a to vytvořením následující cesta k souboru:

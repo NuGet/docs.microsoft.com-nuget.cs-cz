@@ -1,25 +1,16 @@
 ---
-title: Zásady správného řízení projektu NuGet | Microsoft Docs
+title: Zásady správného řízení projektů NuGet
+description: Model zásad správného řízení pro NuGet, včetně role a zodpovědnosti committers, přispěvatelé a uživatelů.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/18/2018
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: Model zásad správného řízení pro NuGet, včetně role a zodpovědnosti committers, přispěvatelé a uživatelů.
-keywords: Zásady správného řízení NuGet, NuGet benevolent dictator, committer odpovědnosti, Přispěvatel odpovědnosti, odpovědnosti uživatele
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: aa48b95482c65de47d54daff142402dd2ff6558a
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: 37bfd146eefd52fd0332f3b99fa36651fc5c93d4
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-governance"></a>Zásady správného řízení NuGet
 

@@ -1,25 +1,17 @@
 ---
-title: Podepisování balíčků NuGet | Microsoft Docs
-author: rido-min
-ms.author: rido-min
-manager: unniravindranathan
-ms.date: 03/06/2018
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
+title: Podepisování balíčků NuGet
 description: Vysvětluje, jak podepsaný balíčků slouží k povolení ověření obsahu integrity.
-keywords: Balíček NuGet podepisování NuGet zabezpečení, vytváření balíčků podepsané
-ms.reviewer:
-- karann-msft
-- anangaur
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 61d90066e8cf75c8f49c7cc9390d45e1cd8afd0d
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+author: rido-min
+ms.author: rmpablos
+manager: unnir
+ms.date: 03/06/2018
+ms.topic: conceptual
+ms.reviewer: anangaur
+ms.openlocfilehash: a469cbdd218a0e9c18950bb0d36faf4dbcb42a01
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="signing-nuget-packages"></a>Podepisování balíčků NuGet
 

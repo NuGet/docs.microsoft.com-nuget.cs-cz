@@ -1,27 +1,18 @@
 ---
-title: Úvodní příručka k používání balíčků NuGet z Visual Studia | Microsoft Docs
+title: Úvodní příručka k použití balíčky NuGet v sadě Visual Studio
+description: Návod kurz týkající se procesu instalace a použití balíčku NuGet v sadě Visual Studio projektu.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.prod: nuget
-ms.technology: ''
-description: Návod kurz týkající se procesu instalace a použití balíčku NuGet v sadě Visual Studio projektu.
-keywords: Nainstalujte NuGet, využívání balíčku NuGet, instalace balíčků NuGet, odkazů na balíček NuGet, pomocí balíčků NuGet
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 4205893cc02cffff8926513a555393d10c046f43
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: c61f8929d34bc9ff1a84ee186636543da5bcee63
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
-# <a name="install-and-use-a-package-in-visual-studio"></a>Instalace a použití balíčku v sadě Visual Studio
+# <a name="quickstart-install-and-use-a-package-in-visual-studio"></a>Rychlý úvod: Instalace a použití balíčku v sadě Visual Studio
 
 Balíčky NuGet obsahovat opakovaně použitelný kód, který jinými vývojáři zpřístupnění pro použití ve vašich projektů. V tématu [co je NuGet?](../What-is-NuGet.md) pozadí. Balíčky jsou nainstalovány do projektu Visual Studia pomocí uživatelského rozhraní Správce balíčků nebo konzole Správce balíčků. Tento článek ukazuje, proces, pomocí oblíbených [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) balíček a projekt univerzální platformu Windows (UWP). Stejný postup platí pro další .NET nebo .NET Core projektu.
 

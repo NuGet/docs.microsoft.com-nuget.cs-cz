@@ -1,25 +1,16 @@
 ---
-title: Vytvoření lokalizovaných balíčků NuGet | Microsoft Docs
+title: Vytvoření lokalizovaných balíčků NuGet
+description: Podrobnosti o dva způsoby vytvoření lokalizované balíčky NuGet, včetně všech sestaveních ve jeden balíček nebo publikování samostatné sestavení.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/18/2018
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: Podrobnosti o dva způsoby vytvoření lokalizované balíčky NuGet, včetně všech sestaveních ve jeden balíček nebo publikování samostatné sestavení.
-keywords: Lokalizace balíčku NuGet, NuGet satelitní sestavení, vytvoření lokalizovaných balíčků NuGet lokalizace konvence
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 39ff6d300ec1a1f7941cad5953599f25f55117f4
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: 017957a349f3c53822225f885e32b7068f1c1c34
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="creating-localized-nuget-packages"></a>Vytvoření lokalizovaných balíčků NuGet
 
@@ -129,10 +120,10 @@ Pokud jsou splněny všechny tyto konvence, NuGet rozpozná balíček jako balí
 Měli byste vytvořit další satelitní sestavení stejným způsobem pro každý podporovaný jazyk. Příklad zkontrolujte sadu rozhraní ASP.NET MVC balíčků:
 
 - [Microsoft.AspNet.Mvc](http://nuget.org/packages/Microsoft.AspNet.Mvc) (anglické primární)
-- [Microsoft.AspNet.Mvc.de](http://nuget.org/packages/Microsoft.AspNet.Mvc.de) (German)
-- [Microsoft.AspNet.Mvc.ja](http://nuget.org/packages/Microsoft.AspNet.Mvc.ja) (Japanese)
-- [Microsoft.AspNet.Mvc.zh-Hans](http://nuget.org/packages/Microsoft.AspNet.Mvc.zh-Hans) (Chinese (Simplified))
-- [Microsoft.AspNet.Mvc.zh-Hant](http://nuget.org/packages/Microsoft.AspNet.Mvc.zh-Hant) (Chinese (Traditional))
+- [Microsoft.AspNet.Mvc.de](http://nuget.org/packages/Microsoft.AspNet.Mvc.de) (němčina)
+- [Microsoft.AspNet.Mvc.ja](http://nuget.org/packages/Microsoft.AspNet.Mvc.ja) (japonština)
+- [Microsoft.AspNet.Mvc.zh Hans](http://nuget.org/packages/Microsoft.AspNet.Mvc.zh-Hans) (čínština (zjednodušená))
+- [Microsoft.AspNet.Mvc.zh Hant](http://nuget.org/packages/Microsoft.AspNet.Mvc.zh-Hant) (čínština (tradiční))
 
 ### <a name="summary-of-required-conventions"></a>Souhrn požadované konvence
 

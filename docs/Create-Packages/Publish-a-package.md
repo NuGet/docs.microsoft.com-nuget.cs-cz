@@ -1,26 +1,17 @@
 ---
-title: Postup publikování balíčku NuGet | Microsoft Docs
+title: Postup publikování balíčku NuGet
+description: Podrobné pokyny pro publikování balíčku NuGet nuget.org nebo privátní informačních kanálů a jak spravovat vlastnictví balíčku na nuget.org.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 03/19/2018
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: Podrobné pokyny pro publikování balíčku NuGet nuget.org nebo privátní informačních kanálů a jak spravovat vlastnictví balíčku na nuget.org.
-keywords: Publikování balíčku NuGet, publikování balíčku NuGet, vlastnictví balíčku NuGet, publikovat do nuget.org, privátní kanály NuGet
-ms.reviewer:
-- anangaur
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 68db25276297353fab03258adecd9169149dbe51
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.reviewer: anangaur
+ms.openlocfilehash: 539ac9485e6062a0bdc3bb86dac0f028a2de7821
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="publishing-packages"></a>Publikování balíčků
 
@@ -59,11 +50,11 @@ K nabízení balíčků nuget.org je nutné použít [nuget.exe v4.1.0 nebo vyš
 
 #### <a name="create-api-keys"></a>Vytvoření klíče rozhraní API
 
-[!INCLUDE[publish-api-key](../quickstart/includes/publish-api-key.md)]
+[!INCLUDE [publish-api-key](../quickstart/includes/publish-api-key.md)]
 
 #### <a name="publish-with-dotnet-nuget-push"></a>Publikování pomocí nabízených nuget dotnet.
 
-[!INCLUDE[publish-dotnet](../quickstart/includes/publish-dotnet.md)]
+[!INCLUDE [publish-dotnet](../quickstart/includes/publish-dotnet.md)]
 
 #### <a name="publish-with-nuget-push"></a>Publikování pomocí nabízených nuget
 

@@ -1,25 +1,16 @@
 ---
-title: Odkaz na soubor Project.JSON pro NuGet | Microsoft Docs
+title: Odkaz na soubor Project.JSON pro NuGet
+description: V některých typů projektu project.json udržuje seznam balíčky NuGet použité v projektu.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 07/27/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: V některých typů projektu project.json udržuje seznam balíčky NuGet použité v projektu.
-keywords: Balíček NuGet NuGet project.json, odkazy, závislostí NuGet, project.lock.json
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 21542a219faa3d1fa0c32a838645d4471c5aa935
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 52df5c6a4d5f1c0092a85c124903203da83a1821
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="projectjson-reference"></a>odkaz na Project.JSON
 
@@ -81,7 +72,7 @@ Jaké prostředky z závislosti toku do nejvyšší úrovně projektu je řízen
 | --- | --- |
 | contentFiles | Obsah  |
 | modul runtime | Modul runtime, prostředky a FrameworkAssemblies  |
-| compile | lib |
+| Kompilace | Lib |
 | sestavení | sestavení (MSBuild props a cíle) |
 | nativní | nativní |
 | žádná | Žádné složky |

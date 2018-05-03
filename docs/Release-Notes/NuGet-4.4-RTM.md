@@ -1,26 +1,17 @@
 ---
-title: Poznámky k verzi RTM NuGet 4.4 | Microsoft Docs
-author: karann-msft
-ms.author: karann-msft
-manager: unniravindranathan
-ms.date: 08/14/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
+title: Poznámky k verzi 4.4 RTM NuGet
 description: Poznámky k verzi pro NuGet 4.3 RTM, včetně známé problémy, opravy chyb, přidaných funkcí a chcete.
-keywords: NuGet 4.3 RTM poznámky k verzi, opravy chyb známé problémy, přidat funkce, chcete
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-- anangaur
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 6c122dc3d9b576a2ea5f094746a830e5fab5637e
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+author: karann-msft
+ms.author: karann
+manager: unnir
+ms.date: 08/14/2017
+ms.topic: conceptual
+ms.reviewer: anangaur
+ms.openlocfilehash: 3e969274e69de03ca9851d31a627919dcc46bb7d
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-44-rtm-release-notes"></a>Poznámky k verzi 4.4 RTM NuGet
 
@@ -118,7 +109,8 @@ Pro tento problém zatím neexistuje alternativní řešení.
 
 - GetRestoreDotnetCliToolsTask selže, pokud chybí metadata verze - [#5716](https://github.com/NuGet/Home/issues/5716)
 
-- DotNet přidat balíček můžete vymazat prázdné řádky z csproj - [#5697](https://github.com/NuGet/Home/issues/5697)
+- DotNet.
+  - dotnetcore přidat balíček můžete vymazat prázdné řádky z csproj - [#5697](https://github.com/NuGet/Home/issues/5697)
 
 - Názvy zdrojů nastavení přihlašovacích údajů do souboru NuGet.Config jsou velká a malá písmena - [#5695](https://github.com/NuGet/Home/issues/5695)
 
@@ -132,7 +124,8 @@ Pro tento problém zatím neexistuje alternativní řešení.
 
 - Aktualizovat balíčky v řešení aktualizací nebo instalace pro všechny projekty - [#5508](https://github.com/NuGet/Home/issues/5508)
 
-- DotNet pack chová odlišně v závislosti na TargetFramework vs TargetFrameworks - [#5281](https://github.com/NuGet/Home/issues/5281)
+- DotNet.
+  - dotnetcore pack chová odlišně v závislosti na TargetFramework vs TargetFrameworks - [#5281](https://github.com/NuGet/Home/issues/5281)
 
 - Knihovny DLL zahrnuty do vnitřní nástroje složky throw upozornění - [#5020](https://github.com/NuGet/Home/issues/5020)
 
@@ -160,7 +153,7 @@ Pro tento problém zatím neexistuje alternativní řešení.
 
 - Opravte zablokování v dolní limit scénář – [#5685](https://github.com/NuGet/Home/issues/5685)
 
-### <a name="dcrs"></a>DCRs
+### <a name="dcrs"></a>Chcete
 
 - nuget.exe nainstalovat podporu TargetFramework - [#5736](https://github.com/NuGet/Home/issues/5736)
 

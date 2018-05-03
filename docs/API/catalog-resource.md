@@ -1,31 +1,19 @@
 ---
-title: Katalog, rozhraní API NuGet V3 | Microsoft Docs
-author:
-- joelverhagen
-- kraigb
-ms.author:
-- joelverhagen
-- kraigb
+title: Katalog prostředků, rozhraní API NuGet V3
+description: Katalog je index všech balíčků, vytvoření a na nuget.org odstraněn.
+author: joelverhagen
+ms.author: jver
 manager: skofman
 ms.date: 10/30/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Katalog je index všech balíčků, vytvoření a na nuget.org odstraněn.
-keywords: Rozhraní API V3 NuGet katalogu, nuget.org transakčního protokolu, replikaci nuget.org, klonování nuget.org připojovacího záznam nuget.org
-ms.reviewer:
-- karann
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 61ed502eee498f5ad0a014e3338503f2855396a5
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: kraigb
+ms.openlocfilehash: 464b252ca318a5bd3487c723dbf4c7062e4698a3
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
-# <a name="catalog"></a>Catalog
+# <a name="catalog"></a>Katalogu
 
 **Katalogu** je na prostředek, který zaznamenává všechny operace balíček ve zdroji balíčku, například vytváření a odstranění. Katalog prostředků má `Catalog` zadejte [indexu služby](service-index.md).
 
@@ -174,7 +162,7 @@ Dokument listu katalogu je objekt JSON s následujícími vlastnostmi:
 Název                    | Typ                       | Požadováno | Poznámky
 ----------------------- | -------------------------- | -------- | -----
 @type                   | řetězec nebo pole řetězců. | Ano      | Typy položek katalogu
-catalog:commitId        | odkazy řetězců                     | Ano      | Potvrzení ID spojené s této položky katalogu
+katalog: commitId        | odkazy řetězců                     | Ano      | Potvrzení ID spojené s této položky katalogu
 catalog:commitTimeStamp | odkazy řetězců                     | Ano      | Časové razítko potvrzení této položky katalogu
 id                      | odkazy řetězců                     | Ano      | ID balíčku položky katalogu
 Publikovat               | odkazy řetězců                     | Ano      | Datum publikování balíčku položka katalogu
@@ -211,13 +199,13 @@ description             | odkazy řetězců                     | Ne       |
 IconUrl                 | odkazy řetězců                     | Ne       |
 isPrerelease            | Logická hodnota                    | Ano      | Zda je předprodejní verze balíčku
 jazyk                | odkazy řetězců                     | Ne       |
-licenseUrl              | odkazy řetězců                     | Ne       |
+Adresa LicenseUrl              | odkazy řetězců                     | Ne       |
 uvedené v seznamu                  | Logická hodnota                    | Ne       | Zda je balíček uvedený
 MinClientVersion        | odkazy řetězců                     | Ne       |
 packageHash             | odkazy řetězců                     | Ano      | Hodnota hash balíčku, kódování pomocí [standardní base 64](https://tools.ietf.org/html/rfc4648#section-4)
 packageHashAlgorithm    | odkazy řetězců                     | Ano      |
 packageSize             | integer                    | Ano      | Velikost balíčku .nupkg v bajtech
-projectUrl              | odkazy řetězců                     | Ne       |
+Adrese ProjectUrl              | odkazy řetězců                     | Ne       |
 ReleaseNotes            | odkazy řetězců                     | Ne       |
 requireLicenseAgreement | Logická hodnota                    | Ne       | Předpokládejme `false` li vyloučit
 souhrn                 | odkazy řetězců                     | Ne       |

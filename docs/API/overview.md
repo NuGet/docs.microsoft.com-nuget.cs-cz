@@ -1,29 +1,17 @@
 ---
-title: Přehled, NuGet rozhraní API | Microsoft Docs
-author:
-- joelverhagen
-- kraigb
-ms.author:
-- joelverhagen
-- kraigb
+title: Přehled NuGet rozhraní API
+description: Rozhraní API NuGet je sada koncových bodů protokolu HTTP, které je možné stáhnout balíčky, načíst metadata, publikujte nové balíčky atd.
+author: joelverhagen
+ms.author: jver
 manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Rozhraní API NuGet je sada koncových bodů protokolu HTTP, které je možné stáhnout balíčky, načíst metadata, publikujte nové balíčky atd.
-keywords: Rozhraní API V3 NuGet, rozhraní API NuGet V2, NuGet JSON, rozhraní API registrace NuGet NuGet API ploché kontejner, NuGet nupkg rozhraní API, NuGet metadat rozhraní API, hledání NuGet rozhraní API a NuGet nabízené rozhraní API, NuGe publikovat rozhraní API, NuGet odstranit rozhraní API, rozhraní API, protokol NuGet unlist NuGet
-ms.reviewer:
-- karann
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 7053a971c80a94cf035e8f149c332b36e66a9ea9
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: kraigb
+ms.openlocfilehash: a638dba005c14bff4b2e668e2d6ca527a67b94a9
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-api"></a>NuGet rozhraní API
 
@@ -80,7 +68,7 @@ Všechny časová razítka vrácený rozhraní API jsou UTC nebo zadávají jina
 
 ## <a name="http-methods"></a>Metody HTTP
 
-Verb   | Použití
+Příkaz   | Použití
 ------ | -----------
 GET    | Provede operaci jen pro čtení, obvykle načítání dat.
 HEAD   | Načte hlavičky odpovědi pro příslušné `GET` požadavku.
@@ -114,7 +102,7 @@ V případě úrovni 500 stavový kód klienta můžete implementovat mechanismu
 Název                     | Popis
 ------------------------ | -----------
 X-NuGet-ApiKey           | Požadované pro nabízené a odstranění, najdete v části [ `PackagePublish` prostředků](package-publish-resource.md)
-X-NuGet-Client-Version   | **Zastaralé** a nahradit `X-NuGet-Protocol-Version`
+X-NuGet klienta Version   | **Zastaralé** a nahradit `X-NuGet-Protocol-Version`
 X-NuGet-Protocol-Version | V některých případech pouze v nuget.org potřeba, najdete v části [nuget.org protokoly](NuGet-Protocols.md)
 X-NuGet-Session-Id       | *Volitelné*. NuGet klienti v4.7 + identifikovat požadavky HTTP, které jsou součástí stejné relaci klienta NuGet. Pro `PackageReference` existuje operace obnovení je id jedné relace, pro další scénáře, jako je automatické dokončení, a `packages.config` obnovení může být několik různých id relace je z důvodu jak promítnou kód.
 

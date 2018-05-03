@@ -1,25 +1,16 @@
 ---
-title: Instalace nástrojů klienta NuGet | Microsoft Docs
+title: Instalace nástrojů klienta NuGet
+description: Pokyny k instalaci klienta nástrojů dotnet a nuget rozhraní příkazového řádku (CLI) a Správce balíčků pro sadu Visual Studio.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 04/09/2018
 ms.topic: quickstart
-ms.prod: nuget
-ms.technology: ''
-description: Pokyny k instalaci klienta nástrojů dotnet a nuget rozhraní příkazového řádku (CLI) a Správce balíčků pro sadu Visual Studio.
-keywords: DotNet.exe rozhraní příkazového řádku, nuget.exe rozhraní příkazového řádku, nástrojích klienta NuGet, Správce balíčků NuGet, konzoly Správce balíčků NuGet, NuGet pro Visual Studio, NuGet beta kanálu
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 7976ba94448c15e3d8b45a3630bd49b7ec66b8ae
-ms.sourcegitcommit: 55433d3bda7684d978f26d559f801878223675fa
+ms.openlocfilehash: 6681c910768bc705f5e09340e04e4d368fde5efe
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="installing-nuget-client-tools"></a>Instalace nástrojů klienta NuGet
 
@@ -56,7 +47,7 @@ Rozhraní příkazového řádku NuGet `nuget.exe`, je nástroj příkazového �
 
 Instalace:
 
-[!INCLUDE[install-cli](includes/install-cli.md)]
+[!INCLUDE [install-cli](includes/install-cli.md)]
 
 > [!Tip]
 > Použití `nuget update -self` v systému Windows k aktualizaci existující nuget.exe na nejnovější verzi.

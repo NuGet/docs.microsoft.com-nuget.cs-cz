@@ -1,27 +1,18 @@
 ---
-title: příkazy pro balíčky NuGet dotNet. | Microsoft Docs
+title: příkazy pro balíčky NuGet DotNet.
+description: Krátký odkaz pro související NuGet příkazy, pomocí rozhraní příkazového řádku dotnet.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/23/2018
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: Krátký odkaz pro související NuGet příkazy, pomocí rozhraní příkazového řádku dotnet.
-keywords: příkazy pro balíčky NuGet DotNet, dotnet. pack, dotnet obnovení, dotnet nuget místní hodnoty –, dotnet nuget nabízené, odstranění nuget dotnet.
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 352145701fba509e21e774a429d227e7427a1f0d
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: fe49274af339c987d5e090c99edd78f62f59ce47
+ms.sourcegitcommit: 5fcd6d664749aa720359104ef7a66d38aeecadc2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/27/2018
 ---
-# <a name="dotnet-commands"></a>příkazy dotNet.
+# <a name="dotnet-commands"></a>příkazy DotNet.
 
 `dotnet` Rozhraní příkazového řádku, který běží na systému Windows a Mac OS X, Linux, poskytuje řadu příkazy nezbytné nuget.exe, jak je uvedeno dále. Pokud dotnet nevyhovuje vašim požadavkům, není nutné používat `nuget.exe`.
 

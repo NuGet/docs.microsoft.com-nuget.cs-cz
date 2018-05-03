@@ -1,25 +1,16 @@
 ---
-title: Příkaz zrcadlení NuGet rozhraní příkazového řádku | Microsoft Docs
+title: Příkaz zrcadlení NuGet rozhraní příkazového řádku
+description: Referenční dokumentace pro příkaz nuget.exe zrcadlení
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/18/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Referenční dokumentace pro příkaz nuget.exe zrcadlení
-keywords: referenční dokumentace zrcadlení nuget, příkaz zrcadlení
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 512bd72d568cda81eb7c6a1555c36ead66b5c438
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 5ba13196d385abf42a5af2faa3fe6f0e80fb59d8
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="mirror-command-nuget-cli"></a>příkaz zrcadlení (NuGet CLI)
 
@@ -46,7 +37,7 @@ Pokud vaše cílové úložiště na `https://machine/repo` na kterém běží [
 
 | Možnost | Popis |
 | --- | --- |
-| ApiKey | Klíč rozhraní API pro cílové úložiště. Pokud není přítomný, verze zadaná v konfiguračním souboru se používá (`%AppData%\NuGet\NuGet.Config` (Windows) nebo `~/.nuget/NuGet/NuGet.Config` (Mac/Linux)). |
+| apiKey | Klíč rozhraní API pro cílové úložiště. Pokud není přítomný, verze zadaná v konfiguračním souboru se používá (`%AppData%\NuGet\NuGet.Config` (Windows) nebo `~/.nuget/NuGet/NuGet.Config` (Mac/Linux)). |
 | Nápověda | Zobrazí nápovědu pro příkaz. |
 | NoCache | NuGet bránit v použití balíčky v mezipaměti. V tématu [správy globální balíčky a složky mezipaměti](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
 | Nedojde k žádné akci | Protokoly co provádějí, ale neprovádí akce; předpokládá úspěch pro operace push. |

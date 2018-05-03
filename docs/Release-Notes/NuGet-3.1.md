@@ -1,22 +1,16 @@
 ---
-title: "Poznámky k verzi NuGet 3.1 | Microsoft Docs"
+title: Poznámky k verzi 3.1 NuGet
+description: Poznámky k verzi pro včetně známé problémy, opravy chyb, přidaných funkcí a chcete 3.1 NuGet.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Poznámky k verzi pro včetně známé problémy, opravy chyb, přidaných funkcí a chcete 3.1 NuGet."
-keywords: "NuGet 3.1 poznámky k verzi, opravy chyb známé problémy, přidat funkce, chcete"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: a7aa43b8701b3bbef8f6ebce9a5d636ee1bc6abe
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: d14455da6f8af4db92f7105ea1b0e88eb9e71600
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-31-release-notes"></a>Poznámky k verzi 3.1 NuGet
 
@@ -32,7 +26,7 @@ Problémy a funkce v této verzi jsou označené na Githubu se ["3.1 přenositel
 
 ### <a name="new-features"></a>Nové funkce
 
-* `project.json`Podpora pro podporu Windows UWP a ASP.NET 5
+* `project.json` Podpora pro podporu Windows UWP a ASP.NET 5
 * Instalace přenositelné balíčku
 
 Popis a definice těchto funkcí jinde v dokumentaci.
@@ -45,7 +39,7 @@ Již nejsou k dispozici pro Visual Studio 2015 následující funkce:
 
 Již nejsou k dispozici pro Visual Studio 2015 a projekty, které používají následující funkce `project.json` specifikace
 
-* `install.ps1`a `uninstall.ps1` -tyto skripty během instalace balíčku se bude ignorovat, obnovit, aktualizovat a odinstalace
+* `install.ps1` a `uninstall.ps1` -tyto skripty během instalace balíčku se bude ignorovat, obnovit, aktualizovat a odinstalace
 * Konfigurace transformací budou ignorovány.
 * Obsah se provádí, ale není zkopírovat do projektu.
     * Tým pracuje na znovu implementací této funkce, postupujte podle diskuse a v průběhu: [https://github.com/NuGet/Home/issues/627](https://github.com/NuGet/Home/issues/627)
@@ -59,7 +53,7 @@ Došlo k několika známých problémů doručit v této verzi.
 
 ## <a name="nuget-command-line"></a>NuGet příkazového řádku
 
-Spustitelný soubor příkazového řádku NuGet byl aktualizován a přesunout do nového umístění distribuovatelného, aby mohl pokračovat historických verzích nuget.exe bylo k dispozici.  3.1 beta verzi nuget.exe můžete stáhnout pro Windows v: [http://dist.nuget.org/win-x86-commandline/v3.1.0-beta/nuget.exe](http://dist.nuget.org/win-x86-commandline/v3.1.0-beta/nuget.exe)
+Spustitelný soubor příkazového řádku NuGet byl aktualizován a přesunout do nového umístění distribuovatelného, aby mohl pokračovat historických verzích nuget.exe bylo k dispozici.  3.1 beta verzi nuget.exe můžete stáhnout pro Windows na: [http://dist.nuget.org/win-x86-commandline/v3.1.0-beta/nuget.exe](http://dist.nuget.org/win-x86-commandline/v3.1.0-beta/nuget.exe)
 
 Nové distribuovatelného umístění se nachází na hostiteli dist.nuget.org s strukturu složek, která následuje tuto šablonu:
 
@@ -68,7 +62,7 @@ Nové distribuovatelného umístění se nachází na hostiteli dist.nuget.org s
 ### <a name="new-features"></a>Nové funkce
 
 * můžete obnovit a nainstalovat balíčky do projektů, které používají nuget.exe `project.json` souboru.
-* připojení a využívat protokol NuGet v3 na nuget.exe lze: [https://api.nuget.org/v3/index.json](https://api.nuget.org/v3/index.json)
+* nuget.exe můžete připojit k a využívat protokol NuGet v3 na: [https://api.nuget.org/v3/index.json](https://api.nuget.org/v3/index.json)
 
 ## <a name="known-issues"></a>Známé problémy ##
 

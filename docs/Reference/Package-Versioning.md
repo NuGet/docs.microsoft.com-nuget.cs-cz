@@ -1,26 +1,17 @@
 ---
-title: Odkaz na balíček NuGet verze | Microsoft Docs
+title: Odkaz na balíček NuGet verze
+description: Přesné informace o zadání čísla verzí a rozsahy adres pro jiné balíčky, na který závislý balíček NuGet, a způsob instalace závislosti.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 03/23/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Přesné informace o zadání čísla verzí a rozsahy adres pro jiné balíčky, na který závislý balíček NuGet, a způsob instalace závislosti.
-keywords: Správa verzí, závislosti balíčků NuGet, verze závislostí NuGet, čísla verzí NuGet, verze balíčku NuGet, verze rozsahy, specifikace verze, normalizované verze čísla
-ms.reviewer:
-- anandr
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 678ad79d9106a9f592ae4f47bc93cc117496e2c9
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: anangaur
+ms.openlocfilehash: d17d964ac73075f05678b9727e90d481a30da62e
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="package-versioning"></a>Správa verzí balíčku
 
@@ -96,7 +87,8 @@ Pokud balíček v2.0.0 specifické SemVer nahrajete do nuget.org, je balíček n
 - NuGet 4.3.0+
 - Visual Studio 2017 verze 15.3 +
 - Visual Studio 2015 se [v3.6.0 NuGet VSIX](https://dist.nuget.org/visualstudio-2015-vsix/latest/NuGet.Tools.vsix)
-- dotnet.exe (.NET SDK 2.0.0+)
+- DotNet.
+  - dotnetcore.exe (2.0.0+ .NET SDK)
 
 Klienti třetí strany:
 

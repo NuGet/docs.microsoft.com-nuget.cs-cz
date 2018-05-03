@@ -1,25 +1,16 @@
 ---
-title: Poznámky k verzi NuGet 2.5 | Microsoft Docs
-author: karann-msft
-ms.author: karann-msft
-manager: ghogen
-ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
+title: Poznámky k verzi 2,5 NuGet
 description: Poznámky k verzi pro včetně známé problémy, opravy chyb, přidaných funkcí a chcete 2.5 NuGet.
-keywords: NuGet 2.5 poznámky k verzi, opravy chyb známé problémy, přidat funkce, chcete
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 4495e1ea9cc4ec13ef330e56d12de1320cf10b24
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+author: karann-msft
+ms.author: karann
+manager: unnir
+ms.date: 11/11/2016
+ms.topic: conceptual
+ms.openlocfilehash: accea5033e44927259537b5047a4a821babc6146
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="nuget-25-release-notes"></a>Poznámky k verzi 2,5 NuGet
 
@@ -33,28 +24,28 @@ Rádi bychom se Děkujeme, že následující externí přispěvatele pro jejich
 
 1. [ADAM Plaisted](https://www.codeplex.com/site/users/view/dsplaisted) ([@dsplaisted](https://twitter.com/dsplaisted))
     - [#2847](https://nuget.codeplex.com/workitem/2847) -přidat MonoAndroid, MonoTouch a MonoMac do seznamu identifikátorů známé target framework.
-1. [G. Aragoneses Andresu](https://www.codeplex.com/site/users/view/knocte) ([@knocte](https://twitter.com/knocte))
+2. [G. Aragoneses Andresu](https://www.codeplex.com/site/users/view/knocte) ([@knocte](https://twitter.com/knocte))
     - [#2865](https://nuget.codeplex.com/workitem/2865) -Opravte pravopis `NuGet.targets` pro malá a velká písmena operačního systému
-1. [David Fowler](https://www.codeplex.com/site/users/view/dfowler) ([@davidfowl](https://twitter.com/davidfowl))
+3. [David Fowler](https://www.codeplex.com/site/users/view/dfowler) ([@davidfowl](https://twitter.com/davidfowl))
     - Ujistěte se, vychází z Mono řešení.
-1. [Andrew Theken](https://www.codeplex.com/site/users/view/atheken) ([@atheken](https://twitter.com/atheken))
+4. [Andrew Theken](https://www.codeplex.com/site/users/view/atheken) ([@atheken](https://twitter.com/atheken))
     - Testování částí v Mono opravte.
-1. [Olivier Dagenais](https://www.codeplex.com/site/users/view/OliIsCool) ([@OliIsCool](https://twitter.com/oliiscool))
+5. [Olivier Dagenais](https://www.codeplex.com/site/users/view/OliIsCool) ([@OliIsCool](https://twitter.com/oliiscool))
     - [#2920](https://nuget.codeplex.com/workitem/2920) -nuget.exe pack příkaz nešířily vlastností nástroje MSBuild
-1. [Miroslav Bajtos](https://www.codeplex.com/site/users/view/MiroslavBajtos) ([@bajtos](https://twitter.com/bajtos))
+6. [Miroslav Bajtos](https://www.codeplex.com/site/users/view/MiroslavBajtos) ([@bajtos](https://twitter.com/bajtos))
     - [#1511](https://nuget.codeplex.com/workitem/1511) – upravit XML kód pro zpracování zachovat formátování.
-1. [ADAM Ralph](http://www.codeplex.com/site/users/view/adamralph) ([@adamralph](https://twitter.com/adamralph))
+7. [ADAM Ralph](http://www.codeplex.com/site/users/view/adamralph) ([@adamralph](https://twitter.com/adamralph))
     - Přidat rozpoznaný slova slovníku umožňující build.cmd proběhla úspěšně.
-1. [Bruno Roggeri](https://www.codeplex.com/site/users/view/broggeri)
+8. [Bruno Roggeri](https://www.codeplex.com/site/users/view/broggeri)
     - Opravte testů jednotek při spuštění v lokalizovaných VS.
-1. [Zařízení Evans Gareth](https://www.codeplex.com/site/users/view/garethevans)
+9. [Zařízení Evans Gareth](https://www.codeplex.com/site/users/view/garethevans)
     - Extrahované rozhraní PackageService
-1. [Maxime Brugidou](https://www.codeplex.com/site/users/view/brugidou) ([@brugidou](https://twitter.com/brugidou))
-    - [#936](https://nuget.codeplex.com/workitem/936) -zpracování závislosti projektu při balení
-1. [Xavier Decoster](https://www.codeplex.com/site/users/view/XavierDecoster) ([@XavierDecoster](https://twitter.com/xavierdecoster))
-    - [#2991](https://nuget.codeplex.com/workitem/2991), [#3164](https://nuget.codeplex.com/workitem/3164) -podpora vymazat Text heslo při ukládání přihlašovacích údajů zdroje balíčku v souborech nuget.cofig
-1. [James Manning](http://www.codeplex.com/site/users/view/jmanning) ([@manningj](https://twitter.com/manningj))
-    - [#3190](http://nuget.codeplex.com/workitem/3190), [#3191](http://nuget.codeplex.com/workitem/3191) – popis opravte Get-Package nápovědy
+10. [Maxime Brugidou](https://www.codeplex.com/site/users/view/brugidou) ([@brugidou](https://twitter.com/brugidou))
+     - [#936](https://nuget.codeplex.com/workitem/936) -zpracování závislosti projektu při balení
+11. [Xavier Decoster](https://www.codeplex.com/site/users/view/XavierDecoster) ([@XavierDecoster](https://twitter.com/xavierdecoster))
+     - [#2991](https://nuget.codeplex.com/workitem/2991), [#3164](https://nuget.codeplex.com/workitem/3164) -podpora vymazat Text heslo při ukládání přihlašovacích údajů zdroje balíčku v souborech nuget.cofig
+12. [James Manning](http://www.codeplex.com/site/users/view/jmanning) ([@manningj](https://twitter.com/manningj))
+     - [#3190](http://nuget.codeplex.com/workitem/3190), [#3191](http://nuget.codeplex.com/workitem/3191) – popis opravte Get-Package nápovědy
 
 Děkujeme také následující jednotlivce pro vyhledání chyby s NuGet 2.5 Beta nebo RC, které byly schválené a opravit dřív, než finální verzi:
 

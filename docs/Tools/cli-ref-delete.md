@@ -1,25 +1,16 @@
 ---
-title: Příkaz delete NuGet rozhraní příkazového řádku | Microsoft Docs
+title: Příkaz delete NuGet rozhraní příkazového řádku
+description: Referenční dokumentace pro příkaz delete nuget.exe
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/18/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Referenční dokumentace pro příkaz delete nuget.exe
-keywords: nuget odstranit odkaz, odstraňte příkaz balíčku
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 9445042c46ef41721def1fbbb8dcebf4afc14d1b
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 1db00a32d777f1c0247f855bf57a0dcf1c6734ae
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="delete-command-nuget-cli"></a>Odstranit příkazu (NuGet CLI)
 
@@ -39,7 +30,7 @@ kde `<packageID>` a `<packageVersion>` přesný balíček odstranit nebo unlist 
 
 | Možnost | Popis |
 | --- | --- |
-| ApiKey | Klíč rozhraní API pro cílové úložiště. Pokud není přítomný, použije se verze zadaná v konfiguračním souboru. |
+| apiKey | Klíč rozhraní API pro cílové úložiště. Pokud není přítomný, použije se verze zadaná v konfiguračním souboru. |
 | ConfigFile | Konfigurační soubor NuGet použít. Pokud není zadaný, `%AppData%\NuGet\NuGet.Config` (Windows) nebo `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) se používá.|
 | ForceEnglishOutput | *(3.5 +)*  Vynutí nuget.exe ke spuštění pomocí invariantní, na základě angličtina jazykové verze. |
 | Nápověda | Zobrazí nápovědu pro příkaz. |

@@ -1,26 +1,16 @@
 ---
-title: Poznámky k verzi RTM NuGet 4.6 | Microsoft Docs
+title: Poznámky k verzi 4.6 RTM NuGet
+description: Poznámky k verzi pro včetně NuGet 4.6.0 – známé problémy, opravy chyb, přidaných funkcí a chcete.
 author: anangaur
 ms.author: anangaur
 manager: unnir
 ms.date: 3/7/2018
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: Poznámky k verzi pro včetně NuGet 4.6.0 – známé problémy, opravy chyb, přidaných funkcí a chcete.
-keywords: NuGet 4.6.0 poznámky k verzi, opravy chyb známé problémy, přidat funkce, chcete
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-- anangaur
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 004ad16018443292840b00fa88aa78350e371414
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: d8fc374167e5c7f601c41887c4844854d0177ccb
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-46-rtm-release-notes"></a>Poznámky k verzi 4.6 RTM NuGet
 

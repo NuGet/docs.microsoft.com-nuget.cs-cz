@@ -1,22 +1,16 @@
 ---
-title: "Poskytovatelé přihlašovacích údajů NuGet pro Visual Studio | Microsoft Docs"
+title: Poskytovatelé přihlašovacích údajů NuGet pro Visual Studio
+description: Poskytovatelé přihlašovacích údajů NuGet ověřit pomocí informačních kanálů implementací rozhraní IVsCredentialProvider v rozšíření sady Visual Studio.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/09/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Poskytovatelé přihlašovacích údajů NuGet ověřit pomocí informačních kanálů implementací rozhraní IVsCredentialProvider v rozšíření sady Visual Studio."
-keywords: "Poskytovatelé přihlašovacích údajů NuGet, ověřování pomocí informačního kanálu, ověřování pomocí Galerie rozšíření NuGet sady visual studio"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: ff143526c814c69f1a133a62c1ad1a8f5fbedd60
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 740df87b0d663aac482d888e916662528ce27030
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="authenticating-feeds-in-visual-studio-with-nuget-credential-providers"></a>Ověřování informační kanály v sadě Visual Studio s poskytovatelé přihlašovacích údajů NuGet
 
@@ -51,7 +45,7 @@ Během získávání přihlašovacích údajů službu přihlašovacích údajů
 1. Všichni ostatní poskytovatelé přihlašovacích údajů modulu plug-in vyzkouší se postupně.
 1. Pokud bylo získáno žádné přihlašovací údaje ještě uživatel vyzve k zadání pověření v dialogu standardní základní ověřování.
 
-### <a name="implementing-ivscredentialprovidergetcredentialsasync"></a>Implementing IVsCredentialProvider.GetCredentialsAsync
+### <a name="implementing-ivscredentialprovidergetcredentialsasync"></a>Implementace IVsCredentialProvider.GetCredentialsAsync
 
 Chcete-li vytvořit poskytovatele přihlašovacích údajů NuGet pro Visual Studio, vytvořte rozšíření Visual Studio, který zveřejňuje veřejné Export rozhraní MEF implementace `IVsCredentialProvider` typ a dodržuje zásady uvedených níže.
 

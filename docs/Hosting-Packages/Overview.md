@@ -1,26 +1,17 @@
 ---
-title: Přehled hostování vlastní NuGet kanály | Microsoft Docs
+title: Přehled hostování vlastními kanály NuGet
+description: Přehled otevře pro hostování vlastní kanály balíček NuGet nebo Galerie místně nebo vzdáleně.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 08/25/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: Přehled otevře pro hostování vlastní kanály balíček NuGet nebo Galerie místně nebo vzdáleně.
-keywords: NuGet kanálu, galerie NuGet vlastní balíček kanálu, NuGet.Server
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-- anangaur
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 242404caa12f17ea359a13d574379b34f13f2e40
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.reviewer: anangaur
+ms.openlocfilehash: 27f799ef69736c6cf718324e903049871430536f
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="hosting-your-own-nuget-feeds"></a>Hostování vlastní NuGet kanály
 

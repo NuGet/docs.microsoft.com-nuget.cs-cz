@@ -1,29 +1,20 @@
 ---
-title: Pro NuGet formátů analyzátor platformy .NET kompilátoru | Microsoft Docs
+title: Rozhraní .NET kompilátoru platformy analyzátor formátech pro NuGet
+description: Konvence pro analyzátory .NET, které se zabalí a distribuovat s balíčky NuGet, které implementují rozhraní API nebo knihovny.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/09/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: Konvence pro analyzátory .NET, které se zabalí a distribuovat s balíčky NuGet, které implementují rozhraní API nebo knihovny.
-keywords: Konvence analyzátor NuGet, .NET analyzátorů, NuGet a kompilátoru platformy .NET, NuGet a Roslyn
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 26e40346b1d76d2f4f0e4177dbe0670f10db164c
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: 57ab485c8062b0515c292b68ecb5a3628b6e3e9d
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="analyzer-nuget-formats"></a>Analyzátor NuGet formáty
 
-Kompilátoru platformu .NET (také označované jako "Roslyn") umožňují vývojářům vytvářet [analyzátorů] (https://github.com/dotnet/roslyn/wiki/How-To-Write-a-C%23-Analyzer-and-Code-Fix) , podívejte se na strom syntaxe a sémantiku kódu se zapsané. To poskytuje vývojářům způsob, jak vytvořit a specifické pro doménu analytické nástroje, jako jsou ty, které pomohou průvodce použít konkrétní rozhraní API nebo knihovny. Další informace najdete na [.NET/Roslyn](https://github.com/dotnet/roslyn/wiki) wiki Githubu. Také najdete v článku [Roslyn použití k zápisu Live analyzátor kódu pro vaše rozhraní API](https://msdn.microsoft.com/magazine/dn879356.aspx) v časopise MSDN.
+Kompilátoru platformu .NET (také označované jako "Roslyn") umožňují vývojářům vytvářet [analyzátorů](https://github.com/dotnet/roslyn/wiki/How-To-Write-a-C%23-Analyzer-and-Code-Fix) , podívejte se na strom syntaxe a sémantiku kódu se zapsané. To poskytuje vývojářům způsob, jak vytvořit a specifické pro doménu analytické nástroje, jako jsou ty, které pomohou průvodce použít konkrétní rozhraní API nebo knihovny. Další informace najdete na [.NET/Roslyn](https://github.com/dotnet/roslyn/wiki) wiki Githubu. Také najdete v článku [Roslyn použití k zápisu Live analyzátor kódu pro vaše rozhraní API](https://msdn.microsoft.com/magazine/dn879356.aspx) v časopise MSDN.
 
 Analyzátory sami jsou obvykle zabalené a distribuovat jako součást balíčky NuGet, které implementují rozhraní API nebo knihovny nejistá.
 

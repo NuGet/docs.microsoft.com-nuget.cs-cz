@@ -1,25 +1,16 @@
 ---
-title: Příkaz Obnovit NuGet rozhraní příkazového řádku | Microsoft Docs
+title: Příkaz Obnovit NuGet rozhraní příkazového řádku
+description: Referenční dokumentace pro příkaz restore nuget.exe
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/18/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Referenční dokumentace pro příkaz restore nuget.exe
-keywords: nuget restore odkaz, balíčky příkazu Obnovit
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 64f12fdedc8fbfcee15c1dcddc445148f458c030
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: dd0a74c9ed9b879643ed24cbddacff87310dfd6b
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="restore-command-nuget-cli"></a>příkaz Restore (NuGet CLI)
 
@@ -68,24 +59,23 @@ Viz také [proměnné prostředí](cli-ref-environment-variables.md)
 Příkaz restore provede následující kroky:
 
 1. Určení režimu operace příkazu restore.
-    Typ souboru projectPath | Chování
-    | --- | --- |
-    Řešení (složka) | Hledá NuGet `.sln` souborů a použije je-li nalezen; jinak vrátí chybu. `(SolutionDir)\.nuget` slouží jako výchozí složku.
-    `.sln` Soubor | Obnovení balíčků se identifikovanou pomocí řešení; Vrátí chybu, pokud `-SolutionDirectory` se používá. `$(SolutionDir)\.nuget` slouží jako výchozí složku.
-    `packages.config` nebo soubor projektu | Obnovte balíčky uvedené v souboru, řešení a instalování závislostí.
-    Další typ souboru | Soubor se předpokládá, že se `.sln` souboru jak je uvedeno výše; Pokud není řešením, nabízí NuGet se chyba.
-    (není zadaný projectPath) | -NuGet vyhledá soubory řešení v aktuální složce. Pokud je nalezen jeden soubor, než se používá k obnovení balíčků; Pokud je nalezeno více řešení, NuGet obsahuje chybu.
-    |– Pokud nejsou žádné soubory řešení, hledá NuGet `packages.config` a použije ho k obnovení balíčků.
-    |– Pokud žádné řešení nebo `packages.config` je nalezeno, vrátí chybu NuGet.
 
-1. Můžete určete složky balíčků v následujícím pořadí priority (NuGet vrátí chybu, pokud se nenajdou žádné z těchto složek):
+   | Typ souboru projectPath | Chování |
+   | --- | --- |
+   | Řešení (složka) | Hledá NuGet `.sln` souborů a použije je-li nalezen; jinak vrátí chybu. `(SolutionDir)\.nuget` slouží jako výchozí složku. |
+   | `.sln` Soubor | Obnovení balíčků se identifikovanou pomocí řešení; Vrátí chybu, pokud `-SolutionDirectory` se používá. `$(SolutionDir)\.nuget` slouží jako výchozí složku. |
+   | `packages.config` nebo soubor projektu | Obnovte balíčky uvedené v souboru, řešení a instalování závislostí. |
+   | Další typ souboru | Soubor se předpokládá, že se `.sln` souboru jak je uvedeno výše; Pokud není řešením, nabízí NuGet se chyba. |
+   | (není zadaný projectPath) | <ul><li>NuGet vyhledá soubory řešení v aktuální složce. Pokud je nalezen jeden soubor, než se používá k obnovení balíčků; Pokud je nalezeno více řešení, NuGet obsahuje chybu.</li><li>Pokud nejsou žádné soubory řešení, hledá NuGet `packages.config` a použije ho k obnovení balíčků.</li><li>Pokud žádné řešení nebo `packages.config` je nalezeno, vrátí chybu NuGet.</ul> |
+
+2. Můžete určete složky balíčků v následujícím pořadí priority (NuGet vrátí chybu, pokud se nenajdou žádné z těchto složek):
 
     - Zadaná složka s `-PackagesDirectory`.
     - `repositoryPath` Vale v `Nuget.Config`
     - Zadaná složka s `-SolutionDirectory`
     - `$(SolutionDir)\packages`
 
-1. Při obnovování balíčků pro řešení, NuGet provede následující akce:
+3. Při obnovování balíčků pro řešení, NuGet provede následující akce:
     - Načte soubor řešení.
     - Obnoví řešení úrovně balíčky uvedené v `$(SolutionDir)\.nuget\packages.config` do `packages` složky.
     - Obnovení balíčků, které jsou uvedené v `$(ProjectDir)\packages.config` do `packages` složky. Pro každý balíček určený obnovení balíčku paralelně, pokud `-DisableParallelProcessing` je zadán.

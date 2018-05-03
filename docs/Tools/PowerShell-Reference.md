@@ -1,22 +1,16 @@
 ---
-title: "Referenční informace prostředí PowerShell NuGet | Microsoft Docs"
+title: Referenční informace prostředí PowerShell NuGet
+description: Úplný odkaz na příkazy prostředí PowerShell, které jsou k dispozici v konzoli správce balíčků NuGet v sadě Visual Studio.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 10/02/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: 
-description: "Úplný odkaz na příkazy prostředí PowerShell, které jsou k dispozici v konzoli správce balíčků NuGet v sadě Visual Studio."
-keywords: "NuGet konzoly Správce balíčků, příkazy prostředí NuGet Powershell, referenční informace prostředí NuGet Powershell"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 0cbd9b13b34bd93fea6c6684c03bca9cff5d9e5e
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 455787d3c8701f5275ace4ed0dcb605213bfbf29
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="powershell-reference"></a>Referenční informace prostředí PowerShell
 
@@ -40,7 +34,7 @@ Konzola správce balíčků poskytuje rozhraní PowerShell v sadě Visual Studio
 | [Add-BindingRedirect](ps-ref-add-bindingredirect.md) | Hledá ve všech sestaveních ve výstupní cestě pro projekt a přidá přesměrování vazby `app.config` nebo `web.config` potřeby. | Všechny |
 | [Get-Project](ps-ref-get-project.md) | Zobrazí informace o výchozí nebo zadaného projektu. | 3.0+ |
 | [Open-PackagePage](ps-ref-open-packagepage.md) | Spuštění výchozího prohlížeče s projektu, licence nebo adresy URL sestav zneužití pro zadaný balíček. | Zastaralé v 3.0 + |
-| [Register-TabExpansion](ps-ref-register-tabexpansion.md) | Zaregistruje karta rozšíření pro parametry příkazu, umožňuje vytvářet vlastní rozšíření pro běžně používané parametr hodnoty. | Všechny |
+| [Registrace TabExpansion](ps-ref-register-tabexpansion.md) | Zaregistruje karta rozšíření pro parametry příkazu, umožňuje vytvářet vlastní rozšíření pro běžně používané parametr hodnoty. | Všechny |
 | [Sync-Package](ps-ref-sync-package.md) | Nainstalovaná verze balíčku z Get zadané projektu a synchronizuje ji s ostatními projekty v řešení. | 3.0+ |
 | [Uninstall-Package](ps-ref-uninstall-package.md) | Odebere balíček z projektu, případně odebrání jeho závislé součásti. | Všechny |
 

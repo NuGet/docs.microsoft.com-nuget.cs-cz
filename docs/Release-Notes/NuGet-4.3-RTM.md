@@ -1,26 +1,17 @@
 ---
-title: Poznámky k verzi RTM NuGet 4.3 | Microsoft Docs
-author: karann-msft
-ms.author: karann-msft
-manager: unniravindranathan
-ms.date: 08/14/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
+title: Poznámky k verzi 4.3 RTM NuGet
 description: Poznámky k verzi pro NuGet 4.3 RTM, včetně známé problémy, opravy chyb, přidaných funkcí a chcete.
-keywords: NuGet 4.3 RTM poznámky k verzi, opravy chyb známé problémy, přidat funkce, chcete
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-- anangaur
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 3c798bde11548b866cad62697315e907dea91aa5
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+author: karann-msft
+ms.author: karann
+manager: unnir
+ms.date: 08/14/2017
+ms.topic: conceptual
+ms.reviewer: anangaur
+ms.openlocfilehash: cb44f47ef0b3bd086f0a681cb2fedc7c5afc42fa
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-43-rtm-release-notes"></a>Poznámky k verzi 4.3 RTM NuGet
 
@@ -104,7 +95,8 @@ Proveďte ruční obnovení.
 
 - RestoreManagerPackage načítá synchronně který blokovaný vlákna uživatelského rozhraní a zablokována VS - [#4679](https://github.com/NuGet/Home/issues/4679)
 
-- DotNet obnovení (& proto msbuild /t:restore) přeskočí projekty s závislosti projektu explicitní řešení [#4578](https://github.com/NuGet/Home/issues/4578)
+- DotNet.
+  - dotnetcore obnovení (& proto msbuild /t:restore) přeskočí projekty s závislosti projektu explicitní řešení [#4578](https://github.com/NuGet/Home/issues/4578)
 
 - Pokud má vaše řešení projectreferences, která odkazují na stejný projekt v různých velká a malá písmena, nemusí obnovení fungovat. To ovlivní také různé relativní cesty bez rozdíl v velká a malá písmena - [#4574](https://github.com/NuGet/Home/issues/4574)
 
@@ -118,7 +110,7 @@ Proveďte ruční obnovení.
 
 - Aktualizace Nuget rozhraní příkazového řádku ponechá starý stav verze balíčku v souboru projektu (C++) - [#2449](https://github.com/NuGet/Home/issues/2449)
 
-### <a name="dcrs"></a>DCRs
+### <a name="dcrs"></a>Chcete
 
 - Čtení DotnetCliToolTargetFramework z CPS nomation - [#5397](https://github.com/NuGet/Home/issues/5397)
 

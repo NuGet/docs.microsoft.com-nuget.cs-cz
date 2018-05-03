@@ -1,27 +1,18 @@
 ---
-title: Úvodní příručka k pomocí balíčků NuGet prostřednictvím dotnet rozhraní příkazového řádku | Microsoft Docs
+title: Úvodní příručka k použití NuGet balíčky prostřednictvím rozhraní příkazového řádku dotnet.
+description: Návod kurz týkající se procesu instalace a použití balíčku NuGet v projektu .NET Core.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.prod: nuget
-ms.technology: ''
-description: Návod kurz týkající se procesu instalace a použití balíčku NuGet v projektu .NET Core.
-keywords: Nainstalujte NuGet, využívání balíčku NuGet, instalace balíčků NuGet, odkazů na balíček NuGet, pomocí balíčků NuGet
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 87a37a733ebbbbf9bc161247b657a69f30ed4fb3
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 41a249394a8a0504cc8841d3bdb67ad29ec2dc26
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="install-and-use-a-package-using-the-dotnet-cli"></a>Instalace a použití balíčku pomocí rozhraní příkazového řádku dotnet.
+# <a name="quickstart-install-and-use-a-package-using-the-dotnet-cli"></a>Rychlý úvod: Instalace a použití balíčku pomocí rozhraní příkazového řádku dotnet.
 
 Balíčky NuGet obsahovat opakovaně použitelný kód, který jinými vývojáři zpřístupnění pro použití ve vašich projektů. V tématu [co je NuGet?](../What-is-NuGet.md) pozadí. Balíčky jsou nainstalovány do projektu .NET Core pomocí `dotnet add package` příkaz, jak je popsáno v tomto článku Oblíbené [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) balíčku.
 
@@ -56,12 +47,12 @@ Balíčky NuGet lze nainstalovat do projektu .NET určitého druhu. Pro účely 
     dotnet add package Newtonsoft.Json
     ```
 
-1. Po dokončení příkazu, otevřete `.csproj` soubor přidaný odkaz:
+2. Po dokončení příkazu, otevřete `.csproj` soubor přidaný odkaz:
 
     ```xml
-  <ItemGroup>
+   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
-  </ItemGroup>
+   </ItemGroup>
     ```
 
 ## <a name="use-the-newtonsoftjson-api-in-the-app"></a>Použít Newtonsoft.Json rozhraní API v aplikaci

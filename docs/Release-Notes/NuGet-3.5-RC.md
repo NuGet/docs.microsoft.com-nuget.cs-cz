@@ -1,22 +1,16 @@
 ---
-title: "3.5 poznámky k verzi RC | Microsoft Docs"
+title: 3.5 poznámky k verzi RC
+description: Poznámky k verzi pro NuGet 3.5 RC včetně známé problémy, opravy chyb, přidaných funkcí a chcete.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Poznámky k verzi pro NuGet 3.5 RC včetně známé problémy, opravy chyb, přidaných funkcí a chcete."
-keywords: "NuGet 3.5 k vydání verze RC, opravy chyb známé problémy, přidat funkce, chcete"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: fdb84da5f1648ce4508afe6ddcf04bddd41284d3
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: d620a8b8d97f9a52cb2bc93a91eb393130a42898
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="nuget-35-rc-release-notes"></a>Poznámky k verzi RC NuGet 3.5
 
@@ -24,7 +18,7 @@ ms.lasthandoff: 02/02/2018
 
 3.5 verze je zaměřena na zlepšení kvality a výkonu klienty NuGet. Kromě toho jsme poslali několik funkcí, jako je podpora pro [záložní složky](https://github.com/NuGet/Home/issues/2899), [PackageType](https://github.com/NuGet/Home/issues/2476) podporovat v `.nuspec` a další.
 
-[Seznam problémů](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%223.5 RC")
+[Seznam problémů](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%223.5%20RC")
 
 ## <a name="bug-fixes"></a>Opravy chyb
 
@@ -94,7 +88,7 @@ ms.lasthandoff: 02/02/2018
 
 * Řešení problémů s výkonem ReSharper v aktualizaci NuGet - [#3044](https://github.com/NuGet/Home/issues/3044): na ukázkový projekt čas potřebný k instalaci balíčků zmenšeny z 140s 68s.
 
-## <a name="dcrs"></a>DCRs
+## <a name="dcrs"></a>Chcete
 
 * NuGet je potřeba upozornit uživatele, že upgrade nebo instalace v dotnet tfm, na základě PCL může způsobit problémy - [#3138](https://github.com/NuGet/Home/issues/3138)
 

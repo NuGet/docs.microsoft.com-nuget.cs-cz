@@ -1,22 +1,16 @@
 ---
-title: "Poznámky k verzi RC NuGet 3.2 | Microsoft Docs"
+title: Poznámky k verzi RC NuGet 3.2
+description: Poznámky k verzi pro NuGet 3.2 RC včetně známé problémy, opravy chyb, přidaných funkcí a chcete.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Poznámky k verzi pro NuGet 3.2 RC včetně známé problémy, opravy chyb, přidaných funkcí a chcete."
-keywords: "NuGet 3.2 k vydání verze RC, opravy chyb známé problémy, přidat funkce, chcete"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: b19f62217ed79689ce067107dd64dfffe2c59291
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 0310bac6fdb3ef92176f9224ace1620a230664af
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-32-rc-release-notes"></a>Poznámky k verzi RC NuGet 3.2
 
@@ -27,7 +21,7 @@ NuGet 3.2 verze release candidate byla vydaná verze 2. září 2015 jako kolekc
 ## <a name="new-features"></a>Nové funkce
 
 * Projekty, které za provozu ve stejné složce, teď může mít různé `project.json` soubory v této složce, které jsou specifické pro každý projekt.  Pro každý projekt, název `project.json` soubor `{ProjectName}.project.json` a NuGet se správně odkazují a používat tento obsah pro každý projekt, správně.  Tato nová funkce podporuje [1102](https://github.com/NuGet/Home/issues/1102)
-* `NuGet.Config`Teď podporuje globalPackagesFolder jako relativní cesta - [1062](https://github.com/NuGet/Home/issues/1062)
+* `NuGet.Config` Teď podporuje globalPackagesFolder jako relativní cesta - [1062](https://github.com/NuGet/Home/issues/1062)
 
 ## <a name="command-line-updates"></a>Aktualizace příkazového řádku
 
@@ -45,7 +39,7 @@ Toto je první verze součásti nuget.exe klienta, který podporuje servery NuGe
 * Opravě příkazu restore NuGet správně vrátit 1, když dojde k chybě - [1186](https://github.com/NuGet/Home/issues/1186)
 * Nyní opakování pokusu o připojení k síti každých 200 MS maximálně 5 pokusů v případě chyby HTTP 5xx - [1120](https://github.com/NuGet/Home/issues/1120)
 * Vylepšené zpracování přesměrování odpovědí serveru během nabízené command - [. 1051](https://github.com/NuGet/Home/issues/1051)
-* `nuget install -source`Teď podporuje název adresy URL nebo úložiště ze souboru Nuget.Config jako argument - [1046](https://github.com/NuGet/Home/issues/1046)
+* `nuget install -source` Teď podporuje název adresy URL nebo úložiště ze souboru Nuget.Config jako argument - [1046](https://github.com/NuGet/Home/issues/1046)
 * Chybějící balíčky, které nebyly umístěny v úložiště během obnovení jsou nyní oznamovány klientu jako chyby místo upozornění [1038](https://github.com/NuGet/Home/issues/1038)
 * Opraveny multipartwebrequest zpracování \r\n pro scénáře, platformy Unix/Linux - [. 776](https://github.com/NuGet/Home/issues/776)
 
@@ -122,4 +116,4 @@ Nakonec vylepšili také tyto položky:
 
 ## <a name="known-issues"></a>Známé problémy
 
-Abychom mohli pokračovat ke sledování problémů na našich seznamu problémy Githubu, které naleznete na adrese: [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)
+Abychom mohli pokračovat ke sledování problémů na našich seznamu Githubu problémy, které najdete na: [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)

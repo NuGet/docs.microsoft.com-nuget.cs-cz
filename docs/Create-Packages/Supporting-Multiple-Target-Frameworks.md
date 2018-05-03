@@ -1,25 +1,16 @@
 ---
-title: Cílení na více verzí pro balíčky NuGet | Microsoft Docs
+title: Cílení na více verzí pro balíčky NuGet
+description: Popis různých metod k cílení na více verzí rozhraní .NET Framework z v rámci jednoho balíčku NuGet.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 09/27/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: Popis různých metod k cílení na více verzí rozhraní .NET Framework z v rámci jednoho balíčku NuGet.
-keywords: Balíček NuGet cílení na rozhraní .NET Framework verze, NuGet a rozhraní .NET, cílení na více rozhraní, vytvoření balíčku NuGet
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 4349fed276b1a1f46845c990718f9202b356072c
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: d1a64c61954381b7ab3a7ecc8aa5a812cfa14e8b
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="supporting-multiple-net-framework-versions"></a>Podpora více verzí rozhraní .NET framework
 

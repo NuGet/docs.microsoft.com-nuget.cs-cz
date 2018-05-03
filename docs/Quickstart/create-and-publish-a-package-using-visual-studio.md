@@ -1,27 +1,18 @@
 ---
-title: Úvodní příručka k vytváření a publikování .NET standardní balíčku NuGet pomocí sady Visual Studio | Microsoft Docs
+title: Úvodní příručka k vytváření a publikování .NET standardní balíčku NuGet pomocí sady Visual Studio
+description: Návod kurz týkající se vytváření a publikování balíčku NuGet pro standardní rozhraní .NET pomocí Visual Studio 2017.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 03/18/2018
 ms.topic: quickstart
-ms.prod: nuget
-ms.technology: ''
-description: Návod kurz týkající se vytváření a publikování balíčku NuGet pro standardní rozhraní .NET pomocí Visual Studio 2017.
-keywords: Balíček NuGet vytvoření, publikování balíčku NuGet, kurzu NuGet sady Visual Studio vytvořit balíček NuGet, aktualizací Service pack nástroje msbuild
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: f7c5fb7911edcbbd3413a8836d20e7f108751f79
-ms.sourcegitcommit: 55433d3bda7684d978f26d559f801878223675fa
+ms.openlocfilehash: c5d58aa6312eae801607ca44a81bc092a7a7c15f
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="create-and-publish-a-package-using-visual-studio-net-standard"></a>Vytvoření a publikování balíčku pomocí sady Visual Studio (.NET Standard)
+# <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard"></a>Rychlý úvod: Vytvoření a publikování balíčku NuGet pomocí sady Visual Studio (.NET Standard)
 
 Je jednoduchý proces vytvoření balíčku NuGet z knihovny .NET standardní třídy v sadě Visual Studio, a potom jej publikujte do nuget.org pomocí rozhraní příkazového řádku nástroje.
 
@@ -112,11 +103,11 @@ Další možnosti s `msbuild /t:pack`, najdete v části [NuGet pack a obnovit j
 
 Až budete mít `.nupkg` souboru ji publikujete do nuget.org buď pomocí `nuget.exe` rozhraní příkazového řádku nebo `dotnet.exe` rozhraní příkazového řádku spolu s klíčem rozhraní API získali z nuget.org.
 
-[!INCLUDE[publish-notes](includes/publish-notes.md)]
+[!INCLUDE [publish-notes](includes/publish-notes.md)]
 
 ### <a name="acquire-your-api-key"></a>Získat klíč rozhraní API
 
-[!INCLUDE[publish-api-key](includes/publish-api-key.md)]
+[!INCLUDE [publish-api-key](includes/publish-api-key.md)]
 
 ### <a name="publish-with-nuget-push"></a>Publikování pomocí nabízených nuget
 
@@ -145,20 +136,21 @@ V tématu [nuget nabízené](../tools/cli-ref-push.md).
 
 Tento krok je alternativu k použití `nuget.exe`.
 
-[!INCLUDE[publish-dotnet](includes/publish-dotnet.md)]
+[!INCLUDE [publish-dotnet](includes/publish-dotnet.md)]
 
 ### <a name="publish-errors"></a>Publikování chyby
 
-[!INCLUDE[publish-errors](includes/publish-errors.md)]
+[!INCLUDE [publish-errors](includes/publish-errors.md)]
 
 ### <a name="manage-the-published-package"></a>Spravovat zveřejněný balíček
 
-[!INCLUDE[publish-manage](includes/publish-manage.md)]
+[!INCLUDE [publish-manage](includes/publish-manage.md)]
 
 ## <a name="related-topics"></a>Související témata
 
 - [Vytvoření balíčku](../create-packages/creating-a-package.md)
 - [Publikování balíčku](../create-packages/publish-a-package.md)
+- [Předběžné verze balíčků](../create-packages/Prerelease-Packages.md)
 - [Podpora více cílové rozhraní](../create-packages/supporting-multiple-target-frameworks.md)
 - [Správa verzí balíčků](../reference/package-versioning.md)
 - [Vytvoření lokalizovaných balíčků](../create-packages/creating-localized-packages.md)

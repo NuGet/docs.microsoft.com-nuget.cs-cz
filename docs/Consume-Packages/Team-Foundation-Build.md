@@ -1,25 +1,16 @@
 ---
-title: Návod balíček NuGet obnovit pomocí aplikace Team Foundation Build | Microsoft Docs
+title: Postup obnovení balíčku NuGet s Team Foundation Build
+description: Návod, jak balíček NuGet obnovení s Team Foundation Build (sady TFS a Visual Studio Team Services).
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/09/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: Návod, jak balíček NuGet obnovení s Team Foundation Build (sady TFS a Visual Studio Team Services).
-keywords: Obnovení balíčku NuGet, NuGet a sady TFS, NuGet a služby VSTS, systémy sestavení NuGet, team foundation build, vlastní projektů MSBuild cloudu, nepřetržité integrace sestavení
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: f46a7402214bf965918a5195605027913a8c60c2
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: 5eb8e68b800f623ef41a164f18efff2281e7c7cc
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="setting-up-package-restore-with-team-foundation-build"></a>Nastavení obnovení balíčků s Team Foundation Build
 

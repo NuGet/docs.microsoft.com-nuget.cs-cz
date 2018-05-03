@@ -1,25 +1,16 @@
 ---
-title: Příkaz help NuGet rozhraní příkazového řádku | Microsoft Docs
+title: Příkaz help NuGet rozhraní příkazového řádku
+description: Referenční dokumentace pro příkaz nuget.exe nápovědy
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/18/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Referenční dokumentace pro příkaz nuget.exe nápovědy
-keywords: odkaz na nápovědu nuget, příkazu nápovědy
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 440861e53b4a9ff73a9d3e8a2a3dad7dbddc9584
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: dbfc803e24c824d30e128d6e86cfa3c43660668f
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="help-or--command-nuget-cli"></a>Nápověda nebo? příkaz (NuGet CLI)
 

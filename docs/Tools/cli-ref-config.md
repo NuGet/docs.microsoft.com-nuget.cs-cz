@@ -1,25 +1,16 @@
 ---
-title: Příkaz config NuGet rozhraní příkazového řádku | Microsoft Docs
+title: Příkaz config NuGet rozhraní příkazového řádku
+description: Referenční dokumentace pro příkaz nuget.exe konfigurace
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/18/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Referenční dokumentace pro příkaz nuget.exe konfigurace
-keywords: referenční dokumentace týkající se konfigurace nuget, příkazu config
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: e3d08f210bd56fcb8eb701fc9b241a3ab45998ec
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 414eb8386f949347772f33170de881534dc71482
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="config-command-nuget-cli"></a>příkaz config (NuGet CLI)
 

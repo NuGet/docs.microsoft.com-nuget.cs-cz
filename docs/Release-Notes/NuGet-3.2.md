@@ -1,22 +1,16 @@
 ---
-title: "Poznámky k verzi NuGet 3.2 | Microsoft Docs"
+title: Poznámky k verzi 3.2 NuGet
+description: Poznámky k verzi pro NuGet 3.2 včetně známé problémy, opravy chyb, přidaných funkcí a chcete.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Poznámky k verzi pro NuGet 3.2 včetně známé problémy, opravy chyb, přidaných funkcí a chcete."
-keywords: "NuGet 3.2 poznámky k verzi, opravy chyb známé problémy, přidat funkce, chcete"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 1728a5c0d83be84686e7ab1394cfc4f8f809987c
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 938104c50fee19ee398de49c786bbb4963ba1429
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-32-release-notes"></a>Poznámky k verzi 3.2 NuGet
 
@@ -45,7 +39,7 @@ Jsme provedli několik vylepšení lépe řešit selhání sítě při pokusu o 
 * Opravě příkazu restore NuGet správně vrátit 1, když dojde k chybě - [1186](https://github.com/NuGet/Home/issues/1186)
 * Nyní opakování pokusu o připojení k síti každých 200 MS maximálně 5 pokusů v případě chyby HTTP 5xx - [1120](https://github.com/NuGet/Home/issues/1120)
 * Vylepšené zpracování přesměrování odpovědí serveru během nabízené command - [. 1051](https://github.com/NuGet/Home/issues/1051)
-* `nuget install -source`Teď podporuje název adresy URL nebo úložiště ze souboru Nuget.Config jako argument - [1046](https://github.com/NuGet/Home/issues/1046)
+* `nuget install -source` Teď podporuje název adresy URL nebo úložiště ze souboru Nuget.Config jako argument - [1046](https://github.com/NuGet/Home/issues/1046)
 * Chybějící balíčky, které nebyly umístěny v úložiště během obnovení jsou nyní oznamovány klientu jako chyby místo upozornění [1038](https://github.com/NuGet/Home/issues/1038)
 * Opraveny multipartwebrequest zpracování \r\n pro scénáře, platformy Unix/Linux - [. 776](https://github.com/NuGet/Home/issues/776)
 
@@ -120,4 +114,4 @@ Nakonec vylepšili také tyto položky:
 
 ## <a name="known-issues"></a>Známé problémy
 
-Abychom mohli pokračovat ke sledování problémů na našich seznamu problémy Githubu, které naleznete na adrese: [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)
+Abychom mohli pokračovat ke sledování problémů na našich seznamu Githubu problémy, které najdete na: [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)

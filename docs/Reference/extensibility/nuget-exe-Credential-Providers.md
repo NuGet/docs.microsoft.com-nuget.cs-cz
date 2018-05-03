@@ -1,22 +1,16 @@
 ---
-title: "Poskytovatelé přihlašovacích údajů nuget.exe | Microsoft Docs"
+title: Poskytovatelé přihlašovacích údajů nuget.exe
+description: poskytovatelé přihlašovacích údajů nuget.exe ověření prostřednictvím informačního kanálu a jsou implementované jako příkazového řádku spustitelné soubory, které dodržují konvence konkrétní prostředí.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 12/12/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "poskytovatelé přihlašovacích údajů nuget.exe ověření prostřednictvím informačního kanálu a jsou implementované jako příkazového řádku spustitelné soubory, které dodržují konvence konkrétní prostředí."
-keywords: "poskytovatelé přihlašovacích údajů nuget.exe, poskytovatel pověření rozhraní API, ověřování pomocí informačního kanálu, ověřování pomocí Galerie"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 88ce0106ad4e628ba8120f94b7951c7746ab67f3
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 494ea83007895e973585395e0cfe05b7226c4c3e
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="authenticating-feeds-with-nugetexe-credential-providers"></a>Ověřování informačních kanálů s nuget.exe poskytovatelé přihlašovacích údajů
 

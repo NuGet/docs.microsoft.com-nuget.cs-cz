@@ -1,26 +1,17 @@
 ---
-title: "Balíček obsahu, NuGet rozhraní API | Microsoft Docs"
-author:
-- joelverhagen
-- kraigb
-ms.author:
-- joelverhagen
-- kraigb
+title: Obsah balíčku NuGet rozhraní API
+description: Základní adresa balíčku je jednoduché rozhraní pro načítání balíčku sám sebe.
+author: joelverhagen
+ms.author: jver
 manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: 
-description: "Základní adresa balíčku je jednoduché rozhraní pro načítání balíčku sám sebe."
-keywords: "NuGet s plochou kontejneru, základní adresa balíčku NuGet, NuGet nupkg rozhraní API, verze balíčku NuGet rozhraní API, rozhraní API NuGet neuvedené balíčky, rozhraní API NuGet stahování nuspec"
-ms.reviewer:
-- karann
-- unniravindranathan
-ms.openlocfilehash: c2e631dc0bba95ac849430d77142f27ef591f741
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.reviewer: kraigb
+ms.openlocfilehash: a6ac40368f30d33f35d4ca0b6cc18ce4bd6efee5
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="package-content"></a>Obsah balíčku
 
@@ -32,7 +23,7 @@ Tento prostředek se obvykle označuje jako buď "balíček základní adresu" n
 
 Následující `@type` hodnota se používá:
 
-@typeHodnota              | Poznámky
+@type Hodnota              | Poznámky
 ------------------------ | -----
 PackageBaseAddress/3.0.0 | Původní verze
 

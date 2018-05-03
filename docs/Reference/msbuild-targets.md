@@ -1,25 +1,16 @@
 ---
-title: NuGet pack a obnovit jako cíle MSBuild | Microsoft Docs
+title: NuGet pack a obnovení jako cíle nástroje MSBuild
+description: NuGet pack a obnovení můžete pracovat přímo jako cíle MSBuild s NuGet 4.0 +.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 03/23/2018
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: NuGet pack a obnovení můžete pracovat přímo jako cíle MSBuild s NuGet 4.0 +.
-keywords: NuGet a MSBuild NuGet pack cíl, cíl obnovení NuGet
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: a9c2c2229d717dff8472dce0ba568e4a21900b19
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: e922da94a02450d4ea476c828209fa0cd4305725
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet pack a obnovení jako cíle nástroje MSBuild
 
@@ -64,8 +55,8 @@ Všimněte si, že `Owners` a `Summary` vlastnosti z `.nuspec` nejsou podporová
 | Popis | PackageDescription | "Balíček popis" | |
 | Copyright | Copyright | empty | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false | |
-| LicenseUrl | PackageLicenseUrl | empty | |
-| ProjectUrl | PackageProjectUrl | empty | |
+| Adresa LicenseUrl | PackageLicenseUrl | empty | |
+| Adrese ProjectUrl | PackageProjectUrl | empty | |
 | IconUrl | PackageIconUrl | empty | |
 | Značky | PackageTags | empty | Značky jsou oddělené středníky. |
 | ReleaseNotes | PackageReleaseNotes | empty | |
@@ -332,7 +323,7 @@ Soubor projektu:
 ```xml
 <PropertyGroup>
     <RestoreIgnoreFailedSource>true</RestoreIgnoreFailedSource>
-<PropertyGroup>
+</PropertyGroup>
 ```
 
 ### <a name="restore-outputs"></a>Obnovení výstupy

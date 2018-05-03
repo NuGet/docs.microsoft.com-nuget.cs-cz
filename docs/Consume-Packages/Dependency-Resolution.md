@@ -1,25 +1,16 @@
 ---
-title: Balíček NuGet závislostí řešení | Microsoft Docs
+title: Balíček NuGet závislostí řešení
+description: Informace o procesu, pomocí kterého se balíček NuGet závislosti vyřešen a nainstalované v obou NuGet 2.x a NuGet 3.x+.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 08/14/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: Informace o procesu, pomocí kterého se balíček NuGet závislosti vyřešen a nainstalované v obou NuGet 2.x a NuGet 3.x+.
-keywords: Závislosti balíčků NuGet, Správa verzí NuGet, verze závislosti, verze grafu, verze rozlišení, přenositelné obnovení
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: d387acd369c88a64abaa2cb94a913fe211df8da1
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: bfe6e348fa9a8f5df7f28509098260128920c528
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>Jak NuGet řeší závislosti balíčků
 

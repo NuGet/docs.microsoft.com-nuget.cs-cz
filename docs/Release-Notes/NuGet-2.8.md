@@ -1,22 +1,16 @@
 ---
-title: "Poznámky k verzi NuGet 2.8 | Microsoft Docs"
+title: Poznámky k verzi 2,8 NuGet
+description: Poznámky k verzi pro NuGet 2.8 včetně známé problémy, opravy chyb, přidaných funkcí a chcete.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Poznámky k verzi pro NuGet 2.8 včetně známé problémy, opravy chyb, přidaných funkcí a chcete."
-keywords: "NuGet 2.8 poznámky k verzi, opravy chyb známé problémy, přidat funkce, chcete"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 39b885adc9e23eb815f65639875c4a4c27d61a4c
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 9f472f1370bfedaf04ebe889c0da01155b8aec22
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="nuget-28-release-notes"></a>Poznámky k verzi 2,8 NuGet
 
@@ -28,21 +22,21 @@ NuGet 2.8 byla vydána 29. ledna 2014.
 
 1. [Llewellyn Pritchard](https://www.codeplex.com/site/users/view/leppie) ([@leppie](https://twitter.com/leppie))
     - [#3466](https://nuget.codeplex.com/workitem/3466) – pokud balení balíčky, ověření Id závislostí balíčků.
-1. [Maarten Balliauw](https://www.codeplex.com/site/users/view/maartenba) ([@maartenballiauw](https://twitter.com/maartenballiauw))
+2. [Maarten Balliauw](https://www.codeplex.com/site/users/view/maartenba) ([@maartenballiauw](https://twitter.com/maartenballiauw))
     - [#2379](https://nuget.codeplex.com/workitem/2379) -odebrat příponu $metadata při persistening kanálu přihlašovací údaje.
-1. [Filip De Vos](https://www.codeplex.com/site/users/view/FilipDeVos) ([@foxtricks](https://twitter.com/foxtricks))
+3. [Filip De Vos](https://www.codeplex.com/site/users/view/FilipDeVos) ([@foxtricks](https://twitter.com/foxtricks))
     - [#3538](http://nuget.codeplex.com/workitem/3538) – podpora zadání příkazu update nuget.exe souboru projektu.
-1. [Juan Gonzalez](https://www.codeplex.com/site/users/view/jjgonzalez)
+4. [Juan Gonzalez](https://www.codeplex.com/site/users/view/jjgonzalez)
     - [#3536](http://nuget.codeplex.com/workitem/3536) -není dokončena s - IncludeReferencedProjects tokeny nahrazení.
-1. [David Poole](https://www.codeplex.com/site/users/view/Sarkie) ([@Sarkie_Dave](https://twitter.com/Sarkie_Dave))
+5. [David Poole](https://www.codeplex.com/site/users/view/Sarkie) ([@Sarkie_Dave](https://twitter.com/Sarkie_Dave))
     - [#3677](http://nuget.codeplex.com/workitem/3677) -opravte nuget.push vyvolání OutOfMemoryException při nabízení velký balíček.
-1. [Wouter Ouwens](https://www.codeplex.com/site/users/view/Despotes)
+6. [Wouter Ouwens](https://www.codeplex.com/site/users/view/Despotes)
     - [#3666](http://nuget.codeplex.com/workitem/3666) -oprava nesprávné cílová cesta při projekt odkazuje na jiný projekt rozhraní příkazového řádku/C++.
-1. [ADAM Ralph](http://www.codeplex.com/site/users/view/adamralph) ([@adamralph](https://twitter.com/adamralph))
+7. [ADAM Ralph](http://www.codeplex.com/site/users/view/adamralph) ([@adamralph](https://twitter.com/adamralph))
     - [#3639](https://nuget.codeplex.com/workitem/3639) -povolit balíčky určené k instalaci jako závislosti vývoj ve výchozím nastavení
-1. [David Fowler](https://www.codeplex.com/site/users/view/dfowler) ([@davidfowl](https://twitter.com/davidfowl))
+8. [David Fowler](https://www.codeplex.com/site/users/view/dfowler) ([@davidfowl](https://twitter.com/davidfowl))
     - [#3717](https://nuget.codeplex.com/workitem/3717) -odebrat implicitní upgrade na nejnovější verzi opravy
-1. [DaN Vandenbrouck](https://www.codeplex.com/site/users/view/vdbg)
+9. [DaN Vandenbrouck](https://www.codeplex.com/site/users/view/vdbg)
     - Několik chyb, opravy a vylepšení pro NuGet.Server, příkaz nuget.exe zrcadlení a dalších.
     - Tento pracovní bylo provedeno za několik měsíců, s daN na v pravém načasování integrovat do správce pro 2.8.
 
