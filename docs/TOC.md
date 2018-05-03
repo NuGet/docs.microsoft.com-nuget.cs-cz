@@ -77,7 +77,7 @@
 ## [Migrace souboru packages.config do PackageReference](reference/migrate-packages-config-to-package-reference.md)
 ## [packages.config](reference/packages-config.md)
 ## [Správa verzí balíčků](reference/package-versioning.md)
-## [Soubor Nuget.Config](reference/nuget-config-file.md)
+## [Soubor nuget.config](reference/nuget-config-file.md)
 ## [Cíle nástroje MSBuild](reference/msbuild-targets.md)
 ## [Cílové verze rozhraní .NET Framework](reference/target-frameworks.md)
 ## [Konvence analyzátorů](reference/analyzers-conventions.md)
@@ -85,6 +85,7 @@
 ## [Rezervace předpony ID](reference/id-prefix-reservation.md)
 ## [Sada SDK pro klienta NuGet](reference/nuget-client-sdk.md)
 ## [Referenční informace o podepsaných balíčcích](reference/signed-packages-reference.md)
+## [Organizace na nuget.org](reference/organizations-on-nuget-org.md)
 ## Rozšiřitelnost
 ### [Poskytovatelé přihlašovacích údajů NuGetu pro Visual Studio](reference/extensibility/nuget-credential-providers-for-visual-studio.md)
 ### [Poskytovatelé přihlašovacích údajů v nuget.exe](reference/extensibility/nuget-exe-credential-providers.md)
