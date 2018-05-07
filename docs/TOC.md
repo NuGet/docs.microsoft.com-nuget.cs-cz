@@ -114,6 +114,7 @@
 ## [NuGet – nejčastější dotazy](policies/nuget-faq.md)
 ## [Zásady správného řízení](policies/governance.md)
 ## [Ekosystém](policies/ecosystem.md)
+## [Žádosti o data](policies/Data-requests.md)
 ## [Řešení sporů](policies/dispute-resolution.md)
 ## [Odstranění balíčků](policies/deleting-packages.md)
 # Zpráva k vydání verze
