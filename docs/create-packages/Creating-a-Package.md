@@ -6,11 +6,11 @@ ms.author: kraigb
 manager: douge
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: df1673875441ea3274ba0826c4cef168b74583d1
-ms.sourcegitcommit: 055248d790051774c892b220eca12015babbd668
-ms.translationtype: HT
+ms.openlocfilehash: 1657479e1a87f7022caa2fd991127b4ca702cdac
+ms.sourcegitcommit: 00c4c809c69c16fcf4d81012eb53ea22f0691d0b
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="creating-nuget-packages"></a>Vytváření balíčků NuGet
 
@@ -147,7 +147,7 @@ Vytváření dokončení manifestu obvykle začíná základní `.nuspec` soubor
 
 - [Založené na konvenci pracovní adresář](#from-a-convention-based-working-directory)
 - [Sestavení knihovny DLL](#from-an-assembly-dll)
-- [Projekt sady Visual Studio](#from-a-visual-studio-project)    
+- [A Visual Studio project](#from-a-visual-studio-project)    
 - [Nový soubor s výchozími hodnotami](#new-file-with-default-values)
 
 Pak upravíte soubor ručně tak, aby popisuje přesný obsah, který chcete v posledním balíčku.
@@ -157,7 +157,7 @@ Pak upravíte soubor ručně tak, aby popisuje přesný obsah, který chcete v p
 
 ### <a name="from-a-convention-based-working-directory"></a>Z založené na konvenci pracovní adresář
 
-Protože balíčku NuGet je právě soubor ZIP, který byl přejmenován s `.nupkg` rozšíření, jeho často nejjednodušší vytvořit strukturu složek, které chcete v systému souborů, pak vytvořte `.nuspec` soubor přímo z této struktury. `nuget pack` Příkaz automaticky přidá všechny soubory v této struktuře složek (s výjimkou všechny složky, které začínají `.`, umožňuje zachovat soubory soukromých ve stejné struktuře).
+Protože balíčku NuGet je právě soubor ZIP, který byl přejmenován s `.nupkg` rozšíření, jeho často nejjednodušší vytvořit struktura složek má v místním systému souborů, pak vytvořte `.nuspec` soubor přímo z této struktury. `nuget pack` Příkaz automaticky přidá všechny soubory v této struktuře složek (s výjimkou všechny složky, které začínají `.`, umožňuje zachovat soubory soukromých ve stejné struktuře).
 
 Výhoda tohoto přístupu je, že nemusíte v manifestu zadejte soubory, které chcete zahrnout do balíčku (jak je popsáno dále v tomto tématu). Jednoduše může mít vaše procesu sestavení vytvořit strukturu přesnou složku, která přejde do balíčku a snadno můžete zahrnout další soubory, které nemusí být součástí projektu jinak:
 
@@ -378,7 +378,7 @@ Kromě toho ve výchozím nastavení [toku prostředky sestavení není přechod
 
 ## <a name="running-nuget-pack-to-generate-the-nupkg-file"></a>S aktualizací Service pack nuget ke generování souboru .nupkg v podadresáři
 
-Pokud používáte sestavení nebo pracovní adresář založené na konvenci, vytvořit balíček spuštěním `nuget pack` s vaší `.nuspec` souboru, nahraďte `<manifest-name>` s vaší konkrétní název souboru:
+Pokud používáte sestavení nebo pracovní adresář založené na konvenci, vytvořit balíček spuštěním `nuget pack` s vaší `.nuspec` souboru, nahraďte `<project-name>` s vaší konkrétní název souboru:
 
 ```cli
 nuget pack <project-name>.nuspec
@@ -441,7 +441,7 @@ Pro automatizované testování základní proces je následující:
 1. Kopírování `.nupkg` soubor do místní složky.
 1. Přidat složku do vaší zdroje balíčku pomocí `nuget sources add -name <name> -source <path>` příkazu (najdete v části [zdroje nuget](../tools/cli-ref-sources.md)). Všimněte si, že budete potřebovat pouze jednou nastavit tento místní zdroj libovolného daného počítače.
 1. Nainstalujte balíček z tohoto zdroje pomocí `nuget install <packageID> -source <name>` kde `<name>` odpovídá názvu zdrojového přidělený `nuget sources`. Zadání zdrojové zajistí, že balíček je nainstalovat z tohoto zdroje samostatně.
-1. Zkontrolujte a zkontrolujte, zda jsou soubory správně nainstalovány v systému souborů.
+1. Zkontrolujte systému souborů a zkontrolujte, zda jsou soubory správně nainstalovány.
 
 ## <a name="next-steps"></a>Další kroky
 
