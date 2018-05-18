@@ -6,11 +6,11 @@ ms.author: karann
 manager: unnir
 ms.date: 5/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: a37b7fd9cb44d485250deb18d7630d47c68e0517
-ms.sourcegitcommit: 00c4c809c69c16fcf4d81012eb53ea22f0691d0b
-ms.translationtype: HT
+ms.openlocfilehash: f23cc2973fa6370d9b7513d415fd8151b822c104
+ms.sourcegitcommit: 8f0bb8bb9cb91d27d660963ed9b0f32642f420fe
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="nuget-47-rtm-release-notes"></a>Poznámky k verzi 4.7 RTM NuGet
 
@@ -23,6 +23,22 @@ ms.lasthandoff: 05/16/2018
 * S 15.7 verze Visual Studio, jsme zavedli schopnost [migrovat existující projekty, které používají formát souboru packages.config používat PackageReference](https://docs.microsoft.com/en-us/nuget/reference/migrate-packages-config-to-package-reference) místo.
 
 ## <a name="known-issues"></a>Známé problémy
+
+### <a name="the-migrate-packagesconfig-to-packagereference-option-is-not-available-in-the-right-click-context-menu"></a>`Migrate packages.config to PackageReference...` Možnost není dostupná v místní nabídce klikněte pravým tlačítkem na
+
+#### <a name="issue"></a>Problém
+
+Při prvním otevření projektu, nemusí mít NuGet inicializovat, dokud nebude provedena operace NuGet. To způsobí, že není zobrazena v místní nabídce klikněte pravým tlačítkem na možnost migrace `packages.config` nebo `References`.
+
+#### <a name="workaround"></a>Alternativní řešení
+
+Či kterékoli z následujících akcí NuGet:
+* Otevřete uživatelské rozhraní Správce balíčků – klikněte pravým tlačítkem na `References` a vyberte `Manage NuGet Packages...`
+* Otevřete konzolu Správce balíčků - z `Tools > NuGet Package Manager`, vyberte možnost `Package Manager Console`
+* Spuštění obnovení NuGet - klikněte pravým tlačítkem na uzel řešení v Průzkumníku řešení a vyberte `Restore NuGet Packages`
+* Sestavte projekt, který také aktivuje obnovení NuGet
+
+Teď by měla být moci zobrazit možnost migrace. Všimněte si, že tato možnost není podporována a nezobrazí se pro typy projektů ASP.NET a C++.
 
 ### <a name="issues-with-net-standard-20-with-net-framework--nuget"></a>Problémy s .NET standardní 2.0 pomocí rozhraní .NET Framework & NuGet
 

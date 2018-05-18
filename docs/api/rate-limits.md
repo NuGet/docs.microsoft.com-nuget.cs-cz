@@ -10,11 +10,11 @@ ms.reviewer:
 - skofman
 - anangaur
 - kraigb
-ms.openlocfilehash: e236d685a700d0f47480336cece8edfd44c28863
-ms.sourcegitcommit: 68c8a494a11c892ac671fec3170ba7be97fb044d
+ms.openlocfilehash: c5d3cf68ac6a96a6c14eb5e652bcf72698b6a8e8
+ms.sourcegitcommit: 8f0bb8bb9cb91d27d660963ed9b0f32642f420fe
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="rate-limits"></a>Omezení přenosové rychlosti
 
@@ -46,5 +46,5 @@ V následujících tabulkách najdete omezení přenosové rychlosti pro rozhran
 
 | rozhraní API | Omezení typu | Mezní hodnota | Rozhraní API usecase | 
 |:---|:---|:---|:--- |
-**PUT** `/api/v2/package` | Klíč rozhraní API | 100 za minutu | Nahrát nový balíček NuGet (verze) prostřednictvím koncového bodu nabízené v2 
-**ODSTRANIT** `/api/v2/package/{id}/{version}` | Klíč rozhraní API | 100 za minutu | Unlist balíček NuGet (verze) prostřednictvím koncového bodu v2 
+**PUT** `/api/v2/package` | Klíč rozhraní API | 250 / hodinu | Nahrát nový balíček NuGet (verze) prostřednictvím koncového bodu nabízené v2 
+**ODSTRANIT** `/api/v2/package/{id}/{version}` | Klíč rozhraní API | 250 / hodinu | Unlist balíček NuGet (verze) prostřednictvím koncového bodu v2 
