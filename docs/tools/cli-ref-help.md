@@ -12,7 +12,7 @@ ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 04/26/2018
 ---
-# <a name="help-or--command-nuget-cli"></a>Nápověda nebo? Příkaz (NuGet CLI)
+# <a name="help-or--command-nuget-cli"></a>help or ? Příkaz (NuGet CLI)
 
 **Platí pro:** všechny &bullet; **podporované verze**: všechny
 
