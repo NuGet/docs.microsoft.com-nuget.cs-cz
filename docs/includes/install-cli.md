@@ -10,13 +10,11 @@ Chování se může mírně liší podle operačního systému distribučního.
 
 1. Nainstalujte [Mono 4.4.2 nebo novější](http://www.mono-project.com/docs/getting-started/install/).
 
-1. Spuštěním následujících příkazů v řádku prostředí:
+1. Spusťte následující příkaz v řádku prostředí:
 
     ```bash
     # Download the latest stable `nuget.exe` to `/usr/local/bin`
     sudo curl -o /usr/local/bin/nuget.exe https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
-    # Give the file permissions to execute
-    sudo chmod 755 /usr/local/bin/nuget.exe
     ```
 
 1. Vytvořte alias přidáním následující skript k příslušnému souboru pro váš operační systém (obvykle `~/.bash_aliases` nebo `~/.bash_profile`):

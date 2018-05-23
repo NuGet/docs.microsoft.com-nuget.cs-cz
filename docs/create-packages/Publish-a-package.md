@@ -4,11 +4,11 @@ description: Podrobné pokyny pro publikování balíčku NuGet nuget.org nebo p
 author: kraigb
 ms.author: kraigb
 manager: douge
-ms.date: 03/19/2018
+ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: a47ff9fa3babf830cdd2de25ac0b92af782b5e7e
-ms.sourcegitcommit: f0b31af805183cf3a98eabb504e16d9b05223cfe
+ms.openlocfilehash: 806a64d2d7654e4c1bca89a13d70fd9983c12703
+ms.sourcegitcommit: 8127dd73ff8481a1a01acd9b7004dd131a9d84e7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/22/2018
@@ -71,6 +71,13 @@ K nabízení balíčků nuget.org je nutné použít [nuget.exe v4.1.0 nebo vyš
     ```cli
     nuget push YourPackage.nupkg -Source https://api.nuget.org/v3/index.json
     ```
+
+#### <a name="publish-signed-packages"></a>Publikovat podepsané balíčky
+
+Chcete-li odeslat podepsaný balíčků, je nutné nejprve [zaregistrovat certifikát](../reference/Signed-Packages-Reference.md#register-certificate-on-nugetorg) použít pro podepisování balíčků. 
+
+> [!Warning]
+> nuget.org odmítne balíčky, které si odpovídají [podepsané požadavků balíčku](../reference/Signed-Packages-Reference.md#signature-requirements-on-nugetorg).
 
 ### <a name="package-validation-and-indexing"></a>Ověřování balíčku a indexování
 
