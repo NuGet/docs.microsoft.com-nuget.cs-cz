@@ -84,7 +84,7 @@
 ## [Chyby a upozornění](reference/errors-and-warnings.md)
 ## [Rezervace předpony ID](reference/id-prefix-reservation.md)
 ## [Sada SDK pro klienta NuGet](reference/nuget-client-sdk.md)
-## [Referenční informace o podepsaných balíčcích](reference/signed-packages-reference.md)
+## [Podepsané balíčky](reference/signed-packages-reference.md)
 ## [Organizace na nuget.org](reference/organizations-on-nuget-org.md)
 ## Rozšiřitelnost
 ### [Poskytovatelé přihlašovacích údajů NuGetu pro Visual Studio](reference/extensibility/nuget-credential-providers-for-visual-studio.md)
