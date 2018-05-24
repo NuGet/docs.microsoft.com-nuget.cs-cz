@@ -7,11 +7,11 @@ manager: doronm
 ms.date: 03/06/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: c2c31b71358bc50a1fb9aab8905c279cd1235b07
-ms.sourcegitcommit: 5fcd6d664749aa720359104ef7a66d38aeecadc2
+ms.openlocfilehash: c80334104f7d8b2ccbf16ea2c11dc37b39408eeb
+ms.sourcegitcommit: c8485dc61469511485367d2067b97d6f74b49f6e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/27/2018
+ms.lasthandoff: 05/23/2018
 ---
 # <a name="verify-command-nuget-cli"></a>Příkaz verify (NuGet CLI)
 
@@ -24,22 +24,32 @@ Ověření podepsaný balíčků v .NET Core, v části Mono nebo na jiný syst�
 ## <a name="usage"></a>Použití
 
 ```cli
-nuget verify <package(s)> [options]
+nuget verify <-All|-Signatures> <package(s)> [options]
 ```
 
 kde `<package(s)>` je jeden nebo více `.nupkg` soubory.
+
+## <a name="nuget-verify--all"></a>Ověřte nuget – všechny
+
+Určuje, že všechny možné ověření je třeba provést na balíčky.
+
+## <a name="nuget-verify--signatures"></a>ověřování nuget - podpisů
+
+Určuje, že by se měla provést ověření podpisu balíčku.
+
+## <a name="options-for-verify--signatures"></a>Možnosti pro "ověřit - podpisy"
+
+| Možnost | Popis |
+| --- | --- |
+| CertificateFingerprint | Určuje jeden algoritmus SHA-256 certifikát otisky certifikátů (s), které podepsané balíčky musí být podepsány pomocí. Otisk prstu certifikát SHA-256 je hodnota hash SHA-256 certifikátu. Více vstupů by měl být oddělený středníkem. |
 
 ## <a name="options"></a>Možnosti
 
 | Možnost | Popis |
 | --- | --- |
-| Všechny | Určuje, že všechny možné ověření je třeba provést na balíčky. |
-| CertificateFingerprint | Určuje jeden algoritmus SHA-256 certifikát otisky certifikátů (s), které podepsané balíčky musí být podepsány pomocí. Otisk prstu certifikát SHA-256 je hodnota hash SHA-256 certifikátu. Více vstupů by měl být oddělený středníkem. |
 | ConfigFile | Konfigurační soubor NuGet použít. Pokud není zadaný, `%AppData%\NuGet\NuGet.Config` (Windows) nebo `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) se používá.|
 | ForceEnglishOutput | Vynutí nuget.exe ke spuštění pomocí invariantní, na základě angličtina jazykové verze. |
 | Nápověda | Zobrazí nápovědu pro příkaz. |
-| Neinteraktivní | Potlačí výzvy pro vstup uživatele nebo potvrzení. |
-| Podpisy | Určuje, že by se měla provést ověření podpisu balíčku. |
 | Podrobnosti | Určuje množství podrobností, které jsou zobrazené ve výstupu: *normální*, *quiet*, *podrobné*. |
 
 ## <a name="examples"></a>Příklady
@@ -52,4 +62,7 @@ nuget verify -Signatures c:\packages\MyPackage.nupkg -CertificateFingerprint CE4
 nuget verify -Signatures MyPackage.nupkg -Verbosity quiet
 
 nuget verify -Signatures .\*.nupkg
+
+nuget verify -All .\*.nupkg
+
 ```
