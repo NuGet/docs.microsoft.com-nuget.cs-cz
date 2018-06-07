@@ -1,20 +1,21 @@
 ---
 title: NuGet pack a obnovení jako cíle nástroje MSBuild
 description: NuGet pack a obnovení můžete pracovat přímo jako cíle MSBuild s NuGet 4.0 +.
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 00d763bcfdd2f3db50378a1e7774eae7a2e1fcd1
-ms.sourcegitcommit: 00c4c809c69c16fcf4d81012eb53ea22f0691d0b
+ms.openlocfilehash: f835deabe337236dcabe6654f1963984ab0687ca
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818305"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet pack a obnovení jako cíle nástroje MSBuild
 
-*NuGet 4.0+*
+*NuGet 4.0 +*
 
 Ve formátu PackageReference NuGet 4.0 + můžete ukládat všechny manifestu metadata přímo v souboru projektu místo pomocí samostatné `.nuspec` souboru.
 
@@ -55,8 +56,8 @@ Všimněte si, že `Owners` a `Summary` vlastnosti z `.nuspec` nejsou podporová
 | Popis | Popis | "Balíček popis" | |
 | Copyright | Copyright | empty | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false | |
-| LicenseUrl | PackageLicenseUrl | empty | |
-| ProjectUrl | PackageProjectUrl | empty | |
+| Adresa LicenseUrl | PackageLicenseUrl | empty | |
+| Adrese ProjectUrl | PackageProjectUrl | empty | |
 | IconUrl | PackageIconUrl | empty | |
 | Značky | PackageTags | empty | Značky jsou oddělené středníky. |
 | ReleaseNotes | PackageReleaseNotes | empty | |

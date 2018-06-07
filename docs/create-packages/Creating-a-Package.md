@@ -1,16 +1,17 @@
 ---
 title: Postup vytvoření balíčku NuGet
 description: Podrobný průvodce do procesu návrhu a vytvoření balíčku NuGet, včetně klíče rozhodovací body, jako jsou soubory a správu verzí.
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: 1657479e1a87f7022caa2fd991127b4ca702cdac
-ms.sourcegitcommit: 00c4c809c69c16fcf4d81012eb53ea22f0691d0b
+ms.openlocfilehash: 435db2d0cddcfd6b9db530cb384cf7facb9170dd
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818461"
 ---
 # <a name="creating-nuget-packages"></a>Vytváření balíčků NuGet
 
@@ -147,7 +148,7 @@ Vytváření dokončení manifestu obvykle začíná základní `.nuspec` soubor
 
 - [Založené na konvenci pracovní adresář](#from-a-convention-based-working-directory)
 - [Sestavení knihovny DLL](#from-an-assembly-dll)
-- [A Visual Studio project](#from-a-visual-studio-project)    
+- [Projekt sady Visual Studio](#from-a-visual-studio-project)    
 - [Nový soubor s výchozími hodnotami](#new-file-with-default-values)
 
 Pak upravíte soubor ručně tak, aby popisuje přesný obsah, který chcete v posledním balíčku.

@@ -1,16 +1,17 @@
 ---
 title: Vytvoření a publikování .NET Standard balíček pomocí sady Visual Studio v systému Windows
 description: Návod kurz týkající se vytváření a publikování balíčku NuGet pro rozhraní .NET standardní pomocí Visual Studio 2017 v systému Windows.
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 05/18/2018
 ms.topic: quickstart
-ms.openlocfilehash: f4e6473d307f2f71016f6926abbcdb1295abc7b5
-ms.sourcegitcommit: f0b31af805183cf3a98eabb504e16d9b05223cfe
+ms.openlocfilehash: e97773d79b22db1f08d868190895a9417b12c924
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/22/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818744"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Rychlý úvod: Vytvoření a publikování balíčku NuGet pomocí sady Visual Studio (.NET Standard, pouze v systému Windows)
 

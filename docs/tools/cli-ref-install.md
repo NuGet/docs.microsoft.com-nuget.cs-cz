@@ -1,16 +1,17 @@
 ---
 title: Příkaz instalace rozhraní příkazového řádku NuGet
 description: Referenční dokumentace pro příkaz nuget.exe instalace
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 1c6ec1181f2f619eb8a4f2d87f7910f25b98e0f4
-ms.sourcegitcommit: 00c4c809c69c16fcf4d81012eb53ea22f0691d0b
+ms.openlocfilehash: 8aaf4c2563aa802900a102848fc33fc8708a135d
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34817886"
 ---
 # <a name="install-command-nuget-cli"></a>Příkaz install (NuGet CLI)
 
@@ -50,7 +51,7 @@ kde `<packageID>` názvy balíček k instalaci (pomocí nejnovější verze), ne
 | Rozhraní .NET Framework | *(4.4 +)*  Cílovém Frameworku, který slouží k výběru závislosti. Výchozí hodnota je 'Libovolný' není-li zadána. |
 | Nápověda | Zobrazí nápovědu pro příkaz. |
 | NoCache | NuGet bránit v použití balíčky v mezipaměti. V tématu [správy globální balíčky a složky mezipaměti](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
-| NonInteractive | Potlačí výzvy pro vstup uživatele nebo potvrzení. |
+| Neinteraktivní | Potlačí výzvy pro vstup uživatele nebo potvrzení. |
 | Výstupnísložka | Určuje složku, ve kterém jsou nainstalované balíčky. Pokud není zadaný žádný složky, se používá aktuální složky. |
 | PackageSaveMode | Určuje typy souborů, uložte po instalaci balíčku: jeden z `nuspec`, `nupkg`, nebo `nuspec;nupkg`. |
 | Předběžné verze | Umožňuje předběžné verze balíčků k instalaci. Tento příznak není požadována, když probíhá obnovení balíčků s `packages.config`. |

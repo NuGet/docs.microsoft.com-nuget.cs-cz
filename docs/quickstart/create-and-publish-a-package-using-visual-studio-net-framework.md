@@ -1,16 +1,17 @@
 ---
 title: Vytvoření a publikování balíček rozhraní .NET Framework pomocí sady Visual Studio v systému Windows
 description: Návod kurz týkající se vytváření a publikování balíčku NuGet pro rozhraní .NET Framework pomocí Visual Studio 2017 v systému Windows.
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: ba02b53c6ac0b4172b8611958775980ce401bf9b
-ms.sourcegitcommit: f0b31af805183cf3a98eabb504e16d9b05223cfe
+ms.openlocfilehash: ffa2128b577673e980f4115f37f8685858c36250
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/22/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818266"
 ---
 # <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>Rychlý úvod: Vytvoření a publikování balíčku pomocí sady Visual Studio (rozhraní .NET Framework, Windows)
 

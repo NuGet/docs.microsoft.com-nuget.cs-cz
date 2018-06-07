@@ -1,16 +1,17 @@
 ---
 title: Jak zabalit ovládacích prvků uživatelského rozhraní s NuGet
 description: Postup vytvoření balíčků NuGet, které obsahují UWP nebo WPF ovládací prvky, včetně potřeby metadata a podpůrné soubory pro Visual Studio a nástroj Blend návrháře.
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 05/23/2018
 ms.topic: tutorial
-ms.openlocfilehash: fc6ab9e45d18807a6d69bb50ad5bac94b662a638
-ms.sourcegitcommit: 80c1a37d8794e9219e310a21a6a6885a65d24e53
+ms.openlocfilehash: ab7499c415f63319fd314f33607f74d400b5f957
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/23/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818654"
 ---
 # <a name="creating-ui-controls-as-nuget-packages"></a>Vytváření ovládacích prvků uživatelského rozhraní jako balíčků NuGet
 
@@ -147,7 +148,7 @@ Příklad najdete v části [MyCustomControl.cs](https://github.com/NuGet/Sample
 > [!Note]
 > To se vztahuje pouze na UWP ovládací prvky.
 
-## <a name="see-also"></a>Viz také
+## <a name="see-also"></a>Viz také:
 
 - [Vytvoření balíčků UPW](create-uwp-packages.md)
 - [Ukázka ExtensionSDKasNuGetPackage](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage)
