@@ -11,6 +11,7 @@ ms.sourcegitcommit: 68c8a494a11c892ac671fec3170ba7be97fb044d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33086216"
 ---
 # <a name="user-data-requests"></a>Požadavky na Data uživatele
 
