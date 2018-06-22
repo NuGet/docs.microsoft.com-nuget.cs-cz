@@ -15,6 +15,7 @@ ms.sourcegitcommit: 8f0bb8bb9cb91d27d660963ed9b0f32642f420fe
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34225941"
 ---
 # <a name="rate-limits"></a><span data-ttu-id="2c1d3-103">Omezení přenosové rychlosti</span><span class="sxs-lookup"><span data-stu-id="2c1d3-103">Rate Limits</span></span>
 
