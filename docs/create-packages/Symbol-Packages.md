@@ -1,31 +1,31 @@
 ---
-title: Postup vytvoření balíčků NuGet – symbol
-description: Jak vytvořit balíčky NuGet, které obsahují pouze symboly pro podporu ladění dalších balíčcích NuGet v sadě Visual Studio.
+title: Vytváření balíčků NuGet symbol
+description: Jak vytvořit balíčky NuGet, které obsahují pouze symboly v zájmu podpory ladění jiných balíčků NuGet v sadě Visual Studio.
 author: karann-msft
 ms.author: karann
 manager: unnir
 ms.date: 09/12/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 8d2ff4d414e496d4a57755637cbbe05f4a8408e3
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: e917895d0fa6ed6dc4bc24b72afc7fa0770f2dd0
+ms.sourcegitcommit: 8e3546ab630a24cde8725610b6a68f8eb87afa47
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34816888"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37843365"
 ---
-# <a name="creating-symbol-packages"></a>Vytváření balíčků – symbol
+# <a name="creating-symbol-packages"></a>Vytváření balíčků symbolů
 
-Kromě vytváření balíčků pro nuget.org nebo jiné zdroje NuGet také podporuje vytváření související symbol balíčky a publikováním do SymbolSource úložiště.
+Kromě vytváření balíčků pro nuget.org nebo jiné zdroje NuGet také podporuje vytváření přidružené balíčky symbolů a publikujete je do úložiště SymbolSource.
 
-Poté můžete přidat balíček příjemci `https://nuget.smbsrc.net` k jejich symbol zdroje v sadě Visual Studio, což umožňuje zanoříte se do balíčku kódu v ladicím programu sady Visual Studio. V tématu [zadejte symbolu (.pdb) a zdrojových souborů v ladicím programu sady Visual Studio](/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger) podrobnosti o tomto procesu.
+Poté můžete přidat balíček příjemci `https://nuget.smbsrc.net` k jejich symbol zdroje v sadě Visual Studio, který umožňuje krokování s vnořením do kódu balíček v ladicím programu sady Visual Studio. Zobrazit [zadání symbolu (.pdb) a zdrojových souborů v ladicím programu sady Visual Studio](/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger) podrobnosti o tomto procesu.
 
-## <a name="creating-a-symbol-package"></a>Vytváření balíčku – symbol
+## <a name="creating-a-symbol-package"></a>Vytváří se balíček symbolů
 
-Chcete-li vytvořit balíček symbol, postupujte podle těchto konvence:
+Vytvořte balíček symbolů, postupujte podle těchto konvence:
 
-- Název primární balíček (pomocí kódu) `{identifier}.nupkg` a zahrnují všechny soubory kromě `.pdb` soubory.
-- Zadejte název balíčku symbol `{identifier}.symbols.nupkg` a obsahovat vaše sestavení knihoven DLL, `.pdb` soubory, soubory XMLDOC, zdrojové soubory (viz následující části).
+- Zadejte název primárního balíčku (s vaším kódem) `{identifier}.nupkg` a zahrnout všechny soubory s výjimkou `.pdb` soubory.
+- Zadejte název balíčku symbolů `{identifier}.symbols.nupkg` a zahrnout sestavení knihovny DLL, `.pdb` soubory, soubory XMLDOC, zdrojové soubory (viz následující části).
 
 Můžete vytvořit oba balíčky s `-Symbols` možnosti, buď z `.nuspec` soubor nebo soubor projektu:
 
@@ -35,13 +35,13 @@ nuget pack MyPackage.nuspec -Symbols
 nuget pack MyProject.csproj -Symbols
 ```
 
-Všimněte si, že `pack` vyžaduje Mono 4.4.2 na Mac OS X a nefunguje v systémech Linux. V systému Mac, je nutné také převést Windows názvy cest v `.nuspec` souboru do cesty formátu UNIX.
+Všimněte si, že `pack` vyžaduje Mono 4.4.2 v Mac OS X a nebude fungovat v systémech Linux. Na počítači Mac, je také nutné převést Windows cest v `.nuspec` soubor do cesty k systému UNIX.
 
-## <a name="symbol-package-structure"></a>Struktura balíček – symbol
+## <a name="symbol-package-structure"></a>Struktura balíčku symbolů
 
-Symbol balíček, můžete vybrat více cílové rozhraní stejným způsobem, který nemá balíček knihovny, proto struktura `lib` složky by mělo obsahovat přesně stejný jako primární balíček jen včetně `.pdb` soubory spolu s knihovnou DLL.
+Balíček symbolů můžete cílit na více cílových platforem stejným způsobem, který nemá balíček knihovny, proto struktury `lib` složka by měla být přesně stejný jako primární balíček jen včetně `.pdb` soubory společně s knihovny DLL.
 
-Toto rozložení mít například symbol balíček, který cílí rozhraní .NET 4.0 a Silverlight 4:
+Toto rozložení mít například balíček symbolů, který cílí na rozhraní .NET 4.0 a Silverlight 4:
 
     \lib
         \net40
@@ -51,7 +51,7 @@ Toto rozložení mít například symbol balíček, který cílí rozhraní .NET
             \MyAssembly.dll
             \MyAssembly.pdb
 
-Zdrojové soubory jsou pak umístit do samostatné speciální složky s názvem `src`, které musí následovat relativní strukturu zdrojové úložiště. Je to proto, že soubory PDB obsahovat absolutní cesty na zdrojové soubory, které používá ke kompilaci odpovídající DLL a potřebují k nalezen během procesu publikování. Základní cesta (běžné cesta předponu) může být vynechají. Představte si třeba knihovnu sestaven z těchto souborů:
+Zdrojové soubory jsou pak umístěné v samostatné speciální složky s názvem `src`, které musí následovat relativní struktury zdrojového úložiště. Je to proto, že soubory PDB obsahovat absolutní cesty ke zdrojovým souborům používá ke kompilaci odpovídající knihovny DLL, a potřebují najít během procesu publikování. Základní cesta (běžnou předponu cesty) může být vynechají. Představte si třeba knihovnu sestaven z těchto souborů:
 
     C:\Projects
         \MyProject
@@ -67,7 +67,7 @@ Zdrojové soubory jsou pak umístit do samostatné speciální složky s názvem
                 \MySilverlightExtensions.cs
                 \MyAssembly.csproj (producing \lib\sl4\MyAssembly.dll)
 
-Kromě `lib` složky balíčku symbol by bylo potřeba obsahovat toto rozložení:
+Kromě `lib` složce balíček symbolů by bylo potřeba obsahovat toto rozložení:
 
     \src
         \Common
@@ -80,9 +80,9 @@ Kromě `lib` složky balíčku symbol by bylo potřeba obsahovat toto rozložen�
                 \AssemblyInfo.cs
             \MySilverlightExtensions.cs
 
-## <a name="referring-to-files-in-the-nuspec"></a>Odkazy na soubory v soubor nuspec
+## <a name="referring-to-files-in-the-nuspec"></a>Odkazování na soubory v souboru nuspec
 
-Symbol balíčku se dají vytvářet konvencemi z struktury složek, jak je popsáno v předchozí části, nebo zadáním jeho obsah v `files` oddílu manifest. Například pokud chcete vytvořit balíček uvedené v předchozí části, použít následující `.nuspec` souboru:
+Balíček symbolů se dají podle konvence z strukturu složek, jak je popsáno v předchozí části, nebo tak, že zadáte jeho obsah `files` manifestu. Například provést sestavení balíčku je znázorněno v předchozí části, pomocí následujících postupů v `.nuspec` souboru:
 
 ```xml
 <files>
@@ -94,40 +94,40 @@ Symbol balíčku se dají vytvářet konvencemi z struktury složek, jak je pops
 </files>
 ```
 
-## <a name="publishing-a-symbol-package"></a>Publikování balíčku – symbol
+## <a name="publishing-a-symbol-package"></a>Publikování balíčku symbolů
 
 > [!Important]
-> K nabízení balíčků nuget.org je nutné použít [nuget.exe v4.1.0 nebo vyšší](https://www.nuget.org/downloads), který implementuje požadovaná [NuGet protokoly](../api/nuget-protocols.md).
+> Push balíčků na nuget.org je nutné použít [nuget.exe verze 4.1.0 nebo vyšší](https://www.nuget.org/downloads), který implementuje požadované [NuGet protokoly](../api/nuget-protocols.md).
 
-1. Pro větší pohodlí si nejprve uložit klíč rozhraní API s NuGet (viz [publikování balíčku](../create-packages/publish-a-package.md), které bude platit pro nuget.org a symbolsource.org, protože symbolsource.org zkontroluje s nuget.org ověřit, zda jste vlastníkem balíčku.
+1. Pro usnadnění práce, uložte svůj klíč rozhraní API s NuGet (viz [publikování balíčku](../create-packages/publish-a-package.md), které bude platit na webech nuget.org a symbolsource.org, protože symbolsource.org zkontroluje s nuget.org a ověřte, zda jste vlastníkem balíčku.
 
     ```cli
     nuget SetApiKey Your-API-Key
     ```
 
-2. Po publikování primární balíček nuget.org, push balíček symbol následujícím způsobem, které budou automaticky používat symbolsource.org jako cíl z důvodu `.symbols` v názvu souboru:
+2. Po publikování primární balíčků na nuget.org, push balíček symbolů následujícím způsobem, které budou automaticky používat symbolsource.org jako cíl z důvodu `.symbols` v názvu souboru:
 
     ```cli
     nuget push MyPackage.symbols.nupkg
     ```
 
-   > [!Note]
-   > S nuget.exe 4.5.0 nebo vyšší symboly balíčky nejsou automaticky instaluje do symbolsource.org. Potřebovali byste tak, aby nabízel balíčky symboly samostatně, jak je popsáno v dalším kroku.
-
-3. K publikování do různých symbol úložiště, nebo tak, aby nabízel symbol balíček, který není postupujte podle zásad vytváření názvů, použít `-Source` možnost:
+3. Chcete publikovat do úložiště symbolů různých, nebo tak, aby nabízel symbol balíček, který není postupujte z zásady vytváření názvů, použijte `-Source` možnost:
 
     ```cli
     nuget push MyPackage.symbols.nupkg -source https://nuget.smbsrc.net/
     ```
 
-4. Můžete také push obě primární a symbolů balíčky do obou úložiště ve stejnou dobu pomocí tohoto vzorce:
+4. Můžete také vložit obě primární a symbol balíčky do obou úložišť ve stejnou dobu následujícím způsobem:
 
     ```cli
     nuget push MyPackage.nupkg
     ```
 
-V takovém případě bude publikovat NuGet `MyPackage.symbols.nupkg`, pokud je k dispozici na https://nuget.smbsrc.net/ (nabízené URL pro symbolsource.org), po jeho publikuje primární balíček do nuget.org.
+   > [!Note]
+   > S nuget.exe 4.5.0 nebo vyšší, symboly balíčky nejsou automaticky nahrány do symbolsource.org. Je třeba tak, aby nabízel balíčky symboly samostatně, jak je vysvětleno v dalším kroku.
+   
+V takovém případě budete publikovat NuGet `MyPackage.symbols.nupkg`, pokud jsou k dispozici na https://nuget.smbsrc.net/ (URL nabízených oznámení pro symbolsource.org), po publikuje primární balíčků na nuget.org.
 
 ## <a name="see-also"></a>Viz také
 
-[Přesun do nového modulu SymbolSource](https://tripleemcoder.com/2015/10/04/moving-to-the-new-symbolsource-engine/) (symbolsource.org)
+[Přechod na nový stroj SymbolSource](https://tripleemcoder.com/2015/10/04/moving-to-the-new-symbolsource-engine/) (symbolsource.org)
