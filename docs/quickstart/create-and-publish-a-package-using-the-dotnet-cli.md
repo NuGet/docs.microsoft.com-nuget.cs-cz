@@ -1,39 +1,39 @@
 ---
-title: Vytváření a publikování balíčku NuGet pomocí rozhraní příkazového řádku dotnet.
-description: Návod kurz týkající se vytváření a publikování balíčku NuGet pomocí rozhraní .NET Core příkazového řádku, dotnet.
+title: Vytvoření a publikování balíčku NuGet pomocí rozhraní příkazového řádku dotnet
+description: Kurz návod týkající se vytváření a publikování balíčku NuGet pomocí .NET Core CLI, dotnet.
 author: karann-msft
 ms.author: karann
 manager: unnir
 ms.date: 01/24/2018
 ms.topic: quickstart
 ms.openlocfilehash: c50c92f966cd68477cd3f29ab99857911299b7ea
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.sourcegitcommit: 6cffa6ef59b922df2d87aa9c24034d00542983cd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818448"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37963052"
 ---
-# <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>Rychlý úvod: Vytvoření a publikování balíčku (dotnet CLI)
+# <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>Rychlý start: Vytvoření a publikování balíčku (rozhraní příkazového řádku dotnet)
 
-Je jednoduchý proces vytvoření balíčku NuGet z knihovny tříd rozhraní .NET a publikujete ho pomocí nuget.org `dotnet` rozhraní příkazového řádku (CLI).
+Je jednoduchý proces vytvoření balíčku NuGet z knihovny tříd .NET a publikování na nuget.org pomocí `dotnet` rozhraní příkazového řádku (CLI).
 
 ## <a name="prerequisites"></a>Požadavky
 
 1. Nainstalujte [.NET Core SDK](https://www.microsoft.com/net/download/), což zahrnuje `dotnet` rozhraní příkazového řádku.
 
-1. [Zaregistrovat bezplatný účet na nuget.org](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) Pokud již nemáte. Vytvoření nového účtu odešle e-mail s potvrzením. Účet je potřeba zkontrolovat, než můžete nahrát balíček.
+1. [Zaregistrujte si bezplatný účet na nuget.org](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) Pokud již nemáte. Vytvoření nového účtu se odešle e-mail s potvrzením. Účet musí ověřit dříve, než můžete nahrát balíček.
 
-## <a name="create-a-class-library-project"></a>Vytvoření projektu knihovny tříd
+## <a name="create-a-class-library-project"></a>Vytvořte projekt knihovny tříd
 
-Můžete použít existující projekt knihovna tříd rozhraní .NET pro kód, který chcete balíček nebo vytvořit jednoduchý takto:
+Můžete použít existující projekt knihovny tříd .NET pro kód, který chcete balíček nebo vytvořit jednoduchý následujícím způsobem:
 
-1. Vytvořte složku s názvem `AppLogger` a změňte do ní.
+1. Vytvořte složku s názvem `AppLogger` a změňte do něj.
 
-1. Vytvoření projektu pomocí `dotnet new classlib`, který používá název aktuální složce pro projekt.
+1. Vytvořte projekt pomocí `dotnet new classlib`, který používá název aktuální složky projektu.
 
-## <a name="add-package-metadata-to-the-project-file"></a>Přidat balíček metadata do souboru projektu
+## <a name="add-package-metadata-to-the-project-file"></a>Přidejte balíček metadata do souboru projektu
 
-Každý balíček NuGet musí manifestu, který popisuje obsah balíčku a závislosti. V posledním balíčku, manifest je `.nuspec` soubor, který se vygeneruje z vlastností metadat NuGet, které zahrnují v souboru projektu.
+Každý balíček NuGet musí manifestu, který popisuje obsah balíčku a závislosti. V posledním balíčku je manifest `.nuspec` souboru, který je generován z vlastnosti metadat NuGet, které zahrnete do souboru projektu.
 
 1. Otevřete soubor projektu (`.csproj`) a přidejte následující minimální vlastnosti uvnitř ukončení `<PropertyGroup>` značky, změna hodnoty podle potřeby:
 
@@ -45,16 +45,16 @@ Každý balíček NuGet musí manifestu, který popisuje obsah balíčku a závi
     ```
 
     > [!Important]
-    > Zadejte balíček identifikátor, který je jedinečný v rámci nuget.org nebo ať hostitele je používáte. Pro účely tohoto postupu doporučujeme včetně "Ukázkové" nebo "Test" v názvu publikování později zviditelnit balíček veřejně (i když nepravděpodobné, že každý, kdo bude skutečně používáte).
+    > Zadejte balíček identifikátor, který je jedinečný v rámci nuget.org nebo cokoli, co můžete hostovat používáte. Pro Tento názorný postup doporučujeme, abyste pozdějším kroku publikování provádění balíček veřejně viditelné (i když nepravděpodobné, že kdo bude ve skutečnosti použít) včetně "Ukázkový" nebo "Test" v názvu.
 
-1. Přidejte volitelné vlastnosti popisu ve [NuGet metadata vlastnosti](/dotnet/core/tools/csproj#nuget-metadata-properties).
+1. Přidat všechny volitelné vlastnosti podle popisu ve [vlastnosti metadat NuGet](/dotnet/core/tools/csproj#nuget-metadata-properties).
 
     > [!Note]
-    > Pro balíčky vytvořené pro veřejné spotřeby, věnujte zvláštní pozornost **PackageTags** vlastnosti, jako jsou značky ostatní najít váš balíček a co provádí.
+    > Pro balíčky sestavené ke zveřejnění, věnujte zvláštní pozornost **PackageTags** vlastnost, protože značky pomoci ostatním najít váš balíček a pochopit jeho význam.
 
 ## <a name="run-the-pack-command"></a>Spusťte příkaz pack
 
-K vytvoření balíčku NuGet ( `.nupkg` souboru) z projektu, spusťte `dotnet pack` příkaz, který také automaticky sestavení projektu:
+K sestavení balíčku NuGet ( `.nupkg` souboru) z projektu, spusťte `dotnet pack` příkaz, který také automaticky sestaví projekt:
 
 ```cli
 # Uses the project file in the current folder by default
@@ -74,15 +74,15 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 
 ### <a name="automatically-generate-package-on-build"></a>Automaticky generovat balíček na sestavení
 
-Pokud chcete automaticky spustit `dotnet pack` při spuštění `dotnet build`, přidejte následující řádek do souboru projektu v rámci `<PropertyGroup>`:
+Pro automatické spouštění `dotnet pack` při spuštění `dotnet build`, přidejte následující řádek do souboru projektu v rámci `<PropertyGroup>`:
 
 ```xml
 <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 ```
 
-## <a name="publish-the-package"></a>Umožňuje publikovat balíček
+## <a name="publish-the-package"></a>Publikování balíčku
 
-Jakmile máte `.nupkg` souboru ji publikujete pomocí nuget.org `dotnet nuget push` příkaz spolu s klíčem rozhraní API získali z nuget.org.
+Jakmile budete mít `.nupkg` souboru, ji publikujete do nuget.org pomocí `dotnet nuget push` příkaz spolu s klíčem rozhraní API získaných z nuget.org.
 
 [!INCLUDE [publish-notes](includes/publish-notes.md)]
 
@@ -90,7 +90,7 @@ Jakmile máte `.nupkg` souboru ji publikujete pomocí nuget.org `dotnet nuget pu
 
 [!INCLUDE [publish-api-key](includes/publish-api-key.md)]
 
-### <a name="publish-with-dotnet-nuget-push"></a>Publikování pomocí nabízených nuget dotnet.
+### <a name="publish-with-dotnet-nuget-push"></a>Publikování pomocí nuget dotnet nasdílení změn
 
 [!INCLUDE [publish-dotnet](includes/publish-dotnet.md)]
 
@@ -98,7 +98,7 @@ Jakmile máte `.nupkg` souboru ji publikujete pomocí nuget.org `dotnet nuget pu
 
 [!INCLUDE [publish-errors](includes/publish-errors.md)]
 
-### <a name="manage-the-published-package"></a>Spravovat zveřejněný balíček
+### <a name="manage-the-published-package"></a>Správa publikované balíčku
 
 [!INCLUDE [publish-manage](includes/publish-manage.md)]
 
@@ -106,8 +106,8 @@ Jakmile máte `.nupkg` souboru ji publikujete pomocí nuget.org `dotnet nuget pu
 
 - [Vytvoření balíčku](../create-packages/creating-a-package.md)
 - [Publikování balíčku](../create-packages/publish-a-package.md)
-- [Předběžné verze balíčků](../create-packages/Prerelease-Packages.md)
-- [Podpora více cílové rozhraní](../create-packages/supporting-multiple-target-frameworks.md)
+- [Balíčky v předběžné verzi](../create-packages/Prerelease-Packages.md)
+- [Podpora více cílových platforem](../create-packages/supporting-multiple-target-frameworks.md)
 - [Správa verzí balíčků](../reference/package-versioning.md)
 - [Vytvoření lokalizovaných balíčků](../create-packages/creating-localized-packages.md)
 - [Podepsání balíčků](../create-packages/Sign-a-package.md)
