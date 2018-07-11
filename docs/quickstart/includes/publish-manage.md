@@ -1,0 +1,17 @@
+<span data-ttu-id="02b9b-101">Váš profil na nuget.org, vyberte **spravovat balíčky** zobrazíte tu jste právě publikovali.</span><span class="sxs-lookup"><span data-stu-id="02b9b-101">From your profile on nuget.org, select **Manage Packages** to see the one you just published.</span></span> <span data-ttu-id="02b9b-102">Také obdržíte e-mail s potvrzením.</span><span class="sxs-lookup"><span data-stu-id="02b9b-102">You also receive a confirmation email.</span></span> <span data-ttu-id="02b9b-103">Všimněte si, že může trvat nějakou dobu váš balíček se zobrazí ve výsledcích hledání tam, kde ostatní můžete najít a indexovat.</span><span class="sxs-lookup"><span data-stu-id="02b9b-103">Note that it might take a while for your package to be indexed and appear in search results where others can find it.</span></span> <span data-ttu-id="02b9b-104">Během této doby stránku vašeho balíčku zobrazí následující zpráva:</span><span class="sxs-lookup"><span data-stu-id="02b9b-104">During that time your package page shows the message below:</span></span>
+
+![Tento balíček nebyl dosud indexovány.](../media/QS_Create-03-NotIndexed.png)
+
+<span data-ttu-id="02b9b-107">A to je všechno!</span><span class="sxs-lookup"><span data-stu-id="02b9b-107">And that's it!</span></span> <span data-ttu-id="02b9b-108">Právě jste publikovali svůj první balíček NuGet na nuget.org, které ostatní vývojáři mohou použít ve své vlastní projekty.</span><span class="sxs-lookup"><span data-stu-id="02b9b-108">You've just published your first NuGet package to nuget.org that other developers can use in their own projects.</span></span>
+
+<span data-ttu-id="02b9b-109">Pokud v tomto návodu vytvoříte balíček, který není ve skutečnosti užitečné (jako je balíček vytvořen s prázdnou třídu knihovna), měli byste *vyjmutí ze seznamu* balíček ke skrytí před výsledky hledání:</span><span class="sxs-lookup"><span data-stu-id="02b9b-109">If in this walkthrough you created a package that isn't actually useful (such as a package created with an empty class library), you should *unlist* the package to hide it from search results:</span></span>
+
+1. <span data-ttu-id="02b9b-110">Na nuget.org, vyberte své uživatelské jméno (pravém horním rohu stránky) a pak vyberte **spravovat balíčky**.</span><span class="sxs-lookup"><span data-stu-id="02b9b-110">On nuget.org, select your user name (upper right of the page), then select **Manage Packages**.</span></span>
+
+1. <span data-ttu-id="02b9b-111">Vyhledání balíčku, kterou chcete vyjmutí ze seznamu v části **publikováno** a vyberte ikonu koše vpravo:</span><span class="sxs-lookup"><span data-stu-id="02b9b-111">Locate the package you want to unlist under **Published** and select the trash can icon on the right:</span></span>
+
+    ![Pro balíčků na nuget.org ikonu koše](../media/qs_create-vs-03-trash-can.png)
+
+1. <span data-ttu-id="02b9b-113">Na další stránku, zrušte zaškrtnutí políčka popisek **seznamu (název balíčku) ve výsledcích hledání** a vyberte **Uložit**:</span><span class="sxs-lookup"><span data-stu-id="02b9b-113">On the subsequent page, clear the box labeled **List (package-name) in search results** and select **Save**:</span></span>
+
+    ![Zrušením zaškrtnutí políčka seznam balíčků na nuget.org](../media/qs_create-vs-04-unlist.png)
