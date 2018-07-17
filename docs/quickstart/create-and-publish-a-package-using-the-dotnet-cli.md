@@ -6,12 +6,12 @@ ms.author: karann
 manager: unnir
 ms.date: 01/24/2018
 ms.topic: quickstart
-ms.openlocfilehash: c50c92f966cd68477cd3f29ab99857911299b7ea
-ms.sourcegitcommit: 6cffa6ef59b922df2d87aa9c24034d00542983cd
+ms.openlocfilehash: 0f71da0be27369712f718a7ab80d952a467aff2a
+ms.sourcegitcommit: a76ecc58f41c2c5b3536ff4a3f3fcbdf5258177c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37963052"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069671"
 ---
 # <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>Rychlý start: Vytvoření a publikování balíčku (rozhraní příkazového řádku dotnet)
 
@@ -35,7 +35,7 @@ Můžete použít existující projekt knihovny tříd .NET pro kód, který chc
 
 Každý balíček NuGet musí manifestu, který popisuje obsah balíčku a závislosti. V posledním balíčku je manifest `.nuspec` souboru, který je generován z vlastnosti metadat NuGet, které zahrnete do souboru projektu.
 
-1. Otevřete soubor projektu (`.csproj`) a přidejte následující minimální vlastnosti uvnitř ukončení `<PropertyGroup>` značky, změna hodnoty podle potřeby:
+1. Otevřete soubor projektu (`.csproj`) a přidejte následující minimální vlastnosti uvnitř stávající `<PropertyGroup>` značky, změna hodnoty podle potřeby:
 
     ```xml
     <PackageId>AppLogger</PackageId>

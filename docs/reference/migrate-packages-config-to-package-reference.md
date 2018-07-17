@@ -6,12 +6,12 @@ ms.author: karann
 manager: unnir
 ms.date: 03/27/2018
 ms.topic: conceptual
-ms.openlocfilehash: 1ca97e1c2dfba876aefe6b06eab10def67b8d848
-ms.sourcegitcommit: 8e3546ab630a24cde8725610b6a68f8eb87afa47
+ms.openlocfilehash: 4f42403abbf07c2c48ce13c70c49f7f3c15c40e4
+ms.sourcegitcommit: a76ecc58f41c2c5b3536ff4a3f3fcbdf5258177c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37843391"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072363"
 ---
 # <a name="migrate-from-packagesconfig-to-packagereference"></a>Migrovat ze souboru packages.config na PackageReference
 
@@ -41,7 +41,7 @@ Při prvním otevření projektu NuGet nemusí mít inicializace, dokud se prov�
 
 #### <a name="workaround"></a>Alternativní řešení 
 
-Provést jednu z následujících akcí NuGet: 
+Proveďte některou z následujících akcí NuGet: 
 * Otevřít uživatelské rozhraní Správce balíčků – klikněte pravým tlačítkem na `References` a vyberte `Manage NuGet Packages...` 
 * Otevřete konzolu Správce balíčků pro - ze `Tools > NuGet Package Manager`vyberte `Package Manager Console` 
 * Spuštění obnovení NuGet – klikněte pravým tlačítkem na uzel řešení v Průzkumníku řešení a vyberte `Restore NuGet Packages` 
@@ -58,7 +58,7 @@ Teď by měl být vidět možnost migrace. Všimněte si, že tato možnost nen�
 
 1. V **Průzkumníka řešení**, klikněte pravým tlačítkem na **odkazy** uzlu nebo `packages.config` a vyberte možnost **migrovat packages.config na PackageReference...** .
 
-1. Migrator analyzuje odkazy na balíčky NuGet projektu a pokusí se zařadit do **závislosti nejvyšší úrovně** (Tento adresář je nainstalované balíčky NuGet) a **přechodné závislosti**(balíčky, které byly nainstalovány jako závislosti balíčků nejvyšší úrovně).
+1. Migrator analyzuje odkazy na balíčky NuGet projektu a pokusí se zařadit do **závislosti nejvyšší úrovně** (balíčky NuGet, které jste nainstalovali přímo) a **přechodné závislosti** (balíčky, které byly nainstalovány jako závislosti balíčků nejvyšší úrovně).
 
    > [!Note]
    > PackageReference podporuje obnovení přenosných balíčků a řeší závislosti dynamicky, což znamená, že přechodné závislosti nemusí explicitně nainstalována.
