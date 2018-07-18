@@ -58,6 +58,7 @@
 ### [update](tools/cli-ref-update.md)
 ### [verify](tools/cli-ref-verify.md)
 ### [Proměnné prostředí](tools/cli-ref-environment-variables.md)
+### [Podpora dlouhých cest](tools/cli-ref-long-path.md)
 ## [Uživatelské rozhraní Správce balíčků](tools/package-manager-ui.md)
 ## [Konzola Správce balíčků](tools/package-manager-console.md)
 ## [Referenční informace o prostředí PowerShell](tools/powershell-reference.md)
