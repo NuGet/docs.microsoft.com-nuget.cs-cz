@@ -1,27 +1,27 @@
 ---
-title: Formát NuGet PackageReference (odkazů balíčku v souborech projektu)
-description: Podrobnosti o NuGet PackageReference v souborech projektu podporuje NuGet 4.0 + a VS2017 a .NET Core 2.0
+title: Formát NuGet PackageReference (odkazy na balíček v souborech projektu)
+description: Podrobnosti na NuGet PackageReference v souborech projektu podporuje NuGet 4.0 + a VS2017 a .NET Core 2.0
 author: karann-msft
 ms.author: karann
 manager: unnir
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 61f447877459764906cf9a2b88b32a8bc0553689
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 48930701f1bb5f13718505b85b293f38d37d19fb
+ms.sourcegitcommit: 4d139cb54a46616ae48d1768fa108ae3bf450d5b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817668"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39508345"
 ---
-# <a name="package-references-packagereference-in-project-files"></a>Balíček odkazuje (PackageReference) v souborech projektu
+# <a name="package-references-packagereference-in-project-files"></a>Odkazy na balíček (PackageReference) v souborech projektu
 
-Balíček odkazů, pomocí `PackageReference` uzlu, Správa závislostí NuGet přímo v souborech projektu (oproti samostatné `packages.config` souboru). Použití PackageReference, jako je volána, nemá vliv dalších aspektů NuGet; například nastavení v `NuGet.Config` soubory (včetně zdroje balíčků) jsou stále použít, jak je popsáno v [konfigurace chování NuGet](configuring-nuget-behavior.md).
+Balíček odkazů pomocí nástroje `PackageReference` uzlu, správě závislostí NuGet přímo v rámci projektových souborů (na rozdíl od samostatné `packages.config` souboru). Pomocí PackageReference, jako je volána, nemá vliv na ostatní aspekty NuGet; například nastavení v `NuGet.Config` soubory (včetně zdroje balíčků) se uplatní, jak je vysvětleno v [konfigurace chování Nugetu](configuring-nuget-behavior.md).
 
-S PackageReference můžete taky podmínky nástroje MSBuild vybrat balíček odkazuje na cílové rozhraní, konfigurace, platformu nebo jiných seskupení. Umožňuje také pro jemně odstupňovanou kontrolu nad závislosti a obsahu toku. (Další podrobnosti najdete v [NuGet pack a obnovit jako cíle MSBuild](../reference/msbuild-targets.md).)
+S PackageReference můžete také použít podmínky nástroje MSBuild zvolit odkazy na balíček na cílovou architekturu, konfigurace, platformy nebo další seskupení. Umožňuje také pro detailní kontrolu nad závislostí a obsahu toku. (Další podrobnosti najdete v [NuGet aktualizací Service pack a obnovení jako cílů MSBuild](../reference/msbuild-targets.md).)
 
-Ve výchozím nastavení PackageReference se používá pro projekty .NET Core, .NET Standard projekty a UWP projektech zacílených na Windows 10 sestavení 15063 (Creators aktualizace) a novější, s výjimkou projektů C++ UWP. Projekty rozhraní .NET framework úplnou podporu PackageReference, ale aktuálně výchozí `packages.config`. Chcete-li použít PackageReference, migrujte závislostí z `packages.config` v souboru projektu odeberte souboru Packages.config je.
+Ve výchozím nastavení je použít PackageReference pro projekty .NET Core, .NET Standard projekty a projekty UPW cílení na Windows 10 sestavení 15063 (Creators Update) a novější, s výjimkou projekty C++ UWP. Projekty .NET framework úplné podporují PackageReference, ale nyní jako výchozí `packages.config`. Použití PackageReference migrovat závislosti z `packages.config` do souboru projektu, odstraňte soubor packages.config.
 
-## <a name="adding-a-packagereference"></a>Přidání PackageReference
+## <a name="adding-a-packagereference"></a>Přidávání PackageReference
 
 Přidáte závislost v souboru projektu pomocí následující syntaxe:
 
@@ -45,10 +45,10 @@ Konvence pro určení verze balíčku je stejný jako při použití `packages.c
 </ItemGroup>
 ```
 
-V předchozím příkladu 3.6.0 znamená všechny verze, která je > = 3.6.0 s předvolby pro nejnižší verze, jak je popsáno na [Správa verzí balíčku](../reference/package-versioning.md#version-ranges-and-wildcards).
+V předchozím příkladu 3.6.0 znamená, že všechny verze, která je > = 3.6.0 s předností nejnižší verze, jak je popsáno na [Správa verzí balíčků](../reference/package-versioning.md#version-ranges-and-wildcards).
 
-## <a name="using-packagereference-for-a-project-with-no-packagereferences"></a>Pomocí PackageReference pro projekt se žádné PackageReferences
-Pokročilé: Pokud jste žádné balíčky nainstalované v projektu (žádné PackageReferences v souboru projektu) a žádný soubor packages.config, ale chcete projekt, který má být obnovena jako PackageReference styl, můžete nastavit vlastnost projektu RestoreProjectStyle k PackageReference v soubor projektu.
+## <a name="using-packagereference-for-a-project-with-no-packagereferences"></a>Pomocí projektu s PackageReferences žádné PackageReference
+Pokročilé: Pokud jste žádné balíčky nainstalované v projektu (žádné PackageReferences v souboru projektu) a žádný soubor packages.config, ale chcete projekt tak, aby se obnovit jako PackageReference styl, můžete nastavit vlastnost RestoreProjectStyle projektu na PackageReference v váš soubor projektu.
 ```xml
 <PropertyGroup>
     <!--- ... -->
@@ -56,7 +56,7 @@ Pokročilé: Pokud jste žádné balíčky nainstalované v projektu (žádné P
     <!--- ... -->
 </PropertyGroup>    
 ```
-To může být užitečné, pokud odkazujete projekty, které jsou PackageReference ve (stávající csproj nebo projekty stylu SDK). Tato akce povolí balíčky, které tyto projekty najdete, "přechodně" odkazovat projektu.
+To může být užitečné, pokud se budete odkazovat na projekty, které jsou PackageReference ve stylu (existující csproj nebo projekty založenými na sadu SDK). Tato možnost povolí balíčky, které odkazují tyto projekty, do "přechodně" odkazuje váš projekt.
 
 ## <a name="floating-versions"></a>Plovoucí verze
 
@@ -71,9 +71,9 @@ To může být užitečné, pokud odkazujete projekty, které jsou PackageRefere
 </ItemGroup>
 ```
 
-## <a name="controlling-dependency-assets"></a>Řízení závislostí prostředky
+## <a name="controlling-dependency-assets"></a>Řízení závislosti prostředků
 
-Může používat závislost čistě jako harness vývoj a nemusí chtějí zpřístupnit, projekty, které bude využívat vašeho balíčku. V tomto scénáři můžete použít `PrivateAssets` metadata, aby bylo toto chování.
+Může používat závislost čistě jako vývojové prostředí a nemusí chcete je zveřejnit, která do projektů, které budou využívat vašeho balíčku. V tomto scénáři můžete použít `PrivateAssets` metadat a řídit tak toto chování.
 
 ```xml
 <ItemGroup>
@@ -87,28 +87,28 @@ Může používat závislost čistě jako harness vývoj a nemusí chtějí zpř
 </ItemGroup>
 ```
 
-Následující značky metadata řídit prostředky závislost:
+Následující značky metadat určovat závislost prostředky:
 
 | Značka | Popis | Výchozí hodnota |
 | --- | --- | --- |
 | IncludeAssets | Tyto prostředky budou využívat. | všechny |
-| ExcludeAssets | Tyto prostředky nebudou využívat. | žádná |
-| PrivateAssets | Tyto prostředky budou využívat, ale nebude tok nadřazený projekt | contentfiles; analyzátorů; sestavení |
+| ExcludeAssets | Tyto prostředky nebude využívat. | žádná |
+| PrivateAssets | Tyto prostředky budou využívat, ale nebude směrovat do nadřazeného projektu | contentfiles; analyzátory; sestavení |
 
-Povolené hodnoty pro tyto značky jsou následující, s více hodnotami, které jsou odděleny středníkem kromě s `all` a `none` která se musí nacházet ve vlastní účet:
+Povolené hodnoty pro tyto značky jsou následujícím způsobem s více hodnotami, které jsou odděleny středníkem s výjimkou s `all` a `none` který musí být uvedena samy o sobě:
 
 | Hodnota | Popis |
 | --- | ---
-| Kompilace | Obsah `lib` složku a ovládací prvky jestli můžete zkompilovat projektu proti sestavení ve složce |
-| modul runtime | Obsah `lib` a `runtimes` složku a ovládací prvky jestli tyto sestavení bude zkopírována do sestavení výstupní adresář |
+| Kompilace | Obsah `lib` složky a ovládací prvky, jestli můžete zkompilovat váš projekt proti sestavení ve složce |
+| modul runtime | Obsah `lib` a `runtimes` složky a ovládací prvky, jestli tato sestavení bude zkopírována do sestavení výstupního adresáře |
 | contentFiles | Obsah `contentfiles` složky |
-| sestavení | Props a cílem v `build` složky |
-| Analyzátory | Analyzátory rozhraní .NET |
+| sestavení | Vlastnosti a cíle ve `build` složky |
+| Analyzátory | Analyzátory .NET |
 | nativní | Obsah `native` složky |
-| žádná | Žádná z výše uvedeného se používají. |
-| všechny | Všechny výše uvedené (s výjimkou `none`) |
+| žádná | Žádná z výše uvedených se používají. |
+| všechny | Všechny výš uvedené (s výjimkou `none`) |
 
-V následujícím příkladu se všechno kromě soubory z balíčku obsahu by být využívány službou projektu a všechno kromě souborů obsahu a analyzátory by tok nadřazený projekt.
+V následujícím příkladu se všechno kromě soubory obsahu z balíčku by být využívány službou projektu a všechno, co s výjimkou souborů obsahu a analyzátory by tok na nadřazený projekt.
 
 ```xml
 <ItemGroup>
@@ -124,32 +124,32 @@ V následujícím příkladu se všechno kromě soubory z balíčku obsahu by b�
 </ItemGroup>
 ```
 
-Všimněte si, že protože `build` není součástí `PrivateAssets`, cílem a props *bude* toku nadřazený projekt. Například vezměte v úvahu, že odkaz na výše uvedené se používá v projektu, který NuGet balíček s názvem AppLogger sestavení. AppLogger spotřebovat cílů a props z `Contoso.Utility.UsefulStuff`, jak můžete projekty, které využívají AppLogger.
+Upozorňujeme, že `build` není součástí `PrivateAssets`, zaměřuje a props *bude* tok, který nadřazeného projektu. Zvažte například, že výše uvedené odkaz se používá v projektu, který vytvoří balíček NuGet s názvem AppLogger. AppLogger může spotřebovat cíle a vlastnosti z `Contoso.Utility.UsefulStuff`, jak můžete projektech, které využívají AppLogger.
 
-## <a name="adding-a-packagereference-condition"></a>Přidáním PackageReference podmínky
+## <a name="adding-a-packagereference-condition"></a>Přidání podmínky PackageReference
 
-Můžete vytvořit podmínku, kterou chcete řízení a zda balíček je součástí, kde podmínky můžete použít všechny nástroje MSBuild proměnná nebo Proměnná definovaná v souboru cíle nebo props. Ale na v současné době pouze `TargetFramework` proměnné je podporována.
+Můžete použít podmínku pro ovládací prvek, jestli balíček je zahrnuta, pokud podmínky můžete použít jakoukoli proměnnou MSBuild nebo Proměnná definovaná v souboru cílů nebo vlastnosti. Ale v současnosti pouze `TargetFramework` proměnná je podporována.
 
-Řekněme například, že cílení `netstandard1.4` a také `net452` , ale mají závislost, kterou lze použít pouze u `net452`. V takovém případě nechcete, aby `netstandard1.4` projekt, který využívá vašeho balíčku pro přidání tohoto nepotřebné závislosti. Chcete-li tomu zabránit, zadejte podmínku na `PackageReference` následujícím způsobem:
+Předpokládejme například, že vývoji cílíte `netstandard1.4` stejně jako `net452` , ale mají závislost, kterou lze použít pouze pro `net452`. V tomto případě nechcete `netstandard1.4` projekt, který se spotřebovává balíček pro přidání tohoto zbytečné závislosti. Chcete-li tomu zabránit, určíte podmínku na `PackageReference` následujícím způsobem:
 
 ```xml
 <ItemGroup>
     <!-- ... -->
-    <PackageReference Include="Newtonsoft.json" Version="9.0.1" Condition="'$(TargetFramework)' == 'net452'" />
+    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" Condition="'$(TargetFramework)' == 'net452'" />
     <!-- ... -->
 </ItemGroup>
 ```
 
-Balíček vytvořená s využitím tohoto projektu se zobrazí, zda jsou zahrnuty jako závislost pouze pro Newtonsoft.json `net452` cíl:
+Balíček vytvořené pomocí tohoto projektu se zobrazí, že je jako závislost pouze pro Newtonsoft.Json `net452` cíl:
 
 ![Výsledek použití podmínku na PackageReference s VS2017](media/PackageReference-Condition.png)
 
-Podmínky lze použít také v `ItemGroup` úrovni a budou platit pro všechny podřízené objekty `PackageReference` prvky:
+Podmínek je také možné použít na `ItemGroup` úrovně a má platit pro všechny podřízené objekty `PackageReference` prvky:
 
 ```xml
 <ItemGroup Condition = "'$(TargetFramework)' == 'net452'">
     <!-- ... -->
-    <PackageReference Include="Newtonsoft.json" Version="9.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
     <PackageReference Include="Contoso.Utility.UsefulStuff" Version="3.6.0" />
     <!-- ... -->
 </ItemGroup>
