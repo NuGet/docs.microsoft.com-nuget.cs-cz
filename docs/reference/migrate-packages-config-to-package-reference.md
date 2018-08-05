@@ -6,12 +6,12 @@ ms.author: karann
 manager: unnir
 ms.date: 03/27/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4f42403abbf07c2c48ce13c70c49f7f3c15c40e4
-ms.sourcegitcommit: a76ecc58f41c2c5b3536ff4a3f3fcbdf5258177c
+ms.openlocfilehash: b05192038bff071ca7a5b8f2e0f735696d09bef6
+ms.sourcegitcommit: 4d139cb54a46616ae48d1768fa108ae3bf450d5b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072363"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39508267"
 ---
 # <a name="migrate-from-packagesconfig-to-packagereference"></a>Migrovat ze souboru packages.config na PackageReference
 
@@ -28,7 +28,7 @@ Visual Studio 2017 verze 15.7 a novějších verzích podporuje migraci projekt�
 ### <a name="limitations"></a>Omezení
 
 * NuGet PackageReference není k dispozici v sadě Visual Studio 2015 a starší. Migrované projektů lze otevřít pouze v sadě Visual Studio 2017.
-* Migrace není aktuálně k dispozici pro projekt jazyka C++ a technologií ASP.NET.
+* Migrace není aktuálně k dispozici pro projekty jazyka C++ a technologií ASP.NET.
 * Některé balíčky nemusí být plně kompatibilní s PackageReference. Další informace najdete v tématu [problémy s kompatibilitou balíčků](#package-compatibility-issues).
 
 ### <a name="known-issues"></a>Známé problémy

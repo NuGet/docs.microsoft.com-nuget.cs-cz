@@ -6,12 +6,12 @@ ms.author: karann
 manager: unnir
 ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: ffa2128b577673e980f4115f37f8685858c36250
-ms.sourcegitcommit: 6cffa6ef59b922df2d87aa9c24034d00542983cd
+ms.openlocfilehash: c537ee97b79648428df2c1b52894f536f5626a9e
+ms.sourcegitcommit: 4d139cb54a46616ae48d1768fa108ae3bf450d5b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37963155"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39508254"
 ---
 # <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>Rychlý start: Vytvoření a publikování balíčku pomocí sady Visual Studio (.NET Framework, Windows)
 
@@ -114,12 +114,12 @@ Spuštění `nuget spec` jen jednou pro generování počátečního manifestu. 
 
 ## <a name="edit-the-manifest"></a>Upravit manifest
 
-1. NuGet dojde k chybě při pokusu vytvořit balíček s výchozími hodnotami v vaše `.nuspec` souboru, proto je nutné upravit následující pole, než budete pokračovat. Zobrazit [odkaz na soubor souboru .nuspec – jednotlivé prvky](../reference/nuspec.md#single-elements) popis jak používají.
+1. NuGet dojde k chybě při pokusu vytvořit balíček s výchozími hodnotami v vaše `.nuspec` souboru, proto je nutné upravit následující pole, než budete pokračovat. V tématu [odkaz na soubor souboru .nuspec – elementy volitelná metadata](../reference/nuspec.md#optional-metadata-elements) popis jak používají.
 
-    - licenseUrl
-    - projectUrl
-    - iconUrl
-    - releaseNotes
+    - LicenseUrl
+    - ProjectUrl
+    - IconUrl
+    - ReleaseNotes
     - značky
 
 1. Balíčky sestavené ke zveřejnění, věnujte zvláštní pozornost **značky** vlastnost, protože značky pomoci ostatním najít váš balíček na zdroje, jako je nuget.org a pochopit jeho význam.

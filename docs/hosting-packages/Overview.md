@@ -7,12 +7,12 @@ manager: unnir
 ms.date: 08/25/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: b72369efb906f6d186c914fa3d8dd1da0be94641
-ms.sourcegitcommit: 6cffa6ef59b922df2d87aa9c24034d00542983cd
+ms.openlocfilehash: 95750bc926c242c02112f68a5aebf43c5fdb9a46
+ms.sourcegitcommit: 4d139cb54a46616ae48d1768fa108ae3bf450d5b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37948366"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39508293"
 ---
 # <a name="hosting-your-own-nuget-feeds"></a>Hostování vlastní NuGet informační kanály
 
@@ -32,7 +32,7 @@ Existuje také několik NuGet hostování produkty, které podporují vzdálené
 - [NuGet Server](http://nugetserver.net/), projekt komunitních z Inedo
 - [NuGet Server (Otevřít zdroj)](http://nuget-server.net), podobně jako NuGet Server Inedo na open source implementace
 - [LiGet](https://github.com/ai-traders/liget), open source implementace NuGet V2 serveru, který běží na kestrel v dockeru
-- [BaGet](https://github.com/loic-sharma/BaGet), na opensourcová implementace NuGet V3 serveru pomocí .NET Core
+- [BaGet](https://github.com/loic-sharma/BaGet), open source implementace NuGet V3 server založená na technologii ASP.NET Core
 - [Artifactory](https://www.jfrog.com/artifactory/) z JFrog.
 - [Nexus](http://www.sonatype.org/nexus/) z Sonatype.
 - [TeamCity](https://www.jetbrains.com/teamcity/) od JetBrains.
