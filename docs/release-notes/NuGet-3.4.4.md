@@ -30,7 +30,7 @@ Si můžete stáhnout VSIX i nuget.exe [zde](https://dist.nuget.org/index.html).
 ### <a name="changes"></a>Změny
 
 - Vylepšení aktualizací Service Pack: Vylepšení balení symboly, balení s `project.json` a další [ \#606](https://github.com/NuGet/NuGet.Client/pull/606)
-- Zobrazit výjimky, když dojde k selhání hledání projekty v příkazu update [\#605] ()https://github.com/NuGet/NuGet.Client/pull/605
+- Zobrazit výjimky, když dojde k selhání hledání projekty v příkazu update [\#605](https://github.com/NuGet/NuGet.Client/pull/605)
 - Typ balíčku číst ze vstupu `.nuspec` a `project.json` při balení [ \#603](https://github.com/NuGet/NuGet.Client/pull/603)
 - Zkontrolujte NuGet.Shared není projektu. [\#602](https://github.com/NuGet/NuGet.Client/pull/602)
 - Použít nabízenou časový limit jako časový limit odpovědi HTTP [ \#599](https://github.com/NuGet/NuGet.Client/pull/599)
