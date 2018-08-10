@@ -7,12 +7,12 @@ manager: unnir
 ms.date: 08/29/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 6d190d9fdb26d76fa8e46b7d283c1857cfab26e9
-ms.sourcegitcommit: 4d139cb54a46616ae48d1768fa108ae3bf450d5b
+ms.openlocfilehash: 110d1aa29fc7238f1a82c1a81ec6431dfe437420
+ms.sourcegitcommit: e9c58dbfc1af2876337dcc37b1b070e8ddec0388
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39508033"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40020450"
 ---
 # <a name="nuspec-reference"></a>odkaz na souboru .nuspec
 
@@ -56,20 +56,18 @@ Vizuální znázornění schématu, otevřete soubor schématu v sadě Visual St
 
 ![Visual Studio Průzkumníka schémat s nuspec.xsd otevřít](media/SchemaExplorer.png)
 
-### <a name="metadata-attributes"></a>Metadata atributů
-
 ### <a name="required-metadata-elements"></a>Prvky požadovaná metadata
 
-I když tyto prvky jsou minimální požadavky pro balíček, měli byste zvážit přidání [volitelná metadata prvky](#optional-metadata-elements) zlepšit celkové prostředí mají vývojáři součástí vašeho balíčku.
+I když tyto prvky jsou minimální požadavky pro balíček, měli byste zvážit přidání [volitelná metadata prvky](#optional-metadata-elements) zlepšit celkové prostředí mají vývojáři součástí vašeho balíčku. 
 
 Tyto prvky musí být uvedena v rámci `<metadata>` elementu.
 
-| Prvek | Popis |
-| --- | --- |
-| **id** | Identifikátor balíčku velká a malá písmena, která musí být jedinečný v rámci nuget.org nebo cokoli jiného balíčku se nachází v galerii. ID nemůže obsahovat mezery nebo znaky, které nejsou platné pro adresu URL a obvykle postupují podle pravidla oboru názvů .NET. Zobrazit [výběr balíčku jedinečný identifikátor](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number) pokyny. |
-| **Verze** | Verze balíčku, následující *hlavníverze.podverze.oprava* vzor. Čísla verzí může obsahovat příponu předběžné verze, jak je popsáno v [Správa verzí balíčků](../reference/package-versioning.md#pre-release-versions). |
-| **Popis** | Dlouhý popis balíčku zobrazí v uživatelském rozhraní. |
-| **Autoři** | Čárkou oddělený seznam autorů balíčků, odpovídající názvy profilů na nuget.org. Tyto jsou zobrazeny v galerii NuGet na nuget.org a slouží k křížový odkaz balíčky stejné autory. |
+#### <a name="id"></a>id 
+Identifikátor balíčku velká a malá písmena, která musí být jedinečný v rámci nuget.org nebo cokoli jiného balíčku se nachází v galerii. ID nemůže obsahovat mezery nebo znaky, které nejsou platné pro adresu URL a obvykle postupují podle pravidla oboru názvů .NET. Zobrazit [výběr balíčku jedinečný identifikátor](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number) pokyny. ### verze balíčku, následující verze *hlavníverze.podverze.oprava* vzor. Čísla verzí může obsahovat příponu předběžné verze, jak je popsáno v [Správa verzí balíčků](../reference/package-versioning.md#pre-release-versions). 
+#### <a name="description"></a>description
+Dlouhý popis balíčku zobrazí v uživatelském rozhraní. 
+#### <a name="authors"></a>Autoři
+Čárkou oddělený seznam autorů balíčků, odpovídající názvy profilů na nuget.org. Tyto jsou zobrazeny v galerii NuGet na nuget.org a slouží k křížový odkaz balíčky stejné autory. 
 
 ### <a name="optional-metadata-elements"></a>Volitelná metadata elementy
 
@@ -87,36 +85,37 @@ Adresa URL pro bitovou kopii 64 x 64 s průhlednost pozadí použít jako ikona 
 #### <a name="requirelicenseacceptance"></a>RequireLicenseAcceptance
 Logická hodnota určující, zda klient musí požádat spotřebitele o přijetí licence balíčku před instalací balíčku.
 #### <a name="developmentdependency"></a>DevelopmentDependency
-*(2.8 +)*  Logická hodnota určující, jestli tento balíček představuje označit jako vývoj – jen závislost, což zabrání balíčku nebudou zahrnuty v závislosti na dalších balíčků.
+*(2.8 +) * Logická hodnota určující, jestli tento balíček představuje označit jako vývoj – jen závislost, což zabrání balíčku nebudou zahrnuty v závislosti na dalších balíčků.
 #### <a name="summary"></a>souhrn
 Krátký popis balíčku zobrazí v uživatelském rozhraní. Pokud tento parametr vynechán, zkrácená verze `description` se používá.
 #### <a name="releasenotes"></a>ReleaseNotes
-*(1.5 +)*  Popis změn provedených v této verzi balíčku, často používají v uživatelském rozhraní, jako **aktualizace** kartu z Visual Studio Správce balíčků namísto popisu balíčku.
+*(1.5 +) * Popis změn provedených v této verzi balíčku, často používají v uživatelském rozhraní, jako **aktualizace** kartu z Visual Studio Správce balíčků namísto popisu balíčku.
 #### <a name="copyright"></a>Copyright
-*(1.5 +)*  Copyright podrobnosti balíčku.
+*(1.5 +) * Copyright podrobnosti balíčku.
 #### <a name="language"></a>jazyk
 ID národního prostředí pro balíček. Zobrazit [vytvoření lokalizovaných balíčků](../create-packages/creating-localized-packages.md).
 #### <a name="tags"></a>značky
 Mezerami oddělený seznam značek a klíčových slov, které popisují balíček a podpora zjistitelnost balíčků prostřednictvím vyhledávání a filtrování. 
 #### <a name="serviceable"></a>možnost změny 
-*(3.3 +)*  Pouze pro interní NuGet použít.
+*(3.3 +) * Pouze pro interní NuGet použít.
 #### <a name="repository"></a>úložiště
-Metadata úložiště, skládající se z čtyři volitelné atributy: *typ* a *url* *(4.0 +)*, a *větev* a  *potvrzení* *(4.6 +)*. Tyto atributy umožňují namapovat .nupkg do úložiště, který sestavilo, má potenciál, chcete-li získat podrobné jako jednotlivé větev nebo potvrzení změn, které sestaven balíček. To by měl být veřejně dostupnou adresu url, který lze vyvolat přímo pomocí softwaru pro řízení verzí. Neměl by být stránku html jako ten je určený pro počítače. Pro odkazování na stránku projektu, použijte `projectUrl` pole namísto. |
+Metadata úložiště, skládající se z čtyři volitelné atributy: *typ* a *url* *(4.0 +)*, a *větev* a *potvrzení* *(4.6 +)*. Tyto atributy umožňují namapovat .nupkg do úložiště, který sestavilo, má potenciál, chcete-li získat podrobné jako jednotlivé větev nebo potvrzení změn, které sestaven balíček. To by měl být veřejně dostupnou adresu url, který lze vyvolat přímo pomocí softwaru pro řízení verzí. Neměl by být stránku html jako ten je určený pro počítače. Pro odkazování na stránku projektu, použijte `projectUrl` pole namísto. |
+
 #### <a name="minclientversion"></a>MinClientVersion
 Určuje minimální verzi klienta NuGet, který můžete nainstalovat tento balíček, vynucuje nuget.exe a Správce balíčků sady Visual Studio. Používá se pokaždé, když se balíček závisí na konkrétních funkcí služby `.nuspec` souborů, které byly přidány v konkrétní verzi klienta NuGet. Třeba balíček pomocí `developmentDependency` atribut by měl určovat "2.8" pro `minClientVersion`. Obdobně balíček pomocí `contentFiles` – element (viz další části) by měl nastavit `minClientVersion` na "3.3". Upozorňujeme také, že klienti NuGet před 2.5 nedokáže rozpoznat tento příznak jsou *vždy* odmítnout instalace balíčku bez ohledu na to, co `minClientVersion` obsahuje.
 
 #### <a name="collection-elements"></a>Elementy v kolekci
 
 #### <a name="packagetypes"></a>PackageTypes
-*(3.5 +)*  Kolekce nula nebo více `<packageType>` elementy typu balíčku Pokud než tradiční závislost balíčku. Každý packageType má atributy *název* a *verze*. Zobrazit [nastavení typ balíčku](../create-packages/creating-a-package.md#setting-a-package-type).
+*(3.5 +) * Kolekce nula nebo více `<packageType>` elementy typu balíčku Pokud než tradiční závislost balíčku. Každý packageType má atributy *název* a *verze*. Zobrazit [nastavení typ balíčku](../create-packages/creating-a-package.md#setting-a-package-type).
 #### <a name="dependencies"></a>závislosti
 Kolekce nula nebo více `<dependency>` prvky určení závislostí pro balíček. Každá závislost má atributy *id*, *verze*, *zahrnují* (3.x+), a *vyloučit* (3.x+). Zobrazit [závislosti](#dependencies-element) níže.
 #### <a name="frameworkassemblies"></a>frameworkAssemblies
-*(1.2 +)*  Kolekce nula nebo více `<frameworkAssembly>` prvků identifikace odkazy na sestavení rozhraní .NET Framework, které vyžaduje tento balíček, které zajišťuje, že jsou přidány odkazy na projekty využívající balíček. Má každý frameworkAssembly *assemblyName* a *targetFramework* atributy. Zobrazit [zadání framework sestavení odkazuje na globální mezipaměti](#specifying-framework-assembly-references-gac) níže. |
+*(1.2 +) * Kolekce nula nebo více `<frameworkAssembly>` prvků identifikace odkazy na sestavení rozhraní .NET Framework, které vyžaduje tento balíček, které zajišťuje, že jsou přidány odkazy na projekty využívající balíček. Má každý frameworkAssembly *assemblyName* a *targetFramework* atributy. Zobrazit [zadání framework sestavení odkazuje na globální mezipaměti](#specifying-framework-assembly-references-gac) níže. |
 #### <a name="references"></a>odkazy
-*(1.5 +)*  Kolekce nula nebo více `<reference>` prvky názvy sestavení v balíčku `lib` složku, která jsou přidány jako odkazy na projekt. Každý odkaz má *souboru* atribut. `<references>` může také obsahovat `<group>` element s *targetFramework* atribut, pak obsahující `<reference>` elementy. Pokud tento parametr vynechán, všechny odkazy v `lib` jsou zahrnuty. Zobrazit [odkazy na sestavení explicitní určení](#specifying-explicit-assembly-references) níže.
+*(1.5 +) * Kolekce nula nebo více `<reference>` prvky názvy sestavení v balíčku `lib` složku, která jsou přidány jako odkazy na projekt. Každý odkaz má *souboru* atribut. `<references>` může také obsahovat `<group>` element s *targetFramework* atribut, pak obsahující `<reference>` elementy. Pokud tento parametr vynechán, všechny odkazy v `lib` jsou zahrnuty. Zobrazit [odkazy na sestavení explicitní určení](#specifying-explicit-assembly-references) níže.
 #### <a name="contentfiles"></a>contentFiles
-*(3.3 +)*  Kolekce `<files>` prvky, které identifikují soubory obsahu, které mají být zahrnuty náročné projektu. Tyto soubory jsou určené sadu atributů, které popisují, jak mají být použity v rámci systému projektů. Zobrazit [určující soubory, které chcete zahrnout do balíčku](#specifying-files-to-include-in-the-package) níže.
+*(3.3 +) * Kolekce `<files>` prvky, které identifikují soubory obsahu, které mají být zahrnuty náročné projektu. Tyto soubory jsou určené sadu atributů, které popisují, jak mají být použity v rámci systému projektů. Zobrazit [určující soubory, které chcete zahrnout do balíčku](#specifying-files-to-include-in-the-package) níže.
 #### <a name="files"></a>soubory  
 `<package>` Uzel může obsahovat `<files>` uzel na stejné úrovni k `<metadata>`a nebo `<contentFiles>` dítě `<metadata>`, určete, jaké soubory sestavení a obsah zahrnout do balíčku. Zobrazit [včetně souborů sestavení](#including-assembly-files) a [včetně soubory obsahu](#including-content-files) dále v tomto tématu podrobnosti.
 
