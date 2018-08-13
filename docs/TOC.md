@@ -161,6 +161,7 @@
 ## [Metadata balíčků](api/registration-base-url-resource.md)
 ## [Obsah balíčků](api/package-base-address-resource.md)
 ## [Adresa URL pro ohlášení zneužití](api/report-abuse-resource.md)
+## [Podpisy úložiště](api/repository-signatures-resource.md)
 ## [Katalog](api/catalog-resource.md)
 ## [Limity počtů požadavků](api/rate-limits.md)
 ## [Protokoly nuget.org](api/nuget-protocols.md)
