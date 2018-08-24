@@ -16,12 +16,12 @@ keywords: Podpisy úložiště NuGet rozhraní API, nuget.org podpisové certifi
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 27c572a482fef791f19b3d32e816a41d8dc40b53
-ms.sourcegitcommit: e9c58dbfc1af2876337dcc37b1b070e8ddec0388
+ms.openlocfilehash: 32dd2ee19261488a2b1b92724095a11ced69ae68
+ms.sourcegitcommit: c643dd2c44e085601551ff7079d696bcc3ad2b49
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40020570"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42793608"
 ---
 # <a name="repository-signatures"></a>Podpisy úložiště
 

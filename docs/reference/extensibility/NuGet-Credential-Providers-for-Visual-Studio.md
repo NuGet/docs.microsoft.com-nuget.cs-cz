@@ -1,54 +1,58 @@
 ---
-title: Poskytovatelé přihlašovacích údajů NuGet pro Visual Studio
-description: Poskytovatelé přihlašovacích údajů NuGet ověřit pomocí informačních kanálů implementací rozhraní IVsCredentialProvider v rozšíření sady Visual Studio.
+title: Poskytovatelé přihlašovacích údajů Nugetu pro Visual Studio
+description: Poskytovatelé přihlašovacích údajů Nugetu ověření pomocí informačních kanálů prostřednictvím implementace rozhraní IVsCredentialProvider v rozšíření sady Visual Studio.
 author: karann-msft
 ms.author: karann
 manager: unnir
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: d4dbcab7c4005efcdc7efe96df3a70e666c558cc
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: e8d8ae22300b55b93badb65864163d959105dca2
+ms.sourcegitcommit: 8d5121af528e68789485405e24e2100fda2868d6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817834"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42793900"
 ---
-# <a name="authenticating-feeds-in-visual-studio-with-nuget-credential-providers"></a>Ověřování informační kanály v sadě Visual Studio s poskytovatelé přihlašovacích údajů NuGet
+# <a name="authenticating-feeds-in-visual-studio-with-nuget-credential-providers"></a>Ověřování informačních kanálů v sadě Visual Studio prostřednictvím poskytovatelé přihlašovacích údajů Nugetu
 
-Rozšíření NuGet Visual Studio 3.6 + podporuje poskytovatelé přihlašovacích údajů, které umožňují NuGet pro práci s ověřené kanály.
-Po instalaci poskytovatele přihlašovacích údajů NuGet pro Visual Studio rozšíření NuGet sady Visual Studio automaticky získat a aktualizujte přihlašovací údaje pro ověřený kanály podle potřeby.
+Rozšíření NuGet Visual Studio 3.6 + podporuje poskytovatelé přihlašovacích údajů, které umožňují pracovat s ověřenými informačními kanály balíčků NuGet.
+Po instalaci poskytovatele přihlašovacích údajů NuGet pro Visual Studio rozšíření NuGet sady Visual Studio automaticky načíst a aktualizovat přihlašovací údaje pro ověřené informační kanály podle potřeby.
 
-Ukázka implementace lze nalézt v [ukázka VsCredentialProvider](https://github.com/NuGet/Samples/tree/master/VsCredentialProvider).
+Ukázková implementace lze nalézt v [ukázka VsCredentialProvider](https://github.com/NuGet/Samples/tree/master/VsCredentialProvider).
+
+Počínaje 4.8 + nová multiplatformní ověřování moduly plug-in také podporuje NuGet v sadě Visual Studio, ale nejsou doporučený postup z důvodů výkonu.
 
 > [!Note]
-> Poskytovatelé přihlašovacích údajů NuGet pro Visual Studio musí být nainstalován jako regulární rozšíření sady Visual Studio a bude vyžadovat [Visual Studio 2017](https://aka.ms/vs/15/preview/vs_enterprise) (aktuálně ve verzi preview) nebo novější.
+> Poskytovatelé přihlašovacích údajů Nugetu pro Visual Studio musí být nainstalován jako rozšíření sady Visual Studio na regulární a bude vyžadovat [Visual Studio 2017](http://aka.ms/vs/15/release/vs_enterprise.exe) nebo vyšší.
 >
-> Poskytovatelé přihlašovacích údajů NuGet pro Visual Studio fungovat pouze v sadě Visual Studio (ne ve dotnet obnovení nebo nuget.exe). Poskytovatelé přihlašovacích údajů s nuget.exe, najdete v části [nuget.exe poskytovatelé přihlašovacích údajů](nuget-exe-Credential-providers.md).
+> Poskytovatelé přihlašovacích údajů Nugetu pro Visual Studio fungují pouze v sadě Visual Studio (ne v dotnet restore nebo nuget.exe). Poskytovatelé přihlašovacích údajů s nuget.exe, naleznete v tématu [nuget.exe poskytovatelé přihlašovacích údajů](nuget-exe-Credential-providers.md).
+> Přihlašovací údaje poskytovatelů v dotnet tak pro msbuild naleznete v tématu [NuGet pro různé platformy modulů plug-in](nuget-cross-platform-authentication-plugin.md)
 
-## <a name="available-nuget-credential-providers-for-visual-studio"></a>K dispozici poskytovatelé přihlašovacích údajů NuGet pro Visual Studio
+## <a name="available-nuget-credential-providers-for-visual-studio"></a>K dispozici poskytovatelé přihlašovacích údajů Nugetu pro Visual Studio
 
-Není součástí rozšíření Visual Studio NuGet poskytovatele přihlašovacích údajů pro podporu Visual Studio Team Services.
+Je integrované rozšíření Visual Studio NuGet poskytovatele přihlašovacích údajů pro podporu služby Visual Studio Team Services.
 
-Rozšíření NuGet Visual Studio používá interní `VsCredentialProviderImporter` které také hledá poskytovatelé přihlašovacích údajů modulu plug-in. Tyto přihlašovací údaje modul plug-in zprostředkovatele musí být zjistitelný jako Export rozhraní MEF typu `IVsCredentialProvider`.
+Rozšíření NuGet sady Visual Studio používá interní `VsCredentialProviderImporter` které rovněž vyhledává poskytovatelé modul plugin přihlašovacích údajů. Tito poskytovatelé přihlašovacích údajů modul plug-in musí být zjistitelné jako Export rozhraní MEF typu `IVsCredentialProvider`.
 
 Poskytovatelé přihlašovacích údajů k dispozici modul plug-in patří:
 
 - [MyGet Credential Provider for Visual Studio 2017](http://docs.myget.org/docs/reference/credential-provider-for-visual-studio)
 
-## <a name="creating-a-nuget-credential-provider-for-visual-studio"></a>Vytvoření zprostředkovatele pověření NuGet pro Visual Studio
+## <a name="creating-a-nuget-credential-provider-for-visual-studio"></a>Vytvoření poskytovatele přihlašovacích údajů NuGet pro Visual Studio
 
-Rozšíření NuGet Visual Studio 3.6 + implementuje interní CredentialService, který slouží k získání přihlašovacích údajů. CredentialService má seznam zprostředkovatelů předdefinované a modul plugin přihlašovacích údajů. Dokud se získal přihlašovací údaje, zkusí se každý poskytovatel postupně.
+Rozšíření NuGet Visual Studio 3.6 + implementuje interní CredentialService, který se používá k získání přihlašovacích údajů. CredentialService má seznam zprostředkovatelů integrované a modul plugin přihlašovacích údajů. Dokud se získat přihlašovací údaje, zkusí se každý poskytovatel postupně.
 
-Během získávání přihlašovacích údajů službu přihlašovacích údajů se pokusí poskytovatelé přihlašovacích údajů v uvedeném pořadí, zastavení, jakmile jsou získat přihlašovací údaje:
+Při získání přihlašovacích údajů služba přihlašovacích údajů se pokusí poskytovatelé přihlašovacích údajů v uvedeném pořadí, zastavení, jako jsou přihlašovací údaje získat:
 
-1. Přihlašovací údaje budou načtena z NuGet konfigurační soubory (pomocí integrovaných `SettingsCredentialProvider`).
-1. Pokud je zdroj balíčku na Visual Studio Team Services, `VisualStudioAccountProvider` se použije.
-1. Všichni ostatní poskytovatelé přihlašovacích údajů modulu plug-in vyzkouší se postupně.
-1. Pokud bylo získáno žádné přihlašovací údaje ještě uživatel vyzve k zadání pověření v dialogu standardní základní ověřování.
+1. Přihlašovací údaje se načtou z NuGet konfiguračních souborů (použití předdefinované `SettingsCredentialProvider`).
+1. Pokud je zdroj balíčků ve Visual Studio Team Services, `VisualStudioAccountProvider` se použije.
+1. Všechny ostatní modulu plug-in Visual Studio poskytovatelé přihlašovacích údajů, vyzkouší se postupně.
+1. Zkuste použít všechny NuGet pro různé platformy poskytovatelé přihlašovacích údajů postupně.
+1. Pokud žádné přihlašovací údaje získat, ale uživateli zobrazí výzva k zadání přihlašovacích údajů a dialogové okno Standardní základní ověřování.
 
 ### <a name="implementing-ivscredentialprovidergetcredentialsasync"></a>Implementace IVsCredentialProvider.GetCredentialsAsync
 
-Chcete-li vytvořit poskytovatele přihlašovacích údajů NuGet pro Visual Studio, vytvořte rozšíření Visual Studio, který zveřejňuje veřejné Export rozhraní MEF implementace `IVsCredentialProvider` typ a dodržuje zásady uvedených níže.
+Chcete-li vytvořit poskytovatele přihlašovacích údajů NuGet pro Visual Studio, vytvořit rozšíření aplikace Visual Studio, která zveřejňuje veřejné Export rozhraní MEF implementace `IVsCredentialProvider` zadejte a dodržuje zásady uvedené níže.
 
 ```cs
 public interface IVsCredentialProvider
@@ -63,24 +67,24 @@ public interface IVsCredentialProvider
 }
 ```
 
-Ukázka implementace lze nalézt v [ukázka VsCredentialProvider](https://github.com/NuGet/Samples/tree/master/VsCredentialProvider).
+Ukázková implementace lze nalézt v [ukázka VsCredentialProvider](https://github.com/NuGet/Samples/tree/master/VsCredentialProvider).
 
-Musí být každý poskytovatel pověření NuGet pro Visual Studio:
+Každý poskytovatel přihlašovacích údajů NuGet pro Visual Studio musí:
 
-1. Určí, zda může poskytnout přihlašovací údaje pro cílový identifikátor URI před zahájením získání přihlašovacích údajů. Pokud zprostředkovatele nelze zadat přihlašovací údaje pro cílové zdroj, pak by měla vrátit `null`.
-1. Pokud zprostředkovatel zpracovávat požadavky pro cílový identifikátor URI, ale nelze zadat přihlašovací údaje, by měl být vyvolána výjimka.
+1. Určení, zda může poskytnout přihlašovací údaje pro cílový identifikátor URI před zahájením získání přihlašovacích údajů. Pokud zprostředkovatele nelze zadat přihlašovací údaje pro cílový zdroj, pak by měl vrátit `null`.
+1. Pokud poskytovatel zpracovávat požadavky pro cílový identifikátor URI, ale nelze zadat přihlašovací údaje, by měl být vyvolána výjimka.
 
-Vlastní poskytovatel pověření NuGet pro Visual Studio musí implementovat `IVsCredentialProvider` rozhraní, které jsou k dispozici v [NuGet.VisualStudio balíček](https://www.nuget.org/packages/NuGet.VisualStudio/).
+Musíte implementovat vlastní poskytovatele přihlašovacích údajů NuGet pro Visual Studio `IVsCredentialProvider` rozhraní, které jsou k dispozici v [NuGet.VisualStudio balíčku](https://www.nuget.org/packages/NuGet.VisualStudio/).
 
 #### <a name="getcredentialasync"></a>GetCredentialAsync
 
 | Vstupní parametr |Popis|
 | ----------------|-----------|
-| Identifikátor URI uri | Zdroj balíčku Uri, pro které se vyžadují přihlašovací údaje.|
-| IWebProxy proxy | Webový proxy server pro použití při komunikaci v síti. Hodnota Null, pokud neexistuje žádné ověření proxy serverem, který je nakonfigurovaný. |
-| BOOL isProxyRequest | Hodnota TRUE, pokud tento požadavek je získat pověření pro ověření proxy serveru. Pokud implementace není platná pro získání přihlašovacích údajů proxy, by měl vrátit hodnotu null. |
-| BOOL isRetry | Hodnota TRUE, pokud se přihlašovací údaje byly dříve požadované pro tento identifikátor Uri, ale zadaná pověření neumožňuje autorizovaný přístup. |
-| Neinteraktivní BOOL | V případě hodnoty true musí poskytovatel pověření potlačit všechny uživatelské výzvy a místo toho použít výchozí hodnoty. |
-| CancellationToken cancellationToken | Tento token zrušení kontroly k určení, pokud operace s požadavkem na pověření byla zrušena. |
+| Identifikátor uri identifikátor URI | Zdroje balíčku Uri, pro které jsou požadovány přihlašovací údaje.|
+| Rozhraní IWebProxy proxy | Webový proxy server při komunikaci v síti. Hodnota Null, pokud neexistuje žádné ověřování proxy server nakonfigurovaný. |
+| BOOL isProxyRequest | True, pokud je tento požadavek se získat přihlašovací údaje pro ověření proxy serveru. Pokud implementace není platná pro získání přihlašovacích údajů proxy serveru, by měla být vrácena hodnota null. |
+| BOOL isRetry | Hodnota TRUE, pokud pověření byla dříve vyžádána tento identifikátor Uri, ale zadaná pověření nepovolil autorizovaný přístup. |
+| Neinteraktivní BOOL | Pokud je hodnota true, musí poskytovatele přihlašovacích údajů potlačit všechny uživatelské výzvy a místo toho použijte výchozí hodnoty. |
+| CancellationToken cancellationToken | Tento token zrušení by měl být zkontrolována k určení, pokud žádost o přihlašovací údaje operace byla zrušena. |
 
 **Návratová hodnota**: implementace objektu přihlašovací údaje [ `System.Net.ICredentials` rozhraní](/dotnet/api/system.net.icredentials?view=netstandard-2.0).

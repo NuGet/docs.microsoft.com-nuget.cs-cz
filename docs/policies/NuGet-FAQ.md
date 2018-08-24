@@ -1,244 +1,244 @@
 ---
-title: Nejčastější dotazy NuGet
-description: Běžné otázky a odpovědi na příkazovém řádku a v sadě Visual Studio pomocí nástroje NuGet a práce s galerii NuGet.
+title: NuGet – nejčastější dotazy
+description: Běžné otázky a odpovědi na příkazovém řádku a v sadě Visual Studio pomocí nástroje NuGet a práci v galerii NuGet.
 author: karann-msft
 ms.author: karann
 manager: unnir
 ms.date: 01/11/2018
 ms.topic: conceptual
-ms.openlocfilehash: e3c52f1e49a53b89d7e5c0728c02a7915db2aeb9
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 3fe59ef03632053182b034052e93a5f2e6f444bd
+ms.sourcegitcommit: c643dd2c44e085601551ff7079d696bcc3ad2b49
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817977"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42793597"
 ---
-# <a name="nuget-frequently-asked-questions"></a>Nejčastější dotazy NuGet
+# <a name="nuget-frequently-asked-questions"></a>NuGet – nejčastější dotazy
 
-**Co je potřeba spustit NuGet?**
+**Co je potřeba spuštěním rozšíření NuGet?**
 
-Všechny informace ohledně uživatelského rozhraní a nástroje příkazového řádku je k dispozici v [instalace Průvodce](../install-nuget-client-tools.md).
+Všechny informace týkající se uživatelského rozhraní a nástroje příkazového řádku jsou k dispozici v [Instalační příručka](../install-nuget-client-tools.md).
 
 **Podporuje NuGet Mono?**
 
-Nástroj příkazového řádku `nuget.exe`, sestavení a běží pod Mono 3.2 + a balíčky lze vytvořit mono.
+Nástroj příkazového řádku `nuget.exe`, sestavení a běží pod Mono 3.2 + a můžete vytvořit balíčky v Mono.
 
-I když `nuget.exe` funguje plně v systému Windows, existují známé problémy na Linuxu a OS X. najdete [Mono problémy](https://github.com/NuGet/Home/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+mono) na Githubu.
+I když `nuget.exe` funguje plně na Windows, dochází ke známým problémům v Linuxu a OS X. naleznete [Mono vydá](https://github.com/NuGet/Home/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+mono) na Githubu.
 
 A [grafický klient](https://github.com/mrward/monodevelop-nuget-addin) je k dispozici jako doplněk pro MonoDevelop.
 
-**Jak mohu zjistit, co balíček obsahuje a zda je stabilní a užitečné pro Moje aplikace?**
+**Jak zjistím obsah balíčku a zda je stabilní a užitečné pro mé aplikace?**
 
-Primární zdroj informací o balíčku je stránka výpis na nuget.org (nebo jiného privátního kanálu). Každý balíček stránky na nuget.org obsahuje popis balíčku, jeho historie verzí a Statistika využití. **Informace** části na stránce balíček také obsahuje odkaz na projektu webové stránky, kde je obvykle najít mnoho příklady a další dokumentaci, která vás se způsobu použití balíčku.
+Primární zdroj informací o balíčku je její stránce na nuget.org (nebo jiný privátní kanál). Každou stránku balíčků na nuget.org obsahuje popis balíčku, historie verzí a statistiky o využití. **Informace** oddíl na stránce balíček pro také obsahuje odkaz projekt webové stránky, kdy obvykle najít mnoho příkladů a další dokumentaci, která vám pomůže se naučit, jak se používá balíček.
 
-Další informace najdete v tématu [vyhledání a výběr balíčků](../consume-packages/finding-and-choosing-packages.md).
+Další informace najdete v tématu [hledání a výběr balíčků](../consume-packages/finding-and-choosing-packages.md).
 
 ## <a name="nuget-in-visual-studio"></a>NuGet v sadě Visual Studio
 
-**Jak se podporuje NuGet v různých produktů Visual Studio?**
+**Jak se v různých produktů Visual Studio podporuje NuGet?**
 
-- Visual Studio v systému Windows podporuje [uživatelského rozhraní Správce balíčků](../tools/package-manager-ui.md) a [Konzola správce balíčků](../tools/package-manager-console.md).
-- Visual Studio pro Mac obsahuje integrované funkce NuGet, jak je popsáno na [balíček včetně NuGet ve vašem projektu](/visualstudio/mac/nuget-walkthrough).
-- Visual Studio Code (všechny platformy) nemá žádné přímé integrace NuGet. Použití [NuGet CLI](../tools/nuget-exe-cli-reference.md) nebo [dotnet rozhraní příkazového řádku](../tools/dotnet-commands.md).
-- Visual Studio Team Services poskytuje [krok sestavení pro obnovování balíčků NuGet](/vsts/build-release/tasks/package/nuget). Můžete také [privátní balíček NuGet hostitele kanály na Team Services](https://www.visualstudio.com/docs/package/nuget/publish).
+- Visual Studio na Windows podporuje [uživatelské rozhraní Správce balíčků](../tools/package-manager-ui.md) a [Konzola správce balíčků](../tools/package-manager-console.md).
+- Visual Studio for Mac obsahuje integrované funkce NuGet, jak je popsáno na [balíček včetně NuGet ve vašem projektu](/visualstudio/mac/nuget-walkthrough).
+- Visual Studio Code (všechny platformy) nemá žádné přímé integraci NuGet. Použití [rozhraní příkazového řádku NuGet](../tools/nuget-exe-cli-reference.md) nebo [rozhraní příkazového řádku dotnet](../tools/dotnet-commands.md).
+- Visual Studio Team Services poskytuje [kroku sestavení pro obnovování balíčků NuGet](/vsts/build-release/tasks/package/nuget). Můžete také [privátní balíček NuGet hostitele informační kanály ve službě Team Services](https://www.visualstudio.com/docs/package/nuget/publish).
 
-**Jak zkontrolovat přesnou verzi systému NuGet nástroje, které jsou nainstalovány?**
+**Jak můžu ověřit přesnou verzi, které jsou nainstalované nástroje NuGet?**
 
-V sadě Visual Studio, použijte **pomoci > o sadě Microsoft Visual Studio** příkazů a podívejte se na verzi zobrazí vedle možnosti **Správce balíčků NuGet**.
+V sadě Visual Studio, použijte **Nápověda > o Microsoft Visual Studio** příkazů a podívejte se na verzi vedle položky **Správce balíčků NuGet**.
 
-Alternativně spusťte konzolu nástroje Správce balíčků (**nástroje > Správce balíčků NuGet > Konzola správce balíčků**) a zadejte `$host` zobrazíte informace o systému NuGet, včetně verze.
+Alternativně spusťte konzolu Správce balíčků (**nástroje > Správce balíčků NuGet > Konzola správce balíčků**) a zadejte `$host` zobrazíte informace o systému NuGet, včetně verze.
 
-**Jaké programovací jazyky jsou podporované systémem NuGet?**
+**Jaké programovací jazyky podporují NuGet?**
 
-NuGet obecně se dá použít pro jazyky rozhraní .NET a je navržená tak, aby knihovny .NET do projektu. Vzhledem k tomu, že podporuje také MSBuild a Visual Studio automatizace v některé typy projektů, podporuje také další projekty a jazyky do různých stupňů.
+NuGet obecně se dá použít pro jazyky .NET a je určený pro přenesení do projektu knihovny .NET. Vzhledem k tomu, že v některých typech projektů podporuje také automatizaci MSBuild a sadě Visual Studio, podporuje také dalších projektů a jazyky na různých úrovních.
 
-Nejnovější verzi NuGet podporuje C#, Visual Basic, F #, WiX a C++.
+Nejnovější verzi balíčku nuget podporuje C#, Visual Basic, F #, WiX a C++.
 
-**Jaké šablony projektů jsou podporované systémem NuGet?**
+**Jaké šablony projektů podporuje NuGet?**
 
-NuGet má plnou podporu pro celou řadu šablon projektu, například Windows, webové, Cloud, SharePoint, Wix a tak dále.
+NuGet má plnou podporu pro širokou škálu šablony projektu, jako je Windows, Web, Cloud, SharePoint, Wix a tak dále.
 
-**Jak aktualizovat balíčky, které jsou součástí šablony sady Visual Studio**
+**Jak můžu aktualizovat balíčky, které jsou součástí šablony sady Visual Studio?**
 
-Přejděte na **aktualizace** v uživatelském rozhraní Správce balíčků a vyberte **Aktualizovat vše**, nebo použijte [ `Update-Package` příkaz](../tools/ps-ref-update-package.md) z konzoly Správce balíčků.
+Přejděte na **aktualizace** kartu v Uživatelském rozhraní Správce balíčků a vyberte **Aktualizovat vše**, nebo použijte [ `Update-Package` příkaz](../tools/ps-ref-update-package.md) z konzoly Správce balíčků.
 
-Aktualizovat šablonu sám sebe, musíte ručně aktualizovat úložiště šablon. V tématu [Xavier Decoster blog](http://www.xavierdecoster.com/update-project-template-to-latest-nuget-packages) na toto téma. Všimněte si, že to se provádí na vlastní nebezpečí, protože ruční aktualizace může dojít k poškození šablony Pokud nejnovější verzi všechny závislosti nejsou vzájemně kompatibilní.
+Pokud chcete aktualizovat samotné šablony, budete muset ručně aktualizovat úložiště šablon. Zobrazit [Xavier Decoster blogu](http://www.xavierdecoster.com/update-project-template-to-latest-nuget-packages) k tomuto tématu. Protože ruční aktualizace může dojít k poškození šablony Pokud nejnovější verze všechny závislosti nejsou navzájem kompatibilní, mějte na paměti, že to se provádí na vaše vlastní nebezpečí.
 
-**Můžete použít balíček NuGet mimo Visual Studio?**
+**Můžete použít balíček NuGet mimo sadu Visual Studio?**
 
-Ano, NuGet pracuje přímo z příkazového řádku. Najdete v článku [instalace Průvodce](../install-nuget-client-tools.md) a [referenční dokumentace rozhraní příkazového řádku](../tools/nuget-exe-cli-reference.md).
+Ano, NuGet pracuje přímo z příkazového řádku. Zobrazit [Instalační příručka](../install-nuget-client-tools.md) a [odkaz na rozhraní příkazového řádku](../tools/nuget-exe-cli-reference.md).
 
 ## <a name="nuget-command-line"></a>NuGet příkazového řádku
 
-**Jak lze získat nejnovější verzi nástroje příkazového řádku NuGet?**
+**Jak získat nejnovější verzi nástroje příkazového řádku NuGet?**
 
-Najdete v článku [instalace Průvodce](../install-nuget-client-tools.md).
+Zobrazit [Instalační příručka](../install-nuget-client-tools.md).
 
-**Co je licence k nuget.exe?**
+**Co je licence pro nuget.exe?**
 
-Jsou povoleny nuget.exe v rámci podmínek licencí MIT znovu distribuovat. Jste zodpovědní za aktualizace a údržba všechny kopie nuget.exe, které chcete znovu distribuovat.
+Jste oprávněni nuget.exe podle podmínek licence MIT znovu distribuovat. Zodpovídáte za aktualizace a údržba všechny kopie nuget.exe, které chcete znovu distribuovat.
 
 **Je možné rozšířit nástroje příkazového řádku NuGet?**
 
-Ano, je možné přidat vlastní příkazy `nuget.exe`, jak je popsáno v [post Rob Reynold](http://geekswithblogs.net/robz/archive/2011/07/15/extend-nuget-command-line.aspx).
+Ano, je možné přidat vlastní příkazy `nuget.exe`, jak je popsáno v [Rob Reynold příspěvek](http://geekswithblogs.net/robz/archive/2011/07/15/extend-nuget-command-line.aspx).
 
-## <a name="nuget-package-manager-console-visual-studio-on-windows"></a>Konzola správce balíčků NuGet (Visual Studio v systému Windows)
+## <a name="nuget-package-manager-console-visual-studio-on-windows"></a>Konzola správce balíčků NuGet (Visual Studio na Windows)
 
 **Jak získat přístup k objektu DTE v konzole Správce balíčků**
 
-Objekt nejvyšší úrovně v sadě Visual Studio automatizace objektový model se nazývá objekt prostředí DTE (Development Tools Environment). To konzole poskytuje prostřednictvím proměnné s názvem `$DTE`. Další informace najdete v tématu [Přehled automatizace modelu](/visualstudio/extensibility/internals/automation-model-overview) v dokumentaci k rozšiřitelnosti Visual Studio.
+Objekt nejvyšší úrovně v objektovém modelu automatizace sady Visual Studio se nazývá objekt DTE (Development Tools Environment). Konzole vám tohle všechno poskytuje prostřednictvím proměnné s názvem `$DTE`. Další informace najdete v tématu [přehled modelu automatizace](/visualstudio/extensibility/internals/automation-model-overview) v dokumentaci k rozšiřitelnosti sady Visual Studio.
 
-**Pokusu převést proměnnou $DTE typu DTE2, ale zobrazí chybová zpráva: nelze převést hodnotu "EnvDTE.DTEClass" typ "EnvDTE.DTEClass" typ "EnvDTE80.DTE2". Co je?**
+**Můžu zkusit přetypovat $DTE proměnnou typu DTE2, ale se zobrazí chyba: nelze převést hodnotu "EnvDTE.DTEClass" typu "EnvDTE.DTEClass" typ "EnvDTE80.DTE2". Co je?**
 
-Jde o známý problém s jak prostředí PowerShell komunikuje s objektem COM. Zkuste následující postup:
+Jde o známý problém s interakci Powershellu pomocí objektu COM. Vyzkoušejte následující postup:
 
 ```ps
 `$dte2 = Get-Interface $dte ([EnvDTE80.DTE2])`
 ```
 
-`Get-Interface` Přidat hostitele NuGet PowerShell pomocné funkce.
+`Get-Interface` pomocná funkce přidal hostitele prostředí NuGet PowerShell.
 
-## <a name="creating-and-publishing-packages"></a>Vytváření a publikování balíčků
+## <a name="creating-and-publishing-packages"></a>Vytvoření a publikování balíčků
 
-**Jak seznamu Moje balíčku v informačním kanálu?**
+**Jak se seznam Můj balíček v informačním kanálu?**
 
-V tématu [vytváření a publikování balíčku](../quickstart/create-and-publish-a-package.md).
+Zobrazit [vytváření a publikování balíčku](../quickstart/create-and-publish-a-package.md).
 
-**Mám několik verzí mé knihovny, které jiné cílové verze rozhraní .NET Framework. Jak lze vytvořit jeden balíček, který to podporuje?**
+**Mám k dispozici více verzí knihovny, které cílí různé verze rozhraní .NET Framework. Jak vytvořit jeden balíček, který to podporuje?**
 
-V tématu [podpora více verzí rozhraní .NET Framework a profily](../create-packages/supporting-multiple-target-frameworks.md).
+Zobrazit [podporuje více verzí rozhraní .NET Framework a profily](../create-packages/supporting-multiple-target-frameworks.md).
 
-**Jak mám nastavit vlastní úložiště nebo informační kanál?**
+**Nastavení vlastní úložiště nebo informačního kanálu**
 
-Najdete v článku [hostování balíčků přehled](../hosting-packages/overview.md).
+Zobrazit [hostování balíčků přehled](../hosting-packages/overview.md).
 
-**Jak můžete nahrát balíčky pro moje NuGet kanálu hromadně?**
+**Jak můžete nahrát balíčky do mé NuGet kanálu hromadně?**
 
-V tématu [hromadné publikování balíčků NuGet](http://jeffhandley.com/archive/2012/12/13/Bulk-Publishing-NuGet-Packages.aspx) (jeffhandly.com).
+Zobrazit [hromadně publikování balíčků NuGet](http://jeffhandley.com/archive/2012/12/13/Bulk-Publishing-NuGet-Packages.aspx) (jeffhandly.com).
 
 ## <a name="working-with-packages"></a>Práce s balíčky
 
-**Jaký je rozdíl mezi balíčkem úrovni projektu a řešení úrovni balíčku?**
+**Jaký je rozdíl mezi balíčkem na úrovni projektu a balíček řešení úrovni?**
 
-Balíček úrovni řešení (NuGet 3.x+) se nainstaluje pouze jednou v řešení a pak je k dispozici pro všechny projekty v řešení. Balíček úrovni projektu je nainstalována v každém projektu, který používá je. Balíček úrovni řešení může také nainstalovat nové příkazy, které lze volat z konzoly Správce balíčků.
+Balíček řešení úrovni (NuGet 3.x+) se nainstaluje pouze jednou v řešení a je pak k dispozici pro všechny projekty v řešení. Na úrovni projektu balíček je nainstalován v každém projektu, která ji používá. Balíček úrovni řešení může být také nainstalovat nové příkazy, které může být volána z konzoly Správce balíčků.
 
 **Je možné nainstalovat balíčky NuGet bez připojení k Internetu?**
 
-Ano, najdete v příspěvku blogu Scott Hanselman [postup při nuget.org je dolů (nebo jste do roviny) získat přístup k NuGet](http://www.hanselman.com/blog/HowToAccessNuGetWhenNuGetorgIsDownOrYoureOnAPlane.aspx) (hanselman.com).
+Ano, najdete v příspěvku blogu Scotta Hanselmana [jak získat přístup k NuGet, když nuget.org je mimo provoz (nebo jste palubě)](http://www.hanselman.com/blog/HowToAccessNuGetWhenNuGetorgIsDownOrYoureOnAPlane.aspx) (hanselman.com).
 
-**Jak instalovat balíčky v jiném umístění z výchozí složku balíčků?**
+**Jak nainstalovat balíčky v jiném umístění z výchozí složku balíčků?**
 
-Nastavte [ `repositoryPath` ](../reference/nuget-config-file.md#config-section) nastavení v `Nuget.Config` pomocí `nuget config -set repositoryPath=<path>`.
+Nastavte [ `repositoryPath` ](../reference/nuget-config-file.md#config-section) nastavení `Nuget.Config` pomocí `nuget config -set repositoryPath=<path>`.
 
-**Jak vyhnout, přidání složky balíčků NuGet do do správy zdrojového kódu?**
+**Jak se můžu vyhnout přidávání složce balíčků NuGet do správy zdrojových kódů?**
 
-Nastavte [ `disableSourceControlIntegration` ](../reference/nuget-config-file.md#solution-section) v `Nuget.Config` k `true`. Tento klíč funguje v řešení úroveň a proto musí být přidán do `$(Solutiondir)\.nuget\Nuget.Config` souboru. Povolení obnovení balíčku ze sady Visual Studio automaticky vytvoří tento soubor.
+Nastavte [ `disableSourceControlIntegration` ](../reference/nuget-config-file.md#solution-section) v `Nuget.Config` k `true`. Tento klíč funguje v řešení úrovni a proto je potřeba přidat do `$(Solutiondir)\.nuget\Nuget.Config` souboru. Povolení obnovení balíčku ze sady Visual Studio automaticky vytvoří tento soubor.
 
-**Jak lze vypnout obnovení balíčků?**
+**Jak můžu vypnout obnovení balíčků?**
 
-V tématu [povolení a zákaz obnovení balíčků](../consume-packages/package-restore.md#enabling-and-disabling-package-restore).
+Zobrazit [povolení a zákaz obnovení balíčku](../consume-packages/package-restore.md#enabling-and-disabling-package-restore).
 
-**Proč se zobrazila "Nelze přeložit došlo k chybě závislosti" při instalaci balíčku, místní vzdálené závislosti?**
+**Proč se zobrazí zpráva "Nelze přeložit došlo k chybě závislosti" při instalaci místního balíčku se vzdálených závislostí?**
 
-Je nutné vybrat **všechny** zdroje při instalaci místní balíčku do projektu. To agreguje informační kanály místo použití pouze jeden. Tato chyba se zobrazí důvodem je, že uživatelé místní úložiště se často chtít vyhnout omylem instalaci vzdálených balíčků z důvodu podnikové zásady.
+Je nutné vybrat **všechny** zdroje při instalaci místního balíčku do projektu. To agreguje všechny kanály místo jen jeden. Důvod se zobrazí tato chyba je, že uživatelé z místního úložiště se často chcete zabránit náhodnému instalace vzdálených balíčků z důvodu firemní zásady.
 
-**Je nutné více projektů ve stejné složce, jak můžete použít samostatné packages.config soubory pro každý projekt?**
+**Mám několik projektů ve stejné složce, jak můžete použít soubory samostatného souboru packages.config pro každý projekt?**
 
-Ve většině projekty bydlišti samostatné projekty v samostatné složky, to není problém jako NuGet identifikuje `packages.config` soubory do každého projektu. U balíčku NuGet 3.3 + a více projektů ve stejné složce, můžete vložit název projektu do `packages.config` názvy souborů pomocí vzoru `packages.{project-name}.config`, a NuGet použije tento soubor.
+Ve většině projektů, ve kterém live samostatné projekty do samostatné složky, to není problém protože identifikuje NuGet `packages.config` soubory v každém projektu. Nuget 3.3 + a více projektů ve stejné složce, můžete vložit název projektu do `packages.config` názvy souborů použijte vzor `packages.{project-name}.config`, a tento soubor používá NuGet.
 
-To není problém při použití PackageReference, protože každý soubor projektu obsahuje vlastní seznam závislosti.
+To není problém při používání PackageReference, protože každý soubor projektu obsahuje vlastní seznam závislostí.
 
-**Nuget.org se nezobrazí v seznamu úložišť, jak lze získat ho zpátky?**
+**Nevidím v seznamu úložišť v nuget.org, jak to můžu získat zpátky?**
 
-- Přidat `https://api.nuget.org/v3/index.json` si na seznam zdrojů, nebo
-- Odstranit `%appdata%\.nuget\NuGet.Config` (Windows) nebo `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) a umožní NuGet znovu vytvořit.
+- Přidat `https://api.nuget.org/v3/index.json` do seznamu zdrojů, nebo
+- Odstranit `%appdata%\.nuget\NuGet.Config` (Windows) nebo `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) a nechat NuGet znovu vytvořit.
 
-**Jaké jsou výchozí licenční podmínky Pokud balíček neposkytuje konkrétní informace o licencích?**
+**Co jsou výchozí licenční podmínky Pokud balíček neobsahuje konkrétní informace o licencích?**
 
-Každý balíček se řídí podmínkami, které jsou součástí balíčku. Přečtěte si podmínky použít před přístup, stahování nebo získávání všechny balíčky. Na nuget.org, použijte **licenční informace** odkaz na stránce balíček.
+Každý balíček se řídí podmínkami, které jsou součástí balíčku. Přečtěte si před přístupem k, stahování nebo získání všechny balíčky, které příslušné podmínky. Na nuget.org, použijte **informace o licenci** odkaz na stránce balíček.
 
-Pokud balíček neurčuje licenční podmínky, obraťte se na vlastníka balíčku přímo pomocí **obraťte se na vlastníky** odkaz na stránce balíček nuget.org. Společnost Microsoft není licence duševního vlastnictví vám ze zprostředkovatelů balíček třetích stran a není zodpovědná za informace třetích stran.
+Pokud balíček neurčuje licenční podmínky, obraťte se přímo pomocí vlastníka balíčku **obraťte se na vlastníky** odkazu na stránce balíček pro nuget.org. Společnost Microsoft není licence duševního vlastnictví, od poskytovatelů třetích stran balíček a neodpovídá za informace, které jsou poskytovány třetími stranami.
 
-## <a name="managing-packages-on-nugetorg"></a>Spravovat balíčky v nuget.org
+## <a name="managing-packages-on-nugetorg"></a>Správa balíčků na nuget.org
 
-**Můžete upravit metadata balíčků, až se nahrají?**
+**Můžete upravit po je nahraná metadata balíčků?**
 
-NuGet doporučuje všechny balíčky k podepsání. Princip návrhu podepisování balíčku je, že podepsaný balíček obsahu musí být neměnné, což zahrnuje soubor nuspec. Úpravy metadata balíčků výsledkem změny pro soubor nuspec, zneplatnění existující podpisy. Doporučujeme, abyste úprava existující pracovní postupy a nevyžadují úpravy metadata balíčků po vytvoření balíčku.
+NuGet doporučuje podepsat všechny balíčky. Princip návrhu podpisu balíčku je, že je podepsaný balíček obsahu neměnný, což zahrnuje soubor nuspec. Úpravy metadat balíčku výsledkem změny do souboru nuspec, proto už není platná existující podpisy. Doporučujeme, abyste úpravy stávajících pracovních postupů, aby nebyl vyžadován upravovat metadata balíčku po vytvoření balíčku.
 
-Všimněte si, že pro svůj balíček uvedené závislosti jsou automaticky generovány z balíčku sám sebe a nelze jej upravit.
+Všimněte si, že závislostí uvedených pro váš balíček se generují automaticky z balíčku samotného a nelze jej upravit.
 
-Kromě toho odesílání balíčků [staging.nuget.org](http://staging.nuget.org) je skvělým způsobem, jak testování a ověření vašeho balíčku bez zpřístupnění balíček ve veřejné galerii.
+Kromě toho nahrání balíčků [staging.nuget.org](http://staging.nuget.org) je skvělý způsob, jak otestovat a ověřit váš balíček přitom balíček k dispozici ve veřejné galerii.
 
-**Je možné rezervovat názvy pro balíčky, které budou publikovány v budoucnosti?**
+**Je možné rezervovat názvy balíčků, které se publikují v budoucnosti?**
 
-Ano. ID můžete vyhradit pro balíčky na [nuget.org](https://www.nuget.org/) tím, že požádá předponu ID balíčku pro váš účet. Chcete-li požádat o předponu ID balíčku, postupujte podle pokynů [dokumentaci](https://docs.microsoft.com/nuget/reference/id-prefix-reservation).
+Ano. ID můžete vyhradit pro balíčky na [nuget.org](https://www.nuget.org/) vyžádáním předponu ID balíčku pro váš účet. Aby bylo možné požádat o předponu ID balíčku, postupujte podle pokynů [dokumentaci](https://docs.microsoft.com/nuget/reference/id-prefix-reservation).
 
-**Jak nárokovat vlastnictví pro balíčky?**
+**Jak uplatním nárok na vlastnictví pro balíčky?**
 
-V tématu [Správa vlastníků balíčku na nuget.org](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg).
+Zobrazit [vlastníky Správa balíčků na nuget.org](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg).
 
-**Řešení s vlastníka balíčku, který je bychom při tom porušili Moje softwarových licencí**
+**Jak zacházet s vlastníka balíčku, který porušuje licence na software**
 
-Doporučujeme komunitou NuGet spolupracovat na řešení sporů, které může způsobit mezi balíček vlastníků a vlastníci na ostatní software. Budeme mít vytvořené [proces řešení sporu](../policies/dispute-resolution.md) dříve, než s dotazem, správcům nuget.org intercede.
+Doporučujeme komunity NuGet spolupráce řešení všech sporů, které mohou vzniknout mezi vlastníky balíčku a vlastníci dalšího softwaru. Jsme vytvořený [spor proces překladu](../policies/dispute-resolution.md) dodržovat před položením správcům nuget.org intercede.
 
-**Se doporučuje nahrát Moje testovací balíčky do nuget.org?**
+**Je doporučeno uložit Moje testovací balíčky nuget.org?**
 
-Pro účely testování můžete použít [staging.nuget.org](http://staging.nuget.org), nebo jako alternativní veřejné servery NuGet [myget.org](https://myget.org) nebo [Visual Studio Team Services](https://blogs.msdn.microsoft.com/visualstudioalm/2015/08/27/announcing-package-management-support-for-vsotfs/).
+Pro účely testování můžete použít [staging.nuget.org](http://staging.nuget.org), nebo jako alternativní veřejné servery NuGet [webu myget.org](https://myget.org) nebo [Visual Studio Team Services](https://blogs.msdn.microsoft.com/visualstudioalm/2015/08/27/announcing-package-management-support-for-vsotfs/).
 
-Všimněte si, že balíčky nahrán do staging.nuget.org nelze zachovat. V tématu [dát sbohem všem preview](http://blog.nuget.org/20130419/goodbye-preview.html).
+Všimněte si, že nemusí být zachována balíčky nahráli do staging.nuget.org. Zobrazit [Goodbye preview](http://blog.nuget.org/20130419/goodbye-preview.html).
 
-**Jaká je maximální velikost balíčků, které I můžete uložit do nuget.org?**
+**Jaká je maximální velikost balíčky, které můžu nahrát do nuget.org?**
 
-nuget.org umožňuje balíčky až 250MB, ale nemůžeme doporučujeme zachovat balíčky v části 1MB, pokud je to možné a použití závislosti propojení balíčky současně. Balíčky jako existuje pravidlo, obsahovat pouze jeden sestavení, aby se zabránilo kolizí.
+nuget.org umožňuje balíčky až 250MB, ale My doporučujeme udržování balíčky v části 1MB. Pokud je to možné a používání závislosti, které balíčky se propojují. Balíčky jako říci, obsahovat pouze jedno sestavení pro zabránění kolizím.
 
-NuGet stáhnout balíčky, takže větší balíčky mít vyšší pravděpodobnost selhání nainstaluje než menším pomocí protokolu HTTP.
+Stáhnout balíčky, takže větší balíčky mají vyšší pravděpodobnost selhání instalace, než menších NuGet pomocí protokolu HTTP.
 
-Je možné sdílet závislosti mezi více balíčků, zmenšit velikost stažených pro příjemci vašich balíčků NuGet.
+Je možné sdílet závislosti mezi více balíčků zmenšit celková stahovaná velikost spotřebitelé vaše balíčky NuGet.
 
-Závislosti jsou většinou statické a nikdy změnit. Při opravě chyby v kódu, nemusí být závislosti nutné aktualizovat. Pokud jste sady závislosti, skončili reshipping pokaždé, když větší balíčky. Rozdělením balíčků NuGet do související závislosti, upgrade je mnohem podrobnějšího pro spotřebitele vašeho balíčku.
+Závislosti jsou většinou statická a nikdy změnit. Pokud opravujete chybu v kódu, závislosti nemusí aktualizovat. Pokud seskupíte závislosti, skončíte reshipping pokaždé, když větší balíčky. Rozdělením balíčky NuGet na související závislosti jsou mnohem podrobnějšího pro spotřebitele balíčku upgradu.
 
 ## <a name="nugetorg-not-accessible"></a>není k dispozici nuget.org
 
-**Proč nelze stáhnout balíčky nebo balíčky odešlete do nuget.org?**
+**Proč nejde stáhnout balíčky z nebo nahrání balíčků na nuget.org?**
 
-První Ujistěte se, že používáte nejnovější verze NuGet. Pokud tuto verzi dále nedaří, [obraťte se na podporu](https://www.nuget.org/policies/Contact) a poskytnout další připojení, řešení potíží s informace, včetně:
+Nejprve ujistěte se, že používáte nejnovější verze nugetu. Pokud tuto verzi ani potom nedaří, [obraťte se na podporu](https://www.nuget.org/policies/Contact) a poskytují další připojení, řešení potíží s informací, včetně:
 
-- Verze NuGet používáte
-- Zdroje balíčku, kterou používáte
-- Obnovení protokolu s podrobné podrobností
-- MTR nebo Fiddler trasování (viz níže)
-- Zeměpisná oblast
+- Verze balíčku nuget, které používáte
+- Zdroje balíčků, které používáte
+- Obnovení protokolu s podrobnou úroveň podrobností
+- MTR nebo trasování Fiddler (viz níže)
+- Zeměpisné oblasti
 - Verze vašeho operačního systému
-- Konfigurace počítače (procesor, sítě, pevný disk)
-- Jestli je váš počítač za proxy nebo brány firewall
-- Verze rozhraní .NET, které jsou nainstalovány na počítači
-- Verze nástrojů pro různé platformy jako je rozhraní příkazového řádku .NET nebo dnů, který používáte
+- Konfigurace počítače (procesor, síť, pevný disk)
+- Určuje, zda váš počítač není za proxy nebo brány firewall
+- Verze rozhraní .NET, které jsou nainstalované na počítači
+- Verze nástrojů pro různé platformy jako .NET CLI nebo dnů, které používáte
 
-*Chcete-li zaznamenat MTR:*
+*K zachycení MTR:*
 
 - Stáhněte si WinMTR z [http://winmtr.net/download/](http://winmtr.net/)
-- Zadejte `api.nuget.org` jako název hostitele a klikněte na tlačítko **spustit**.
-- Počkejte **odeslané** sloupec je sloupec > = 100.
+- Zadejte `api.nuget.org` jako název hostitele a klikněte na **Start**.
+- Počkejte, dokud **odeslané** je sloupec > = 100.
 
-    ![Zaznamenání MTR](media/mtr.png)
+    ![Zachytávání MTR](media/mtr.png)
 
-- Zkopírujte text do schránky.
+- Zkopírování textu do schránky.
 
-*Chcete-li zaznamenat Fiddler:*
+*K zachycení Fiddleru:*
 
 - Nainstalujte nejnovější verzi [Fiddler](http://www.telerik.com/download/fiddler).
-- Spusťte aplikaci Fiddler a zakázat pomocí zaznamenávání provoz **soubor > zachycování provozu** nabídky.
-- Odeberte všechny relace (vyberte všechny položky v seznamu, stiskněte **odstranit** klíč).
-- Nakonfigurujte aplikaci Fiddler k zachycení provoz HTTPS kontrolou **provoz HTTPS dešifrovat** v **HTTPS** kartě **nástroje > Možnosti Fiddler...**  nabídky.
+- Spusťte aplikaci Fiddler a zakázat zachytávání provozu pomocí **soubor > Capture Traffic** nabídky.
+- Odebrat všechny relace (vybrat všechny položky v seznamu, stiskněte **odstranit** klíč).
+- Konfigurace aplikace Fiddler k zachycení přenosy HTTPS tak, že zkontrolujete **přenosy HTTPS dešifrovat** v **HTTPS** karty **nástroje > Možnosti Fiddleru...**  nabídky.
 - Zavřete Visual Studio.
-- Povolit **soubor > zachycování provozu** nabídky.
-- Spusťte Visual Studio nebo nuget.exe .exe a provádět akce, které nefungují. Přenosy dat vytvářené pomocí tyto akce by měl zobrazí v aplikaci Fiddler.
-- Jakmile akce, které jste spustili, použijte **soubor > Uložit > všechny relace** k uložení zaznamenané relací.
+- Povolit **soubor > Capture Traffic** nabídky.
+- Spusťte Visual Studio nebo nuget.exe .exe a provádět akce, které nefungují. Přenosy generované tyto akce by měla objevoval ve Fiddleru.
+- Po spuštění akce, které mají používat **soubor > Uložit > všechny relace** k uložení zaznamenané relace.
 
-Poznámka: může být nezbytné k nastavení `HTTP_PROXY` proměnnou prostředí `http://127.0.0.1:8888` pro směrování provozu NuGet prostřednictvím aplikaci Fiddler.
+Poznámka: to může být nutné nastavit `HTTP_PROXY` proměnnou prostředí, aby `http://127.0.0.1:8888` za směrování přenosů NuGet pomocí Fiddleru.
 
-Pokud se nezdaří, zkuste [tipy uvedených v tomto blogu StackOverflow](http://stackoverflow.com/questions/21049908/using-fiddler-to-sniff-visual-studio-2013-requests-proxy-firewall).
+Pokud se to nepodaří, zkuste [tipy uvedených v tomto příspěvku na StackOverflow](http://stackoverflow.com/questions/21049908/using-fiddler-to-sniff-visual-studio-2013-requests-proxy-firewall).
 
 **Jaké jsou koncové body rozhraní API pro nuget.org?**
 
-V3: `https://api.nuget.org/v3/index.json` V2: `https://www.nuget.org/api/v2/` (Všimněte si, že rozhraní API verze 2 je zastaralá a nefunguje s NuGet 4 +.)
+V3: `https://api.nuget.org/v3/index.json` V2: `https://www.nuget.org/api/v2/` (Všimněte si, že rozhraní API verze 2 je zastaralý a nefunguje s NuGet 4 +.)

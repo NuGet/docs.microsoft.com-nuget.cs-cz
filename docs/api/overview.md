@@ -7,12 +7,12 @@ manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: fe843a121e2f1aae376f3e30a7b911792057688f
-ms.sourcegitcommit: e9c58dbfc1af2876337dcc37b1b070e8ddec0388
+ms.openlocfilehash: 0cb40a640a0bab63a63b3b690a34f1f8cbf7fcb8
+ms.sourcegitcommit: c643dd2c44e085601551ff7079d696bcc3ad2b49
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40020528"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42793596"
 ---
 # <a name="nuget-api"></a>Rozhraní API Nugetu
 
@@ -21,6 +21,8 @@ NuGet rozhraní API je sada koncových bodů HTTP, které je možné stáhnout b
 Toto rozhraní API používá klienta NuGet v sadě Visual Studio, nuget.exe a rozhraní příkazového řádku .NET k provádění operací NuGet, jako [ `dotnet restore` ](/dotnet/articles/core/preview3/tools/dotnet-restore), vyhledávání v Uživatelském rozhraní služby Visual Studio a [ `nuget.exe push` ](../tools/cli-ref-push.md).
 
 Všimněte si, v některých případech nuget.org má další požadavky, které nejsou vynucené z jiných zdrojů balíčků. Tyto rozdíly jsou popsány pomocí [protokoly nuget.org](nuget-protocols.md).
+
+Jednoduché výčet a stáhnout k dispozici nuget.exe verze najdete v tématu [tools.json](tools-json.md) koncového bodu.
 
 ## <a name="service-index"></a>Index služby
 

@@ -1,23 +1,23 @@
 ---
-title: Rozhraní příkazového řádku NuGet místní hodnoty – příkaz
-description: Referenční dokumentace pro nuget.exe místní hodnoty – příkaz
+title: Rozhraní příkazového řádku NuGet místních hodnot
+description: Referenční informace pro příkaz nuget.exe místních hodnot
 author: karann-msft
 ms.author: karann
 manager: unnir
 ms.date: 03/19/2018
 ms.topic: reference
-ms.openlocfilehash: 90e8c85e7a3e0e9520933e2ddd6dd84447475f2b
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 38d8b9366fb2749b77c987c950da3aa9e7f029fc
+ms.sourcegitcommit: 8d5121af528e68789485405e24e2100fda2868d6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818198"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42794132"
 ---
 # <a name="locals-command-nuget-cli"></a>Příkaz local (NuGet CLI)
 
-**Platí pro:** balíček spotřeba &bullet; **podporované verze:** 3.3 +
+**Platí pro:** balíček spotřeby &bullet; **podporované verze:** 3.3 +
 
-Vymaže nebo vypíše místní prostředky NuGet, jako *http mezipaměti*, *globální balíčky* složku a dočasnou složku. `locals` Příkaz lze použít také zobrazíte seznam těchto umístěních. Další informace najdete v tématu [správy globální balíčky a složky mezipaměti](../consume-packages/managing-the-global-packages-and-cache-folders.md).
+Vymaže nebo vypíše místní prostředky NuGet, jako *http-cache*, *global-packages* složek a dočasné složky. `locals` Příkaz lze také zobrazit seznam těchto umístěních. Další informace najdete v tématu [Správa globálních balíčků a složek mezipaměti](../consume-packages/managing-the-global-packages-and-cache-folders.md).
 
 ## <a name="usage"></a>Použití
 
@@ -25,19 +25,19 @@ Vymaže nebo vypíše místní prostředky NuGet, jako *http mezipaměti*, *glob
 nuget locals <folder> [options]
 ```
 
-kde `<folder>` je jedním z `all`, `http-cache`, `packages-cache` *(3.5 a starší)*, `global-packages`, a `temp` *(3.4 +)*.
+kde `<folder>` je jedním z `all`, `http-cache`, `packages-cache` *(3.5 a starší)*, `global-packages`, `temp` *(3.4 +)*, a `plugins-cache` *(4.8 +)*.
 
 ## <a name="options"></a>Možnosti
 
 | Možnost | Popis |
 | --- | --- |
-| Zrušte zaškrtnutí | Vymaže do zadané složky. |
-| ConfigFile | Konfigurační soubor NuGet použít. Pokud není zadaný, `%AppData%\NuGet\NuGet.Config` (Windows) nebo `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) se používá.|
-| ForceEnglishOutput | *(3.5 +)*  Vynutí nuget.exe ke spuštění pomocí invariantní, na základě angličtina jazykové verze. |
+| Vymazat | Vymaže zadané složky. |
+| ConfigFile | Konfigurační soubor NuGet použít. Pokud není zadán, `%AppData%\NuGet\NuGet.Config` (Windows) nebo `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) se používá.|
+| ForceEnglishOutput | *(3.5 +)*  Vynutí nuget.exe pro spuštění pomocí neutrální, základem je angličtina jazyková verze. |
 | Nápověda | Zobrazí nápovědu pro příkaz. |
-| Seznam | Zobrazí seznam umístění do zadané složky nebo umístění všechny složky při použití s *všechny*. |
-| Neinteraktivní | Potlačí výzvy pro vstup uživatele nebo potvrzení. |
-| Podrobnosti | Určuje množství podrobností, které jsou zobrazené ve výstupu: *normální*, *quiet*, *podrobné*. |
+| Seznam | Zobrazí seznam umístění zadaná složka nebo umístění všech složek, při použití s *všechny*. |
+| Neinteraktivní | Potlačí vyzve k zadání uživatele o vstup ani potvrzení. |
+| Podrobnosti | Určuje množství podrobností, na které se zobrazí ve výstupu: *normální*, *quiet*, *podrobné*. |
 
 Viz také [proměnné prostředí](cli-ref-environment-variables.md)
 
@@ -48,4 +48,4 @@ nuget locals all -list
 nuget locals http-cache -clear
 ```
 
-Další příklady najdete v tématu [správy globální balíčky a složky mezipaměti](../consume-packages/managing-the-global-packages-and-cache-folders.md).
+Další příklady najdete v tématu [Správa globálních balíčků a složek mezipaměti](../consume-packages/managing-the-global-packages-and-cache-folders.md).
