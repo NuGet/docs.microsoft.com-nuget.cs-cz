@@ -87,19 +87,19 @@ Adresa URL pro bitovou kopii 64 x 64 s průhlednost pozadí použít jako ikona 
 #### <a name="requirelicenseacceptance"></a>RequireLicenseAcceptance
 Logická hodnota určující, zda klient musí požádat spotřebitele o přijetí licence balíčku před instalací balíčku.
 #### <a name="developmentdependency"></a>DevelopmentDependency
-*(2.8 +)*  Logická hodnota určující, jestli tento balíček představuje označit jako vývoj – jen závislost, což zabrání balíčku nebudou zahrnuty v závislosti na dalších balíčků.
+*(2.8+)* Logická hodnota určující, jestli tento balíček představuje označit jako vývoj – jen závislost, což zabrání balíčku nebudou zahrnuty v závislosti na dalších balíčků.
 #### <a name="summary"></a>souhrn
 Krátký popis balíčku zobrazí v uživatelském rozhraní. Pokud tento parametr vynechán, zkrácená verze `description` se používá.
 #### <a name="releasenotes"></a>ReleaseNotes
-*(1.5 +)*  Popis změn provedených v této verzi balíčku, často používají v uživatelském rozhraní, jako **aktualizace** kartu z Visual Studio Správce balíčků namísto popisu balíčku.
+*(1.5+)* Popis změn provedených v této verzi balíčku, často používají v uživatelském rozhraní, jako **aktualizace** kartu z Visual Studio Správce balíčků namísto popisu balíčku.
 #### <a name="copyright"></a>Copyright
-*(1.5 +)*  Copyright podrobnosti balíčku.
+*(1.5+)* Copyright podrobnosti balíčku.
 #### <a name="language"></a>jazyk
 ID národního prostředí pro balíček. Zobrazit [vytvoření lokalizovaných balíčků](../create-packages/creating-localized-packages.md).
 #### <a name="tags"></a>značky
 Mezerami oddělený seznam značek a klíčových slov, které popisují balíček a podpora zjistitelnost balíčků prostřednictvím vyhledávání a filtrování. 
 #### <a name="serviceable"></a>možnost změny 
-*(3.3 +)*  Pouze pro interní NuGet použít.
+*(3.3+)* Pouze pro interní NuGet použít.
 #### <a name="repository"></a>úložiště
 Metadata úložiště, skládající se z čtyři volitelné atributy: *typ* a *url* *(4.0 +)*, a *větev* a  *potvrzení* *(4.6 +)*. Tyto atributy umožňují namapovat .nupkg do úložiště, který sestavilo, má potenciál, chcete-li získat podrobné jako jednotlivé větev nebo potvrzení změn, které sestaven balíček. To by měl být veřejně dostupnou adresu url, který lze vyvolat přímo pomocí softwaru pro řízení verzí. Neměl by být stránku html jako ten je určený pro počítače. Pro odkazování na stránku projektu, použijte `projectUrl` pole, místo toho.
 
