@@ -1,77 +1,76 @@
 ---
-title: Úvodní příručka k použití balíčky NuGet v sadě Visual Studio
-description: Návod kurz týkající se procesu instalace a použití balíčku NuGet v sadě Visual Studio projektu.
+title: Úvodní příručka k pomocí balíčků NuGet v sadě Visual Studio
+description: Kurz návod týkající se procesu instalace a použití balíčku NuGet v projektu sady Visual Studio.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.openlocfilehash: a64a87319e9bc6dc992892783d00dc42db1b1dd8
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 7b30fce4a2d9ad0bd7bc2b97f69b8d5d25101b72
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818851"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43545223"
 ---
-# <a name="quickstart-install-and-use-a-package-in-visual-studio"></a><span data-ttu-id="44725-103">Rychlý úvod: Instalace a použití balíčku v sadě Visual Studio</span><span class="sxs-lookup"><span data-stu-id="44725-103">Quickstart: Install and use a package in Visual Studio</span></span>
+# <a name="quickstart-install-and-use-a-package-in-visual-studio"></a><span data-ttu-id="dfc12-103">Rychlý start: Instalace a použití balíčku v sadě Visual Studio</span><span class="sxs-lookup"><span data-stu-id="dfc12-103">Quickstart: Install and use a package in Visual Studio</span></span>
 
-<span data-ttu-id="44725-104">Balíčky NuGet obsahovat opakovaně použitelný kód, který jinými vývojáři zpřístupnění pro použití ve vašich projektů.</span><span class="sxs-lookup"><span data-stu-id="44725-104">NuGet packages contain reusable code that other developers make available to you for use in your projects.</span></span> <span data-ttu-id="44725-105">V tématu [co je NuGet?](../What-is-NuGet.md) pozadí.</span><span class="sxs-lookup"><span data-stu-id="44725-105">See [What is NuGet?](../What-is-NuGet.md) for background.</span></span> <span data-ttu-id="44725-106">Balíčky jsou nainstalovány do projektu Visual Studia pomocí uživatelského rozhraní Správce balíčků nebo konzole Správce balíčků.</span><span class="sxs-lookup"><span data-stu-id="44725-106">Packages are installed into a Visual Studio project using the Package Manager UI or the Package Manager Console.</span></span> <span data-ttu-id="44725-107">Tento článek ukazuje, proces, pomocí oblíbených [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) balíček a projekt univerzální platformu Windows (UWP).</span><span class="sxs-lookup"><span data-stu-id="44725-107">This article demonstrates the process using the popular [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) package and a Universal Windows Platform (UWP) project.</span></span> <span data-ttu-id="44725-108">Stejný postup platí pro další .NET nebo .NET Core projektu.</span><span class="sxs-lookup"><span data-stu-id="44725-108">The same process applies to any other .NET or .NET Core project.</span></span>
+<span data-ttu-id="dfc12-104">Balíčky NuGet obsahují opakovaně použitelný kód, který jinými vývojáři zpřístupnit je pro použití ve vašich projektech.</span><span class="sxs-lookup"><span data-stu-id="dfc12-104">NuGet packages contain reusable code that other developers make available to you for use in your projects.</span></span> <span data-ttu-id="dfc12-105">Zobrazit [co je NuGet?](../What-is-NuGet.md) pro pozadí.</span><span class="sxs-lookup"><span data-stu-id="dfc12-105">See [What is NuGet?](../What-is-NuGet.md) for background.</span></span> <span data-ttu-id="dfc12-106">Balíčky se nainstalují do projektu sady Visual Studio pomocí uživatelského rozhraní Správce balíčků nebo konzole Správce balíčků.</span><span class="sxs-lookup"><span data-stu-id="dfc12-106">Packages are installed into a Visual Studio project using the Package Manager UI or the Package Manager Console.</span></span> <span data-ttu-id="dfc12-107">Tento článek popisuje proces pomocí Oblíbené [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) balíčku a projekt univerzální platformy Windows (UPW).</span><span class="sxs-lookup"><span data-stu-id="dfc12-107">This article demonstrates the process using the popular [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) package and a Universal Windows Platform (UWP) project.</span></span> <span data-ttu-id="dfc12-108">Stejný postup platí pro libovolný jiný projekt .NET nebo .NET Core.</span><span class="sxs-lookup"><span data-stu-id="dfc12-108">The same process applies to any other .NET or .NET Core project.</span></span>
 
-<span data-ttu-id="44725-109">Po instalaci odkazovat na balíček v kódu pomocí `using <namespace>` kde \<obor názvů\> je specifická pro balíček, který používáte.</span><span class="sxs-lookup"><span data-stu-id="44725-109">Once installed, refer to the package in code with `using <namespace>` where \<namespace\> is specific to the package you're using.</span></span> <span data-ttu-id="44725-110">Jakmile se odkazuje, můžete volat balíček prostřednictvím jejího rozhraní API.</span><span class="sxs-lookup"><span data-stu-id="44725-110">Once the reference is made, you can call the package through its API.</span></span>
+<span data-ttu-id="dfc12-109">Po instalaci se odkazovat na balíček v kódu s `using <namespace>` kde \<obor názvů\> je specifický pro balíček, který používáte.</span><span class="sxs-lookup"><span data-stu-id="dfc12-109">Once installed, refer to the package in code with `using <namespace>` where \<namespace\> is specific to the package you're using.</span></span> <span data-ttu-id="dfc12-110">Jakmile se odkazuje, můžete volat balíček prostřednictvím jejího rozhraní API.</span><span class="sxs-lookup"><span data-stu-id="dfc12-110">Once the reference is made, you can call the package through its API.</span></span>
 
 > [!Tip]
-> <span data-ttu-id="44725-111">**Začněte s nuget.org**: procházení nuget.org je, jak .NET vývojáři obvykle najít součásti můžete opakovaně použít ve svých vlastních aplikacích.</span><span class="sxs-lookup"><span data-stu-id="44725-111">**Start with nuget.org**: Browsing nuget.org is how .NET developers typically find components they can reuse in their own applications.</span></span> <span data-ttu-id="44725-112">Můžete hledat nuget.org přímo nebo najít a nainstalovat balíčky v sadě Visual Studio, jak je znázorněno v tomto článku.</span><span class="sxs-lookup"><span data-stu-id="44725-112">You can search nuget.org directly or find and install packages within Visual Studio as shown in this article.</span></span>
+> <span data-ttu-id="dfc12-111">**Začněte s nuget.org**: procházení nuget.org je, jak vývojáři na platformě .NET obvykle najdete součásti můžete znovu použít ve svých vlastních aplikacích.</span><span class="sxs-lookup"><span data-stu-id="dfc12-111">**Start with nuget.org**: Browsing nuget.org is how .NET developers typically find components they can reuse in their own applications.</span></span> <span data-ttu-id="dfc12-112">Můžete vyhledat nuget.org přímo nebo najít a nainstalovat balíčky v sadě Visual Studio, jak je znázorněno v tomto článku.</span><span class="sxs-lookup"><span data-stu-id="dfc12-112">You can search nuget.org directly or find and install packages within Visual Studio as shown in this article.</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="44725-113">Požadavky</span><span class="sxs-lookup"><span data-stu-id="44725-113">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="dfc12-113">Požadavky</span><span class="sxs-lookup"><span data-stu-id="dfc12-113">Prerequisites</span></span>
 
-- <span data-ttu-id="44725-114">Visual Studio 2017 se zatížením, vývoj pro univerzální platformu Windows, nebo</span><span class="sxs-lookup"><span data-stu-id="44725-114">Visual Studio 2017 with the Universal Windows Platform development workload, or</span></span>
-- <span data-ttu-id="44725-115">Visual Studio 2015 Update 3 pomocí nástrojů pro univerzální aplikace pro Windows.</span><span class="sxs-lookup"><span data-stu-id="44725-115">Visual Studio 2015 Update 3 with Tools for Universal Windows Apps.</span></span>
+- <span data-ttu-id="dfc12-114">Visual Studio 2017 s úlohou vývoj univerzální platformy Windows, nebo</span><span class="sxs-lookup"><span data-stu-id="dfc12-114">Visual Studio 2017 with the Universal Windows Platform development workload, or</span></span>
+- <span data-ttu-id="dfc12-115">Visual Studio 2015 Update 3 s Tools for Universal Windows Apps.</span><span class="sxs-lookup"><span data-stu-id="dfc12-115">Visual Studio 2015 Update 3 with Tools for Universal Windows Apps.</span></span>
 
-<span data-ttu-id="44725-116">Edice Community 2017 můžete nainstalovat zdarma z [visualstudio.com](https://www.visualstudio.com/) nebo použijte edice Professional nebo Enterprise.</span><span class="sxs-lookup"><span data-stu-id="44725-116">You can install the 2017 Community edition for free from [visualstudio.com](https://www.visualstudio.com/) or use the Professional or Enterprise editions.</span></span>
+<span data-ttu-id="dfc12-116">Edice Community 2017 můžete nainstalovat zdarma z [visualstudio.com](https://www.visualstudio.com/) nebo použijte edice Professional nebo Enterprise.</span><span class="sxs-lookup"><span data-stu-id="dfc12-116">You can install the 2017 Community edition for free from [visualstudio.com](https://www.visualstudio.com/) or use the Professional or Enterprise editions.</span></span>
 
-## <a name="create-a-project"></a><span data-ttu-id="44725-117">Vytvoření projektu</span><span class="sxs-lookup"><span data-stu-id="44725-117">Create a project</span></span>
+## <a name="create-a-project"></a><span data-ttu-id="dfc12-117">Vytvoření projektu</span><span class="sxs-lookup"><span data-stu-id="dfc12-117">Create a project</span></span>
 
-<span data-ttu-id="44725-118">Balíčky NuGet lze nainstalovat do všech rozhraní .NET projektu za předpokladu, že balíček podporuje stejné cílové rozhraní jako projekt.</span><span class="sxs-lookup"><span data-stu-id="44725-118">NuGet packages can be installed into any .NET project, provided that the package supports the same target framework as the project.</span></span>
+<span data-ttu-id="dfc12-118">Balíčky NuGet můžete nainstalovat do jakéhokoli projektu .NET, za předpokladu, že balíček podporuje stejnou cílovou architekturu jako projekt.</span><span class="sxs-lookup"><span data-stu-id="dfc12-118">NuGet packages can be installed into any .NET project, provided that the package supports the same target framework as the project.</span></span>
 
-<span data-ttu-id="44725-119">Pro účely tohoto postupu použijte jednoduchou aplikaci Universal Windows (UWP).</span><span class="sxs-lookup"><span data-stu-id="44725-119">For this walkthrough, use a simple Universal Windows (UWP) app.</span></span> <span data-ttu-id="44725-120">Vytvoření projektu v sadě Visual Studio pomocí **soubor > Nový projekt...**  a výběrem **univerzální pro Windows > prázdná aplikace (univerzální pro Windows)**.</span><span class="sxs-lookup"><span data-stu-id="44725-120">Create a project in Visual Studio using **File > New Project...** and selecting the **Windows Universal > Blank App (Universal Windows)**.</span></span> <span data-ttu-id="44725-121">Přijměte výchozí hodnoty pro cílovou verzi a minimální verzi po zobrazení výzvy.</span><span class="sxs-lookup"><span data-stu-id="44725-121">Accept the default values for Target Version and Minimum Version when prompted.</span></span>
+<span data-ttu-id="dfc12-119">V tomto návodu použijte jednoduché aplikace pro Universal Windows (UPW).</span><span class="sxs-lookup"><span data-stu-id="dfc12-119">For this walkthrough, use a simple Universal Windows (UWP) app.</span></span> <span data-ttu-id="dfc12-120">Vytvoření projektu v sadě Visual Studio pomocí **soubor > Nový projekt...**  a vyberete **Windows Universal > prázdná aplikace (Universal Windows)**.</span><span class="sxs-lookup"><span data-stu-id="dfc12-120">Create a project in Visual Studio using **File > New Project...** and selecting the **Windows Universal > Blank App (Universal Windows)**.</span></span> <span data-ttu-id="dfc12-121">Přijměte výchozí hodnoty pro cílovou verzi a minimální verzi po zobrazení výzvy.</span><span class="sxs-lookup"><span data-stu-id="dfc12-121">Accept the default values for Target Version and Minimum Version when prompted.</span></span>
 
-## <a name="add-the-newtonsoftjson-nuget-package"></a><span data-ttu-id="44725-122">Přidejte balíček Newtonsoft.Json NuGet</span><span class="sxs-lookup"><span data-stu-id="44725-122">Add the Newtonsoft.Json NuGet package</span></span>
+## <a name="add-the-newtonsoftjson-nuget-package"></a><span data-ttu-id="dfc12-122">Přidejte balíček Newtonsoft.Json NuGet</span><span class="sxs-lookup"><span data-stu-id="dfc12-122">Add the Newtonsoft.Json NuGet package</span></span>
 
-<span data-ttu-id="44725-123">Chcete-li nainstalovat balíček, můžete použít uživatelského rozhraní Správce balíčků nebo konzole Správce balíčků.</span><span class="sxs-lookup"><span data-stu-id="44725-123">To install the package, you can use either the Package Manager UI or the Package Manager Console.</span></span> <span data-ttu-id="44725-124">Při instalaci balíčku NuGet zaznamenává závislost buď souboru projektu nebo `packages.config` souboru.</span><span class="sxs-lookup"><span data-stu-id="44725-124">When you install a package, NuGet records the dependency in either your project file or a `packages.config` file.</span></span> <span data-ttu-id="44725-125">Další informace najdete v tématu [balíček spotřeba přehled a pracovní postup](../consume-packages/Overview-and-Workflow.md).</span><span class="sxs-lookup"><span data-stu-id="44725-125">For more information, see [Package consumption overview and workflow](../consume-packages/Overview-and-Workflow.md).</span></span>
+<span data-ttu-id="dfc12-123">Chcete-li nainstalovat balíček, můžete použít uživatelské rozhraní Správce balíčků nebo konzole Správce balíčků.</span><span class="sxs-lookup"><span data-stu-id="dfc12-123">To install the package, you can use either the Package Manager UI or the Package Manager Console.</span></span> <span data-ttu-id="dfc12-124">Při instalaci balíčku NuGet zaznamenává závislost v jednom souboru projektu nebo `packages.config` souboru.</span><span class="sxs-lookup"><span data-stu-id="dfc12-124">When you install a package, NuGet records the dependency in either your project file or a `packages.config` file.</span></span> <span data-ttu-id="dfc12-125">Další informace najdete v tématu [balíček spotřeby přehled a pracovní postup](../consume-packages/Overview-and-Workflow.md).</span><span class="sxs-lookup"><span data-stu-id="dfc12-125">For more information, see [Package consumption overview and workflow](../consume-packages/Overview-and-Workflow.md).</span></span>
 
-### <a name="package-manager-ui"></a><span data-ttu-id="44725-126">Uživatelského rozhraní Správce balíčků</span><span class="sxs-lookup"><span data-stu-id="44725-126">Package Manager UI</span></span>
+### <a name="package-manager-ui"></a><span data-ttu-id="dfc12-126">Uživatelské rozhraní Správce balíčků</span><span class="sxs-lookup"><span data-stu-id="dfc12-126">Package Manager UI</span></span>
 
-1. <span data-ttu-id="44725-127">V Průzkumníku řešení klikněte pravým tlačítkem na **odkazy** a zvolte **spravovat balíčky NuGet**.</span><span class="sxs-lookup"><span data-stu-id="44725-127">In Solution Explorer, right-click **References** and choose **Manage NuGet Packages**.</span></span>
+1. <span data-ttu-id="dfc12-127">V Průzkumníku řešení klikněte pravým tlačítkem na **odkazy** a zvolte **spravovat balíčky NuGet**.</span><span class="sxs-lookup"><span data-stu-id="dfc12-127">In Solution Explorer, right-click **References** and choose **Manage NuGet Packages**.</span></span>
 
-    ![Správa balíčků NuGet příkaz pro odkazy na projekt](media/QS_Use-02-ManageNuGetPackages.png)
+    ![Spravovat balíčky NuGet příkaz pro projektové odkazy](media/QS_Use-02-ManageNuGetPackages.png)
 
-1. <span data-ttu-id="44725-129">Vyberte "nuget.org" jako **zdroj balíčku**, vyberte **Procházet** kartě, vyhledejte **Newtonsoft.Json**, vyberte tento balíček v seznamu a vyberte  **Nainstalujte**:</span><span class="sxs-lookup"><span data-stu-id="44725-129">Choose "nuget.org" as the **Package source**, select the **Browse** tab, search for **Newtonsoft.Json**, select that package in the list, and select **Install**:</span></span>
+1. <span data-ttu-id="dfc12-129">Zvolte možnost "nuget.org" jako **zdroj balíčku**, vyberte **Procházet** kartu, vyhledejte **Newtonsoft.Json**, vyberte tento balíček v seznamu a vyberte  **Nainstalujte**:</span><span class="sxs-lookup"><span data-stu-id="dfc12-129">Choose "nuget.org" as the **Package source**, select the **Browse** tab, search for **Newtonsoft.Json**, select that package in the list, and select **Install**:</span></span>
 
-    ![Vyhledání Newtonsoft.Json balíčku](media/QS_Use-03-NewtonsoftJson.png)
+    ![Vyhledání balíček Newtonsoft.Json](media/QS_Use-03-NewtonsoftJson.png)
 
-1. <span data-ttu-id="44725-131">Přijměte zobrazování výzev licence.</span><span class="sxs-lookup"><span data-stu-id="44725-131">Accept any license prompts.</span></span>
+1. <span data-ttu-id="dfc12-131">Přijměte případné výzvy licence.</span><span class="sxs-lookup"><span data-stu-id="dfc12-131">Accept any license prompts.</span></span>
 
-1. <span data-ttu-id="44725-132">(Visual Studio 2017) Po zobrazení výzvy vyberte formát balíček správy, vyberte **PackageReference v souboru projektu**:</span><span class="sxs-lookup"><span data-stu-id="44725-132">(Visual Studio 2017) If prompted to select a package management format, select **PackageReference in project file**:</span></span>
+1. <span data-ttu-id="dfc12-132">(Visual Studio 2017) Pokud se zobrazí výzva k výběru formát správy balíčků, vyberte **PackageReference v souboru projektu**:</span><span class="sxs-lookup"><span data-stu-id="dfc12-132">(Visual Studio 2017) If prompted to select a package management format, select **PackageReference in project file**:</span></span>
 
-    ![Výběr formátu balíčku správy](media/QS_Use-03b-SelectFormat.png)
+    ![Vyberte formát správy balíčků](media/QS_Use-03b-SelectFormat.png)
 
-1. <span data-ttu-id="44725-134">Pokud budete vyzváni ke zkontrolování změn, vyberte **OK**.</span><span class="sxs-lookup"><span data-stu-id="44725-134">If prompted to review changes, select **OK**.</span></span>
+1. <span data-ttu-id="dfc12-134">Pokud budete vyzváni ke zkontrolování změn, vyberte **OK**.</span><span class="sxs-lookup"><span data-stu-id="dfc12-134">If prompted to review changes, select **OK**.</span></span>
 
-### <a name="package-manager-console"></a><span data-ttu-id="44725-135">Konzola správce balíčků</span><span class="sxs-lookup"><span data-stu-id="44725-135">Package Manager Console</span></span>
+### <a name="package-manager-console"></a><span data-ttu-id="dfc12-135">Konzola správce balíčků</span><span class="sxs-lookup"><span data-stu-id="dfc12-135">Package Manager Console</span></span>
 
-1. <span data-ttu-id="44725-136">Vyberte **nástroje > Správce balíčků NuGet > Konzola správce balíčků** příkazu nabídky.</span><span class="sxs-lookup"><span data-stu-id="44725-136">Select the **Tools > NuGet Package Manager > Package Manager Console** menu command.</span></span>
+1. <span data-ttu-id="dfc12-136">Vyberte **nástroje > Správce balíčků NuGet > Konzola správce balíčků** příkazu nabídky.</span><span class="sxs-lookup"><span data-stu-id="dfc12-136">Select the **Tools > NuGet Package Manager > Package Manager Console** menu command.</span></span>
 
-1. <span data-ttu-id="44725-137">Jakmile se otevře se konzola, zkontrolujte, zda **výchozí projekt** rozevíracího seznamu zobrazuje projekt, do kterého chcete nainstalovat balíček.</span><span class="sxs-lookup"><span data-stu-id="44725-137">Once the console opens, check that the **Default project** drop-down list shows the project into which you want to install the package.</span></span> <span data-ttu-id="44725-138">Pokud máte jeden projekt v řešení, je již vybrána.</span><span class="sxs-lookup"><span data-stu-id="44725-138">If you have a single project in the solution, it is already selected.</span></span>
+1. <span data-ttu-id="dfc12-137">Jakmile se otevře se konzola, zkontrolujte, že **výchozí projekt** rozevíracím seznamu zobrazí projektu, do kterého chcete balíček nainstalovat.</span><span class="sxs-lookup"><span data-stu-id="dfc12-137">Once the console opens, check that the **Default project** drop-down list shows the project into which you want to install the package.</span></span> <span data-ttu-id="dfc12-138">Pokud máte jeden projekt v řešení, je už vybraná.</span><span class="sxs-lookup"><span data-stu-id="dfc12-138">If you have a single project in the solution, it is already selected.</span></span>
 
-    ![Vyhledání Newtonsoft.Json balíčku](media/QS_Use-08-Console1.png)
+    ![Vyhledání balíček Newtonsoft.Json](media/QS_Use-08-Console1.png)
 
-1. <span data-ttu-id="44725-140">Zadejte příkaz `Install-Package Newtonsoft.json` (viz [Install-Package](../tools/ps-ref-install-package.md)).</span><span class="sxs-lookup"><span data-stu-id="44725-140">Enter the command `Install-Package Newtonsoft.json` (see [Install-Package](../tools/ps-ref-install-package.md)).</span></span> <span data-ttu-id="44725-141">V okně konzoly zobrazí výstup příkazu.</span><span class="sxs-lookup"><span data-stu-id="44725-141">The console window shows output for the command.</span></span> <span data-ttu-id="44725-142">Chyby obvykle naznačují, že balíček není kompatibilní s cílový framework projektu na.</span><span class="sxs-lookup"><span data-stu-id="44725-142">Errors typically indicate that the package isn't compatible with the project's target framework.</span></span>
+1. <span data-ttu-id="dfc12-140">Zadejte příkaz `Install-Package Newtonsoft.json` (viz [Install-Package](../tools/ps-ref-install-package.md)).</span><span class="sxs-lookup"><span data-stu-id="dfc12-140">Enter the command `Install-Package Newtonsoft.json` (see [Install-Package](../tools/ps-ref-install-package.md)).</span></span> <span data-ttu-id="dfc12-141">V okně konzoly se zobrazí výstup příkazu.</span><span class="sxs-lookup"><span data-stu-id="dfc12-141">The console window shows output for the command.</span></span> <span data-ttu-id="dfc12-142">Chyby obvykle signalizují, že balíček není kompatibilní s cílovou architekturu projektu.</span><span class="sxs-lookup"><span data-stu-id="dfc12-142">Errors typically indicate that the package isn't compatible with the project's target framework.</span></span>
 
-## <a name="use-the-newtonsoftjson-api-in-the-app"></a><span data-ttu-id="44725-143">Použít Newtonsoft.Json rozhraní API v aplikaci</span><span class="sxs-lookup"><span data-stu-id="44725-143">Use the Newtonsoft.Json API in the app</span></span>
+## <a name="use-the-newtonsoftjson-api-in-the-app"></a><span data-ttu-id="dfc12-143">Použít Newtonsoft.Json rozhraní API v aplikaci</span><span class="sxs-lookup"><span data-stu-id="dfc12-143">Use the Newtonsoft.Json API in the app</span></span>
 
-<span data-ttu-id="44725-144">S balíčkem Newtonsoft.Json v projektu, můžete volat jeho `JsonConvert.SerializeObject` způsobů, jak převést objekt na řetězec čitelná pro člověka.</span><span class="sxs-lookup"><span data-stu-id="44725-144">With the Newtonsoft.Json package in the project, you can call its `JsonConvert.SerializeObject` method to convert an object to a human-readable string.</span></span>
+<span data-ttu-id="dfc12-144">S balíčkem Newtonsoft.Json v projektu, můžete volat jeho `JsonConvert.SerializeObject` způsobů, jak převést objekt na řetězec čitelný.</span><span class="sxs-lookup"><span data-stu-id="dfc12-144">With the Newtonsoft.Json package in the project, you can call its `JsonConvert.SerializeObject` method to convert an object to a human-readable string.</span></span>
 
-1. <span data-ttu-id="44725-145">Otevřete `MainPage.xaml` a nahradit existující `Grid` element s následující:</span><span class="sxs-lookup"><span data-stu-id="44725-145">Open `MainPage.xaml` and replace the existing `Grid` element with the following:</span></span>
+1. <span data-ttu-id="dfc12-145">Otevřít `MainPage.xaml` a nahraďte existující `Grid` element následujícím kódem:</span><span class="sxs-lookup"><span data-stu-id="dfc12-145">Open `MainPage.xaml` and replace the existing `Grid` element with the following:</span></span>
 
     ```xaml
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -82,7 +81,7 @@ ms.locfileid: "34818851"
     </Grid>
     ```
 
-1. <span data-ttu-id="44725-146">Otevřete `MainPage.xaml.cs` souboru (umístěné v Průzkumníku řešení v části `MainPage.xaml` uzlu) a vložte následující kód do `MainPage` konstruktor:</span><span class="sxs-lookup"><span data-stu-id="44725-146">Open the `MainPage.xaml.cs` file (located in Solution Explorer under the `MainPage.xaml` node), and insert the following code inside the `MainPage` constructor:</span></span>
+1. <span data-ttu-id="dfc12-146">Otevřít `MainPage.xaml.cs` souboru (umístěné v Průzkumníkovi řešení pod `MainPage.xaml` uzlu) a vložte následující kód `MainPage` konstruktor:</span><span class="sxs-lookup"><span data-stu-id="dfc12-146">Open the `MainPage.xaml.cs` file (located in Solution Explorer under the `MainPage.xaml` node), and insert the following code inside the `MainPage` constructor:</span></span>
 
     ```cs
     public class Account
@@ -105,23 +104,23 @@ ms.locfileid: "34818851"
     }
     ```
 
-1. <span data-ttu-id="44725-147">I když jste přidali Newtonsoft.Json balíčku do projektu, se zobrazí červený podtržení vlnovkou pod `JsonConvert` vzhledem k tomu, že budete potřebovat `using` příkaz v horní části souboru kódu:</span><span class="sxs-lookup"><span data-stu-id="44725-147">Even though you added the Newtonsoft.Json package to the project, red squiggles appears under `JsonConvert` because you need a `using` statement at the top of the code file:</span></span>
+1. <span data-ttu-id="dfc12-147">I když jste přidali do projektu balíček Newtonsoft.Json, červenou vlnovkou se zobrazí v části `JsonConvert` vzhledem k tomu, že je nutné `using` příkazu v horní části souboru kódu:</span><span class="sxs-lookup"><span data-stu-id="dfc12-147">Even though you added the Newtonsoft.Json package to the project, red squiggles appears under `JsonConvert` because you need a `using` statement at the top of the code file:</span></span>
 
     ```cs
     using Newtonsoft.json;
     ```
 
-1. <span data-ttu-id="44725-148">Sestavte a spusťte aplikaci stisknutím klávesy F5 nebo výběrem **ladění > Spustit ladění**:</span><span class="sxs-lookup"><span data-stu-id="44725-148">Build and run the app by pressing F5 or selecting **Debug > Start Debugging**:</span></span>
+1. <span data-ttu-id="dfc12-148">Sestavte a spusťte aplikaci stisknutím klávesy F5 nebo výběrem **ladit > Spustit ladění**:</span><span class="sxs-lookup"><span data-stu-id="dfc12-148">Build and run the app by pressing F5 or selecting **Debug > Start Debugging**:</span></span>
 
-    ![Počáteční výstup aplikace UWP](media/QS_Use-06-AppStart.png)
+    ![Výstup počáteční aplikace pro UPW](media/QS_Use-06-AppStart.png)
 
-1. <span data-ttu-id="44725-150">Vyberte na tlačítko Zobrazit obsah TextBlock nahradí JSON text:</span><span class="sxs-lookup"><span data-stu-id="44725-150">Select on the button to see the contents of the TextBlock replaced with some JSON text:</span></span>
+1. <span data-ttu-id="dfc12-150">Vyberte na tlačítko Zobrazit obsah TextBlock nahradit JSON text:</span><span class="sxs-lookup"><span data-stu-id="dfc12-150">Select on the button to see the contents of the TextBlock replaced with some JSON text:</span></span>
 
-    ![Výstup aplikace UWP po výběru tlačítka](media/QS_Use-07-AppEnd.png)
+    ![Výstup aplikace UPW po výběru tlačítka](media/QS_Use-07-AppEnd.png)
 
-## <a name="related-articles"></a><span data-ttu-id="44725-152">Související články</span><span class="sxs-lookup"><span data-stu-id="44725-152">Related articles</span></span>
+## <a name="related-articles"></a><span data-ttu-id="dfc12-152">Související články</span><span class="sxs-lookup"><span data-stu-id="dfc12-152">Related articles</span></span>
 
-- [<span data-ttu-id="44725-153">Přehled a pracovní postup spotřeby balíčku</span><span class="sxs-lookup"><span data-stu-id="44725-153">Overview and workflow of package consumption</span></span>](../consume-packages/overview-and-workflow.md)
-- [<span data-ttu-id="44725-154">Vyhledání a výběr balíčků</span><span class="sxs-lookup"><span data-stu-id="44725-154">Finding and choosing packages</span></span>](../consume-packages/finding-and-choosing-packages.md)
-- [<span data-ttu-id="44725-155">Způsoby, jak nainstalovat balíček</span><span class="sxs-lookup"><span data-stu-id="44725-155">Ways to install a package</span></span>](../consume-packages/ways-to-install-a-package.md)
-- [<span data-ttu-id="44725-156">Konfigurace chování NuGetu</span><span class="sxs-lookup"><span data-stu-id="44725-156">Configuring NuGet Behavior</span></span>](../consume-packages/configuring-nuget-behavior.md)
+- [<span data-ttu-id="dfc12-153">Přehled a pracovní postup využití balíčků</span><span class="sxs-lookup"><span data-stu-id="dfc12-153">Overview and workflow of package consumption</span></span>](../consume-packages/overview-and-workflow.md)
+- [<span data-ttu-id="dfc12-154">Vyhledání a výběr balíčků</span><span class="sxs-lookup"><span data-stu-id="dfc12-154">Finding and choosing packages</span></span>](../consume-packages/finding-and-choosing-packages.md)
+- [<span data-ttu-id="dfc12-155">Způsoby instalace balíčku</span><span class="sxs-lookup"><span data-stu-id="dfc12-155">Ways to install a package</span></span>](../consume-packages/ways-to-install-a-package.md)
+- [<span data-ttu-id="dfc12-156">Konfigurace chování NuGetu</span><span class="sxs-lookup"><span data-stu-id="dfc12-156">Configuring NuGet Behavior</span></span>](../consume-packages/configuring-nuget-behavior.md)

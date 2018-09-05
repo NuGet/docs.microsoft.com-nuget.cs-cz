@@ -1,59 +1,58 @@
 ---
-title: Odkaz na soubor soubor nuget.config.
+title: Odkaz na soubor nuget.config
 description: Odkaz na soubor NuGet.Config včetně konfigurace, bindingRedirects, packageRestore, řešení a packageSource oddíly.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 10/25/2017
 ms.topic: reference
-ms.openlocfilehash: 3d6741b2d724b967e76ba65547e84adcd461a521
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 504a48224051265164f9ab183e63fa5e7f5867e6
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818396"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43546912"
 ---
-# <a name="nugetconfig-reference"></a><span data-ttu-id="99380-103">odkaz na soubor nuget.config.</span><span class="sxs-lookup"><span data-stu-id="99380-103">nuget.config reference</span></span>
+# <a name="nugetconfig-reference"></a><span data-ttu-id="94786-103">odkaz na soubor nuget.config</span><span class="sxs-lookup"><span data-stu-id="94786-103">nuget.config reference</span></span>
 
-<span data-ttu-id="99380-104">Chování NuGet je řízena nastavením v různých `NuGet.Config` souborů, jak je popsáno v [konfigurace chování NuGet](../consume-packages/configuring-nuget-behavior.md).</span><span class="sxs-lookup"><span data-stu-id="99380-104">NuGet behavior is controlled by settings in different `NuGet.Config` files as described in [Configuring NuGet Behavior](../consume-packages/configuring-nuget-behavior.md).</span></span>
+<span data-ttu-id="94786-104">Chování Nugetu je řízena nastavením v různých `NuGet.Config` soubory, jak je popsáno v [konfigurace chování Nugetu](../consume-packages/configuring-nuget-behavior.md).</span><span class="sxs-lookup"><span data-stu-id="94786-104">NuGet behavior is controlled by settings in different `NuGet.Config` files as described in [Configuring NuGet Behavior](../consume-packages/configuring-nuget-behavior.md).</span></span>
 
-<span data-ttu-id="99380-105">`nuget.config` je soubor XML obsahující nejvyšší úrovni `<configuration>` uzlu, který pak obsahuje část prvky popsané v tomto tématu.</span><span class="sxs-lookup"><span data-stu-id="99380-105">`nuget.config` is an XML file containing a top-level `<configuration>` node, which then contains the section elements described in this topic.</span></span> <span data-ttu-id="99380-106">Každý oddíl obsahuje nula nebo více `<add>` prvky s `key` a `value` atributy.</span><span class="sxs-lookup"><span data-stu-id="99380-106">Each section contains zero or more `<add>` elements with `key` and `value` attributes.</span></span> <span data-ttu-id="99380-107">Najdete v článku [příklady konfiguračního souboru](#example-config-file).</span><span class="sxs-lookup"><span data-stu-id="99380-107">See the [examples config file](#example-config-file).</span></span> <span data-ttu-id="99380-108">Následující názvy nastavení jsou velká a malá písmena a můžete použít hodnoty [proměnné prostředí](#using-environment-variables).</span><span class="sxs-lookup"><span data-stu-id="99380-108">Setting names are case-insensitive, and values can use [environment variables](#using-environment-variables).</span></span>
+<span data-ttu-id="94786-105">`nuget.config` je soubor XML obsahující na nejvyšší úrovni `<configuration>` uzlu, který pak obsahuje část prvky popsané v tomto tématu.</span><span class="sxs-lookup"><span data-stu-id="94786-105">`nuget.config` is an XML file containing a top-level `<configuration>` node, which then contains the section elements described in this topic.</span></span> <span data-ttu-id="94786-106">Každý oddíl obsahuje nula nebo více `<add>` prvky s `key` a `value` atributy.</span><span class="sxs-lookup"><span data-stu-id="94786-106">Each section contains zero or more `<add>` elements with `key` and `value` attributes.</span></span> <span data-ttu-id="94786-107">Zobrazit [příklady konfiguračního souboru](#example-config-file).</span><span class="sxs-lookup"><span data-stu-id="94786-107">See the [examples config file](#example-config-file).</span></span> <span data-ttu-id="94786-108">Názvy nastavení rozlišují velikost písmen a můžete použít hodnoty [proměnné prostředí](#using-environment-variables).</span><span class="sxs-lookup"><span data-stu-id="94786-108">Setting names are case-insensitive, and values can use [environment variables](#using-environment-variables).</span></span>
 
-<span data-ttu-id="99380-109">V tomto tématu:</span><span class="sxs-lookup"><span data-stu-id="99380-109">In this topic:</span></span>
+<span data-ttu-id="94786-109">V tomto tématu:</span><span class="sxs-lookup"><span data-stu-id="94786-109">In this topic:</span></span>
 
-- [<span data-ttu-id="99380-110">konfigurační oddíl</span><span class="sxs-lookup"><span data-stu-id="99380-110">config section</span></span>](#config-section)
-- [<span data-ttu-id="99380-111">část bindingRedirects</span><span class="sxs-lookup"><span data-stu-id="99380-111">bindingRedirects section</span></span>](#bindingredirects-section)
-- [<span data-ttu-id="99380-112">část packageRestore</span><span class="sxs-lookup"><span data-stu-id="99380-112">packageRestore section</span></span>](#packagerestore-section)
-- [<span data-ttu-id="99380-113">část řešení</span><span class="sxs-lookup"><span data-stu-id="99380-113">solution section</span></span>](#solution-section)
-- <span data-ttu-id="99380-114">[Balíček zdrojové oddíly](#package-source-sections):</span><span class="sxs-lookup"><span data-stu-id="99380-114">[Package source sections](#package-source-sections):</span></span>
-  - [<span data-ttu-id="99380-115">packageSources</span><span class="sxs-lookup"><span data-stu-id="99380-115">packageSources</span></span>](#packagesources)
-  - [<span data-ttu-id="99380-116">packageSourceCredentials</span><span class="sxs-lookup"><span data-stu-id="99380-116">packageSourceCredentials</span></span>](#packagesourcecredentials)
-  - [<span data-ttu-id="99380-117">apikeys</span><span class="sxs-lookup"><span data-stu-id="99380-117">apikeys</span></span>](#apikeys)
-  - [<span data-ttu-id="99380-118">disabledPackageSources</span><span class="sxs-lookup"><span data-stu-id="99380-118">disabledPackageSources</span></span>](#disabledpackagesources)
-  - [<span data-ttu-id="99380-119">activePackageSource</span><span class="sxs-lookup"><span data-stu-id="99380-119">activePackageSource</span></span>](#activepackagesource)
-- [<span data-ttu-id="99380-120">Použití proměnných prostředí</span><span class="sxs-lookup"><span data-stu-id="99380-120">Using environment variables</span></span>](#using-environment-variables)
-- [<span data-ttu-id="99380-121">Příklad konfiguračního souboru</span><span class="sxs-lookup"><span data-stu-id="99380-121">Example config file</span></span>](#example-config-file)
+- [<span data-ttu-id="94786-110">konfigurační oddíl</span><span class="sxs-lookup"><span data-stu-id="94786-110">config section</span></span>](#config-section)
+- [<span data-ttu-id="94786-111">část bindingRedirects</span><span class="sxs-lookup"><span data-stu-id="94786-111">bindingRedirects section</span></span>](#bindingredirects-section)
+- [<span data-ttu-id="94786-112">část packageRestore</span><span class="sxs-lookup"><span data-stu-id="94786-112">packageRestore section</span></span>](#packagerestore-section)
+- [<span data-ttu-id="94786-113">oddíl řešení</span><span class="sxs-lookup"><span data-stu-id="94786-113">solution section</span></span>](#solution-section)
+- <span data-ttu-id="94786-114">[Balíček zdrojové oddíly](#package-source-sections):</span><span class="sxs-lookup"><span data-stu-id="94786-114">[Package source sections](#package-source-sections):</span></span>
+  - [<span data-ttu-id="94786-115">packageSources</span><span class="sxs-lookup"><span data-stu-id="94786-115">packageSources</span></span>](#packagesources)
+  - [<span data-ttu-id="94786-116">packageSourceCredentials</span><span class="sxs-lookup"><span data-stu-id="94786-116">packageSourceCredentials</span></span>](#packagesourcecredentials)
+  - [<span data-ttu-id="94786-117">apikeys</span><span class="sxs-lookup"><span data-stu-id="94786-117">apikeys</span></span>](#apikeys)
+  - [<span data-ttu-id="94786-118">disabledPackageSources</span><span class="sxs-lookup"><span data-stu-id="94786-118">disabledPackageSources</span></span>](#disabledpackagesources)
+  - [<span data-ttu-id="94786-119">activePackageSource</span><span class="sxs-lookup"><span data-stu-id="94786-119">activePackageSource</span></span>](#activepackagesource)
+- [<span data-ttu-id="94786-120">Použití proměnných prostředí</span><span class="sxs-lookup"><span data-stu-id="94786-120">Using environment variables</span></span>](#using-environment-variables)
+- [<span data-ttu-id="94786-121">Příklad konfiguračního souboru</span><span class="sxs-lookup"><span data-stu-id="94786-121">Example config file</span></span>](#example-config-file)
 
 <a name="dependencyVersion"></a>
 <a name="globalPackagesFolder"></a>
 <a name="repositoryPath"></a>
 <a name="proxy-settings"></a>
 
-## <a name="config-section"></a><span data-ttu-id="99380-122">konfigurační oddíl</span><span class="sxs-lookup"><span data-stu-id="99380-122">config section</span></span>
+## <a name="config-section"></a><span data-ttu-id="94786-122">konfigurační oddíl</span><span class="sxs-lookup"><span data-stu-id="94786-122">config section</span></span>
 
-<span data-ttu-id="99380-123">Obsahuje nastavení různé konfigurace, které se dá nastavit pomocí [ `nuget config` příkaz](../tools/cli-ref-config.md).</span><span class="sxs-lookup"><span data-stu-id="99380-123">Contains miscellaneous configuration settings, which can be set using the [`nuget config` command](../tools/cli-ref-config.md).</span></span>
+<span data-ttu-id="94786-123">Obsahuje nastavení různé konfigurace, které lze nastavit pomocí [ `nuget config` příkaz](../tools/cli-ref-config.md).</span><span class="sxs-lookup"><span data-stu-id="94786-123">Contains miscellaneous configuration settings, which can be set using the [`nuget config` command](../tools/cli-ref-config.md).</span></span>
 
-<span data-ttu-id="99380-124">`dependencyVersion` a `repositoryPath` se vztahují pouze na projektů pomocí `packages.config`.</span><span class="sxs-lookup"><span data-stu-id="99380-124">`dependencyVersion` and `repositoryPath` apply only to projects using `packages.config`.</span></span> <span data-ttu-id="99380-125">`globalPackagesFolder` platí pouze pro projekty PackageReference formátu.</span><span class="sxs-lookup"><span data-stu-id="99380-125">`globalPackagesFolder` applies only to projects using the PackageReference format.</span></span>
+<span data-ttu-id="94786-124">`dependencyVersion` a `repositoryPath` platí pouze pro projekty pomocí `packages.config`.</span><span class="sxs-lookup"><span data-stu-id="94786-124">`dependencyVersion` and `repositoryPath` apply only to projects using `packages.config`.</span></span> <span data-ttu-id="94786-125">`globalPackagesFolder` platí pouze pro projekty ve formátu PackageReference.</span><span class="sxs-lookup"><span data-stu-id="94786-125">`globalPackagesFolder` applies only to projects using the PackageReference format.</span></span>
 
-| <span data-ttu-id="99380-126">Key</span><span class="sxs-lookup"><span data-stu-id="99380-126">Key</span></span> | <span data-ttu-id="99380-127">Hodnota</span><span class="sxs-lookup"><span data-stu-id="99380-127">Value</span></span> |
+| <span data-ttu-id="94786-126">Key</span><span class="sxs-lookup"><span data-stu-id="94786-126">Key</span></span> | <span data-ttu-id="94786-127">Hodnota</span><span class="sxs-lookup"><span data-stu-id="94786-127">Value</span></span> |
 | --- | --- |
-| <span data-ttu-id="99380-128">dependencyVersion (`packages.config` pouze)</span><span class="sxs-lookup"><span data-stu-id="99380-128">dependencyVersion (`packages.config` only)</span></span> | <span data-ttu-id="99380-129">Výchozí `DependencyVersion` hodnotu pro instalaci balíčku, obnovení a aktualizace, když `-DependencyVersion` přepínač není zadán přímo.</span><span class="sxs-lookup"><span data-stu-id="99380-129">The default `DependencyVersion` value for package install, restore, and update, when the `-DependencyVersion` switch is not specified directly.</span></span> <span data-ttu-id="99380-130">Tato hodnota se používá také pomocí uživatelského rozhraní Správce balíčků NuGet.</span><span class="sxs-lookup"><span data-stu-id="99380-130">This value is also used by the NuGet Package Manager UI.</span></span> <span data-ttu-id="99380-131">Hodnoty jsou `Lowest`, `HighestPatch`, `HighestMinor`, `Highest`.</span><span class="sxs-lookup"><span data-stu-id="99380-131">Values are `Lowest`, `HighestPatch`, `HighestMinor`, `Highest`.</span></span> |
-| <span data-ttu-id="99380-132">globalPackagesFolder (pouze pomocí PackageReference projekty)</span><span class="sxs-lookup"><span data-stu-id="99380-132">globalPackagesFolder (projects using PackageReference only)</span></span> | <span data-ttu-id="99380-133">Umístění složky výchozí globální balíčky.</span><span class="sxs-lookup"><span data-stu-id="99380-133">The location of the default global packages folder.</span></span> <span data-ttu-id="99380-134">Výchozí hodnota je `%userprofile%\.nuget\packages` (Windows) nebo `~/.nuget/packages` (Mac/Linux).</span><span class="sxs-lookup"><span data-stu-id="99380-134">The default is `%userprofile%\.nuget\packages` (Windows) or `~/.nuget/packages` (Mac/Linux).</span></span> <span data-ttu-id="99380-135">Relativní cesta mohou být používány specifické pro projekt `nuget.config` soubory.</span><span class="sxs-lookup"><span data-stu-id="99380-135">A relative path can be used in project-specific `nuget.config` files.</span></span> <span data-ttu-id="99380-136">Toto nastavení je přepsat proměnnou prostředí NUGET_PACKAGES, která má přednost před.</span><span class="sxs-lookup"><span data-stu-id="99380-136">This setting is overridden by the NUGET_PACKAGES environment variable, which takes precedence.</span></span> |
-| <span data-ttu-id="99380-137">repositoryPath (`packages.config` pouze)</span><span class="sxs-lookup"><span data-stu-id="99380-137">repositoryPath (`packages.config` only)</span></span> | <span data-ttu-id="99380-138">Umístění, v němž instalace balíčků NuGet místo výchozího `$(Solutiondir)/packages` složky.</span><span class="sxs-lookup"><span data-stu-id="99380-138">The location in which to install NuGet packages instead of the default `$(Solutiondir)/packages` folder.</span></span> <span data-ttu-id="99380-139">Relativní cesta mohou být používány specifické pro projekt `nuget.config` soubory.</span><span class="sxs-lookup"><span data-stu-id="99380-139">A relative path can be used in project-specific `nuget.config` files.</span></span> <span data-ttu-id="99380-140">Toto nastavení je přepsat proměnnou prostředí NUGET_PACKAGES, která má přednost před.</span><span class="sxs-lookup"><span data-stu-id="99380-140">This setting is overridden by the NUGET_PACKAGES environment variable, which takes precedence.</span></span> |
-| <span data-ttu-id="99380-141">defaultPushSource</span><span class="sxs-lookup"><span data-stu-id="99380-141">defaultPushSource</span></span> | <span data-ttu-id="99380-142">Určuje adresu URL nebo cestu zdroje balíčku, který se má použít jako výchozí pro operace nebyly nalezeny žádné jiné zdroje balíčku.</span><span class="sxs-lookup"><span data-stu-id="99380-142">Identifies the URL or path of the package source that should be used as the default if no other package sources are found for an operation.</span></span> |
-| <span data-ttu-id="99380-143">http_proxy http_proxy.user http_proxy.password no_proxy</span><span class="sxs-lookup"><span data-stu-id="99380-143">http_proxy http_proxy.user http_proxy.password no_proxy</span></span> | <span data-ttu-id="99380-144">Nastavení proxy serveru používat při připojování ke zdroji balíčků; `http_proxy` by měl být ve formátu `http://<username>:<password>@<domain>`.</span><span class="sxs-lookup"><span data-stu-id="99380-144">Proxy settings to use when connecting to package sources; `http_proxy` should be in the format `http://<username>:<password>@<domain>`.</span></span> <span data-ttu-id="99380-145">Hesla se šifrují a nelze ji přidat ručně.</span><span class="sxs-lookup"><span data-stu-id="99380-145">Passwords are encrypted and cannot be added manually.</span></span> <span data-ttu-id="99380-146">Pro `no_proxy`, hodnota je čárkami oddělený seznam domén Nepoužívat proxy server.</span><span class="sxs-lookup"><span data-stu-id="99380-146">For `no_proxy`, the value is a comma-separated list of domains the bypass the proxy server.</span></span> <span data-ttu-id="99380-147">Případně můžete http_proxy a no_proxy proměnných prostředí pro tyto hodnoty.</span><span class="sxs-lookup"><span data-stu-id="99380-147">You can alternately use the http_proxy and no_proxy environment variables for those values.</span></span> <span data-ttu-id="99380-148">Další podrobnosti najdete v tématu [nastavení proxy serveru NuGet](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (skolima.blogspot.com).</span><span class="sxs-lookup"><span data-stu-id="99380-148">For additional details, see [NuGet proxy settings](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (skolima.blogspot.com).</span></span> |
+| <span data-ttu-id="94786-128">dependencyVersion (`packages.config` jenom)</span><span class="sxs-lookup"><span data-stu-id="94786-128">dependencyVersion (`packages.config` only)</span></span> | <span data-ttu-id="94786-129">Výchozí hodnota `DependencyVersion` hodnotu pro instalaci balíčku, obnovení a aktualizace, když `-DependencyVersion` přepínač není zadán přímo.</span><span class="sxs-lookup"><span data-stu-id="94786-129">The default `DependencyVersion` value for package install, restore, and update, when the `-DependencyVersion` switch is not specified directly.</span></span> <span data-ttu-id="94786-130">Tato hodnota se používá také pomocí uživatelského rozhraní Správce balíčků NuGet.</span><span class="sxs-lookup"><span data-stu-id="94786-130">This value is also used by the NuGet Package Manager UI.</span></span> <span data-ttu-id="94786-131">Hodnoty jsou `Lowest`, `HighestPatch`, `HighestMinor`, `Highest`.</span><span class="sxs-lookup"><span data-stu-id="94786-131">Values are `Lowest`, `HighestPatch`, `HighestMinor`, `Highest`.</span></span> |
+| <span data-ttu-id="94786-132">globalPackagesFolder (projekty pouze pomocí PackageReference)</span><span class="sxs-lookup"><span data-stu-id="94786-132">globalPackagesFolder (projects using PackageReference only)</span></span> | <span data-ttu-id="94786-133">Umístění složky globálních balíčků výchozí.</span><span class="sxs-lookup"><span data-stu-id="94786-133">The location of the default global packages folder.</span></span> <span data-ttu-id="94786-134">Výchozí hodnota je `%userprofile%\.nuget\packages` (Windows) nebo `~/.nuget/packages` (Mac/Linux).</span><span class="sxs-lookup"><span data-stu-id="94786-134">The default is `%userprofile%\.nuget\packages` (Windows) or `~/.nuget/packages` (Mac/Linux).</span></span> <span data-ttu-id="94786-135">Relativní cesta lze použít v projektu konkrétní `nuget.config` soubory.</span><span class="sxs-lookup"><span data-stu-id="94786-135">A relative path can be used in project-specific `nuget.config` files.</span></span> <span data-ttu-id="94786-136">Toto nastavení je přepsán NUGET_PACKAGES proměnné prostředí, která má přednost.</span><span class="sxs-lookup"><span data-stu-id="94786-136">This setting is overridden by the NUGET_PACKAGES environment variable, which takes precedence.</span></span> |
+| <span data-ttu-id="94786-137">repositoryPath (`packages.config` jenom)</span><span class="sxs-lookup"><span data-stu-id="94786-137">repositoryPath (`packages.config` only)</span></span> | <span data-ttu-id="94786-138">Umístění, ve kterém k instalaci balíčků NuGet místo výchozího `$(Solutiondir)/packages` složky.</span><span class="sxs-lookup"><span data-stu-id="94786-138">The location in which to install NuGet packages instead of the default `$(Solutiondir)/packages` folder.</span></span> <span data-ttu-id="94786-139">Relativní cesta lze použít v projektu konkrétní `nuget.config` soubory.</span><span class="sxs-lookup"><span data-stu-id="94786-139">A relative path can be used in project-specific `nuget.config` files.</span></span> <span data-ttu-id="94786-140">Toto nastavení je přepsán NUGET_PACKAGES proměnné prostředí, která má přednost.</span><span class="sxs-lookup"><span data-stu-id="94786-140">This setting is overridden by the NUGET_PACKAGES environment variable, which takes precedence.</span></span> |
+| <span data-ttu-id="94786-141">defaultPushSource</span><span class="sxs-lookup"><span data-stu-id="94786-141">defaultPushSource</span></span> | <span data-ttu-id="94786-142">Určuje adresu URL nebo cestu zdroje balíčku, který se použije jako výchozí, pokud se nenajdou žádné jiné zdroje balíčků pro operaci.</span><span class="sxs-lookup"><span data-stu-id="94786-142">Identifies the URL or path of the package source that should be used as the default if no other package sources are found for an operation.</span></span> |
+| <span data-ttu-id="94786-143">http_proxy http_proxy.user http_proxy.password no_proxy</span><span class="sxs-lookup"><span data-stu-id="94786-143">http_proxy http_proxy.user http_proxy.password no_proxy</span></span> | <span data-ttu-id="94786-144">Nastavení proxy serveru mají používat při připojování ke zdrojům balíčků; `http_proxy` by měl být ve formátu `http://<username>:<password>@<domain>`.</span><span class="sxs-lookup"><span data-stu-id="94786-144">Proxy settings to use when connecting to package sources; `http_proxy` should be in the format `http://<username>:<password>@<domain>`.</span></span> <span data-ttu-id="94786-145">Hesla jsou zašifrované a nelze ji přidat ručně.</span><span class="sxs-lookup"><span data-stu-id="94786-145">Passwords are encrypted and cannot be added manually.</span></span> <span data-ttu-id="94786-146">Pro `no_proxy`, hodnota je čárkou oddělený seznam domén obejít proxy server.</span><span class="sxs-lookup"><span data-stu-id="94786-146">For `no_proxy`, the value is a comma-separated list of domains the bypass the proxy server.</span></span> <span data-ttu-id="94786-147">Můžete také použít proměnné prostředí http_proxy a no_proxy pro tyto hodnoty.</span><span class="sxs-lookup"><span data-stu-id="94786-147">You can alternately use the http_proxy and no_proxy environment variables for those values.</span></span> <span data-ttu-id="94786-148">Další podrobnosti najdete v tématu [nastavení proxy serveru NuGet](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (skolima.blogspot.com).</span><span class="sxs-lookup"><span data-stu-id="94786-148">For additional details, see [NuGet proxy settings](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (skolima.blogspot.com).</span></span> |
 
-<span data-ttu-id="99380-149">**Příklad**:</span><span class="sxs-lookup"><span data-stu-id="99380-149">**Example**:</span></span>
+<span data-ttu-id="94786-149">**Příklad**:</span><span class="sxs-lookup"><span data-stu-id="94786-149">**Example**:</span></span>
 
 ```xml
 <config>
@@ -64,15 +63,15 @@ ms.locfileid: "34818396"
 </config>
 ```
 
-## <a name="bindingredirects-section"></a><span data-ttu-id="99380-150">část bindingRedirects</span><span class="sxs-lookup"><span data-stu-id="99380-150">bindingRedirects section</span></span>
+## <a name="bindingredirects-section"></a><span data-ttu-id="94786-150">část bindingRedirects</span><span class="sxs-lookup"><span data-stu-id="94786-150">bindingRedirects section</span></span>
 
-<span data-ttu-id="99380-151">Nakonfiguruje, jestli NuGet nemá přesměrování vazby automatické při instalaci balíčku.</span><span class="sxs-lookup"><span data-stu-id="99380-151">Configures whether NuGet does automatic binding redirects when a package is installed.</span></span>
+<span data-ttu-id="94786-151">Konfiguruje, zda NuGet nepodporuje automatické přesměrování vazby při instalaci balíčku.</span><span class="sxs-lookup"><span data-stu-id="94786-151">Configures whether NuGet does automatic binding redirects when a package is installed.</span></span>
 
-| <span data-ttu-id="99380-152">Key</span><span class="sxs-lookup"><span data-stu-id="99380-152">Key</span></span> | <span data-ttu-id="99380-153">Hodnota</span><span class="sxs-lookup"><span data-stu-id="99380-153">Value</span></span> |
+| <span data-ttu-id="94786-152">Key</span><span class="sxs-lookup"><span data-stu-id="94786-152">Key</span></span> | <span data-ttu-id="94786-153">Hodnota</span><span class="sxs-lookup"><span data-stu-id="94786-153">Value</span></span> |
 | --- | --- |
-| <span data-ttu-id="99380-154">Přeskočit</span><span class="sxs-lookup"><span data-stu-id="99380-154">skip</span></span> | <span data-ttu-id="99380-155">Logická hodnota, která určuje, jestli chcete vynechat přesměrování vazby automatické.</span><span class="sxs-lookup"><span data-stu-id="99380-155">A Boolean indicating whether to skip automatic binding redirects.</span></span> <span data-ttu-id="99380-156">Výchozí hodnota je false.</span><span class="sxs-lookup"><span data-stu-id="99380-156">The default is false.</span></span> |
+| <span data-ttu-id="94786-154">Přeskočit</span><span class="sxs-lookup"><span data-stu-id="94786-154">skip</span></span> | <span data-ttu-id="94786-155">Logická hodnota označující, zda se mají přeskočit automatické přesměrování vazby.</span><span class="sxs-lookup"><span data-stu-id="94786-155">A Boolean indicating whether to skip automatic binding redirects.</span></span> <span data-ttu-id="94786-156">Výchozí hodnota je false.</span><span class="sxs-lookup"><span data-stu-id="94786-156">The default is false.</span></span> |
 
-<span data-ttu-id="99380-157">**Příklad**:</span><span class="sxs-lookup"><span data-stu-id="99380-157">**Example**:</span></span>
+<span data-ttu-id="94786-157">**Příklad**:</span><span class="sxs-lookup"><span data-stu-id="94786-157">**Example**:</span></span>
 
 ```xml
 <bindingRedirects>
@@ -80,16 +79,16 @@ ms.locfileid: "34818396"
 </bindingRedirects>
 ```
 
-## <a name="packagerestore-section"></a><span data-ttu-id="99380-158">část packageRestore</span><span class="sxs-lookup"><span data-stu-id="99380-158">packageRestore section</span></span>
+## <a name="packagerestore-section"></a><span data-ttu-id="94786-158">část packageRestore</span><span class="sxs-lookup"><span data-stu-id="94786-158">packageRestore section</span></span>
 
-<span data-ttu-id="99380-159">Ovládací prvky obnovení balíčků během sestavení.</span><span class="sxs-lookup"><span data-stu-id="99380-159">Controls package restore during builds.</span></span>
+<span data-ttu-id="94786-159">Ovládací prvky obnovení balíčků během sestavení.</span><span class="sxs-lookup"><span data-stu-id="94786-159">Controls package restore during builds.</span></span>
 
-| <span data-ttu-id="99380-160">Key</span><span class="sxs-lookup"><span data-stu-id="99380-160">Key</span></span> | <span data-ttu-id="99380-161">Hodnota</span><span class="sxs-lookup"><span data-stu-id="99380-161">Value</span></span> |
+| <span data-ttu-id="94786-160">Key</span><span class="sxs-lookup"><span data-stu-id="94786-160">Key</span></span> | <span data-ttu-id="94786-161">Hodnota</span><span class="sxs-lookup"><span data-stu-id="94786-161">Value</span></span> |
 | --- | --- |
-| <span data-ttu-id="99380-162">povoleno</span><span class="sxs-lookup"><span data-stu-id="99380-162">enabled</span></span> | <span data-ttu-id="99380-163">Logická hodnota, která určuje, zda NuGet můžete provádět automatického obnovení.</span><span class="sxs-lookup"><span data-stu-id="99380-163">A Boolean indicating whether NuGet can perform automatic restore.</span></span> <span data-ttu-id="99380-164">Můžete také nastavit `EnableNuGetPackageRestore` proměnnou prostředí s hodnotou `True` místo nastavení tohoto klíče v konfiguračním souboru.</span><span class="sxs-lookup"><span data-stu-id="99380-164">You can also set the `EnableNuGetPackageRestore` environment variable with a value of `True` instead of setting this key in the config file.</span></span> |
-| <span data-ttu-id="99380-165">automatická</span><span class="sxs-lookup"><span data-stu-id="99380-165">automatic</span></span> | <span data-ttu-id="99380-166">Logická hodnota, která určuje, zda NuGet měli kontrolovat chybějící balíčky během sestavení.</span><span class="sxs-lookup"><span data-stu-id="99380-166">A Boolean indicating whether NuGet should check for missing packages during a build.</span></span> |
+| <span data-ttu-id="94786-162">Povoleno</span><span class="sxs-lookup"><span data-stu-id="94786-162">enabled</span></span> | <span data-ttu-id="94786-163">Logická hodnota označující, zda NuGet můžete provést automatické obnovení.</span><span class="sxs-lookup"><span data-stu-id="94786-163">A Boolean indicating whether NuGet can perform automatic restore.</span></span> <span data-ttu-id="94786-164">Můžete také nastavit `EnableNuGetPackageRestore` proměnnou prostředí s hodnotou `True` namísto nastavení tohoto klíče v konfiguračním souboru.</span><span class="sxs-lookup"><span data-stu-id="94786-164">You can also set the `EnableNuGetPackageRestore` environment variable with a value of `True` instead of setting this key in the config file.</span></span> |
+| <span data-ttu-id="94786-165">automatická</span><span class="sxs-lookup"><span data-stu-id="94786-165">automatic</span></span> | <span data-ttu-id="94786-166">Logická hodnota označující, zda NuGet by měla kontrolovat chybějící balíčky během sestavení.</span><span class="sxs-lookup"><span data-stu-id="94786-166">A Boolean indicating whether NuGet should check for missing packages during a build.</span></span> |
 
-<span data-ttu-id="99380-167">**Příklad**:</span><span class="sxs-lookup"><span data-stu-id="99380-167">**Example**:</span></span>
+<span data-ttu-id="94786-167">**Příklad**:</span><span class="sxs-lookup"><span data-stu-id="94786-167">**Example**:</span></span>
 
 ```xml
 <packageRestore>
@@ -98,15 +97,15 @@ ms.locfileid: "34818396"
 </packageRestore>
 ```
 
-## <a name="solution-section"></a><span data-ttu-id="99380-168">část řešení</span><span class="sxs-lookup"><span data-stu-id="99380-168">solution section</span></span>
+## <a name="solution-section"></a><span data-ttu-id="94786-168">oddíl řešení</span><span class="sxs-lookup"><span data-stu-id="94786-168">solution section</span></span>
 
-<span data-ttu-id="99380-169">Ovládací prvky jestli `packages` složku řešení je součástí zdrojového kódu.</span><span class="sxs-lookup"><span data-stu-id="99380-169">Controls whether the `packages` folder of a solution is included in source control.</span></span> <span data-ttu-id="99380-170">Tato část funguje pouze v `nuget.config` souborů ve složce řešení.</span><span class="sxs-lookup"><span data-stu-id="99380-170">This section works only in `nuget.config` files in a solution folder.</span></span>
+<span data-ttu-id="94786-169">Ovládací prvky, zda `packages` složka řešení je součástí správy zdrojového kódu.</span><span class="sxs-lookup"><span data-stu-id="94786-169">Controls whether the `packages` folder of a solution is included in source control.</span></span> <span data-ttu-id="94786-170">Tato část funguje pouze v `nuget.config` soubory ve složce řešení.</span><span class="sxs-lookup"><span data-stu-id="94786-170">This section works only in `nuget.config` files in a solution folder.</span></span>
 
-| <span data-ttu-id="99380-171">Key</span><span class="sxs-lookup"><span data-stu-id="99380-171">Key</span></span> | <span data-ttu-id="99380-172">Hodnota</span><span class="sxs-lookup"><span data-stu-id="99380-172">Value</span></span> |
+| <span data-ttu-id="94786-171">Key</span><span class="sxs-lookup"><span data-stu-id="94786-171">Key</span></span> | <span data-ttu-id="94786-172">Hodnota</span><span class="sxs-lookup"><span data-stu-id="94786-172">Value</span></span> |
 | --- | --- |
-| <span data-ttu-id="99380-173">disableSourceControlIntegration</span><span class="sxs-lookup"><span data-stu-id="99380-173">disableSourceControlIntegration</span></span> | <span data-ttu-id="99380-174">Logická hodnota, která určuje, zda ignorovat složce balíčků při práci se službou správy zdrojového kódu.</span><span class="sxs-lookup"><span data-stu-id="99380-174">A Boolean indicating whether to ignore the packages folder when working with source control.</span></span> <span data-ttu-id="99380-175">Výchozí hodnota je False.</span><span class="sxs-lookup"><span data-stu-id="99380-175">The default value is false.</span></span> |
+| <span data-ttu-id="94786-173">disableSourceControlIntegration</span><span class="sxs-lookup"><span data-stu-id="94786-173">disableSourceControlIntegration</span></span> | <span data-ttu-id="94786-174">Logická hodnota označující, jestli se má ignorovat složku packages při práci se správou zdrojového kódu.</span><span class="sxs-lookup"><span data-stu-id="94786-174">A Boolean indicating whether to ignore the packages folder when working with source control.</span></span> <span data-ttu-id="94786-175">Výchozí hodnota je False.</span><span class="sxs-lookup"><span data-stu-id="94786-175">The default value is false.</span></span> |
 
-<span data-ttu-id="99380-176">**Příklad**:</span><span class="sxs-lookup"><span data-stu-id="99380-176">**Example**:</span></span>
+<span data-ttu-id="94786-176">**Příklad**:</span><span class="sxs-lookup"><span data-stu-id="94786-176">**Example**:</span></span>
 
 ```xml
 <solution>
@@ -114,23 +113,23 @@ ms.locfileid: "34818396"
 </solution>
 ```
 
-## <a name="package-source-sections"></a><span data-ttu-id="99380-177">Části zdroje balíčku</span><span class="sxs-lookup"><span data-stu-id="99380-177">Package source sections</span></span>
+## <a name="package-source-sections"></a><span data-ttu-id="94786-177">Části zdroje balíčku</span><span class="sxs-lookup"><span data-stu-id="94786-177">Package source sections</span></span>
 
-<span data-ttu-id="99380-178">`packageSources`, `packageSourceCredentials`, `apikeys`, `activePackageSource`, A `disabledPackageSources` všechny pracovní dohromady a nakonfigurujte, jak funguje NuGet s úložiště balíčku během instalace, obnovení a operace aktualizace.</span><span class="sxs-lookup"><span data-stu-id="99380-178">The `packageSources`, `packageSourceCredentials`, `apikeys`, `activePackageSource`, and `disabledPackageSources` all work together to configure how NuGet works with package repositories during install, restore, and update operations.</span></span>
+<span data-ttu-id="94786-178">`packageSources`, `packageSourceCredentials`, `apikeys`, `activePackageSource`, A `disabledPackageSources` veškerou práci dohromady a nakonfigurujte, jak NuGet pracuje s úložišť balíčků během instalace, obnovení a operace aktualizace.</span><span class="sxs-lookup"><span data-stu-id="94786-178">The `packageSources`, `packageSourceCredentials`, `apikeys`, `activePackageSource`, and `disabledPackageSources` all work together to configure how NuGet works with package repositories during install, restore, and update operations.</span></span>
 
-<span data-ttu-id="99380-179">[ `nuget sources` Příkaz](../tools/cli-ref-sources.md) se obvykle používá ke správě těchto nastavení, s výjimkou `apikeys` kterou spravují pomocí [ `nuget setapikey` příkaz](../tools/cli-ref-setapikey.md).</span><span class="sxs-lookup"><span data-stu-id="99380-179">The [`nuget sources` command](../tools/cli-ref-sources.md) is generally used to manage these settings, except for `apikeys` which is managed using the [`nuget setapikey` command](../tools/cli-ref-setapikey.md).</span></span>
+<span data-ttu-id="94786-179">[ `nuget sources` Příkaz](../tools/cli-ref-sources.md) se obecně používají tato nastavení můžete spravovat, s výjimkou `apikeys` spravovaném pomocí [ `nuget setapikey` příkaz](../tools/cli-ref-setapikey.md).</span><span class="sxs-lookup"><span data-stu-id="94786-179">The [`nuget sources` command](../tools/cli-ref-sources.md) is generally used to manage these settings, except for `apikeys` which is managed using the [`nuget setapikey` command](../tools/cli-ref-setapikey.md).</span></span>
 
-<span data-ttu-id="99380-180">Všimněte si, že je adresa URL zdroje pro nuget.org `https://api.nuget.org/v3/index.json`.</span><span class="sxs-lookup"><span data-stu-id="99380-180">Note that the source URL for nuget.org is `https://api.nuget.org/v3/index.json`.</span></span>
+<span data-ttu-id="94786-180">Všimněte si, že je adresa URL zdroje pro nuget.org `https://api.nuget.org/v3/index.json`.</span><span class="sxs-lookup"><span data-stu-id="94786-180">Note that the source URL for nuget.org is `https://api.nuget.org/v3/index.json`.</span></span>
 
-### <a name="packagesources"></a><span data-ttu-id="99380-181">packageSources</span><span class="sxs-lookup"><span data-stu-id="99380-181">packageSources</span></span>
+### <a name="packagesources"></a><span data-ttu-id="94786-181">packageSources</span><span class="sxs-lookup"><span data-stu-id="94786-181">packageSources</span></span>
 
-<span data-ttu-id="99380-182">Zobrazí seznam všech zdrojů známé balíčku.</span><span class="sxs-lookup"><span data-stu-id="99380-182">Lists all known package sources.</span></span> <span data-ttu-id="99380-183">Pořadí je ignorován během operace obnovení a s žádným projektem v PackageReference formátu.</span><span class="sxs-lookup"><span data-stu-id="99380-183">The order is ignored during restore operations and with any project using the PackageReference format.</span></span> <span data-ttu-id="99380-184">Pořadí zdrojů pro instalace respektuje NuGet a aktualizovat operace s projekty pomocí `packages.config`.</span><span class="sxs-lookup"><span data-stu-id="99380-184">NuGet respects the order of sources for install and update operations with projects using `packages.config`.</span></span>
+<span data-ttu-id="94786-182">Uvádí všechny zdroje balíčků známé.</span><span class="sxs-lookup"><span data-stu-id="94786-182">Lists all known package sources.</span></span> <span data-ttu-id="94786-183">Pořadí je ignorována během operace obnovení a s žádným projektem formátu PackageReference.</span><span class="sxs-lookup"><span data-stu-id="94786-183">The order is ignored during restore operations and with any project using the PackageReference format.</span></span> <span data-ttu-id="94786-184">Pořadí zdrojů pro instalace respektuje NuGet a aktualizovat operace s projekty pomocí `packages.config`.</span><span class="sxs-lookup"><span data-stu-id="94786-184">NuGet respects the order of sources for install and update operations with projects using `packages.config`.</span></span>
 
-| <span data-ttu-id="99380-185">Key</span><span class="sxs-lookup"><span data-stu-id="99380-185">Key</span></span> | <span data-ttu-id="99380-186">Hodnota</span><span class="sxs-lookup"><span data-stu-id="99380-186">Value</span></span> |
+| <span data-ttu-id="94786-185">Key</span><span class="sxs-lookup"><span data-stu-id="94786-185">Key</span></span> | <span data-ttu-id="94786-186">Hodnota</span><span class="sxs-lookup"><span data-stu-id="94786-186">Value</span></span> |
 | --- | --- |
-| <span data-ttu-id="99380-187">(název přiřadit do zdroje balíčku)</span><span class="sxs-lookup"><span data-stu-id="99380-187">(name to assign to the package source)</span></span> | <span data-ttu-id="99380-188">Cesta nebo adresa URL zdroje balíčku.</span><span class="sxs-lookup"><span data-stu-id="99380-188">The path or URL of the package source.</span></span> |
+| <span data-ttu-id="94786-187">(název přiřazení ke zdroji balíčku)</span><span class="sxs-lookup"><span data-stu-id="94786-187">(name to assign to the package source)</span></span> | <span data-ttu-id="94786-188">Cesta nebo adresa URL zdroje balíčku.</span><span class="sxs-lookup"><span data-stu-id="94786-188">The path or URL of the package source.</span></span> |
 
-<span data-ttu-id="99380-189">**Příklad**:</span><span class="sxs-lookup"><span data-stu-id="99380-189">**Example**:</span></span>
+<span data-ttu-id="94786-189">**Příklad**:</span><span class="sxs-lookup"><span data-stu-id="94786-189">**Example**:</span></span>
 
 ```xml
 <packageSources>
@@ -140,19 +139,19 @@ ms.locfileid: "34818396"
 </packageSources>
 ```
 
-### <a name="packagesourcecredentials"></a><span data-ttu-id="99380-190">packageSourceCredentials</span><span class="sxs-lookup"><span data-stu-id="99380-190">packageSourceCredentials</span></span>
+### <a name="packagesourcecredentials"></a><span data-ttu-id="94786-190">packageSourceCredentials</span><span class="sxs-lookup"><span data-stu-id="94786-190">packageSourceCredentials</span></span>
 
-<span data-ttu-id="99380-191">Ukládá uživatelská jména a hesla pro zdroje, obvykle zadaným `-username` a `-password` přepne s `nuget sources`.</span><span class="sxs-lookup"><span data-stu-id="99380-191">Stores usernames and passwords for sources, typically specified with the `-username` and `-password` switches with `nuget sources`.</span></span> <span data-ttu-id="99380-192">Hesla jsou ve výchozím nastavení zašifrované, pokud `-storepasswordincleartext` je také možnost použít.</span><span class="sxs-lookup"><span data-stu-id="99380-192">Passwords are encrypted by default unless the `-storepasswordincleartext` option is also used.</span></span>
+<span data-ttu-id="94786-191">Ukládá uživatelská jména a hesla pro zdroje, obvykle se zadává `-username` a `-password` přepínače s `nuget sources`.</span><span class="sxs-lookup"><span data-stu-id="94786-191">Stores usernames and passwords for sources, typically specified with the `-username` and `-password` switches with `nuget sources`.</span></span> <span data-ttu-id="94786-192">Hesla jsou ve výchozím nastavení zašifrované, pokud `-storepasswordincleartext` možnost je také použít.</span><span class="sxs-lookup"><span data-stu-id="94786-192">Passwords are encrypted by default unless the `-storepasswordincleartext` option is also used.</span></span>
 
-| <span data-ttu-id="99380-193">Key</span><span class="sxs-lookup"><span data-stu-id="99380-193">Key</span></span> | <span data-ttu-id="99380-194">Hodnota</span><span class="sxs-lookup"><span data-stu-id="99380-194">Value</span></span> |
+| <span data-ttu-id="94786-193">Key</span><span class="sxs-lookup"><span data-stu-id="94786-193">Key</span></span> | <span data-ttu-id="94786-194">Hodnota</span><span class="sxs-lookup"><span data-stu-id="94786-194">Value</span></span> |
 | --- | --- |
-| <span data-ttu-id="99380-195">Uživatelské jméno</span><span class="sxs-lookup"><span data-stu-id="99380-195">username</span></span> | <span data-ttu-id="99380-196">Uživatelské jméno pro tento zdroj ve formátu prostého textu.</span><span class="sxs-lookup"><span data-stu-id="99380-196">The user name for the source in plain text.</span></span> |
-| <span data-ttu-id="99380-197">Heslo</span><span class="sxs-lookup"><span data-stu-id="99380-197">password</span></span> | <span data-ttu-id="99380-198">Zašifrované heslo pro zdroj.</span><span class="sxs-lookup"><span data-stu-id="99380-198">The encrypted password for the source.</span></span> |
-| <span data-ttu-id="99380-199">cleartextpassword</span><span class="sxs-lookup"><span data-stu-id="99380-199">cleartextpassword</span></span> | <span data-ttu-id="99380-200">Nezašifrované heslo pro zdroj.</span><span class="sxs-lookup"><span data-stu-id="99380-200">The unencrypted password for the source.</span></span> |
+| <span data-ttu-id="94786-195">uživatelské jméno</span><span class="sxs-lookup"><span data-stu-id="94786-195">username</span></span> | <span data-ttu-id="94786-196">Uživatelské jméno pro zdroj ve formátu prostého textu.</span><span class="sxs-lookup"><span data-stu-id="94786-196">The user name for the source in plain text.</span></span> |
+| <span data-ttu-id="94786-197">Heslo</span><span class="sxs-lookup"><span data-stu-id="94786-197">password</span></span> | <span data-ttu-id="94786-198">Šifrované heslo pro zdroj.</span><span class="sxs-lookup"><span data-stu-id="94786-198">The encrypted password for the source.</span></span> |
+| <span data-ttu-id="94786-199">cleartextpassword</span><span class="sxs-lookup"><span data-stu-id="94786-199">cleartextpassword</span></span> | <span data-ttu-id="94786-200">Nezašifrované heslo pro zdroj.</span><span class="sxs-lookup"><span data-stu-id="94786-200">The unencrypted password for the source.</span></span> |
 
-<span data-ttu-id="99380-201">**Příklad:**</span><span class="sxs-lookup"><span data-stu-id="99380-201">**Example:**</span></span>
+<span data-ttu-id="94786-201">**Příklad:**</span><span class="sxs-lookup"><span data-stu-id="94786-201">**Example:**</span></span>
 
-<span data-ttu-id="99380-202">V konfiguračním souboru `<packageSourceCredentials>` element obsahuje podřízené uzly pro každý název příslušným zdrojovým (s nahrazením mezer v názvu `_x0020_`).</span><span class="sxs-lookup"><span data-stu-id="99380-202">In the config file, the `<packageSourceCredentials>` element contains child nodes for each applicable source name (spaces in the name are replaced with `_x0020_`).</span></span> <span data-ttu-id="99380-203">To znamená zdrojů s názvem "Contoso" a "Test zdroj", konfigurační soubor obsahuje následující při použití šifrovaných hesel:</span><span class="sxs-lookup"><span data-stu-id="99380-203">That is, for sources named "Contoso" and "Test Source", the config file contains the following when using encrypted passwords:</span></span>
+<span data-ttu-id="94786-202">V konfiguračním souboru `<packageSourceCredentials>` prvek obsahuje podřízené uzly pro každý název příslušným zdrojovým (s nahrazením mezer v názvu `_x0020_`).</span><span class="sxs-lookup"><span data-stu-id="94786-202">In the config file, the `<packageSourceCredentials>` element contains child nodes for each applicable source name (spaces in the name are replaced with `_x0020_`).</span></span> <span data-ttu-id="94786-203">To znamená, že u zdrojů s názvem "Contoso" a "Zdroj testu" konfigurační soubor obsahuje následující při použití šifrovaná hesla:</span><span class="sxs-lookup"><span data-stu-id="94786-203">That is, for sources named "Contoso" and "Test Source", the config file contains the following when using encrypted passwords:</span></span>
 
 ```xml
 <packageSourceCredentials>
@@ -167,7 +166,7 @@ ms.locfileid: "34818396"
 </packageSourceCredentials>
 ```
 
-<span data-ttu-id="99380-204">Při použití nešifrovaná hesla:</span><span class="sxs-lookup"><span data-stu-id="99380-204">When using unencrypted passwords:</span></span>
+<span data-ttu-id="94786-204">Při použití nešifrovaná hesla:</span><span class="sxs-lookup"><span data-stu-id="94786-204">When using unencrypted passwords:</span></span>
 
 ```xml
 <packageSourceCredentials>
@@ -182,15 +181,15 @@ ms.locfileid: "34818396"
 </packageSourceCredentials>
 ```
 
-### <a name="apikeys"></a><span data-ttu-id="99380-205">apikeys</span><span class="sxs-lookup"><span data-stu-id="99380-205">apikeys</span></span>
+### <a name="apikeys"></a><span data-ttu-id="94786-205">apikeys</span><span class="sxs-lookup"><span data-stu-id="94786-205">apikeys</span></span>
 
-<span data-ttu-id="99380-206">Ukládá klíče pro zdroje, které používají rozhraní API klíče ověřování, jako sada [ `nuget setapikey` příkaz](../tools/cli-ref-setapikey.md).</span><span class="sxs-lookup"><span data-stu-id="99380-206">Stores keys for sources that use API key authentication, as set with the [`nuget setapikey` command](../tools/cli-ref-setapikey.md).</span></span>
+<span data-ttu-id="94786-206">Ukládá klíče pro zdroje, které používají ověřování pomocí klíče rozhraní API, jak se [ `nuget setapikey` příkaz](../tools/cli-ref-setapikey.md).</span><span class="sxs-lookup"><span data-stu-id="94786-206">Stores keys for sources that use API key authentication, as set with the [`nuget setapikey` command](../tools/cli-ref-setapikey.md).</span></span>
 
-| <span data-ttu-id="99380-207">Key</span><span class="sxs-lookup"><span data-stu-id="99380-207">Key</span></span> | <span data-ttu-id="99380-208">Hodnota</span><span class="sxs-lookup"><span data-stu-id="99380-208">Value</span></span> |
+| <span data-ttu-id="94786-207">Key</span><span class="sxs-lookup"><span data-stu-id="94786-207">Key</span></span> | <span data-ttu-id="94786-208">Hodnota</span><span class="sxs-lookup"><span data-stu-id="94786-208">Value</span></span> |
 | --- | --- |
-| <span data-ttu-id="99380-209">(adresa URL zdroje)</span><span class="sxs-lookup"><span data-stu-id="99380-209">(source URL)</span></span> | <span data-ttu-id="99380-210">Šifrovaný klíč rozhraní API.</span><span class="sxs-lookup"><span data-stu-id="99380-210">The encrypted API key.</span></span> |
+| <span data-ttu-id="94786-209">(adresa URL zdroje)</span><span class="sxs-lookup"><span data-stu-id="94786-209">(source URL)</span></span> | <span data-ttu-id="94786-210">Šifrovaný klíč rozhraní API.</span><span class="sxs-lookup"><span data-stu-id="94786-210">The encrypted API key.</span></span> |
 
-<span data-ttu-id="99380-211">**Příklad**:</span><span class="sxs-lookup"><span data-stu-id="99380-211">**Example**:</span></span>
+<span data-ttu-id="94786-211">**Příklad**:</span><span class="sxs-lookup"><span data-stu-id="94786-211">**Example**:</span></span>
 
 ```xml
 <apikeys>
@@ -198,15 +197,15 @@ ms.locfileid: "34818396"
 </apikeys>
 ```
 
-### <a name="disabledpackagesources"></a><span data-ttu-id="99380-212">disabledPackageSources</span><span class="sxs-lookup"><span data-stu-id="99380-212">disabledPackageSources</span></span>
+### <a name="disabledpackagesources"></a><span data-ttu-id="94786-212">disabledPackageSources</span><span class="sxs-lookup"><span data-stu-id="94786-212">disabledPackageSources</span></span>
 
-<span data-ttu-id="99380-213">Identifikovat aktuálně zakázané zdroje.</span><span class="sxs-lookup"><span data-stu-id="99380-213">Identified currently disabled sources.</span></span> <span data-ttu-id="99380-214">Může být prázdná.</span><span class="sxs-lookup"><span data-stu-id="99380-214">May be empty.</span></span>
+<span data-ttu-id="94786-213">Zjištěné zdroje aktuálně zakázáno.</span><span class="sxs-lookup"><span data-stu-id="94786-213">Identified currently disabled sources.</span></span> <span data-ttu-id="94786-214">Může být prázdný.</span><span class="sxs-lookup"><span data-stu-id="94786-214">May be empty.</span></span>
 
-| <span data-ttu-id="99380-215">Key</span><span class="sxs-lookup"><span data-stu-id="99380-215">Key</span></span> | <span data-ttu-id="99380-216">Hodnota</span><span class="sxs-lookup"><span data-stu-id="99380-216">Value</span></span> |
+| <span data-ttu-id="94786-215">Key</span><span class="sxs-lookup"><span data-stu-id="94786-215">Key</span></span> | <span data-ttu-id="94786-216">Hodnota</span><span class="sxs-lookup"><span data-stu-id="94786-216">Value</span></span> |
 | --- | --- |
-| <span data-ttu-id="99380-217">(název zdroje)</span><span class="sxs-lookup"><span data-stu-id="99380-217">(name of source)</span></span> | <span data-ttu-id="99380-218">Logická hodnota určující, zda je neaktivní zdroj.</span><span class="sxs-lookup"><span data-stu-id="99380-218">A Boolean indicating whether the source is disabled.</span></span> |
+| <span data-ttu-id="94786-217">(název zdroje)</span><span class="sxs-lookup"><span data-stu-id="94786-217">(name of source)</span></span> | <span data-ttu-id="94786-218">Logická hodnota označující, zda zdroj je zakázáno.</span><span class="sxs-lookup"><span data-stu-id="94786-218">A Boolean indicating whether the source is disabled.</span></span> |
 
-<span data-ttu-id="99380-219">**Příklad:**</span><span class="sxs-lookup"><span data-stu-id="99380-219">**Example:**</span></span>
+<span data-ttu-id="94786-219">**Příklad:**</span><span class="sxs-lookup"><span data-stu-id="94786-219">**Example:**</span></span>
 
 ```xml
 <disabledPackageSources>
@@ -217,17 +216,17 @@ ms.locfileid: "34818396"
 <disabledPackageSources />
 ```
 
-### <a name="activepackagesource"></a><span data-ttu-id="99380-220">activePackageSource</span><span class="sxs-lookup"><span data-stu-id="99380-220">activePackageSource</span></span>
+### <a name="activepackagesource"></a><span data-ttu-id="94786-220">activePackageSource</span><span class="sxs-lookup"><span data-stu-id="94786-220">activePackageSource</span></span>
 
-<span data-ttu-id="99380-221">*(jenom 2.x; nepoužívané v 3.x+)*</span><span class="sxs-lookup"><span data-stu-id="99380-221">*(2.x only; deprecated in 3.x+)*</span></span>
+<span data-ttu-id="94786-221">*(pouze 2.x; zastaralé v 3.x+)*</span><span class="sxs-lookup"><span data-stu-id="94786-221">*(2.x only; deprecated in 3.x+)*</span></span>
 
-<span data-ttu-id="99380-222">Identifikuje ke zdroji aktuálně aktivní, nebo označuje agregace všech zdrojů.</span><span class="sxs-lookup"><span data-stu-id="99380-222">Identifies to the currently active source or indicates the aggregate of all sources.</span></span>
+<span data-ttu-id="94786-222">Identifikuje zdroj aktuálně aktivní nebo označuje souhrn všech zdrojů.</span><span class="sxs-lookup"><span data-stu-id="94786-222">Identifies to the currently active source or indicates the aggregate of all sources.</span></span>
 
-| <span data-ttu-id="99380-223">Key</span><span class="sxs-lookup"><span data-stu-id="99380-223">Key</span></span> | <span data-ttu-id="99380-224">Hodnota</span><span class="sxs-lookup"><span data-stu-id="99380-224">Value</span></span> |
+| <span data-ttu-id="94786-223">Key</span><span class="sxs-lookup"><span data-stu-id="94786-223">Key</span></span> | <span data-ttu-id="94786-224">Hodnota</span><span class="sxs-lookup"><span data-stu-id="94786-224">Value</span></span> |
 | --- | --- |
-| <span data-ttu-id="99380-225">(název zdroje) nebo `All`</span><span class="sxs-lookup"><span data-stu-id="99380-225">(name of source) or `All`</span></span> | <span data-ttu-id="99380-226">Pokud klíč je název zdroje, hodnota je zdrojová cesta nebo adresa URL.</span><span class="sxs-lookup"><span data-stu-id="99380-226">If key is the name of a source, the value is the source path or URL.</span></span> <span data-ttu-id="99380-227">Pokud `All`, hodnota by měla být `(Aggregate source)` kombinovat všechny zdroje balíčků, které jinak nejsou zakázány.</span><span class="sxs-lookup"><span data-stu-id="99380-227">If `All`, value should be `(Aggregate source)` to combine all package sources that are not otherwise disabled.</span></span> |
+| <span data-ttu-id="94786-225">(název zdroje) nebo `All`</span><span class="sxs-lookup"><span data-stu-id="94786-225">(name of source) or `All`</span></span> | <span data-ttu-id="94786-226">Pokud klíč je název zdroje, hodnota je zdrojová cesta nebo adresa URL.</span><span class="sxs-lookup"><span data-stu-id="94786-226">If key is the name of a source, the value is the source path or URL.</span></span> <span data-ttu-id="94786-227">Pokud `All`, hodnotou by měla být `(Aggregate source)` kombinovat všechny zdroje balíčků, které jinak nejsou zakázané.</span><span class="sxs-lookup"><span data-stu-id="94786-227">If `All`, value should be `(Aggregate source)` to combine all package sources that are not otherwise disabled.</span></span> |
 
-<span data-ttu-id="99380-228">**Příklad**:</span><span class="sxs-lookup"><span data-stu-id="99380-228">**Example**:</span></span>
+<span data-ttu-id="94786-228">**Příklad**:</span><span class="sxs-lookup"><span data-stu-id="94786-228">**Example**:</span></span>
 
 ```xml
 <activePackageSource>
@@ -239,19 +238,19 @@ ms.locfileid: "34818396"
 </activePackageSource>
 ```
 
-## <a name="using-environment-variables"></a><span data-ttu-id="99380-229">Použití proměnných prostředí</span><span class="sxs-lookup"><span data-stu-id="99380-229">Using environment variables</span></span>
+## <a name="using-environment-variables"></a><span data-ttu-id="94786-229">Použití proměnných prostředí</span><span class="sxs-lookup"><span data-stu-id="94786-229">Using environment variables</span></span>
 
-<span data-ttu-id="99380-230">Můžete použít proměnné prostředí v `nuget.config` hodnoty (NuGet 3.4 +) k aplikování nastavení na dobu běhu.</span><span class="sxs-lookup"><span data-stu-id="99380-230">You can use environment variables in `nuget.config` values (NuGet 3.4+) to apply settings at run time.</span></span>
+<span data-ttu-id="94786-230">Můžete použít proměnné prostředí v `nuget.config` hodnoty (NuGet 3.4 +) k aplikování nastavení běhu.</span><span class="sxs-lookup"><span data-stu-id="94786-230">You can use environment variables in `nuget.config` values (NuGet 3.4+) to apply settings at run time.</span></span>
 
-<span data-ttu-id="99380-231">Například pokud `HOME` proměnná prostředí v systému Windows je nastavená na `c:\users\username`, pak hodnota `%HOME%\NuGetRepository` v konfiguraci souboru přeloží na `c:\users\username\NuGetRepository`.</span><span class="sxs-lookup"><span data-stu-id="99380-231">For example, if the `HOME` environment variable on Windows is set to `c:\users\username`, then the value of `%HOME%\NuGetRepository` in the configuration file resolves to `c:\users\username\NuGetRepository`.</span></span>
+<span data-ttu-id="94786-231">Například pokud `HOME` proměnné prostředí na Windows nastavená na `c:\users\username`, pak hodnota `%HOME%\NuGetRepository` v konfiguraci souboru přeloží na `c:\users\username\NuGetRepository`.</span><span class="sxs-lookup"><span data-stu-id="94786-231">For example, if the `HOME` environment variable on Windows is set to `c:\users\username`, then the value of `%HOME%\NuGetRepository` in the configuration file resolves to `c:\users\username\NuGetRepository`.</span></span>
 
-<span data-ttu-id="99380-232">Podobně pokud `HOME` na Mac/Linux je nastavena na `/home/myStuff`, pak `%HOME%/NuGetRepository` v konfiguraci souboru přeloží na `/home/myStuff/NuGetRepository`.</span><span class="sxs-lookup"><span data-stu-id="99380-232">Similarly, if `HOME` on Mac/Linux is set to `/home/myStuff`, then `%HOME%/NuGetRepository` in the configuration file resolves to `/home/myStuff/NuGetRepository`.</span></span>
+<span data-ttu-id="94786-232">Podobně pokud `HOME` na Mac/Linux je nastavena na `/home/myStuff`, pak `%HOME%/NuGetRepository` v konfiguraci souboru přeloží na `/home/myStuff/NuGetRepository`.</span><span class="sxs-lookup"><span data-stu-id="94786-232">Similarly, if `HOME` on Mac/Linux is set to `/home/myStuff`, then `%HOME%/NuGetRepository` in the configuration file resolves to `/home/myStuff/NuGetRepository`.</span></span>
 
-<span data-ttu-id="99380-233">Pokud není nalezena proměnná prostředí, používá NuGet literálovou hodnotou z konfiguračního souboru.</span><span class="sxs-lookup"><span data-stu-id="99380-233">If an environment variable is not found, NuGet uses the literal value from the configuration file.</span></span>
+<span data-ttu-id="94786-233">Pokud není nalezena proměnné prostředí, používá NuGet hodnota literálu z konfiguračního souboru.</span><span class="sxs-lookup"><span data-stu-id="94786-233">If an environment variable is not found, NuGet uses the literal value from the configuration file.</span></span>
 
-## <a name="example-config-file"></a><span data-ttu-id="99380-234">Příklad konfiguračního souboru</span><span class="sxs-lookup"><span data-stu-id="99380-234">Example config file</span></span>
+## <a name="example-config-file"></a><span data-ttu-id="94786-234">Příklad konfiguračního souboru</span><span class="sxs-lookup"><span data-stu-id="94786-234">Example config file</span></span>
 
-<span data-ttu-id="99380-235">Dole je příklad `nuget.config` soubor, který znázorňuje několik nastavení:</span><span class="sxs-lookup"><span data-stu-id="99380-235">Below is an example `nuget.config` file that illustrates a number of settings:</span></span>
+<span data-ttu-id="94786-235">Tady je příklad `nuget.config` soubor, který ukazuje několik položek nastavení:</span><span class="sxs-lookup"><span data-stu-id="94786-235">Below is an example `nuget.config` file that illustrates a number of settings:</span></span>
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
