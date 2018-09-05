@@ -1,29 +1,28 @@
 ---
-title: Poznámky k verzi NuGet 2.8.6 přílohy
-description: Poznámky k verzi pro NuGet 2.8.6 přílohy včetně – známé problémy, opravy chyb, přidaných funkcí a chcete.
+title: Zpráva k vydání verze NuGet 2.8.6 přílohy
+description: Zpráva k vydání verze pro NuGet 2.8.6 přílohy včetně – známé problémy, opravy chyb, nové funkce a chcete.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: ee801a0edfe22888d65506cea557fd9c79dcf7bd
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: d57c658999ed3c79b962de84fd973276833ef3fd
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31819715"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43546488"
 ---
-# <a name="nuget-286-release-notes"></a>Poznámky k verzi NuGet 2.8.6 přílohy
+# <a name="nuget-286-release-notes"></a>Zpráva k vydání verze NuGet 2.8.6 přílohy
 
-[Poznámky k verzi NuGet 2.8.5](../release-notes/nuget-2.8.5.md) | [NuGet 2.8.7 poznámky k verzi](../release-notes/nuget-2.8.7.md)
+[Zpráva k vydání verze NuGet 2.8.5](../release-notes/nuget-2.8.5.md) | [zpráva k vydání verze NuGet 2.8.7](../release-notes/nuget-2.8.7.md)
 
-Byl vydán NuGet 2.8.6 přílohy 20 července 2015 jako menší aktualizace našich 2.8.5 VSIX s některé cílové opravy a vylepšení pro podporu balíčky, které mohou být dodávány s podporou pro model vývoj Windows 10 UWP.
+Byla vydána NuGet 2.8.6 přílohy 20. července 2015 jako menší aktualizace našich 2.8.5 VSIX s některými cílová opravy a vylepšení pro podporu balíčky, které mohou být dodávány s podporou pro Windows 10 UPW vývojový model.
 
-Tato verze rozšíření Správce balíčků NuGet poskytuje podporu pouze pro Visual Studio 2013.
+Tato verze rozšíření Správce balíčků NuGet poskytuje podporu pouze pro sadu Visual Studio 2013.
 
-V této verzi dialogové okno Správce balíčků NuGet bylo přidala se podpora:
+V této verzi má dialogové okno Správce balíčků NuGet přidány pro podporu:
 
-* Zavedly UAP cílový Framework Přezdívka pro podporu vývoj aplikací pro Windows 10.
-* Koncové body verze 3 protokolu NuGet
-* Podpora pro [Nuget.Config](../consume-packages/configuring-nuget-behavior.md) vlastnost protocolVersion atribut úložiště zdroje. Výchozí hodnota je 2.
-* Návratem zpět do vzdáleného úložiště, pokud požadovaný balíček verze není k dispozici v místní mezipaměti
+* Zavedená Moniker cílového rozhraní UAP podporovat vývoj aplikací pro Windows 10.
+* Koncové body NuGet protokolu verze 3
+* Podpora pro [Nuget.Config](../consume-packages/configuring-nuget-behavior.md) vlastnost protocolVersion atribut na zdrojích úložiště. Výchozí hodnota je "2"
+* Návrat do vzdáleného úložiště, pokud požadovaný balíček verze není k dispozici v místní mezipaměti

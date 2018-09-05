@@ -1,59 +1,58 @@
 ---
-title: Postup obnovení balíčku NuGet s Team Foundation Build
-description: Návod, jak balíček NuGet obnovení s Team Foundation Build (sady TFS a Visual Studio Team Services).
+title: Návod k obnovení balíčků NuGet s aplikací Team Foundation Build
+description: Návod, jak se balíček NuGet restore s pomocí procesu Team Foundation Build (TFS a Visual Studio Team Services).
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: 1b7dcc351626e60e0444cf1d48b8f09cc23aa157
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 0e69491525fce03e504d9d455bee2718510c83c2
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817031"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43549882"
 ---
-# <a name="setting-up-package-restore-with-team-foundation-build"></a>Nastavení obnovení balíčků s Team Foundation Build
+# <a name="setting-up-package-restore-with-team-foundation-build"></a>Nastavení obnovení balíčku s Team Foundation Build
 
-Tento článek obsahuje podrobný návod k obnovení balíčků jako součást [Team Services Build](/vsts/build-release/index) i pro Git a správě verzí Team Services.
+Tento článek poskytuje podrobný návod k obnovení balíčků v rámci [sestavení Team Services](/vsts/build-release/index) i pro Git a správy verzí produktu Team Services.
 
-I když Tento názorný postup je specifická pro scénář použití Visual Studio Team Services, koncepty také použít pro další ovládací prvek verze a sestavit systémy.
+I když Tento názorný postup je specifické pro scénář, jak pomocí služby Visual Studio Team Services, koncepty také použít další správu verzí a sestavení systémy.
 
 Platí pro:
 
-- Vlastní projektů MSBuild spuštěna v libovolné verzi sady TFS
-- Team Foundation Server 2012 nebo starším
-- Vlastní Team Foundation sestavení šablony procesů migrovat do sady TFS 2013 nebo novější
-- Šablony procesu sestavení odebrané funkce obnovení Nuget
+- Vlastní projekty MSBuild běží na libovolné verzi sady TFS
+- Team Foundation Server 2012 nebo starší
+- Migrovat vlastní Team Foundation sestavení šablony procesu TFS 2013 nebo novější
+- Šablony procesu sestavení odebrat funkce obnovení Nuget
 
-Pokud používáte Visual Studio Team Services nebo Team Foundation Server 2013 s jeho šablony procesu sestavení, se stane balíček automatické obnovení jako součást procesu sestavení.
+Pokud používáte Visual Studio Team Services nebo Team Foundation Server 2013 s jeho šablony procesu sestavení, balíček automatické obnovení se stane jako součást procesu sestavení.
 
-## <a name="the-general-approach"></a>Obecný přístup
+## <a name="the-general-approach"></a>Je obecný přístup
 
-Výhodou použití NuGet je, že jste ji používat předejdete kontrola v binární soubory do systému správy verzí.
+Výhodou použití NuGet je, že vám pomůže se vyhněte se vracení binárních souborů do systému správy verzí.
 
-To je zajímavé hlavně, pokud používáte [distribuované verzí](http://en.wikipedia.org/wiki/Distributed_revision_control) systému jako git, protože vývojáři muset klonovat celý úložiště, včetně úplnou historii, před spuštěním lokálně. Kontrola v binárních souborech může způsobit významné úložiště tomu, jak binární soubory se obvykle ukládají bez rozdílů komprese.
+To je obzvláště zajímavé, pokud používáte [distribuovanou správu verzí](http://en.wikipedia.org/wiki/Distributed_revision_control) systému, jako je git vzhledem k tomu, že vývojáři potřebují klonovat celé úložiště, včetně úplné historie, než mohou začít pracovat místně. Vracení binárních souborů může způsobit významné úložiště determinističtější jako binární soubory jsou obvykle uložená bez komprese delta.
 
-Obsahoval podporované NuGet [obnovují se balíčky](../consume-packages/package-restore.md) jako součást sestavení pro typ long čas nyní. Předchozí implementace došlo k potížím kuřecí a vaječných pro balíčky, které chcete rozšíření procesu sestavení, protože NuGet při sestavování projektu obnovení balíčků. Ale MSBuild neumožňuje rozšíření sestavení během vytváření sestavení; jeden může uvádějí, které tento problém v nástroji MSBuild, ale I by uvádějí, že se jedná o problém s vyplývajících. V závislosti na tom, které aspekt potřebujete rozšířit může být příliš pozdní registrovat, a v době obnovení vašeho balíčku.
+NuGet má podporované [obnovují se balíčky](../consume-packages/package-restore.md) jako součást sestavení pro dlouho dobou. Předchozí provádění došlo k potížím kuřecí egg pro balíčky, které chcete rozšíření procesu sestavení, protože NuGet obnovit balíčky při vytváření projektu. Však MSBuild neumožňuje rozšíření sestavení během sestavování; jeden může tvrdí, že tento problém v nástroji MSBuild, ale I by tvrdí, že se jedná o problém s vlastní. V závislosti na tom, se kterými aspekty, které potřebujete k rozšiřování může být příliš pozdě pro registraci v době, kdy váš balíček se obnoví.
 
-Vytvrdit tento problém je ubezpečit, že jsou balíčky obnovit jako první krok v procesu sestavení:
+Léčba tohoto problému je zajistit, že prvním krokem v procesu sestavení obnovení balíčků:
 
 ```cli
 nuget restore path\to\solution.sln
 ```
 
-Když váš proces sestavení obnoví balíčky před vytvořením kód, nepotřebujete k vrácení se změnami `.targets` soubory
+Pokud váš proces sestavení obnoví balíčky před vytvořením kódu, není nutné k vrácení se změnami `.targets` soubory
 
 > [!Note]
-> Balíčky musí být vytvořené umožňuje načítání v sadě Visual Studio. Jinak, může stále chcete vrátit se změnami `.targets` soubory, aby ostatní vývojáři mohli jednoduše otevřít řešení bez nutnosti nejprve obnovení balíčků.
+> Balíčky musí být vytvořen umožňuje načítání v aplikaci Visual Studio. V opačném případě může stále chcete vrátit se změnami `.targets` soubory tak, aby ostatní vývojáři mohou jednoduše otevřete řešení aniž byste museli nejdřív obnovit balíčky.
 
-Následující ukázkový projekt ukazuje, jak nastavit sestavení takovým způsobem, který `packages` složky a `.targets` soubory nemusí být vráceno se změnami. Také ukazuje, jak nastavit automatické sestavení na Team Foundation Service pro tento ukázkový projekt.
+Následující ukázkový projekt ukazuje, jak nastavit sestavení takovým způsobem, který `packages` složky a `.targets` soubory nemusí být vrácené se změnami. Také ukazuje, jak nastavit automatické sestavení ve službě Team Foundation Service pro tento ukázkový projekt.
 
 ## <a name="repository-structure"></a>Struktura úložiště
 
-Naše ukázkový projekt je nástroj jednoduché příkazového řádku, který používá argument příkazového řádku k dotazu služby Bing. Jeho cílem rozhraní .NET Framework 4 a používá řadu [BCL balíčky](http://www.nuget.org/profiles/dotnetframework/) ([Microsoft.Net.Http](http://www.nuget.org/packages/Microsoft.Net.Http), [Microsoft.Bcl](http://www.nuget.org/packages/Microsoft.Bcl), [Microsoft.Bcl.Async](http://www.nuget.org/packages/Microsoft.Bcl.Async), a [Microsoft.Bcl.Build](http://www.nuget.org/packages/Microsoft.Bcl.Build)).
+Náš ukázkový projekt je jednoduchý příkazového řádku nástroj, který používá argument příkazového řádku pro dotaz Bingu. Cílí na rozhraní .NET Framework 4 a používá mnoho [BCL balíčky](http://www.nuget.org/profiles/dotnetframework/) ([Microsoft.Net.Http](http://www.nuget.org/packages/Microsoft.Net.Http), [Microsoft.Bcl](http://www.nuget.org/packages/Microsoft.Bcl), [Microsoft.Bcl.Async](http://www.nuget.org/packages/Microsoft.Bcl.Async), a [Microsoft.Bcl.Build](http://www.nuget.org/packages/Microsoft.Bcl.Build)).
 
-Struktura úložiště vypadá takto:
+Struktury úložiště by měl vypadat takto:
 
     <Project>
         │   .gitignore
@@ -76,16 +75,16 @@ Struktura úložiště vypadá takto:
             └───NuGet
                     nuget.exe
 
-Uvidíte, že jsme nebyly vráceno se změnami `packages` složku ani žádný `.targets` soubory.
+Uvidíte, že jsme nejsou vrácené se změnami `packages` složky ani žádné `.targets` soubory.
 
-Jsme k dispozici, ale vráceno se změnami `nuget.exe` potřeby během sestavení. Následující často používají konvence jsme jste změnami ji pod sdílenou `tools` složky.
+Budeme mít, ale vrácené se změnami `nuget.exe` potřeby během sestavení. Následující často používá konvence jsme jsme vrátili ho se změnami v rámci sdílené `tools` složky.
 
-Zdrojový kód je v části `src` složky. I když naše Ukázka používá jenom jedno řešení, můžete snadno představte, že tato složka obsahuje více než jedno řešení.
+Zdrojový kód je v části `src` složky. I když naše Ukázka používá pouze jedno řešení, snadno dokážete představit, že tato složka obsahuje více než jednoho řešení.
 
 ### <a name="ignore-files"></a>Ignorování souborů
 
 > [!Note]
-> V současné době není [známého problému v klientovi NuGet](https://nuget.codeplex.com/workitem/4072) který způsobuje, že klient stále přidat `packages` složky do správy verzí. Alternativní řešení je zakázat integrace ovládacích prvků zdrojového. Aby bylo možné provést, je nutné `Nuget.Config ` v soubor `.nuget` složky, která je paralelní k řešení. Pokud tato složka ještě neexistuje, musíte ji vytvořit. V [ `Nuget.Config` ](../consume-packages/configuring-nuget-behavior.md), přidejte do něj následující obsah:
+> Aktuálně nejsou k dispozici [známého problému nástroje klienta NuGet](https://nuget.codeplex.com/workitem/4072) , který způsobí, že klient přesto přidat `packages` složky do správy verzí. Alternativní řešení je zakázat integraci správy zdrojového kódu. Chcete-li to mohli udělat, musíte `Nuget.Config ` soubor `.nuget` složku, která je paralelní do vašeho řešení. Pokud tato složka ještě neexistuje, musíte ji vytvořit. V [ `Nuget.Config` ](../consume-packages/configuring-nuget-behavior.md), přidejte následující obsah:
 
 ```xml
 <configuration>
@@ -95,9 +94,9 @@ Zdrojový kód je v části `src` složky. I když naše Ukázka používá jeno
 </configuration>
 ```
 
-Pro komunikaci se správa verzí, že nepodporujeme záměr vrácení se změnami **balíčky** složek, jsme také doplnili ignorovat soubory pro oba git (`.gitignore`) a také TF správy verzí (`.tfignore`). Tyto soubory popisují vzorů souborů, které nechcete použít k vrácení se změnami.
+Ke komunikaci do správy verzí, že není cílem je vrácení se změnami **balíčky** složek, přidali jsme také ignorovat soubory pro obě git (`.gitignore`) i správa verzí TF (`.tfignore`). Tyto soubory popisují vzory souborů, které nechcete, aby k vrácení se změnami.
 
-`.gitignore` Souboru vypadá takto:
+`.gitignore` Soubor bude vypadat takto:
 
     syntax: glob
     *.user
@@ -109,14 +108,14 @@ Pro komunikaci se správa verzí, že nepodporujeme záměr vrácení se změnam
     project.lock.json
     project.assets.json
 
-`.gitignore` Soubor [velmi výkonné](https://www.kernel.org/pub/software/scm/git/docs/gitignore.html). Například, pokud chcete obecně není vrácení se změnami obsah `packages` složka ale chcete přejít s předchozí pokyny k vrácení se změnami `.targets` soubory můžete mít následující pravidlo místo:
+`.gitignore` Soubor [poměrně efektivní](https://www.kernel.org/pub/software/scm/git/docs/gitignore.html). Například, pokud chcete obecně není vrácení se změnami obsah `packages` složka ale chcete přejít s předchozím pokyny k vrácení se změnami `.targets` souborů může mít následující pravidlo místo:
 
     packages
     !packages/**/*.targets
 
-To vyloučí všechny `packages` složky ale bude znovu zahrnout všechny obsažené `.targets` soubory. Tím, můžete najít šablonu pro `.gitignore` soubory, které je specificky přizpůsobit pro potřeby vývojářů Visual Studio [zde](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore).
+To se vyřadit všechny `packages` složky bude znovu zahrnout všechny `.targets` soubory. Tím, jak můžete najít šablonu pro `.gitignore` soubory, které specificky přizpůsobit pro potřeby Visual Studio získávají vývojáři [tady](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore).
 
-Správa verzí TF podporuje velmi podobné mechanismus prostřednictvím [.tfignore](/vsts/tfvc/add-files-server#customize-which-files-are-ignored-by-version-control) souboru. Syntaxe je v podstatě stejný:
+Správa verzí TF podporuje plní podobné funkce jako mechanismus prostřednictvím [.tfignore](/vsts/tfvc/add-files-server#customize-which-files-are-ignored-by-version-control) souboru. Syntaxe je v podstatě stejný:
 
     *.user
     *.suo
@@ -129,15 +128,15 @@ Správa verzí TF podporuje velmi podobné mechanismus prostřednictvím [.tfign
 
 ## <a name="buildproj"></a>build.proj
 
-Pro naše ukázka jsme zjednodušení procesu sestavení poměrně. Vytvoříme projektu MSBuild, který sestavuje všechny řešení při a ujistěte se, že jsou balíčky obnovit před vytvořením řešení.
+Pro naši ukázku uchováváme proces sestavení poměrně jednoduché. Vytvoříme projektu MSBuild, který vytváří všechna řešení, přičemž zajistěte, že se balíčky neobnoví před sestavením řešení.
 
 Tento projekt bude mít tři konvenční cíle `Clean`, `Build` a `Rebuild` i nový cíl `RestorePackages`.
 
-- `Build` a `Rebuild` cíle obě závisí na `RestorePackages`. Tím je zajištěno, že oba spuštěním `Build` a `Rebuild` a spoléhá na balíčky obnovena.
+- `Build` a `Rebuild` cíle i závisí na `RestorePackages`. Tím je zajištěno, že oba spustíte `Build` a `Rebuild` a Spolehněte se na balíčky, který se má obnovit.
 - `Clean`, `Build` a `Rebuild` vyvolání odpovídající cíle MSBuild na všechny soubory řešení.
-- `RestorePackages` Cíl vyvolá `nuget.exe` pro každý soubor řešení. To se dá udělat pomocí [je dávkování nástroje MSBuild funkce](/visualstudio/msbuild/msbuild-batching).
+- `RestorePackages` Vyvolá cíl `nuget.exe` pro každý soubor řešení. To lze provést pomocí [funkce v dávkování nástroje MSBuild](/visualstudio/msbuild/msbuild-batching).
 
-Výsledek vypadá takto:
+Výsledek by měl vypadat takto:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -179,20 +178,20 @@ Výsledek vypadá takto:
 </Project>
 ```
 
-## <a name="configuring-team-build"></a>Konfigurace sestavení Team
+## <a name="configuring-team-build"></a>Konfigurace týmového sestavení
 
-Sestavení Team nabízí různé šablony procesů. Pro této ukázce používáme Team Foundation Service. Když bude velmi podobně jako na místní instalace sady TFS.
+Týmový Build nabízí různé šablony procesu. Pro tuto ukázku jsme používáte Team Foundation Service. I když bude velmi podobně jako na místní instalace TFS.
 
-Git a správa verzí TF mít různé šablony Team Build, následující postup se bude lišit v závislosti na tom, které systém správy verzí, kterou používáte. V obou případech je třeba je výběr build.proj jako projekt, který chcete vytvořit.
+Git a správa verzí TF mají různé šablony služby Team Build, takže takto se budou lišit v závislosti na tom, který systém správy verzí, kterou používáte. V obou případech se vše, co potřebujete je výběr build.proj jako projekt, který má být sestaveno.
 
-První Podíváme se na šablony procesu pro git. V šabloně git na základě sestavení je vybrána přes vlastnost `Solution to build`:
+Nejprve Podívejme se na šablonu procesu pro git. V šabloně git na základě výběru sestavení prostřednictvím vlastnosti `Solution to build`:
 
 ![Proces sestavení pro git](media/PackageRestoreTeamBuildGit.png)
 
-Upozorňujeme, že je tato vlastnost umístění v úložišti. Protože naše `build.proj` je v kořenovém adresáři, můžeme jednoduše použít `build.proj`. Pokud umístěte soubor sestavení do složky s názvem `tools`, bude hodnota `tools\build.proj`.
+Všimněte si, že je tato vlastnost umístění v úložišti. Protože naše `build.proj` je v kořenovém adresáři, můžeme jednoduše použít `build.proj`. Pokud byste umístit soubor sestavení v rámci složky s názvem `tools`, bude hodnota `tools\build.proj`.
 
-V šabloně TF verze ovládací prvek je vybrán projekt přes vlastnost `Projects`:
+V šabloně ovládacího prvku verze TF je projekt určen prostřednictvím vlastnosti `Projects`:
 
 ![Proces sestavení pro TFVC](media/PackageRestoreTeamBuildTFVC.png)
 
-Na rozdíl od git na základě šablony TF podporuje Správa verzí ovládacích prvků výběr (tlačítko na pravé straně tři tečky). Takže aby se zabránilo chybám zadáním doporučujeme že použít vyberte projekt.
+Na rozdíl od TF git na základě šablony Správa verzí podporuje výběrech (tlačítko na pravé straně se třemi tečkami). Proto pokud se chcete vyhnout chybám psaní doporučujeme, že pomocí kterých lze vyberte projekt.

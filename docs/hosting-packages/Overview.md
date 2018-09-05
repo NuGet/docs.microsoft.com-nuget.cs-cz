@@ -3,16 +3,15 @@ title: Přehled hostování vlastní kanály NuGet
 description: Přehled se otevře pro hostování své vlastní informační kanály balíčků NuGet nebo v galeriích místně nebo vzdáleně.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 08/25/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 95750bc926c242c02112f68a5aebf43c5fdb9a46
-ms.sourcegitcommit: 4d139cb54a46616ae48d1768fa108ae3bf450d5b
+ms.openlocfilehash: 80f9354e149129fff043b470d833f348df15c0a7
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39508293"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43545488"
 ---
 # <a name="hosting-your-own-nuget-feeds"></a>Hostování vlastní NuGet informační kanály
 

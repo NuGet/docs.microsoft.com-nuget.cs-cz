@@ -1,23 +1,22 @@
 ---
 title: Rozhraní příkazového řádku NuGet přidat – příkaz
-description: Referenční dokumentace pro nuget.exe přidat – příkaz
+description: Příkaz Přidat odkaz nuget.exe
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: f229ca100463c556f9c4cefc49f52724a9c4ba77
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 7a72186e1dece082cd200a03849a0b12c751a645
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817607"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43545831"
 ---
 # <a name="add-command-nuget-cli"></a>Příkaz add (NuGet CLI)
 
 **Platí pro**: balíček publikování &bullet; **podporované verze**: 3.3 +
 
-Přidá zadaný balíček zdroj balíčku jiným protokolem než HTTP (složka nebo cesta UNC) v hierarchickém rozložení, ve kterém se vytvoří složky pro číslo ID a verzi balíčku. Příklad:
+Přidá zadaný balíček ke zdroji balíčku jiným protokolem než HTTP (složka nebo cesta UNC) v hierarchickém rozložení, ve které jsou vytvořeny složky pro číslo ID a verzi balíčku. Příklad:
 
     \\myserver\packages
       └─<packageID>
@@ -26,9 +25,9 @@ Přidá zadaný balíček zdroj balíčku jiným protokolem než HTTP (složka n
           ├─<packageID>.<version>.nupkg.sha512
           └─<packageID>.nuspec
 
-Při obnovení nebo aktualizaci na zdroji balíčku, hierarchickém rozložení poskytuje výrazně lepší výkon.
+Při obnovení nebo aktualizaci na zdroji balíčku, hierarchickém rozložení poskytuje výrazně vyšší výkon.
 
-Všechny soubory v balíčku rozšířit do cílového zdroje balíčku, použít `-Expand` přepínače. To obvykle vede k další podsložky zobrazovaných v cílovém umístění, jako například `tools` a `lib`.
+Chcete-li rozbalit všechny soubory v balíčku pro cílový zdroj balíčků, použijte `-Expand` přepnout. To obvykle za následek další podsložky, které jsou uvedené v cíli, jako například `tools` a `lib`.
 
 ## <a name="usage"></a>Použití
 
@@ -36,18 +35,18 @@ Všechny soubory v balíčku rozšířit do cílového zdroje balíčku, použí
 nuget add <packagePath> -Source <sourcePath> [options]
 ```
 
-kde `<packagePath>` je název cesty k balíčku, který chcete přidat, a `<sourcePath>` určuje zdroji na základě složky balíčku, do které budou přidány balíčku. Zdroje protokolu HTTP nejsou podporovány.
+kde `<packagePath>` je cesta k balíčku, který chcete přidat, a `<sourcePath>` Určuje zdroj balíčků založená na složku, do kterého se přidá balíček. Zdroje HTTP nejsou podporovány.
 
 ## <a name="options"></a>Možnosti
 
 | Možnost | Popis |
 | --- | --- |
-| ConfigFile | Konfigurační soubor NuGet použít. Pokud není zadaný, `%AppData%\NuGet\NuGet.Config` (Windows) nebo `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) se používá.|
+| ConfigFile | Konfigurační soubor NuGet použít. Pokud není zadán, `%AppData%\NuGet\NuGet.Config` (Windows) nebo `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) se používá.|
 | Rozbalte položku | Přidá všechny soubory v balíčku ke zdroji balíčku. |
-| ForceEnglishOutput | *(3.5 +)*  Vynutí nuget.exe ke spuštění pomocí invariantní, na základě angličtina jazykové verze. |
+| ForceEnglishOutput | *(3.5 +)*  Vynutí nuget.exe pro spuštění pomocí neutrální, základem je angličtina jazyková verze. |
 | Nápověda | Zobrazí nápovědu pro příkaz. |
-| Neinteraktivní | Potlačí výzvy pro vstup uživatele nebo potvrzení. |
-| Podrobnosti | Určuje množství podrobností, které jsou zobrazené ve výstupu: *normální*, *quiet*, *podrobné*. |
+| Neinteraktivní | Potlačí vyzve k zadání uživatele o vstup ani potvrzení. |
+| Podrobnosti | Určuje množství podrobností, na které se zobrazí ve výstupu: *normální*, *quiet*, *podrobné*. |
 
 Viz také [proměnné prostředí](cli-ref-environment-variables.md)
 

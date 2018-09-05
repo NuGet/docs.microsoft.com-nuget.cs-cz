@@ -1,33 +1,32 @@
 ---
-title: 1.3 poznámky NuGet
-description: Poznámky k verzi pro včetně známé problémy, opravy chyb, přidaných funkcí a chcete 1.3 NuGet.
+title: Poznámky k verzi 1.3 NuGet
+description: Zpráva k vydání verze pro NuGet 1.3, včetně známých problémů, opravy chyb, nové funkce a chcete.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: c0284fe0afb11bf6465897132cccd160674ea3e1
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: fa89af100096356c2ffb4d6c501c4a34296ad0ea
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31821145"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43551348"
 ---
-# <a name="nuget-13-release-notes"></a>1.3 poznámky NuGet
+# <a name="nuget-13-release-notes"></a>Poznámky k verzi 1.3 NuGet
 
-[Poznámky k verzi NuGet 1.2](../release-notes/nuget-1.2.md) | [NuGet 1.4 poznámky k verzi](../release-notes/nuget-1.4.md)
+[Zpráva k vydání verze NuGet 1.2](../release-notes/nuget-1.2.md) | [zpráva k vydání verze NuGet 1.4](../release-notes/nuget-1.4.md)
 
-NuGet 1.3 byla vydána 25 Duben 2011.
+NuGet 1.3 byla vydána 25. dubna 2011.
 
 ## <a name="new-features"></a>Nové funkce
 
-### <a name="streamlined-package-creation-with-symbol-server-integration"></a>Zjednodušená vytvoření balíčku s integrací serveru – symbol
+### <a name="streamlined-package-creation-with-symbol-server-integration"></a>Zjednodušené vytváření balíčků s integrací serveru symbolů
 
-Týmem NuGet ve spolupráci s zaměstnance na [SymbolSource.org](http://www.symbolsource.org/) nabízet skutečně jednoduchý způsob publikování zdrojů a na PDB společně s vašeho balíčku. To umožňuje příjemci vašeho balíčku na krok do zdroje balíčku v ladicím programu. Další informace najdete v [vytváření a publikování balíčku Symbol](../create-packages/symbol-packages.md) snadný způsob, jak publikovat balíčky NuGet se zdroji. Můžete také shlédnout této funkce jako součást NuGet podrobněji za provozu ukázkový komunikovat v Mix11. Tato funkce je plně ukázán začínající na 20 minut označit videa.
+Tým NuGet ve spolupráci s lidé na [SymbolSource.org](http://www.symbolsource.org/) nabízí opravdu jednoduchý způsob publikování zdrojů a souboru PDB. spolu s vašeho balíčku. To umožňuje uživatelům balíčku můžete krokovat s vnořením zdroj balíčku v ladicím programu. Další podrobnosti najdete v článku [vytváření a publikování balíčku symbolů](../create-packages/symbol-packages.md) snadný způsob, jak publikovat balíčky NuGet se zdroji. Můžete také sledovat živé ukázku této funkce jako součást balíčku NuGet do hloubky komunikovat na Mix11. Tato funkce je znázorněn plně od 20 minut označte videa.
 
-### <a name="open-packagepage-command"></a>`Open-PackagePage` příkaz
+### <a name="open-packagepage-command"></a>`Open-PackagePage` Příkaz
 
-Tento příkaz lze snadno získat na stránku projektu pro balíček z konzoly Správce balíčků. Obsahuje také možnosti otevřete adresu URL licence a zneužití stránka sestavy pro daný balíček.
+Tento příkaz umožňuje snadno získat na stránce projektu pro balíček z konzoly Správce balíčků. Poskytuje také možnosti Otevřít adresu URL licence a zneužití stránky sestavy pro balíček.
 Syntaxe příkazu je:
 
     Open-PackagePage -Id <string> [-Version] [-Source] [-License] [-ReportAbuse] [-PassThru]
@@ -54,38 +53,38 @@ Přiřadí proměnné $url adresu URL licence bez otevření této adresy URL v 
 
 ### <a name="performance-improvements"></a>Zvýšení výkonu
 
-NuGet 1.3 představuje mnoho vylepšení výkonu. NuGet 1.3 zabraňuje stahování stejnou verzi balíčku vícekrát zahrnutím mezipaměti místní jednotlivé uživatele. Mezipaměti můžete získat přístup a vymazat prostřednictvím dialogu Nastavení správce balíčků:
+NuGet 1.3 přináší spoustu vylepšení výkonu. NuGet 1.3 se vyhnete stahování stejnou verzi balíčku více než jednou zahrnutím mezipaměti místního uživatele. Mezipaměti můžete přistupovat a vymaže přes dialogové okno Nastavení správce balíčků:
 
 ![Dialogové okno Možnosti NuGet s nastavení mezipaměti balíčku](./media/nuget-options.png)
 
-Další vylepšení výkonu zahrnují přidání podpory pro komprese protokolu HTTP a vylepšení rychlosti instalace balíčku Visual Studia.
+Další vylepšení výkonu zahrnují přidání podpory pro kompresi HTTP a vylepšení rychlosti instalaci balíčku sady Visual Studio.
 
 ### <a name="visual-studio-and-nugetexe-uses-the-same-list-of-package-sources"></a>Visual Studio a nuget.exe používá stejný seznam zdroje balíčků
 
-Před NuGet 1.3 nebyly uloženy seznam slouží jako nuget.exe a NuGet Visual Studio Add-In zdroje balíčku na stejném místě. NuGet 1.3 teď používá stejný seznam na obou místech. Seznam je uložen v `NuGet.Config` a uložen ve složce data aplikací.
+Před NuGet 1.3 seznam zdroje balíčků, které používají nuget.exe a NuGet Visual Studio Add-In nebyly uloženy na stejném místě. NuGet 1.3 nyní používá stejný seznam na obou místech. Seznam je uložen v `NuGet.Config` a uložené ve složce data aplikací.
 
-### <a name="nugetexe-ignores-files-and-folders-that-start-with--by-default"></a>nuget.exe ignoruje soubory a složky, které začínají s '.' ve výchozím nastavení
+### <a name="nugetexe-ignores-files-and-folders-that-start-with--by-default"></a>nuget.exe ignoruje soubory a složky, které začínají znakem '.' ve výchozím nastavení
 
-Aby bylo možné NuGet tyto Subversion a Mercurial funkce fungují dobře u zdrojových systémů řízení, nuget.exe ignoruje složek a souborů, které začínají '.' znak při vytváření balíčků. To lze přepsat pomocí dva nové příznaky:
+Aby NuGet dobře fungují s systémy správy zdrojového kódu takové Subversion nebo Mercurial nuget.exe ignoruje složky a soubory, které začínají "." znaku při vytváření balíčků. To lze přepsat pomocí dvou nových příznaky:
 
 * __-NoDefaultExcludes__ se používá pro toto nastavení přepsat a zahrnují všechny soubory.
-* __-Vyloučit__ se používá k přidání další soubory a složky, které chcete vyloučit pomocí vzoru. Chcete-li například vyloučí všechny soubory s příponou souboru '.bak.
+* __-Vyloučení__ se používá k přidání dalších souborů a složek na vyloučit pomocí vzoru. Třeba vyloučit všechny soubory s příponou ".bak.
 
 ```
 nuget Pack MyPackage.nuspec -Exclude **\*.bak
 ```  
 
-_Poznámka: vzoru není rekurzivní ve výchozím nastavení._
+_Poznámka: vzor není rekurzivní ve výchozím nastavení._
 
-### <a name="support-for-wix-projects-and-the-net-micro-framework"></a>Podpora pro projekty WiX a malých rozhraní .NET Framework
+### <a name="support-for-wix-projects-and-the-net-micro-framework"></a>Podpora pro projekty WiX a Micro rozhraní .NET Framework
 
-Díky komunitní příspěvky NuGet zahrnuje podporu pro typy projektů WiX, jakož i rozhraní .NET Framework Micro.
+Díky příspěvky vytvořené komunitou NuGet zahrnuje podporu pro typy projektů WiX, jakož i rozhraní .NET Framework Micro.
 
 ## <a name="bug-fixes"></a>Opravy chyb
 
-Úplný seznam oprav chyb, zobrazte [sledovací modul problém NuGet pro tuto verzi](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=All&type=All&priority=All&release=NuGet%201.3&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0).
+Úplný seznam oprav chyb, podívejte se prosím [NuGet sledování problémů pro tuto verzi](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=All&type=All&priority=All&release=NuGet%201.3&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0).
 
-## <a name="bug-fixes-worth-noting"></a>Opravy chyb vhodné poznamenat
+## <a name="bug-fixes-worth-noting"></a>Opravy chyb za zmínku
 
-* Balíčky s zdrojové soubory fungovat v obou webů a projekty webových aplikací.
-Pro weby, zdrojové soubory jsou kopírovány do `App_Code` složky
+* Balíčky se zdrojovým souborem fungovat na obou webech a v projektech webových aplikací.
+Pro moduly Websites, zdrojové soubory jsou zkopírovány do `App_Code` složky

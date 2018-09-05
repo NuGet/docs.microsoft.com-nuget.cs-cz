@@ -1,51 +1,50 @@
 ---
 title: Protokoly nuget.org
-description: Měnící nuget.org protokoly pro interakci s klienty NuGet.
+description: Rozvíjející protokoly nuget.org k interakci s klienty NuGet.
 author: anangaur
 ms.author: anangaur
-manager: unnir
 ms.date: 10/30/2017
 ms.topic: conceptual
 ms.reviewer: kraigb
-ms.openlocfilehash: cc6d52617ea8b69d5b18b831ddf8a1a85dd6798f
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: d0add777040dbb8bcde6d8e385a4feab568e5cdd
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31822575"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43547270"
 ---
 # <a name="nugetorg-protocols"></a>protokoly nuget.org
 
-Pro interakci s nuget.org, klienti musí postupovat podle určité protokoly. Protože tyto protokoly uchovávat vyvíjejí, klienti musí identifikovat verzi protokolu, které používají při volání metody konkrétní nuget.org rozhraní API. To umožňuje nuget.org zavádět změny způsobem pevné pro původní klienty.
+K interakci s nuget.org, klienti musí použít některé protokoly. Protože tyto protokoly umožní mít vznikající, musí klienti určují verzi protokolu, které používají při volání konkrétní nuget.org rozhraní API. To umožňuje nuget.org zavedení změn způsobem pevné pro staré klienty.
 
 > [!Note]
-> Rozhraní API popsané na této stránce jsou specifické pro nuget.org a neexistuje žádný očekávání pro jiné implementace NuGet serveru zavádět tato rozhraní API. 
+> Rozhraní API popsané na této stránce jsou specifické pro nuget.org a neexistuje žádná očekávání pro jiné implementace NuGet server k zavedení těchto rozhraní API. 
 
-Informace o rozhraní API NuGet široce implementována v ekosystému NuGet najdete v tématu [přehled rozhraní API](overview.md).
+Informace o rozhraní API NuGet široce implementované v ekosystému NuGet, najdete v článku [přehled rozhraní API](overview.md).
 
-Toto téma uvádí různé protokoly jako a pokud by byly předány existence.
+Toto téma obsahuje seznam různých protokolů jako a pokud by byly předány existence.
 
-## <a name="nuget-protocol-version-410"></a>Verze protokolu NuGet 4.1.0
+## <a name="nuget-protocol-version-410"></a>NuGet protocol verze 4.1.0
 
-4.1.0 protokol Určuje použití klíče ověření rozsahu pro interakci s služby než nuget.org se ověřit balíček proti nuget.org účtu. Všimněte si, že `4.1.0` verze číslo je neprůhledný řetězec, ale se stane, se shoduje s první verzi oficiální klienta NuGet podporovaným tento protokol.
+4.1.0 protokol Určuje použití klíče ověření rozsahu pro interakci s jinými službami než nuget.org se ověřit balíček proti účtu nuget.org. Všimněte si, že `4.1.0` verze číslo, které je neprůhledný řetězec, ale se stane se shoduje s první verzi oficiální klienta NuGet, který nepodporuje tento protokol.
 
-Ověření zajistí, že rozhraní API klíče vytvořené uživatelem se používají pouze s nuget.org a tímto ověřování nebo ověřování z službu třetí strany se zpracovává prostřednictvím jednorázové použití klíče ověření rozsahu. Tyto klíče ověřte oboru slouží k ověření, že balíček patří do určitého uživatele (účet) v nuget.org.
+Ověření zajistí, že klíče rozhraní API vytvořené uživatelem se používají pouze s nuget.org a tohoto ověření nebo ověřovací služby třetích stran probíhá prostřednictvím funkce klíče ověření oboru jedno použití. Tyto klíče ověření oboru slouží k ověření, že balíček patří do určitého uživatele (účet) na nuget.org.
 
 ### <a name="client-requirement"></a>Požadavek klienta
 
-Klienti jsou potřeba předat následující hlavičku při provádění volání rozhraní API **nabízené** balíčků nuget.org:
+Klientů je potřeba předat následující záhlaví při provádění volání rozhraní API **nabízených** balíčků na nuget.org:
 
     X-NuGet-Protocol-Version: 4.1.0
 
-Všimněte si, že `X-NuGet-Client-Version` záhlaví má podobnou sémantiku, ale je vyhrazen pouze používat oficiální klienta NuGet. Třetí strany klienti měli používat `X-NuGet-Protocol-Version` hlavičku a hodnotu.
+Všimněte si, `X-NuGet-Client-Version` má podobnou sémantiku jako záhlaví, ale je vyhrazen pouze použije oficiální klienta NuGet. Třetí strany klienti měli používat `X-NuGet-Protocol-Version` hlavičku a hodnotu.
 
-**Nabízené** samotný protokol je popsána v dokumentaci k [ `PackagePublish` prostředků](package-publish-resource.md).
+**Nabízených** samotný protokol je popsán v dokumentaci k [ `PackagePublish` prostředků](package-publish-resource.md).
 
-Pokud klient komunikuje s externích služeb a potřebuje k ověření, zda balíček patří do určitého uživatele (účet), měl by se používat protokol následující a používat klíče ověřte oboru a není klíče rozhraní API z nuget.org.
+Pokud klient komunikuje s externími službami a je potřeba ověřit, jestli balíček patří do určitého uživatele (účet), měl by používat následující protokol a ověřte, zda rozsah klíčů a ne klíče rozhraní API z webu nuget.org.
 
-### <a name="api-to-request-a-verify-scope-key"></a>Žádost o oboru ověřte klíč rozhraní API
+### <a name="api-to-request-a-verify-scope-key"></a>Rozhraní API pro požádat o klíč ověřte, zda rozsah
 
-Toto rozhraní API slouží k získání klíče ověřte oboru pro autora nuget.org se ověřit balíček vlastníkem mu.
+Toto rozhraní API slouží k získání klíče ověřte obor autora nuget.org se ověřit balíček vlastněné neúčtuje.
 
     POST api/v2/package/create-verification-key/{ID}/{VERSION}
 
@@ -53,7 +52,7 @@ Toto rozhraní API slouží k získání klíče ověřte oboru pro autora nuget
 
 Název           | V     | Typ   | Požadováno | Poznámky
 -------------- | ------ | ------ | -------- | -----
-ID             | Adresa URL    | odkazy řetězců | Ano      | Balíček identidier, pro které je požadováno ověřte, zda klíč oboru
+ID             | Adresa URL    | odkazy řetězců | Ano      | Balíček identidier, pro kterou je požadována klíč oboru ověřte
 VERZE        | Adresa URL    | odkazy řetězců | Ne       | Verze balíčku
 X-NuGet-ApiKey | Záhlaví | odkazy řetězců | Ano      | Třeba `X-NuGet-ApiKey: {USER_API_KEY}`.
 
@@ -66,9 +65,9 @@ X-NuGet-ApiKey | Záhlaví | odkazy řetězců | Ano      | Třeba `X-NuGet-ApiK
 }
 ```
 
-### <a name="api-to-verify-the-verify-scope-key"></a>Rozhraní API a ověřte klíč oboru ověřte
+### <a name="api-to-verify-the-verify-scope-key"></a>Rozhraní API pro ověření klíče ověřte, zda rozsah
 
-Toto rozhraní API slouží k ověření oboru ověřte, zda klíč pro vlastníkem nuget.org autora balíčku.
+Toto rozhraní API slouží k ověření ověřte, zda rozsah klíč pro vlastní nuget.org Autor balíčku.
 
     GET api/v2/verifykey/{ID}/{VERSION}
 
@@ -76,17 +75,17 @@ Toto rozhraní API slouží k ověření oboru ověřte, zda klíč pro vlastní
 
 Název           | V     | Typ   | Požadováno | Poznámky
 -------------  | ------ | ------ | -------- | -----
-ID             | Adresa URL    | odkazy řetězců | Ano      | Identifikátor balíčku, jehož klíč oboru ověřte, zda je požadováno
+ID             | Adresa URL    | odkazy řetězců | Ano      | Identifikátor balíčku, pro kterou je požadována klíč oboru ověřte
 VERZE        | Adresa URL    | odkazy řetězců | Ne       | Verze balíčku
 X-NuGet-ApiKey | Záhlaví | odkazy řetězců | Ano      | Třeba `X-NuGet-ApiKey: {VERIFY_SCOPE_KEY}`.
 
 > [!Note]
-> Tento klíč oboru rozhraní API ověřte platnost vyprší v čase za den nebo při prvním použití, cokoliv nastane dříve.
+> Tento klíč rozhraní API oboru ověřte, zda vypršení platnosti v čase za den nebo při prvním použití podle toho, co nastane dříve.
 
 #### <a name="response"></a>Odpověď
 
 Stavový kód | Význam
 ----------- | -------
 200         | Klíč rozhraní API je platný
-403         | Klíč rozhraní API je neplatný nebo není autorizovaný k nabízení pro balíček
+403         | Klíč rozhraní API je neplatný nebo není povoleno push pro balíček
 404         | Balíček odkazuje `ID` a `VERSION` (volitelné) neexistuje

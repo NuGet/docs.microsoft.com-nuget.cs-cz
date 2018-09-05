@@ -1,54 +1,53 @@
 ---
-title: Poznámky k verzi 1.6 verzi NuGet
-description: Poznámky k verzi pro včetně známé problémy, opravy chyb, přidaných funkcí a chcete 1.6 NuGet.
+title: Zpráva k vydání verzí 1.6 verze NuGet
+description: Zpráva k vydání verze pro NuGet 1.6, včetně známých problémů, opravy chyb, nové funkce a chcete.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 0345e180893a56302385d27792c4e15ba5d96989
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 351303ca3ae27a37c19e59d84dfc9b4629fe0ca5
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31820596"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43549009"
 ---
- # <a name="nuget-16-release-notes"></a>Poznámky k verzi 1.6 verzi NuGet
+ # <a name="nuget-16-release-notes"></a>Zpráva k vydání verzí 1.6 verze NuGet
 
-[Poznámky k verzi NuGet 1.5](../release-notes/nuget-1.5.md) | [NuGet 1.7 poznámky k verzi](../release-notes/nuget-1.7.md)
+[Zpráva k vydání verze NuGet 1.5](../release-notes/nuget-1.5.md) | [zpráva k vydání verze NuGet 1.7](../release-notes/nuget-1.7.md)
 
-NuGet 1.6 byla vydána 13 prosince 2011.
+NuGet 1.6 byla vydána 13. prosince 2011.
 
 ## <a name="known-installation-issue"></a>Instalace známý problém
-Pokud používáte VS 2010 SP1, můžete spustit došlo k chybě instalace při pokusu o upgrade NuGet, pokud máte nainstalovaný starší verze.
+Pokud spustíte VS 2010 SP1, můžete narazit na chybu instalace při pokusu o upgradu Nugetu, pokud máte nainstalovaný starší verze.
 
-Alternativní řešení je jednoduše odinstalovat NuGet a nainstalujte ji z Galerie rozšíření VS.  V tématu [ http://support.microsoft.com/kb/2581019 ](http://support.microsoft.com/kb/2581019) Další informace.
+Alternativním řešením je jednoduše odinstalovat NuGet a nainstalujte ho z Galerie rozšíření VS.  Zobrazit [ http://support.microsoft.com/kb/2581019 ](http://support.microsoft.com/kb/2581019) Další informace.
 
-Poznámka: Pokud Visual Studio nebude možné odinstalovat rozšíření (k dispozici tlačítko Odinstalovat), bude pravděpodobně nutné restartujte Visual Studio pomocí "Spustit jako správce."
+Poznámka: Pokud Visual Studio neumožní odinstalovat rozšíření (tlačítko Odinstalovat je vypnutá), pak pravděpodobně nutné restartovat Visual Studio pomocí příkazu "Spustit jako správce."
 
 ## <a name="features"></a>Funkce
 
-### <a name="support-for-semantic-versioning-and-prerelease-packages"></a>Podpora pro sémantické verze a předběžné verze balíčků
-NuGet 1.6 zavádí podporu pro sémantické verze (SemVer). Další informace o tom, jak ji používá SemVer, přečtěte si [Správa verzí dokumentace](../create-packages/prerelease-packages.md).
+### <a name="support-for-semantic-versioning-and-prerelease-packages"></a>Podporu pro Semantic Versioning a předběžné verze balíčků
+NuGet 1.6 zavádí podporu pro Semantic Versioning (SemVer). Další informace o tom, jak používá SemVer najdete [dokumentace ke službě správy verzí](../create-packages/prerelease-packages.md).
 
-### <a name="using-nuget-without-checking-in-packages-package-restore"></a>Pomocí nástroje NuGet bez kontroly v balíčcích (obnovení balíčku)
-NuGet 1.6 teď nabízí prvotřídní podporu pro pracovní postup v který NuGet balíčky nejsou přidány do správy zdrojového kódu, ale místo toho jsou obnoveny v čase vytvoření buildu Pokud chybí. Další informace najdete [pomocí NuGet bez potvrzení balíčky do správy zdrojového kódu](../consume-packages/packages-and-source-control.md) tématu.
+### <a name="using-nuget-without-checking-in-packages-package-restore"></a>Pomocí nástroje NuGet bez vrácení se změnami balíčky (obnovení balíčku)
+NuGet 1.6 teď nabízí prvotřídní podporu pro pracovní postup, ve které NuGet balíčky nejsou přidány do správy zdrojových kódů, ale místo toho se obnoví v okamžiku sestavení Pokud chybí. Další podrobnosti najdete v článku [pomocí NuGet bez potvrzení balíčky do správy zdrojových kódů](../consume-packages/packages-and-source-control.md) tématu.
 
-### <a name="item-templates-that-install-nuget-packages"></a>Šablony položek, které instalace balíčků NuGet
-Sestavování na práci pro podporu předinstalované balíček NuGet do projektu šablony sady Visual Studio, NuGet 1.6 přidává podporu pro šablony sady Visual Studio položky. Šablony položek může mít přidružené balíčky NuGet, které jsou nainstalovány při vyvolání šablony.
+### <a name="item-templates-that-install-nuget-packages"></a>Šablony položek, které instalují balíčky NuGet
+Staví na práce, která podporují předinstalovaný balíček NuGet do šablony projektů Visual Studio, NuGet 1.6 přidává podporu pro položku šablony sady Visual Studio. Šablony položek mohou být přidruženy balíčky NuGet, které jsou nainstalovány při vyvolání šablony.
 
-Další informace o tom, jak změnit šablonu projektu/položky instalace balíčků NuGet najdete [balíčky v šablony sady Visual Studio](../visual-studio-extensibility/visual-studio-templates.md) tématu.
+Další informace o tom, jak změnit šablonu projektu/položky k instalaci balíčků NuGet najdete [balíčky v šablony sady Visual Studio](../visual-studio-extensibility/visual-studio-templates.md) tématu.
 
 ### <a name="support-for-disabling-package-sources"></a>Podpora pro zakázání zdroje balíčků
-Po nakonfigurování více zdrojů balíčku NuGet Hledat v každé z nich pro balíčky během instalace balíček a jeho závislosti. Zdroj balíčku, která je mimo provoz z nějakého důvodu může vážně pomalu dolů NuGet.
+Po nakonfigurování více zdrojů balíčku NuGet bude vypadat v každém z nich balíčky během instalace balíčku a jeho závislosti. Zdroj balíčku, který je mimo provoz z nějakého důvodu může vážně pomalé dolů NuGet.
 
-Před NuGet 1.6 by mohl odebrat zdroje balíčku, ale pak je nutné pamatovat na to, podrobnosti o když chcete přidat ji zpátky.
+Před NuGet 1.6 může odebrat zdrojový balíček, ale pak je nutné pamatovat si podrobnosti o kdy budete chtít přidat zpátky v.
 
-NuGet 1.6 umožňuje zdroj balíčku, který ji zakázat, ale je udržovat kolem zaškrtnutí políčka.
+NuGet 1.6 umožňuje zrušením zaškrtnutí zdroj balíčku, který ji zakázat, ale zachovat kolem.
 
-![Zakázání balíčku](./media/package-source-with-disabled-source.png)
+![Zakázat balíček](./media/package-source-with-disabled-source.png)
 
 ## <a name="bug-fixes"></a>Opravy chyb
-NuGet 1.6 měl celkem 106 pracovní položky, které jsou pevné. 95 těchto byly klasifikovány jako chyby a 10 těchto byly funkce.
+NuGet 1.6 bylo celkem 106 pracovní položky opraveno. 95 z nich byly klasifikovány jako chyby a 10 z nich byly funkce.
 
-Úplný seznam pracovní položky pevná ve NuGet 1.6 prosím zobrazení [sledovací modul problém NuGet pro tuto verzi](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=NuGet%201.6&assignedTo=All&component=All&sortField=Votes&sortDirection=Descending&page=0).
+Úplný seznam pracovních položek opravených NuGet 1.6 prosím zobrazení [NuGet sledování problémů pro tuto verzi](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=NuGet%201.6&assignedTo=All&component=All&sortField=Votes&sortDirection=Descending&page=0).

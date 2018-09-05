@@ -1,26 +1,25 @@
 ---
-title: Příkaz pack NuGet rozhraní příkazového řádku
-description: Referenční dokumentace pro příkaz nuget.exe pack
+title: Příkaz balíčku NuGet rozhraní příkazového řádku
+description: Referenční informace pro příkaz pack nuget.exe
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 3140d56ac827d932c2323182ad040b8a4d14da5c
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: db236b0eaac34ca9f6f67fd15ca3ad6884f6a18d
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818032"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43549093"
 ---
 # <a name="pack-command-nuget-cli"></a>Příkaz Pack (NuGet CLI)
 
-**Platí pro:** balíček vytvoření &bullet; **podporované verze:** 2.7 +
+**Platí pro:** vytvoření balíčku &bullet; **podporované verze:** 2.7 +
 
-Vytvoří balíček NuGet založený na zadaný `.nuspec` nebo soubor projektu. `dotnet pack` Příkazu (najdete v části [dotnet příkazy](dotnet-Commands.md)) a `msbuild /t:pack` (najdete v části [cíle MSBuild](../reference/msbuild-targets.md)) může být použita jako alternativ.
+Vytvoří balíček NuGet stanoveného `.nuspec` nebo soubor projektu. `dotnet pack` Příkazu (naleznete v tématu [příkazy dotnet](dotnet-Commands.md)) a `msbuild /t:pack` (naleznete v tématu [cíle nástroje MSBuild](../reference/msbuild-targets.md)) mohou být použity jako alternativní úložiště.
 
 > [!Important]
-> V části Mono není podporováno vytváření balíčku ze souboru projektu. Také budete muset upravit jiné než místní cesty v `.nuspec` souborů na formátu UNIX cesty, jako jsou třeba nuget.exe nepřevádí názvy cest Windows sám sebe.
+> Mono se nepodporuje vytváření balíčku ze souboru projektu. Budete také muset upravit jiné než místní cesty v `.nuspec` sdílené cesty stylu systému Unix, jak nuget.exe nepřevádí Windows cesty, samotného.
 
 ## <a name="usage"></a>Použití
 
@@ -28,41 +27,41 @@ Vytvoří balíček NuGet založený na zadaný `.nuspec` nebo soubor projektu. 
 nuget pack <nuspecPath | projectPath> [options] [-Properties ...]
 ```
 
-kde `<nuspecPath>` a `<projectPath>` zadejte `.nuspec` nebo projektu soubor, v uvedeném pořadí.
+kde `<nuspecPath>` a `<projectPath>` zadejte `.nuspec` nebo souboru, resp. projektu.
 
 ## <a name="options"></a>Možnosti
 
 | Možnost | Popis |
 | --- | --- |
-| BasePath | Nastaví základní cesta soubory definované v `.nuspec` souboru. |
-| Sestavení | Určuje, že projekt by měly být vytvořeny před vytvořením balíčku. |
-| Vyloučení | Určuje jeden nebo více vzory zástupných znaků, které chcete vyloučit při vytváření balíčku. Chcete-li zadat více než jeden vzorek, opakujte příznak - vyloučení. Viz následující příklad. |
-| ExcludeEmptyDirectories | Při vytváření balíčku, zabraňuje zahrnutí prázdných adresářů. |
-| ForceEnglishOutput | *(3.5 +)*  Vynutí nuget.exe ke spuštění pomocí invariantní, na základě angličtina jazykové verze. |
+| BasePath | Nastaví základní cestu k souborům definovaným v `.nuspec` souboru. |
+| Sestavení | Určuje, zda by měly být sestaveny projektu před vytvořením balíčku. |
+| Vyloučení | Určuje nejméně jeden vzor zástupných znaků pro vyloučení při vytváření balíčku. Chcete-li zadat více než jeden vzor, opakujte příznak - vyloučení. Viz následující příklad. |
+| ExcludeEmptyDirectories | Zabraňuje zahrnovaly prázdné adresáře při sestavování balíčku. |
+| ForceEnglishOutput | *(3.5 +)*  Vynutí nuget.exe pro spuštění pomocí neutrální, základem je angličtina jazyková verze. |
 | Nápověda | Zobrazí nápovědu pro příkaz. |
-| IncludeReferencedProjects | Označuje, že balíček integrovaný by měla zahrnovat odkazované projekty jako závislosti nebo jako součást balíčku. Pokud odkazované projekt má odpovídající `.nuspec` soubor, který má stejný název jako projekt, pak tento odkazovaný projektu se přidal jako závislost. Odkazovaný projekt, jinak se přidá jako součást balíčku. |
-| MinClientVersion | Nastavte *minClientVersion* atribut pro vytvoření balíčku. Tato hodnota se přepíše stávající hodnotu *minClientVersion* atribut (pokud existuje) `.nuspec` souboru. |
-| MSBuildPath | *(4.0 +)*  Určuje cestu MSBuild používat pomocí příkazu, přednost před `-MSBuildVersion`. |
-| MSBuildVersion | *(3.2 +)*  Určuje verzi nástroje MSBuild k použití se tento příkaz. Podporované hodnoty jsou 4, 12, 14, 15. Ve výchozím nastavení je zachyceny MSBuild ve své cestě jinak bude výchozí nejvyšší nainstalovanou verzi nástroje MSBuild. |
-| NoDefaultExcludes | Zabraňuje výchozí vyloučení NuGet balíček soubory a soubory a složky začínající tečkou, jako například `.svn` a `.gitignore`. |
-| NoPackageAnalysis | Určuje, že sada by neměl spustit analysis balíčku po vytvoření balíčku. |
-| Výstupnísložka | Určuje složku, ve kterém je uložen balíček vytvořený. Pokud není zadaný žádný složky, se používá aktuální složky. |
-| Vlastnosti | By se zobrazit poslední na příkazovém řádku po další možnosti. Určuje seznam vlastností, které potlačí hodnoty v souboru projektu; v tématu [běžné vlastnosti projektu nástroje MSBuild](/visualstudio/msbuild/common-msbuild-project-properties) pro názvy vlastností. Argument vlastnosti tady je seznam token = hodnota páry, oddělené středníky, kde každý výskyt `$token$` v `.nuspec` souboru se nahradí s danou hodnotou. Hodnoty mohou být řetězce v uvozovkách. Všimněte si, že pro vlastnost "Konfigurace" Výchozí hodnota je "Debug". Můžete změnit konfiguraci verze `-Properties Configuration=Release`. |
-| Přípona | *(3.4.4+)*  Připojí příponu k číslo verze generované interně, obvykle se používá pro připojování sestavení nebo dalších identifikátorů předběžné verze. Například pomocí `-suffix nightly` vytvoří balíček s jako číslo verze `1.2.3-nightly`. Přípony musí začínat písmenem, aby se zabránilo upozornění, chyby a potenciální nekompatibilitu s různými verzemi nástroje NuGet a Správce balíčků NuGet. |
-| Symboly | Určuje, zda balíček obsahuje zdroje a symboly. Při použití s `.nuspec` souboru, tím se vytvoří soubor regulární balíčku NuGet a odpovídající balíčku symbolů. |
-| Nástroj | Určuje, že výstupních souborů projektu mají být umístěny v `tool` složky. |
-| Podrobnosti | Určuje množství podrobností, které jsou zobrazené ve výstupu: *normální*, *quiet*, *podrobné*. |
-| Version | Přepsání číslo verze z `.nuspec` souboru. |
+| IncludeReferencedProjects | Označuje, že sestavení balíčku by měl zahrnovat odkazované projekty buď jako závislosti, nebo jako součást balíčku. Pokud odkazovaný projekt má odpovídající `.nuspec` soubor, který má stejný název jako projekt, pak tento Odkazovaný projekt je přidán jako závislost. V opačném případě Odkazovaný projekt je přidán jako součást balíčku. |
+| MinClientVersion | Nastavte *minClientVersion* atribut pro vytvořený balíček. Tato hodnota se přepíše stávající hodnotu *minClientVersion* atribut (pokud existuje) `.nuspec` souboru. |
+| MSBuildPath | *(4.0 +)*  Určuje cestu k používání pomocí příkazu, přednost `-MSBuildVersion`. |
+| MSBuildVersion | *(3.2 +)*  Určuje verzi Msbuildu, který se má použít tento příkaz. Podporované hodnoty jsou 4, 12, 14, 15. Ve výchozím nastavení se vybere MSBuild na vaší cestě jinak je výchozí hodnotou nejvyšší nainstalovaná verze Msbuildu. |
+| NoDefaultExcludes | Zabraňuje standardně vylučovaly NuGet balíček soubory a soubory a složky, které začínají tečkou, jako například `.svn` a `.gitignore`. |
+| NoPackageAnalysis | Určuje, že balíček by neměl balíčku spustit jeho analýzu po sestavení. |
+| OutputDirectory | Určuje složku, ve kterém je uložený vytvořený balíček. Pokud není zadána žádná složka, použije se aktuální složce. |
+| Vlastnosti | By se zobrazit poslední na příkazovém řádku po další možnosti. Určuje seznam vlastností, které přepisují hodnoty v souboru projektu. Zobrazit [obecné vlastnosti projektu nástroje MSBuild](/visualstudio/msbuild/common-msbuild-project-properties) pro názvy vlastností. Vlastnosti argumentu tady je seznam token = dvojice hodnot oddělených středníkem, ve kterém každý výskyt `$token$` v `.nuspec` soubor se nahradí zadanou hodnotu. Hodnoty mohou být řetězce v uvozovkách. Všimněte si, že pro vlastnost "Konfigurace" Výchozí hodnota je "Debug". Chcete-li změnit konfiguraci vydané verze, použijte `-Properties Configuration=Release`. |
+| Přípona | *(3.4.4+)*  Připojí přípona interně vygenerovanému číslu verze, obvykle se používá pro připojování sestavení nebo jiné předběžné verze identifikátory. Například použití `-suffix nightly` vytvoří balíček s lajk číslo verze `1.2.3-nightly`. Přípony musí začínat písmenem, aby se zabránilo upozornění a chyby, kde najdete potenciální nekompatibility s různými verzemi nástroje NuGet a Správce balíčků NuGet. |
+| Symboly | Určuje, zda balíček obsahuje zdroje a symbolů. Při použití s `.nuspec` soubor, vytvoří běžný soubor balíčku NuGet a odpovídající balíček symbolů. |
+| Nástroj | Určuje, že výstupní soubory projektu musí být umístěné ve `tool` složky. |
+| Podrobnosti | Určuje množství podrobností, na které se zobrazí ve výstupu: *normální*, *quiet*, *podrobné*. |
+| Version | Přepíše číslo verze z `.nuspec` souboru. |
 
 Viz také [proměnné prostředí](cli-ref-environment-variables.md)
 
-## <a name="excluding-development-dependencies"></a>S výjimkou vývoj závislosti
+## <a name="excluding-development-dependencies"></a>Kromě závislosti vývoj
 
-Některé balíčky NuGet jsou užitečné jako vývoj závislosti, které umožňují vytvářet vlastní knihovny, ale nejsou nezbytně potřebné jako závislosti skutečné balíčků.
+Některé balíčky NuGet jsou užitečné jako vývoj závislosti, které umožňují vytvářet vlastní knihovny, ale nutně nevyžadují jako závislosti skutečného balíčku.
 
-`pack` Příkaz bude ignorovat `package` položek v `packages.config` mají `developmentDependency` atribut nastaven na `true`. Tyto položky nebudou obsahovat jako závislosti v vytvořený balíčku.
+`pack` Ignoruje příkaz `package` položky v `packages.config` , které mají `developmentDependency` atribut nastaven na `true`. Tyto položky nesmí obsahovat jako závislosti v vytvořený balíček.
 
-Například vezměte v úvahu následující `packages.config` v projektu zdroje:
+Představte si třeba následující `packages.config` soubor zdrojového projektu:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -73,7 +72,7 @@ Například vezměte v úvahu následující `packages.config` v projektu zdroje
 </packages>
 ```
 
-Pro tento projekt balíček vytvořený `nuget pack` bude mít závislost na `jQuery` a `microsoft-web-helpers` ale ne `netfx-Guard`.
+Pro tento projekt vytvořil balíček `nuget pack` bude mít závislost na `jQuery` a `microsoft-web-helpers` , ale ne `netfx-Guard`.
 
 ## <a name="examples"></a>Příklady
 

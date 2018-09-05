@@ -1,114 +1,113 @@
 ---
 title: Vyhledání a výběr balíčků NuGet
-description: Přehled o tom, jak najít a vybrat nejlepší balíčky NuGet pro projekt, včetně podrobností o syntaxe vyhledávání NuGet.
+description: Přehled o tom, jak najít a vybrat nejlepší balíčky NuGet pro projekt, včetně podrobností o syntaxi vyhledávání NuGet.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: f1bb145229b0db0e8fdb7fdb31a59aa50bd1d57b
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 81672abf0362e053da2b71c8bd39bd7f96ddf73b
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817899"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43549412"
 ---
-# <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Hledání a vyhodnocení balíčky NuGet pro projekt
+# <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Vyhledávání a hodnocení balíčky NuGet pro projekt
 
-Při spouštění všech rozhraní .NET projektu, nebo vždy, když identifikovat funkční potřebu aplikace nebo služby, můžete si ušetřit spoustu času a řešení problémů pomocí existující balíčky NuGet, které kterém musí splnit. Tyto balíčky mohou pocházet z veřejné kolekce [nuget.org](http://www.nuget.org/packages/), nebo privátní zdroj, který poskytuje vaší organizace nebo jiným třetí strany.
+Při spouštění jakéhokoli projektu .NET nebo pokaždé, když se identifikovat funkční potřebu svou aplikaci nebo službu, můžete si ušetřit spoustu času a potíže s pomocí existující balíčky NuGet, které splňují tuto potřebu. Tyto balíčky můžou pocházet z veřejné kolekce [nuget.org](http://www.nuget.org/packages/), nebo privátní zdroje, která je k dispozici ve vaší organizaci nebo jiná třetí strana.
 
-## <a name="finding-packages"></a>Hledání balíčků
+## <a name="finding-packages"></a>Vyhledávání balíčků
 
-Když navštíví nuget.org nebo otevřete uživatelské rozhraní Správce balíčků v sadě Visual Studio, zobrazí se seznam balíčků, které jsou seřazené podle celkový počet souborů ke stažení. To okamžitě ukazuje balíčky nejvíce široce používaný mezi miliony projekty rozhraní .NET. Je velmi pravděpodobné, pak, který alespoň některé balíčky uvedené na stránkách první několik budou užitečné v projektech.
+Navštivte nuget.org nebo otevřete uživatelské rozhraní Správce balíčků ve Visual Studiu, uvidíte seznam balíčků, seřazené podle celkový počet souborů ke stažení. Okamžitě zobrazí balíčky nejvíce nejběžněji používanými v milionech projekty .NET. Existuje šance. pak, alespoň některé balíčky uvedené v prvních několika stránek budou užitečné ve vašich projektech.
 
-![Výchozí zobrazení nuget.org/packages zobrazující nejoblíbenější balíčky](media/Finding-01-Popularity.png)
+![Výchozí zobrazení nuget.org/packages zobrazující nejoblíbenějších balíčků](media/Finding-01-Popularity.png)
 
-Upozornění **zahrnout předběžné verze** možnost v horní pravé části stránky. Při výběru nuget.org ukazuje všechny verze balíčků včetně beta a dalších raných verzích. Chcete-li zobrazit pouze stabilní vydaných, zrušte zaškrtnutí políčka.
+Všimněte si, že **zahrnout předběžné verze** možnost v horním pravém rohu stránky. Pokud je vybráno, zobrazí nuget.org všechny verze balíčků, včetně beta a jiné raných verzích. Chcete-li zobrazit pouze stabilní verze vydání, zrušte zaškrtnutí políčka.
 
-Pro konkrétní potřeby vyhledávání podle značky (v rámci správce balíčku sady Visual Studio nebo na portálu jako nuget.org) je nejběžnější způsob zjišťování vhodný balíček. Například vyhledávání na "json" uvádí všechny balíčky NuGet, které jsou označené této – klíčové slovo a proto mají některé relace do formátu JSON.
+Pro konkrétní potřeby hledání podle klíčových slov (v rámci správce sady Visual Studio balíček nebo na portálu, jako je nuget.org) je nejběžnější způsob zjišťování vhodný balíček. Například hledání "json" zobrazí seznam všech balíčků NuGet, které jsou označené pomocí tohoto klíčového slova a proto některé relace do formátu JSON.
 
-![Výsledky hledání, json, v nuget.org](media/Finding-02-SearchResults.png)
+![Výsledky hledání "json" na nuget.org](media/Finding-02-SearchResults.png)
 
-Můžete také prohledat pomocí ID balíčku, pokud ho znáte. V tématu [hledání syntaxe](#search-syntax) níže.
+Můžete také prohledat pomocí ID balíčku, pokud ji znáte. Zobrazit [hledání syntaxe](#search-syntax) níže.
 
-V tomto okamžiku vyhledávání výsledky jsou seřazené jenom podle závažnosti, proto je obecně projděte alespoň první několik stránkách s výsledky pro balíčky, která vyhovuje vašim potřebám, nebo upřesnit termíny být konkrétnější.
+V tuto chvíli jsou seřazeny výsledky hledání pouze podle relevance, takže obecně muset projít alespoň prvních několik stránek výsledky pro balíčky, které vyhovují vašim potřebám nebo Upřesnit na konkrétnější podmínky hledání.
 
-### <a name="does-the-package-support-my-projects-target-framework"></a>Podporuje balíček cílový framework projektu Moje?
+### <a name="does-the-package-support-my-projects-target-framework"></a>Podporuje balíček Můj projekt cílovou architekturu?
 
-Pouze v případě, že tento balíček podporované architektury patří cílový framework projektu na NuGet nainstaluje balíček do projektu. Pokud balíček není kompatibilní, vydá NuGet k chybě.
+NuGet nainstaluje balíček do projektu pouze v případě, že tento balíček podporované architektury patří cílové rozhraní projektu. Pokud balíček není kompatibilní, NuGet vyvolá chybu.
 
-Některé balíčky seznamu jejich podporované architektury přímo v galerii nuget.org, ale protože taková data se nevyžaduje, mnoho balíčky nezahrnují tohoto seznamu. V současné době neexistuje žádný způsob, jak hledat nuget.org pro balíčky, které podporují konkrétní cílové rozhraní (Tato funkce je v úvahu, najdete v části [NuGet problém 2936](https://github.com/NuGet/NuGetGallery/issues/2936)).
+Některé balíčky seznamu jejich podporované architektury přímo v galerii nuget.org, ale vzhledem k tomu, že tyto údaje se nevyžaduje, řada balíčků nezahrnují tohoto seznamu. V současné době neexistuje žádný způsob, jak hledat nuget.org pro balíčky, které podporují konkrétní cílového rozhraní framework (funkce je v úvahu, naleznete v tématu [NuGet problém 2936](https://github.com/NuGet/NuGetGallery/issues/2936)).
 
-Naštěstí můžete zjistit podporované architektury dvě jinými způsoby:
+Naštěstí můžete určit jinými způsoby. dvě podporované architektury:
 
-1. Pokus o instalaci balíčku do projektu pomocí [ `Install-Package` ](../tools/ps-ref-install-package.md) příkazu v konzole Správce balíčků NuGet. Pokud balíček není kompatibilní, tento příkaz zobrazí podporované architektury balíčku.
+1. Pokus o instalaci balíčku do projektu s použitím [ `Install-Package` ](../tools/ps-ref-install-package.md) příkazu v konzole Správce balíčků NuGet. Pokud balíček není kompatibilní, tento příkaz zobrazí podporované architektury balíčku.
 
-1. Stáhněte si balíček z jeho stránky na nuget.org pomocí **ruční stažení** v části **informace**. Změňte příponu z `.nupkg` k `.zip`a otevřete soubor a zkontrolujte obsah jeho `lib` složky. Vidíme podsložky pro každou z podporovaných rozhraní, kde je každý podsložku s názvem se Přezdívka cílový framework (TFM; najdete v části [cílové rozhraní](../reference/target-frameworks.md)). Pokud se zobrazí žádné podsložky `lib` a pouze jeden soubor DLL a potom jste musí pokusíte nainstalovat balíček ve vašem projektu a zjistit jeho kompatibility.
+1. Stáhněte si balíček z její stránky na nuget.org pomocí **ruční stažení** odkaz pod **informace**. Změňte příponu z `.nupkg` k `.zip`a otevřete soubor a zkoumat obsah jeho `lib` složky. Zobrazit podsložky pro každou z podporovaných rozhraních, kde je každá podsložka s názvem s moniker cílového rozhraní (TFM; viz [cílových rozhraní](../reference/target-frameworks.md)). Pokud se zobrazí žádné podsložky `lib` a pouze jednoho souboru knihovny DLL, bude nutné pokusíte nainstalovat balíček ve vašem projektu a zjišťovat kompatibilitu.
 
-## <a name="pre-release-packages"></a>Předběžné verze balíčků
+## <a name="pre-release-packages"></a>Balíčky v předběžné verzi
 
-Beta verze i dál vylepšení a hledat zpětnou vazbu na jejich nejnovější revize k dispozici mnoho autoři balíček zpřístupněte preview.
+Mnoho autory balíčku provést ve verzi preview a beta verze k dispozici jako nadále mohli vylepšit a hledat zpětnou vazbu na jejich nejnovější revize.
 
-Ve výchozím nastavení zobrazuje nuget.org předběžné verze balíčků ve výsledcích hledání. Chcete-li vyhledávat pouze stabilní verze, zrušte **zahrnout předběžné verze** možnost v horní pravé části stránky
+Ve výchozím nastavení zobrazuje nuget.org balíčky v předběžné verzi ve výsledcích hledání. Chcete-li hledat pouze stabilní verze, zrušte **zahrnout předběžné verze** možnost v horním pravém rohu stránky
 
-![Zahrnout předběžné verze zaškrtávací políčko je na nuget.org](media/Finding-06-include-prerelease.png)
+![Zahrnout předběžnou verzi zaškrtávací políčko na nuget.org](media/Finding-06-include-prerelease.png)
 
-V sadě Visual Studio a při použití rozhraní příkazového řádku nástroje NuGet a dotnet nezahrnuje NuGet předprodejní verze ve výchozím nastavení. Chcete-li toto chování změnit, proveďte následující kroky:
+V sadě Visual Studio a při použití nástroje rozhraní příkazového řádku dotnet a NuGet nezahrnuje NuGet předběžných verzí ve výchozím nastavení. Chcete-li toto chování změnit, proveďte následující kroky:
 
-- **Správce balíčků uživatelského rozhraní v sadě Visual Studio**: V **spravovat balíčky NuGet** uživatelského rozhraní, nastavte **zahrnout předběžné verze** pole. Nastavení nebo zrušíte zaškrtnutí tohoto políčka aktualizuje uživatelské rozhraní Správce balíčků a seznam dostupných verzí, které můžete instalovat.
+- **Uživatelské rozhraní Správce balíčků v sadě Visual Studio**: V **spravovat balíčky NuGet** uživatelského rozhraní, nastavte **zahrnout předběžné verze** pole. Nastavení nebo zrušením zaškrtnutí tohoto políčka aktualizuje uživatelské rozhraní Správce balíčků a seznam dostupných verzí, kterou můžete nainstalovat.
 
     ![Políčko zahrnout předběžné verze v sadě Visual Studio](media/Prerelease_02-CheckPrerelease.png)
 
-- **Konzola správce balíčků**: použití `-IncludePrerelease` přepínač s `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package`, a `Update-Package` příkazy. Odkazovat [referenční informace prostředí PowerShell](../tools/powershell-reference.md).
+- **Konzola správce balíčků**: použijte `-IncludePrerelease` přepněte se `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package`, a `Update-Package` příkazy. Odkazovat [referenční informace prostředí PowerShell](../tools/powershell-reference.md).
 
-- **nuget.exe rozhraní příkazového řádku**: použití `-prerelease` přepínač s `install`, `update`, `delete`, a `mirror` příkazy. Odkazovat [odkaz NuGet rozhraní příkazového řádku](../tools/nuget-exe-cli-reference.md)
+- **rozhraní příkazového řádku nuget.exe**: použití `-prerelease` přepněte se `install`, `update`, `delete`, a `mirror` příkazy. Odkazovat [odkaz na rozhraní příkazového řádku NuGet](../tools/nuget-exe-cli-reference.md)
 
-- **DotNet.exe rozhraní příkazového řádku**: Zadejte přesnou předběžnou verzi pomocí `-v` argument. Odkazovat [dotnet přidat odkaz na balíček](/dotnet/core/tools/dotnet-add-package).
+- **DotNet.exe rozhraní příkazového řádku**: zadat přesné předběžné verze pomocí `-v` argument. Odkazovat [se příkaz dotnet add odkaz na balíček](/dotnet/core/tools/dotnet-add-package).
 
 <a name="native-cpp-packages"></a>
 
-### <a name="native-c-packages"></a>Nativní balíčky C++
+### <a name="native-c-packages"></a>Nativní balíčky jazyka C++
 
-NuGet podporuje nativní C++ balíčky můžete použitého v projektech C++ v sadě Visual Studio. Díky tomu **spravovat balíčky NuGet** zavádí příkaz kontextové nabídky pro projekty, `native` cílový framework a aby poskytuje integraci nástroje MSBuild.
+NuGet podporuje můžete nativní C++ balíčky, které můžete použít v projektech C++ v sadě Visual Studio. Díky tomu **spravovat balíčky NuGet** zavádí příkaz místní nabídky pro projekty, `native` cílové rozhraní framework a zajišťuje integraci nástroje MSBuild.
 
-Najít nativní balíčky na [nuget.org](https://www.nuget.org/packages), vyhledávání pomocí `tag:native`. Tyto balíčky obvykle poskytují `.targets` a `.props` soubory, které NuGet importuje automaticky při přidání balíčku do projektu.
+Najít nativní balíčky na [nuget.org](https://www.nuget.org/packages), hledání, které používá `tag:native`. Tyto balíčky obvykle poskytují `.targets` a `.props` soubory, které NuGet importuje automaticky při přidání balíčku do projektu.
 
 ## <a name="evaluating-packages"></a>Vyhodnocení balíčky
 
-Stáhněte a vyzkoušejte ji v kódu (všechny balíčky v nuget.org pravidelně hledat viry, tím) je nejlepší způsob, jak vyhodnotit užitečnost balíčku. Po všech každého balíčku pro vysoce oblíbených získali začít s jenom pár vývojářům používat, a může být jedním z inovátoři!
+Nejlepší způsob, jak vyhodnotit použitelnost balíčku je si ho stáhnout a vyzkoušet v kódu (všech balíčků na nuget.org jsou pravidelně vyhledány viry, tím, jak). Po všech všech vysoce oblíbených balíčků začínal s pouze několika vývojářům, kteří používají ho a může být jedna z inovátoři!
 
-Ve stejnou dobu pomocí balíčku NuGet, znamená, že trvá závislost, takže chcete Ujistěte se, zda je robustní a spolehlivé. Vzhledem k instalaci a přímo testování balíček je časově náročná, můžete si také přečíst mnoho o kvality balíček podle informací uvedených na stránce výpis balíčku:
+Ve stejnou dobu pomocí balíčku NuGet znamená, že se tak závislosti na něj, proto ověřte, že je robustní a spolehlivé. Je časově náročná instalace a testování přímo balíček, také další mnohem o kvalitu balíčků podle informací uvedených na stránce balíčku:
 
-- *Soubory ke stažení statistiky*: na stránce balíček na nuget.org, **statistiky** část zobrazuje celkový počet souborů ke stažení, soubory ke stažení nejnovější verze, a stáhne průměr za den. Vyšší číslo vyjadřuje, že mnoho jinými vývojáři trvá závislost na balíčku, což znamená, že ho ukázal.
+- *Soubory ke stažení statistiky*: na stránce balíčků na nuget.org, **statistiky** část uvádí celkový počet souborů ke stažení, soubory ke stažení nejnovější verze a soubory ke stažení průměr za den. Vyšší čísla označují, že mnoho dalších vývojářů udělali závislost na balíčku, což znamená, že se ukázal.
 
-    ![Statistika na stránce balíček pro výpis stahování](media/Finding-03-Downloads.png)
+    ![Statistika na stránce balíček pro stahování](media/Finding-03-Downloads.png)
 
-- *Historie verzí*: na stránce balíček, podívejte se do části **informace** k datu nejnovější aktualizace a prozkoumat **historie verzí**. Dobře zachována balíček obsahuje nejnovější aktualizace a historie bohaté verzí. Opomenutí balíčky několik aktualizace a nebyly často aktualizovány za chvíli.
+- *Historie verzí*: na stránce balíček pro, podívejte se do části **informace** pro datum poslední aktualizace a zkontrolujte **historie verzí**. Dobře udržované balíček obsahuje nejnovější aktualizace a historie bohaté verzí. Opomíjený balíčky mají několik aktualizací a často se neaktualizovaly za nějakou dobu.
 
-    ![Historie verzí na stránce balíček pro výpis](media/Finding-04-VersionHistory.png)
+    ![Historie verzí na stránce balíčku](media/Finding-04-VersionHistory.png)
 
-- *Poslední nainstaluje*: na stránce balíček pod **statistiky**, vyberte **zobrazit úplnou statistiky**. Stránka úplné statistiky ukazuje, že balíček nainstaluje za posledních šest týdny číslem verze. Balíček, který používáte aktivně jinými vývojáři je obvykle vhodnější než ten, který není.
+- *Poslední nainstaluje*: na stránce balíček pro v rámci **statistiky**vyberte **zobrazit úplnou statistiky**. Na stránce Statistika úplné ukazuje, že se že balíček nainstaluje za posledních šest týdnů podle čísla verze. Balíček, který ostatní vývojáři aktivně používají je obvykle vhodnější než ten, který není.
 
-- *Podpora*: na stránce balíček v části **informace o**, vyberte **web projektu** (Pokud je k dispozici) chcete zobrazit, jaké podporu možnosti Autor poskytuje. Obecně je lépe podporována projektu s lokalitou vyhrazené.
+- *Podpora*: na stránce balíček pro v rámci **informace o**vyberte **web projektu** (Pokud je k dispozici) zobrazíte, jaká podpora možnosti Autor poskytuje. Projekt se vyhrazený je obecně vhodnější.
 
-- *Historie vývojáře*: na stránce balíček pod **vlastníky**, vyberte vlastníka zobrazíte další balíčky, které budou jste publikovali. Ty s více balíčků budou s větší pravděpodobností, chcete-li pokračovat, podporuje práci v budoucnu.
+- *Historie pro vývojáře*: na stránce balíček pro v rámci **vlastníky**, vyberte vlastníka, pokud chcete zobrazit další balíčky, které jste publikovali. Ty, které mají víc balíčků pravděpodobněji budete dále podporovat v budoucnu své práce.
 
-- *Otevřete zdroj příspěvky*: mnoho balíčky jsou zachována ve open-source úložiště, aby bylo možné pro vývojáře v závislosti na jejich přímo přispívat oprav chyb a vylepšení funkcí. Příspěvek historii libovolný daný balíček je také kolik vývojáři aktivně podílejí vhodný indikátor.
+- *Otevřít zdroj příspěvky*: Mnoho balíčků jsou zachována ve úložišť open source, což umožní vývojářům v závislosti na jejich přímo přispívat opravy chyb a vylepšení funkcí. Příspěvek historie libovolný daný balíček je také jasně ukazuje na tom, kolik vývojáři aktivně podílejí.
 
-- *Dotazovat vlastníci*: nové vývojáře určitě může být stejně potvrdit k vytváření kvalitních balíčky budete muset používat a je vhodné jim dát šanci, aby něco nové ekosystému NuGet. Myslete na to, oslovení přímo pro vývojáře balíček prostřednictvím **obraťte se na vlastníky** možnost pod **informace o** na stránce výpis. Pravděpodobné, bude se radostí spolupracovat s vámi na slouží vašim potřebám!
+- *Dotazovat vlastníci*: pro nové vývojáře určitě může být stejně zaměřuje na vytváření skvělých balíčků můžete použít, a je dobré dáte jim možnost vám něco nového ekosystému NuGet. S myslete na to, kontaktujte přímo do balíčku vývojáře prostřednictvím **kontakt vlastníky** v části **informace** na stránce výpis. Je pravděpodobné, že potěší spolupracovat s vámi na sloužit vašim potřebám!
 
-- *Rezervované předpony ID balíčku*: jste použili pro mnoho vlastníky balíček a byla udělena [předpona ID vyhrazené balíček](../reference/id-prefix-reservation.md). Až se zobrazí visual zaškrtnutí vedle ID balíčku na [nuget.org](https://www.nuget.org/), nebo v sadě Visual Studio, to znamená, že vlastníka balíčku splnil naše [kritéria](../reference/id-prefix-reservation.md#id-prefix-reservation-criteria) pro ID předpony rezervace. To znamená, že vlastníka balíčku se vymazat o identifikaci sami a jejich balíčku.
+- *Vyhrazené předpony adres ID balíčku*: jste použili pro mnoho vlastníků balíčku a byla udělena [předpona ID balíčku vyhrazené](../reference/id-prefix-reservation.md). Když se zobrazí vizuální značky zaškrtnutí vedle ID balíčku na [nuget.org](https://www.nuget.org/), nebo v sadě Visual Studio, to znamená, že splňuje vlastníka balíčku naše [kritéria](../reference/id-prefix-reservation.md#id-prefix-reservation-criteria) ID předpony rezervace. To znamená, že se vymazat o identifikaci sami sebe i jejich balíček vlastníka balíčku.
 
 > [!Note]
-> Vždycky mějte na paměti balíček licenčních podmínek, které se zobrazí tak, že vyberete **licenční informace** na stránce výpis balíčku v nuget.org. Pokud balíček neurčuje licenční podmínky, obraťte se na vlastníka balíčku přímo pomocí **obraťte se na vlastníky** odkaz na stránce balíček. Společnost Microsoft není licence duševního vlastnictví vám ze zprostředkovatelů balíček třetích stran a není zodpovědná za informace třetích stran.
+> Vždycky mějte balíčku licenčních podmínek, které můžete zobrazit tak, že vyberete **informace o licenci** na stránce balíčků na nuget.org. Pokud balíček nejsou zadány licenční podmínky, obraťte se přímo pomocí vlastníka balíčku **obraťte se na vlastníky** odkaz na stránce balíček. Společnost Microsoft není licence duševního vlastnictví, od poskytovatelů třetích stran balíček a neodpovídá za informace, které jsou poskytovány třetími stranami.
 
 ## <a name="search-syntax"></a>Syntaxe vyhledávání
 
-Hledání balíčků NuGet funguje stejně v nuget.org, z příkazového řádku NuGet a v rámci rozšíření Správce balíčků NuGet v sadě Visual Studio. Obecně platí hledání se použije pro klíčová slova, jakož i popis balíčku.
+Balíček NuGet – hledání funguje na nuget.org, z příkazového řádku NuGet a z tohoto rozšíření Správce balíčků NuGet v sadě Visual Studio. Obecně platí hledání se použije pro klíčová slova, jakož i popis balíčku.
 
-- **Klíčová slova**: vyhledávání hledá relevantní balíčky, které obsahují všechny zadané klíčová slova. Příklad: `modern UI`. K vyhledání pro balíčky, které obsahují všechny zadané klíčová slova, použijte "+" mezi podmínky, jako například `modern+UI`.
-- **Fráze**: zadání termínů v uvozovkách hledá přesné velká a malá písmena shody pro tyto podmínky. Příklad: `"modern UI" package`
-- **Filtrování**: můžete použít hledaný termín k určité vlastnosti pomocí syntaxe `<property>:<term>` kde `<property>` (velká a malá písmena) může být `id`, `packageid`, `version`, `title`, `tags`, `author`, `description`, `summary`, a `owner`. Podmínek může být obsažený v uvozovkách, v případě potřeby a více vlastností můžete vyhledat ve stejnou dobu. Navíc hledá `id` vlastnost jsou odpovídá dílčí řetězec, zatímco `packageid` používá přesnou shodu. Příklady:
+- **Klíčová slova**: Vyhledá odpovídající balíčky, které obsahují některé zadaná klíčová slova. Příklad: `modern UI`. Hledání pro balíčky, které obsahují všechna zadaná klíčová slova, použijte "+" mezi podmínky, jako například `modern+UI`.
+- **Fráze**: zadání termínů v uvozovkách hledá přesné shod nerozlišujících velikost písmen s těmito podmínkami. Příklad: `"modern UI" package`
+- **Filtrování**: můžete použít hledaný výraz na specifickou vlastnost pomocí syntaxe `<property>:<term>` kde `<property>` (velká a malá písmena) může být `id`, `packageid`, `version`, `title`, `tags`, `author`, `description`, `summary`, a `owner`. Podmínky mohou být obsaženy v uvozovkách podle potřeby a více vlastností můžete vyhledat ve stejnou dobu. Také, hledá `id` vlastnosti jsou shody podřetězců, zatímco `packageid` používá přesnou shodu. Příklady:
 
     ```
     id:NuGet.Core                # Match any part of the id property

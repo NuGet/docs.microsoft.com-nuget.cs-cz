@@ -1,21 +1,20 @@
 ---
-title: Poznámky k verzi RC NuGet 4.0
-description: Poznámky k verzi pro NuGet 4.0 RTM, včetně známé problémy, opravy chyb, přidaných funkcí a chcete.
+title: Zpráva k vydání verze NuGet 4.0 RC
+description: Zpráva k vydání verze pro NuGet 4.0 RTM, včetně známých problémů, opravy chyb, nové funkce a chcete.
 author: anangaur
 ms.author: anangaur
-manager: unnir
 ms.date: 03/03/2017
 ms.topic: conceptual
-ms.openlocfilehash: f1c5408f75966068e8fa11e63118426bbf562047
-ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
+ms.openlocfilehash: c27d0aa2e5c9af9cb15d2f487b93e93aca666214
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32045084"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43547758"
 ---
-# <a name="nuget-40-rtm-release-notes"></a>Poznámky k verzi 4.0 RTM NuGet
+# <a name="nuget-40-rtm-release-notes"></a>Zpráva k vydání verze NuGet 4.0 RTM
 
-[Visual Studio 2017](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) se dodává s 4.0 NuGet, který přidává podporu pro .NET Core, má spoustu kvalita opravy a zvyšuje výkon. Tato verze přináší také několik vylepšení, jako je podpora pro PackageReference, příkazy pro balíčky NuGet jako MSBuild cíle, pozadí balíček obnovení a další.
+[Visual Studio 2017](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) obsahuje NuGet 4.0, který přidává podporu pro .NET Core, má spoustu opravy kvality a zvyšuje výkon. Tato verze také přináší několik vylepšení, jako je podpora pro PackageReference a příkazy pro balíčky NuGet jako MSBuild cíle, obnovení balíčku pozadí a další.
 
 ## <a name="known-issues"></a>Známé problémy
 
@@ -37,7 +36,7 @@ V konzole Správce balíčků občas nefunguje klávesa Enter. Když toto chová
 
 #### <a name="workaround"></a>Alternativní řešení
 
-Před otevřením řešení restartujte Visual Studio a otevřete konzolu PMC. Případně, zkuste odstranit `project.lock.json` a opakujte obnovení.
+Před otevřením řešení restartujte Visual Studio a otevřete konzolu PMC. Alternativně můžete zkusit odstranění `project.lock.json` a znovu ho obnovit.
 
 ### <a name="in-net-core-projects-you-may-end-up-in-infinite-restore-loop-when-you-use-a-package-containing-an-assembly-with-an-invalid-signature"></a>Pokud v projektech .NET Core použijete balíček, který obsahuje sestavení s neplatným podpisem, můžete uvíznout v nekonečné smyčce obnovování
 
@@ -49,7 +48,7 @@ Když použijete balíček, který obsahuje sestavení s neplatným obsahem, neb
 
 Pro tento problém zatím neexistuje alternativní řešení.
 
-### <a name="you-are-unable-to-view-add-or-update-dotnetclitools-using-nuget-package-manager"></a>Nelze zobrazit, přidat nebo aktualizovat DotNetCLITools pomocí Správce balíčků Nuget
+### <a name="you-are-unable-to-view-add-or-update-dotnetclitools-using-nuget-package-manager"></a>Nejde zobrazit, přidat ani aktualizovat DotNetCLITools pomocí Správce balíčků Nuget
 
 #### <a name="issue"></a>Problém
 
@@ -109,286 +108,286 @@ Když projekt založený na PackageReference, který cílí na .NET461, odkazuje
 
 Pro tento problém zatím neexistuje alternativní řešení.
 
-## <a name="issues-fixed-in-nuget-40-rtm-timeframe"></a>Chyby v období NuGet 4.0 RTM
+## <a name="issues-fixed-in-nuget-40-rtm-timeframe"></a>Chyby opravené v určeném časovém rozmezí NuGet 4.0 RTM
 
-[Poznámky k verzi RC 4.0 NuGet](../release-notes/nuget-4.0-RC.md) -jsou uvedené všechny problémy opravě pro NuGet 4.0 RC
+[Zpráva k vydání verze NuGet 4.0 RC](../release-notes/nuget-4.0-RC.md) – zobrazí seznam všech problémů stanovené pro NuGet 4.0 RC
 
 ### <a name="features"></a>Funkce
 
 - Lokalizace řetězců v NuGet.Core.sln - [#2041](https://github.com/NuGet/Home/issues/2041)
 
-- Vynutí Nuget načíst projekty webových aplikací v režimu dolní limit - [#4258](https://github.com/NuGet/Home/issues/4258)
+- Nuget vynutí načíst projekty webových aplikací v režimu zjednodušeného načtení řešení - [#4258](https://github.com/NuGet/Home/issues/4258)
 
-- Podpora AutoReferenced PackageReference bloku verzi změny v uživatelském rozhraní pro balíčky "sdk nainstalován" - [#4044](https://github.com/NuGet/Home/issues/4044)
+- AutoReferenced PackageReference podporu verze bloku sektorů změny v uživatelském rozhraní pro balíčky "nainstalované sady sdk" - [#4044](https://github.com/NuGet/Home/issues/4044)
 
-- Správně komunikovat PackageSpec.Version pro všechny závislosti projektu (PackageRef) - [#3902](https://github.com/NuGet/Home/issues/3902)
+- Pro všechny závislosti projektu (PackageRef) - správně komunikují PackageSpec.Version [#3902](https://github.com/NuGet/Home/issues/3902)
 
-- Podpora pro odebírání odkazů do `.csproj` z commandline(s) - [#4101](https://github.com/NuGet/Home/issues/4101)
+- Podpora pro odebrání odkazů do `.csproj` z commandline(s) - [#4101](https://github.com/NuGet/Home/issues/4101)
 
-- Podpora obnovení pro projekty PackageReference (normální a xplat) a zatížení řešení Lightweight - [#4003](https://github.com/NuGet/Home/issues/4003)
+- Podpora pro projekty PackageReference (normální a xplat) a zjednodušené načtení řešení – obnovení [#4003](https://github.com/NuGet/Home/issues/4003)
 
 - Podpora pro přidání odkazů do `.csproj` z commandline(s) - [#3751](https://github.com/NuGet/Home/issues/3751)
 
-- Podpora pro zatížení Lightweight řešení pro obnovení NuGet `packages.config` nebo `project.json`  -  [#3711](https://github.com/NuGet/Home/issues/3711)
+- Podpora obnovení NuGet pro zjednodušené načtení řešení pro `packages.config` nebo `project.json`  -  [#3711](https://github.com/NuGet/Home/issues/3711)
 
-- contentFiles podporují v souboru cíle nuget generované - [#3683](https://github.com/NuGet/Home/issues/3683)
+- contentFiles podporují v souboru cíle nuget vygeneruje - [#3683](https://github.com/NuGet/Home/issues/3683)
 
-- Vytvoření Mono CI pro ověření nuget.exe v systému Mac pomocí nástroje MSBuild - [#3646](https://github.com/NuGet/Home/issues/3646)
+- Navázání Mono CI k ověření nuget.exe na počítači Mac pomocí nástroje MSBuild - [#3646](https://github.com/NuGet/Home/issues/3646)
 
-- Přesunout z v2 NuGet.Core závislosti - NuGet [#3645](https://github.com/NuGet/Home/issues/3645)
+- Přesunout NuGet z závislosti NuGet.Core v2 - [#3645](https://github.com/NuGet/Home/issues/3645)
 
 ### <a name="bugs"></a>Chyby
 
-- Obnovení NuGet v sadě Visual Studio nerespektuje PackageId vlastnost projekty - [#4586](https://github.com/NuGet/Home/issues/4586)
+- Obnovení NuGet v sadě Visual Studio nerespektuje vlastnost PackageId projekty – [#4586](https://github.com/NuGet/Home/issues/4586)
 
-- Chyba NuGet ProjectSystemCache při přidání balíčku do balíčku vsix - [#4545](https://github.com/NuGet/Home/issues/4545)
+- Chyba NuGet ProjectSystemCache při přidání balíčku v balíčku souboru vsix – [#4545](https://github.com/NuGet/Home/issues/4545)
 
-- Pack vyvolá výjimku, pokud se používá v projektu s více TFMs - IncludeSource [#4536](https://github.com/NuGet/Home/issues/4536)
+- Balíček vyvolá výjimku, pokud se používá v projektu s více Tfm – IncludeSource [#4536](https://github.com/NuGet/Home/issues/4536)
 
-- Balíček správy - VS 2017 RC3 havárií na použití aktualizace z celé řešení [#4474](https://github.com/NuGet/Home/issues/4474)
+- VS 2017 RC3 chyby týkající se použití aktualizace z celé řešení správy - balíčků [#4474](https://github.com/NuGet/Home/issues/4474)
 
-- Nelze odinstalovat, nově nainstalovaný balíček - [#4435](https://github.com/NuGet/Home/issues/4435)
+- Nelze odinstalovat nově nainstalovaný balíček – [#4435](https://github.com/NuGet/Home/issues/4435)
 
-- Při migraci PackageRef, hybridní řešení mají obnovení neobvyklé chování - [#4433](https://github.com/NuGet/Home/issues/4433)
+- Při migraci do PackageRef, hybridní řešení mají obnovení neobvyklé chování - [#4433](https://github.com/NuGet/Home/issues/4433)
 
-- Vytváření krátce po spuštění NuGet operace (instalace, update, obnovení), může způsobit VS k zablokování - [#4420](https://github.com/NuGet/Home/issues/4420)
+- Vytváření krátce po spuštění NuGet (instalace, aktualizace, obnovení), může způsobit, že VS pro zablokování - [#4420](https://github.com/NuGet/Home/issues/4420)
 
 - Zablokování uživatelského rozhraní – zablokování inicializace NuGet.SolutionRestoreManager.RestoreManagerPackage [#4371](https://github.com/NuGet/Home/issues/4371)
 
-- Přidejte balíček příkaz má přidat verze jako atribut místo element - [#4325](https://github.com/NuGet/Home/issues/4325)
+- Přidání balíčku příkaz má přidat verze jako atribut namísto element - [#4325](https://github.com/NuGet/Home/issues/4325)
 
-- DotNet.
-  - Obnovení foo.sln dotnetcore – selže, pokud konfigurace v SLN – způsobit duplicitní (ale konfigurace rozdílové) projekty v grafu obnovení – [#4316](https://github.com/NuGet/Home/issues/4316)
+- DotNet
+  - Obnovení foo.sln dotnetcore – selže, pokud konfigurace v SLN způsobit duplicitní (ale nakonfigurovat diff) projekty v grafu restore - [#4316](https://github.com/NuGet/Home/issues/4316)
 
-- Obsahu pouze balíčky - [#3668](https://github.com/NuGet/Home/issues/3668)
+- Obsah pouze balíčky - [#3668](https://github.com/NuGet/Home/issues/3668)
 
-- Ve výchozím nastavení vyjádření výslovného nesouhlasu s možností pro výběr formátu balíček - [#4468](https://github.com/NuGet/Home/issues/4468)
+- Ve výchozím nastavení vyjádřit výslovný nesouhlas možnost selektor formátování balíčku - [#4468](https://github.com/NuGet/Home/issues/4468)
 
-- Perf: CreateUAP_CSharp_VS.01.1.Create projekt znovu zahrnut Duration_TotalElapsedTime podle 3,153.570 ms (149.1 %). Základní 26129.02 - [#4452](https://github.com/NuGet/Home/issues/4452)
+- Perf: Projekt CreateUAP_CSharp_VS.01.1.Create který poklesl Duration_TotalElapsedTime podle 3,153.570 ms (149.1 %). Směrný plán 26129.02 - [#4452](https://github.com/NuGet/Home/issues/4452)
 
-- Perf: ManagedLangs_CS_DDRIT.0300.Rebuild řešení který poklesl Duration_TotalElapsedTime podle 1,5 sekundu. Základní 26105 - [#4441](https://github.com/NuGet/Home/issues/4441)
+- Perf: Řešení ManagedLangs_CS_DDRIT.0300.Rebuild který poklesl Duration_TotalElapsedTime ve verzi 1.5 sekundu. Směrný plán 26105 - [#4441](https://github.com/NuGet/Home/issues/4441)
 
-- Navrženém selže v projektech více TFM - [#4419](https://github.com/NuGet/Home/issues/4419)
+- Nominace selže v projektech multi TFM - [#4419](https://github.com/NuGet/Home/issues/4419)
 
-- Perf: WebForms_DDRIT.1200.Close řešení který poklesl VM_ImagesInMemory_Total_devenv podle počtu 3.000 (0,5 %). Základní 26123.04 - [#4408](https://github.com/NuGet/Home/issues/4408)
+- Perf: Řešení WebForms_DDRIT.1200.Close který poklesl VM_ImagesInMemory_Total_devenv počtem 3.000 (0,5 %). Směrný plán 26123.04 - [#4408](https://github.com/NuGet/Home/issues/4408)
 
 - vsfeedback - Pack upozornění při cílení na netcoreapp1.1 - [#4397](https://github.com/NuGet/Home/issues/4397)
 
-- PathTooLongException při pokusu o přidání balíčku NuGet do prázdné webové aplikace ASP.NET Core - [#4391](https://github.com/NuGet/Home/issues/4391)
+- PathTooLongException – při pokusu o přidání balíčku NuGet do prázdná webová aplikace ASP.NET Core – [#4391](https://github.com/NuGet/Home/issues/4391)
 
-- Pack spouští příliš často – dotnet.
-  - dotnetcore pack nepodaří a dojde k dispozici je cyklická závislost cílové závislosti grafu zahrnující cílové "Pack" - [#4381](https://github.com/NuGet/Home/issues/4381)
+- Balíček spouští příliš často – dotnet
+  - dotnetcore balíčku selže a zobrazí se zde je cyklická závislost v cílové závislosti grafu zahrnující cíl "Balíček" - [#4381](https://github.com/NuGet/Home/issues/4381)
 
-- Pack spouští příliš často – balíček NuGet generovat neobsahuje všechny konfigurace - [#4380](https://github.com/NuGet/Home/issues/4380)
+- Balíček se spouští příliš často – balíček NuGet generovat neobsahuje všechny konfigurace - [#4380](https://github.com/NuGet/Home/issues/4380)
 
-- Přidání nuget NullReferenceException s packageref v projektu C++ - [#4378](https://github.com/NuGet/Home/issues/4378)
+- Přidání nuget NullReferenceException s packageref v projektu jazyka C++ - [#4378](https://github.com/NuGet/Home/issues/4378)
 
-- Usnadnění: Předčítání není mluvený komentář zaškrtávací políčko Vybrat projekty, které chcete nainstalovat balíček - [#4366](https://github.com/NuGet/Home/issues/4366)
+- Usnadnění: Program Předčítání není vyprávění příběhu zaškrtávací políčko Vybrat projekty, které chcete nainstalovat balíček - [#4366](https://github.com/NuGet/Home/issues/4366)
 
-- NuGet VS17 k selhání připojení k VSO nebo služby VSTS kanály - 365798 chyb VS - [#4365](https://github.com/NuGet/Home/issues/4365)
+- NuGet VS17 nedojde selže připojuje k informačním kanálům VSO/VSTS - 365798 chyb VS - [#4365](https://github.com/NuGet/Home/issues/4365)
 
-- contentFiles získat výstup do nesprávného umístění, pokud PackagePath Určuje cestu jako "contentFiles" - [#4348](https://github.com/NuGet/Home/issues/4348)
+- contentFiles získat výstup do nesprávného umístění, pokud Určuje cestu jako "contentFiles" - PackagePath [#4348](https://github.com/NuGet/Home/issues/4348)
 
-- Cíl Pack připojí PackageVersion vlastnost s VersionSuffix - [#4324](https://github.com/NuGet/Home/issues/4324)
+- Cíl Pack připojí vlastnost PackageVersion s VersionSuffix - [#4324](https://github.com/NuGet/Home/issues/4324)
 
-- Zadat cestu k balíčku nefunguje s aktualizací Service pack dotnet - [#4321](https://github.com/NuGet/Home/issues/4321)
+- Cesta k balíčku nefunguje při využití balíčku dotnet - zadání [#4321](https://github.com/NuGet/Home/issues/4321)
 
-- NuGet výstupy bunch upozornění o duplicitní importy během obnovení - [#4304](https://github.com/NuGet/Home/issues/4304)
+- NuGet výstupy spoustu upozornění na duplicitní importy během obnovení – [#4304](https://github.com/NuGet/Home/issues/4304)
 
-- Zvolte vypadá chybný pod tmavý motiv – dialogové okno "Správce balíčků NuGet Format" [#4300](https://github.com/NuGet/Home/issues/4300)
+- Zvolte možnost "Formát Správce balíčků NuGet" dialogové okno nevypadají v rámci tmavý motiv - [#4300](https://github.com/NuGet/Home/issues/4300)
 
-- VS dojít k chybě při obnovení sestavení - [#4298](https://github.com/NuGet/Home/issues/4298)
+- Při obnovení sestavení – chybě VS [#4298](https://github.com/NuGet/Home/issues/4298)
 
-- Visual Studio zablokování Pokud přidáte TFM v targetframeworks, uložte a sestavení. 10 % času - [#4295](https://github.com/NuGet/Home/issues/4295)
+- Visual Studio zablokování Pokud chcete přidat TFM v targetframeworks, uložte a pak sestavení. 10 % doby - [#4295](https://github.com/NuGet/Home/issues/4295)
 
-- nuget pack není výstup zprávu o úspěchu na balení projektu úspěšně - [#4294](https://github.com/NuGet/Home/issues/4294)
+- balíček nuget není výstupní zpráva o úspěchu, o balicí projekt úspěšně - [#4294](https://github.com/NuGet/Home/issues/4294)
 
-- PackTask nezdaří z důvodu System.IO.Compression 4.1 nebude nalezen – [#4290](https://github.com/NuGet/Home/issues/4290)
+- Packtask se neposkytl se nezdaří z důvodu System.IO.Compression 4.1 nebyly nalezeny - [#4290](https://github.com/NuGet/Home/issues/4290)
 
-- Pack spouští příliš často – PackTask často selže s konfliktu přístupu k souboru - [#4289](https://github.com/NuGet/Home/issues/4289)
+- Balíček spouští příliš často – packtask se neposkytl často selže kvůli konfliktu přístup k souboru - [#4289](https://github.com/NuGet/Home/issues/4289)
 
-- NuGet otevře ve výstupním okně během obnovení pozadí - [#4274](https://github.com/NuGet/Home/issues/4274)
+- NuGet otevře v okně výstupu se během obnovení na pozadí – [#4274](https://github.com/NuGet/Home/issues/4274)
 
-- Vyloučit položku ServiceProvider jako nebezpečná kódování vzor, (který může způsobit zablokování) - [#4268](https://github.com/NuGet/Home/issues/4268)
+- Vylučte poskytovatel služeb jako nebezpečné kódování vzor (který může způsobit zablokování) – [#4268](https://github.com/NuGet/Home/issues/4268)
 
-- Výkonu nebo UIHang - zlepšení DownloadTimeoutStream čtení - [#4266](https://github.com/NuGet/Home/issues/4266)
+- Výkon/UIHang – vylepšení DownloadTimeoutStream čtení - [#4266](https://github.com/NuGet/Home/issues/4266)
 
-- Visual Studio zablokování, když zkusíte zavřít projekt dokončil obnovení NuGet - [#4257](https://github.com/NuGet/Home/issues/4257)
+- Visual Studio zablokování při pokusu o zavření projektu před dokončením příkazu se obnovení NuGet - [#4257](https://github.com/NuGet/Home/issues/4257)
 
-- Problémy s PackTask a okolních `.nuspec`  -  [#4250](https://github.com/NuGet/Home/issues/4250)
+- Problémy s packtask se neposkytl a balení `.nuspec`  -  [#4250](https://github.com/NuGet/Home/issues/4250)
 
-- [vsfeedback] Nelze vyřešit balíčků nuget v novém projektu (vyžaduje restartování sady visual studio) - [#4217](https://github.com/NuGet/Home/issues/4217)
+- [vsfeedback] Nejde přeložit balíčky nuget v novém projektu (musí se restartovat visual studio) - [#4217](https://github.com/NuGet/Home/issues/4217)
 
-- [vsfeedback] "Verze" rozevírací nabídky, které zobrazuje verze balíčku k dispozici, prohry zůstane synchronizovaná s balíček vybrané nuGet... - [#4198](https://github.com/NuGet/Home/issues/4198)
+- [vsfeedback] "Verze" rozevírací nabídka, která zobrazuje verze k dispozici balíčku potýká zůstat synchronizované s balíčkem nuGet vybrané... – [#4198](https://github.com/NuGet/Home/issues/4198)
 
-- Nuget.Client měli použít třída JoinableTaskFactory CPS při interakci s CPS zablokování - [#4185](https://github.com/NuGet/Home/issues/4185)
+- Nuget.Client by měl používat CPS JoinableTaskFactory při interakci s CPS zablokování - [#4185](https://github.com/NuGet/Home/issues/4185)
 
-- NuGet 3.5.0 není rozbalování `.targets` z balíčku - [#4171](https://github.com/NuGet/Home/issues/4171)
+- NuGet 3.5.0 není při rozbalování `.targets` z balíčku - [#4171](https://github.com/NuGet/Home/issues/4171)
 
-- DotNet.
-  - dotnetcore pack nepodporuje název v `.csproj`  -  [#4150](https://github.com/NuGet/Home/issues/4150)
+- DotNet
+  - dotnetcore pack nepodporuje title v `.csproj`  -  [#4150](https://github.com/NuGet/Home/issues/4150)
 
-- Install-Package výsledkem dialogové okno chyby v VS2017 RC – [#4127](https://github.com/NuGet/Home/issues/4127)
+- Install-Package má za následek chybové dialogové okno v VS2017 RC – [#4127](https://github.com/NuGet/Home/issues/4127)
 
-- Aktualizace balíčku pro rozhraní .net core projekt se nebude fungovat, jako uživatelské rozhraní není sám aktualizace prohlášení CPS nominate. - [#4035](https://github.com/NuGet/Home/issues/4035)
+- Aktualizace balíčku pro projekt .net core pravděpodobně nebude fungovat, jak rozhraní nezíská aktualizace CPS od nominate. - [#4035](https://github.com/NuGet/Home/issues/4035)
 
-- Zlepšení nerozpoznaný odkaz upozornění - [#3955](https://github.com/NuGet/Home/issues/3955)
+- Zlepšení nepřeložený odkaz upozornění - [#3955](https://github.com/NuGet/Home/issues/3955)
 
-- DotNet.
-  - dotnetcore pack - ProjectReference ztratí informace o verzi - [#3953](https://github.com/NuGet/Home/issues/3953)
+- DotNet
+  - pack dotnetcore – ProjectReference ztratí informace o verzi – [#3953](https://github.com/NuGet/Home/issues/3953)
 
-- Vytvoření aplikace pro UPW & Vytvořit projekt znovu sestavit Celkem uběhlý čas regresí - [#3873](https://github.com/NuGet/Home/issues/3873)
+- Vytvoření aplikace pro UPW vytvoření projektu a znovu sestavte regrese celkový uplynulý čas – [#3873](https://github.com/NuGet/Home/issues/3873)
 
-- Úspěšné obnovení zpráva se zobrazí i po chybě. během obnovení. - [#3799](https://github.com/NuGet/Home/issues/3799)
+- Během obnovení se zobrazí zpráva úspěšné obnovení po chybě. - [#3799](https://github.com/NuGet/Home/issues/3799)
 
-- znovu publikovat Nuget.CommandLine 3.4.4 k Nuget.org - [#2931](https://github.com/NuGet/Home/issues/2931)
+- opakované publikování Nuget.CommandLine 3.4.4 na Nuget.org - [#2931](https://github.com/NuGet/Home/issues/2931)
 
-- Na migraci, změňte projekty z `project.json` k `.csproj` , se nezdaří obnovení - [#4297](https://github.com/NuGet/Home/issues/4297)
+- Na migraci, změňte projekty z `project.json` k `.csproj` ---nezdaří obnovení – [#4297](https://github.com/NuGet/Home/issues/4297)
 
-- Selhání obnovení na nově vytvořený xunit testovacího projektu - [#4296](https://github.com/NuGet/Home/issues/4296)
+- Selhání obnovení na projekt testů xunit nově vytvořený - [#4296](https://github.com/NuGet/Home/issues/4296)
 
-- Základní projekty můžete zablokuje, zamčení uživatelského rozhraní při otevření - [#4269](https://github.com/NuGet/Home/issues/4269)
+- Projekty Core můžete reagovat, uzamčení uživatelského rozhraní na open - [#4269](https://github.com/NuGet/Home/issues/4269)
 
-- Opravte soubor cíle pro úlohy sestavení – [#4267](https://github.com/NuGet/Home/issues/4267)
+- Opravte soubor cílů pro sestavení úkoly – [#4267](https://github.com/NuGet/Home/issues/4267)
 
-- Seznam chyb obsahuje chybu po sestavení řešení, které uvolnit odkazované projekt – [#4208](https://github.com/NuGet/Home/issues/4208)
+- Seznam chyb obsahuje chybu po sestavení řešení, které uvolnit Odkazovaný projekt - [#4208](https://github.com/NuGet/Home/issues/4208)
 
 - MSB4057: Cíl "_GenerateRestoreGraphProjectEntry" v projektu neexistuje. - [#4194](https://github.com/NuGet/Home/issues/4194)
 
 - vsfeedback: Když vyberete všechny projekty - dojde k chybě uživatelského rozhraní správce nuget pro řešení [#4191](https://github.com/NuGet/Home/issues/4191)
 
-- nuget.exe msbuildpath selže, když je koncové lomítko - [#4180](https://github.com/NuGet/Home/issues/4180)
+- nuget.exe msbuildpath selže po koncové lomítko - [#4180](https://github.com/NuGet/Home/issues/4180)
 
-- vsfeedback: obnovení NuGet poskytnout několik upozornění odkaz na projekt pro projekt LinqToTwitter – [#4156](https://github.com/NuGet/Home/issues/4156)
+- vsfeedback: obnovení NuGet poskytují několik upozornění odkaz projektu pro projekt LinqToTwitter – [#4156](https://github.com/NuGet/Home/issues/4156)
 
-- Pack z `.csproj` neobsahuje atribut minClientVersion - [#4135](https://github.com/NuGet/Home/issues/4135)
+- Balíčku ze `.csproj` neobsahuje atribut minClientVersion - [#4135](https://github.com/NuGet/Home/issues/4135)
 
-- NuGet.Build.Tasks.Pack.dll dodaný zpoždění přihlášení VS2017 (d15rel 26014.00)- [#4122](https://github.com/NuGet/Home/issues/4122)
+- NuGet.Build.Tasks.Pack.dll dodáno podepisováno v VS2017 (d15rel 26014.00)- [#4122](https://github.com/NuGet/Home/issues/4122)
 
-- VSFeedback: Obnovení selže z projektu VS 2015 vygeneroval s CMake 3.7.1 - [#4114](https://github.com/NuGet/Home/issues/4114)
+- VSFeedback: Obnovení se nezdaří pro projekt VS 2015 generuje s použitím CMake 3.7.1 - [#4114](https://github.com/NuGet/Home/issues/4114)
 
-- VSFeedback: Chybám při obnovení mohou skrývat podrobnější chybové zprávy, které může poskytnout sestavení - [#4113](https://github.com/NuGet/Home/issues/4113)
+- VSFeedback: Chyby obnovení může ztížit odhalení zjevného kompletní chybové zprávy, které může poskytnout sestavení - [#4113](https://github.com/NuGet/Home/issues/4113)
 
-- [VSFeedback] Při obnovování balíčků NuGet pro projekt webové stránky došlo k chybě: hodnota nemůže být null. - [#4092](https://github.com/NuGet/Home/issues/4092)
+- [VSFeedback] Při obnovování balíčků NuGet pro projekt webu došlo k chybě: hodnota nemůže být null. - [#4092](https://github.com/NuGet/Home/issues/4092)
 
-- Migrace vyvolá "Objekt odkaz výjimky" v NuGet.PackageManagement.VisualStudio.SolutionRestoreWorker - [#4067](https://github.com/NuGet/Home/issues/4067)
+- Migrace vyvolá "Odkaz na objekt výjimky" v NuGet.PackageManagement.VisualStudio.SolutionRestoreWorker - [#4067](https://github.com/NuGet/Home/issues/4067)
 
-- DotNet.
-  - dotnetcore pack by měla pack nástrojů s verzemi, které balíčku byl sestaven s - [#4063](https://github.com/NuGet/Home/issues/4063)
+- DotNet
+  - dotnetcore pack by měl aktualizací Service pack nástroje s verzemi, které byla vytvořena balíčku - [#4063](https://github.com/NuGet/Home/issues/4063)
 
-- Nové pozadí obnovení zapisuje milisekund na stavovém řádku při trvá sekund obnovit - [#4036](https://github.com/NuGet/Home/issues/4036)
+- Nové pozadí obnovení zapisuje milisekund do stavového řádku při trvá sekund obnovit - [#4036](https://github.com/NuGet/Home/issues/4036)
 
-- Máte překlep v Nepodařilo se vyřešit všechny odkazy na - projektu [#4018](https://github.com/NuGet/Home/issues/4018)
+- Máte překlep v nepovedlo se vyřešit všechny odkazy – projektu [#4018](https://github.com/NuGet/Home/issues/4018)
 
-- Povolte PCM pracovní postupy ve scénářích odkaz na balíček - [#4016](https://github.com/NuGet/Home/issues/4016)
+- Povolte pracovní postupy PCM ve scénářích odkaz na balíček - [#4016](https://github.com/NuGet/Home/issues/4016)
 
-- Nelze najít nainstalované balíčky v balíčku správci uživatelské rozhraní – [#4015](https://github.com/NuGet/Home/issues/4015)
+- Nejde najít nainstalované balíčky v balíčku správce uživatelského rozhraní – [#4015](https://github.com/NuGet/Home/issues/4015)
 
-- DotNet.
-  - dotnetcore pack selže, když je prázdná - PackagePath [#3993](https://github.com/NuGet/Home/issues/3993)
+- DotNet
+  - dotnetcore balíčku selže, pokud je prázdný - PackagePath [#3993](https://github.com/NuGet/Home/issues/3993)
 
 - Obnovení selže úkol ve scénáři s více uživateli - [#3897](https://github.com/NuGet/Home/issues/3897)
 
-- Nelze změnit typ obsahu, když balení pomocí úlohy Pack NuGet- [#3895](https://github.com/NuGet/Home/issues/3895)
+- Nelze změnit typ obsahu při balení pomocí úkolu pro balíček NuGet- [#3895](https://github.com/NuGet/Home/issues/3895)
 
-- Výchozí kopie ContentFiles jsou nesprávná pro MsBuild /t:pack - [#3894](https://github.com/NuGet/Home/issues/3894)
+- Výchozí kopie ContentFiles nesprávných MsBuild /t:pack - [#3894](https://github.com/NuGet/Home/issues/3894)
 
-- Obnovení balíčku instalace dvojité protokoly obnovení balíčků zpráva – [#3785](https://github.com/NuGet/Home/issues/3785)
+- Obnovení balíčku instalace double zaznamená obnovení balíčků zprávu - [#3785](https://github.com/NuGet/Home/issues/3785)
 
-- Odebrat ochranného zábradlí – obnovení "moduly runtime" oddílu použít pouze na aktuální projekt – [#3768](https://github.com/NuGet/Home/issues/3768)
+- Odebrat ochranného zábradlí – obnovení v části "moduly runtime" by se měly používat jenom k aktuálnímu projektu – [#3768](https://github.com/NuGet/Home/issues/3768)
 
-- Úloha sady převádí soubory obsahu v obou se obsah nebo ' a ' contentFiles nebo '- [#3718](https://github.com/NuGet/Home/issues/3718)
+- Úloha sady umístí soubory obsahu v obou ' obsah / "a" contentFiles / "- [#3718](https://github.com/NuGet/Home/issues/3718)
 
-- DotNet.
-  - dotnetcore pack3 velmi značky rozdělení - [#3701](https://github.com/NuGet/Home/issues/3701)
+- DotNet
+  - dotnetcore pack3 velmi označit rozdělení - [#3701](https://github.com/NuGet/Home/issues/3701)
 
-- DotNet.
-  - dotnetcore pack: balení projekty s balíčkem odkazuje má za následek upozornění duplicitní import - [#3665](https://github.com/NuGet/Home/issues/3665)
+- DotNet
+  - balíček dotnetcore: balení projektů v balíčku odkazuje na výsledky upozornění na duplicitní import - [#3665](https://github.com/NuGet/Home/issues/3665)
 
-- Obnovení protokolování v sadě VS není vždy zobrazovat - [#3633](https://github.com/NuGet/Home/issues/3633)
+- Obnovení protokolování v sadě Visual Studio není vždy zobrazovat - [#3633](https://github.com/NuGet/Home/issues/3633)
 
-- text nápovědy místní hodnoty – nuget uvedených stále balíčky mezipaměti - [#3592](https://github.com/NuGet/Home/issues/3592)
+- text nápovědy nuget locals stále uvedených mezipaměť balíčků - [#3592](https://github.com/NuGet/Home/issues/3592)
 
 - Restore3 páry v odstupu PackageReferences s TargetFrameworks. - [#3504](https://github.com/NuGet/Home/issues/3504)
 
-- Nuget vybere neočekávanou verzí nástroje MSBuild v sadě VS "15" Preview 4 účelem příkazový řádek - [#3408](https://github.com/NuGet/Home/issues/3408)
+- Nuget vybere neočekávanou verzí nástroje MSBuild v sadě Visual Studio "15" Preview 4. odch. příkazový řádek – [#3408](https://github.com/NuGet/Home/issues/3408)
 
-- Vypsat soubory cíle nebo props při obnovení se nezdařilo - [#3399](https://github.com/NuGet/Home/issues/3399)
+- Vypsat soubory cíle/props na selhání obnovení – [#3399](https://github.com/NuGet/Home/issues/3399)
 
-- NuGet během obnovení nerespektuje stejné překrytí compat jako MSBuild při spuštění v příkazovém řádku VS 15 - [#3387](https://github.com/NuGet/Home/issues/3387)
+- Během obnovení NuGet nerespektuje stejné překrytí compat jako MSBuild při spuštění v příkazovém řádku VS 15 - [#3387](https://github.com/NuGet/Home/issues/3387)
 
-- Znovu povolit PackFromProjectWithDevelopmentDependencySet pro VS15 - [#3272](https://github.com/NuGet/Home/issues/3272)
+- Opětovné povolení PackFromProjectWithDevelopmentDependencySet pro VS15 - [#3272](https://github.com/NuGet/Home/issues/3272)
 
-- Inovativně problémy s NuGet - [#4043](https://github.com/NuGet/Home/issues/4043)
+- Blend problémy s NuGet - [#4043](https://github.com/NuGet/Home/issues/4043)
 
-- Integrovat 4.0.0.2067 do rozhraní příkazového řádku a sady SDK úložiště pro odeslání s RC2 - [#4029](https://github.com/NuGet/Home/issues/4029)
+- Integrace 4.0.0.2067 do příkazového řádku a sady SDK úložiště k odeslání RC2 - [#4029](https://github.com/NuGet/Home/issues/4029)
 
-- VS zablokování, když vytvoříte nové základní konzolovou aplikaci, zavřete řešení, otevřete řešení a zavřít řešení - [#4008](https://github.com/NuGet/Home/issues/4008)
+- VS – zablokování při vytváření nové základní konzolovou aplikaci, Zavřít řešení, otevřete řešení a zavřít řešení - [#4008](https://github.com/NuGet/Home/issues/4008)
 
-- Stiskne zablokování otevření projektu proti d15prerel.25916.01 - [#3982](https://github.com/NuGet/Home/issues/3982)
+- Dosažení zablokování otevírání projektu proti d15prerel.25916.01 - [#3982](https://github.com/NuGet/Home/issues/3982)
 
-- Opravte dotnet/nuget.exe místní hodnoty – zpráva doc/help – [#3919](https://github.com/NuGet/Home/issues/3919)
+- Oprava dotnet/nuget.exe lokální zprávy doc/help – [#3919](https://github.com/NuGet/Home/issues/3919)
 
-- Zkontrolujte PackTask pro problémy se službou koncové nebo počáteční prázdné znaky - [#3906](https://github.com/NuGet/Home/issues/3906)
+- Kontrola problémů s koncové nebo počáteční mezery – packtask se neposkytl [#3906](https://github.com/NuGet/Home/issues/3906)
 
-- DotNet.
+- DotNet
   - dotnetcore pack je balení z obj není bin - [#3880](https://github.com/NuGet/Home/issues/3880)
 
-- DotNet.
-  - dotnetcore pack vždy zdá se, že nastavte ProjectReference verzi 1.0.0 - [#3874](https://github.com/NuGet/Home/issues/3874)
+- DotNet
+  - balíček dotnetcore vždy zdá se, že nastavení ProjectReference verze 1.0.0 - [#3874](https://github.com/NuGet/Home/issues/3874)
 
-- DotNet.
-  - dotnetcore pack se nezdaří s odkazy na projekt a <TargetFramework>  -  [#3865](https://github.com/NuGet/Home/issues/3865)
+- DotNet
+  - balíček dotnetcore selže s odkazy na projekt a <TargetFramework>  -  [#3865](https://github.com/NuGet/Home/issues/3865)
 
 - LockRecursionException v ProjectSystemCache.TryGetProjectNameByShortName - [#3861](https://github.com/NuGet/Home/issues/3861)
 
 - Oříznout mezery z hodnoty vlastnosti nástroje MSBuild - [#3819](https://github.com/NuGet/Home/issues/3819)
 
-- Proveďte konsolidaci událostí dvě projektu vyvolá při načítání projektu - [#3759](https://github.com/NuGet/Home/issues/3759)
+- Sloučit dva projektu události vyvolané při načtení projektu – [#3759](https://github.com/NuGet/Home/issues/3759)
 
-- Knihovny P2P v `project.assets.json` soubor mít nesprávné verze - [#3748](https://github.com/NuGet/Home/issues/3748)
+- Knihovny P2P `project.assets.json` souboru mají nesprávnou verzi - [#3748](https://github.com/NuGet/Home/issues/3748)
 
-- Obnovení havárií kvůli reagovat informační kanál a není k dispozici balíčku - [#3672](https://github.com/NuGet/Home/issues/3672)
+- Obnovení při selhání z důvodu informačního kanálu poslána a není k dispozici balíček – [#3672](https://github.com/NuGet/Home/issues/3672)
 
-- nuget.exe může přestat reagovat na velké množství výstupní chyba nástroje MSBuild - [#3572](https://github.com/NuGet/Home/issues/3572)
+- nuget.exe může reagovat na velké množství chybový výstup nástroje MSBuild - [#3572](https://github.com/NuGet/Home/issues/3572)
 
-- Obnovení na sestavení pro Blend selže prvním úspěšné podruhé (VS scénář pevné) - [#2121](https://github.com/NuGet/Home/issues/2121)
+- Obnovení na sestavení pro Blend selže poprvé, bude úspěšné podruhé (VS scénář pevné) – [#2121](https://github.com/NuGet/Home/issues/2121)
 
 ### <a name="dcrs"></a>Chcete
 
-- migrovat vsix ze v2 vsix v3 vsix - [#4196](https://github.com/NuGet/Home/issues/4196)
+- migrace vsix z v2 vsix na v3 vsix – [#4196](https://github.com/NuGet/Home/issues/4196)
 
 - NuGet by měl mít mechanismus pro získání cesty k souboru zámku v nástroji MSBuild - [#3351](https://github.com/NuGet/Home/issues/3351)
 
-- Přidat prostředky sestavení do TFM kompatibility kontroly a prostředky souboru - [#3296](https://github.com/NuGet/Home/issues/3296)
+- Přidat prostředky sestavení do TFM kompatibility kontrola a prostředky souboru - [#3296](https://github.com/NuGet/Home/issues/3296)
 
-- Definovat nové ProjectCapability "Pack" sadě cíle pro povolení balíček související možnosti – [#4146](https://github.com/NuGet/Home/issues/4146)
+- Definovat nové ProjectCapability "Balíček" v sadě cílů pro povolení balíček související možnosti – [#4146](https://github.com/NuGet/Home/issues/4146)
 
-- Spustit Pack jako metodu POST směřující sestavení cíl záleží na vlastnosti "GeneratePackageOnBuild" MSBuild - [#4145](https://github.com/NuGet/Home/issues/4145)
+- Spuštění balíčku jako příspěvek sestavení záleží na vlastnost MSBuild "GeneratePackageOnBuild" - target [#4145](https://github.com/NuGet/Home/issues/4145)
 
-- Vlastnost NuGet RestoreProjectStyle použít k vytvoření konkrétní NuGet projektu - [#4134](https://github.com/NuGet/Home/issues/4134)
+- Vlastnost NuGet RestoreProjectStyle použít k vytvoření určitého projektu NuGet - [#4134](https://github.com/NuGet/Home/issues/4134)
 
-- Přizpůsobit obnovení přenositelné odkazy na projekt změn - [#4076](https://github.com/NuGet/Home/issues/4076)
+- Přizpůsobit obnovení u přenositelných odkazů projektu změnit - [#4076](https://github.com/NuGet/Home/issues/4076)
 
-- Přidání vlastností NuGet v cílový soubor pro projekty bez UWP - [#4030](https://github.com/NuGet/Home/issues/4030)
+- Přidat NuGet vlastnosti v cílovém souboru pro projekty bez UPW – [#4030](https://github.com/NuGet/Home/issues/4030)
 
-- Podpora UWP TargetPlatformVersion - [#3923](https://github.com/NuGet/Home/issues/3923)
+- Podpora UWP TargetPlatformVersion – [#3923](https://github.com/NuGet/Home/issues/3923)
 
-- Komunikaci projekt odkazuje na metadata do systému NuGet projektu - [#3922](https://github.com/NuGet/Home/issues/3922)
+- Komunikovat se projekt odkazuje na metadata do projektu systému NuGet - [#3922](https://github.com/NuGet/Home/issues/3922)
 
-- Přidání uživatelského rozhraní pro balení režim – [#3921](https://github.com/NuGet/Home/issues/3921)
+- Přidání uživatelského rozhraní pro režim balení – [#3921](https://github.com/NuGet/Home/issues/3921)
 
-- Starší verze `.csproj` potřebuje NugetTargetMoniker a RuntimeIdentifiers nastavit v proj/cíle - [#3854](https://github.com/NuGet/Home/issues/3854)
+- Starší verze `.csproj` potřebuje NugetTargetMoniker a RuntimeIdentifiers nastavit na proj/zaměřuje - [#3854](https://github.com/NuGet/Home/issues/3854)
 
-- Instalace balíčku se mohou překrývat s automatického obnovení - [#3836](https://github.com/NuGet/Home/issues/3836)
+- Instalace balíčku se mohly překrývat s automatické obnovení – [#3836](https://github.com/NuGet/Home/issues/3836)
 
-- Kontextové nabídky QueryStatus nedojde, pokud není načtena VSPackage – [#3835](https://github.com/NuGet/Home/issues/3835)
+- Místní nabídka QueryStatus nestane při načtení není VSPackage - [#3835](https://github.com/NuGet/Home/issues/3835)
 
 - Obnovení řešení a sestavení obnovení stále zobrazit dialogová okna - [#3789](https://github.com/NuGet/Home/issues/3789)
 
-- Izolovat VSSDK verze sestavení řešení NuGet.Clients - [#3890](https://github.com/NuGet/Home/issues/3890)
+- Izoluje VSSDK verze sestavení řešení NuGet.Clients - [#3890](https://github.com/NuGet/Home/issues/3890)
 
-## <a name="links-to-github-issues-fixed-in-rtm"></a>Odkazy na Githubu chyby v RTM
+## <a name="links-to-github-issues-fixed-in-rtm"></a>Odkazy na problémy Githubu Vyřešeno ve verzi RTM
 [Seznam problémů 1](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.0%20RTM")  
 [Seznam problémů 2](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.0%20RC4")  
 [Seznam problémů 3](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.0%20RC3")  

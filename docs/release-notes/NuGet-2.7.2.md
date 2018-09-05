@@ -1,30 +1,29 @@
 ---
-title: Poznámky k verzi NuGet 2.7.2
-description: Poznámky k verzi pro NuGet 2.7.2 včetně – známé problémy, opravy chyb, přidaných funkcí a chcete.
+title: Zpráva k vydání verze NuGet 2.7.2
+description: Zpráva k vydání verze pro NuGet 2.7.2 včetně – známé problémy, opravy chyb, nové funkce a chcete.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 0cb99e4e1ae9238286dc4fab7b8d34e5b117ed64
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 3e63944a05f66d5dadf17c5d4b91d3bc4478bb33
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31820232"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43550067"
 ---
-# <a name="nuget-272-release-notes"></a>Poznámky k verzi NuGet 2.7.2
+# <a name="nuget-272-release-notes"></a>Zpráva k vydání verze NuGet 2.7.2
 
-[Poznámky k verzi NuGet 2.7.1](../release-notes/nuget-2.7.1.md) | [NuGet 2.8 poznámky k verzi](../release-notes/nuget-2.8.md)
+[Zpráva k vydání verze NuGet 2.7.1](../release-notes/nuget-2.7.1.md) | [zpráva k vydání verze NuGet 2.8](../release-notes/nuget-2.8.md)
 
-NuGet 2.7.2 byla vydána 11 listopadu 2013.
+NuGet 2.7.2 byla vydána 11. listopadu 2013.
 
-## <a name="noteworthy-bug-fixes-and-features"></a>Pozoruhodné oprav chyb a funkce
+## <a name="noteworthy-bug-fixes-and-features"></a>Opravy chyb zajímavosti a funkce
 
-### <a name="license-text"></a>Licence textu
-Celkem nějakou dobu je k dispozici balíčky NuGet pro několik oblíbených knihovny open-source jako součást výchozí šablony pro projekty webových aplikací v sadě Visual Studio. jQuery je pravděpodobně dobře známé příklad tohoto typu knihovny. Z důvodu podpory smlouvu přidružené součásti, které se dodávají spolu s produktem soubor skriptu balíčku obsahuje jiné licenční text než soubor skriptu v galerii veřejné nuget.org nalezen ve stejném balíčku. Tento rozdíl v textu můžete zabránit v balíčku aktualizace budete pokračovat v důsledku bloky textu jiné licenční způsobuje soubory skriptu jinou hodnotu hash obsahu hodnoty (a proto jsou považovány za upraveno v rámci projektu).
+### <a name="license-text"></a>Text licence
+Poměrně nějakou dobu je k dispozici balíčky NuGet pro několik oblíbených open source knihoven v rámci výchozích šablon pro projekty webových aplikací v sadě Visual Studio. dobře známé příkladem tohoto typu knihovna je pravděpodobně jQuery. Z důvodu podpory smlouvy přidružené k součástem, které se dodávají spolu s produktem soubor skriptu balíčku obsahuje jiné licenční text než soubor skriptu nalezen ve stejném balíčku na nuget.org veřejné galerie. Tento rozdíl v textu může zabránit aktualizace balíčků řízení v důsledku textové bloky jiné licenční způsobí soubory skriptů hodnoty jinou hodnotu hash obsahu (a proto jsou považovány za upravovat v rámci projektu).
 
-Ke zmírnění tohoto problému, NuGet 2.7.2 umožňuje autorovi skriptu zahrnout bloku textu licencí v rámci speciálně označen jako část, která vypadá takto.
+Chcete-li tento problém zmírnit, NuGet 2.7.2 umožňuje autorovi skriptu zahrnout textový blok licencí v rámci speciálně označené části, která vypadá takto.
 
     /************** NUGET: BEGIN LICENSE TEXT **************
      * The following code is licensed under the MIT license
@@ -32,18 +31,18 @@ Ke zmírnění tohoto problému, NuGet 2.7.2 umožňuje autorovi skriptu zahrnou
      * only.
      ************** NUGET: END LICENSE TEXT ***************/
 
-Při aktualizaci balíčky s obsahem soubory obsahující tento blok NuGet není zohlednit obsahu bloku v porovnání s verzí v galerii NuGet a můžete proto odstranit a aktualizovat soubor obsahu, jako kdyby odpovídá původní kopie.
+Při aktualizaci balíčky s obsahem soubory, které obsahují tento blok NuGet není faktor obsahu bloku v porovnání s verzí v galerii NuGet a může proto odstranění a aktualizace obsahu souboru jakoby odpovídá původní kopírování.
 
-Tento blok je identifikována text "NUGET: začněte licence TEXT" a "NUGET: END licence TEXT" výskytu kdekoli na začátku a končí řádky.  Žádné formátování požadavky nejsou, povolení této funkce lze použít v libovolného typu souboru text bez ohledu na jazyk.
+Tento blok je identifikován text "NUGET: začněte licence TEXT" a "NUGET: ukončení licence TEXT" ke kterým dochází kdekoli na počátku a ukončení řádků.  Žádné formátování požadavky nejsou, umožňuje tato funkce, který se má použít z libovolného typu souboru bez ohledu na jazyk.
 
-### <a name="add-binding-redirects-for-non-framework-assemblies"></a>Přidejte přesměrování vazby sestavení – bez architektury
-Pro sestavení, které jsou součástí rozhraní .NET Framework NuGet přeskočí přidání přesměrování vazby do konfiguračního souboru aplikace při aktualizaci balíčku. Tato oprava řeší Regrese v 2.7 NuGet, které přesměrování vazby nebyly přidávané pro některé sestavení, i když tyto sestavení nejsou považovány za součást rozhraní .NET Framework. NuGet 2.7.2 obnoví předchozí 2.5 NuGet a 2.6 chování a přidá přesměrování vazby.
+### <a name="add-binding-redirects-for-non-framework-assemblies"></a>Přidat přesměrování vazby sestavení – bez rozhraní
+Pro sestavení, které jsou součástí rozhraní .NET Framework NuGet přeskočí přidání přesměrování vazby do konfiguračního souboru aplikace při aktualizaci balíčku. Tato oprava řeší Regrese v 2.7 NuGet, kterým přesměrování vazby nebyly přidává pro některá sestavení, i když tato sestavení nejsou považovány za součást rozhraní .NET Framework. NuGet 2.7.2 obnoví předchozí 2.5 NuGet a 2.6 chování a přidá přesměrování vazby.
 
-### <a name="installing-portable-libraries-with-xamarin-tools-installed"></a>Instalace přenosné knihovny s nainstalovanými nástroji pro Xamarin
-Při instalaci nástrojů pro vývoj na Xamarin na počítači se upravit konfigurační data podporované architektury k určení kompatibilitu mezi existující cílový framework kombinace a Xamarin rozhraní. S verzí 2.7.2 NuGet má teď informace o těchto pravidel implicitní kompatibility a proto umožňuje snadné pro vývojáře cílené na platformách Xamarin pro instalaci přenosné knihovny, které jsou kompatibilní s Xamarinem, ale není explicitně označené jako takový v balíčku metadata sám sebe.
+### <a name="installing-portable-libraries-with-xamarin-tools-installed"></a>Instalaci přenosné knihovny se nainstalované nástroje Xamarin
+Když Xamarin vývojové nástroje jsou nainstalovány na počítači, jejich upravit konfigurační data podporované architektury k určení kompatibility mezi existující kombinace cílového rozhraní framework a rozhraní Xamarin. Verze 2.7.2 NuGet je vědět, tato pravidla implicitní kompatibility a proto usnadňuje vývojářům cílení na platformy Xamarin nainstalovat přenosných knihoven, které jsou kompatibilní s Xamarinem, ale nejsou explicitně označené jako takové v balíčku metadata, samotného.
 
-### <a name="machine-wide-configuration-settings-honored"></a>Nastavení konfigurace celého systému dodržení
-Při použití souborů hierarchické Nuget.Config, nebyl se klíč repositoryPath dodržení pro soubory Nuget.Config nejbližší do kořenového adresáře řešení. NuGet v sadě Visual Studio 2013, nainstaluje vlastního souboru Nuget.Config v %ProgramData%\NuGet\Config\VisualStudio\12.0\Microsoft.VisualStudio.config Chcete-li přidat zdroj balíčku "A Microsoft .NET". V důsledku toho řešení pro použití vlastního repositoryPath v řešení se odstranit úroveň počítače Nuget.Config – to také znamená odebrání zdroji balíčku "A Microsoft .NET". NuGet 2.7.2 teď ctí prioritu pravidla pro repositoryPath při použití souborů hierarchické Nuget.Config.
+### <a name="machine-wide-configuration-settings-honored"></a>Nastavení konfigurace celý počítač, neuplatňují
+Při použití souborů hierarchické Nuget.Config, repositoryPath klíč není respektováno pro soubory na soubor Nuget.Config co nejblíže ke kořenu řešení. NuGet v sadě Visual Studio 2013, nainstaluje vlastní soubor Nuget.Config v %ProgramData%\NuGet\Config\VisualStudio\12.0\Microsoft.VisualStudio.config Chcete-li přidat zdroj balíčku "A Microsoft .NET". V důsledku toho řešení pro použití vlastního repositoryPath v řešení se odstranit soubor Nuget.Config úrovni počítače - také znamená odebráním zdroje balíčku "A Microsoft .NET". NuGet 2.7.2 nyní ctí prioritu pravidla pro repositoryPath při použití souborů hierarchické souboru Nuget.Config.
 
 ## <a name="all-changes"></a>Všechny změny
-Úplný seznam pracovní položky pevná ve NuGet 2.7.2, prosím zobrazení [sledovací modul problém NuGet pro tuto verzi](https://nuget.codeplex.com/workitem/list/advanced?keyword=&status=All&type=All&priority=All&release=NuGet%202.7.2&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0&reasonClosed=Fixed).
+Úplný seznam pracovních položek opravených NuGet 2.7.2, prosím zobrazení [NuGet sledování problémů pro tuto verzi](https://nuget.codeplex.com/workitem/list/advanced?keyword=&status=All&type=All&priority=All&release=NuGet%202.7.2&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0&reasonClosed=Fixed).

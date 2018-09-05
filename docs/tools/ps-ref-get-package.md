@@ -1,23 +1,22 @@
 ---
 title: Referenční informace prostředí PowerShell Get balíček NuGet
-description: Referenční dokumentace pro příkaz prostředí PowerShell Get-balíčku v konzole Správce balíčků NuGet v sadě Visual Studio.
+description: Referenční informace pro příkaz prostředí PowerShell Get-Package v konzole Správce balíčků NuGet v sadě Visual Studio.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: f4b71fc44e44dcbd5d123a0e2fed63adb79964b5
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: a28b29614dfe5abdeb24438b3451d96634a120db
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818500"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43551439"
 ---
 # <a name="get-package-package-manager-console-in-visual-studio"></a>Get-Package (konzola Správce balíčků v sadě Visual Studio)
 
-*Toto téma popisuje příkaz v rámci [Konzola správce balíčků NuGet](package-manager-console.md) v sadě Visual Studio v systému Windows. Příkaz prostředí PowerShell Get-Package obecné najdete v článku [odkaz na prostředí PowerShell PackageManagement](/powershell/module/packagemanagement/?view=powershell-6).*
+*Toto téma popisuje příkaz v rámci [Konzola správce balíčků NuGet](package-manager-console.md) v sadě Visual Studio ve Windows. Obecný příkaz prostředí PowerShell Get-Package, najdete v článku [odkazu modulu Powershellu PackageManagement](/powershell/module/packagemanagement/?view=powershell-6).*
 
-Načte seznam balíčků nainstalovaných v místním úložišti, obsahuje seznam balíčků dostupné z balíčku zdroje při použití s přepínačem - ListAvailable nebo vypíše dostupné aktualizace, které při použití s přepínačem - Update.
+Načte seznam balíčků nainstalovaných v místním úložišti, zobrazí seznam dostupných balíčků z balíčku zdroje při použití s přepínačem - ListAvailable nebo vypíše dostupné aktualizace při použití s přepínačem - Update.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -27,28 +26,28 @@ Get-Package -Source <string> [-ListAvailable] [-Updates] [-ProjectName <string>]
     [-PageSize] [<CommonParameters>]
 ```
 
-Bez parametrů `Get-Package` zobrazí seznam balíčků nainstalovaných ve výchozím projektu.
+Bez parametrů `Get-Package` zobrazí seznam balíčků nainstalovaných ve výchozím nastavení projektu.
 
 ## <a name="parameters"></a>Parametry
 
 | Parametr | Popis |
 | --- | --- |
-| Zdroj | Adresu URL nebo cestu složky pro balíček. Cesty k místní složce může být absolutní, nebo relativně vzhledem k aktuální složce. Pokud tento parametr vynechán, `Get-Package` hledá aktuálně vybraném zdroji balíčku. Při použití s příznakem-ListAvailable, výchozí hodnota je nuget.org. |
-| ListAvailable | Zobrazí seznam balíčků dostupné z balíčku zdroje, jako výchozí bude použit nuget.org. Výchozí hodnota je 50 balíčky ukazuje, pokud jsou zadány - PageSize nebo - první. |
-| Aktualizace | Zobrazí seznam balíčků, které mají k dispozici aktualizace ze zdroje balíčků. |
-| ProjectName | Projekt, ze kterého mají být získány nainstalované balíčky. Pokud tento parametr vynechán, vrátí nainstalované projekty pro celé řešení. |
-| Filtr | Řetězec filtru sloužící k upřesnění seznamu balíčků použitím do ID balíčku, popisu a značkách. |
-| první | Počet balíčků, které mají být vráceny od začátku seznamu. Pokud není zadáno, bude jako výchozí nastavena na 50. |
-| Skip | Vynechá první &lt;int&gt; balíčky ze seznamu zobrazených.  |
-| AllVersions | Zobrazí všechny dostupné verze jednotlivých balíčků místo pouze nejnovější verzi. |
+| Zdroj | Cesta adresy URL nebo složka balíčku. Cesty k místní složce může být absolutní nebo relativní vzhledem k aktuální složky. Pokud tento parametr vynechán, `Get-Package` hledá aktuálně vybraném zdroji balíčku. Při použití s - ListAvailable, výchozí hodnota je nuget.org. |
+| ListAvailable | Zobrazí seznam balíčků z balíčku zdroje, jako výchozí se použije na nuget.org. Ukazuje na výchozí hodnotu 50 balíčky jsou určena - PageSize nebo - první. |
+| Aktualizace | Zobrazí seznam balíčků, které mají k dispozici aktualizace ze zdroje balíčku. |
+| ProjectName | Projekt, ze kterého se mají balíčky nainstalovat. Pokud tento parametr vynechán, vrátí nainstalované projekty pro celé řešení. |
+| Filtr | Řetězec filtru sloužící k zúžení seznamu balíčků použitím na ID balíčku, popisu a značkách. |
+| první | Počet balíčků vrátit od začátku seznamu. Pokud není zadán, výchozí hodnota je 50. |
+| Skip | Vynechá první &lt;int&gt; balíčky ze zobrazeného seznamu.  |
+| AllVersions | Zobrazí všechny dostupné verze každého balíčku namísto pouze nejnovější verze. |
 | IncludePrerelease | Obsahuje předběžné verze balíčků ve výsledcích. |
-| PageSize | *(3.0 +)*  Při použití s příznakem-ListAvailable (povinné), počet balíčků, seznam, než se předá výzvy a pokračujte. |
+| PageSize | *(3.0 +)*  Při použití s - ListAvailable (povinné), počet balíčků do seznamu předtím, než poskytne výzvy a pokračujte. |
 
-Žádná z těchto parametrů přijmout kanálu vstup nebo zástupné znaky.
+Žádná z těchto parametrů přijímat kanálu vstup nebo zástupné znaky.
 
 ## <a name="common-parameters"></a>Společné parametry
 
-`Get-Package` podporuje následující [společné parametry prostředí PowerShell](http://go.microsoft.com/fwlink/?LinkID=113216): ladění, Chyba akce, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, podrobná, WarningAction a WarningVariable.
+`Get-Package` podporuje následující [společné parametry prostředí PowerShell](http://go.microsoft.com/fwlink/?LinkID=113216): ladění, Chyba akce, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction a WarningVariable.
 
 ## <a name="examples"></a>Příklady
 

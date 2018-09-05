@@ -1,70 +1,69 @@
 ---
 title: NuGet 3.4 poznámky
-description: Poznámky k verzi pro NuGet 3.4, včetně známé problémy, opravy chyb, přidaných funkcí a chcete.
+description: Zpráva k vydání verze pro NuGet 3.4, včetně známých problémů, opravy chyb, nové funkce a chcete.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 3f2a945b628022bdcc6e69a7a4b1be6c53b65626
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 77c0117fc40031a327e8dcb0aac5cd4045239e97
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31820469"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43551188"
 ---
 # <a name="nuget-34-release-notes"></a>NuGet 3.4 poznámky
 
-[Poznámky k verzi 3.4 RC NuGet](../release-notes/nuget-3.4-RC.md) | [NuGet 3.4.1 poznámky k verzi](../release-notes/nuget-3.4.1.md)
+[Poznámky k verzi 3.4 RC NuGet](../release-notes/nuget-3.4-RC.md) | [zpráva k vydání verze NuGet 3.4.1](../release-notes/nuget-3.4.1.md)
 
-NuGet 3.4 byl vydané 30. března 2016 jako součást sady Visual Studio 2015 Update 2 a Visual Studio 15 Preview verze a byl sestaven s několika principů v rozhodnutí:
+NuGet 3.4 30. března 2016 byla vydána jako součást Visual Studio 2015 Update 2 a Preview verze sady Visual Studio 15 a byl sestaven s několika zásady v mozky:
 
-* Podpora více platforem
+* Podporu pro různé platformy
 * Vylepšení výkonu
-* Méně závažné vylepšení uživatelského rozhraní
+* Menší vylepšení uživatelského rozhraní
 
-Následující funkce byly dříve přidány v RC a byly aktualizovány nebo dokončit 3,4 verzi:
+Následující funkce byly dříve přidány do verze RC a byly aktualizovány nebo dokončení verze 3.4:
 
 ## <a name="new-features"></a>Nové funkce
 
-* Klienti NuGet nyní podporují gzip kódování obsahu z úložiště
-* Podpora pro soubory PDB z balíčků projektů xproj
-* Podpora pro iOS a Android akce v elementu contentFiles sestavení
-* Podpora monikerů netstandard a netstandardapp monikery framework
+* Klienti NuGet nyní podporují kódování obsahu gzip z úložišť
+* Podpora pro soubory PDB z balíčků v projektech xproj
+* Podpora pro iOS a akce sestavení pro Android v elementu contentFiles
+* Podpora rozhraní framework monikerů netstandard a netstandardapp
 
 ## <a name="new-user-interface-features"></a>Nové funkce uživatelského rozhraní
 
-* Významné zlepšení výkonu hlavně na kartách nainstalovaná, aktualizace a konsolidace
-* Je k dispozici s slučování výsledek hledání správné agregovaného zdroje 'všechny zdroje balíčků.
-* Nainstalovaná a aktualizace karty jsou teď řadí abecedně
-* Přidat tlačítko Aktualizovat, která umožňuje vyhledávání nutné aktualizovat
+* Výrazné zlepšení výkonu zejména na kartách instalace, aktualizace a konsolidaci
+* Je k dispozici ke slučování výsledků hledání správné agregovaného zdroje 'všechny zdroje balíčků.
+* Nainstalovaný a karty aktualizace jsou teď seřazené podle abecedy
+* Přidat tlačítko pro aktualizaci, která umožňuje vyhledávání aktualizovat
 * Nejnovější sestavení možnosti v horní části seznamu verze
 
 ## <a name="updates-and-improvements"></a>Aktualizace a vylepšení
 
-* Balíčky, kterou se odkazuje v `project.json` mají plovoucí verze nebude aktualizovat na každé sestavení. Místo toho bude aktualizovat pouze v případě, že vynutit obnovení, vyčistit, znovu sestavit nebo upravit `project.json`.
-* nuget.org úložiště zdrojů již nebude, vynuceně přesunuty do konfigurace projektu při použití konfigurace NuGet uživatelského rozhraní.
-* NuGet už obnoví balíčků ve sdílených projektů ani zapisuje do souboru zámku.
-* Jsme jste vylepšené selhání sítě a opakujte zpracování pro nedostupné nebo pomalé na reakce serverů.
-* Chování klávesnici a myš jsou vylepšení v uživatelském rozhraní Správce balíčků Visual Studio.
-* Teď podporujeme nejnovější `project.json` schéma v DNX.
+* Balíčky odkazuje `project.json` , které mají plovoucí verze nebude aktualizovat při každém sestavení. Místo toho bude aktualizovat jenom v případě, že vynutit obnovení, vyčistit, znovu vytvořit nebo upravit `project.json`.
+* nuget.org úložišť zdroje jsou již vynutit do konfigurace projektu při použití konfigurace NuGet uživatelského rozhraní.
+* NuGet už obnoví balíčky ve sdílených projektech ani zapíše soubor zámku.
+* Jsme vylepšili selhání sítě a opakujte zpracování pro servery nedostupné nebo pomalé reakce.
+* Vylepšené chování klávesnice a myši v Uživatelském rozhraní Správce balíčků Visual Studio.
+* Nyní podporujeme nejnovější `project.json` schéma v DNX.
 
 ## <a name="breaking-changes"></a>Nejnovější změny
 
-* Čísla verzí balíčku jsou nyní normalizovány na formát *hlavní*. *méně závažné*. *oprava*-*předprodejní* každé hlavní, malé a opravy se považují za celá čísla a vyřadit všechny úvodní nuly.  Předběžné informace se považuje za řetězec a žádné změny se použijí k němu. Tato čísla se používají v dotazech klienti NuGet a hledání poskytovaný službou nuget.org.  Další podrobnosti naleznete v dokumentaci NuGet v rámci [vydanou verzí](../create-packages/prerelease-packages.md).
+* Čísla verzí balíčku jsou nyní normalizovány na formát *hlavní*. *vedlejší*. *oprava*-*předběžnou verzi* všech hlavních, podverze a oprava jsou považovány za celých čísel a vyřadit všechny úvodní nuly.  Informace o předběžnou verzi je považován za řetězcový a žádné změny se použijí k němu. Tyto hodnoty se používají v dotazech klienti NuGet a vyhledávání poskytovaných službou nuget.org.  Další podrobnosti najdete v dokumentaci NuGet v rámci [zkušební verze](../create-packages/prerelease-packages.md).
 
 ## <a name="known-issues"></a>Známé problémy
 
-* **Problém:** Windows 10 v1511, můžou uživatelé zaznamenat potíže nebo i Visual Studio havárie v prostředí Powershell v sadě Visual Studio v následujících scénářích:
+* **Problém:** Windows 10 v1511, můžou uživatelé zaznamenat potíže nebo dokonce i sady Visual Studio selhání pomocí Powershellu v sadě Visual Studio v následujících scénářích:
     * Instalace / Odinstalace balíčky, které mají install.ps1 / uninstall.ps1 skriptů
-    * Načítání projekty, které mají skript Init.ps1, způsobí (např. EntityFramework)
+    * Načítají se projekty, které mají skriptu init.ps1 (např. EntityFramework)
     * Publikování webového obsahu
 
-* **Alternativní řešení:** zajistěte, aby vaše instalace systému Windows 10 nejnovější použitých, expecially leden 2016 (KB 3124263) nebo novější aktualizace.  Další podrobnosti jsou dostupné na [potíže Githubu #1638](http://github.com/nuget/home/issues/1638)
+* **Alternativní řešení:** zajistěte, aby vaše instalace Windows 10 nejnovějších oprav použít, expecially leden 2016 (KB 3124263) nebo novější aktualizace.  Další podrobnosti jsou dostupné na [problém Githubu #1638](http://github.com/nuget/home/issues/1638)
 
 * **Problém:** Přesměrování protokolu NuGet v2 jsou přerušená.
 Vlastní úložiště NuGet, které směrují požadavky na alternativního hostitele, nerespektují požadavky přesměrování.
-* **Alternativní řešení:** tento problém obejít, nakonfigurujte identifikátor URI úložiště balíčků tak, aby odkazoval na přesměrované umístění serveru.
-Další informace najdete v tématu [Githubu žádost o přijetí změn #387](https://github.com/NuGet/NuGet.Client/pull/387).
+* **Alternativní řešení:** Pokud chcete tento problém obejít, nakonfigurujte identifikátor URI úložiště balíčků tak, aby odkazoval na přesměrované umístění serveru.
+Další informace najdete v tématu [žádosti o přijetí změn Githubu #387](https://github.com/NuGet/NuGet.Client/pull/387).
 
-Abychom mohli pokračovat ke sledování problémů na našich seznamu Githubu problémy, které najdete na: [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)
+Pokračujeme v sledování problémů v našem seznamu problémů na Githubu najdete je na: [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)

@@ -1,69 +1,68 @@
 ---
-title: Poznámky k verzi 4.6 RTM NuGet
-description: Poznámky k verzi pro včetně NuGet 4.6.0 – známé problémy, opravy chyb, přidaných funkcí a chcete.
+title: Zpráva k vydání verze NuGet 4.6 RTM
+description: Zpráva k vydání verze pro NuGet 4.6.0 včetně – známé problémy, opravy chyb, nové funkce a chcete.
 author: anangaur
 ms.author: anangaur
-manager: unnir
 ms.date: 3/7/2018
 ms.topic: conceptual
-ms.openlocfilehash: 11e604ad9a28ac2b22880a13ef9d8b41d8c09507
-ms.sourcegitcommit: 8127dd73ff8481a1a01acd9b7004dd131a9d84e7
+ms.openlocfilehash: 3c71d05144aa2b92b916d4ebf319c5a4e321581f
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34449614"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43549841"
 ---
-# <a name="nuget-46-rtm-release-notes"></a>Poznámky k verzi 4.6 RTM NuGet
+# <a name="nuget-46-rtm-release-notes"></a>Zpráva k vydání verze NuGet 4.6 RTM
 
-[Visual Studio 2017 15,6 operací RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) se dodává s [NuGet 4.6.0](https://dist.nuget.org/win-x86-commandline/v4.6.0/nuget.exe).
+[Visual Studio 2017 15.6 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) součástí [NuGet 4.6.0](https://dist.nuget.org/win-x86-commandline/v4.6.0/nuget.exe).
 
 ## <a name="summary-whats-new-in-this-release"></a>Souhrn: Novinky v této verzi
 
-* Jsme doplnili podporu pro [podepisování balíčků](../create-packages/sign-a-package.md).
-* Visual Studio 2017 a nuget.exe nyní ověří integritu balíčků před instalací, Probíhá obnovení balíčků pro [podepsané balíčky](../reference/signed-packages-reference.md).
-* Jsme vylepšili výkon následných obnovení.
+* Přidali jsme podporu pro [podepisování balíčků](../create-packages/sign-a-package.md).
+* Visual Studio 2017 a nuget.exe nyní ověří integritu balíčků před instalací, obnovují se balíčky pro [podepsaných balíčků](../reference/signed-packages-reference.md).
+* Vylepšili jsme výkon postupné obnovení.
 
 ## <a name="known-issues"></a>Známé problémy
 
-### <a name="issues-with-net-standard-20-with-net-framework--nuget"></a>Problémy s .NET standardní 2.0 pomocí rozhraní .NET Framework & NuGet 
+### <a name="issues-with-net-standard-20-with-net-framework--nuget"></a>Problémy s .NET Standard 2.0 pomocí rozhraní .NET Framework a NuGet 
 
-.NET standard & jeho nástrojů je navržené tak, aby projektech zacílených na rozhraní .NET Framework 4.6.1 může využívat balíčky NuGet & projektech zacílených na standardní rozhraní .NET 2.0 nebo dřívější. [Tento dokument](https://github.com/dotnet/standard/issues/481) shrnuje problémy kolem tento scénář, plán pro adresování a alternativní řešení můžete nasadit s je aktuální stav nástrojů.
+.NET standard a jeho nástroje je navržená tak, že projekty cílené na rozhraní .NET Framework 4.6.1 může spotřebovat balíčky NuGet & projekty cílené na .NET Standard 2.0 nebo dřívější. [Tento dokument](https://github.com/dotnet/standard/issues/481) shrnuje problémy kolem tohoto scénáře plánu pro účely řešení a alternativní řešení můžete nasadit s dnešní stavu nástrojů.
 
-## <a name="top-issues-fixed-in-this-release"></a>Horní chyby v této verzi
+## <a name="top-issues-fixed-in-this-release"></a>Nejzávažnější chyby opravené v této verzi
 
 **Opravy výkonu**
 
-* Nemáte zapisovat soubory asset, pokud se nezměnila - [#6491](https://github.com/NuGet/Home/issues/6491)
-* Obnovení způsobuje navíc MSBuild hodnocení při podřízené projekty TFM se neshodují s nadřazenou projektu - [#6311](https://github.com/NuGet/Home/issues/6311)
-* Zlepšení výkonu nedojde k žádné akci obnovení pomocí optimalizace závislostí graf specifikace vytvoření - [#6252](https://github.com/NuGet/Home/issues/6252)
+* Nezapisujte soubory prostředků, pokud není žádná změna - [#6491](https://github.com/NuGet/Home/issues/6491)
+* Obnovení způsobí, že další MSBuild hodnocení při TFM podřízené projekty se neshodují s nadřazenou projektu – [#6311](https://github.com/NuGet/Home/issues/6311)
+* Zlepšení výkonu obnovení NoOp optimalizací závislost grafu specifikace vytvoření - [#6252](https://github.com/NuGet/Home/issues/6252)
 
 **Chyby**
 
-* Nabízená do místní složky opustí nupkg uzamčení - [#6325](https://github.com/NuGet/Home/issues/6325)
-* Implementace NuGet modulu plug-in: více problémy - [#6149](https://github.com/NuGet/Home/issues/6149)
-* UIHang - odebrat dotaz volání služby z inicializace MEF v VSSolutionManager - [#6110](https://github.com/NuGet/Home/issues/6110)
-* Výjimka pro zpráv o chybách zrušena úloh stažení balíčku - [#6096](https://github.com/NuGet/Home/issues/6096)
-* Nahradí NuGet.exe '+' s % 2B v názvu sestavení - [#5956](https://github.com/NuGet/Home/issues/5956)
-* Fn + F1 nevyžaduje na stránku správnou nápovědu pro PM uživatelského rozhraní a konzoly - [#5912](https://github.com/NuGet/Home/issues/5912)
-* VS NuGet zapisuje absolutní cesty do souborů projektu v konkrétních případech - [#5888](https://github.com/NuGet/Home/issues/5888)
-* Opravte 4.3 regrese - zástupné symboly $product$ a $ $AssemblyGuid není nahrazena v contentfile prostřednictvím transformace - [#5880](https://github.com/NuGet/Home/issues/5880)
-* obnovení DotNet s více zdrojů havárií - [#5817](https://github.com/NuGet/Home/issues/5817)
-* Pack by měla znovu vyhodnotit verze projektu umožňující správu verzí git - [#4790](https://github.com/NuGet/Home/issues/4790)
-* Zlepšení pevného pochopit chyby při instalaci balíčku nekompatibilní - [#4555](https://github.com/NuGet/Home/issues/4555)
-* TemplateWizard potřebuje k instalaci balíčků jako PackageReferences - [#4549](https://github.com/NuGet/Home/issues/4549)
-* Soubory balíčku doručit props se ignorují spustíte MSBuild.exe v mimo příkazový řádek vývojáře - [#4530](https://github.com/NuGet/Home/issues/4530)
-* Opravte nízký chybová zpráva při odkazování na standardní knihovny .NET, které se nevztahuje na projektu - [#4423](https://github.com/NuGet/Home/issues/4423)
-* Přidat DotNet selže balíčku pro balíček zaměřená na přenosné profil s malým množstvím pokyny - [#4349](https://github.com/NuGet/Home/issues/4349)
-* DotNet pack - verze příponu chybí ProjectReference - [#4337](https://github.com/NuGet/Home/issues/4337)
-* Sestavení chyb a VS havárie se šablonou .NET Core - [#3973](https://github.com/NuGet/Home/issues/3973)
-* Nelze načíst index služby pro zdroj https:* - [#3681](https://github.com/NuGet/Home/issues/3681)
-* nuget.exe seznam - allversions nefunguje - [#3441](https://github.com/NuGet/Home/issues/3441)
-* Zavádějící závislostí řešení chybová zpráva - [#2984](https://github.com/NuGet/Home/issues/2984)
-* obnovení nuget.exe neobsahuje soubory props a .targets pro .msbuildproj (Regrese v v3.3.0 3.4.4 upgrade) - [#2921](https://github.com/NuGet/Home/issues/2921)
-* Zpoždění uživatelského rozhraní při aktualizaci balíčku NuGet s XAML souboru open - [#2878](https://github.com/NuGet/Home/issues/2878)
-* Projektu webu ze služby IIS se nezdaří s neplatné znaky v cestě - [#2798](https://github.com/NuGet/Home/issues/2798)
-* Nuget přidat zablokování na CentOS - [#2708](https://github.com/NuGet/Home/issues/2708)
-* Obnovení s packagesavemode - nupkg selže technologie json.net - [#2706](https://github.com/NuGet/Home/issues/2706)
-* Správce balíčků filtru není k dispozici v sadě vs výstup okna pro příkaz restore - [#2704](https://github.com/NuGet/Home/issues/2704)
+* Metodou push do místní složky opustí nupkg uzamčen - [#6325](https://github.com/NuGet/Home/issues/6325)
+* Implementace modulu plug-in NuGet: několik problémů - [#6149](https://github.com/NuGet/Home/issues/6149)
+* UIHang - odebrat dotaz volání služby od inicializace MEF v VSSolutionManager - [#6110](https://github.com/NuGet/Home/issues/6110)
+* Výjimky pro hlášení chyb zrušit úlohy stahování balíčku - [#6096](https://github.com/NuGet/Home/issues/6096)
+* Nahradí NuGet.exe '+' s '% 2B' v sestavení názvu - [#5956](https://github.com/NuGet/Home/issues/5956)
+* Fn + F1 nepřijímá na stránku odbornou pomoc pro PM uživatelského rozhraní a konzolu - [#5912](https://github.com/NuGet/Home/issues/5912)
+* VS NuGet zapíše absolutní cesty do souborů projektu za specifických podmínek - [#5888](https://github.com/NuGet/Home/issues/5888)
+* Oprava regrese 4.3 - zástupné symboly $product$ a $AssemblyGuid$ není nahrazena v contentfile prostřednictvím transformací – [#5880](https://github.com/NuGet/Home/issues/5880)
+* DotNet restore s chybovými ukončeními více zdrojů - [#5817](https://github.com/NuGet/Home/issues/5817)
+* Balíček by se měl znovu vyhodnotit verze projektu k povolení správy verzí git - [#4790](https://github.com/NuGet/Home/issues/4790)
+* Zlepšení intenzivně pochopit chyby při instalaci nekompatibilní balíček – [#4555](https://github.com/NuGet/Home/issues/4555)
+* Možnost instalace balíčků jako PackageReferences - potřebuje TemplateWizard [#4549](https://github.com/NuGet/Home/issues/4549)
+* Soubory balíčku doručit vlastností ignoruje při MSBuild.exe spuštění z mimo příkazový řádek vývojáře - [#4530](https://github.com/NuGet/Home/issues/4530)
+* Oprava nízký chybová zpráva při odkazování na standardní knihovny .NET, který se nedá použít k projekci - [#4423](https://github.com/NuGet/Home/issues/4423)
+* příkaz DotNet add balíčku selže cílení přenosné profilu balíček s trochu poradit - [#4349](https://github.com/NuGet/Home/issues/4349)
+* balíčku DotNet - suffix verze chybí ProjectReference - [#4337](https://github.com/NuGet/Home/issues/4337)
+* Vytváření chyb a selhání VS se šablonou .NET Core – [#3973](https://github.com/NuGet/Home/issues/3973)
+* Nepovedlo se načíst index služby pro zdroj https:* - [#3681](https://github.com/NuGet/Home/issues/3681)
+* nuget.exe list - allversions nefunguje - [#3441](https://github.com/NuGet/Home/issues/3441)
+* Zavádějící závislost rozlišení chybová zpráva - [#2984](https://github.com/NuGet/Home/issues/2984)
+* obnovení nuget.exe nevytvoří .props a .targets soubory pro .msbuildproj (regrese v3.3.0 3.4.4 upgradu) - [#2921](https://github.com/NuGet/Home/issues/2921)
+* Zpoždění uživatelského rozhraní při aktualizaci balíčku NuGet s XAML soubor otevřen - [#2878](https://github.com/NuGet/Home/issues/2878)
+* Projektu web služby IIS se nezdaří neplatné znaky v cestě - [#2798](https://github.com/NuGet/Home/issues/2798)
+* Přidat Nuget. program přestane reagovat na CentOS - [#2708](https://github.com/NuGet/Home/issues/2708)
+* Obnovení s packagesavemode - nupkg selže u json.net - [#2706](https://github.com/NuGet/Home/issues/2706)
+* Správce balíčků filtru není k dispozici v sadě Visual Studio výstupní okno pro příkaz restore - [#2704](https://github.com/NuGet/Home/issues/2704)
 
-[Seznam všechny chyby v této verzi](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.6")
+[Seznam všech problémů, které jsou opravené v této verzi](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.6")

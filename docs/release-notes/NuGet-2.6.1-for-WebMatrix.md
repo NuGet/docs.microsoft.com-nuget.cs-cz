@@ -1,60 +1,59 @@
 ---
-title: NuGet 2.6.1 poznámky k verzi služby WebMatrix
-description: Poznámky k verzi pro NuGet 2.6.1 pro službu WebMatrix, včetně známé problémy, opravy chyb, přidaných funkcí a chcete.
+title: NuGet 2.6.1 pro WebMatrix poznámky
+description: Zpráva k vydání verze pro NuGet 2.6.1 pro WebMatrix, včetně známých problémů, opravy chyb, nové funkce a chcete.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 3d767788d348553cbb5cb82c6f70aac1894628c3
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 10d80a921cbc34b537f91644da97efc44530fa75
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31818402"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43550314"
 ---
-# <a name="nuget-261-for-webmatrix-release-notes"></a>NuGet 2.6.1 poznámky k verzi služby WebMatrix
+# <a name="nuget-261-for-webmatrix-release-notes"></a>NuGet 2.6.1 pro WebMatrix poznámky
 
-[Poznámky k verzi NuGet 2.6](../release-notes/nuget-2.6.md) | [NuGet 2.7 poznámky k verzi](../release-notes/nuget-2.7.md)
+[Zpráva k vydání verze NuGet 2.6](../release-notes/nuget-2.6.md) | [zpráva k vydání verze NuGet 2.7](../release-notes/nuget-2.7.md)
 
-Týmem NuGet vydala aktualizované rozšíření Správce balíčků NuGet pro službu WebMatrix 26 března 2014.  Tato aktualizace se dá nainstalovat z [Galerie rozšíření prostředí WebMatrix](https://blogs.iis.net/webmatrix/retiring-the-webmatrix-extensions-gallery) pomocí následujících kroků:
+Tým NuGet vydána aktualizace rozšíření Správce balíčků NuGet pro službu WebMatrix 26. března 2014.  Tato aktualizace se dá nainstalovat z [Galerie rozšíření nástroje WebMatrix](https://blogs.iis.net/webmatrix/retiring-the-webmatrix-extensions-gallery) pomocí následujících kroků:
 
-1. Otevřete službu WebMatrix 3
-1. Klikněte na ikonu rozšíření na pásu karet Domů
+1. Otevřete nástroj WebMatrix 3
+1. Klepněte na ikonu rozšíření na pásu karet Domů
 1. Vyberte kartu aktualizace
-1. Klikněte na tlačítko Aktualizovat na verzi 2.6.1 Správce balíčků NuGet
+1. Klikněte na tlačítko Aktualizovat správce balíčků NuGet 2.6.1
 1. Zavřete a znovu spusťte službu WebMatrix 3
 
 ## <a name="notable-changes"></a>Upozorňují na důležité změny
 
-Tato rozšíření aktualizace řeší dva největších problémů uživatelů mají potýkají náročné balíčků NuGet v rámci služby WebMatrix.  První došlo k chybě verze schématu NuGet a druhý byl chyby vedoucí k knihovny DLL nula bajtů v `bin` složky.
+Tato rozšíření aktualizace řeší dvou největších problémů uživatelů mají ve využívání balíčků NuGet v rámci služby WebMatrix.  První: došlo k chybě schématu verze NuGet a druhým byla chyba vede na nula bajtů knihovny DLL v `bin` složky.
 
 ### <a name="nuget-schema-version-error"></a>Chyba verze schématu NuGet
 
-Vzhledem k tomu, že byl vydán služba WebMatrix 3, byly zavedeny nové funkce do NuGet, které vyžadují novou verzi schématu pro balíčky NuGet.  Při pokusu o spravovat vaše balíčky NuGet ve vašem webu, tyto nové balíčky může vést k chybám, které se zobrazí ve službě WebMatrix.
+Od vydání služby WebMatrix 3 byly zavedeny nové funkce do NuGet, které vyžadují nové schéma verze pro balíčky NuGet.  Při pokusu o správu vašich balíčků NuGet na vašem webu, tyto nové balíčky může vést k chybám, které se zobrazí ve službě WebMatrix.
 
-![Došlo k chybě. Verze schématu není kompatibilní. Prosím upgradujte rozšíření NuGet na nejnovější verzi.](./media/NuGet-2.8/webmatrix-schema-version.png)
+![Došlo k chybě. Verze schématu není kompatibilní. Upgradujte prosím NuGet na nejnovější verzi.](./media/NuGet-2.8/webmatrix-schema-version.png)
 
-Tato nejnovější verze poskytuje kompatibilitu s nejnovější balíčky NuGet, brání výskytu této chyby. Nové verze, včetně Microsoft.AspNet.WebPages balíčky můžete nyní nainstalovat ve službě WebMatrix.  Některé z těchto balíčků byly pomocí funkce NuGet, jako [XDT konfigurační transformaci](../release-notes/nuget-2.6.md#xdt), který dosud nebyl podporován ve službě WebMatrix.
+Tato nejnovější vydaná verze poskytuje kompatibilitu s nejnovějšími balíčky NuGet, brání výskytu této chyby. Nové verze balíčků, včetně Microsoft.AspNet.WebPages lze nyní nainstalovat ve Webmatrixu.  Některé z těchto balíčků byly jako například používání funkcí NuGet [XDT konfigurační transformaci](../release-notes/nuget-2.6.md#xdt), který nebyl podporován ve službě WebMatrix až doteď.
 
-### <a name="zero-byte-dlls-in-bin-folder"></a>Nula bajtů knihovny DLL ve složce Koš
+### <a name="zero-byte-dlls-in-bin-folder"></a>Nula bajtů knihovny DLL ve složce bin
 
-Někteří uživatelé hlásili, která po instalaci NuGet zabalí ve službě WebMatrix, které zahrnují knihovny DLL, které jsou kopírovány do přihrádky, který zobrazení knihovny DLL v `bin` složky jako soubory 0 bajtů.  Tím se přeruší aplikace za běhu.
+Někteří uživatelé nahlásili, která po instalaci NuGet zabalí ve službě WebMatrix, které obsahují knihovny DLL, které se zkopíruje do adresáře bin, který zobrazit knihovny DLL v `bin` složky jako soubory 0 bajtů.  Tím je prolomen aplikace za běhu.
 
-[Tento problém](https://nuget.codeplex.com/workitem/4060) nyní byl opraven.
+[Tento problém](https://nuget.codeplex.com/workitem/4060) nyní byla opravena.
 
-## <a name="other-recent-improvements"></a>Další vylepšení poslední
+## <a name="other-recent-improvements"></a>Další nedávné vylepšení
 
-Když 2.8 Správce balíčků NuGet byl vydán pro sadu Visual Studio, vydala společnost Microsoft také Správce balíčků NuGet 2.5.0 pro službu WebMatrix.  Pokud to bylo uvedeno v [poznámky k verzi 2.8 NuGet](../release-notes/nuget-2.8.md#webmatrix-nuget-client-updates), nebyla jsme zmínili, konkrétní nových funkcí tuto aktualizaci zavedená.
+Pokud pro sadu Visual Studio byla vydána 2.8 Správce balíčků NuGet, jsme také vydali Správce balíčků NuGet 2.5.0 pro službu WebMatrix.  Když to jsem už zmínili v [zpráva k vydání verze NuGet 2.8](../release-notes/nuget-2.8.md#webmatrix-nuget-client-updates), jsme neměli uvést konkrétní novým funkcím tuto aktualizaci zavedena.
 
-### <a name="update-all"></a>Aktualizuje všechny
+### <a name="update-all"></a>Aktualizovat vše
 
-Teď můžete aktualizovat všechny balíčky webové stránky v jednom kroku!  Když otevřete rozšíření NuGet ve službě WebMatrix, zobrazí seznam všech balíčků v galerii, nainstalované a ty aktualizace, které jsou k dispozici.  Dříve se jednotlivě aktualizovat všechny balíčky, ale nyní je užitečné tlačítko "Aktualizovat vše", které se zobrazí na kartě aktualizace.
+Teď můžete aktualizovat všechny balíčky webové stránky v jednom kroku.  Při otevření rozšíření NuGet v nástroji WebMatrix zobrazí seznam všech balíčků ve galerii, které máte nainstalované a ty s aktualizacemi, které jsou k dispozici.  Dříve všech balíčků byste museli možné aktualizovat jednotlivě, ale teď je užitečné tlačítko "Aktualizovat vše", který se zobrazuje na kartě aktualizace.
 
-![Klikněte na Aktualizovat vše aktualizovat všechny balíčky s aktualizacemi, k dispozici](./media/NuGet-2.8/webmatrix-update-all.png)
+![Klikněte na tlačítko Aktualizovat vše aktualizovat všechny balíčky dostupnými aktualizacemi](./media/NuGet-2.8/webmatrix-update-all.png)
 
 ### <a name="overwrite-existing-files"></a>Přepsat existující soubory
 
-Při instalaci balíčků, které obsahují soubory, které již existují na webovém serveru, NuGet ignorovala vždy bezobslužně tyto soubory (a nechat existující soubory samostatně).  To může vést k dojem, že byl nainstalován balíček, nebo správně aktualizován, když ve skutečnosti fungovat.  NuGet se nyní zobrazí výzvu k přepisovat soubory.
+Při instalaci balíčků, které obsahují soubory, které již existují na vašem webu, NuGet má vždy jen tiše ignorováno těchto souborů (existující soubory opuštění samostatně).  To může vést k dojem, že balíček byl nainstalovány nebo aktualizovány správně, když ve skutečnosti nebylo.  NuGet teď vyzve pro soubory přepsání.
 
 ![Řešení konfliktů souborů](./media/NuGet-2.8/webmatrix-overwrite-file.png)

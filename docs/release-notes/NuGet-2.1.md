@@ -1,38 +1,37 @@
 ---
 title: Poznámky k verzi 2.1 NuGet
-description: Poznámky k verzi pro NuGet 2.1 včetně známé problémy, opravy chyb, přidaných funkcí a chcete.
+description: Zpráva k vydání verze NuGet 2.1, včetně známých problémů, opravy chyb, nové funkce a chcete.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 3b7a000098a7362f4b1c2c4072c6cd1468baf9b5
-ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
+ms.openlocfilehash: fd6dadc7968991c77c1b06a6a261415355b2fd73
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32044805"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43548594"
 ---
 # <a name="nuget-21-release-notes"></a>Poznámky k verzi 2.1 NuGet
 
-[Poznámky k verzi NuGet 2.0](../release-notes/nuget-2.0.md) | [NuGet 2.2 poznámky k verzi](../release-notes/nuget-2.2.md)
+[Zpráva k vydání verze NuGet 2.0](../release-notes/nuget-2.0.md) | [zpráva k vydání verze NuGet 2.2](../release-notes/nuget-2.2.md)
 
-4. října 2012 byla vydána NuGet 2.1.
+NuGet 2.1 byla vydána 4. října 2012.
 
-## <a name="hierarchical-nugetconfig"></a>Hierarchická soubor nuget.config.
+## <a name="hierarchical-nugetconfig"></a>Hierarchické soubor Nuget.Config
 
-NuGet 2.1 vám dává větší flexibilitu při řízení nastavení NuGet prostřednictvím rekurzivně proti si strukturu složek hledání `NuGet.Config` soubory a pak vytváření konfigurace ze sady všech nalezených souborů.  Jako příklad vezměte v úvahu scénář, kde má tým úložiště interní balíčků pro položky konfigurace sestavení z jiných vnitřní závislosti. Struktura složek pro jednotlivé projekt může vypadat následovně:
+NuGet 2.1 získáte větší flexibilitu při řízení nastavení NuGet prostřednictvím rekurzivně walking nahoru strukturu složek hledání `NuGet.Config` soubory a pak sestavení konfigurace ze sady všechny nalezené soubory.  Jako příklad vezměte v úvahu scénář, ve kterém má tým jako interní balíček úložiště pro průběžné integrované sestavení další vnitřní závislosti. Struktura složek pro jednotlivé projekt může vypadat nějak takto:
 
     C:\
     C:\myteam\
     C:\myteam\solution1
     C:\myteam\solution1\project1
 
-Kromě toho pokud obnovení balíčku je povolená pro řešení, do následující složky budou existovat také:
+Kromě toho pokud obnovení balíčků je povolená pro řešení, do následující složky budou také existovat:
 
     C:\myteam\solution1\.nuget
 
-Aby bylo možné používat úložiště na interní balíčků tým služby, které jsou k dispozici pro všechny projekty, které tým funguje, při není ji dáte k dispozici pro každý projekt na počítači, můžeme vytvoření nového souboru Nuget.Config a umístěte jej do složky c:\myteam. Neexistuje žádný způsob, jak na určením složku balíčků pro projekt.
+Abyste měli úložiště interní balíček týmu k dispozici pro všechny projekty, které tým pracuje na, zároveň nejsou k dispozici pro každý projekt na počítači, můžeme vytvořte nový soubor Nuget.Config a umístěte ho do složky c:\myteam. Neexistuje žádný způsob pro zadejte složku balíčků každý projekt.
 
 ```xml
 <configuration>
@@ -46,23 +45,23 @@ Aby bylo možné používat úložiště na interní balíčků tým služby, kt
 </configuration>
 ```
 
-Teď vidíme, že byl přidán zdroj spuštěním příkazu 'nuget.exe zdroje' z libovolné složky pod c:\myteam jak je uvedeno níže:
+Můžeme nyní vidět, že byl přidán zdroj spuštěním příkazu 'nuget.exe zdroje' z libovolné složky pod c:\myteam jak je znázorněno níže:
 
 ![Zdroje balíčků z konfigurace nadřazené nuget](./media/releasenotes-21-cfg-hierarchy.png)
 
-`NuGet.Config` soubory jsou vyhledávány v následujícím pořadí:
+`NuGet.Config` soubory se vyhledávají v následujícím pořadí:
 
 1. `.nuget\Nuget.Config`
-2. Provede rekurzivní ze složky projektu kořenovou
+2. Provede rekurzivní ze složky projektu do kořenového adresáře
 3. Globální `Nuget.Config` (`%appdata%\NuGet\Nuget.Config`)
 
-Tyto konfigurace se než použijí v *pořadí*, znamená to, že je založeno na výše uvedené pořadí, globální Nuget.Config by se použije první, následuje zjištěných Nuget.Config soubory z kořenové složky projektu, a potom podle `.nuget\Nuget.Config`.  To je zvlášť důležité, pokud používáte `<clear/>` elementu, který chcete odebrat sadu položek z konfigurace.
+Tyto konfigurace se než v použít *pořadí*, to znamená, že podle výše uvedených řazení, globální Nuget.Config by být použije první, za nímž následuje zjištěných Nuget.Config soubory z kořenového adresáře do složky projektu, a potom podle `.nuget\Nuget.Config`.  To je zvlášť důležité, pokud používáte `<clear/>` prvek, který chcete odebrat z konfigurace sady položek.
 
-## <a name="specify-packages-folder-location"></a>Zadejte umístění složky ' balíčky.
+## <a name="specify-packages-folder-location"></a>Zadejte "balíčků' umístění složky
 
-V minulosti má NuGet spravované balíčků řešení ze složky známé, balíčky, nalezeno pod kořenové složky řešení.  Pro vývojové týmy, které mají mnoho různých řešení, které mají nainstalované balíčky NuGet to může způsobit ve stejném balíčku instaluje na mnoha různých místech v systému souborů.
+V minulosti má NuGet se spravovaným balíčků řešení ze složky známé "packages" nalezena pod kořenové složky řešení.  Pro vývojové týmy, které mají mnoho různých řešení, které mají nainstalované balíčky NuGet to může způsobit stejného balíčku instaluje v mnoha různých míst v systému souborů.
 
-NuGet 2.1 poskytuje podrobnější kontrolu nad umístění složky balíčky prostřednictvím `repositoryPath` element v `NuGet.Config` souboru.  Vytváření v předchozím příkladu hierarchické Nuget.Config podpory, předpokládá, že chceme mít všechny projekty v části C:\myteam\ sdílet stejnou složku balíčků.  K tomu jednoduše přidejte následující položku na `c:\myteam\Nuget.Config`.
+NuGet 2.1 poskytuje podrobnější kontrolu nad umístění složky balíčků prostřednictvím `repositoryPath` prvek `NuGet.Config` souboru.  Staví na předchozí příklad podporu hierarchických Nuget.Config, se předpokládá, že chceme mít všechny projekty v rámci C:\myteam\ sdílet stejnou složku balíčků.  K tomu jednoduše přidejte následující položku do `c:\myteam\Nuget.Config`.
 
 ```xml
 <configuration>
@@ -73,60 +72,60 @@ NuGet 2.1 poskytuje podrobnější kontrolu nad umístění složky balíčky pr
 </configuration>
 ```
 
-V tomto příkladu sdílený `Nuget.Config` soubor Určuje balíčky sdílené složky pro každý projekt, který se vytvoří pod C:\myteam, bez ohledu na to hloubka. Poznámka: Pokud máte existující balíčky složce pod kořenového adresáře řešení, budete muset odstranit před NuGet umístí balíčky v novém umístění.
+V tomto příkladu, sdílený `Nuget.Config` souboru určuje sdílených balíčků složku pro každý projekt, který je vytvořen pod C:\myteam, bez ohledu na to hloubku. Poznámka: Pokud máte existující složku balíčků pod kořenového adresáře řešení, musíte odstranit ho před NuGet umístí balíčky v novém umístění.
 
 ## <a name="support-for-portable-libraries"></a>Podpora pro přenosné knihovny
 
-[Přenosné knihovny](/dotnet/standard/cross-platform/cross-platform-development-with-the-portable-class-library) je funkce poprvé .NET 4, který vám umožní sestavovat sestavení, které můžete pracovat bez úprav na různých platformách Microsoft, z verzí rozhraní.NET Framework pro Silverlight pro Windows Phone a i Xbox 360 (i když v současné době nepodporuje NuGet cíl přenosné knihovny Xbox).  Tím, že rozšíří [balíček konvence](../create-packages/supporting-multiple-target-frameworks.md) profilů a framework verze NuGet 2.1 teď podporuje přenosné knihovny tím, že vám vytvořit balíčky, které mají složené framework a profil cíle `lib` složek.
+[Přenosné knihovny](/dotnet/standard/cross-platform/cross-platform-development-with-the-portable-class-library) je funkce zavedená pomocí rozhraní .NET 4, která umožňuje vytvářet sestavení, které budou fungovat bez úprav na různých platformách společnosti Microsoft, od verzí rozhraní.NET Framework pro Silverlight pro Windows Phone a Xbox i 360 (i když se v tuto chvíli nepodporuje NuGet cílové Xbox přenosné knihovny).  Tím, že rozšíří [balíček konvence](../create-packages/supporting-multiple-target-frameworks.md) profilů a verze rozhraní framework NuGet 2.1 teď podporuje přenosných knihoven tím, že vám vytvořit balíčky, které mají složené framework a profil cílového `lib` složek.
 
-Jako příklad zvažte následující knihovny přenosných tříd dostupných cílových platforem.
+Jako příklad zvažte následující knihovny přenosných tříd k dispozici cílové platformy.
 
 ![Dialogové okno Vytvoření přenosné knihovny](./media/releasenotes-21-plib.png)
 
-Jakmile je vytvořen knihovny a příkaz `nuget.exe pack MyPortableProject.csproj` běží, nové přenositelností struktura složek balíček knihovny můžete zobrazit tak, že prověří obsah vygenerovaný balíček NuGet.
+Po sestavení knihovny a příkaz `nuget.exe pack MyPortableProject.csproj` spuštění nové přenosné knihovny struktury složky balíčku můžou vidět zkoumání obsahu vygenerovaný balíček NuGet.
 
-![Přenosná knihovna balíček rozložení](./media/releasenotes-21-plib-layout.png)
+![Přenosná knihovna rozložení balíčku](./media/releasenotes-21-plib-layout.png)
 
-Jak vidíte, konvence název složky přenosné knihovny se následující 'přenosné-{framework 1} + {framework n}' kde identifikátory framework podle existující [framework název a verze konvence](../reference/target-frameworks.md). Jedinou výjimkou konvence název a verzi nachází v identifikátoru framework se používá pro Windows Phone.  Tato Přezdívka měli použít název rozhraní "wp" (wp7, wp71 nebo wp8). Pomocí "silverlight-wp7", například bude výsledkem chyba.
+Jak je vidět, konvence název složky přenosné knihovny odpovídá vzoru "portable-{framework 1} + {framework n}" kde identifikátory framework použijte existující [konvence název a verzi rozhraní framework](../reference/target-frameworks.md). Jedinou výjimkou konvence názvem a verzí se nachází v rámci identifikátor použitý pro Windows Phone.  Tento zástupný název by měl použít název rozhraní "wp" (wp7, wp71 nebo wp8). Použití "wp7 silverlight", například způsobí chybu.
 
-Při instalaci balíčku, který je vytvořený z této struktura složek, NuGet nyní pravidla můžete použít jeho framework a profil pro více cílů, jako je zadaný v názvu složky.  Za pravidel porovnávání NuGet je Princip "konkrétnější" cíle má přednost před "méně specifických".  To znamená, že monikery cílení na konkrétní platformu vždy upřednostňované přes přenosné ty Pokud jsou oba kompatibilní s projektem.  Kromě toho pokud víc přenosného cíle jsou kompatibilní s projektem, NuGet přednost jeden, kde je "nejbližší" do projektu balíček odkazování na sadu platformy podporované.
+Při instalaci balíčku, který je vytvořen z tuto strukturu složek, NuGet teď používat jeho rozhraní framework a profil pravidla více cílů, jak je uvedeno ve složce s názvem.  Za pravidla pro porovnávání NuGet je Princip "konkrétnější" cíle má přednost před těmi "specifické pro less".  To znamená, že monikery cílení na konkrétní platformu vždy upřednostňované nad přenosné ty Pokud jsou oba kompatibilní s projektem.  Kromě toho pokud více přenosné cíle jsou kompatibilní s projektem, NuGet preferovali jeden, kde je "nejbližší" do projektu balíček odkazování na sadu podporované platformy.
 
-## <a name="targeting-windows-8-and-windows-phone-8-projects"></a>Cílení Windows 8 a Windows Phone 8 projekty
+## <a name="targeting-windows-8-and-windows-phone-8-projects"></a>Cílení na Windows 8 a Windows Phone 8 projekty
 
-Kromě přidání podpory pro cílení na přenosné knihovny projekty, NuGet 2.1 poskytuje nové monikery framework pro projekty úložiště systému Windows 8 a Windows Phone 8, jakož i některé nové obecné zástupných názvů pro Windows Store a Windows Phone projekty, které budou snazší správa v budoucích verzích příslušné platformy.
+Kromě přidání podpory pro cílení na projekty přenosných knihoven, NuGet 2.1 poskytuje nové rozhraní framework monikery pro projekty Windows Store 8 a Windows Phone 8, jakož i některé nové obecné monikery pro Windows Store a Windows Phone projekty, které budou snazší správa v budoucích verzích příslušné platformy.
 
-Pro aplikace pro Windows 8 Store identifikátory vypadat takto:
+Identifikátory pro aplikace Windows Store 8 vypadat takto:
 
 | NuGet 2.0 a starší | NuGet 2.1 |
 | ---------------- | ----------- |
-| winRT45, .NETCore45 | Windows, Windows8, win, win8 |
+| winRT45, .NETCore45 | Windows, Windows8, Windows, win8 |
 
 <br/>
-Pro projekty Windows Phone identifikátorů vypadat takto:
+Pro projekty Windows Phone identifikátory vypadat takto:
 
 | Phone OS | NuGet 2.0 a starší | NuGet 2.1 |
 | --- | --- | --- |
-| Windows Phone 7 | silverlight3-wp | webové části, WindowsPhone7 wp7, WindowsPhone, |
+| Windows Phone 7 | silverlight3-wp | webové části, WindowsPhone7 wp7 WindowsPhone, |
 | Windows Phone 7.5 (Mango) | silverlight4 wp71 | wp71, WindowsPhone71 |
-| Windows Phone 8 | (není podporována) | wp8, WindowsPhone8 |
+| Windows Phone 8 | (nepodporováno) | wp8, WindowsPhone8 |
 
 <br/>
-Ve všech výše uvedených změny budou nadále původní názvy framework plně podporovat NuGet 2.1.  Klouzavý dopředu, nové názvy je třeba použít jak budou stabilnější v budoucích verzích příslušné platformy. Nové názvy bude *není* se nepodporuje ve verzích NuGet před 2.1, ale, takže podle toho naplánovat pro případ, aby přepínač.
+Ve všech výše uvedené změny bude nadále staré názvy framework plné podpory společností NuGet 2.1.  V budoucnu, nové názvy by měla sloužit jako, v budoucích verzích příslušné platformy bude stabilnější. Nové názvy se *není* se nepodporuje v verze NuGet starší než 2.1, ale to podle toho naplánujte pro případ přechod usnadní.
 
 ## <a name="improved-search-in-package-manager-dialog"></a>Vylepšené vyhledávání v dialogovém okně Správce balíčků
 
-Změny byly zavedeny v posledních několika iterací, do Galerie NuGet, který výrazně Vylepšená rychlost a relevance balíček hledání.  Tato vylepšení byly však omezeny na nuget.org Web.  NuGet 2.1 zpřístupňuje vylepšené vyhledávání prostředí prostřednictvím dialogové okno Správce balíčků NuGet.  Jako příklad Představte si, že jste chtěli najít balíček Windows Azure ukládání do mezipaměti Preview.  Přiměřené vyhledávací dotaz pro tento balíček může být "Azure Cache".  V předchozích verzích dialogové okno Správce balíčku nebude požadovaný balíček uvedený i na první stránce výsledků.  Ale v NuGet 2.1 požadované balíčku se zobrazí v horní části výsledků vyhledávání.
+V posledních několika iterací změny byly zavedeny do Galerie NuGet, který výrazně zlepšit rychlost a relevance vyhledávání balíčků.  Nicméně tato vylepšení byla omezena na webu nuget.org.  NuGet 2.1 zpřístupňuje vylepšené vyhledávání prostředí přes dialogové okno Správce balíčků NuGet.  Jako příklad Představte si, že byste chtěli najít balíček ve verzi Preview ukládání do mezipaměti na Windows Azure.  "Azure Cache" může být rozumné vyhledávací dotaz pro tento balíček.  V předchozích verzích dialogové okno Správce balíčků nebude požadovaný balíček i uvedena na první stránku výsledků.  Ale v NuGet 2.1 požadovaný balíček nyní zobrazí v horní části výsledků vyhledávání.
 
-![Balíček správce dialogové okno hledání](./media/releasenotes-21-vsdlg-search.png)
+![Hledání dialogové okno Správce balíčků](./media/releasenotes-21-vsdlg-search.png)
 
 ## <a name="force-package-update"></a>Vynucení aktualizace balíčku
 
-Před 2.1 NuGet, které by NuGet přeskočit aktualizace balíčku, pokud došlo není číslo vysoké verze.  To se zavedl třecí pro určité scénáře – zejména v případě sestavení nebo CI scénáře, kde týmem nechtěli se zvýší číslo s každé sestavení verze balíčku.  Toto chování žádoucí bylo vynutit aktualizaci bez ohledu na to.  NuGet 2.1 řeší to s příznakem 'přeinstalujte'.  Předchozí verze NuGet například by způsobilo následující při pokusu o aktualizaci balíčku, který neměl novější verze balíčku:
+Před NuGet 2.1 NuGet by přeskočit aktualizace balíčku, pokud došlo a nikoli číslo vyšší číslo verze.  To zavedené případná problémová místa pro určité scénáře – zejména v případě sestavení nebo CI scénáře, ve kterém tým nechtěli zvyšovat číslo každé sestavení verze balíčku.  Chcete vynutit aktualizaci bez ohledu na to je požadované chování.  NuGet 2.1 řeší to s příznakem "přeinstalovat".  Například předchozí verze balíčku nuget by výsledkem bylo toto při pokusu o aktualizaci balíčku, který nemá novější verze balíčku:
 
     PM> Update-Package Moq
     No updates available for 'Moq' in project 'MySolution.MyConsole'.
 
-S příznakem přeinstalovat, bude aktualizován balíček bez ohledu na to, jestli existuje novější verze.
+S příznakem reinstall bude aktualizován balíček bez ohledu na to, zda je k dispozici novější verze.
 
     PM> Update-Package Moq -Reinstall
     Successfully removed 'Moq 4.0.10827' from MySolution.MyConsole.
@@ -134,14 +133,14 @@ S příznakem přeinstalovat, bude aktualizován balíček bez ohledu na to, jes
     Successfully installed 'Moq 4.0.10827'.
     Successfully added 'Moq 4.0.10827' to MySolution.MyConsole.
 
-Jiné scénáře, kde prokáže výhodné příznak přeinstalovat je, že znovu cílových framework. Při změně cílový framework projektu (například z .NET 4 na rozhraní .NET 4.5), balíček aktualizace-přeinstalujte můžete aktualizovat odkazy na správné sestavení pro všechny balíčky NuGet, které jsou nainstalované v projektu.
+Jiný scénář, kde prokáže příznak reinstall výhodné je znovu cílení rozhraní. Při změně cílové rozhraní projektu (například z .NET 4 na rozhraní .NET 4.5), Update-Package-přeinstalujte můžete aktualizovat odkazy na správné sestavení pro všechny balíčky NuGet v projektu nainstalován.
 
-## <a name="edit-package-sources-within-visual-studio"></a>Upravit zdroje balíčků ve Visual Studiu
+## <a name="edit-package-sources-within-visual-studio"></a>Upravit zdroje balíčků v rámci sady Visual Studio
 
-V předchozích verzích NuGet aktualizace zdroj balíčku z v rámci dialogové okno Možnosti sady Visual Studio vyžaduje odstranění a znovu přidat zdroj balíčku.  Podpora aktualizace jako první třídy funkce uživatelského rozhraní pro konfiguraci zlepšuje NuGet 2.1 Tento pracovní postup.
+V předchozích verzích balíčku nuget aktualizuje se zdroj balíčku z v rámci dialogové okno Možnosti sady Visual Studio vyžaduje odstranit a znovu přidat zdroj balíčku.  NuGet 2.1 Tento pracovní postup zlepšuje podporu aktualizace jako funkce první třídy uživatelské rozhraní konfigurace.
 
-![Dialogové okno Konfigurace správce balíčku](./media/releasenotes-21-edit-pkg-source.png)
+![Dialogové okno Konfigurace Správce balíčků](./media/releasenotes-21-edit-pkg-source.png)
 
 ## <a name="bug-fixes"></a>Opravy chyb
 
-NuGet 2.1 obsahuje opravy mnoha chyb. Úplný seznam pracovní položky pevná ve NuGet 2.0, prosím zobrazení [sledovací modul problém NuGet pro tuto verzi](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Fixed&type=All&priority=All&release=NuGet%202.1&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0).
+NuGet 2.1 obsahuje řadu oprav chyb. Úplný seznam pracovních položek opravených NuGet 2.0 prosím zobrazení [NuGet sledování problémů pro tuto verzi](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Fixed&type=All&priority=All&release=NuGet%202.1&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0).

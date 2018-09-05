@@ -1,22 +1,21 @@
 ---
-title: Poznámky k verzi NuGet 2.7.1
-description: Poznámky k verzi pro NuGet 2.7.1 včetně – známé problémy, opravy chyb, přidaných funkcí a chcete.
+title: Zpráva k vydání verze NuGet 2.7.1
+description: Zpráva k vydání verze pro NuGet 2.7.1 včetně – známé problémy, opravy chyb, nové funkce a chcete.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 7ed037c6f149f6c45abf2113fcda1b507c222589
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 218a86f419a9a4a2cb6f35bf7bdfa8f65fdc1dee
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31819032"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43551575"
 ---
-# <a name="nuget-271-release-notes"></a>Poznámky k verzi NuGet 2.7.1
+# <a name="nuget-271-release-notes"></a>Zpráva k vydání verze NuGet 2.7.1
 
-[Poznámky k verzi NuGet 2.7](../release-notes/nuget-2.7.md) | [NuGet 2.7.2 poznámky k verzi](../release-notes/nuget-2.7.2.md)
+[Zpráva k vydání verze NuGet 2.7](../release-notes/nuget-2.7.md) | [zpráva k vydání verze NuGet 2.7.2](../release-notes/nuget-2.7.2.md)
 
-NuGet 2.7.1 byla vydána 7 říjen 2013.  Toto je menší aktualizace našich poslední verze 2.7 s některé cílové opravy lepší 2.7 nových funkcí. Seznam pracovní položky pevná ve NuGet 2.7.1, prosím zobrazení [sledovací modul problém NuGet pro tuto verzi](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=NuGet%202.7.1&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0).
+7. října 2013 byla vydána NuGet 2.7.1.  Toto je dílčí aktualizace našich poslední verze 2.7 některé cílová opravy vylepšit celkovou funkčnost nových funkcí 2.7. Seznam pracovních položek opravených NuGet 2.7.1, prosím zobrazení [NuGet sledování problémů pro tuto verzi](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=NuGet%202.7.1&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0).
 
-Kompletní sadu funkcí v 2.7 lze nalézt v [poznámky k verzi](../release-notes/nuget-2.7.md) sem.
+Kompletní sadu funkcí v 2.7 najdete v [poznámky k verzi](../release-notes/nuget-2.7.md) tady.

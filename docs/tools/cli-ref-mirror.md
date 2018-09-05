@@ -1,26 +1,25 @@
 ---
-title: Příkaz zrcadlení NuGet rozhraní příkazového řádku
-description: Referenční dokumentace pro příkaz nuget.exe zrcadlení
+title: Rozhraní příkazového řádku NuGet zrcadlový svazek
+description: Referenční informace pro příkaz zrcadlení nuget.exe
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 4cec854f05fcd207bb15a50ea4ebdc201fdb3ac6
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: d3a322e16c4ba212a856e9bf4d2eaab2872c31b6
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818149"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43550203"
 ---
 # <a name="mirror-command-nuget-cli"></a>Příkaz mirror (NuGet CLI)
 
-**Platí pro:** balíček publikování &bullet; **podporované verze:** zastaralé v 3.2 +
+**Platí pro:** balíček publikování &bullet; **podporované verze:** přestala nabízet v 3.2 +
 
-Odráží balíček a jeho závislosti z zadaná zdrojová úložiště do cílového úložiště.
+Odráží balíček a jeho závislosti z úložišť zadaného zdroje do cílového úložiště.
 
 > [!NOTE]
-> Chcete-li příkaz pro verze NuGet před 3.2, přejděte na [ https://nuget.codeplex.com/releases ](https://nuget.codeplex.com/releases)vyberte nejnovější stabilní verze, stáhněte si `NuGet.ServerExtensions.dll` a `Nuget-Signed.exe` na váš místní disk a přejmenování `Nuget-Signed.exe` k `nuget.exe`.
+> Pokud chcete povolit tento příkaz pro verze NuGet před 3.2, přejděte na [ https://nuget.codeplex.com/releases ](https://nuget.codeplex.com/releases)vyberte nejnovější stabilní verzi, stáhněte si `NuGet.ServerExtensions.dll` a `Nuget-Signed.exe` na místní disk a přejmenování `Nuget-Signed.exe` k `nuget.exe`.
 
 ## <a name="usage"></a>Použití
 
@@ -28,24 +27,24 @@ Odráží balíček a jeho závislosti z zadaná zdrojová úložiště do cílo
 nuget mirror <packageID | configFilePath> <listUrlTarget> <publishUrlTarget> [options]
 ```
 
-kde `<packageID>` je balíček pro zrcadlení, nebo `<configFilePath>` identifikuje `packages.config` soubor, který obsahuje seznam balíčků pro zrcadlení.
+kde `<packageID>` je balíček pro zrcadlení, nebo `<configFilePath>` identifikuje `packages.config` soubor, který uvádí balíčky pro zrcadlení.
 
-`<listUrlTarget>` Určuje zdroj úložiště, a `<publishUrlTarget>` Určuje cíl úložiště.
+`<listUrlTarget>` Určuje úložiště zdrojového kódu a `<publishUrlTarget>` určuje cílového úložiště.
 
-Pokud vaše cílové úložiště na `https://machine/repo` na kterém běží [NuGet.Server](../hosting-packages/nuget-server.md), adresy URL seznamu a nabízených bude `https://machine/repo/nuget` a `https://machine/repo/api/v2/package`, v uvedeném pořadí.
+Pokud je vaše cílové úložiště na `https://machine/repo` , na kterém běží [NuGet.Server](../hosting-packages/nuget-server.md), budou adresy URL seznamu a push `https://machine/repo/nuget` a `https://machine/repo/api/v2/package`v uvedeném pořadí.
 
 ## <a name="options"></a>Možnosti
 
 | Možnost | Popis |
 | --- | --- |
-| apiKey | Klíč rozhraní API pro cílové úložiště. Pokud není přítomný, verze zadaná v konfiguračním souboru se používá (`%AppData%\NuGet\NuGet.Config` (Windows) nebo `~/.nuget/NuGet/NuGet.Config` (Mac/Linux)). |
+| ApiKey | Klíč rozhraní API pro cílového úložiště. Pokud není k dispozici, je uvedeno v konfiguračním souboru se používá (`%AppData%\NuGet\NuGet.Config` (Windows) nebo `~/.nuget/NuGet/NuGet.Config` (Mac/Linux)). |
 | Nápověda | Zobrazí nápovědu pro příkaz. |
-| NoCache | NuGet bránit v použití balíčky v mezipaměti. V tématu [správy globální balíčky a složky mezipaměti](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
-| Nedojde k žádné akci | Protokoly co provádějí, ale neprovádí akce; předpokládá úspěch pro operace push. |
-| Předběžné verze | Obsahuje předběžné verze balíčků v zrcadlení operaci. |
-| Zdroj | Seznam zdrojů balíčku pro zrcadlení. Pokud nejsou zadány žádné zdroje, těm, které jsou definována v konfiguračním souboru (viz výše ApiKey) se používají, jako výchozí bude použit nuget.org-li zadán žádný. |
-| Časový limit | Určuje časový limit v sekundách pro vkládání na server. Výchozí hodnota je 300 sekund (5 minut). |
-| Version | Verze balíčku pro instalaci. Pokud není zadáno, je Zrcadleno na nejnovější verzi. |
+| NoCache | Brání použití mezipaměti balíčků NuGet. Zobrazit [Správa globálních balíčků a složek mezipaměti](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
+| NoOp | Protokoly, co by se dělalo, ale neprovede akce; předpokládá úspěchu operací push. |
+| Platnost předběžné verze | Obsahuje předběžné verze balíčků v zrcadlení operace. |
+| Zdroj | Seznam zdrojů balíčků pro zrcadlení. Pokud nejsou zadány žádné zdroje, těm, které jsou definovány v konfiguračním souboru (viz ApiKey výše) se používají, použije výchozí hodnotu nuget.org, pokud nejsou zadány žádné. |
+| časový limit | Určuje časový limit v sekundách pro odesílání na server. Výchozí hodnota je 300 sekund (5 minut). |
+| Version | Verze balíčku k instalaci. Pokud není zadán, je zrcadlena na nejnovější verzi. |
 
 Viz také [proměnné prostředí](cli-ref-environment-variables.md)
 

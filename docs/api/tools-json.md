@@ -3,16 +3,15 @@ title: Tools.JSON pro zjišťování nuget.exe verze
 description: Koncový bod pro
 author: jver
 ms.author: jver
-manager: skofman
 ms.date: 08/16/2018
 ms.topic: conceptual
 ms.reviewer: kraigb
-ms.openlocfilehash: d11e79cd9109e1760189e848e35ff322be026a4d
-ms.sourcegitcommit: c643dd2c44e085601551ff7079d696bcc3ad2b49
+ms.openlocfilehash: 6184fe8e987e0637cb912999f2e3fa3a3dc9b4ba
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40248705"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43546932"
 ---
 # <a name="toolsjson-for-discovering-nugetexe-versions"></a>Tools.JSON pro zjišťování nuget.exe verze
 
@@ -55,7 +54,7 @@ Položky v poli budou seřazeny v sestupném pořadí SemVer 2.0.0. Tuto záruku
 
 `stage` Vlastnost určuje, jak vettect tato verze nástroje je. 
 
-Fáze              | Význam
+fáze              | Význam
 ------------------ | ------
 EarlyAccessPreview | Nejsou ještě viditelné na [webové stránce pro stažení](https://www.nuget.org/downloads) a by měl být ověřen od partnerů
 Všeobecně dostupné           | K dispozici na webu Stažení ale ještě není doporučeno pro šíření celou spotřebu

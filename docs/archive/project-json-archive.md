@@ -1,75 +1,74 @@
 ---
 title: Obsah archivu project.json NuGet
-description: Různé bity project.json obsah byl odebrán z jiných oblastí v dokumentaci NuGet.
+description: Různé části project.json obsah odstraněný z jiných oblastí dokumentace pro NuGet.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: 5b5a5309f5b22f08c289aa49781fa44f95646153
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: aa5cd1a2f3e3a6707a9d68204306db85651b0a18
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818331"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43545197"
 ---
-# <a name="projectjson-archive"></a>Project.JSON archivu
+# <a name="projectjson-archive"></a>Archiv Project.JSON
 
-`project.json` Formátu správy byla zavedena v systému NuGet 3.x a použít pro určité typy projektů. Byl již nepoužívá, se zavedením PackageReference formát, ve kterém jsou uvedeny závislosti přímo v souboru projektu.
+`project.json` Formátu správy byla zavedena v systému NuGet 3.x a používanou pro konkrétní typy projektů. Se přestala nabízet, se zavedením PackageReference formát, ve kterém jsou uvedené závislosti přímo v souboru projektu.
 
 Viz také:
 
 - [project.json schema](project-json.md)
-- [Project.JSON dopad na autoři balíčku](project-json-impact.md)
+- [dopad Project.JSON autory balíčku](project-json-impact.md)
 - [project.json a UPW](project-json-and-uwp.md)
 
-## <a name="projectjson-management-format"></a>Formát souboru Project.JSON správy
+## <a name="projectjson-management-format"></a>Formát správu Project.JSON
 
-*Původně v [obnovení balíčků](../what-is-nuget.md).*
+*Původně v [obnovení balíčku](../what-is-nuget.md).*
 
-V seznamu správy formátů:
+V seznamu management formáty:
 
-- [`project.json`](project-json.md): *(nepoužívané)* A JSON soubor, který udržuje seznam závislosti projektu s celkové balíček grafu v přidružený soubor, `project.lock.json`. Tento formát je zastaralý považuje PackageReference.
+- [`project.json`](project-json.md): *(zastaralé)* souboru A JSON, který udržuje seznam závislostí projektu s celkový graf balíčku v souboru přidružené `project.lock.json`. Tento formát je zastaralé a místo toho použití PackageReference.
 
-## <a name="nuget-restore-on-mono"></a>nuget restore na Mono
+## <a name="nuget-restore-on-mono"></a>obnovení nuget v Mono
 
-*Původně v [nástrojích klienta nainstalovat NuGet](../install-nuget-client-tools.md).*
+*Původně v [klientských nástrojů Nugetu nainstalovat](../install-nuget-client-tools.md).*
 
 Funguje s `project.json`.
 
-## <a name="constraining-package-versions-with-restore"></a>Omezení verze balíčku s obnovením
+## <a name="constraining-package-versions-with-restore"></a>Omezující verze balíčků pomocí obnovení
 
-*Původně v [obnovení balíčků](../consume-packages/package-restore.md#constraining-package-versions-with-restore).*
+*Původně v [obnovení balíčku](../consume-packages/package-restore.md#constraining-package-versions-with-restore).*
 
-- `project.json`: Určete rozsah verze přímo s číslem verze této závislosti. Příklad:
+- `project.json`: Zadejte rozsah verzí přímo s číslem verze na závislost. Příklad:
 
     ```json
     "Newtonsoft.json": "[6, 7)"
     ```
 
-## <a name="nuget-cli-commands"></a>NuGet rozhraní příkazového řádku
+## <a name="nuget-cli-commands"></a>Příkazy rozhraní příkazového řádku NuGet
 
 - `nuget install` nefunguje s `project.json`.
-- `nuget restore`: pomocí projektů pomocí `project.json`, generuje `project.lock.json` souboru a `<project>.nuget.props` souborů, v případě potřeby. (Oba soubory lze vynechat od správy zdrojového kódu.) `<projectPath>` Argument může ukazovat `project.json` souborů a má stejné chování jako odkazující na `packages.config` nebo soubor projektu. V pořadí podle priority pro složky balíčku `%userprofile%\.nuget\packages` prohledají se nejprve při použití `project.json`.
-- `nuget update`: Na Mono, tento příkaz nefunguje s projektů pomocí `project.json`.
+- `nuget restore`: pomocí projektů s použitím `project.json`, generuje `project.lock.json` souboru a `<project>.nuget.props` souboru, v případě potřeby. (Oba soubory může vynechat ze správy zdrojového kódu.) `<projectPath>` Argument může odkazovat `project.json` souborů a má stejné chování jako odkazující `packages.config` nebo soubor projektu. V pořadí podle priority pro složky balíčku `%userprofile%\.nuget\packages` prohledáván jako první při použití `project.json`.
+- `nuget update`: V Mono, tento příkaz nefunguje s projekty pomocí `project.json`.
 
 ## <a name="dependency-resolution-with-packagereference"></a>Řešení závislostí s PackageReference
 
 *Původně v [řešení závislostí](../consume-packages/dependency-resolution.md#dependency-resolution-with-packagereference).*
 
-Chování PackageReference platí také pro `project.json`. NuGet restore zapisuje do souboru s názvem graf závislostí `project.lock.json` spolu s `project.json`.
+Chování PackageReference platí také pro `project.json`. Obnovení NuGet zapisuje do souboru s názvem grafu závislostí `project.lock.json` spolu s `project.json`.
 
 ## <a name="managing-dependency-assets"></a>Správa závislostí prostředky
 
 *Původně v [řešení závislostí](../consume-packages/dependency-resolution.md#managing-dependency-assets).*
 
-Při použití `project.json` formátu, můžete řídit, které prostředky z toku závislosti do nejvyšší úrovně projektu. Podrobnosti najdete v tématu [project.json](project-json.md).
+Při použití `project.json` formátu, můžete určit, jaké prostředky z toku závislostí do nejvyšší úrovně projektu. Podrobnosti najdete v tématu [project.json](project-json.md).
 
-## <a name="excluding-references"></a>S výjimkou odkazy
+## <a name="excluding-references"></a>Kromě odkazů
 
 *Původně v [řešení závislostí](../consume-packages/dependency-resolution.md#excluding-references).*
 
-- `project.json`: Přidejte `"exclude" : "all"` v závislost PackageC:
+- `project.json`: přidání `"exclude" : "all"` v závislostí pro PackageC:
 
     ```json
     {
@@ -82,29 +81,29 @@ Při použití `project.json` formátu, můžete řídit, které prostředky z t
     }
     ```
 
-## <a name="resolving-incompatible-package-errors"></a>Řešení chyb při nekompatibilní balíčku
+## <a name="resolving-incompatible-package-errors"></a>Řešení chyb nekompatibilní balíček
 
 *Původně v [řešení závislostí](../consume-packages/dependency-resolution.md#resolving-incompatible-package-errors).*
 
-Přidání způsob řešení chyb:
+Přidání prostředků řešení chyb:
 
-- **Nedoporučuje se**: jako dočasné řešení při práci s autora balíčku projekty cílení na `netcore`, `netstandard`, a `netcoreapp` mohou ostatní platformy jako kompatibilní, a tím umožní balíčky cílené na těch, které označují ostatní platformy, který se má použít. V tématu [project.json importuje](project-json.md#imports) a [cíl obnovení MSBuild PackageTargetFallback](../reference/msbuild-targets.md#packagetargetfallback). To může způsobit neočekávané chování, proto znovu, je vhodné řešení nekompatibility balíček ve spolupráci s autora balíčku na aktualizace.
+- **Není doporučeno**: jako dočasné řešení při práci s autora balíčku projekty cílení `netcore`, `netstandard`, a `netcoreapp` označit jako kompatibilní, což balíčky cílí na ty ostatní platformy Další architektury, který se má použít. Zobrazit [project.json importuje](project-json.md#imports) a [cíl obnovení nástroje MSBuild PackageTargetFallback](../reference/msbuild-targets.md#packagetargetfallback). To může způsobit neočekávané chování, proto znovu, je nejlepší řešení nekompatibility balíček při práci s autora balíčku na aktualizace.
 
-## <a name="target-frameworks"></a>Cílové rozhraní
+## <a name="target-frameworks"></a>Cílové architektury
 
-*Původně v [cílové rozhraní](../reference/target-frameworks.md).*
+*Původně v [platforem](../reference/target-frameworks.md).*
 
-- [Project.JSON](project-json.md): `frameworks` uzlu určuje framework verze, které mohou být zkompilovány projektu proti.
+- [Project.JSON](project-json.md): `frameworks` uzlu určuje verze rozhraní framework projektu může být zkompilována proti.
 
-## <a name="creating-a-package"></a>Vytváření balíčku
+## <a name="creating-a-package"></a>Vytvoření balíčku
 
-*Původně v [vytváření balíčku](../create-packages/creating-a-package.md)*
+*Původně v [vytvoření balíčku](../create-packages/creating-a-package.md)*
 
-### <a name="setting-a-package-type"></a>Balíček typ nastavení
+### <a name="setting-a-package-type"></a>Nastavení typ balíčku
 
-S .NET Core 1.x, když je nainstalovaný balíček DotnetCliTool, Visual Studio umístí balíčku `project.json` `tools` uzlu místo `dependencies` uzlu.
+S .NET Core 1.x, když DotnetCliTool balíček nainstalován, Visual Studio umístí v balíčku `project.json` `tools` uzel místo `dependencies` uzlu.
 
-Balíček typy jsou nastaveny v `project.json`.
+Balíček typy mají nastavený `project.json`.
 
 - `project.json`: Označuje typ balíčku v rámci `packOptions.packageType` vlastnosti json:
 
@@ -117,38 +116,38 @@ Balíček typy jsou nastaveny v `project.json`.
     }
     ```
 
-### <a name="adding-targets-and-props-for-msbuild"></a>Přidání cíle a props pro nástroje MSBuild
+### <a name="adding-targets-and-props-for-msbuild"></a>Přidání cíle a vlastnosti pro MSBuild
 
-*Původně v [vytvořit balíčky NuGet standardní .NET s Visual Studiem 2015](../guides/create-net-standard-packages-vs2015.md).*
+*Původně v [vytvořit balíčky .NET NuGet standardní pomocí sady Visual Studio 2015](../guides/create-net-standard-packages-vs2015.md).*
 
-Při použití `project.json`, cíle nejsou přidány do projektu, ale jsou k dispozici prostřednictvím `project.lock.json`.
+Při použití `project.json`, cíle nebyly přidány do projektu, ale jsou k dispozici prostřednictvím `project.lock.json`.
 
-### <a name="package-versioning"></a>Správa verzí balíčku
+### <a name="package-versioning"></a>Správa verzí balíčků
 
-*Původně v [Správa verzí balíčku](../reference/package-versioning.md).*
+*Původně v [Správa verzí balíčků](../reference/package-versioning.md).*
 
-Při použití `project.json` formátu, NuGet také podporuje notaci zástupný znak, \*, pro hlavní, vedlejší, opravy a příponu předběžné verze součástí číslo.
+Při použití `project.json` formátování, NuGet také podporuje notaci zástupný znak, \*pro hlavní, vedlejší, opravy a příponu předběžné verze část čísla.
 
-### <a name="nugetconfig-reference"></a>Odkaz na soubor nuget.config.
+### <a name="nugetconfig-reference"></a>Odkaz na soubor NuGet.Config
 
-*Původně v [NuGet.Config odkaz](../reference/nuget-config-file.md).*
+*Původně v [odkaz na soubor NuGet.Config](../reference/nuget-config-file.md).*
 
-`globalPackagesFolder` platí pouze pro `project.json`. (Byla přidána poznámka: platí také pro PackageReference.)
+`globalPackagesFolder` platí jenom pro `project.json`. (Přidání poznámky: platí také pro PackageReference.)
 
 ### <a name="nuspec-file-reference"></a>odkaz na soubor nuspec
 
 *Původně v [odkaz na soubor nuspec](../reference/nuspec.md).*
 
-`<contentFiles>` Element se používá namísto `<files>` s `project.json`.
+`<contentFiles>` Element se použije namísto `<files>` s `project.json`.
 
-### <a name="package-manager-options-control"></a>Balíček správce možnosti řízení
+### <a name="package-manager-options-control"></a>Ovládací prvek možnosti Správce balíčků
 
-*Původně v [reference k uživatelskému rozhraní Správce balíčků](../tools/package-manager-ui.md).*
+*Původně v [Reference k uživatelskému rozhraní Správce balíčků](../tools/package-manager-ui.md).*
 
 Projekty pomocí `project.json` správu formátu zobrazit pouze **zobrazit okno náhledu** možnost.
 
 ### <a name="visual-studio-templates"></a>Šablony aplikace Visual Studio
 
-*Původně v [balíčky NuGet ve šablony sady Visual Studio](../visual-studio-extensibility/visual-studio-templates.md).*
+*Původně v [balíčky NuGet v sadě Visual Studio šablony](../visual-studio-extensibility/visual-studio-templates.md).*
 
-Osvědčené postupy: šablony neobsahují `project.json` souboru a nezahrnují nebo žádné odkazy nebo obsah, který by byl přidán, když se instalují balíčky NuGet.
+Osvědčené postupy: šablony nezahrnují `project.json` souboru a nezahrnuje nebo odkazy nebo obsah, který se přidá při instalaci balíčků NuGet.

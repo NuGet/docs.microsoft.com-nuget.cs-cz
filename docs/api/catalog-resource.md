@@ -1,28 +1,27 @@
 ---
-title: Katalog prostředků, rozhraní API NuGet V3
-description: Katalog je index všech balíčků, vytvoření a na nuget.org odstraněn.
+title: Prostředek katalogu, rozhraní API NuGet V3
+description: Katalog je index všechny balíčky, které se vytvoří a odstraní na nuget.org.
 author: joelverhagen
 ms.author: jver
-manager: skofman
 ms.date: 10/30/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 8554f9515b671dbececd94a025ec7e56037c2bd9
-ms.sourcegitcommit: 055248d790051774c892b220eca12015babbd668
+ms.openlocfilehash: d4c13200494ed3c6fa897ce0083a52c13688b44b
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34152432"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43547390"
 ---
-# <a name="catalog"></a>Katalogu
+# <a name="catalog"></a>Katalog
 
-**Katalogu** je na prostředek, který zaznamenává všechny operace balíček ve zdroji balíčku, například vytváření a odstranění. Katalog prostředků má `Catalog` zadejte [indexu služby](service-index.md).
-
-> [!Note]
-> Protože katalogu není používán oficiální klienta NuGet, ne všechny zdroje balíčků implementovat katalogu.
+**Katalogu** je prostředek, který zaznamenává všechny operace balíčků ve zdroji balíčku, jako je například vytvoření a odstranění. Prostředek katalogu má `Catalog` zadejte [index služby](service-index.md).
 
 > [!Note]
-> V současné době není k dispozici v Číně nuget.org katalogu. Další podrobnosti najdete v tématu [NuGet/NuGetGallery #4949](https://github.com/NuGet/NuGetGallery/issues/4949).
+> Vzhledem k tomu, že katalog není používán oficiální klienta NuGet, ne všechny zdroje balíčků implementovat v katalogu.
+
+> [!Note]
+> Katalog nuget.org v současné době není k dispozici v Číně. Další podrobnosti najdete v tématu [NuGet/NuGetGallery #4949](https://github.com/NuGet/NuGetGallery/issues/4949).
 
 ## <a name="versioning"></a>Správa verzí
 
@@ -30,37 +29,37 @@ Následující `@type` hodnota se používá:
 
 @type Hodnota   | Poznámky
 ------------- | -----
-CATALOG/3.0.0 | Původní verze
+CATALOG/3.0.0 | Počáteční verze
 
-## <a name="base-url"></a>Základní adresu URL
+## <a name="base-url"></a>Základní adresa URL
 
-Adresa URL vstupní bod pro následující rozhraní API je hodnota `@id` vlastnost spojená s zmíněnými prostředků `@type` hodnoty. Toto téma používá adresu URL zástupný symbol `{@id}`.
+Adresa URL vstupního bodu pro následující rozhraní API je hodnota `@id` vlastnost přidružená k výše uvedených prostředků `@type` hodnoty. Toto téma používá zástupné adresy URL `{@id}`.
 
 ## <a name="http-methods"></a>Metody HTTP
 
-Všechny adresy URL v podpoře prostředků katalogu nalezen jenom metody HTTP `GET` a `HEAD`.
+Všechny adresy URL, které jsou součástí podporu katalogu prostředků pouze metody HTTP `GET` a `HEAD`.
 
 ## <a name="catalog-index"></a>Index katalogu
 
-Index katalogu je dokument v dobře známé umístění, které obsahuje seznam položek katalogu, časovém pořadí řazení. Je vstupní bod katalogu prostředku.
+Index katalogu je dokument v dobře známé umístění, které obsahuje seznam položek katalogu, seřazené chronologicky. Je vstupním bodem prostředek katalogu.
 
-Index se skládá z katalogu stránky. Každé stránce katalogu obsahuje položky katalogu. Každá položka katalogu představuje události týkající se jeden balíček v určitém bodě v čase. Položka katalogu, kterou může představovat balíček, který byl vytvořen, neuvedené, relisted nebo odstraněn ze zdroje balíčků. Zpracováním položek katalogu v chronologickém pořadí, můžete vytvořit klienta aktuální přehled o každý balíček, který existuje ve zdroji balíčku V3.
+Index se skládá z stránky katalogu. Každá stránka katalogu obsahuje položky katalogu. Každá položka katalogu představuje události týkající se jeden balíček v bodě v čase. Položka katalogu mohou představovat balíček, který byl vytvořen, neuvedené v seznamu, relisted nebo odstraněné ze zdroje balíčku. Zpracováním položek katalogu v chronologickém pořadí, můžete sestavit klienta aktuální přehled o všech balíčků, který existuje ve zdroji balíčku V3.
 
 Stručně řečeno objekty BLOB katalogu mají následující hierarchickou strukturu:
 
 - **Index**: vstupní bod pro katalog.
 - **Stránka**: seskupení položek katalogu.
-- **Listu**: dokument představující položka katalogu, což je snímek stavu jeden balíček.
+- **Listu**: dokument představující položka katalogu, což je snímek stavu jednoho balíčku.
 
-Každý objekt katalogu má vlastnost s názvem `commitTimeStamp` udávající, kdy byla položka přidána do katalogu. Položky katalogu budou přidány do katalogu stránky v dávkách názvem potvrzení. Všechny položky katalogu ve stejné potvrzení mají stejné časové razítko potvrzení (`commitTimeStamp`) a ID potvrzení (`commitId`). Položky katalogu, které jsou umístěny ve stejné potvrzení představují události, ke kterým došlo okolo stejného bodu v čase ve zdroji balíčku. Není žádný řazení v rámci katalogu potvrzení.
+Každý objekt katalogu má vlastnost s názvem `commitTimeStamp` udávající, kdy byla položka přidána do katalogu. Položky katalogu budou přidány na stránku katalogu v dávkách nazývá potvrzení. Všechny položky katalogu v rámci stejného potvrzení mají stejné časové razítko potvrzení (`commitTimeStamp`) a ID potvrzení změn (`commitId`). Položky katalogu, které jsou umístěny v rámci stejného potvrzení představují události, k nimž došlo přibližně stejný bod v čase ve zdroji balíčku. Neexistuje žádné řazení v rámci katalogu potvrzení.
 
-Protože každý ID a verzi balíčku je jedinečný, nikdy bude více než jedna položka katalogu v potvrzení. Tím se zajistí, že položky katalogu pro jeden balíček může vždy jednoznačně seřadit s ohledem na časové razítko potvrzení.
+Protože každý ID balíčku a verzi je jedinečný, nikdy nebude více než jedna položka katalogu v potvrzení. Tím se zajistí, že položky katalogu pro jeden balíček může vždy být jednoznačně uspořádány ve vztahu časové razítko potvrzení.
 
-Je nikdy nemůže mít více než jeden potvrzení do katalogu za `commitTimeStamp`. Jinými slovy `commitId` je redundantní s `commitTimeStamp`.
+Existuje více potvrzení do katalogu za za žádných `commitTimeStamp`. Jinými slovy `commitId` je redundantní. s `commitTimeStamp`.
 
-Rozdíl k [balíček prostředek metadat](registration-base-url-resource.md), který je indexovaný podle ID balíčku, katalogu je indexované (a dotazovatelné) pouze podle času.
+Rozdíl od [balíček metadata resource](registration-base-url-resource.md), což je indexované podle ID balíčku, katalog je indexované (a dotazovatelného) pouze podle času.
 
-Položky katalogu jsou vždy přidaných do katalogu v monotónně se zvyšující, chronologickém pořadí. To znamená, že pokud potvrzení katalogu je přidaný v době X pak žádné potvrzení katalogu nebude nikdy přidán s časem menší než nebo rovna X.
+Položky katalogu jsou vždy přidány do katalogu v monotónně se zvyšující chronologickém pořadí. To znamená, že pokud potvrzení katalogu se přidá v okamžiku X potom bez potvrzení katalogu nebude nikdy přidán s časem nižším než nebo rovna X.
 
 Následující požadavek načte index katalogu.
 
@@ -70,29 +69,29 @@ Index katalogu je dokument JSON, který obsahuje objekt s následujícími vlast
 
 Název            | Typ             | Požadováno | Poznámky
 --------------- | ---------------- | -------- | -----
-commitId        | odkazy řetězců           | Ano      | Jedinečné ID přidružené k nejnovější potvrzení
-commitTimeStamp | odkazy řetězců           | Ano      | Časové razítko poslední zápisu
+commitId        | odkazy řetězců           | Ano      | Jedinečné ID přidružené k nejnovějším potvrzení
+commitTimeStamp | odkazy řetězců           | Ano      | Časové razítko poslední potvrzení změn
 count           | integer          | Ano      | Počet stránek v indexu
-Položky           | Pole objektů | Ano      | Pole objektů, každý objekt reprezentující stránky
+Položky           | Pole objektů | Ano      | Pole objektů, každý objekt představující stránku
 
-Každý prvek v `items` pole je objekt s některé minimální podrobnosti o každé stránce. Tyto objekty stránky neobsahují nechá katalogu (položky). Pořadí prvků v toto pole není definováno. Stránky lze provést řazení podle klienta v paměti pomocí jejich `commitTimeStamp` vlastnost.
+Každý prvek `items` pole je objekt s minimální podrobnosti o jednotlivých stránkách. Tyto objekty stránky neobsahují ponechá katalogu (položky). Pořadí prvků v tomto poli není definován. Stránky lze provést řazení podle klienta v paměti pomocí jejich `commitTimeStamp` vlastnost.
 
-Zavedeném nové stránky `count` se zvýší a zobrazí se v nové objekty `items` pole.
+Jak jsou zavedeny nové stránky, `count` se zvýší a zobrazí se v nové objekty `items` pole.
 
-Jako položky budou přidány do katalogu, index `commitId` změní a `commitTimeStamp` zvýší. Tyto dvě vlastnosti jsou v podstatě souhrn přes všechny stránky `commitId` a `commitTimeStamp` hodnoty ve `items` pole.
+Přidávání položek do katalogu, index `commitId` se změní a `commitTimeStamp` zvýší. Tyto dvě vlastnosti jsou v podstatě souhrn přes všechny stránky `commitId` a `commitTimeStamp` hodnoty v `items` pole.
 
-### <a name="catalog-page-object-in-the-index"></a>Katalog stránky objekt v indexu
+### <a name="catalog-page-object-in-the-index"></a>Objekt katalogu stránku v indexu
 
-Objekty, na stránce katalogu najít v katalogu indexu `items` vlastnost mít následující vlastnosti:
+Objekty stránky katalogu nalezena v katalogu indexu `items` vlastnosti mají následující vlastnosti:
 
 Název            | Typ    | Požadováno | Poznámky
 --------------- | ------- | -------- | -----
-@id             | odkazy řetězců  | Ano      | Adresu URL stránky načtení katalogu
-commitId        | odkazy řetězců  | Ano      | Jedinečné ID přidružené k nejnovější potvrzení na této stránce
-commitTimeStamp | odkazy řetězců  | Ano      | Časové razítko poslední potvrzení na této stránce
-count           | integer | Ano      | Počet položek na stránce katalogu
+@id             | odkazy řetězců  | Ano      | Adresa URL stránky načtení katalogu
+commitId        | odkazy řetězců  | Ano      | Jedinečné ID přidružené k nejnovějším potvrzení na této stránce
+commitTimeStamp | odkazy řetězců  | Ano      | Časové razítko poslední potvrzení změn na této stránce
+count           | integer | Ano      | Počet položek na stránce katalog
 
-Rozdíl k [balíček prostředek metadat](registration-base-url-resource.md) což v některých případech inlines opustí do indexu, se nikdy vložená do indexu nechá katalogu a musí být vždy získána pomocí stránky `@id` adresy URL.
+Rozdíl od [balíček metadata resource](registration-base-url-resource.md) což v některých případech inlines opustí do indexu, nechá katalogu nikdy jsou vloženy do indexu a musí být vždy získána pomocí stránky `@id` adresy URL.
 
 ### <a name="sample-request"></a>Ukázková žádost
 
@@ -102,49 +101,49 @@ Rozdíl k [balíček prostředek metadat](registration-base-url-resource.md) co�
 
 [!code-JSON [catalog-index.json](./_data/catalog-index.json)]
 
-## <a name="catalog-page"></a>Stránka katalogu
+## <a name="catalog-page"></a>Katalog stránky
 
-Stránka katalogu je kolekce položek katalogu. Je to dokument načtených pomocí jedné z `@id` hodnoty najdete v indexu katalogu. Adresu URL stránky katalogu není určen jako předvídatelný a by měly být zjištěny pomocí pouze index katalogu.
+Na stránce katalogu je kolekce položek katalogu. Je načíst pomocí jedné z dokumentu `@id` nalezeny hodnoty v katalogu indexu. Adresa URL stránky katalogu tudíž předvídatelný a by měly být zjištěny pomocí pouze index katalogu.
 
-Přidání nových položek katalogu na stránku v indexu katalogu pouze s nejvyšší časové razítko potvrzení nebo na novou stránku. Jakmile se zobrazí stránka s vyšší časové razítko potvrzení přidaných do katalogu, se nikdy starší stránky přidají do nebo změnit.
+Přidání nových položek katalogu se na stránku v katalogu index pouze s nejvyšší časové razítko potvrzení nebo na novou stránku. Po přidání na stránku s vyšší časové razítko potvrzení do katalogu starší stránky nikdy k přidání nebo změně.
 
-Dokument stránky katalogu je objekt JSON s následujícími vlastnostmi:
+Katalog stránky dokumentu je objekt JSON s následujícími vlastnostmi:
 
 Název            | Typ             | Požadováno | Poznámky
 --------------- | ---------------- | -------- | -----
-commitId        | odkazy řetězců           | Ano      | Jedinečné ID přidružené k nejnovější potvrzení na této stránce
-commitTimeStamp | odkazy řetězců           | Ano      | Časové razítko poslední potvrzení na této stránce
+commitId        | odkazy řetězců           | Ano      | Jedinečné ID přidružené k nejnovějším potvrzení na této stránce
+commitTimeStamp | odkazy řetězců           | Ano      | Časové razítko poslední potvrzení změn na této stránce
 count           | integer          | Ano      | Počet položek na stránce
 Položky           | Pole objektů | Ano      | Položky katalogu na této stránce
-Nadřazené          | odkazy řetězců           | Ano      | Adresu URL katalogu indexu
+Nadřazené          | odkazy řetězců           | Ano      | Adresa URL indexu katalogu
 
-Každý prvek v `items` pole je objekt s některé minimální podrobnosti o položka katalogu. Tyto položky objekty nebudou obsahovat všechna data položka katalogu. Pořadí položek na stránce `items` pole není definováno. Položky lze provést řazení podle klienta v paměti pomocí jejich `commitTimeStamp` vlastnost.
+Každý prvek `items` pole je objekt s minimální podrobnosti o položky katalogu. Tyto objekty položky neobsahují všechna data položky katalogu. Pořadí položek na stránce `items` pole není definován. Položky lze provést řazení podle klienta v paměti pomocí jejich `commitTimeStamp` vlastnost.
 
-Počet položek katalogu na stránce je definován implementaci serveru. Pro nuget.org je maximálně 550 položek v každé stránce, ale skutečný počet může být menší pro některé stránky v závislosti na velikosti další dávku potvrzení v bodě v čase.
+Počet položek katalogu na stránce je definován implementací serveru. Pro nuget.org je maximálně 550 položek na každé stránce, ale skutečný počet může být menší pro některé stránky v závislosti na velikosti další dávku potvrzení v bodě v čase.
 
-Zavedeném nové položky `count` je katalog zvýšena a nové položky objekty se zobrazí v `items` pole.
+Zavedeném nových položek `count` je objektům katalogu přičítání a nové položky se zobrazí v `items` pole.
 
-Při přidání položek na stránku, `commitId` změny a `commitTimeStamp` zvyšuje. Tyto dvě vlastnosti jsou v podstatě souhrn přes všechny `commitId` a `commitTimeStamp` hodnoty ve `items` pole.
+Při přidání položky na stránku `commitId` změny a `commitTimeStamp` zvyšuje. Tyto dvě vlastnosti jsou v podstatě přehled napříč všemi `commitId` a `commitTimeStamp` hodnoty v `items` pole.
 
-### <a name="catalog-item-object-in-a-page"></a>Objekt položky na stránce v katalogu
+### <a name="catalog-item-object-in-a-page"></a>Objekt položky na stránce katalogu
 
-Objekty, na položky katalogu najít na stránce katalogu `items` vlastnost mít následující vlastnosti:
+Najít objekty položky katalogu na stránce katalog `items` vlastnosti mají následující vlastnosti:
 
 Název            | Typ    | Požadováno | Poznámky
 --------------- | ------- | -------- | -----
-@id             | odkazy řetězců  | Ano      | Adresa URL načíst položka katalogu
+@id             | odkazy řetězců  | Ano      | Adresa URL pro načtení položky katalogu
 @type           | odkazy řetězců  | Ano      | Typ položky katalogu
-commitId        | odkazy řetězců  | Ano      | ID potvrzení spojené s touto položkou katalogu
+commitId        | odkazy řetězců  | Ano      | ID potvrzení změn, které jsou přidružené k této položky katalogu
 commitTimeStamp | odkazy řetězců  | Ano      | Časové razítko potvrzení této položky katalogu
-nuget:ID        | odkazy řetězců  | Ano      | Tato listu související s ID balíčku
-nuget:Version   | odkazy řetězců  | Ano      | Verze balíčku, tento listu související s
+nuget:ID        | odkazy řetězců  | Ano      | ID balíčku, týkající se tohoto listu
+nuget:Version   | odkazy řetězců  | Ano      | Verze balíčku, týkající se tohoto listu
 
-`@type` Hodnota bude mít jednu z následujících dvou hodnot:
+`@type` Hodnota bude jeden z následujících dvou hodnot:
 
-1. `nuget:PackageDetails`: to odpovídá `PackageDetails` typu v dokumentu listu katalogu.
-1. `nuget:PackageDelete`: to odpovídá `PackageDelete` typu v dokumentu listu katalogu.
+1. `nuget:PackageDetails`: to odpovídá `PackageDetails` typu v dokumentu katalogu typu list.
+1. `nuget:PackageDelete`: to odpovídá `PackageDelete` typu v dokumentu katalogu typu list.
 
-Další podrobnosti o jaké každý typ znamená, najdete v článku [odpovídající položky typu](#item-types) níže.
+Další informace o tom, co každý typ znamená, najdete v článku [odpovídající položky typu](#item-types) níže.
 
 ### <a name="sample-request"></a>Ukázková žádost
 
@@ -156,78 +155,78 @@ Další podrobnosti o jaké každý typ znamená, najdete v článku [odpovídaj
 
 ## <a name="catalog-leaf"></a>Katalog listu
 
-Katalog listu obsahuje metadata o konkrétní ID a verzi balíčku v určitém okamžiku v čase. Je to dokument načtena pomocí `@id` nalezena hodnota na stránce katalogu. Adresu URL katalogu listu neměla být předvídatelný a by měly být zjištěny pomocí pouze na stránce katalogu.
+Katalog typu list obsahuje metadata o konkrétní ID a verzi v určitém okamžiku v čase. Je načtena pomocí dokumentu `@id` hodnota nalezena v katalogu stránky. Adresa URL na list katalogu považovat předvídatelný a by měly být zjištěny pomocí pouze stránky katalogu.
 
 Dokument listu katalogu je objekt JSON s následujícími vlastnostmi:
 
 Název                    | Typ                       | Požadováno | Poznámky
 ----------------------- | -------------------------- | -------- | -----
-@type                   | řetězec nebo pole řetězců. | Ano      | Typy položek katalogu
-katalog: commitId        | odkazy řetězců                     | Ano      | Potvrzení ID spojené s této položky katalogu
+@type                   | řetězec nebo pole řetězců | Ano      | Typy položek katalogu
+katalog: commitId        | odkazy řetězců                     | Ano      | ID potvrzení změn přidružené k této položky katalogu
 catalog:commitTimeStamp | odkazy řetězců                     | Ano      | Časové razítko potvrzení této položky katalogu
 id                      | odkazy řetězců                     | Ano      | ID balíčku položky katalogu
-Publikovat               | odkazy řetězců                     | Ano      | Datum publikování balíčku položka katalogu
+Publikování               | odkazy řetězců                     | Ano      | Položka katalogu datum publikování balíčku
 verze                 | odkazy řetězců                     | Ano      | Verze balíčku položky katalogu
 
 ### <a name="item-types"></a>Typy položek
 
-`@type` Vlastnost je řetězec nebo pole řetězců. Pro usnadnění práce Pokud `@type` hodnota je řetězec, by měl být považovány za žádné pole s velikostí, jeden. Ne všechny možné hodnoty pro `@type` popsané. Každá položka katalogu má však přesně jednu ze dvou hodnot pro typ následující řetězec:
+`@type` Vlastnosti je string nebo pole řetězců. Pro usnadnění práce Pokud `@type` hodnota je řetězec, mají být považována za jakékoli pole o velikosti jednoho. Ne všechny možné hodnoty pro `@type` jsou popsány. Každá položka katalogu má ale přesně jednu ze dvou následujících hodnot typu řetězec:
 
 1. `PackageDetails`: představuje snímek metadata balíčků
 1. `PackageDelete`: představuje balíček, který byl odstraněn
 
-### <a name="package-details-catalog-items"></a>Položky katalogu podrobnosti balíčku
+### <a name="package-details-catalog-items"></a>Podrobnosti balíčku položek katalogu
 
-Položky s typem katalogu `PackageDetails` obsahovat snímek metadata balíčků pro konkrétní balíček (kombinaci ID a verzi). Položku katalogu podrobnosti balíčku se vytvářejí, když zdroj balíčku dojde kterýkoli z následujících scénářů:
+Položky s typem katalogu `PackageDetails` obsahují snímek metadat balíčku pro určitý balíček (kombinaci ID a verzi). Katalogové položky podrobnosti balíčku je vytvořen, pokud zdroj balíčku, zaznamená některý z následujících scénářů:
 
-1. Balíček je **nabídnutých**.
+1. Balíček je **vloženo**.
 1. Balíček je **uvedené**.
 1. Balíček je **neuvedené**.
 1. Balíček je **přeformátování**.
 
-Balíček přeformátování je správce gesta, která v podstatě generuje falešných push existujícího balíčku se žádné změny k balíčku sám sebe. V nuget.org se používá přeformátování po opravě chyby v jednom z pozadí úlohy, které využívají katalogu.
+Přeformátování balíčku je pro správu gesta, která v podstatě generuje falešné oznámení o existující balíček bez jediné změny na samotném balíčku. Na nuget.org se používá přeformátování po opravě chyby v jednom z úlohy na pozadí, které využívají katalogu.
 
-K určení, které z těchto scénářů vytváří položka katalogu, kterou neměli klienti využívání položky katalogu. Místo toho klienta by měl jednoduše aktualizovat všechny zachována zobrazení nebo index s metadat obsažených v položka katalogu. Kromě toho by měla řádně zpracovávat položky katalogu duplicitní nebo redundantní (idempotently).
+Klienti využívání položky katalogu by se neměly pokoušet zjistit, které z těchto scénářů vytvořené položky katalogu. Místo toho by měl jednoduše aktualizaci klienta udržována zobrazení ani index pomocí metadat obsažených v položky katalogu. Kromě toho by měla řádně zpracovat duplicitní nebo nadbytečné katalogových položek (idempotently).
 
-Položky katalogu podrobnosti balíčku mít následující vlastnosti kromě těch, které [obsahovat všechny katalogu nechá](#catalog-leaf).
+Položky katalogu podrobnosti balíčku mají následující vlastnosti kromě těch [na všechny listy katalogu](#catalog-leaf).
 
 Název                    | Typ                       | Požadováno | Poznámky
 ----------------------- | -------------------------- | -------- | -----
 Autoři                 | odkazy řetězců                     | Ne       |
-Vytvořit                 | odkazy řetězců                     | Ne       | Razítko při prvním vytvoření balíčku. Záložní vlastnost: `published`.
-dependencyGroups        | Pole objektů           | Ne       | Stejný formát jako [balíček prostředek metadat](registration-base-url-resource.md#package-dependency-group)
+Vytvoření                 | odkazy řetězců                     | Ne       | Časové razítko z při prvním vytvoření balíčku. Základní vlastnosti: `published`.
+dependencyGroups        | Pole objektů           | Ne       | Stejný formát jako [balíček metadata resource](registration-base-url-resource.md#package-dependency-group)
 description             | odkazy řetězců                     | Ne       |
 IconUrl                 | odkazy řetězců                     | Ne       |
-isPrerelease            | Logická hodnota                    | Ne       | Zda je předprodejní verze balíčku. Zjistit z `version`.
+isPrerelease            | Logická hodnota                    | Ne       | Určuje, jestli je předběžná verze balíčku. Můžete zjistit z `version`.
 jazyk                | odkazy řetězců                     | Ne       |
-Adresa LicenseUrl              | odkazy řetězců                     | Ne       |
-uvedené v seznamu                  | Logická hodnota                    | Ne       | Zda je balíček uvedený
+LicenseUrl              | odkazy řetězců                     | Ne       |
+uvedené v seznamu                  | Logická hodnota                    | Ne       | Určuje, jestli je balíček uvedený
 MinClientVersion        | odkazy řetězců                     | Ne       |
-packageHash             | odkazy řetězců                     | Ano      | Hodnota hash balíčku, kódování pomocí [standardní base 64](https://tools.ietf.org/html/rfc4648#section-4)
+packageHash             | odkazy řetězců                     | Ano      | Hodnota hash balíčku kódování pomocí [standardní base-64](https://tools.ietf.org/html/rfc4648#section-4)
 packageHashAlgorithm    | odkazy řetězců                     | Ano      |
 packageSize             | integer                    | Ano      | Velikost balíčku .nupkg v bajtech
-Adrese ProjectUrl              | odkazy řetězců                     | Ne       |
+ProjectUrl              | odkazy řetězců                     | Ne       |
 ReleaseNotes            | odkazy řetězců                     | Ne       |
-requireLicenseAgreement | Logická hodnota                    | Ne       | Předpokládejme `false` li vyloučit
+requireLicenseAgreement | Logická hodnota                    | Ne       | Předpokládejme `false` -li vyloučit
 souhrn                 | odkazy řetězců                     | Ne       |
-značky                    | Pole řetězců.           | Ne       |
+značky                    | pole řetězců           | Ne       |
 Název                   | odkazy řetězců                     | Ne       |
-verbatimVersion         | odkazy řetězců                     | Ne       | Řetězec verze jako ho původně najde v příponou .nuspec
+verbatimVersion         | odkazy řetězců                     | Ne       | Řetězec verze, protože původně součástí souboru .nuspec
 
-Balíček `version` vlastnost je řetězec úplné, normalizované verze. To znamená, že SemVer 2.0.0 sestavení data mohou být zahrnuté v tomto poli.
+Balíček `version` vlastnosti je řetězec verze úplné, normalizovaná. To znamená, že data SemVer 2.0.0 sestavení může být součástí tady.
 
-`created` Časové razítko je, když balíček je napřed přijata sadou zdroj balíčku, který je obvykle po krátkou dobu před časové razítko potvrzení položka katalogu.
+`created` Časové razítko je při podle zdroje balíčku, který je obvykle krátkou dobu před časové razítko potvrzení položka katalogu byla prvním přijetí balíček.
 
-`packageHashAlgorithm` Je řetězec definované implementaci serveru představující algoritmu hash použít k vytvoření `packageHash`. nuget.org vždycky použijí `packageHashAlgorithm` hodnotu `SHA512`.
+`packageHashAlgorithm` Je definován implementací serveru představující hashovací algoritmus používaný k vytvoření řetězce `packageHash`. vždy používá nuget.org `packageHashAlgorithm` hodnotu `SHA512`.
 
-`published` Časové razítko je čas, pokud byl poslední uvedený balíček.
+`published` Časové razítko je čas, kdy byl balíček poslední uveden.
 
 > [!Note]
-> V nuget.org `published` hodnota nastavena na rok 1900, kdy neuvedené balíčku.
+> Na nuget.org `published` hodnotu roku 1900, pokud je balíček neuvedené v seznamu.
 
 #### <a name="sample-request"></a>Ukázková žádost
 
-GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
+ZÍSKAT https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
 
 #### <a name="sample-response"></a>Ukázková odpověď
 
@@ -235,20 +234,20 @@ GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.stor
 
 ### <a name="package-delete-catalog-items"></a>Položky katalogu odstranění balíčku
 
-Položky s typem katalogu `PackageDelete` obsahovat minimální sadu informace o tom klientům katalogu, že balíček se odstranil z balíčku zdroje a již není k dispozici pro všechny operace balíčku (například obnovení).
+Položky s typem katalogu `PackageDelete` obsahují minimální sadu informaci o katalogu klientům, že balíček se odstranil z balíčku zdroje a není už k dispozici pro libovolnou operaci balíčku (například obnovení).
 
 > [!Note]
-> Je možné balíčku k odstranění a později znovu publikovat pomocí stejné ID balíčku a verzi. V nuget.org je velmi výjimečných případech, protože to naruší oficiální klient předpokládá, že ID balíčku a verzi implikují určitý balíček obsahu. Další informace o odstranění balíčku na nuget.org najdete v tématu [naše zásady](../policies/deleting-packages.md).
+> Je možné pro balíček, který chcete odstranit a později znovu publikovat pomocí stejné ID balíčku a verzi. Na nuget.org to je velmi vzácný případ, protože to naruší oficiální klienta z předpokladu, že ID balíčku a verzi implikují určitý balíček obsahu. Další informace o odstranění balíčků na nuget.org, naleznete v tématu [naše zásady](../policies/deleting-packages.md).
 
-Položky katalogu odstranit balíček mít žádné další vlastnosti kromě těch, které [obsahovat všechny katalogu nechá](#catalog-leaf).
+Položky katalogu odstranit balíček mají žádné další vlastnosti, kromě těch [na všechny listy katalogu](#catalog-leaf).
 
-`version` Vlastnost je původní řetězec verze v balíčku příponou .nuspec nalezen.
+`version` Vlastnost je původní řetězec verze v souboru .nuspec balíčku.
 
-`published` Vlastnost je čas, když balíček byl odstraněn, což je většinou jako krátkou dobu před časové razítko potvrzení položka katalogu.
+`published` Čas při balíčku byl odstraněn, což je obvykle jako krátkou dobu před časové razítko potvrzení položka katalogu je vlastnost.
 
 #### <a name="sample-request"></a>Ukázková žádost
 
-GET https://api.nuget.org/v3/catalog0/data/2017.11.02.00.40.00/netstandard1.4_lib.1.0.0-test.json
+ZÍSKAT https://api.nuget.org/v3/catalog0/data/2017.11.02.00.40.00/netstandard1.4_lib.1.0.0-test.json
 
 #### <a name="sample-response"></a>Ukázková odpověď
 
@@ -258,72 +257,72 @@ GET https://api.nuget.org/v3/catalog0/data/2017.11.02.00.40.00/netstandard1.4_li
 
 ### <a name="overview"></a>Přehled
 
-Tato část popisuje koncept klienta, který, i když není vyžadováno nutně protokolem, musí být součástí žádnou implementaci klienta praktické katalogu.
+Tato část popisuje koncept klienta, který, i když není nutně zákonného protokol, musí být součástí žádné implementace klienta praktické katalogu.
 
-Protože katalogu je strukturu dat připojovacím indexované podle času, klient měli uložit **kurzor** místně, představující až co bodu v čase klienta zpracovala položky katalogu. Všimněte si, že tato hodnota kurzoru nikdy se má vygenerovat pomocí hodiny počítače klienta. Místo toho by měla být dřívější hodnota z objektu katalogu `commitTimestamp` hodnotu.
+Protože katalogu je struktury nabízí jen možnost Připojovat data indexované podle času, klient by měla být uložena **kurzor** místně, až bodu v čase klienta zpracovala položky katalogu. Všimněte si, že tato hodnota kurzor by měl nebudou nikdy generována formátu, klientské počítače. Místo toho hodnotu musí pocházet z objektu katalogu `commitTimestamp` hodnotu.
 
-Pokaždé, když klient chce zpracovat nové události ve zdroji balíčku, je nutné pouze dotaz katalogu pro všechny položky katalogu s časovým razítkem potvrzení větší než jeho uložené kurzoru. Jakmile klient úspěšně zpracuje všechny nové položky katalogu, zaznamenává nejnovější časové razítko potvrzení položky katalogu, které jsou právě zpracovávány jako jeho nová hodnota kurzoru.
+Pokaždé, když klient požaduje zpracovávat nové události ve zdroji balíčku, nemusí pouze dotazu v katalogu pro všechny položky katalogu s časovým razítkem potvrzení větší než jeho uložené kurzoru. Jakmile klient úspěšně zpracuje všechny nové položky katalogu, zaznamenává nejnovější potvrzení změn časové razítko položky katalogu právě zpracovat jako novou hodnotu kurzoru.
 
-Tento přístup může být klient nezapomeňte nikdy neproběhly žádné události balíčku, které došlo k chybě ve zdroji balíčku.
-Kromě toho klient nikdy opětovné zpracování staré události před časové razítko potvrzení zaznamenaná na pozici kurzoru.
+Tento přístup může být klient nezapomeňte Nezmeškejte žádné balíček události, ke kterým došlo ve zdroji balíčku.
+Kromě toho klient se nikdy má za účelem opětovného zpracování staré události před časové razítko zaznamenané potvrzení kurzoru.
 
-Tato účinný koncept kurzory se používá pro řadu úloh na pozadí nuget.org a slouží k zachování aktualizovaného stavu rozhraní API V3, sám sebe. 
+Tento výkonný koncept kurzory se používá pro řadu úloh na pozadí nuget.org a slouží k udržování stavu samotné rozhraní API V3. 
 
 ### <a name="initial-value"></a>Počáteční hodnota
 
-Když klient katalogu zahajuje velmi první (a proto nemá žádnou hodnotu kurzoru), měla by používat výchozí hodnotu kurzoru. NET na `System.DateTimeOffset.MinValue` nebo určitou takové podobá představu o minimální reprezentovat časové razítko.
+Když klient katalogu je pro úplně první čas spuštění (a tedy nemá žádnou hodnotu kurzoru), měla by použít výchozí hodnotu kurzoru. NET společnosti `System.DateTimeOffset.MinValue` nebo určitou takové obdobná představu o minimální reprezentovatelné časové razítko.
 
-### <a name="iterating-over-catalog-items"></a>Iterování přes položky katalogu
+### <a name="iterating-over-catalog-items"></a>Iterování položek katalogu
 
-Dotaz pro další sadu položek katalogu pro zpracování, klient proveďte následující kroky:
+Pro dotazy, další sadu položek katalogu pro zpracování, by měl klient:
 
-1. Načtení kurzoru zaznamenaná hodnota z místního úložiště.
+1. Načtěte hodnotu zaznamenané kurzor z místního úložiště.
 1. Stáhněte si a deserializovat index katalogu.
 1. Najít všechny stránky s časovým razítkem potvrzení katalogu *větší než* kurzor.
-1. Deklarujte prázdný seznam položek katalogu ke zpracování.
-1. Pro každou stránku katalogu shodná v kroku 3:
-   1. Stáhněte si a deserializovat stránce katalogu.
+1. Deklarujte prázdný seznam položek katalogu pro zpracování.
+1. Pro každou stránku katalogu se shodou v kroku 3:
+   1. Stáhněte si a deserializovat stránky katalogu.
    1. Najít všechny položky s časovým razítkem potvrzení katalogu *větší než* kurzor.
-   1. Přidejte všechny odpovídající položky katalogu do seznamu deklarované v kroku 4.
-1. Seřadíte seznam položek katalogu časové razítko potvrzení.
-1. Zpracování jednotlivých položek katalogu v pořadí:
-   1. Stáhněte si a deserializovat položka katalogu.
-   1. Náležitě reagovat na typ položky katalogu.
-   1. Proces dokumentu položky katalogu způsobem specifické pro klienta.
-1. Zaznamenejte časové razítko poslední položky katalogu potvrzení jako nová hodnota kurzoru.
+   1. Všechny odpovídající položky katalogu přidáte do seznamu deklarované v kroku 4.
+1. Seřaďte seznam položek katalogu podle časové razítko potvrzení.
+1. Zpracování každé položky katalogu v pořadí:
+   1. Stáhněte si a deserializovat položky katalogu.
+   1. Typ položky katalogu reagují odpovídajícím způsobem.
+   1. Proces dokumentu položky katalogu v podobě specifické pro klienta.
+1. Zaznamenejte časové razítko poslední položka katalogu potvrzení jako novou hodnotu kurzoru.
 
-Pomocí základního algoritmu můžete vytvořit implementace klienta kompletní zobrazení všech balíčků dostupných ve zdroji balíčku. Klient musí provést pouze tento algoritmus pravidelně vždy informováni o nejnovějších změn ke zdroji balíčku.
+Pomocí tohoto algoritmu základní implementace klienta lze sestavit úplný přehled všech balíčků dostupných ve zdroji balíčku. Klient potřebují pouze spustit tento algoritmus se vždy přehled o nejnovějších změn ke zdroji balíčku.
 
 > [!Note]
-> To je algoritmus, který používá tento nuget.org zachovat [Metadata balíčků](registration-base-url-resource.md), [obsah balíčku](package-base-address-resource.md), [vyhledávání](search-query-service-resource.md) a [automatického dokončování](search-autocomplete-service-resource.md) Aktuální prostředky.
+> To je algoritmus používá tento nuget.org zachovat [Metadata balíčků](registration-base-url-resource.md), [obsah balíčku](package-base-address-resource.md), [hledání](search-query-service-resource.md) a [automatické dokončování](search-autocomplete-service-resource.md) Aktuální prostředky.
 
 ### <a name="dependent-cursors"></a>Závislé kurzory
 
-Předpokládejme, že existují dvě katalogu klienti, kteří mají vyplývajících závislostí, kde výstup jednoho klienta závisí na výstupu jiného klienta. 
+Předpokládejme, že existují dva klienti katalogu, které mají vlastní závislost, pokud jeden klient výstup závisí na výstupu jiného klienta. 
 
 #### <a name="example"></a>Příklad
 
-Například v nuget.org přehled nově publikovaných balíček neměla by se zobrazit v prostředku hledání se zobrazí v prostředek metadat balíčku. Je to proto, že operace "obnovení" prováděných klientem oficiální NuGet používá prostředek metadat balíčku. Pokud zákazník zjistí balíčku pomocí vyhledávací službu, že byste měli mít úspěšně obnovit tento balíček pomocí prostředek metadat balíčku. Vyhledávání prostředků, jinými slovy, závisí na prostředek metadat balíčku. Každý prostředek má úloha katalogu klienta pozadí aktualizace prostředku. Každý klient má svou vlastní kurzoru.
+Například na nuget.org přehled nově publikovaných balíček by se neměl zobrazit v hledání prostředků předtím, než se zobrazí v resource metadata balíčku. Toto je vzhledem k tomu používá resource metadata balíčku "obnovit" operace prováděné oficiální pro klienta NuGet. Pokud zákazník zjistí balíček se službou search, měly by být možné úspěšně obnovit tento balíček pomocí resource metadata balíčku. Jinými slovy hledání prostředků závisí na resource metadata balíčku. Každý prostředek má katalog klienta úloha na pozadí aktualizuje tento prostředek. Každý klient má své vlastní kurzoru.
 
-Vzhledem k tomu, že oba prostředky jsou vytvořené z katalogu, kurzor katalogu klienta, která aktualizuje prostředek vyhledávání *nesmí přesahovat* kurzor klienta katalogu metadat balíčku.
+Vzhledem k tomu, že oba prostředky jsou sestaveny z katalogu kurzor katalogu klienta, která aktualizuje prostředek hledání *nesmí jít nad rámec* kurzor klienta katalog metadat balíčku.
 
-#### <a name="algorithm"></a>Algoritmus
+#### <a name="algorithm"></a>algoritmus
 
-Pokud chcete implementovat toto omezení, stačí upravte algoritmus výše uvedené jako:
+K implementaci tohoto omezení, stačí upravte výše, aby se algoritmus:
 
-1. Načtení kurzoru zaznamenaná hodnota z místního úložiště.
+1. Načtěte hodnotu zaznamenané kurzor z místního úložiště.
 1. Stáhněte si a deserializovat index katalogu.
-1. Najít všechny stránky s časovým razítkem potvrzení katalogu *větší než* kurzor **menší než nebo rovna této závislosti kurzoru.**
-1. Deklarujte prázdný seznam položek katalogu ke zpracování.
-1. Pro každou stránku katalogu shodná v kroku 3:
-   1. Stáhněte si a deserializovat stránce katalogu.
-   1. Najít všechny položky s časovým razítkem potvrzení katalogu *větší než* kurzor **menší než nebo rovna této závislosti kurzoru.**
-   1. Přidejte všechny odpovídající položky katalogu do seznamu deklarované v kroku 4.
-1. Seřadíte seznam položek katalogu časové razítko potvrzení.
-1. Zpracování jednotlivých položek katalogu v pořadí:
-   1. Stáhněte si a deserializovat položka katalogu.
-   1. Náležitě reagovat na typ položky katalogu.
-   1. Proces dokumentu položky katalogu způsobem specifické pro klienta.
-1. Zaznamenejte časové razítko poslední položky katalogu potvrzení jako nová hodnota kurzoru.
+1. Najít všechny stránky s časovým razítkem potvrzení katalogu *větší než* kurzor **menší nebo rovna kurzor na závislost.**
+1. Deklarujte prázdný seznam položek katalogu pro zpracování.
+1. Pro každou stránku katalogu se shodou v kroku 3:
+   1. Stáhněte si a deserializovat stránky katalogu.
+   1. Najít všechny položky s časovým razítkem potvrzení katalogu *větší než* kurzor **menší nebo rovna kurzor na závislost.**
+   1. Všechny odpovídající položky katalogu přidáte do seznamu deklarované v kroku 4.
+1. Seřaďte seznam položek katalogu podle časové razítko potvrzení.
+1. Zpracování každé položky katalogu v pořadí:
+   1. Stáhněte si a deserializovat položky katalogu.
+   1. Typ položky katalogu reagují odpovídajícím způsobem.
+   1. Proces dokumentu položky katalogu v podobě specifické pro klienta.
+1. Zaznamenejte časové razítko poslední položka katalogu potvrzení jako novou hodnotu kurzoru.
 
-Pomocí této změny algoritmu, můžete vytvořit systému závislé katalogu klientů všechny vytváření vlastních konkrétními indexy, artefakty atd.
+Pomocí tohoto algoritmu upravené, můžete vytvořit systém katalogu závislé klienty vytváří všechny své vlastní specifickými indexy, artefakty, atd.

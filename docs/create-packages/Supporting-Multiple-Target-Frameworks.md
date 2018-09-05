@@ -1,37 +1,36 @@
 ---
-title: Cílení na více verzí pro balíčky NuGet
-description: Popis různých metod k cílení na více verzí rozhraní .NET Framework z v rámci jednoho balíčku NuGet.
+title: Cílení na více platforem pro balíčky NuGet
+description: Popis různých metod cílit na více verzí rozhraní .NET Framework z v rámci jednoho balíčku NuGet.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 09/27/2017
 ms.topic: conceptual
-ms.openlocfilehash: 429b9743ea678cd500b6f51630d03aac7812441e
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 0b22d48b9151b903a5307beafa5ccef14e5fecf3
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34816953"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43551703"
 ---
 # <a name="supporting-multiple-net-framework-versions"></a>Podpora více verzí rozhraní .NET framework
 
-*Projekty .NET Core pomocí nástroje NuGet 4.0 +, najdete v části [NuGet pack a obnovit jako cíle MSBuild](../reference/msbuild-targets.md) podrobnosti o cílení na více verzí.*
+*Pro projekty .NET Core pomocí nástroje NuGet 4.0 +, naleznete v tématu [NuGet aktualizací Service pack a obnovení jako cílů MSBuild](../reference/msbuild-targets.md) podrobnosti o cílení na různé.*
 
-Mnoho knihovny cílení na konkrétní verzi rozhraní .NET Framework. Například můžete mít jednu verzi knihovnu, která je specifická pro UPW a jinou verzi, která využívá funkce v rozhraní .NET Framework 4.6.
+Mnoho knihoven mířila na konkrétní verzi rozhraní .NET Framework. Například může mít jednu verzi knihovny, která je specifická pro UPW a jinou verzi, která využívá funkce sady rozhraní .NET Framework 4.6.
 
-Pro přizpůsobení, podporuje NuGet uvedení více verzí stejnou knihovnu v jeden balíček, při použití založené na konvenci pracovní adresář metoda popsaná v [vytváření balíčku](../create-packages/creating-a-package.md#from-a-convention-based-working-directory).
+Aby se tomuto, podporuje NuGet uvedení více verzí stejného knihovny v jediném balíčku, při použití založené na konvenci pracovní adresář metody popsané v [vytvoření balíčku](../create-packages/creating-a-package.md#from-a-convention-based-working-directory).
 
-## <a name="framework-version-folder-structure"></a>Struktura složek Framework verze
+## <a name="framework-version-folder-structure"></a>Struktura složek verzi rozhraní Framework
 
-Při vytváření balíčku, který obsahuje pouze jednu verzi knihovny nebo cílové více rozhraní, je vytvořit podsložky `lib` pomocí různých malá a velká písmena framework názvy následující konvence:
+Při vytváření balíčku, který obsahuje pouze jednu verzi knihovny nebo cílové více rozhraní, byste vždy měli vytvořit podsložky `lib` názvy jiné rozhraní malá a velká písmena pomocí následující konvence:
 
     lib\{framework name}[{version}]
 
 Úplný seznam podporovaných názvy, najdete v článku [odkazovat na cílové rozhraní](../reference/target-frameworks.md#supported-frameworks).
 
-Nikdy byste měli mít verzi knihovny, které nejsou specifické pro rozhraní a umístěný přímo v kořenu `lib` složky. (Tato možnost se podporuje jenom s `packages.config`). To by upravit knihovny kompatibilní se žádné cílové rozhraní a povolit, aby byl nainstalován odkudkoli, pravděpodobně vést k chybám za běhu neočekávané. Přidání sestavení v kořenové složce (například `lib\abc.dll`) nebo v jejich podsložkách (například `lib\abc\abc.dll`) se už nepoužívá a je ignorována, pokud v PackagesReference formátu.
+Nikdy byste měli mít verzi knihovny, které nejsou specifické pro architekturu a umístěný přímo v kořenovém adresáři `lib` složky. (Tato možnost je podporován pouze s `packages.config`). Mohlo by nastavit knihovnu jako kompatibilní s žádné cílové rozhraní framework a umožňují, aby byl nainstalován kdekoli, pravděpodobně výsledkem neočekávané běhové chyby. Přidávání sestavení do kořenové složky (například `lib\abc.dll`) nebo v jejích podsložkách (například `lib\abc\abc.dll`) je zastaralá a je ignorován při použití formátu PackagesReference.
 
-Například následující strukturu složek podporuje čtyři verze sestavení, které jsou specifické pro framework:
+Například následující strukturu složek podporuje čtyři verze sestavení, které jsou specifické pro architekturu:
 
     \lib
         \net46
@@ -43,7 +42,7 @@ Například následující strukturu složek podporuje čtyři verze sestavení,
         \netcore
             \MyAssembly.dll
 
-Při vytváření balíčku snadno zahrnout všechny tyto soubory, použijte rekurzivního `**` zástupný znak v `<files>` část vaší `.nuspec`:
+Snadno zahrnout všechny tyto soubory při sestavování balíčku, použít k rekurzivnímu `**` zástupných znaků v `<files>` část vaší `.nuspec`:
 
 ```xml
 <files>
@@ -51,9 +50,9 @@ Při vytváření balíčku snadno zahrnout všechny tyto soubory, použijte rek
 </files>
 ```
 
-### <a name="architecture-specific-folders"></a>Architektura konkrétní složky
+### <a name="architecture-specific-folders"></a>Složky specifické pro architekturu
 
-Pokud máte specifické pro architekturu sestavení, to znamená, samostatné sestavení, které cílí ARM, x 86 a x64, můžete je nutné umístit do složky s názvem `runtimes` v rámci dílčí složky s názvem `{platform}-{architecture}\lib\{framework}` nebo `{platform}-{architecture}\native`. Například následující strukturu složek by zohlednit nativní a spravovaná knihovny DLL cílení na Windows 10 a `uap10.0` framework:
+Pokud máte specifické pro architekturu sestavení, to znamená, samostatné sestavení, které se zaměřují ARM, x 86 a x64, je nutné je umístit do složky s názvem `runtimes` do podsložky s názvem `{platform}-{architecture}\lib\{framework}` nebo `{platform}-{architecture}\native`. Například následující strukturu složek by odpovídala knihovny DLL nativního a spravovaného cílení na Windows 10 a `uap10.0` framework:
 
     \runtimes
         \win10-arm
@@ -66,15 +65,15 @@ Pokud máte specifické pro architekturu sestavení, to znamená, samostatné se
             \native
             \lib\uap10.0
 
-V tématu [vytvořit balíčky UWP](../guides/create-uwp-packages.md) příklad odkazující na tyto soubory v `.nuspec` manifest.
+Naleznete v tématu [vytvoření balíčků UPW](../guides/create-uwp-packages.md) příklad odkazování na tyto soubory `.nuspec` manifestu.
 
-## <a name="matching-assembly-versions-and-the-target-framework-in-a-project"></a>Odpovídající verze sestavení a cílové rozhraní v projektu
+## <a name="matching-assembly-versions-and-the-target-framework-in-a-project"></a>Odpovídající verze sestavení a Cílová architektura, která v projektu
 
-Když NuGet nainstaluje balíček, který má více verzí sestavení, pokusí se shodovat s názvem framework sestavení s cílový framework projektu.
+NuGet nainstaluje balíček, který má více verzí sestavení, pokusí se vyhledat název rozhraní sestavení s cílovou architekturu projektu.
 
-Pokud není nalezena shoda, zkopíruje NuGet sestavení pro nejvyšší verzi, která je menší než nebo rovno cílový framework projektu na, pokud je k dispozici. Pokud se nenajde žádné kompatibilní sestavení, vrátí NuGet příslušná chybová zpráva.
+Pokud není nalezena shoda, zkopíruje NuGet sestavení nejvyšší verze, která je menší než nebo rovna cílové rozhraní projektu, pokud je k dispozici. Pokud se nenajde žádné kompatibilní sestavení, NuGet vrátí příslušnou chybovou zprávu.
 
-Zvažte například následující strukturu složek v balíčku:
+Zvažte například následující strukturu složky v balíčku:
 
     \lib
         \net45
@@ -82,15 +81,15 @@ Zvažte například následující strukturu složek v balíčku:
         \net461
             \MyAssembly.dll
 
-Pokud při instalaci tohoto balíčku do projektu, jehož cílem rozhraní .NET Framework 4.6, NuGet nainstaluje sestavení v `net45` složky, protože se jedná o nejvyšší verzi k dispozici, která je menší než nebo rovna 4.6.
+Při instalaci tohoto balíčku v projektu, který cílí na rozhraní .NET Framework 4.6, NuGet nainstaluje sestavení v `net45` složky, protože to je nejvyšší dostupná verze, která je menší než nebo rovna 4.6.
 
-Pokud projekt cílem rozhraní .NET Framework 4.6.1, na druhé straně NuGet nainstaluje sestavení v `net461` složky.
+Pokud projekt cílí na rozhraní .NET Framework 4.6.1, na druhé straně NuGet nainstaluje sestavení v `net461` složky.
 
-Pokud projekt cílem rozhraní .NET framework 4.0 a starší, vyvolá NuGet příslušná chybová zpráva pro nemůžete najít kompatibilní sestavení.
+Pokud projekt cílí na rozhraní .NET framework 4.0 a starší, vyvolá NuGet příslušnou chybovou zprávu pro nenašli kompatibilní sestavení.
 
-## <a name="grouping-assemblies-by-framework-version"></a>Seskupování podle framework, verze sestavení
+## <a name="grouping-assemblies-by-framework-version"></a>Seskupení sestavení ve verzi rozhraní framework
 
-NuGet zkopíruje sestavení ze pouze jediná knihovna složky v balíčku. Předpokládejme například, že balíček má následující strukturu složek:
+NuGet zkopíruje sestavení ze složky v balíčku pouze jediná knihovna. Předpokládejme například, že balíček má následující strukturu složek:
 
     \lib
         \net40
@@ -99,13 +98,13 @@ NuGet zkopíruje sestavení ze pouze jediná knihovna složky v balíčku. Před
         \net45
             \MyAssembly.dll (v2.0)
 
-Při instalaci balíčku v projektu, jehož cílem rozhraní .NET Framework 4.5, `MyAssembly.dll` (v2.0) je nainstalována pouze sestavení. `MyAssembly.Core.dll` (verze 1.0) není nainstalována, protože není uveden ve `net45` složky. NuGet chová tímto způsobem, protože `MyAssembly.Core.dll` může mít sloučené do verze 2.0 `MyAssembly.dll`.
+Při instalaci balíčku v projektu, který cílí na rozhraní .NET Framework 4.5, `MyAssembly.dll` (v2.0) je pouze sestavení nainstalována. `MyAssembly.Core.dll` (verze 1.0) není nainstalována, protože není uveden v `net45` složky. NuGet chová tímto způsobem, protože `MyAssembly.Core.dll` může mít sloučené do verze 2.0 `MyAssembly.dll`.
 
-Chcete-li `MyAssembly.Core.dll` k instalaci pro rozhraní .NET Framework 4.5, umístěte kopii v `net45` složky.
+Chcete-li `MyAssembly.Core.dll` potřeba instalovat rozhraní .NET Framework 4.5, umístěte kopii `net45` složky.
 
-## <a name="grouping-assemblies-by-framework-profile"></a>Seskupení sestavení profilem framework
+## <a name="grouping-assemblies-by-framework-profile"></a>Seskupení sestavení v rámci profilu
 
-Cílení na konkrétní framework profil připojením pomlčkou a název profilu na konec složce podporuje také NuGet.
+NuGet také podporuje cílení na konkrétní verzi rozhraní framework profil přidáním spojovníkem a název profilu na konec složce.
 
     lib\{framework name}-{profile}
 
@@ -116,20 +115,20 @@ Podporované profily jsou následující:
 - `wp`: Windows Phone
 - `cf`: Compact Framework
 
-## <a name="determining-which-nuget-target-to-use"></a>Určení, který NuGet cíle použít
+## <a name="determining-which-nuget-target-to-use"></a>Určení cíl NuGet
 
-Při vytváření balíčků knihovny cílení na přenosné knihovny tříd může být složité určit, který NuGet cílový ve složce názvy byste měli používat a `.nuspec` souboru, zvlášť pokud cílení jenom podmnožinu PCL. Následující externí prostředky vám pomůže s tímto:
+Při balení knihovny, které cílí přenosné knihovny tříd může být složité určit, které se zaměřují NuGet, abyste používali v názvech složek a `.nuspec` souborů, zejména v případě cílení na pouze podmnožinu PCL. Tyto externí prostředky vám pomůžou s tímto:
 
-- [Profily Framework v rozhraní .NET](http://blog.stephencleary.com/2012/05/framework-profiles-in-net.html) (stephenclearly.com)
-- [Přenosná knihovna tříd profily](http://embed.plnkr.co/03ck2dCtnJogBKHJ9EjY/preview) (plnkr.co): tabulka výčtu PCL profily a jejich ekvivalent cíle NuGet
-- [Přenosná knihovna tříd profily nástroj](https://github.com/StephenCleary/PortableLibraryProfiles) (webu github.com): nástroj příkazového řádku pro určení PCL profilů dostupných v systému
+- [Profily rozhraní v rozhraní .NET](http://blog.stephencleary.com/2012/05/framework-profiles-in-net.html) (stephenclearly.com)
+- [Přenosné knihovny tříd profily](http://embed.plnkr.co/03ck2dCtnJogBKHJ9EjY/preview) (plnkr.co): Tabulka výčet PCL profily a jejich odpovídající cíle NuGet
+- [Přenosné knihovny tříd profily nástroj](https://github.com/StephenCleary/PortableLibraryProfiles) (webu github.com): nástroj příkazového řádku pro určení PCL profily k dispozici v systému
 
-## <a name="content-files-and-powershell-scripts"></a>Soubory obsahu a skriptů prostředí PowerShell
+## <a name="content-files-and-powershell-scripts"></a>Soubory obsahu a skripty prostředí PowerShell
 
 > [!Warning]
-> Měnitelný soubory obsahu a spouštění skriptů jsou k dispozici `packages.config` formát pouze; se nepoužívají v jiném formátu a by nemělo být použito pro všechny nové balíčky.
+> Jsou k dispozici s měnitelnou soubory obsahu a spuštění skriptu `packages.config` formát pouze; se považují za zastaralé v jiném formátu by se neměl používat pro všechny nové balíčky.
 
-S `packages.config`, obsahu, soubory a skripty prostředí PowerShell lze seskupovat podle cílové rozhraní, pomocí stejné konvence složky uvnitř `content` a `tools` složek. Příklad:
+S `packages.config`, obsahu, soubory a skripty prostředí PowerShell můžete seskupit podle cílové rozhraní framework pomocí stejné konvence složky uvnitř `content` a `tools` složek. Příklad:
 
     \content
         \net46
@@ -148,7 +147,7 @@ S `packages.config`, obsahu, soubory a skripty prostředí PowerShell lze seskup
             install.ps1
             uninstall.ps1
 
-Pokud složku rozhraní je prázdné, není NuGet přidejte odkazy na sestavení nebo soubory obsahu nebo spuštění skriptů prostředí PowerShell dané platformy.
+Pokud je prázdné složky framework, nebude NuGet přidat odkazy na sestavení nebo soubory obsahu nebo spouštění skriptů prostředí PowerShell pro dané rozhraní.
 
 > [!Note]
-> Protože `init.ps1` se spustí v řešení úrovně a není závislá na projekt, je nutné ji umístit přímo pod `tools` složky. Pokud se umístit pod složku rozhraní je ignorován.
+> Protože `init.ps1` provádí řešení úrovně a není závislá na projekt, musí být umístěné přímo pod `tools` složky. Pokud je umístěn v rámci složky framework je ignorován.

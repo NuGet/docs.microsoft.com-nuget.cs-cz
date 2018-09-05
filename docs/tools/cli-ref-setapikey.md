@@ -1,23 +1,22 @@
 ---
 title: Příkaz setapikey NuGet rozhraní příkazového řádku
-description: Referenční dokumentace pro příkaz setapikey nuget.exe
+description: Referenční informace pro příkaz nuget.exe setapikey
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 66fc62074b4e7c39ff2ed6b515eee9f821530536
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: b00e8b1f7a6fda9c1a0c079069fa8ee08a45b419
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817681"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43549217"
 ---
-# <a name="setapikey-command-nuget-cli"></a>příkaz setapikey (NuGet CLI)
+# <a name="setapikey-command-nuget-cli"></a>příkaz setapikey (rozhraní příkazového řádku NuGet)
 
-**Platí pro:** spotřeba balíčku, publikování &bullet; **podporované verze:** všechny
+**Platí pro:** využití balíčků, publikováním &bullet; **podporované verze:** všechny
 
-Uloží klíč rozhraní API pro adresu URL daného serveru do `NuGet.Config` tak, aby nemusí být zadaný pro následné příkazy.
+Uloží klíč rozhraní API pro adresu URL daného serveru do `NuGet.Config` tak, že není nutné zadat pro následné příkazy.
 
 ## <a name="usage"></a>Použití
 
@@ -25,17 +24,17 @@ Uloží klíč rozhraní API pro adresu URL daného serveru do `NuGet.Config` ta
 nuget setapikey <key> -Source <url> [options]
 ```
 
-kde `<source>` identifikuje server a `<key>` je klíč nebo heslo, abyste uložili. Pokud `<source>` je tento parametr vynechán, předpokládá se nuget.org.
+kde `<source>` identifikuje server a `<key>` je klíč nebo heslo uložte. Pokud `<source>` je vynechána, předpokládá se nuget.org.
 
 ## <a name="options"></a>Možnosti
 
 | Možnost | Popis |
 | --- | --- |
-| ConfigFile | Konfigurační soubor NuGet použít. Pokud není zadaný, `%AppData%\NuGet\NuGet.Config` (Windows) nebo `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) se používá.|
-| ForceEnglishOutput | *(3.5 +)*  Vynutí nuget.exe ke spuštění pomocí invariantní, na základě angličtina jazykové verze. |
+| ConfigFile | Konfigurační soubor NuGet použít. Pokud není zadán, `%AppData%\NuGet\NuGet.Config` (Windows) nebo `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) se používá.|
+| ForceEnglishOutput | *(3.5 +)*  Vynutí nuget.exe pro spuštění pomocí neutrální, základem je angličtina jazyková verze. |
 | Nápověda | Zobrazí nápovědu pro příkaz. |
-| Neinteraktivní | Potlačí výzvy pro vstup uživatele nebo potvrzení. |
-| Podrobnosti | Určuje množství podrobností, které jsou zobrazené ve výstupu: *normální*, *quiet*, *podrobné*. |
+| Neinteraktivní | Potlačí vyzve k zadání uživatele o vstup ani potvrzení. |
+| Podrobnosti | Určuje množství podrobností, na které se zobrazí ve výstupu: *normální*, *quiet*, *podrobné*. |
 
 Viz také [proměnné prostředí](cli-ref-environment-variables.md)
 

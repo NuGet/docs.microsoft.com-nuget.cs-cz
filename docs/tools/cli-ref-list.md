@@ -1,23 +1,22 @@
 ---
-title: Příkaz seznamu NuGet rozhraní příkazového řádku
-description: Referenční dokumentace pro příkaz nuget.exe seznamu
+title: Příkaz listovat NuGet rozhraní příkazového řádku
+description: Referenční informace pro příkaz seznamu nuget.exe
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: b0f144d8abbba7388fe39cd113e4eeddccbca2c6
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 61294f4c9d85336dc8b718fd66b236c692bab00e
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818435"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43549798"
 ---
-# <a name="list-command-nuget-cli"></a>příkaz seznamu (NuGet CLI)
+# <a name="list-command-nuget-cli"></a>příkaz listovat (rozhraní příkazového řádku NuGet)
 
-**Platí pro:** spotřeba balíčku, publikování &bullet; **podporované verze:** všechny
+**Platí pro:** využití balíčků, publikováním &bullet; **podporované verze:** všechny
 
-Zobrazí seznam balíčků z daného zdroje. Pokud nejsou zadány žádné zdroje, všechny zdroje definované v souboru globální konfiguraci `%AppData%\NuGet\NuGet.Config` (Windows) nebo `~/.nuget/NuGet/NuGet.Config`, se používají. Pokud `NuGet.Config` žádné zdroje, pak určuje `list` používá výchozí informačního kanálu (nuget.org).
+Zobrazí seznam balíčků z daného zdroje. Pokud nejsou zadány žádné zdroje, všechny zdroje definované v souboru globální konfiguraci `%AppData%\NuGet\NuGet.Config` (Windows) nebo `~/.nuget/NuGet/NuGet.Config`, se používají. Pokud `NuGet.Config` žádné zdroje, pak určuje `list` používá výchozí kanál (nuget.org).
 
 ## <a name="usage"></a>Použití
 
@@ -25,21 +24,21 @@ Zobrazí seznam balíčků z daného zdroje. Pokud nejsou zadány žádné zdroj
 nuget list [search terms] [options]
 ```
 
-volitelné hledané výrazy, kde bude filtr pro zobrazený seznam. Hledaný text se použijí pro názvy balíčků, značky a popisy balíček stejně, jako jsou v případě, že jejich používání v nuget.org.
+volitelné hledané výrazy ve kterém se filtr pro zobrazený seznam. Hledané termíny se použijí na názvy balíčků, značky a Popis balíčku, stejně jako při použití na nuget.org.
 
 ## <a name="options"></a>Možnosti
 
 | Možnost | Popis |
 | --- | --- |
-| AllVersions | Zobrazí seznam všech verze balíčku. Ve výchozím nastavení se zobrazí jenom nejnovější verzi balíčku. |
-| ConfigFile | Konfigurační soubor NuGet použít. Pokud není zadaný, `%AppData%\NuGet\NuGet.Config` (Windows) nebo `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) se používá.|
-| ForceEnglishOutput | *(3.5 +)*  Vynutí nuget.exe ke spuštění pomocí invariantní, na základě angličtina jazykové verze. |
+| AllVersions | Zobrazí seznam všech verzí balíčku. Ve výchozím nastavení zobrazí se pouze nejnovější verze balíčku. |
+| ConfigFile | Konfigurační soubor NuGet použít. Pokud není zadán, `%AppData%\NuGet\NuGet.Config` (Windows) nebo `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) se používá.|
+| ForceEnglishOutput | *(3.5 +)*  Vynutí nuget.exe pro spuštění pomocí neutrální, základem je angličtina jazyková verze. |
 | Nápověda | Zobrazí nápovědu pro příkaz. |
-| IncludeDelisted | *(3.2 +)*  Zobrazovat neuvedené balíčky. |
-| Neinteraktivní | Potlačí výzvy pro vstup uživatele nebo potvrzení. |
-| Předběžné verze | Obsahuje předběžné verze balíčků v seznamu. |
-| Zdroj | Určuje seznam balíčků zdroje pro vyhledávání. |
-| Podrobnosti | Určuje množství podrobností, které jsou zobrazené ve výstupu: *normální*, *quiet*, *podrobné*. |
+| IncludeDelisted | *(3.2 +)*  Zobrazit neuvedené v seznamu balíčků. |
+| Neinteraktivní | Potlačí vyzve k zadání uživatele o vstup ani potvrzení. |
+| Platnost předběžné verze | Obsahuje předběžné verze balíčků v seznamu. |
+| Zdroj | Určuje seznam zdrojů balíčků pro hledání. |
+| Podrobnosti | Určuje množství podrobností, na které se zobrazí ve výstupu: *normální*, *quiet*, *podrobné*. |
 
 Viz také [proměnné prostředí](cli-ref-environment-variables.md)
 

@@ -1,21 +1,20 @@
 ---
-title: Poznámky k verzi NuGet 3.1.1
-description: Poznámky k verzi pro NuGet 3.1.1 včetně – známé problémy, opravy chyb, přidaných funkcí a chcete.
+title: Zpráva k vydání verze NuGet 3.1.1
+description: Zpráva k vydání verze pro NuGet 3.1.1 včetně – známé problémy, opravy chyb, nové funkce a chcete.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 2ad5ed0da91f52ec4a5072a4001bd2e3e3679a5d
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: c0e822b6045ba0467fc9c88b661b8f88cfb8aa16
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31819213"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43550301"
 ---
-# <a name="nuget-311-release-notes"></a>Poznámky k verzi NuGet 3.1.1
+# <a name="nuget-311-release-notes"></a>Zpráva k vydání verze NuGet 3.1.1
 
-[Poznámky k verzi NuGet 3.1](../release-notes/nuget-3.1.md) | [poznámky k verzi 3.2 RC NuGet](../release-notes/nuget-3.2-RC.md)
+[Zpráva k vydání verze NuGet 3.1](../release-notes/nuget-3.1.md) | [poznámkách k verzi 3.2 RC NuGet](../release-notes/nuget-3.2-RC.md)
 
-Byl vydán NuGet 3.1.1 27, jako opravu aktualizace z července 2015 pro verze 3.1 VSIX s opravy specifické pro chybu, která provádí implementaci zásad prostředí Powershell.
+Byla vydána NuGet 3.1.1 27. července 2015 jako opravu aktualizovat 3.1 VSIX s opravou specifické pro chybu, která se to týká implementace zásad prostředí Powershell.
 [https://github.com/NuGet/Home/issues/974](https://github.com/NuGet/Home/issues/974)

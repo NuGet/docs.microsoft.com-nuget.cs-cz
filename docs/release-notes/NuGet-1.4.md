@@ -1,30 +1,29 @@
 ---
-title: Poznámky k verzi 1,4 NuGet
-description: Poznámky k verzi pro včetně známé problémy, opravy chyb, přidaných funkcí a chcete 1.4 NuGet.
+title: Zpráva k vydání verze 1.4 NuGet
+description: Zpráva k vydání verze pro NuGet 1.4, včetně známých problémů, opravy chyb, nové funkce a chcete.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: e5e4c2a5f2db80b0ebc3fec7c653aecb8bcc4ab5
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 3f4d712f83ea108a82a1bc4910c2a721a8c24d51
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31822055"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43550628"
 ---
-# <a name="nuget-14-release-notes"></a>Poznámky k verzi 1,4 NuGet
+# <a name="nuget-14-release-notes"></a>Zpráva k vydání verze 1.4 NuGet
 
-[Poznámky k verzi NuGet 1.3](../release-notes/nuget-1.3.md) | [poznámky k verzi NuGet 1.5](../release-notes/nuget-1.5.md)
+[Zpráva k vydání verze NuGet 1.3](../release-notes/nuget-1.3.md) | [zpráva k vydání verze NuGet 1.5](../release-notes/nuget-1.5.md)
 
-NuGet 1.4 byla vydána 17 června 2011.
+NuGet 1.4 byla vydána 17 dne 2011.
 
 ## <a name="features"></a>Funkce
 
-### <a name="update-package-improvements"></a>Vylepšení balíčku aktualizace
-NuGet 1.4 představuje mnoho vylepšení příkaz balíčku aktualizace bylo snazší zachovat balíčky na stejnou verzi napříč více projekty v řešení. Například při upgradu na nejnovější verzi balíčku, je velmi běžné na má všechny projekty, ve kterém je tento balíček nainstalován aktualizovat, aby stejné verision.
+### <a name="update-package-improvements"></a>Vylepšení aktualizace balíčků
+NuGet 1.4 přináší spoustu vylepšení příkazu Update-Package to usnadňuje zachovat balíčky na stejnou verzi více projektů v řešení. Například při upgradu na nejnovější verzi balíčku, je velmi běžné vyžadovat všechny projekty se tento balíček aktualizovat tak, aby stejné verision.
 
-`Update-Package` Příkaz teď usnadňuje:
+`Update-Package` Příkaz nyní usnadňuje:
 
 #### <a name="update-all-packages-in-a-single-project"></a>Aktualizovat všechny balíčky v jednom projektu
 
@@ -38,30 +37,30 @@ NuGet 1.4 představuje mnoho vylepšení příkaz balíčku aktualizace bylo sna
 
     Update-Package
 
-#### <a name="perform-a-safe-update-on-all-packages"></a>"Bezpečnou" aktualizaci provést u všech balíčků
-`-Safe` Příznak omezí upgrade na pouze verze se stejnou hlavní a vedlejší verze součástí. Například, pokud je nainstalována verze 1.0.0 balíčku a ve informačního kanálu, jsou dostupné verze 1.0.1, 1.0.2 a 1.1 `-Safe` příznak se balíček aktualizuje na verzi 1.0.2. Upgrade bez `-Safe` příznak by upgrade balíčku na nejnovější verzi 1.1.
+#### <a name="perform-a-safe-update-on-all-packages"></a>Provádění "bezpečné" aktualizace na všechny balíčky
+`-Safe` Příznak omezí upgrade na pouze verze pomocí stejné verze komponenty hlavní a podverze. Pokud je nainstalována verze 1.0.0 balíčku a verze 1.0.1, 1.0.2 a 1.1, jsou k dispozici v informačním kanálu, například `-Safe` příznak je balíček aktualizován na 1.0.2. Bez upgradu `-Safe` příznak by balíček upgradu na nejnovější verze 1.1.
 
     Update-Package -Safe
 
-### <a name="managing-packages-at-the-solution-level"></a>Spravovat balíčky na úrovni řešení
-Před NuGet 1.4 instalaci balíčku do více projektů byla náročná, v dialogovém okně. Je vyžadován, spouštění dialogu jednou za projektu.
+### <a name="managing-packages-at-the-solution-level"></a>Správa balíčků na úrovni řešení
+Před NuGet 1.4 instalaci balíčku do více projektů byla náročná, pomocí dialogového okna. To nutné, spouští se dialogové okno jednou za projektu.
 
-NuGet 1.4 přidává podporu pro instalaci/odinstalaci nebo aktualizaci balíčků ve více projektech ve stejnou dobu. Jednoduše spustit kliknutím pravým tlačítkem na řešení a výběrem **spravovat balíčky NuGet** možnost nabídky.
+NuGet 1.4 přidává podporu pro instalace/odinstalace/aktualizuje balíčky v několika projektech současně. Jednoduše spustit tak, že kliknete pravým tlačítkem řešení a vyberete **spravovat balíčky NuGet** nabídky.
 
-![Dialogové okno Spravovat balíčky NuGet úroveň řešení](./media/manage-nuget-packages-solution-dialog.png)
+![Dialogové okno řešení úroveň spravovat balíčky NuGet](./media/manage-nuget-packages-solution-dialog.png)
 
-Všimněte si, že v záhlaví okna řešení je zobrazen název, ne název projektu.
-Balíček operations teď poskytovat seznam všech políček se seznamem projekty, které by měl použít operaci.
+Všimněte si, že v záhlaví dialogového okna, název řešení se zobrazí, nikoli název projektu.
+Operace balíčků teď poskytují seznam zaškrtávacích políček seznam projektů, které se má použít operaci.
 
-![Spravovat výběr projektu balíčky NuGet](./media/manage-nuget-packages-project-selection.png)
+![Správa výběr projektu balíčky NuGet](./media/manage-nuget-packages-project-selection.png)
 
-Další podrobnosti naleznete v tématu na [Správa balíčků pro řešení](../tools/package-manager-ui.md#managing-packages-for-the-solution).
+Další podrobnosti naleznete v tématu o [Správa balíčků pro řešení](../tools/package-manager-ui.md#managing-packages-for-the-solution).
 
-### <a name="constraining-upgrades-to-allowed-versions"></a>Chovaly upgraduje povolené verze
-Ve výchozím nastavení při spuštění `Update-Package` na balíček (nebo aktualizaci balíčku v dialogu), ji budou aktualizovány na nejnovější verzi v informačním kanálu. Nové podpory pro aktualizaci všech balíčků můžou nastat případy, ve kterých chcete zamknout balíček na konkrétní verzi rozsah. Například může vědět předem, že vaše aplikace bude fungovat pouze s 2.* verze balíčku, ale není 3.0 nebo vyšší. Prevence omylem aktualizace balíčku na 3 NuGet 1.4 přidává podporu pro omezíte rozsah verze, které balíčky lze přidat k ruční úpravě `packages.config` souboru pomocí možnosti nového `allowedVersions` atribut.
+### <a name="constraining-upgrades-to-allowed-versions"></a>Omezení upgraduje povolené verze
+Ve výchozím nastavení při spuštění `Update-Package` příkaz balíčku (nebo aktualizaci balíčku pomocí dialogového okna), se aktualizují na nejnovější verzi v informačním kanálu. S novou podporu pro všechny balíčky aktualizací můžou nastat případy, ve kterých chcete zamknout balíček na rozsah konkrétní verze. Například můžete vědět předem, že vaše aplikace bude fungovat jenom s 2.* verze balíčku, ale ne 3.0 a novějších. Aby nedošlo k neúmyslné balíček aktualizace na 3, NuGet 1.4 přidává podporu pro omezení rozsahu verzí, které balíčky je možné upgradovat na tak, že ručně upravíte `packages.config` souborů pomocí nové `allowedVersions` atribut.
 
-Například následující příklad ukazuje, jak k uzamčení `SomePackage` balíček verze rozsahu 2.0-3.0 (kromě).
-`allowedVersions` Atribut přijímá hodnoty pomocí [verze rozsah formátu](../reference/package-versioning.md#version-ranges-and-wildcards).
+Například následující příklad ukazuje, jak uzamknout `SomePackage` 2.0-3.0 (výhradní) v rozsahu balíčku verze.
+`allowedVersions` Atribut je možné zadat hodnoty pomocí [formát rozsahu verze](../reference/package-versioning.md#version-ranges-and-wildcards).
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -70,22 +69,22 @@ Například následující příklad ukazuje, jak k uzamčení `SomePackage` bal
 </packages>
 ```
 
-Všimněte si, že v 1.4, uzamčení balíčku na konkrétní verzi rozsah musí být ručně upravovat. V NuGet 1.5 plánujeme přidat podporu pro tento rozsah prostřednictvím umístění `Install-Package` příkaz.
+Mějte na paměti, že 1.4, uzamčení balíček na rozsah konkrétní verze musí být ručně upravit. 1.5 NuGet plánujeme přidat podporu pro uvedení tento rozsah prostřednictvím `Install-Package` příkazu.
 
-### <a name="package-visualizer"></a>Vizualizér balíčku
-Nový balíček vizualizér, spustí prostřednictvím **nástroje** -> **Správce balíčků knihoven** -> **balíček vizualizér** nabídky možnost vám umožňuje snadno zobrazit všechny projekty a závislosti jejich balíčků v rámci řešení.
+### <a name="package-visualizer"></a>Balíček Vizualizéru
+Nový balíček vizualizéru, spustí prostřednictvím **nástroje** -> **Správce balíčků knihoven** -> **balíčku Vizualizéru** klikněte na možnost vám umožní snadno Vizualizujte všechny projekty a závislosti jejich balíčků v rámci řešení.
 
-_**Důležité upozornění:** tato funkce využívá DGML podpory v sadě Visual Studio. Vytváření vizualizace je podporována pouze v sadě nástrojů Visual Studio Ultimate. Zobrazení diagramu DGML je podporována pouze v aplikaci Visual Studio Premium nebo vyššího._
+_**Důležitá poznámka:** tato funkce využívá výhod podpory DGML v sadě Visual Studio. Vytvoření vizualizace je podporována pouze v sadě Visual Studio Ultimate. Zobrazení diagramu DGML je podporována pouze v aplikaci Visual Studio Premium nebo vyšší._
 
-![Vizualizér balíčku](./media/package-visualizer.png)
+![Balíček Vizualizéru](./media/package-visualizer.png)
 
-### <a name="automatic-update-check-for-the-nuget-dialog"></a>Kontrola automatické aktualizace pro dialogové okno NuGet
-Některé verze NuGet zavádět nové funkce prostřednictvím vyjádřené `.nuspec` souborů, které nejsou rozumí starší verze NuGet dialogového okna.
-Jedním z příkladů je zavedení v 1.4 NuGet pro [zadání sestavení architektury](../release-notes/nuget-1.2.md#framework-assembly-refs).
-Z toho důvodu je důležité, abyste používali nejnovější verzi balíčku nuget k zajištění, že používáte balíčky s využitím nejnovějších funkcí.
-Provádění aktualizací NuGet více viditelných, dialogové okno NuGet obsahuje logiku ke zvýraznění je k dispozici novější verze.
+### <a name="automatic-update-check-for-the-nuget-dialog"></a>Kontrola automatické aktualizace v dialogovém okně NuGet
+Některé verze NuGet zavádět nové funkce vyjádřena `.nuspec` souborů, které nebudou srozumitelné pro starší verze NuGet dialogového okna.
+Jedním z příkladů je zavedení 1.4 NuGet pro [zadání sestavení rozhraní](../release-notes/nuget-1.2.md#framework-assembly-refs).
+Z toho důvodu je důležité, abyste používali nejnovější verzi balíčku nuget k zajištění, že může používat balíčky, které využívají nejnovější funkce.
+Provádění aktualizací NuGet viditelnější, dialogové okno NuGet obsahuje logiku a zvýraznit, když je dostupná novější verze.
 
-_**Poznámka:**: Kontrola se provádí pouze v případě **Online** karta byla vybrána v aktuální relaci._
+_**Poznámka:**: Kontrola se provádí pouze v případě **Online** kartu byla vybrána v aktuální relaci._
 
 ![Spravovat balíčky NuGet dialogové okno s dostupná nová verze](./media/manage-nuget-packages-update-notification.png)
 
@@ -93,29 +92,29 @@ Chcete-li vypnout automatickou kontrolu aktualizací, přejděte do dialogového
 
 ![Nastavení NuGet](./media/nuget-settings.png)
 
-Tato funkce je ve skutečnosti přidaná do NuGet 1.3, ale nebude viditelná, samozřejmě, dokud nebude aktualizace 1.3, jako je například NuGet 1.4, byla k dispozici.
+Tuto funkci ve skutečnosti byl přidán NuGet 1.3, ale nebude viditelné, samozřejmě, až do aktualizace 1.3, jako je NuGet 1.4, byl k dispozici.
 
-### <a name="package-manager-dialog-improvements"></a>Vylepšení dialogové okno Správce balíčků
-* **Názvy nabídek vylepšené**: možnosti nabídky spustit dialogové okno pro přehlednost přejmenovaný. Možnost nabídky je nyní **spravovat balíčky NuGet**.
-* **V podokně podrobností se zobrazí datum poslední aktualizace**: NuGet dialogovém okně zobrazí datum poslední aktualizace v podokně podrobností pro balíček při **Online** nebo **aktualizace** vybraná karta.
-* **Seznam značek zobrazí**: Nuget dialogovém okně zobrazí značky.
+### <a name="package-manager-dialog-improvements"></a>Vylepšení dialogového okna Správce balíčků
+* **Názvy nabídek vylepšené**: spuštění dialogového okna Možnosti nabídky byly přejmenovány nejasnostem. Možnost nabídky je nyní **spravovat balíčky NuGet**.
+* **V podokně podrobností se zobrazí nejnovější data aktualizací**: Zobrazí se dialogové okno NuGet datum poslední aktualizace v podokně podrobností pro balíček při **Online** nebo **aktualizuje** vybraná karta.
+* **Seznam značek zobrazí**: Nuget dialogové okno zobrazí značky.
 
 ### <a name="powershell-improvements"></a>Vylepšení prostředí PowerShell
-* **Podepsané skriptů prostředí PowerShell**: NuGet zahrnuje podepsaných skriptů prostředí Powershell povolení využití v prostředí s více omezením.
-* **Výzvy podporu**: konzole Správce balíčků teď podporuje výzvy prostřednictvím `$host.ui.Prompt` a `$host.ui.PromptForChoice` příkazy.
-* **Balíček názvy zdrojů**: poskytnutí název zdroje balíčku je podporován při zadávání zdrojový balíček pomocí `-Source` příznak.
+* **Podepsané skripty prostředí PowerShell**: NuGet zahrnuje podepsaných skriptů prostředí Powershell umožňuje využití v prostředích s více omezující.
+* **Dotazování podporu**: konzoly Správce balíčků teď podporuje dotazování přes `$host.ui.Prompt` a `$host.ui.PromptForChoice` příkazy.
+* **Balíček názvy zdrojů**: poskytnutí název zdroje balíčku je podporováno, pokud zadáte zdroj balíčku pomocí `-Source` příznak.
 
-### <a name="nugetexe-command-line-improvements"></a>vylepšení nuget.exe příkazového řádku
+### <a name="nugetexe-command-line-improvements"></a>vylepšení příkazového řádku nuget.exe
 * **Vlastní příkazy pro balíčky NuGet**: nuget.exe je rozšiřitelný prostřednictvím vlastní příkazy pomocí MEF.
-* **Jednodušší pracovního postupu pro vytváření balíčků symbol**: `-Symbols` příznak lze použít pro strukturu složek normální založené na konvenci vytváření balíčku symboly pouze zahrnutím zdroji a `.pdb` soubory ve složce.
-* **Zadání více zdrojů**: `NuGet install` příkaz podporuje zadání více zdrojů pomocí středníky jako oddělovač nebo zadáním `-Source` vícekrát.
-* **Podpora ověřování proxy**: NuGet 1.4 přidává podporu pro výzvu pro přihlašovací údaje uživatele při použití NuGet za proxy server, který vyžaduje ověření.
-* **nuget.exe aktualizovat nejnovější změny**: `-Self` příznak je nyní požadované pro nuget.exe aktualizovalo samo. `nuget.exe Update` Teď má v cestě k `packages.config` soubor a pokusí se aktualizace balíčků. Všimněte si, že tato aktualizace je omezená, v tom, že není nebude: ** aktualizovat, přidat, odebrat obsah v souboru projektu.
-** Spouštět skripty prostředí Powershell v rámci balíčku.
+* **Jednodušší pracovního postupu pro vytváření balíčků symbolů**: `-Symbols` příznak lze použít k vytvoření balíčku symbolů pouze zahrnutím zdroj struktury složek normální založené na konvenci a `.pdb` soubory ve složce.
+* **Zadání více zdrojů**: `NuGet install` příkaz podporuje zadání více zdrojů pomocí středníkem jako oddělovač nebo zadáním `-Source` více než jednou.
+* **Podpora proxy serveru ověřování**: NuGet 1.4 přidává podporu pro vás vyzve k zadání přihlašovacích údajů uživatele při použití NuGet za proxy serverem, který vyžaduje ověření.
+* **nuget.exe aktualizovat zásadní změna**: `-Self` příznak je nyní nutné zahrnout nuget.exe aktualizovalo samo. `nuget.exe Update` nyní přijímá cesty k `packages.config` soubor a pokusí se aktualizace balíčků. Všimněte si, že tato aktualizace je omezený v tom, že se tak nestane: ** aktualizaci, přidání, odebrání obsahu v souboru projektu.
+** Spouštění Powershellových skriptů v rámci balíčku.
 
-### <a name="nuget-server-support-for-pushing-packages-using-nugetexe"></a>Podpora serveru NuGet pro vkládání balíčky pomocí nuget.exe
-NuGet obsahuje jednoduchý způsob, jak hostitele [jednoduché webové na základě úložiště NuGet](../hosting-packages/nuget-server.md) prostřednictvím `NuGet.Server` balíček NuGet. S NuGet 1.4 lightweight server podporuje vkládání a odstraňování balíčky pomocí nuget.exe.
-Nejnovější verzi `NuGet.Server` přidá nový `appSetting`s názvem `apiKey`. Pokud tento parametr vynechán nebo je prázdné, když zavedete balíčků informačního kanálu je zakázána. Nastavení na hodnotu (v ideálním případě silné heslo) apiKey umožňuje vkládání balíčky pomocí nuget.exe.
+### <a name="nuget-server-support-for-pushing-packages-using-nugetexe"></a>Podpora serveru NuGet pro vkládání balíčků pomocí nuget.exe
+NuGet obsahuje jednoduchý způsob, jak hostitele [jednoduché webové na základě úložiště NuGet](../hosting-packages/nuget-server.md) prostřednictvím `NuGet.Server` balíček NuGet. S NuGet 1.4 jednoduchý server podporuje vkládání a odstraňování balíčků s využitím nuget.exe.
+Nejnovější verzi `NuGet.Server` přidá nový `appSetting`s názvem `apiKey`. Když tento parametr vynechán nebo je prázdné, nahráním balíčky do informačního kanálu se vypne. Nastavení apiKey na hodnotu (v ideálním případě silné heslo) umožňuje vložit balíčky pomocí nuget.exe.
 
 ```xml
 <appSettings>
@@ -125,29 +124,29 @@ Nejnovější verzi `NuGet.Server` přidá nový `appSetting`s názvem `apiKey`.
 </appSettings>
 ```
 
-### <a name="support-for-windows-phone-tools-mango-edition"></a>Podpora pro Windows Phone nástroje Mango Edition
-NuGet se teď podporuje v verze release candidate nástrojů pro Windows Phone pro Mango.
-V současné době nástroje Windows Phone nemá podporu pro správce rozšíření sady Visual Studio proto k instalaci nástroje NuGet pro Windows Phone, budete muset stáhnout a spustit VSIX ručně.
+### <a name="support-for-windows-phone-tools-mango-edition"></a>Podpora pro Windows Phone Tools Mango Edition
+NuGet se teď podporuje ve verzi Release candidate nástroje Windows Phone pro Mango.
+V současné době nástroje Windows Phone nemá podporu pro správce rozšíření sady Visual Studio, proto k instalaci nástroje NuGet pro Windows Phone, budete muset stáhnout a spustit ručně VSIX.
 
-Odinstalace nástrojů NuGet pro Windows Phone, spusťte následující příkaz.
+Odinstalace nástroje NuGet pro Windows Phone, spusťte následující příkaz.
 
      vsixinstaller.exe /uninstall:NuPackToolsVsix.Microsoft.67e54e40-0ae3-42c5-a949-fddf5739e7a5
 
 ## <a name="bug-fixes"></a>Opravy chyb
-NuGet 1.4 měl celkem 88 pracovní položky, které jsou pevné. 71 těchto byly označeny jako chyby.
+NuGet 1.4 bylo celkem 88 pracovní položky opraveno. 71 z nich byly označeny jako chyby.
 
-Úplný seznam pracovní položky pevné v NuGet 1.4 prosím zobrazení [sledovací modul problém NuGet pro tuto verzi](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=All&type=All&priority=All&release=NuGet%201.4&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0).
+Úplný seznam pracovních položek opravených NuGet 1.4 prosím zobrazení [NuGet sledování problémů pro tuto verzi](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=All&type=All&priority=All&release=NuGet%201.4&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0).
 
-## <a name="bug-fixes-worth-noting"></a>Opravy chyb vhodné poznamenat:
+## <a name="bug-fixes-worth-noting"></a>Opravy chyb za zmínku:
 
-* [Problém 603](http://nuget.codeplex.com/workitem/603): závislosti balíčků v různých úložišť přeloží správně při zadávání zdrojové konkrétní balíček.
-* [Problém 1036](http://nuget.codeplex.com/workitem/1036): přidání `NuGet Pack SomeProject.csproj` po už vytvořit událost způsobí, že nekonečné smyčce.
+* [Problém 603](http://nuget.codeplex.com/workitem/603): závislosti balíčků v různých úložištích řeší správně při zadávání zdroj konkrétního balíčku.
+* [Problém 1036](http://nuget.codeplex.com/workitem/1036): přidání `NuGet Pack SomeProject.csproj` na událost po sestavení už způsobuje nekonečnou smyčku.
 * [Problém 961](http://nuget.codeplex.com/workitem/961): `-Source` příznak podporuje relativní cesty.
 
 ## <a name="nuget-14-update"></a>Aktualizace NuGet 1.4
-Krátce po vydání NuGet 1.4 zjistili jsme několik problémů, které by bylo potřeba opravit.
-Číslo konkrétní verze této aktualizace 1.4 je 1.4.20615.9020.
+Krátce po vydání NuGet 1.4 našli jsme několik problémů, které byly potřeba opravit.
+Počet konkrétní verzi této aktualizace 1.4 je 1.4.20615.9020.
 
 ### <a name="bug-fixes"></a>Opravy chyb
-* [Problém 1220](http://nuget.codeplex.com/workitem/1220): balíček aktualizace neprovede `install.ps1` / `uninstall.ps1` ve všech projektech po více než jeden projektu
-* [Problém 1156](http://nuget.codeplex.com/workitem/1156): konzole Správce balíčků zablokované na W2K3/Windows XP (Pokud není nainstalované prostředí Powershell 2)
+* [Problém 1220](http://nuget.codeplex.com/workitem/1220): Update-Package neprovede `install.ps1` / `uninstall.ps1` ve všech projektech po více než jeden projekt
+* [Problém 1156](http://nuget.codeplex.com/workitem/1156): konzole Správce balíčků zablokované W2K3/XP (Pokud není nainstalovaný Powershell 2)

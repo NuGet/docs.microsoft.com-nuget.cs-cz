@@ -1,25 +1,24 @@
 ---
-title: Rozhraní příkazového řádku NuGet init – příkaz
-description: Referenční dokumentace pro nuget.exe init – příkaz
+title: Rozhraní příkazového řádku NuGet init
+description: Referenční informace pro příkaz init nuget.exe
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: f4fda33aabd51fbbf0e5559baaa42af065366ba4
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 4441dc3cc35a96736b51867c196313fc9ccfdac2
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817815"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43551407"
 ---
-# <a name="init-command-nuget-cli"></a>Init – příkaz (NuGet CLI)
+# <a name="init-command-nuget-cli"></a>příkaz init (rozhraní příkazového řádku NuGet)
 
-**Platí pro:** balíček vytvoření &bullet; **podporované verze:** 3.3 +
+**Platí pro:** vytvoření balíčku &bullet; **podporované verze:** 3.3 +
 
-Zkopíruje všechny balíčky z plochých složku do cílové složky pomocí hierarchickém rozložení, jak je popsáno [přidat příkaz](cli-ref-add.md). To znamená, pomocí `init` je ekvivalentní k použití `add` na každý balíček ve složce.
+Zkopíruje všechny balíčky z plochého složky do cílové složky pomocí hierarchickém rozložení, jak je popsáno [přidat příkaz](cli-ref-add.md). To znamená, že použití `init` je ekvivalentní k použití `add` příkaz na každý balíček ve složce.
 
-Stejně jako u `add`, cíl musí být místní složku nebo cesty UNC. Úložiště balíčku HTTP například nuget.org nebo privátní servery nejsou podporovány.
+Stejně jako u `add`, cíl musí být místní složku nebo cesty UNC. Úložiště balíčku HTTP jako je nuget.org nebo privátní servery nejsou podporovány.
 
 ## <a name="usage"></a>Použití
 
@@ -27,18 +26,18 @@ Stejně jako u `add`, cíl musí být místní složku nebo cesty UNC. Úložiš
 nuget init <source> <destination> [options]
 ```
 
-kde `<source>` je složka, která obsahuje balíčky a `<destination>` je místní složka nebo cesta UNC ke kterému se zkopírují balíčky.
+kde `<source>` je složku, která obsahuje balíčky a `<destination>` je místní složka nebo cesta UNC, do které se zkopírují balíčky.
 
 ## <a name="options"></a>Možnosti
 
 | Možnost | Popis |
 | --- | --- |
-| ConfigFile | Konfigurační soubor NuGet použít. Pokud není zadaný, `%AppData%\NuGet\NuGet.Config` (Windows) nebo `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) se používá.|
-| ForceEnglishOutput | *(3.5 +)*  Vynutí nuget.exe ke spuštění pomocí invariantní, na základě angličtina jazykové verze. |
-| Rozbalte položku | Přidá všechny soubory v každý balíček, který je přidán ke zdroji balíčku; stejné jako `-Expand` s `add` příkaz. |
+| ConfigFile | Konfigurační soubor NuGet použít. Pokud není zadán, `%AppData%\NuGet\NuGet.Config` (Windows) nebo `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) se používá.|
+| ForceEnglishOutput | *(3.5 +)*  Vynutí nuget.exe pro spuštění pomocí neutrální, základem je angličtina jazyková verze. |
+| Rozbalte položku | Přidá všechny soubory v každý balíček, který je přidán ke zdroji balíčku; stejné jako `-Expand` s `add` příkazu. |
 | Nápověda | Zobrazí nápovědu pro příkaz. |
-| Neinteraktivní | Potlačí výzvy pro vstup uživatele nebo potvrzení. |
-| Podrobnosti | Určuje množství podrobností, které jsou zobrazené ve výstupu: *normální*, *quiet*, *podrobné*. |
+| Neinteraktivní | Potlačí vyzve k zadání uživatele o vstup ani potvrzení. |
+| Podrobnosti | Určuje množství podrobností, na které se zobrazí ve výstupu: *normální*, *quiet*, *podrobné*. |
 
 Viz také [proměnné prostředí](cli-ref-environment-variables.md)
 

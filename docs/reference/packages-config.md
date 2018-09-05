@@ -1,41 +1,40 @@
 ---
 title: Odkaz na soubor packages.config NuGet
-description: V některých typů projektu souboru packages.config udržuje seznam balíčky NuGet použité v projektu.
+description: V některých typech projektů souboru packages.config udržuje seznam balíčky NuGet používané v projektu.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 05/21/2018
 ms.topic: reference
-ms.openlocfilehash: 2019ce5961a8237fbda855cd7d5b42948808be3a
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 18566671b611899b28fcc8542cf53935f5ee2dfd
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817830"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43551767"
 ---
 # <a name="packagesconfig-reference"></a>odkaz na soubor Packages.config
 
-`packages.config` Soubor se používá v některé typy projektů k údržbě seznamu balíčků odkazuje projektu. To umožňuje správci balíčků NuGet snadno obnovte závislosti projektu při projekt, který má být přenosu na jiný počítač, například server sestavení bez tyto balíčky.
+`packages.config` Soubor je používán v některých typech projektů pro zachování seznam balíčků, které jsou odkazované projektem. To umožňuje snadno obnovit projektu závislosti balíčků NuGet při projekt tak, aby přenést k jinému počítači, jako je například server sestavení, aniž by tyto balíčky.
 
-Pokud se používá, `packages.config` se obvykle nachází v kořenovém adresáři projektu. Je vytvořeno automaticky při spuštění první NuGet operaci, ale můžete také vytvořit ručně před spuštěním žádné příkazy, jako například `nuget restore`.
+Pokud použijete, `packages.config` se obvykle nachází v kořenovém adresáři projektu. Je vytvořeno automaticky při spuštění první operace NuGet, ale můžete také vytvořit ručně před spuštěním libovolné příkazy, jako `nuget restore`.
 
-Projekty využívající [PackageReference](../consume-packages/Package-References-in-Project-Files.md) nepoužívejte `packages.config`.
+Projekty, které používají [PackageReference](../consume-packages/Package-References-in-Project-Files.md) nepoužívejte `packages.config`.
 
 ## <a name="schema"></a>Schéma
 
-Schéma je jednoduchý: následující standardní hlavičku XML je jediný `<packages>` uzlu, který obsahuje jeden nebo více `<package>` prvky, jednu pro každý odkaz. Každý `<package>` element může obsahovat následující atributy:
+Schéma je jednoduchý: následující standardní záhlaví XML je jedinou `<packages>` uzel, který obsahuje jeden nebo více `<package>` prvky, jeden pro každý odkaz. Každý `<package>` prvek může mít následující atributy:
 
 | Atribut | Požadováno | Popis |
 | --- | --- | --- |
-| id | Ano | Identifikátor balíčku, například Newtonsoft.json nebo Microsoft.AspNet.Mvc. | 
-| verze | Ano | Přesné verze balíčku, který má nainstalovat, jako je například 3.1.1 nebo 4.2.5.11-beta. Řetězec verze o musí mít alespoň tří čísel. čtvrtý je volitelný, jako je příponu předběžné verze. Rozsahy nejsou povolené. | 
-| targetFramework | Ne | [Cíle Přezdívka framework (TFM)](target-frameworks.md) použít při instalaci balíčku. To je původně nastavení projektu cíl při instalaci balíčku. V důsledku různých `<package>` elementy může mít různé TFMs. Například pokud vytvoříte projekt cílení na rozhraní .NET 4.5.2, balíčky nainstalované v tomto bodě použije TFM net452. Pokud jste; později změnit cílový projektu na .NET 4.6 a přidat další balíčky těch, které budou používat TFM net46. Neshoda mezi cíle projektu a `targetFramework` atributy, vydá upozornění, v takovém případě můžete přeinstalovat, ovlivněných balíčků. | 
-| Hodnota allowedVersions | Ne | Rozsah povolených verzí pro tento balíček použít při aktualizaci balíčku (viz [Constraining upgradu verze](../consume-packages/reinstalling-and-updating-packages.md#constraining-upgrade-versions). Provede *není* ovlivnit jakém jsou balíčku je nainstalován během instalace nebo obnovení. V tématu [Správa verzí balíčku](../reference/package-versioning.md#version-ranges-and-wildcards) syntaxe. Rozhraní PackageManager také zakáže všechny verze mimo povolený rozsah. | 
-| DevelopmentDependency | Ne | Pokud využívání projektu samotné vytvoří balíček NuGet, nastavíte jako `true` pro závislost zabraňuje zahrnutí při využívání balíček je vytvořen tento balíček. Výchozí hodnota je `false`. | 
+| id | Ano | Identifikátor balíčku, jako je například Newtonsoft.json nebo Microsoft.AspNet.Mvc. | 
+| verze | Ano | Přesné verze balíčku k instalaci, jako je například 3.1.1 nebo 4.2.5.11-beta. Řetězec verze musí mít aspoň tří čísel. čtvrtý je volitelný, protože je příponu předběžné verze. Rozsahy nejsou povolené. | 
+| targetFramework | Ne | [Cílit na moniker rozhraní (TFM)](target-frameworks.md) použít při instalaci balíčku. To je zpočátku nastaven k cíli projektu při instalaci balíčku. Jako výsledek různých `<package>` prvky mohou mít různé Tfm. Například pokud vytvoříte projekt cílí na .NET 4.5.2, balíčky nainstalované v tomto okamžiku bude používat TFM net452. Pokud jste; později změnit cílení projektů pro .NET 4.6 a přidat další balíčky, ty budou používat TFM net46. Neshoda mezi cílového projektu a `targetFramework` atributy vygeneruje upozornění, v takovém případě můžete znovu nainstalovat ovlivněné balíčky. | 
+| Hodnota allowedVersions | Ne | Rozsah povolených verzí pro tento balíček použít při aktualizaci balíčku (viz [verze k upgradu Constraining](../consume-packages/reinstalling-and-updating-packages.md#constraining-upgrade-versions). Provádí *není* ovlivňují, jaké balíček nainstaluje při instalaci nebo operace obnovení. Zobrazit [Správa verzí balíčků](../reference/package-versioning.md#version-ranges-and-wildcards) syntaxi. Uživatelské rozhraní PackageManager také zakáže všechny verze mimo povolený rozsah. | 
+| DevelopmentDependency | Ne | Pokud používání vlastní projekt vytvoří balíček NuGet, nastavíte tuto možnost na `true` pro závislosti brání tento balíček nebudou zahrnuty při používání balíčku. Výchozí hodnota je `false`. | 
 
 ## <a name="examples"></a>Příklady
 
-Následující `packages.config` odkazuje na dva závislosti:
+Následující `packages.config` odkazuje na dvě závislosti:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -45,7 +44,7 @@ Následující `packages.config` odkazuje na dva závislosti:
 </packages>
 ```
 
-Následující `packages.config` odkazuje na devět balíčků, ale `Microsoft.Net.Compilers` nebudou zahrnuty při sestavování náročné balíček z důvodu `developmentDependency` atribut. Odkaz na Newtonsoft.Json také omezuje aktualizace na 8.x a 9.x verze.
+Následující `packages.config` odkazuje na devět balíčků, ale `Microsoft.Net.Compilers` nebudou zahrnuty při sestavování z důvodu spotřebitelskou balíčku `developmentDependency` atribut. Odkaz na Newtonsoft.Json také povoluje aktualizace pouze 8.x a 9.x verze.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

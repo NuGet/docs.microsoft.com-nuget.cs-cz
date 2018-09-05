@@ -1,47 +1,46 @@
 ---
-title: Rozhraní API NuGet v sadě Visual Studio
-description: Referenční dokumentace rozhraní API, který NuGet exportuje prostřednictvím rozhraní spravovaných rozšíření v sadě Visual Studio
+title: Rozhraní API Nugetu ve Visual Studio
+description: Reference k rozhraní API, který exportuje NuGet prostřednictvím rozhraní Managed Extensibility Framework v sadě Visual Studio
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/09/2017
 ms.topic: reference
-ms.openlocfilehash: a47e2bb002b16172bf3d08134df5347ae4e4d272
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: c2a6675472070b49c9c5b723b9d24a1fa59c2971
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818770"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43546207"
 ---
-# <a name="nuget-api-in-visual-studio"></a>Rozhraní API NuGet v sadě Visual Studio
+# <a name="nuget-api-in-visual-studio"></a>Rozhraní API Nugetu ve Visual Studio
 
-Kromě uživatelské rozhraní Správce balíčků a konzoly v sadě Visual Studio, NuGet zároveň exportuje některé užitečné služby prostřednictvím [Managed Extensibility Framework (MEF)](/dotnet/framework/mef/index). Toto rozhraní umožňuje ostatní součásti v sadě Visual Studio pro interakci s NuGet, který můžete použít k instalaci a odinstalaci balíčků a získat informace o nainstalované balíčky.
+Kromě uživatelské rozhraní Správce balíčků a konzole v sadě Visual Studio, exportuje NuGet také některé užitečné služby prostřednictvím [Managed Extensibility Framework (MEF)](/dotnet/framework/mef/index). Toto rozhraní podporuje jiné komponenty v sadě Visual Studio pro interakci s NuGet, který můžete použít k instalaci a odinstalaci balíčků a k získání informací o nainstalovaných balíčků.
 
-Od verze NuGet 3.3 + NuGet exportuje následující služby, které jsou umístěny ve `NuGet.VisualStudio` oboru názvů v `NuGet.VisualStudio.dll` sestavení:
+Od verze NuGet 3.3 + NuGet exportuje následující služby, které se nacházejí v `NuGet.VisualStudio` obor názvů v `NuGet.VisualStudio.dll` sestavení:
 
-- [`IRegistryKey`](#iregistrykey-interface): Metoda pro načtení hodnoty z podklíč registru.
+- [`IRegistryKey`](#iregistrykey-interface): Metody k získání hodnoty z podklíč registru.
 - [`IVsPackageInstaller`](#ivspackageinstaller-interface): Metody instalace balíčků NuGet do projektů.
-- [`IVsPackageInstallerEvents`](#ivspackageinstallerevents-interface): Události pro balíček instalace nebo odinstalace.
-- [`IVsPackageInstallerProjectEvents`](#ivspackageinstallerprojectevents-interface): Události batch pro balíček instalace nebo odinstalace.
-- [`IVsPackageInstallerServices`](#ivspackageinstallerservices-interface): Metody k načtení nainstalované balíčky v aktuálním řešení a zkontrolujte, zda je daný balíček nainstalován v projektu.
-- [`IVsPackageManagerProvider`](#ivspackagemanagerprovider-interface): Metody, které poskytují alternativní návrhy správce balíčku pro balíček NuGet.
+- [`IVsPackageInstallerEvents`](#ivspackageinstallerevents-interface): Události pro instalaci/odinstalaci balíčku.
+- [`IVsPackageInstallerProjectEvents`](#ivspackageinstallerprojectevents-interface): Události dávkové pro instalaci/odinstalaci balíčku.
+- [`IVsPackageInstallerServices`](#ivspackageinstallerservices-interface): Metody k načtení nainstalované balíčky v aktuálním řešení a zkontrolujte, zda je daný balíček nainstalovat v projektu.
+- [`IVsPackageManagerProvider`](#ivspackagemanagerprovider-interface): Metody, které poskytují alternativní návrhy Správce balíčků pro balíček NuGet.
 - [`IVsPackageMetadata`](#ivspackagemetadata-interface); Metody k načtení informací o nainstalovaným balíčkem.
-- [`IVsPackageProjectMetadata`](#ivspackageprojectmetadata-interface); Metody k načtení informací o projektu, kde se spouštějí NuGet akce.
-- [`IVsPackageRestorer`](#ivspackagerestorer-interface): Metody k obnovení balíčky nainstalované v projektu.
-- [`IVsPackageSourceProvider`](#ivspackagesourceprovider-interface): Metody pro načtení seznamu NuGet balíček zdroje.
-- [`IVsPackageUninstaller`](#ivspackageuninstaller-interface): Metody pro odinstalaci balíčků NuGet z projektů.
-- [`IVsTemplateWizard`](#ivstemplatewizard-interface): Určený pro položku nebo projektu šablony zahrnout předem nainstalované balíčky; Toto rozhraní je *není* určená jde volat z kódu a nemá žádné veřejné metody.
+- [`IVsPackageProjectMetadata`](#ivspackageprojectmetadata-interface); Metody k načtení informací o projektu, ve kterém se spouští akcí NuGet.
+- [`IVsPackageRestorer`](#ivspackagerestorer-interface): Metody obnovit balíčky nainstalované v projektu.
+- [`IVsPackageSourceProvider`](#ivspackagesourceprovider-interface): Metody k načtení seznamu NuGet balíček zdroje.
+- [`IVsPackageUninstaller`](#ivspackageuninstaller-interface): Metody k odinstalaci balíčků NuGet z projektů.
+- [`IVsTemplateWizard`](#ivstemplatewizard-interface): Určená pro šablony projektu/položky zahrnout předem nainstalované balíčky Toto rozhraní je *není* by se volat z kódu a nemá žádné veřejné metody.
 
-## <a name="using-nuget-services"></a>Pomocí služeb balíčků NuGet
+## <a name="using-nuget-services"></a>Pomocí služeb NuGet
 
-1. Nainstalujte [ `NuGet.VisualStudio` ](https://www.nuget.org/packages/NuGet.VisualStudio) balíčku do projektu, který obsahuje `NuGet.VisualStudio.dll` sestavení.
+1. Nainstalujte [ `NuGet.VisualStudio` ](https://www.nuget.org/packages/NuGet.VisualStudio) balíčku do vašeho projektu, který obsahuje `NuGet.VisualStudio.dll` sestavení.
 
-    Při instalaci balíčku automaticky nastaví **vložit zprostředkovatel komunikace s objekty typy** vlastnost odkaz na sestavení **True**. Díky tomu kódu odolné proti verze změny při uživatelé aktualizovat na novější verze balíčku nuget.
+    Při instalaci balíčku automaticky nastaví **Embed Interop Types** vlastnost odkaz na sestavení **True**. Díky tomu váš kód odolné proti změny verze při uživatelé aktualizovat na novější verze balíčku nuget.
 
 > [!Warning]
-> Nepoužívejte u jiných typů kromě veřejné rozhraní v kódu a neodkazují žádné jiné NuGet sestavení, včetně `NuGet.Core.dll`.
+> Nepoužívejte u jiných typů kromě veřejné rozhraní ve vašem kódu a neodkazují na žádné jiné NuGet sestavení, včetně `NuGet.Core.dll`.
 
-1. Pokud chcete používat službu, importujte ji prostřednictvím [MEF importovat atribut](/dotnet/framework/mef/index#imports-and-exports-with-attributes), nebo pomocí [IComponentModel služby](/dotnet/api/microsoft.visualstudio.componentmodelhost.icomponentmodel?redirectedfrom=MSDN&view=visualstudiosdk-2017).
+1. Využívat službu, importujte ho pomocí [MEF Import atribut](/dotnet/framework/mef/index#imports-and-exports-with-attributes), nebo prostřednictvím [IComponentModel služby](/dotnet/api/microsoft.visualstudio.componentmodelhost.icomponentmodel?redirectedfrom=MSDN&view=visualstudiosdk-2017).
 
     ```cs
     //Using the Import attribute
@@ -58,7 +57,7 @@ Od verze NuGet 3.3 + NuGet exportuje následující služby, které jsou umíst�
     var installedPackages = installerServices.GetInstalledPackages();
     ```
 
-Pro srovnání je součástí zdrojového kódu pro NuGet.VisualStudio [NuGet.Clients úložiště](https://github.com/NuGet/NuGet.Client/tree/dev/src/NuGet.Clients/NuGet.VisualStudio).
+Pro srovnání je součástí zdrojový kód pro NuGet.VisualStudio [NuGet.Clients úložiště](https://github.com/NuGet/NuGet.Client/tree/dev/src/NuGet.Clients/NuGet.VisualStudio).
 
 ## <a name="iregistrykey-interface"></a>IRegistryKey rozhraní
 

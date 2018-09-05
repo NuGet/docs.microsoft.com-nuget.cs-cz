@@ -1,23 +1,22 @@
 ---
 title: Referenční informace prostředí PowerShell Get projektu NuGet
-description: Referenční dokumentace pro příkaz prostředí GetProject PowerShell v konzole Správce balíčků NuGet v sadě Visual Studio.
+description: Referenční informace pro příkaz prostředí GetProject PowerShell v konzole Správce balíčků NuGet v sadě Visual Studio.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: afdf9f762bbd34531f9d9093238a2fed27e3f4d3
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 849261711fafcadbab38bf6fe99340c4b79e1e21
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817753"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43550434"
 ---
 # <a name="get-project-package-manager-console-in-visual-studio"></a>Get-Project (konzola Správce balíčků v sadě Visual Studio)
 
-*K dispozici pouze v rámci [Konzola správce balíčků NuGet](package-manager-console.md) v sadě Visual Studio v systému Windows.*
+*K dispozici pouze v rámci [Konzola správce balíčků NuGet](package-manager-console.md) v sadě Visual Studio ve Windows.*
 
-Zobrazí informace o výchozí nebo zadaného projektu. `Get-Project` Vrátí konkrétně referenční objekt Visual Studio DTE (Development Tools Environment) pro projekt.
+Zobrazí informace o výchozích nebo zadaný projekt. `Get-Project` Konkrétně vrací referenční objekt Visual Studio DTE (Development Tools Environment) pro projekt.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -29,14 +28,14 @@ Get-Project [[-Name] <string>] [-All] [<CommonParameters>]
 
 | Parametr | Popis |
 | --- | --- |
-| Název | Určuje projekt, pokud chcete zobrazit, jako výchozí bude použit výchozí projekt vybraný v konzoli správce balíčků. -Název přepínače je sám volitelné. |
-| Všechny | Zobrazí informace o všechny projekty v řešení; pořadí projektů není deterministické. |
+| Název | Určuje projekt k zobrazení, jako výchozí se použije výchozí projekt vybraný v konzole Správce balíčků. – Název přepínače je volitelné. |
+| Všechny | Zobrazí informace pro každý projekt v řešení; pořadí projekty není deterministický. |
 
-Žádná z těchto parametrů přijmout kanálu vstup nebo zástupné znaky.
+Žádná z těchto parametrů přijímat kanálu vstup nebo zástupné znaky.
 
 ## <a name="common-parameters"></a>Společné parametry
 
-`Get-Project` podporuje následující [společné parametry prostředí PowerShell](http://go.microsoft.com/fwlink/?LinkID=113216): ladění, Chyba akce, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, podrobná, WarningAction a WarningVariable.
+`Get-Project` podporuje následující [společné parametry prostředí PowerShell](http://go.microsoft.com/fwlink/?LinkID=113216): ladění, Chyba akce, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction a WarningVariable.
 
 ## <a name="examples"></a>Příklady
 

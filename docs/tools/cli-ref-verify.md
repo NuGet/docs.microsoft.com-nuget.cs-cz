@@ -1,26 +1,25 @@
 ---
-title: Zkontrolujte příkaz NuGet rozhraní příkazového řádku
-description: Referenční dokumentace pro nuget.exe ověřte příkaz
+title: Zkontrolujte příkaz rozhraní příkazového řádku NuGet
+description: Ověření odkazu nuget.exe příkaz
 author: dtivel
 ms.author: dtivel
-manager: doronm
 ms.date: 03/06/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: c80334104f7d8b2ccbf16ea2c11dc37b39408eeb
-ms.sourcegitcommit: c8485dc61469511485367d2067b97d6f74b49f6e
+ms.openlocfilehash: 127f7a549c0a213f319c8820293646b302830436
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/23/2018
-ms.locfileid: "34462849"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43545210"
 ---
 # <a name="verify-command-nuget-cli"></a>Příkaz verify (NuGet CLI)
 
-**Platí pro:** balíček spotřeba &bullet; **podporované verze:** 4.6 +
+**Platí pro:** balíček spotřeby &bullet; **podporované verze:** 4.6 +
 
-Ověřuje balíček.
+Ověří balíčku.
 
-Ověření podepsaný balíčků v .NET Core, v části Mono nebo na jiný systém než Windows platformách ještě není podporovaný.
+V .NET Core, mono, nebo na platformách než Windows zatím nepodporuje ověření podepsaných balíčků.
 
 ## <a name="usage"></a>Použití
 
@@ -30,7 +29,7 @@ nuget verify <-All|-Signatures> <package(s)> [options]
 
 kde `<package(s)>` je jeden nebo více `.nupkg` soubory.
 
-## <a name="nuget-verify--all"></a>Ověřte nuget – všechny
+## <a name="nuget-verify--all"></a>ověřit nuget – vše
 
 Určuje, že všechny možné ověření je třeba provést na balíčky.
 
@@ -38,20 +37,20 @@ Určuje, že všechny možné ověření je třeba provést na balíčky.
 
 Určuje, že by se měla provést ověření podpisu balíčku.
 
-## <a name="options-for-verify--signatures"></a>Možnosti pro "ověřit - podpisy"
+## <a name="options-for-verify--signatures"></a>Možnosti pro "ověřování - podpisů"
 
 | Možnost | Popis |
 | --- | --- |
-| CertificateFingerprint | Určuje jeden algoritmus SHA-256 certifikát otisky certifikátů (s), které podepsané balíčky musí být podepsány pomocí. Otisk prstu certifikát SHA-256 je hodnota hash SHA-256 certifikátu. Více vstupů by měl být oddělený středníkem. |
+| CertificateFingerprint | Určuje jeden nebo více SHA-256 certifikát otisky prstů certifikátů (s), které podepsané balíčky musí být podepsán. Otisk certifikátu SHA-256 se hashovací algoritmus SHA-256 certifikátu. Více vstupů by měl být oddělený středníkem. |
 
 ## <a name="options"></a>Možnosti
 
 | Možnost | Popis |
 | --- | --- |
-| ConfigFile | Konfigurační soubor NuGet použít. Pokud není zadaný, `%AppData%\NuGet\NuGet.Config` (Windows) nebo `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) se používá.|
-| ForceEnglishOutput | Vynutí nuget.exe ke spuštění pomocí invariantní, na základě angličtina jazykové verze. |
+| ConfigFile | Konfigurační soubor NuGet použít. Pokud není zadán, `%AppData%\NuGet\NuGet.Config` (Windows) nebo `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) se používá.|
+| ForceEnglishOutput | Vynutí nuget.exe pro spuštění pomocí neutrální, základem je angličtina jazyková verze. |
 | Nápověda | Zobrazí nápovědu pro příkaz. |
-| Podrobnosti | Určuje množství podrobností, které jsou zobrazené ve výstupu: *normální*, *quiet*, *podrobné*. |
+| Podrobnosti | Určuje množství podrobností, na které se zobrazí ve výstupu: *normální*, *quiet*, *podrobné*. |
 
 ## <a name="examples"></a>Příklady
 

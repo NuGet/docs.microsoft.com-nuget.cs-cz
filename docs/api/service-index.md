@@ -1,66 +1,65 @@
 ---
-title: Služba Index, NuGet rozhraní API
-description: Index služby je vstupní bod rozhraní API HTTP NuGet a vytvoří výčet možností serveru.
+title: Služba Index, rozhraní API Nugetu
+description: Index služby je vstupní bod rozhraní API HTTP NuGet a vytváří výčet možností serveru.
 author: joelverhagen
 ms.author: jver
-manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 84e623e8480e4d17edad2ec3b2da6dcb6e53d21b
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 478b74f98caafdc7c6b69423b9f9d72890c8d7cb
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31822091"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43545254"
 ---
 # <a name="service-index"></a>Index služby
 
-Index služby je dokument JSON, který je vstupní bod pro zdroje balíčku NuGet a umožňuje implementace klienta ke zjištění schopnosti zdroji balíčku. Index služby je objekt JSON s dvěma požadované vlastnosti: `version` (verze schématu indexu služby) a `resources` (koncových bodů nebo možnosti zdrojových souborů balíčku).
+Index služby je dokument JSON, který je vstupním bodem pro zdroj balíčku NuGet a umožňuje implementace klienta ke zjištění schopnosti zdroje balíčku. Index služby je objekt JSON s dvěma požadované vlastnosti: `version` (verze schématu indexu služby) a `resources` (koncové body nebo možnosti zdroje balíčku).
 
-index služby nuget.org je umístěn v `https://api.nuget.org/v3/index.json`.
+index služby nuget.org se nachází na `https://api.nuget.org/v3/index.json`.
 
 ## <a name="versioning"></a>Správa verzí
 
-`version` Hodnota je řetězec parseable verze SemVer 2.0.0, který označuje verzi schématu indexu služby. Rozhraní API vyžaduje, aby řetězec verze má hlavní verzi počet `3`. Při provedení změn pevné na schéma indexu služby, zvýší se podverze řetězec verze.
+`version` Hodnota je řetězec SemVer 2.0.0 parseable verze, který označuje verzi schématu indexu služby. Rozhraní API Určuje, zda má řetězec verze číslo hlavní verze `3`. Jak nevýznamných změn schématu indexu služby, zvýší se verze řetězec podverze.
 
-Každý prostředek v indexu služby je verzí nezávisle na verzi schématu indexu služby.
+Každý prostředek v indexu služby je označené verzí odděleně od verze schématu indexu služby.
 
-Aktuální verze schématu `3.0.0`. `3.0.0` Je funkčně srovnatelný starší verze `3.0.0-beta.1` verze ale měl by být upřednostňované zřetelněji komunikuje stabilní, definované schéma.
+Aktuální verze schématu `3.0.0`. `3.0.0` Je funkčně srovnatelný s starší verze `3.0.0-beta.1` verze, ale se bude upřednostňovat jako jasněji komunikuje stabilní, definice schématu.
 
 ## <a name="http-methods"></a>Metody HTTP
 
-Index služba je přístupná pomocí metody HTTP `GET` a `HEAD`.
+Index služby je přístupný pomocí metody HTTP `GET` a `HEAD`.
 
 ## <a name="resources"></a>Prostředky
 
-`resources` Vlastnost obsahuje pole prostředků nepodporuje tento zdroj balíčku.
+`resources` Vlastnost obsahuje celou řadu prostředků nepodporuje zdroje tohoto balíčku.
 
 ### <a name="resource"></a>Prostředek
 
-Prostředek je objektem ve `resources` pole. Reprezentuje verzí schopností zdroje balíčku. Prostředek má následující vlastnosti:
+Prostředek je objekt `resources` pole. Představuje systémovou správou verzí možnost zdroje balíčku. Prostředek má následující vlastnosti:
 
 Název          | Typ   | Požadováno | Poznámky
 ------------- | ------ | -------- | -----
-@id           | odkazy řetězců | Ano      | Adresa URL prostředku
-@type         | odkazy řetězců | Ano      | Řetězcová konstanta představující typ prostředku
+@id           | odkazy řetězců | Ano      | Adresa URL k prostředku
+@type         | odkazy řetězců | Ano      | Konstanta řetězec představující typ prostředku
 comment       | odkazy řetězců | Ne       | Lidské čitelný popis prostředku
 
-`@id` Je adresa URL, která musí být absolutní a buď musí mít schéma protokolu HTTP nebo HTTPS.
+`@id` Je adresa URL, která musí být absolutní a musí mít schéma HTTP nebo HTTPS.
 
-`@type` Slouží k identifikaci konkrétní protokol bude použit při interakci s prostředků. Typ prostředku je neprůhledný řetězec, ale obvykle má formát:
+`@type` Slouží k identifikaci konkrétní protokol bude použit při interakci s prostředkem. Typ prostředku je neprůhledný řetězec, ale obvykle má formát:
 
     {RESOURCE_NAME}/{RESOURCE_VERSION}
 
-Klienti se očekává, pevné kódu `@type` hodnoty, pochopit a jejich vyhledat ve zdroji balíčku služby index. Přesné `@type` hodnoty v současnosti jsou uvedené na dokumenty odkaz jednotlivých prostředků uvedené v [přehled rozhraní API](overview.md#resources-and-schema).
+Klienti se očekává pevný kód `@type` hodnoty mají přehled a je vyhledat v indexu služby zdroje balíčku. Přesné `@type` hodnoty v současnosti jsou uvedené na referenční dokumenty jednotlivé prostředky uvedené v [přehled rozhraní API](overview.md#resources-and-schema).
 
-Z důvodu této dokumentace, bude v dokumentaci o různých prostředků v podstatě seskupené podle `{RESOURCE_NAME}` nachází v indexu služby, která je analogií seskupení podle scénáře. 
+Pro účely této dokumentaci, se v dokumentaci k různým prostředkům v podstatě seskupené podle `{RESOURCE_NAME}` v indexu služby, která je analogií seskupení podle scénáře. 
 
-Není potřeba, aby každý prostředek má jedinečnou `@id` nebo `@type`. Je implementace klienta k určení, který prostředek se má přednost oproti jinému. Jednou z možných implementací je, že prostředky na stejné nebo kompatibilní `@type` mohou být používány kruhového dotazování v případě selhání nebo serveru chyb připojení.
+Neexistuje žádný požadavek, že každý prostředek má jedinečnou `@id` nebo `@type`. Je implementace klienta, chcete-li určit, který prostředek se má přednost před jiným. Jednu možnou implementaci je, že prostředky se stejným nebo kompatibilní `@type` lze použít v vždy střídat dokola v případě selhání nebo serveru chyb připojení.
 
 ### <a name="sample-request"></a>Ukázková žádost
 
-GET https://api.nuget.org/v3/index.json
+ZÍSKAT https://api.nuget.org/v3/index.json
 
 ### <a name="sample-response"></a>Ukázková odpověď
 

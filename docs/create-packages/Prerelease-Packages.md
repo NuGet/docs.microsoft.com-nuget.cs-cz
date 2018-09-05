@@ -1,82 +1,81 @@
 ---
-title: Předběžné verze v balíčků NuGet
-description: Pokyny pro vytváření předběžné verze balíčků
+title: Předběžné verze v balíčcích NuGet
+description: Pokyny k vytváření balíčky v předběžné verzi
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: 498509e03a794878eeeadd46d499521d19415600
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: a47a3a56e1c290c9a2f228ce1d0313cbdf0c4c34
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818370"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43549203"
 ---
-# <a name="building-pre-release-packages"></a>Vytváření předběžné verze balíčků
+# <a name="building-pre-release-packages"></a>Vytváření balíčky v předběžné verzi
 
-Vždy, když uvolnění aktualizovaný balíček s nové číslo verze se považuje za NuGet než jako "nejnovější stabilní verze" jak je vidět, třeba v uživatelském rozhraní Správce balíčků ve Visual Studiu:
+Pokaždé, když vydáte aktualizovaného balíčku pomocí nové číslo verze, NuGet bere v úvahu, že jedna jako "nejnovější stabilní verzi" jak je znázorněno, například uživatelské rozhraní Správce balíčků sady Visual Studio:
 
-![Uživatelského rozhraní Správce balíčků zobrazující nejnovější stabilní verze](media/Prerelease_01-LatestStable.png)
+![Nejnovější stabilní verze zobrazující uživatelské rozhraní Správce balíčků](media/Prerelease_01-LatestStable.png)
 
-Stabilní verze je ten, který je považován za dostatečně spolehlivé, který se má použít v produkčním prostředí. Nejnovější stabilní verze je také ten, který se nainstaluje jako aktualizace balíčku nebo při obnovování balíčků (vztahují omezení, jak je popsáno v [Reinstalling a aktualizaci balíčků](../consume-packages/reinstalling-and-updating-packages.md)).
+Stabilní verze je ten, který se považuje za dostatečně spolehlivé na to, který se má použít v produkčním prostředí. Nejnovější stabilní verze je také ten, který se nainstaluje jako aktualizace balíčku nebo při obnovení balíčků (v souladu s omezeními, jak je popsáno v [Reinstalling a aktualizace balíčků](../consume-packages/reinstalling-and-updating-packages.md)).
 
-Pro podporu životního cyklu verze softwaru, NuGet 1.6 nebo novější umožňuje distribuci předběžné verze balíčků, kde se číslo verze obsahuje příponu sémantické verze, jako `-alpha`, `-beta`, nebo `-rc`. Další informace najdete v tématu [Správa verzí balíčku](../reference/package-versioning.md#pre-release-versions).
+Pro podporu životního cyklu verze softwaru, NuGet 1.6 nebo novější umožňuje distribuční balíčky v předběžné verzi, kde číslo verze zahrnuje příponu sémantické správy verzí, například `-alpha`, `-beta`, nebo `-rc`. Další informace najdete v tématu [Správa verzí balíčků](../reference/package-versioning.md#pre-release-versions).
 
-Tyto verze můžete určit dvěma způsoby:
+Tyto verze můžete zadat dvěma způsoby:
 
-- `.nuspec` soubor: zahrnují příponou sémantickou verzi v `version` element:
+- `.nuspec` soubor: zahrnout příponu sémantickou verzi v `version` element:
 
     ```xml
     <version>1.0.1-alpha</version>
     ```
 
-- Atributů sestavení: při vytváření balíčků z projektu sady Visual Studio (`.csproj` nebo `.vbproj`), použijte `AssemblyInformationalVersionAttribute` k určení verze:
+- Atributy sestavení: při vytváření balíčku projektu sady Visual Studio (`.csproj` nebo `.vbproj`), použijte `AssemblyInformationalVersionAttribute` k zadání verze:
 
     ```cs
     [assembly: AssemblyInformationalVersion("1.0.1-beta")]
     ```
 
-    NuGet převezme tuto hodnotu namísto verze zadaná v `AssemblyVersion` atribut, který nepodporuje sémantické verze.
+    NuGet vybere tuto hodnotu místo verze zadaná v `AssemblyVersion` atribut, který nepodporuje sémantické správy verzí.
 
-Až budete připraveni k uvolnění stabilní verze, právě odeberte příponu a balíček má přednost před všechny předprodejní verze. Znovu, najdete v části [Správa verzí balíčku](../reference/package-versioning.md#pre-release-versions).
+Jakmile budete připraveni k uvolnění stabilní verzi, odeberte příponu a balíček má přednost před všechny předběžné verze. Znovu, naleznete v tématu [Správa verzí balíčků](../reference/package-versioning.md#pre-release-versions).
 
 ## <a name="installing-and-updating-pre-release-packages"></a>Instalace a aktualizace předběžné verze balíčků
 
-Ve výchozím nastavení NuGet nezahrnuje předprodejní verze při práci s balíčky, ale toto chování lze změnit takto:
+Ve výchozím nastavení NuGet nezahrnuje předběžných verzí při práci s balíčky, ale toto chování můžete změnit následujícím způsobem:
 
-- **Správce balíčků uživatelského rozhraní v sadě Visual Studio**: V **spravovat balíčky NuGet** uživatelského rozhraní, zkontrolujte **zahrnout předběžné verze** pole:
+- **Uživatelské rozhraní Správce balíčků v sadě Visual Studio**: V **spravovat balíčky NuGet** uživatelského rozhraní, zkontrolujte **zahrnout předběžné verze** pole:
 
     ![Políčko zahrnout předběžné verze v sadě Visual Studio](media/Prerelease_02-CheckPrerelease.png)
 
-    Nastavení nebo zrušíte zaškrtnutí tohoto políčka se aktualizuje uživatelské rozhraní Správce balíčků a seznam dostupných verzí, které můžete instalovat.
+    Nastavení nebo zrušením zaškrtnutí tohoto políčka se aktualizuje uživatelské rozhraní Správce balíčků a seznam dostupných verzí, kterou můžete nainstalovat.
 
-- **Konzola správce balíčků**: použití `-IncludePrerelease` přepínač s `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package`, a `Update-Package` příkazy. Odkazovat [referenční informace prostředí PowerShell](../tools/powershell-reference.md).
+- **Konzola správce balíčků**: použijte `-IncludePrerelease` přepněte se `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package`, a `Update-Package` příkazy. Odkazovat [referenční informace prostředí PowerShell](../tools/powershell-reference.md).
 
-- **Rozhraní příkazového řádku NuGet**: použití `-prerelease` přepínač s `install`, `update`, `delete`, a `mirror` příkazy. Odkazovat [odkaz NuGet rozhraní příkazového řádku](../tools/nuget-exe-cli-reference.md)
+- **Rozhraní příkazového řádku NuGet**: použití `-prerelease` přepněte se `install`, `update`, `delete`, a `mirror` příkazy. Odkazovat [odkaz na rozhraní příkazového řádku NuGet](../tools/nuget-exe-cli-reference.md)
 
-## <a name="semantic-versioning"></a>Sémantické verze
+## <a name="semantic-versioning"></a>Sémantické správy verzí
 
-[Sémantické verze nebo SemVer konvence](http://semver.org/spec/v1.0.0.html) popisuje, jak využívat řetězců v čísla verzí pro vyjádření jejich význam kódu.
+[Semantic Versioning nebo SemVer konvence](http://semver.org/spec/v1.0.0.html) popisuje, jak využívat řetězce v číslech verzí k předání jejich význam základní kód.
 
-V touto konvencí, každá verze má tři části `Major.Minor.Patch`, s následující význam:
+V této konvenci, každá verze má tři části `Major.Minor.Patch`, s následující význam:
 
 - `Major`: Nejnovější změny
 - `Minor`: Nové funkce, ale zpětně kompatibilní
-- `Patch`: Zpětné opravy pouze kompatibilní chyb
+- `Patch`: Zpětné opravy chyb kompatibilní pouze
 
-Předběžné verze jsou pak odlišené připojování řetězec a pomlčka po číslo opravy. Technicky platí, že můžete použít * žádné * řetězec po pomlčku a NuGet bude považovat za balíček předběžné verze. Číslo plnou verzi NuGet pak zobrazí v uživatelském rozhraní použít, a spotřebitelé interpretovat význam sami.
+Předběžné verze jsou rozlišeny pak připojením spojovníkem a řetězec za číslo opravy. Technicky vzato můžete použít * jakékoli * řetězec po spojovníkem a NuGet bude považovat za balíček předběžné verze. Celé číslo verze NuGet pak zobrazí v příslušné uživatelské rozhraní, byste museli opustit příjemci k interpretaci význam sami.
 
-Myslete na to je obvykle dobrou sledovat rozpoznaný zásady vytváření názvů jako je například následující:
+To na paměti je obecně vhodné sledovat rozpoznaný konvence pojmenování, jako je následující:
 
-- `-alpha`: Alfa verze, obvykle se používá pro práce v průběhu a experimentování
-- `-beta`: Beta verze, obvykle ten, který je funkce dokončení další plánované verze, ale může obsahovat známé chyby.
-- `-rc`: Release candidate, obvykle verzi, která je potenciálně konečné (stable), pokud vznikat významné chyby.
+- `-alpha`: Verze alfa, obvykle se používá pro nedokončenou prací a experimentování
+- `-beta`: Betaverze, obvykle ten, který je funkce pro další plánované vydání, ale může obsahovat známé chyby.
+- `-rc`: Verze Release candidate, obvykle, která je potenciálně konečné vydání (stabilní), není-li významný chyby se objeví.
 
 > [!Note]
-> Podporuje NuGet 4.3.0+ [sémantické verze v2.0.0](http://semver.org/spec/v2.0.0.html), který podporuje předběžné verze čísla s zápisu s tečkou, jako v `1.0.1-build.23`. Verze NuGet před 4.3.0 nepodporuje zápisu s tečkou. V dřívějších verzích systému NuGet, můžete použít formuláře jako `1.0.1-build23` ale vždycky to považovaná předběžné verze.
+> Podporuje NuGet 4.3.0+ [Semantic Versioning v2.0.0](http://semver.org/spec/v2.0.0.html), která podporuje předběžné verze čísla pomocí zápisu s tečkou, stejně jako v `1.0.1-build.23`. Verze NuGet starší než 4.3.0 nepodporuje zápisu s tečkou. V dřívějších verzích balíčku nuget, můžete použít formuláře jako `1.0.1-build23` , ale to vždy považovaná za Předběžná verze.
 
-Ať přípony, které používáte, ale NuGet získáte jejich prioritu ve vzestupném abecedním pořadí:
+Libovolné přípony použijete, ale NuGet se jim přednost ve vzestupném abecedním pořadí:
 
     1.0.1
     1.0.1-zzz
@@ -88,4 +87,4 @@ Ať přípony, které používáte, ale NuGet získáte jejich prioritu ve vzest
     1.0.1-alpha2
     1.0.1-alpha
 
-Jak je znázorněno, verze bez žádné přípony bude vždy přednost předběžné verze. Všimněte si také, že pokud používáte číselné přípony s předběžné verze značky, které můžou používat dvoumístných čísel (nebo více), použít úvodní nuly jako beta01 a beta05 zajistit, že budou řadit správně při získání větší čísla.
+Jak je znázorněno, verze bez žádné přípony bude vždy přednost předběžné verze. Všimněte si také, že pokud použijte číselné přípony značkami předběžné verze, které můžou používat číslicemi čísla (nebo více), pomocí úvodní nuly. jako beta01 a beta05 Ujistěte se, že budou řadit správně při čísla narůstají.
