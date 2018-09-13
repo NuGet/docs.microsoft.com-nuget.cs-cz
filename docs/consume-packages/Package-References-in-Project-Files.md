@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 9ae8e8dc4e7e901acacffed8b7dfb4162c5ad2b6
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 648b2679538e38b2451d7857beb5d070deeef7c5
+ms.sourcegitcommit: 47858da1103848cc1b15bdc00ac7219c0ee4a6a0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551387"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44516201"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Odkazy na balíček (PackageReference) v souborech projektu
 
@@ -18,7 +18,7 @@ Balíček odkazů pomocí nástroje `PackageReference` uzlu, správě závislost
 
 S PackageReference můžete také použít podmínky nástroje MSBuild zvolit odkazy na balíček na cílovou architekturu, konfigurace, platformy nebo další seskupení. Umožňuje také pro detailní kontrolu nad závislostí a obsahu toku. (Další podrobnosti najdete v [NuGet aktualizací Service pack a obnovení jako cílů MSBuild](../reference/msbuild-targets.md).)
 
-Ve výchozím nastavení je použít PackageReference pro projekty .NET Core, .NET Standard projekty a projekty UPW cílení na Windows 10 sestavení 15063 (Creators Update) a novější, s výjimkou projekty C++ UWP. Projekty .NET framework úplné podporují PackageReference, ale nyní jako výchozí `packages.config`. Použití PackageReference migrovat závislosti z `packages.config` do souboru projektu, odstraňte soubor packages.config.
+Ve výchozím nastavení je použít PackageReference pro projekty .NET Core, .NET Standard projekty a projekty UPW cílení na Windows 10 sestavení 15063 (Creators Update) a novější, s výjimkou projekty C++ UWP. Projekty rozhraní .NET framework podporují PackageReference, ale nyní jako výchozí `packages.config`. Použití PackageReference migrovat závislosti z `packages.config` do souboru projektu, odstraňte soubor packages.config.
 
 ## <a name="adding-a-packagereference"></a>Přidávání PackageReference
 
