@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/23/2018
 ms.topic: tutorial
-ms.openlocfilehash: ce5ad07209a06010150b14092aa1b15ee6f84146
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: dd36987e020c2daa02bb875aa9dbd69c85bba4d3
+ms.sourcegitcommit: 1bd72dca2f85b4267b9924236f1d23dd7b0ed733
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548735"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49951743"
 ---
 # <a name="creating-ui-controls-as-nuget-packages"></a>Vytvoření ovládacích prvků uživatelského rozhraní jako balíčků NuGet
 
@@ -87,7 +87,9 @@ V následujícím příkladu, ovládací prvek implementované v `ManagedPackage
 
 ## <a name="add-custom-icons-to-your-controls"></a>Přidat vlastní ikony k ovládacím prvkům
 
-K zobrazení vlastní ikony na panelu nástrojů a prostředků, přidat bitovou kopii do projektu nebo odpovídající `design.dll` projektu s názvem "Namespace.ControlName.extension" a nastavte akci sestavení na "Integrovaný prostředek". Podporované formáty jsou `.png`, `.jpg`, `.jpeg`, `.gif`, a `.bmp`. Doporučená velikost je 64 x 64 pixelů.
+K zobrazení vlastní ikony na panelu nástrojů a prostředků, přidat bitovou kopii do projektu nebo odpovídající `design.dll` projektu s názvem "Namespace.ControlName.extension" a nastavte akci sestavení na "Integrovaný prostředek". Musíte také zajistit, aby přidružené `AssemblyInfo.cs` Určuje atribut ProvideMetadata - `[assembly: ProvideMetadata(typeof(RegisterMetadata))]`. Najdete v tomto [ukázka](https://github.com/NuGet/Samples/blob/master/ExtensionSDKasNuGetPackage/NativePackage.Design/Properties/AssemblyInfo.cs#L20).
+
+Podporované formáty jsou `.png`, `.jpg`, `.jpeg`, `.gif`, a `.bmp`. Doporučená velikost je 64 x 64 pixelů.
 
 V následujícím příkladu projektu obsahuje soubor image s názvem "ManagedPackage.MyCustomControl.png".
 
