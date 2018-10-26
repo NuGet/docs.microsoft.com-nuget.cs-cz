@@ -1,0 +1,29 @@
+{
+  "version": "3.0.0",
+  "resources": [
+    {
+      "@id": "https://API.nuget.org/v3-flatcontainer/",
+      "@type": "PackageBaseAddress/3.0.0",
+      "comment": "Základní adresa URL z Azure storage, kde uloženy informace o registraci balíčku NuGet pro .NET Core ve formátu https://api.nuget.org/v3-flatcontainer/ {id nižší} / {id nižší}. {verze nižší} .nupkg"
+    },
+    {
+      "@id": "https://www.nuget.org/API/v2/Package",
+      "@type": "PackagePublish/2.0.0"
+    },
+    {
+      "@id": "https://API-v2v3search-0.nuget.org/Query",
+      "@type": "SearchQueryService/3.0.0-rc",
+      "comment": "Dotazování koncový bod služby NuGet – hledání (primární) používají klienti RC"
+    },
+    {
+      "@id": "https://API-v2v3search-0.nuget.org/AutoComplete",
+      "@type": "SearchAutocompleteService/3.0.0-rc",
+      "comment": "Automatické dokončování koncový bod služby NuGet Search (primární) používají klienti RC"
+    },
+    {
+      "@id": "https://API.nuget.org/v3/registration2/",
+      "@type": "RegistrationsBaseUrl/3.0.0-rc",
+      "comment": "Základní adresa URL z Azure storage ukládat informace o registraci balíčku NuGet používají klienti RC. Tato základní adresa URL neobsahuje balíčky SemVer 2.0.0."
+    }
+  ]
+}
