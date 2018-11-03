@@ -31,7 +31,6 @@
 ## Příručky
 ### [Vytvoření balíčků UPW](guides/create-uwp-packages.md)
 ### [Vytvoření ovládacích prvků uživatelského rozhraní jako balíčků NuGet](guides/create-UI-controls.md)
-### [Vytváření balíčků NET Standard/NET Framework pomocí sady Visual Studio 2015](guides/create-net-standard-packages-vs2015.md)
 ### [Vytváření balíčků pro Xamarin pomocí sady Visual Studio 2015](guides/create-packages-for-xamarin.md)
 # Hostování balíčků
 ## [Přehled](hosting-packages/overview.md)
