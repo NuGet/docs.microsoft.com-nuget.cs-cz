@@ -10,12 +10,12 @@ f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager.general
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
-ms.openlocfilehash: 651bbe63ec95fcedb8e9504022d08d6ba7f9219e
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 1de6ddeca6295c621a90409807af198bc3c7a068
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551754"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981181"
 ---
 # <a name="nuget-package-manager-ui"></a>Uživatelské rozhraní Správce balíčků NuGet
 
@@ -70,7 +70,11 @@ V tomto tématu:
 
     ![Aktualizace balíčku](media/UpdatePackages.png)
 
-1. <a name="implicit_reference"></a>Pro některé balíčky **aktualizace** je tlačítko neaktivní a zobrazí se zpráva s informacemi o tom, že jej je "implicitně odkazovat pomocí sady SDK" (nebo "AutoReferenced"). Zpráva označuje, že balíček, jako je například balíčky Microsoft.NETCore.App nebo Microsoft.NETStandard.Library, je součástí větší platforma nebo sada SDK a by neměly být aktualizovány nezávisle na sobě. (Tyto balíčky jsou označené interně `<IsImplicitlyDefined>True</IsImplicitlyDefined>`.) Pokud chcete aktualizovat balíček, aktualizujte sadu SDK, do které patří, odvození obsahující sadu SDK z názvu balíčku. Například balíčku jako balíčky Microsoft.NETCore.App je součástí sady .NET Core SDK, proto je potřeba aktualizovat vaše instalace .NET Core SDK.
+1. <a name="implicit_reference"></a>Pro některé balíčky **aktualizace** je tlačítko neaktivní a zobrazí se zpráva s informacemi o tom, že jej je "implicitně odkazovat pomocí sady SDK" (nebo "AutoReferenced"). Tato zpráva znamená, že balíček je součástí větší platforma nebo sada SDK a by neměly být aktualizovány nezávisle na sobě. (Tyto balíčky jsou označené interně `<IsImplicitlyDefined>True</IsImplicitlyDefined>`.) Například `Microsoft.NETCore.App` je součástí sady .NET Core SDK, a verze balíčku není stejná jako verze rozhraní framework modulu runtime aplikace používá. Je potřeba [aktualizaci instalace .NET Core](https://aka.ms/dotnet-download) získat nové verze modulu runtime ASP.NET Core a .NET Core. [Najdete v tomto dokumentu podrobné informace o .NET Core metabalíčky a správy verzí](/dotnet/core/packages). To platí pro běžně používané následujících balíčků:
+    * Metabalíček
+    * Microsoft.AspNetCore.App
+    * Balíčky Microsoft.NETCore.App
+    * NETStandard.Library
 
     ![Příklad balíček označen jako implicitně odkazy nebo AutoReferenced](media/PackageManagerUIAutoReferenced.png)
 

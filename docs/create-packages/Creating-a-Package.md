@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: 37c2208f0942b12428dba9d664f25e7e4f3c0b72
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 1bc67927ddc463dcc3a0abe80fe20e625e188e63
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547371"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981168"
 ---
 # <a name="creating-nuget-packages"></a>Vytváření balíčků NuGet
 
@@ -170,8 +170,9 @@ Vytváření složky jsou následující:
 | Folder | Popis | Akce při instalaci balíčku |
 | --- | --- | --- |
 | (uživatel root) | Umístění pro soubor readme.txt | Při instalaci balíčku sady Visual Studio zobrazí soubor readme.txt v kořenovém adresáři balíčku. |
-| lib / {tfm} | Sestavení (`.dll`), dokumentace ke službě (`.xml`) a symbol (`.pdb`) soubory pro dané cílové rozhraní Framework Moniker (TFM) | Sestavení jsou přidány jako odkazy; `.xml` a `.pdb` zkopírovány do složky projektu. Zobrazit [podpora více cílových platforem](supporting-multiple-target-frameworks.md) pro vytvoření dílčí složky specifické pro cílové rozhraní framework. |
-| Moduly runtime | Sestavení specifické pro architekturu (`.dll`), symbol (`.pdb`) a nativní prostředky (`.pri`) soubory | Sestavení jsou přidány jako odkazy; Další soubory jsou zkopírovány do složky projektu. Zobrazit [podpora více cílových platforem](supporting-multiple-target-frameworks.md). |
+| lib / {tfm} | Sestavení (`.dll`), dokumentace ke službě (`.xml`) a symbol (`.pdb`) soubory pro dané cílové rozhraní Framework Moniker (TFM) | Sestavení jsou přidány jako odkazy pro kompilaci, jakož i modul runtime; `.xml` a `.pdb` zkopírovány do složky projektu. Zobrazit [podpora více cílových platforem](supporting-multiple-target-frameworks.md) pro vytvoření dílčí složky specifické pro cílové rozhraní framework. |
+| REF / {tfm} | Sestavení (`.dll`) a symbol (`.pdb`) soubory pro dané cílové rozhraní Framework Moniker (TFM) | Sestavení jsou přidány jako odkazy pouze pro kompilaci; Proto nic budou zkopírovány do složky bin projektu. |
+| Moduly runtime | Sestavení specifické pro architekturu (`.dll`), symbol (`.pdb`) a nativní prostředky (`.pri`) soubory | Sestavení jsou přidány jako odkazy pouze na modul runtime; Další soubory jsou zkopírovány do složky projektu. By měl vždy být odpovídající (TFM) `AnyCPU` konkrétní sestavení v rámci `/ref/{tfm}` složky zadejte odpovídající sestavení v době kompilace. Zobrazit [podpora více cílových platforem](supporting-multiple-target-frameworks.md). |
 | obsah | Různé soubory | Obsah je zkopírován do kořenového adresáře projektu. Představte si, že **obsah** složky jako kořen cílové aplikace, takže v konečném důsledku využívajícího balíček. Balíček v aplikaci prvku přidat obrázek */obrázky* složku, umístěte ho do balíčku *obsah nebo imagí* složky. |
 | sestavení | Nástroj MSBuild `.targets` a `.props` soubory | Automaticky vložit do souboru projektu nebo `project.lock.json` (NuGet 3.x+). |
 | nástroje | Skripty prostředí PowerShell a programy, které jsou přístupné z konzole Správce balíčků | `tools` Složka je přidána do `PATH` proměnné prostředí pro konzolu Správce balíčků (konkrétně *není* k `PATH` jako sada pro nástroje MSBuild při sestavování projektu). |

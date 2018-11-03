@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/29/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: ddb22d819a1a4e41a2019705789a11de6cad1d79
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 5fe8b35125d9171a37afb337ed08d06445e5f890
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548439"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981155"
 ---
 # <a name="nuspec-reference"></a>odkaz na souboru .nuspec
 
@@ -86,7 +86,7 @@ Adresa URL pro bitovou kopii 64 x 64 s průhlednost pozadí použít jako ikona 
 #### <a name="requirelicenseacceptance"></a>RequireLicenseAcceptance
 Logická hodnota určující, zda klient musí požádat spotřebitele o přijetí licence balíčku před instalací balíčku.
 #### <a name="developmentdependency"></a>DevelopmentDependency
-*(2.8+)* Logická hodnota určující, jestli tento balíček představuje označit jako vývoj – jen závislost, což zabrání balíčku nebudou zahrnuty v závislosti na dalších balíčků.
+*(2.8+)* Logická hodnota určující, jestli tento balíček představuje označit jako vývoj – jen závislost, což zabrání balíčku nebudou zahrnuty v závislosti na dalších balíčků. S PackageReference (NuGet 4.8 +) tento příznak také znamená, že vyloučí kompilace prostředků z kompilace. Zobrazit [DevelopmentDependency podporu pro PackageReference](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference)
 #### <a name="summary"></a>souhrn
 Krátký popis balíčku zobrazí v uživatelském rozhraní. Pokud tento parametr vynechán, zkrácená verze `description` se používá.
 #### <a name="releasenotes"></a>ReleaseNotes
@@ -118,7 +118,7 @@ Kolekce nula nebo více `<dependency>` prvky určení závislostí pro balíček
 #### <a name="contentfiles"></a>contentFiles
 *(3.3 +)*  Kolekce `<files>` prvky, které identifikují soubory obsahu, které mají být zahrnuty náročné projektu. Tyto soubory jsou určené sadu atributů, které popisují, jak mají být použity v rámci systému projektů. Zobrazit [určující soubory, které chcete zahrnout do balíčku](#specifying-files-to-include-in-the-package) níže.
 #### <a name="files"></a>soubory  
-`<package>` Uzel může obsahovat `<files>` uzel na stejné úrovni k `<metadata>`a nebo `<contentFiles>` dítě `<metadata>`, určete, jaké soubory sestavení a obsah zahrnout do balíčku. Zobrazit [včetně souborů sestavení](#including-assembly-files) a [včetně soubory obsahu](#including-content-files) dále v tomto tématu podrobnosti.
+`<package>` Uzel může obsahovat `<files>` uzel na stejné úrovni k `<metadata>`a `<contentFiles>` dítě `<metadata>`, určete, jaké soubory sestavení a obsah zahrnout do balíčku. Zobrazit [včetně souborů sestavení](#including-assembly-files) a [včetně soubory obsahu](#including-content-files) dále v tomto tématu podrobnosti.
 
 ## <a name="replacement-tokens"></a>Nahrazování tokenů
 
@@ -544,7 +544,7 @@ Tyto soubory jsou určené sadu atributů, které popisují, jak mají být pou�
 
 | Atribut | Popis |
 | --- | --- |
-| **Zahrnout** | (Povinné) Umístění souboru nebo souborů zahrnout v souladu s vyloučení určené `exclude` atribut. Cesta je vzhledem k `.nuspec` souboru není určena absolutní cestu. Zástupný znak `*` je povolený nebo double zástupné `**` znamená rekurzivní hledání složky. |
+| **include** | (Povinné) Umístění souboru nebo souborů zahrnout v souladu s vyloučení určené `exclude` atribut. Cesta je vzhledem k `.nuspec` souboru není určena absolutní cestu. Zástupný znak `*` je povolený nebo double zástupné `**` znamená rekurzivní hledání složky. |
 | **Vyloučení** | Středníkem oddělený seznam soubory nebo vzory souborů, které chcete vyloučit z `src` umístění. Zástupný znak `*` je povolený nebo double zástupné `**` znamená rekurzivní hledání složky. |
 | **buildAction** | Akce sestavení zařadit do obsahu položky nástroje MSBuild, jako například `Content`, `None`, `Embedded Resource`, `Compile`atd. Výchozí hodnota je `Compile`. |
 | **copyToOutput** | Logická hodnota označující, jestli se má kopírovat položky obsahu pro sestavení (nebo publikovat) výstupní složka. Výchozí hodnota je false. |

@@ -6,12 +6,12 @@ ms.author: diverdan92
 ms.date: 10/09/2017
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: 0711f3ee00b4a387d676ca43c98a9467effed90a
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 32f83bede42f7643a9a4fed593643eefea0453c1
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546587"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50980999"
 ---
 # <a name="package-id-prefix-reservation"></a>Rezervace předpony ID balíčku
 
@@ -65,7 +65,7 @@ Když balíček pochází z vyhrazenou předponou, zobrazí pod visual ukazatele
 
 1. Projděte si přijetí [kritéria pro rezervace předpony ID](#id-prefix-reservation-criteria).
 
-2. Určit obory názvů, které chcete rezervovat, spolu s některou [pokročilé scénáře vyhrazení předpony](#advanced-prefix-reservation-scenarios) může vyžadovat.
+2. Určení předpon, které chcete rezervovat, spolu s některou [pokročilé scénáře vyhrazení předpony](#advanced-prefix-reservation-scenarios) může vyžadovat.
 
 3. Odeslat e-mail na adresu [ account@nuget.org ](mailto:account@nuget.org) s vlastníkem zobrazovaný název na [nuget.org](https://www.nuget.org/), stejně jako všechny rezervované předpony, které jste požádali. Pokud předponu podmnožiny jsou delegování více vlastníkům, ujistěte se, že zmiňovat všechny vlastníka zobrazovaných názvů a předpony podmnožin.
 

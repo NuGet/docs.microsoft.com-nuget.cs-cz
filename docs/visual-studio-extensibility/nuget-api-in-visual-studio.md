@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/09/2017
 ms.topic: reference
-ms.openlocfilehash: c2a6675472070b49c9c5b723b9d24a1fa59c2971
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: f1a11eb63c07a5d737a9474870f5653f6f7d850a
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546207"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50980973"
 ---
 # <a name="nuget-api-in-visual-studio"></a>Rozhraní API Nugetu ve Visual Studio
 
@@ -24,8 +24,8 @@ Od verze NuGet 3.3 + NuGet exportuje následující služby, které se nacházej
 - [`IVsPackageInstallerProjectEvents`](#ivspackageinstallerprojectevents-interface): Události dávkové pro instalaci/odinstalaci balíčku.
 - [`IVsPackageInstallerServices`](#ivspackageinstallerservices-interface): Metody k načtení nainstalované balíčky v aktuálním řešení a zkontrolujte, zda je daný balíček nainstalovat v projektu.
 - [`IVsPackageManagerProvider`](#ivspackagemanagerprovider-interface): Metody, které poskytují alternativní návrhy Správce balíčků pro balíček NuGet.
-- [`IVsPackageMetadata`](#ivspackagemetadata-interface); Metody k načtení informací o nainstalovaným balíčkem.
-- [`IVsPackageProjectMetadata`](#ivspackageprojectmetadata-interface); Metody k načtení informací o projektu, ve kterém se spouští akcí NuGet.
+- [`IVsPackageMetadata`](#ivspackagemetadata-interface): Metody k načtení informací o nainstalovaným balíčkem.
+- [`IVsPackageProjectMetadata`](#ivspackageprojectmetadata-interface): Metody k načtení informací o projektu, ve kterém se spouští akcí NuGet.
 - [`IVsPackageRestorer`](#ivspackagerestorer-interface): Metody obnovit balíčky nainstalované v projektu.
 - [`IVsPackageSourceProvider`](#ivspackagesourceprovider-interface): Metody k načtení seznamu NuGet balíček zdroje.
 - [`IVsPackageUninstaller`](#ivspackageuninstaller-interface): Metody k odinstalaci balíčků NuGet z projektů.

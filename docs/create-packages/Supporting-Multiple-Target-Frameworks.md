@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 09/27/2017
 ms.topic: conceptual
-ms.openlocfilehash: 0b22d48b9151b903a5307beafa5ccef14e5fecf3
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: c59839240935e2a6c590dea3adf623313f79f02f
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551703"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981142"
 ---
 # <a name="supporting-multiple-net-framework-versions"></a>Podpora více verzí rozhraní .NET framework
 
@@ -65,7 +65,13 @@ Pokud máte specifické pro architekturu sestavení, to znamená, samostatné se
             \native
             \lib\uap10.0
 
+Tato sestavení budou k dispozici pouze v době běhu, takže pokud byste chtěli poskytnout odpovídající kompilace čas sestavení a potom mít `AnyCPU` sestavení v `/ref{tfm}` složky. 
+
+Všimněte si, že NuGet vždy vybere těmito kompilace nebo runtime prostředky z jedné složky, pokud existují nějaké kompatibilní assety z `/ref` pak `/lib` ignorují se přidání sestavení v době kompilace. Podobně pokud existují nějaké assety kompatibilní z `/runtime` pak také `/lib` pro modul runtime bude ignorován.
+
 Naleznete v tématu [vytvoření balíčků UPW](../guides/create-uwp-packages.md) příklad odkazování na tyto soubory `.nuspec` manifestu.
+
+Viz také [balení komponent aplikace Windows store pomocí NuGet](https://blogs.msdn.microsoft.com/mim/2013/09/02/packaging-a-windows-store-apps-component-with-nuget-part-2)
 
 ## <a name="matching-assembly-versions-and-the-target-framework-in-a-project"></a>Odpovídající verze sestavení a Cílová architektura, která v projektu
 

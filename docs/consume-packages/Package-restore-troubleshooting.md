@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 11acb90b45af73137faac1ec6bc403b109e6e808
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: dacc95c557af016f535bc1b758473d7062f2ad3f
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549597"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981012"
 ---
 # <a name="troubleshooting-package-restore-errors"></a>Řešení potíží s chybami obnovení balíčku
 
@@ -44,7 +44,7 @@ Use NuGet Package Restore to download them. The missing file is {name}.
 
 K této chybě dojde při pokusu o vytvoření projektu, který obsahuje odkazy na jeden nebo více balíčků NuGet, ale tyto balíčky nejsou v současné době nainstalované v počítači nebo v projektu.
 
-- Při použití formátu správy PackageReference chyba znamená, že balíček není nainstalována v *global-packages* složky, jak je popsáno dále, jak je popsáno na [Správa globálních balíčků a složek mezipaměti](managing-the-global-packages-and-cache-folders.md).
+- Při použití formátu správy PackageReference chyba znamená, že balíček není nainstalována v *global-packages* složky, jak je popsáno na [Správa globálních balíčků a složek mezipaměti](managing-the-global-packages-and-cache-folders.md).
 - Při použití `packages.config`, chyba znamená, že balíček není nainstalována v `packages` složku v kořenovém adresáři řešení.
 
 Této situaci dochází běžně, když získal zdrojový kód projektu ze správy zdrojového kódu nebo jiného stahování. Balíčky jsou obvykle vynechány ze správy zdrojového kódu nebo soubory ke stažení, protože je možné obnovit z informační kanály balíčků, jako je nuget.org (viz [balíčky a Správa zdrojového kódu](Packages-and-Source-Control.md)). Jejich zahrnování by jinak nafouknutí úložiště nebo vytvořit soubory .zip zbytečně velký.

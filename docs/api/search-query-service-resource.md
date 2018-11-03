@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: f04c6a62fc3b5056ad82930447b8ba46a8797fd2
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: cfcb52ba7689f1b392c782b4ad42ba820a76c8bf
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548088"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981129"
 ---
 # <a name="search"></a>Hledat
 
@@ -99,7 +99,7 @@ Název          | odkazy řetězců                     | Ne       |
 totalDownloads | integer                    | Ne       | Vynásobí součtem soubory ke stažení v jde odvodit tuto hodnotu `versions` pole
 ověření       | Logická hodnota                    | Ne       | JSON logická hodnota označující, jestli tento balíček představuje [ověření](../reference/id-prefix-reservation.md)
 
-Ověřené balíček na nuget.org, je znak, který se má ID balíčku odpovídající vyhrazenou předponu ID a vlastní vyhrazený obor názvů vlastníky. Další informace najdete v tématu [dokumentaci ke službě rezervace předpony ID](../reference/id-prefix-reservation.md).
+Ověřené balíček na nuget.org, je znak, který se má ID balíčku odpovídající vyhrazenou předponu ID a vlastní pomocí jedné z vlastníků vyhrazenou předponou. Další informace najdete v tématu [dokumentaci ke službě rezervace předpony ID](../reference/id-prefix-reservation.md).
 
 Metadat obsažených v objektu výsledků hledání je převzata z nejnovější verze balíčku. Každá položka v `versions` pole je objekt JSON s následujícími vlastnostmi:
 
