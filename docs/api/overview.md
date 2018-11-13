@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 770173d6b84048cf42a5da46cbc474d8cf604a08
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 7bb5e83b29d1d7e4bf06accfccb73db3aa9ee025
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547500"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580334"
 ---
 # <a name="nuget-api"></a>Rozhraní API Nugetu
 
@@ -49,16 +49,17 @@ Bez konce protokolu změnám rozhraní API od jeho prvním vydání.
 
 **Index služby** popisuje různé druhy prostředků. Aktuální sadu prostředků podporované jsou následující:
 
-Název prostředku                                                          | Požadováno | Popis
----------------------------------------------------------------------- | -------- | -----------
+Název prostředku                                                           | Požadováno | Popis
+----------------------------------------------------------------------  | -------- | -----------
 [`PackagePublish`](package-publish-resource.md)                        | Ano      | Push a delete (nebo vyjmutí ze seznamu) balíčky.
 [`SearchQueryService`](search-query-service-resource.md)               | Ano      | Můžete filtrovat a hledat balíčky – klíčové slovo.
 [`RegistrationsBaseUrl`](registration-base-url-resource.md)            | Ano      | Získáte metadata balíčku.
 [`PackageBaseAddress`](package-base-address-resource.md)               | Ano      | Získáte balíček obsahu (.nupkg).
 [`SearchAutocompleteService`](search-autocomplete-service-resource.md) | Ne       | Zjistíte ID balíčku a verze pomocí dílčí řetězec.
 [`ReportAbuseUriTemplate`](report-abuse-resource.md)                   | Ne       | Vytvořte adresu URL pro přístup k webové stránky "ohlásit nevhodné chování".
-[`RepositorySignatures`](repository-signatures-resource.md)            | Ne       | Získání certifikátů pro podpis úložiště.
-[`Catalog`](catalog-resource.md)                                       | Ne       | Celý záznam všech událostí balíčku.
+[`RepositorySignatures`](repository-signatures-resource.md)             | Ne      | Získání certifikátů pro podpis úložiště.
+[`Catalog`](catalog-resource.md)                                         | Ne      | Celý záznam všech událostí balíčku.
+[`SymbolPackagePublish`](symbol-package-publish-resource.md)            | Ne      | Nabízená oznámení balíčky symbolů.
 
 Obecně platí všechny NEBINÁRNÍ data vrácená rozhraním API prostředku se serializují pomocí formátu JSON. Schéma odpovědi vrácené každého prostředku v indexu služby je samostatně definované pro daný prostředek. Další informace o jednotlivých prostředcích najdete v tématech uvedených výše.
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: b95c4462a214a78452f9dbe35936620636c4f60b
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: da69181aebe3bebcea6acd6e15fde6b77dd33452
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548769"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580295"
 ---
 # <a name="package-restore"></a>Obnovení balíčku
 
@@ -62,9 +62,9 @@ Obnovení balíčku především zajišťuje **nástroje > Možnosti > Správce 
         </packageRestore>
     </configuration>
     ```
-    <br/>
-    > [!Note]
-    >  `packageRestore/enabled` Nastavení se dá přepsat globální nastavení proměnné prostředí volá **EnableNuGetPackageRestore** s hodnotou PRAVDA nebo NEPRAVDA před spuštěním aplikace Visual Studio nebo spuštění sestavení.
+
+> [!Note]
+>  `packageRestore/enabled` Nastavení se dá přepsat globální nastavení proměnné prostředí volá **EnableNuGetPackageRestore** s hodnotou PRAVDA nebo NEPRAVDA před spuštěním aplikace Visual Studio nebo spuštění sestavení.
 
 - **Automaticky zjišťovat pro chybějící balíčky během vytváření v sadě Visual Studio**: řídí automatické obnovení tak, že změníte `packageRestore/automatic` nastavení `NuGet.Config` sdílené, jak je znázorněno níže (`%AppData%\NuGet\NuGet.Config` na Windows, `~/.nuget/NuGet/NuGet.Config` na Mac/Linux). Když nastavíte tuto možnost, systémem sestavení ze sady Visual Studio automaticky obnoví všechny chybějící balíčky. Možnost nemá vliv na sestavení, spusťte z příkazového řádku pomocí nástroje MSBuild.
 

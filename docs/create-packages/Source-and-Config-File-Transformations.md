@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 04/24/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: c2cd61b692b80cdc45fce399483cda3b57d12e5e
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 830714269ac422a4784c15b000e374195f02332f
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547682"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580282"
 ---
 # <a name="transforming-source-code-and-configuration-files"></a>Transformace zdrojového kódu a konfiguračních souborů
 
@@ -114,7 +114,7 @@ Pokud chcete posoudit účinek parametru instalace a odinstalace balíčku, vytv
 
 ### <a name="xdt-transforms"></a>Transformuje XDT
 
-Můžete upravit konfigurační soubory pomocí [XDT syntaxe](https://msdn.microsoft.com/library/dd465326.aspx). Je také možné nahradit tokeny s NuGet [vlastnosti projektu](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7) zahrnutím název vlastnosti v rámci `$` dají (velká a malá písmena).
+Můžete upravit konfigurační soubory pomocí [XDT syntaxe](https://msdn.microsoft.com/library/dd465326.aspx). Je také možné nahradit tokeny s NuGet [vlastnosti projektu](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7) zahrnutím název vlastnosti v rámci `$` oddělovače (velká a malá písmena).
 
 Například následující `app.config.install.xdt` vloží soubor `appSettings` elementu do `app.config` obsahující `FullPath`, `FileName`, a `ActiveConfigurationSettings` hodnoty z projektu:
 

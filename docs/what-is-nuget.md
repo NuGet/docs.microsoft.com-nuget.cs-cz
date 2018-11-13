@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/10/2018
 ms.topic: overview
-ms.openlocfilehash: 0b7105ea5d183d139c8bac915378924ba9c0874a
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: d688aecaa73cecbfee184e3b13801ed22326a852
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548816"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580321"
 ---
 # <a name="an-introduction-to-nuget"></a>Úvod do NuGet
 
@@ -24,7 +24,7 @@ Protože NuGet podporuje privátní hostitele spolu s nuget.org veřejné hostit
 
 ## <a name="the-flow-of-packages-between-creators-hosts-and-consumers"></a>Tok balíčky mezi autory, hostitele a příjemců
 
-V jeho role jako veřejný hostitel NuGet sama udržuje centrálním úložišti víc než 100 000 jedinečné balíčky v [nuget.org](https://www.nuget.org). Tyto balíčky jsou náhradník miliony vývojářů.NET/.NET Core každý den. NuGet také umožňuje hostování balíčků soukromě v cloudu (například na Visual Studio Team Services), v privátní síti, nebo dokonce i na právě vašeho místního systému souborů. Díky tomu tyto balíčky jsou k dispozici pouze vývojáři, kteří mají přístup k hostiteli získáte tak schopnost zpřístupnit balíčky do konkrétní skupiny příjemců. Možnosti jsou vysvětlené v [hostování vlastní kanály NuGet](hosting-packages/overview.md). Pomocí možnosti konfigurace můžete také řídit přesně hostitele je přístupný daného počítače, a zajistí tak, že balíčky jsou získávány z konkrétního zdroje spíše než veřejné úložiště, jako je nuget.org.
+V jeho role jako veřejný hostitel NuGet sama udržuje centrálním úložišti víc než 100 000 jedinečné balíčky v [nuget.org](https://www.nuget.org). Tyto balíčky jsou náhradník miliony vývojářů.NET/.NET Core každý den. NuGet také umožňuje hostování balíčků soukromě v cloudu (například na Azure DevOps), v privátní síti, nebo dokonce i na právě vašeho místního systému souborů. Díky tomu tyto balíčky jsou k dispozici pouze vývojáři, kteří mají přístup k hostiteli získáte tak schopnost zpřístupnit balíčky do konkrétní skupiny příjemců. Možnosti jsou vysvětlené v [hostování vlastní kanály NuGet](hosting-packages/overview.md). Pomocí možnosti konfigurace můžete také řídit přesně hostitele je přístupný daného počítače, a zajistí tak, že balíčky jsou získávány z konkrétního zdroje spíše než veřejné úložiště, jako je nuget.org.
 
 Bez ohledu jejich povaze hostitele slouží jako bod připojení mezi balíček *creators* a balíček *příjemci*. Tvůrce sestavení užitečné balíčky NuGet a publikujte je na hostiteli. Příjemci vyhledejte balíčky užitečné a kompatibilní na hostitelích přístupné, stahování a včetně těchto balíčků ve svých projektech. Po instalaci v projektu, rozhraní API balíčky jsou k dispozici pro zbývající část kódu projektu.
 
@@ -78,7 +78,7 @@ NuGet udržuje místo jednoduchých odkazů seznam balíčky, na které projekt 
 
 S pouze seznam odkazů můžete opětovnou NuGet&mdash;tedy *obnovení*&mdash;všech těchto balíčků z veřejné nebo privátní hostitelů kdykoli později. Při potvrzování projekt do správy zdrojového kódu nebo sdílení jiným způsobem, pouze odkaz na seznamu pro zahrnutí a vyloučení žádné binární soubory balíčku (viz [balíčky a Správa zdrojového kódu](consume-packages/packages-and-source-control.md).)
 
-Počítač, který přijímá projektu, jako je získání kopie projektu jako součást automatizované nasazení systému, server sestavení jednoduše požádá pokaždé, když je budete potřebovat obnovit závislosti balíčků NuGet. Vytvořte systémy, jako je Visual Studio Team Services popisuje kroky "Obnovení NuGet" pro tento účel přesné. Podobně, když vývojáři získejte kopii souboru projektu (stejně jako při klonování úložiště), se může vyvolat příkaz podobný `nuget restore` (NuGet rozhraní příkazového řádku), `dotnet restore` (rozhraní příkazového řádku dotnet), nebo `Install-Package` (konzola Správce balíčků) získat všechny potřebné balíčky. Při sestavování projektu sady Visual Studio, jeho části, automaticky obnoví balíčky (za předpokladu, že je povoleno automatické obnovení, jak je popsáno na [obnovení balíčku](consume-packages/package-restore.md)).
+Počítač, který přijímá projektu, jako je získání kopie projektu jako součást automatizované nasazení systému, server sestavení jednoduše požádá pokaždé, když je budete potřebovat obnovit závislosti balíčků NuGet. Vytvořte systémy, jako je Azure DevOps popisují "Obnovení NuGet" pro tento účel přesné. Podobně, když vývojáři získejte kopii souboru projektu (stejně jako při klonování úložiště), se může vyvolat příkaz podobný `nuget restore` (NuGet rozhraní příkazového řádku), `dotnet restore` (rozhraní příkazového řádku dotnet), nebo `Install-Package` (konzola Správce balíčků) získat všechny potřebné balíčky. Při sestavování projektu sady Visual Studio, jeho části, automaticky obnoví balíčky (za předpokladu, že je povoleno automatické obnovení, jak je popsáno na [obnovení balíčku](consume-packages/package-restore.md)).
 
 Je zřejmé pak Nugetu primární roli. Pokud máte obavy vývojáři udržuje tento odkaz seznam jménem vašeho projektu a poskytuje způsob, jak efektivně obnovení (a aktualizovat) odkazované balíčky. Tento seznam je zachován v jedné ze dvou *balíček správy formáty*, jako jsou volány:
 

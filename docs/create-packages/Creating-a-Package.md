@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: 1bc67927ddc463dcc3a0abe80fe20e625e188e63
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: 1221631b22eed7d2d8e58bd08ff120d91231d49b
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981168"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580390"
 ---
 # <a name="creating-nuget-packages"></a>Vytváření balíčků NuGet
 
@@ -51,7 +51,7 @@ Požadované vlastnosti:
 
 - Identifikátor balíčku musí být jedinečný ve galerii, který je hostitelem balíčku.
 - Konkrétní verzi číslo ve tvaru *Hlavníverze.podverze.oprava [-přípona]* kde *– přípona* identifikuje [předběžných verzí](prerelease-packages.md)
-- Název balíčku jak by mělo se zobrazí na hostiteli (jako je nuget.org)
+- Název balíčku jak by se měla objevit na hostiteli (jako je nuget.org)
 - Informace o Autor a vlastník.
 - Dlouhý popis balíčku.
 
@@ -157,7 +157,7 @@ Pak upravíte soubor ručně tak, aby popisuje přesný obsah, který chcete ve 
 
 ### <a name="from-a-convention-based-working-directory"></a>Z pracovního adresáře podle úmluvy
 
-Vzhledem k tomu, že balíček NuGet je jenom soubor ZIP, který je byl přejmenován s `.nupkg` rozšíření, jeho často nejjednodušší vytvořit strukturu složky chcete, aby na vašem místním systému souborů, vytvořte `.nuspec` souboru přímo z této struktury. `nuget pack` Příkaz automaticky přidá všechny soubory v danou strukturu složek (s výjimkou některou ze složek, které začínají `.`, umožňuje zachovat soukromé soubory ve stejné struktuře).
+Vzhledem k tomu, že balíček NuGet je jenom soubor ZIP, který je byl přejmenován s `.nupkg` rozšíření, často je nejjednodušší vytvořit strukturu složky na vašem místním systému souborů a pak se vytvořit `.nuspec` souboru přímo z této struktury. `nuget pack` Příkaz automaticky přidá všechny soubory v danou strukturu složek (s výjimkou některou ze složek, které začínají `.`, díky tomu můžete zachovat soukromé soubory ve stejné struktuře).
 
 Výhodou tohoto přístupu je, že nemusíte určit v manifestu soubory, které chcete zahrnout do balíčku (jak je popsáno dále v tomto tématu). Můžete jednoduše použít proces sestavení vytvořit strukturu přesně složka, která přejdou do balíčku a snadno můžete zahrnout další soubory, které nemusí být součástí projektu jinak:
 
@@ -177,7 +177,7 @@ Vytváření složky jsou následující:
 | sestavení | Nástroj MSBuild `.targets` a `.props` soubory | Automaticky vložit do souboru projektu nebo `project.lock.json` (NuGet 3.x+). |
 | nástroje | Skripty prostředí PowerShell a programy, které jsou přístupné z konzole Správce balíčků | `tools` Složka je přidána do `PATH` proměnné prostředí pro konzolu Správce balíčků (konkrétně *není* k `PATH` jako sada pro nástroje MSBuild při sestavování projektu). |
 
-Protože vaše struktura složky může obsahovat libovolný počet sestavení pro libovolný počet cílových platforem, tato metoda je nezbytná, při vytváření balíčků, které podporují více platforem 
+Protože vaše struktura složky může obsahovat libovolný počet sestavení pro libovolný počet cílových platforem, tato metoda je nezbytná, při vytváření balíčků, které podporují více platforem.
 
 V každém případě až budete mít struktuře požadované složky na místě, spusťte následující příkaz v této složce vytvořte `.nuspec` souboru:
 
@@ -321,7 +321,7 @@ Pokud zahrnete soubor s názvem `readme.txt` v kořenovém adresáři balíčku 
 
 V některých případech můžete chtít přidat vlastní sestavení cíle nebo vlastnosti v projektech, které využívají vašeho balíčku, například spuštěním vlastní nástroje nebo procesu během sestavování. To provedete tak, že soubory ve formě `<package_id>.targets` nebo `<package_id>.props` (například `Contoso.Utility.UsefulStuff.targets`) v rámci `\build` složky projektu.
 
-Soubory v kořenové složce `\build` složky jsou považovány za vhodný pro všechny cílové architektury. Pro poskytování souborů specifické pro architekturu, nejprve umístíte ty v rámci příslušné podsložky, jako je následující:
+Soubory v kořenové složce `\build` složky jsou považovány za vhodný pro všechny cílové architektury. Pro poskytování souborů specifické pro architekturu, nejprve umístíte do příslušné podsložky, jako je následující:
 
     \build
         \netstandard1.4

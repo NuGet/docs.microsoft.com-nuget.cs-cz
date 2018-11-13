@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: db236b0eaac34ca9f6f67fd15ca3ad6884f6a18d
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 826316bdbce881836836f2a667cfa5297996d14f
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549093"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580308"
 ---
 # <a name="pack-command-nuget-cli"></a>Příkaz Pack (NuGet CLI)
 
@@ -38,6 +38,7 @@ kde `<nuspecPath>` a `<projectPath>` zadejte `.nuspec` nebo souboru, resp. proje
 | Vyloučení | Určuje nejméně jeden vzor zástupných znaků pro vyloučení při vytváření balíčku. Chcete-li zadat více než jeden vzor, opakujte příznak - vyloučení. Viz následující příklad. |
 | ExcludeEmptyDirectories | Zabraňuje zahrnovaly prázdné adresáře při sestavování balíčku. |
 | ForceEnglishOutput | *(3.5 +)*  Vynutí nuget.exe pro spuštění pomocí neutrální, základem je angličtina jazyková verze. |
+| ConfigFile | Zadejte konfigurační soubor pro příkaz pack. |
 | Nápověda | Zobrazí nápovědu pro příkaz. |
 | IncludeReferencedProjects | Označuje, že sestavení balíčku by měl zahrnovat odkazované projekty buď jako závislosti, nebo jako součást balíčku. Pokud odkazovaný projekt má odpovídající `.nuspec` soubor, který má stejný název jako projekt, pak tento Odkazovaný projekt je přidán jako závislost. V opačném případě Odkazovaný projekt je přidán jako součást balíčku. |
 | MinClientVersion | Nastavte *minClientVersion* atribut pro vytvořený balíček. Tato hodnota se přepíše stávající hodnotu *minClientVersion* atribut (pokud existuje) `.nuspec` souboru. |
@@ -48,7 +49,7 @@ kde `<nuspecPath>` a `<projectPath>` zadejte `.nuspec` nebo souboru, resp. proje
 | OutputDirectory | Určuje složku, ve kterém je uložený vytvořený balíček. Pokud není zadána žádná složka, použije se aktuální složce. |
 | Vlastnosti | By se zobrazit poslední na příkazovém řádku po další možnosti. Určuje seznam vlastností, které přepisují hodnoty v souboru projektu. Zobrazit [obecné vlastnosti projektu nástroje MSBuild](/visualstudio/msbuild/common-msbuild-project-properties) pro názvy vlastností. Vlastnosti argumentu tady je seznam token = dvojice hodnot oddělených středníkem, ve kterém každý výskyt `$token$` v `.nuspec` soubor se nahradí zadanou hodnotu. Hodnoty mohou být řetězce v uvozovkách. Všimněte si, že pro vlastnost "Konfigurace" Výchozí hodnota je "Debug". Chcete-li změnit konfiguraci vydané verze, použijte `-Properties Configuration=Release`. |
 | Přípona | *(3.4.4+)*  Připojí přípona interně vygenerovanému číslu verze, obvykle se používá pro připojování sestavení nebo jiné předběžné verze identifikátory. Například použití `-suffix nightly` vytvoří balíček s lajk číslo verze `1.2.3-nightly`. Přípony musí začínat písmenem, aby se zabránilo upozornění a chyby, kde najdete potenciální nekompatibility s různými verzemi nástroje NuGet a Správce balíčků NuGet. |
-| Symboly | Určuje, zda balíček obsahuje zdroje a symbolů. Při použití s `.nuspec` soubor, vytvoří běžný soubor balíčku NuGet a odpovídající balíček symbolů. |
+| Symboly | Určuje, zda balíček obsahuje zdroje a symbolů. Při použití s `.nuspec` soubor, vytvoří běžný soubor balíčku NuGet a odpovídající balíček symbolů. Ve výchozím nastavení vytvoří [symbol starší verze balíčku](../create-packages/Symbol-Packages.md). Nové doporučený formát pro balíčky symbolů je .snupkg. Zobrazit [vytváření balíčků symbolů (.snupkg)](../create-packages/Symbol-Packages-snupkg.md). |
 | Nástroj | Určuje, že výstupní soubory projektu musí být umístěné ve `tool` složky. |
 | Podrobnosti | Určuje množství podrobností, na které se zobrazí ve výstupu: *normální*, *quiet*, *podrobné*. |
 | Version | Přepíše číslo verze z `.nuspec` souboru. |
@@ -89,6 +90,9 @@ nuget pack foo.csproj -Build -Symbols -Properties owners=janedoe,xiaop;version="
 
 # Create a package from project foo.csproj, using MSBuild version 12 to build the project
 nuget pack foo.csproj -Build -Symbols -MSBuildVersion 12 -Properties owners=janedoe,xiaop;version="1.0.5
+
+# Create a package from project foo.nuspec and the corresponding symbol package using the new recommended format .snupkg
+nuget pack foo.nuspec -Symbols -SymbolPackageFormat snupkg
 
 nuget pack foo.nuspec -Version 2.1.0
 

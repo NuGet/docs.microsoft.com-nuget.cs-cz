@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/11/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8c63abc9971623e0732ae8d973fafcd04c5d9f48
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: c136a3dffac38a68b80f730de1e4c3a3a9c8bd5d
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548801"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580354"
 ---
 # <a name="nuget-frequently-asked-questions"></a>NuGet – nejčastější dotazy
 
@@ -51,7 +51,7 @@ Alternativně spusťte konzolu Správce balíčků (**nástroje > Správce balí
 
 NuGet obecně se dá použít pro jazyky .NET a je určený pro přenesení do projektu knihovny .NET. Vzhledem k tomu, že v některých typech projektů podporuje také automatizaci MSBuild a sadě Visual Studio, podporuje také dalších projektů a jazyky na různých úrovních.
 
-Nejnovější verzi balíčku nuget podporuje C#, Visual Basic, F #, WiX a C++.
+Podporuje nejnovější verzi balíčku nuget C#, Visual Basic, F#, WiX a C++.
 
 **Jaké šablony projektů podporuje NuGet?**
 
@@ -166,7 +166,7 @@ NuGet doporučuje podepsat všechny balíčky. Princip návrhu podpisu balíčku
 
 Všimněte si, že závislostí uvedených pro váš balíček se generují automaticky z balíčku samotného a nelze jej upravit.
 
-Kromě toho nahrání balíčků [staging.nuget.org](http://staging.nuget.org) je skvělý způsob, jak otestovat a ověřit váš balíček přitom balíček k dispozici ve veřejné galerii.
+Kromě toho nahrání balíčků [int.nugettest.org](https://int.nugettest.org) je skvělý způsob, jak otestovat a ověřit váš balíček přitom balíček k dispozici ve veřejné galerii.
 
 **Je možné rezervovat názvy balíčků, které se publikují v budoucnosti?**
 
@@ -182,9 +182,9 @@ Doporučujeme komunity NuGet spolupráce řešení všech sporů, které mohou v
 
 **Je doporučeno uložit Moje testovací balíčky nuget.org?**
 
-Pro účely testování můžete použít [staging.nuget.org](http://staging.nuget.org), nebo jako alternativní veřejné servery NuGet [webu myget.org](https://myget.org) nebo [Visual Studio Team Services](https://blogs.msdn.microsoft.com/visualstudioalm/2015/08/27/announcing-package-management-support-for-vsotfs/).
+Pro účely testování můžete použít [int.nugettest.org](https://int.nugettest.org), nebo jako alternativní veřejné servery NuGet [webu myget.org](https://myget.org) nebo [Visual Studio Team Services](https://blogs.msdn.microsoft.com/visualstudioalm/2015/08/27/announcing-package-management-support-for-vsotfs/).
 
-Všimněte si, že nemusí být zachována balíčky nahráli do staging.nuget.org. Zobrazit [Goodbye preview](http://blog.nuget.org/20130419/goodbye-preview.html).
+Všimněte si, že nemusí být zachována balíčky nahráli do int.nugettest.org.
 
 **Jaká je maximální velikost balíčky, které můžu nahrát do nuget.org?**
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/23/2018
 ms.topic: tutorial
-ms.openlocfilehash: dd36987e020c2daa02bb875aa9dbd69c85bba4d3
-ms.sourcegitcommit: 1bd72dca2f85b4267b9924236f1d23dd7b0ed733
+ms.openlocfilehash: dfbd6a3e6d59dfcea6394891703ea66bce5e8e92
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49951743"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580269"
 ---
 # <a name="creating-ui-controls-as-nuget-packages"></a>Vytvoření ovládacích prvků uživatelského rozhraní jako balíčků NuGet
 
@@ -89,7 +89,11 @@ V následujícím příkladu, ovládací prvek implementované v `ManagedPackage
 
 K zobrazení vlastní ikony na panelu nástrojů a prostředků, přidat bitovou kopii do projektu nebo odpovídající `design.dll` projektu s názvem "Namespace.ControlName.extension" a nastavte akci sestavení na "Integrovaný prostředek". Musíte také zajistit, aby přidružené `AssemblyInfo.cs` Určuje atribut ProvideMetadata - `[assembly: ProvideMetadata(typeof(RegisterMetadata))]`. Najdete v tomto [ukázka](https://github.com/NuGet/Samples/blob/master/ExtensionSDKasNuGetPackage/NativePackage.Design/Properties/AssemblyInfo.cs#L20).
 
-Podporované formáty jsou `.png`, `.jpg`, `.jpeg`, `.gif`, a `.bmp`. Doporučená velikost je 64 x 64 pixelů.
+Podporované formáty jsou `.png`, `.jpg`, `.jpeg`, `.gif`, a `.bmp`. Doporučený formát je BMP24 v 16 × 16 pixelů.
+
+![Ukázkový nástroj pro ikonu pole](https://raw.githubusercontent.com/NuGet/docs.microsoft.com-nuget/live/docs/guides/media/ColorPicker_16x16x24.bmp)
+
+Růžový na pozadí nahrazuje za běhu. Ikony jsou obarveny při změně motivu sady Visual Studio a očekává se, že barvu pozadí. Další informace, použijte odkaz [obrázky a ikony pro sadu Visual Studio](https://docs.microsoft.com/en-us/visualstudio/extensibility/ux-guidelines/images-and-icons-for-visual-studio).
 
 V následujícím příkladu projektu obsahuje soubor image s názvem "ManagedPackage.MyCustomControl.png".
 
