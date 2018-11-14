@@ -24,8 +24,8 @@
 ## [Transformace zdrojových a konfiguračních souborů](create-packages/source-and-config-file-transformations.md)
 ## [Vytvoření lokalizovaných balíčků](create-packages/creating-localized-packages.md)
 ## [Předběžné verze balíčků](create-packages/prerelease-packages.md)
-## [Nativní balíčky](create-packages/native-packages.md)
-## [Balíčky symbolů](create-packages/symbol-packages.md)
+## [Vytváření nativních balíčků](create-packages/native-packages.md)
+## [Vytváření balíčků symbolů](create-packages/symbol-packages-snupkg.md)
 ## [Podepsání balíčků](create-packages/sign-a-package.md)
 ## [Publikování balíčku](create-packages/publish-a-package.md)
 ## Příručky
@@ -198,6 +198,7 @@
 ## [Postup: Vytvoření dotazu na všechny balíčky pomocí rozhraní API](guides/api/query-for-all-published-packages.md)
 ## [Index služby](api/service-index.md)
 ## [Nasdílení změn a odstranění](api/package-publish-resource.md)
+## [Doručení balíčků symbolů](api/symbol-package-publish-resource.md)
 ## [Hledání](api/search-query-service-resource.md)
 ## [Automatické dokončování](api/search-autocomplete-service-resource.md)
 ## [Metadata balíčků](api/registration-base-url-resource.md)
