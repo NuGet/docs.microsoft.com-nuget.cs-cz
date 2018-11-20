@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/29/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 48f56ec5f042f6e78e38a202f0879c6949e7ee11
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: e8d4ed1f3fe4394d084a5847200901b23a1b7b39
+ms.sourcegitcommit: c825eb7e222d4a551431643f5b5617ae868ebe0a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580389"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51944077"
 ---
 # <a name="nuspec-reference"></a>odkaz na souboru .nuspec
 
@@ -79,7 +79,49 @@ Lidské popisný název balíčku, obvykle používaných v uživatelském rozhr
 #### <a name="projecturl"></a>ProjectUrl
 Adresa URL domovské stránky balíčku, často zobrazuje v uživatelském rozhraní nuget.org. 
 #### <a name="licenseurl"></a>LicenseUrl
+> [!Important]
+> licenseUrl je zastaralé. Místo toho použijte licenci.
+
 Adresa URL licence balíčku, často zobrazuje v uživatelském rozhraní nuget.org.
+#### <a name="license"></a>Licence
+Výraz SPDX licence nebo cesta k souboru licencí v rámci balíčku, často zobrazuje v uživatelském rozhraní nuget.org. V případě, že licencujete balíčku v rámci běžných licence, jako je například BSD-2klauzule nebo MIT, použijte přidružený identifikátor SPDX licence.<br>Příklad: `<license type="expression">MIT</license>`
+
+Tady je úplný seznam [SPDX licence identifikátory](https://spdx.org/licenses/). NuGet.org přijímá pouze OSI nebo licenci FSF schválení licence při použití výrazu typu.
+
+Pokud váš balíček je licencován několik běžných licence, můžete zadat složené licencí pomocí [SPDX výraz syntaxe verze 2.0](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60).<br>Příklad: `<license type="expression">BSD-2-Clause OR MIT</license>`
+
+Pokud používáte licenci, která ještě není přiřazený identifikátor SPDX, nebo vlastní licenci, můžete balíček soubor s licencí text. Příklad:
+```xml
+<package>
+  <metadata>
+    ...
+    <license type="file">LICENSE.txt</license>
+    ...
+  </metadata>
+  <files>
+    ...
+    <file src="licenses\LICENSE.txt" target="" />
+    ...
+  </files>
+</package>
+```
+Syntaxe výrazů licence NuGet je popsaný dole v [ABNF](https://tools.ietf.org/html/rfc5234).
+```cli
+license-id            = <short form license identifier from https://spdx.org/spdx-specification-21-web-version#h.luq9dgcle9mo>
+
+license-exception-id  = <short form license exception identifier from https://spdx.org/spdx-specification-21-web-version#h.ruv3yl8g6czd>
+
+simple-expression = license-id / license-id”+”
+
+compound-expression =  1*1(simple-expression /
+                simple-expression "WITH" license-exception-id /
+                compound-expression "AND" compound-expression /
+                compound-expression "OR" compound-expression ) /                
+                "(" compound-expression ")" )
+
+license-expression =  1*1(simple-expression / compound-expression / UNLICENSED)
+```
+
 #### <a name="iconurl"></a>IconUrl
 Adresa URL pro bitovou kopii 64 x 64 s průhlednost pozadí použít jako ikona pro balíček zobrazená v uživatelském rozhraní. Ujistěte se, obsahuje tento element *přímá adresa URL obrázku* nikoli adresa URL webové stránky, který obsahuje bitovou kopii. Například pokud chcete použít některou image z Githubu, použijte soubor raw, jako je adresa URL <em>https://github.com/\<username\>/\<repository\>/raw/\<branch\>/\<logo.png\></em>. 
 
@@ -614,7 +656,7 @@ Můžete použít prázdné složky `.` chcete vyjádřit výslovný nesouhlas p
         <description>Sample exists only to show a sample .nuspec file.</description>
         <language>en-US</language>
         <projectUrl>http://xunit.codeplex.com/</projectUrl>
-        <licenseUrl>http://xunit.codeplex.com/license</licenseUrl>
+        <license type="expression">MIT</license>
     </metadata>
 </package>
 ```
