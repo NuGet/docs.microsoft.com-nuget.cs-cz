@@ -16,12 +16,12 @@ keywords: Symbol balíčky NuGet, balíček NuGet ladění, podpora, balíček s
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: a72b59a391ed25e9617ba3ba3656301a2ed90ddc
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: 5bd3d02a9f397b393cc56af815c40f9d718d4023
+ms.sourcegitcommit: a1846edf70ddb2505d58e536e08e952d870931b0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580449"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52303622"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Vytváření balíčků symbolů (.snupkg)
 
@@ -44,9 +44,9 @@ nuget pack MyPackage.csproj -Symbols -SymbolPackageFormat snupkg
 msbuild /t:pack MyPackage.csproj /p:IncludeSymbols=true /p:SymbolPackageFormat=snupkg
 ```
 
-`.snupkgs` nejsou vytvořené ve výchozím nastavení. Je nutné předat `SymbolsPackageFormat` vlastnost spolu s `-Symbols` v případě nuget.exe, `--include-symbols` v případě dotnet.exe, nebo `/p:IncludeSymbols` v případě nástroje msbuild.
+`.snupkgs` nejsou vytvořené ve výchozím nastavení. Je nutné předat `SymbolPackageFormat` vlastnost spolu s `-Symbols` v případě nuget.exe, `--include-symbols` v případě dotnet.exe, nebo `/p:IncludeSymbols` v případě nástroje msbuild.
 
-Vlastnost SymbolsPackageFormat může mít jednu ze dvou hodnot: `symbols.nupkg` (výchozí) nebo `snupkg`. Pokud SymbolsPackageFormat není zadán, použije se výchozí `symbols.nupkg` a vytvoří se balíček symbolů starší verze.
+Vlastnost SymbolPackageFormat může mít jednu ze dvou hodnot: `symbols.nupkg` (výchozí) nebo `snupkg`. Pokud SymbolPackageFormat není zadán, použije se výchozí `symbols.nupkg` a vytvoří se balíček symbolů starší verze.
 
 > [!Note]
 > Starší verze formátu `.symbols.nupkg` je ale pouze z důvodů kompatibility stále podporována (viz [starších verzí balíčků symbolů](Symbol-Packages.md)). Server symbolů NuGet.org přijímá pouze nový formát balíček symbolů - `.snupkg`.

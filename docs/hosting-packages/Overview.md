@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/25/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 80f9354e149129fff043b470d833f348df15c0a7
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 4741d780afa4fbe11001aed49a9f72bf608d96d9
+ms.sourcegitcommit: a1846edf70ddb2505d58e536e08e952d870931b0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545488"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52303560"
 ---
 # <a name="hosting-your-own-nuget-feeds"></a>Hostování vlastní NuGet informační kanály
 
@@ -32,6 +32,7 @@ Existuje také několik NuGet hostování produkty, které podporují vzdálené
 - [NuGet Server (Otevřít zdroj)](http://nuget-server.net), podobně jako NuGet Server Inedo na open source implementace
 - [LiGet](https://github.com/ai-traders/liget), open source implementace NuGet V2 serveru, který běží na kestrel v dockeru
 - [BaGet](https://github.com/loic-sharma/BaGet), open source implementace NuGet V3 server založená na technologii ASP.NET Core
+- [Sleet](https://github.com/emgarten/sleet), generátor kanálu statické NuGet V3 open source
 - [Artifactory](https://www.jfrog.com/artifactory/) z JFrog.
 - [Nexus](http://www.sonatype.org/nexus/) z Sonatype.
 - [TeamCity](https://www.jetbrains.com/teamcity/) od JetBrains.

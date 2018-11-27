@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: reference
-ms.openlocfilehash: 504a48224051265164f9ab183e63fa5e7f5867e6
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: c294e4c188db2e90e6bcb62b60f71ed5529977fe
+ms.sourcegitcommit: a1846edf70ddb2505d58e536e08e952d870931b0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546912"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52303516"
 ---
 # <a name="nugetconfig-reference"></a>odkaz na soubor nuget.config
 
 Chování Nugetu je řízena nastavením v různých `NuGet.Config` soubory, jak je popsáno v [konfigurace chování Nugetu](../consume-packages/configuring-nuget-behavior.md).
 
-`nuget.config` je soubor XML obsahující na nejvyšší úrovni `<configuration>` uzlu, který pak obsahuje část prvky popsané v tomto tématu. Každý oddíl obsahuje nula nebo více `<add>` prvky s `key` a `value` atributy. Zobrazit [příklady konfiguračního souboru](#example-config-file). Názvy nastavení rozlišují velikost písmen a můžete použít hodnoty [proměnné prostředí](#using-environment-variables).
+`nuget.config` je soubor XML obsahující na nejvyšší úrovni `<configuration>` uzlu, který pak obsahuje část prvky popsané v tomto tématu. Každý oddíl obsahuje nula nebo více položek. Zobrazit [příklady konfiguračního souboru](#example-config-file). Názvy nastavení rozlišují velikost písmen a můžete použít hodnoty [proměnné prostředí](#using-environment-variables).
 
 V tomto tématu:
 
@@ -30,6 +30,7 @@ V tomto tématu:
   - [apikeys](#apikeys)
   - [disabledPackageSources](#disabledpackagesources)
   - [activePackageSource](#activepackagesource)
+- [část trustedSigners](#trustedsigners-section)
 - [Použití proměnných prostředí](#using-environment-variables)
 - [Příklad konfiguračního souboru](#example-config-file)
 
@@ -51,6 +52,7 @@ Obsahuje nastavení různé konfigurace, které lze nastavit pomocí [ `nuget co
 | repositoryPath (`packages.config` jenom) | Umístění, ve kterém k instalaci balíčků NuGet místo výchozího `$(Solutiondir)/packages` složky. Relativní cesta lze použít v projektu konkrétní `nuget.config` soubory. Toto nastavení je přepsán NUGET_PACKAGES proměnné prostředí, která má přednost. |
 | defaultPushSource | Určuje adresu URL nebo cestu zdroje balíčku, který se použije jako výchozí, pokud se nenajdou žádné jiné zdroje balíčků pro operaci. |
 | http_proxy http_proxy.user http_proxy.password no_proxy | Nastavení proxy serveru mají používat při připojování ke zdrojům balíčků; `http_proxy` by měl být ve formátu `http://<username>:<password>@<domain>`. Hesla jsou zašifrované a nelze ji přidat ručně. Pro `no_proxy`, hodnota je čárkou oddělený seznam domén obejít proxy server. Můžete také použít proměnné prostředí http_proxy a no_proxy pro tyto hodnoty. Další podrobnosti najdete v tématu [nastavení proxy serveru NuGet](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (skolima.blogspot.com). |
+| signatureValidationMode | Určuje režim ověřování pro ověřování podpisů balíčků pro instalaci balíčků a obnovení. Hodnoty jsou `accept`, `require`. Výchozí hodnota je `accept`.
 
 **Příklad**:
 
@@ -60,6 +62,7 @@ Obsahuje nastavení různé konfigurace, které lze nastavit pomocí [ `nuget co
     <add key="globalPackagesFolder" value="c:\packages" />
     <add key="repositoryPath" value="c:\installed_packages" />
     <add key="http_proxy" value="http://company-squid:3128@contoso.com" />
+    <add key="signatureValidationMode" value="require" />
 </config>
 ```
 
@@ -115,9 +118,9 @@ Ovládací prvky, zda `packages` složka řešení je součástí správy zdrojo
 
 ## <a name="package-source-sections"></a>Části zdroje balíčku
 
-`packageSources`, `packageSourceCredentials`, `apikeys`, `activePackageSource`, A `disabledPackageSources` veškerou práci dohromady a nakonfigurujte, jak NuGet pracuje s úložišť balíčků během instalace, obnovení a operace aktualizace.
+`packageSources`, `packageSourceCredentials`, `apikeys`, `activePackageSource`, `disabledPackageSources` a `trustedSigners` veškerou práci dohromady a nakonfigurujte, jak NuGet pracuje s úložišť balíčků během instalace, obnovení a operace aktualizace.
 
-[ `nuget sources` Příkaz](../tools/cli-ref-sources.md) se obecně používají tato nastavení můžete spravovat, s výjimkou `apikeys` spravovaném pomocí [ `nuget setapikey` příkaz](../tools/cli-ref-setapikey.md).
+[ `nuget sources` Příkaz](../tools/cli-ref-sources.md) se obecně používají tato nastavení můžete spravovat, s výjimkou `apikeys` spravovaném pomocí [ `nuget setapikey` příkaz](../tools/cli-ref-setapikey.md), a `trustedSigners` spravovaném použití [ `nuget trusted-signers` příkaz](../tools/cli-ref-trusted-signers.md).
 
 Všimněte si, že je adresa URL zdroje pro nuget.org `https://api.nuget.org/v3/index.json`.
 
@@ -237,6 +240,35 @@ Identifikuje zdroj aktuálně aktivní nebo označuje souhrn všech zdrojů.
     <add key="All" value="(Aggregate source)" />
 </activePackageSource>
 ```
+## <a name="trustedsigners-section"></a>část trustedSigners
+
+Úložiště důvěryhodných podepisující osoby, které umožňují balíček při instalaci nebo obnovování. Tento seznam nemůže být prázdný, pokud uživatel nastaví `signatureValidationMode` k `require`. 
+
+Tato část je možné aktualizovat pomocí [ `nuget trusted-signers` příkaz](../tools/cli-ref-trusted-signers.md).
+
+**Schéma**:
+
+Důvěryhodné podepisující osoba má kolekci `certificate` položky, které zařadit všechny certifikáty, které identifikují dané podepisující osoba. Důvěryhodné podepisující osoba může být buď `Author` nebo `Repository`.
+
+Důvěryhodný *úložiště* také určuje `serviceIndex` úložiště (který musí být platný `https` identifikátor uri) a volitelně můžete zadat středníkem oddělený seznam `owners` omezit ještě více který je důvěryhodný z tohoto konkrétního úložiště.
+
+Jsou podporované hashovací algoritmy používané pro otisku certifikátu `SHA256`, `SHA384` a `SHA512`.
+
+Pokud `certificate` Určuje `allowUntrustedRoot` jako `true` daný certifikát řetězce na nedůvěryhodném kořenu může při sestavování řetězu certifikátů jako součást ověření podpisu.
+
+**Příklad**:
+
+```xml
+<trustedSigners>
+    <author name="microsoft">
+        <certificate fingerprint="3F9001EA83C560D712C24CF213C3D312CB3BFF51EE89435D3430BD06B5D0EECE" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
+    </author>
+    <repository name="nuget.org" serviceIndex="https://api.nuget.org/v3/index.json">
+        <certificate fingerprint="0E5F38F57DC1BCC806D8494F4F90FBCEDD988B46760709CBEEC6F4219AA6157D" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
+        <owners>microsoft;aspnet;nuget</owners>
+    </repository>
+</trustedSigners>
+```
 
 ## <a name="using-environment-variables"></a>Použití proměnných prostředí
 
@@ -313,5 +345,19 @@ Tady je příklad `nuget.config` soubor, který ukazuje několik položek nastav
     <apikeys>
         <add key="https://MyRepo/ES/api/v2/package" value="encrypted_api_key" />
     </apikeys>
+
+    <!--
+        Used to specify trusted signers to allow during signature verification.
+        See: nuget.exe help trusted-signers
+    -->
+    <trustedSigners>
+        <author name="microsoft">
+            <certificate fingerprint="3F9001EA83C560D712C24CF213C3D312CB3BFF51EE89435D3430BD06B5D0EECE" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
+        </author>
+        <repository name="nuget.org" serviceIndex="https://api.nuget.org/v3/index.json">
+            <certificate fingerprint="0E5F38F57DC1BCC806D8494F4F90FBCEDD988B46760709CBEEC6F4219AA6157D" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
+            <owners>microsoft;aspnet;nuget</owners>
+        </repository>
+    </trustedSigners>
 </configuration>
 ```

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 71ab5bb464d1513df89ab53e119d9768e880e4e5
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: 17960e42a69b00f2524b9ab7d78710d7551b5a9c
+ms.sourcegitcommit: a1846edf70ddb2505d58e536e08e952d870931b0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981025"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52303651"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Odkazy na balíček (PackageReference) v souborech projektu
 
@@ -238,6 +238,6 @@ Jak je popsáno níže, můžete se soubor zámku ovládání různého chován�
 | Možnost | Ekvivalentní možnosti MSBuild | 
 |:---  |:--- |
 | `--use-lock-file` | Bootstraps použít soubor zámku pro projekt. Můžete také nastavit `RestorePackagesWithLockFile` vlastnost v souboru projektu | 
-| `--locked-mode` | Umožňuje uzamčeném režimu pro obnovení. To je užitečné ve scénářích CI/CD, kde byste chtěli získání erepeatable sestavení. To může být také tak, že nastavíte `RestoreLockedMode` vlastnosti nástroje MSBuild `true` |  
+| `--locked-mode` | Umožňuje uzamčeném režimu pro obnovení. To je užitečné ve scénářích CI/CD, kde byste chtěli získání opakovatelných sestavení. To může být také tak, že nastavíte `RestoreLockedMode` vlastnosti nástroje MSBuild `true` |  
 | `--force-evaluate` | Tato možnost je užitečná s balíčky verzí s plovoucí desetinnou čárkou definované v projektu. Ve výchozím nastavení, obnovení NuGet se neaktualizuje automaticky při každé obnovení verze balíčku není-li spustit obnovení s `--force-evaluate` možnost. |
 | `--lock-file-path` | Definuje vlastní zámek umístění souboru projektu. To můžete také dosáhnout nastavením vlastnosti MSBuild `NuGetLockFilePath`. Ve výchozím nastavení podporuje NuGet `packages.lock.json` v kořenovém adresáři. Pokud máte více projektů ve stejném adresáři, NuGet podporuje konkrétní zámek souboru projektu `packages.<project_name>.lock.json` |
