@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/30/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: d4c13200494ed3c6fa897ce0083a52c13688b44b
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: fd5188c92f8154391359b8da5c8a32f4d5d6f2c0
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547390"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453582"
 ---
 # <a name="catalog"></a>Katalog
 
@@ -213,7 +213,7 @@ značky                    | pole řetězců           | Ne       |
 Název                   | odkazy řetězců                     | Ne       |
 verbatimVersion         | odkazy řetězců                     | Ne       | Řetězec verze, protože původně součástí souboru .nuspec
 
-Balíček `version` vlastnosti je řetězec verze úplné, normalizovaná. To znamená, že data SemVer 2.0.0 sestavení může být součástí tady.
+Balíček `version` vlastnost po normalizace řetězce plnou verzi. To znamená, že data SemVer 2.0.0 sestavení může být součástí tady.
 
 `created` Časové razítko je při podle zdroje balíčku, který je obvykle krátkou dobu před časové razítko potvrzení položka katalogu byla prvním přijetí balíček.
 

@@ -5,22 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 17960e42a69b00f2524b9ab7d78710d7551b5a9c
-ms.sourcegitcommit: a1846edf70ddb2505d58e536e08e952d870931b0
+ms.openlocfilehash: d4f0177183ee3edf595c4ce10d1f26cbaca5755d
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52303651"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453569"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Odkazy na balíček (PackageReference) v souborech projektu
 
-Balíček odkazů pomocí nástroje `PackageReference` uzlu, správě závislostí NuGet přímo v rámci projektových souborů (na rozdíl od samostatné `packages.config` souboru). Pomocí PackageReference, jako je volána, nemá vliv na ostatní aspekty NuGet; například nastavení v "NuGet.
-
-
-
-
-
-fík "soubory (včetně zdroje balíčků) se uplatní, jak je vysvětleno v [konfigurace chování Nugetu](configuring-nuget-behavior.md).
+Balíček odkazů pomocí nástroje `PackageReference` uzlu, správě závislostí NuGet přímo v rámci projektových souborů (na rozdíl od samostatné `packages.config` souboru). Pomocí PackageReference, jako je volána, nemá vliv na ostatní aspekty NuGet; například nastavení v `NuGet.config` soubory (včetně zdroje balíčků) se uplatní, jak je vysvětleno v [konfigurace chování Nugetu](configuring-nuget-behavior.md).
 
 S PackageReference můžete také použít podmínky nástroje MSBuild zvolit odkazy na balíček na cílovou architekturu, konfigurace, platformy nebo další seskupení. Umožňuje také pro detailní kontrolu nad závislostí a obsahu toku. (Další podrobnosti najdete v [NuGet aktualizací Service pack a obnovení jako cílů MSBuild](../reference/msbuild-targets.md).)
 
@@ -163,7 +157,7 @@ Podmínek je také možné použít na `ItemGroup` úrovně a má platit pro vš
 ## <a name="locking-dependencies"></a>Uzamčení závislosti
 *Tato funkce je k dispozici s NuGet **4.9** nebo vyšší a sadou Visual Studio 2017 **15.9 ve verzi Preview 5** nebo vyšší.*
 
-Vstup pro obnovení NuGet je sada odkazy na balíčky ze souboru projektu (dependenices nejvyšší úrovně a direct) a výstup je úplné uzavření všechny závislosti balíčků, včetně přechodné závislosti. NuGet se pokusí vždy vytvořila stejný úplný uzavření závislosti balíčků, pokud nedošlo ke změně vstupní seznam PackageReference. Existují však některé scénáře, kdy je to možné. Příklad:
+Vstup pro obnovení NuGet je sada odkazy na balíčky ze souboru projektu (závislosti nejvyšší úrovně a direct) a výstup je úplné uzavření všechny závislosti balíčků, včetně přechodné závislosti. NuGet se pokusí vždy vytvořila stejný úplný uzavření závislosti balíčků, pokud nedošlo ke změně vstupní seznam PackageReference. Existují však některé scénáře, kdy je to možné. Příklad:
 
 * Při použití s plovoucí desetinnou čárkou, jako je verze `<PackageReference Include="My.Sample.Lib" Version="4.*"/>`. I když jsou záměr zde uvolnění na nejnovější verzi na každý obnovení balíčků, jsou scénáře, kdy uživatelé vyžadují graf tak, aby být pevně nastavené na určitého nejnovější verzi a plovoucí desetinnou čárkou na novější verzi, pokud je k dispozici na explicitní gest.
 * Je publikovaný novější verzi balíčku požadavky na odpovídající verzi PackageReference. Například 
@@ -193,9 +187,9 @@ Pokud je tato vlastnost nastavena, obnovení NuGet vygeneruje soubor zámku - `p
 ### <a name="restore-behavior-with-lock-file"></a>`restore` chování s soubor zámku
 Pokud se nachází soubor zámku pro projekt, NuGet používá ke spuštění tohoto uzamknout souboru `restore`. NuGet nemá Rychlá kontrola, zda byly změny v závislosti balíčků, jak je uvedeno v souboru projektu (nebo soubory závislých projektů) a pokud nejsou žádné změny jenom obnoví balíčky uvedené v souboru zámku. Neexistuje žádné opakované vyhodnocení závislosti balíčků.
 
-NuGet zjistí změnu v definované dependenices, jak je uvedeno v souborech projektů, znovu vyhodnotí grafu balíčku a aktualizuje soubor zámku tak, aby odrážely nový balíček uzavření pro projekt.
+NuGet zjistí změnu v definované závislostí, jak je uvedeno v souborech projektů, znovu vyhodnotí grafu balíčku a aktualizuje soubor zámku tak, aby odrážely nový balíček uzavření pro projekt.
 
-Pro CI/CD a další scénáře, ve kterém by chcete změnit dependenies balíčku v reálném čase, můžete to provést nastavením `lockedmode` k `true`:
+Pro CI/CD a další scénáře, ve kterém by chcete změnit závislosti balíčků v reálném čase, můžete to provést nastavením `lockedmode` k `true`:
 
 Pro dotnet.exe spusťte:
 ```
@@ -204,7 +198,7 @@ Pro dotnet.exe spusťte:
 
 Msbuild.exe spusťte tento příkaz:
 ```
-> msbuild.exe /t:restore /p:RestoreLockedMode=true
+> msbuild.exe -t:restore -p:RestoreLockedMode=true
 ```
 
 Může také nastavit podmíněné vlastnost MSBuild v souboru projektu:

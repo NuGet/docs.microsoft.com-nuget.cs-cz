@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/18/2018
 ms.topic: quickstart
-ms.openlocfilehash: a0bf174e3e27ad6d8fefe18f6213213a4bc77b53
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: faea00372bd387aee1502e388ad1ea88de07b95d
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548935"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453517"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Rychlý start: Vytvoření a publikování balíčku NuGet pomocí sady Visual Studio (.NET Standard, jenom Windows)
 
@@ -95,12 +95,12 @@ namespace AppLogger
 Jako alternativu k použití **Pack** příkaz nabídky, NuGet 4.x+ a podporuje MSBuild 15.1 + `pack` cílit při projekt obsahuje data potřebný balíček. Otevřete příkazový řádek, přejděte do složky vašeho projektu a spusťte následující příkaz. (Obvykle chcete spustit "Pro vývojáře příkazového řádku pro Visual Studio" z nabídky Start, jak bude nakonfigurován s všechny nezbytné cesty pro MSBuild.)
 
 ```cli
-msbuild /t:pack /p:Configuration=Release
+msbuild -t:pack -p:Configuration=Release
 ```
 
 Balíček pak najdete v `bin\Release` složky.
 
-Další možnosti s `msbuild /t:pack`, naleznete v tématu [NuGet aktualizací Service pack a obnovení jako cílů MSBuild](../reference/msbuild-targets.md#pack-target).
+Další možnosti s `msbuild -t:pack`, naleznete v tématu [NuGet aktualizací Service pack a obnovení jako cílů MSBuild](../reference/msbuild-targets.md#pack-target).
 
 ## <a name="publish-the-package"></a>Publikování balíčku
 

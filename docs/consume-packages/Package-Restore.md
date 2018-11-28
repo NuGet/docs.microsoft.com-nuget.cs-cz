@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: da69181aebe3bebcea6acd6e15fde6b77dd33452
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: 9acb87a5f5731fb33c91a1ae9b106c6df492ddcd
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580295"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453530"
 ---
 # <a name="package-restore"></a>Obnovení balíčku
 
@@ -39,7 +39,7 @@ Obnovení balíčku se aktivuje následujícími způsoby:
 
 - **Rozhraní příkazového řádku NuGet**: použijte [obnovení nuget](../tools/cli-ref-restore.md) příkaz, který obnoví balíčky uvedené v souboru projektu nebo v `packages.config`. Můžete také určit soubor řešení.
 
-- **Nástroj MSBuild**: použijte [msbuild/t: Restore](../reference/msbuild-targets.md#restore-target) příkaz, který obnoví balíčky balíčky uvedené v souboru projektu (pouze PackageReference). K dispozici pouze v NuGet 4.x+ a MSBuild 15.1 +, které jsou součástí sady Visual Studio 2017. `nuget restore` a `dotnet restore` obě použijte tento příkaz pro příslušné projekty.
+- **MSBuild**: použijte [msbuild - t: restore](../reference/msbuild-targets.md#restore-target) příkaz, který obnoví balíčky balíčky uvedené v souboru projektu (pouze PackageReference). K dispozici pouze v NuGet 4.x+ a MSBuild 15.1 +, které jsou součástí sady Visual Studio 2017. `nuget restore` a `dotnet restore` obě použijte tento příkaz pro příslušné projekty.
 
 - **Visual Studio Team Services**: při vytváření definice sestavení ve službě Team Services, patří [obnovení NuGet](/vsts/build-release/tasks/package/nuget#restore-nuget-packages) nebo [obnovení aplikace .NET Core](/vsts/build-release/tasks/build/dotnet-core#restore-nuget-packages) úloh v definici před libovolná sestavení úkolu. Tato úloha je zahrnuté ve výchozím nastavení v počtu šablon sestavení.
 

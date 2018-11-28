@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: a64c5844a58213415671ab0d202a75bc0ececc89
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: ba47d6fdeeaa4ee9de83ef4dd990707bd4928063
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546781"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453556"
 ---
 # <a name="package-metadata"></a>Metadata balíčků
 
@@ -150,7 +150,9 @@ RequireLicenseAcceptance | Logická hodnota                    | Ne       |
 souhrn                  | odkazy řetězců                     | Ne       | 
 značky                     | řetězec nebo pole řetězců  | Ne       | 
 Název                    | odkazy řetězců                     | Ne       | 
-verze                  | odkazy řetězců                     | Ano      | Verze balíčku
+verze                  | odkazy řetězců                     | Ano      | Plná verze řetězce po normalizace
+
+Balíček `version` vlastnost po normalizace řetězce plnou verzi. To znamená, že data SemVer 2.0.0 sestavení může být součástí tady.
 
 `dependencyGroups` Vlastnost je pole objektů představujících závislosti balíčků, seskupených podle cílové rozhraní. Pokud balíček nemá žádné závislosti `dependencyGroups` vlastnost chybí, prázdné pole, nebo `dependencies` vlastnosti všech skupin je prázdná nebo chybí.
 

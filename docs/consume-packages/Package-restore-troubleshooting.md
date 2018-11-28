@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 51dd78ef7cc427232982df15657d76d117146853
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: b85b586e76e424442dc0ba3acfecbee1e8755345
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580348"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453465"
 ---
 # <a name="troubleshooting-package-restore-errors"></a>Řešení potíží s chybami obnovení balíčku
 
@@ -57,7 +57,7 @@ Obnovení balíčků, použijte jednu z následujících metod:
 - V sadě Visual Studio povolit obnovení balíčků tak, že vyberete **nástroje > Správce balíčků NuGet > Nastavení správce balíčků** příkazu nabídky nastavení obě možnosti v části **obnovení balíčků**a výběrem  **OK**. Poté znovu sestavte řešení.
 - Pro projekty .NET Core, spusťte `dotnet restore` nebo `dotnet build` (který automaticky spustí obnovení).
 - Na příkazovém řádku spusťte `nuget restore` (s výjimkou projekty vytvořené pomocí `dotnet`, v takovém případě použijte `dotnet restore`).
-- V příkazovém řádku s projekty pomocí formátu PackageReference spustit `msbuild /t:restore`.
+- V příkazovém řádku s projekty pomocí formátu PackageReference spustit `msbuild -t:restore`.
 
 Po úspěšné obnovení by měla být k dispozici v balíčku *global-packages* složky. Pro projekty pomocí PackageReference obnovení musí znovu vytvořit `obj/project.assets.json` soubor; pro projekty používající `packages.config`, balíček by se měla objevit v projektu `packages` složky. Projekt by měl nyní úspěšně sestavit. V opačném případě [založte problém na Githubu](https://github.com/NuGet/docs.microsoft.com-nuget/issues) tak jsme poradí s vámi.
 
@@ -73,7 +73,7 @@ Assets file '<path>\project.assets.json' not found. Run a NuGet package restore 
 
 `project.assets.json` Souboru udržuje graf závislosti projektu při použití formátu správy PackageReference, který se používá k zajištění toho, že jsou v počítači nainstalovány všechny potřebné balíčky. Protože tento soubor se generuje dynamicky pomocí obnovení balíčků, není obvykle přidat do správy zdrojového kódu. V důsledku toho k této chybě dochází při sestavování projektu pomocí nástroje, jako `msbuild` , neobnoví automaticky balíčky.
 
-V takovém případě spusťte `msbuild /t:restore` následovaný `msbuild`, nebo použijte `dotnet build` (což obnoví balíčky automaticky). Můžete také použít některou z metod obnovení balíčku v [předchozí části](#missing).
+V takovém případě spusťte `msbuild -t:restore` následovaný `msbuild`, nebo použijte `dotnet build` (což obnoví balíčky automaticky). Můžete také použít některou z metod obnovení balíčku v [předchozí části](#missing).
 
 <a name="consent"></a>
 

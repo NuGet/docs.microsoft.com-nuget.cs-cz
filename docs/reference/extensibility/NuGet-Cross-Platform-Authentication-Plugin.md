@@ -5,12 +5,12 @@ author: nkolev92
 ms.author: nikolev
 ms.date: 07/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: d80339eb81ade1cf2c323a604cc4fac06dcb1012
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: b76fab1028ec9a4172d2390083fbf9adb4290a6c
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981051"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453504"
 ---
 # <a name="nuget-cross-platform-authentication-plugin"></a>NuGet pro různé platformy ověřování modulu plug-in
 
@@ -32,7 +32,7 @@ Neexistuje žádný interaktivní přepínač na `dotnet build` a `dotnet publis
 ## <a name="authentication-in-msbuild"></a>Ověřování v nástroji MSBuild
 
 Podobně jako dotnet.exe MSBuild.exe je ve výchozím nastavení není že interaktivní je ověřovací mechanismus MSBuild.exe tok zařízení.
-Pokud chcete povolit obnovení pozastavení a počkejte, ověřování, volání obnovení s `msbuild /t:restore /p:NuGetInteractive="true"`.
+Pokud chcete povolit obnovení pozastavení a počkejte, ověřování, volání obnovení s `msbuild -t:restore -p:NuGetInteractive="true"`.
 
 ## <a name="creating-a-cross-platform-authentication-plugin"></a>Vytvoření modulu plug-in pro ověřování různé platformy
 

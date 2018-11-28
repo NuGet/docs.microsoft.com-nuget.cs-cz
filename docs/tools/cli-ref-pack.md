@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 826316bdbce881836836f2a667cfa5297996d14f
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: b5bd8bd30ad134f36433b8e4721ce131425a1483
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580308"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453361"
 ---
 # <a name="pack-command-nuget-cli"></a>Příkaz Pack (NuGet CLI)
 
 **Platí pro:** vytvoření balíčku &bullet; **podporované verze:** 2.7 +
 
-Vytvoří balíček NuGet stanoveného `.nuspec` nebo soubor projektu. `dotnet pack` Příkazu (naleznete v tématu [příkazy dotnet](dotnet-Commands.md)) a `msbuild /t:pack` (naleznete v tématu [cíle nástroje MSBuild](../reference/msbuild-targets.md)) mohou být použity jako alternativní úložiště.
+Vytvoří balíček NuGet stanoveného `.nuspec` nebo soubor projektu. `dotnet pack` Příkazu (naleznete v tématu [příkazy dotnet](dotnet-Commands.md)) a `msbuild -t:pack` (naleznete v tématu [cíle nástroje MSBuild](../reference/msbuild-targets.md)) mohou být použity jako alternativní úložiště.
 
 > [!Important]
 > Mono se nepodporuje vytváření balíčku ze souboru projektu. Budete také muset upravit jiné než místní cesty v `.nuspec` sdílené cesty stylu systému Unix, jak nuget.exe nepřevádí Windows cesty, samotného.
