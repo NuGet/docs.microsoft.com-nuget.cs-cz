@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 07296ce5a9ba85d68eca5f4915d6efea00dc8980
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 7b3fc72ddd3ad6c9185c2bd0f2563df59e77f1c8
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548869"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453543"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Balíček NuGet a obnovení jako cílů MSBuild
 
@@ -37,7 +37,7 @@ Podobně můžete napsat úlohu nástroje MSBuild, psát vlastní cílové a vyu
 
 ## <a name="pack-target"></a>cíl balíčku
 
-Pro projekty .NET Standard ve formátu PackageReference, pomocí `msbuild /t:pack` nakreslí vstupů ze souboru projektu k použití při vytváření balíčku NuGet.
+Pro projekty .NET Standard ve formátu PackageReference, pomocí `msbuild -t:pack` nakreslí vstupů ze souboru projektu k použití při vytváření balíčku NuGet.
 
 Následující tabulka popisuje vlastnosti nástroje MSBuild, které mohou být přidány do souboru projektu v rámci první `<PropertyGroup>` uzlu. Můžete provádět tyto úpravy snadno v sadě Visual Studio 2017 a novější kliknutím pravým tlačítkem myši projekt a výběrem **upravit {project_name}** v místní nabídce. Pro usnadnění práce je uspořádaný v tabulce rovnocenné vlastností v [ `.nuspec` souboru](../reference/nuspec.md).
 
@@ -55,7 +55,9 @@ Všimněte si, že `Owners` a `Summary` vlastnosti z `.nuspec` nejsou podporová
 | Popis | Popis | "Balíček popis" | |
 | Copyright | Copyright | empty | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false | |
-| LicenseUrl | PackageLicenseUrl | empty | |
+| Licence | PackageLicenseExpression | empty | Odpovídá `<license type="expression">` |
+| Licence | PackageLicenseFile | empty | Odpovídá `<license type="file">`. Budete muset explicitně pack odkazovaná licenční soubor. |
+| LicenseUrl | PackageLicenseUrl | empty | `licenseUrl` je zastaralé, použijte vlastnost PackageLicenseExpression nebo PackageLicenseFile |
 | ProjectUrl | PackageProjectUrl | empty | |
 | IconUrl | PackageIconUrl | empty | |
 | Značky | PackageTags | empty | Značky jsou oddělené středníky. |
@@ -77,6 +79,8 @@ Všimněte si, že `Owners` a `Summary` vlastnosti z `.nuspec` nejsou podporová
 - Copyright
 - PackageRequireLicenseAcceptance
 - DevelopmentDependency
+- PackageLicenseExpression
+- PackageLicenseFile
 - PackageLicenseUrl
 - PackageProjectUrl
 - PackageIconUrl
@@ -177,7 +181,7 @@ Zahrnuje další konkrétní metadata aktualizací Service pack, kterou můžete
 
 ### <a name="includesymbols"></a>IncludeSymbols
 
-Při použití `MSBuild /t:pack /p:IncludeSymbols=true`, odpovídající `.pdb` soubory se zkopírují spolu s ostatních výstupních souborů (`.dll`, `.exe`, `.winmd`, `.xml`, `.json`, `.pri`). Poznámka: Toto nastavení `IncludeSymbols=true` vytvoří regulárních balíček *a* balíček symbolů.
+Při použití `MSBuild -t:pack -p:IncludeSymbols=true`, odpovídající `.pdb` soubory se zkopírují spolu s ostatních výstupních souborů (`.dll`, `.exe`, `.winmd`, `.xml`, `.json`, `.pri`). Poznámka: Toto nastavení `IncludeSymbols=true` vytvoří regulárních balíček *a* balíček symbolů.
 
 ### <a name="includesource"></a>IncludeSource
 
@@ -185,28 +189,46 @@ To je stejný jako `IncludeSymbols`, s tím rozdílem, že zkopíruje zdrojové 
 
 Pokud kompilovat soubor typu je mimo složku projektu, pak je právě přidali do `src\<ProjectName>\`.
 
+### <a name="packing-a-license-expression-or-a-license-file"></a>Balení výrazu licence nebo licenční soubor
+
+Při použití výrazu licence, PackageLicenseExpression vlastnost použít. 
+[Ukázka výrazu licence](#https://github.com/NuGet/Samples/tree/master/PackageLicenseExpressionExample).
+
+Při balení licenční soubor, budete muset použít vlastnost PackageLicenseFile zadat cesta k balíčku, vzhledem ke kořenové složce balíčku. Kromě toho budete muset Ujistěte se, že je soubor součástí balíčku. Příklad:
+
+```xml
+<PropertyGroup>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+</PropertyGroup>
+
+<ItemGroup>
+    <None Include="licenses\LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)"/>
+</ItemGroup>
+```
+[Ukázka životního licence](#https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample).
+
 ### <a name="istool"></a>IsTool
 
-Při použití `MSBuild /t:pack /p:IsTool=true`, všechny výstupní soubory, jak je uvedeno v [výstupní sestavení](#output-assemblies) scénáři se zkopírují do `tools` složky namísto `lib` složky. Všimněte si, že se liší od `DotNetCliTool` který je určený nastavením `PackageType` v `.csproj` souboru.
+Při použití `MSBuild -t:pack -p:IsTool=true`, všechny výstupní soubory, jak je uvedeno v [výstupní sestavení](#output-assemblies) scénáři se zkopírují do `tools` složky namísto `lib` složky. Všimněte si, že se liší od `DotNetCliTool` který je určený nastavením `PackageType` v `.csproj` souboru.
 
 ### <a name="packing-using-a-nuspec"></a>Použití souboru .nuspec balení
 
 Můžete použít `.nuspec` souboru se zabalit váš projekt, za předpokladu, že soubor projektu sadu SDK k importu `NuGet.Build.Tasks.Pack.targets` tak, aby úloha sady mohou být provedeny. Je stále potřeba obnovit projekt předtím, než můžete sbalit soubor nuspec. Cílové rozhraní projektu souboru je bezvýznamná a nepoužívá se při balení souboru nuspec. Následující tři vlastnosti nástroje MSBuild jsou relevantní pro balení, použití `.nuspec`:
 
 1. `NuspecFile`: relativní nebo absolutní cesta k `.nuspec` souboru se používají pro balení.
-1. `NuspecProperties`: středníkem oddělený seznam klíč = dvojice hodnot. Kvůli způsobu, jakým MSBuild příkazového řádku analýzy funguje, musí být více vlastností zadán následujícím způsobem: `/p:NuspecProperties=\"key1=value1;key2=value2\"`.  
+1. `NuspecProperties`: středníkem oddělený seznam klíč = dvojice hodnot. Kvůli způsobu, jakým MSBuild příkazového řádku analýzy funguje, musí být více vlastností zadán následujícím způsobem: `-p:NuspecProperties=\"key1=value1;key2=value2\"`.  
 1. `NuspecBasePath`: Základní cesta pro `.nuspec` souboru.
 
 Pokud používáte `dotnet.exe` se zabalit váš projekt, použijte příkaz podobný tomuto:
 
 ```cli
-dotnet pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:NuspecProperties=<> /p:NuspecBasePath=<Base path> 
+dotnet pack <path to .csproj file> -p:NuspecFile=<path to nuspec file> -p:NuspecProperties=<> -p:NuspecBasePath=<Base path> 
 ```
 
 Pokud se váš projekt zabalit pomocí nástroje MSBuild, použijte příkaz podobný tomuto:
 
 ```cli
-msbuild /t:pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:NuspecProperties=<> /p:NuspecBasePath=<Base path> 
+msbuild -t:pack <path to .csproj file> -p:NuspecFile=<path to nuspec file> -p:NuspecProperties=<> -p:NuspecBasePath=<Base path> 
 ```
 
 Mějte prosím na paměti, že balení nuspec pomocí dotnet.exe nebo msbuild také vede k sestavení projektu ve výchozím nastavení. To se můžete vyhnout tím, že předáte ```--no-build``` vlastnost dotnet.exe, což je ekvivalentní nastavení ```<NoBuild>true</NoBuild> ``` v souboru projektu se nastavení ```<IncludeBuildOutput>false</IncludeBuildOutput> ``` v souboru projektu
@@ -283,7 +305,7 @@ Příklad:
 
 ## <a name="restore-target"></a>Cíl obnovení
 
-`MSBuild /t:restore` (což `nuget restore` a `dotnet restore` použití s projekty .NET Core), obnoví balíčky, které jsou popsána v souboru projektu následujícím způsobem:
+`MSBuild -t:restore` (což `nuget restore` a `dotnet restore` použití s projekty .NET Core), obnoví balíčky, které jsou popsána v souboru projektu následujícím způsobem:
 
 1. Číst všechny odkazy typu projekt na projekt
 1. Přečtěte si vlastnosti projektu k vyhledání zprostředkující složky a cílové architektury
@@ -296,7 +318,7 @@ Příklad:
 
 ### <a name="restore-properties"></a>Obnovit vlastnosti
 
-Nastavení další obnovení mohou pocházet z vlastnosti nástroje MSBuild v souboru projektu. Hodnoty lze také nastavit pomocí příkazového řádku `/p:` přepnout (Další příklady naleznete níže).
+Nastavení další obnovení mohou pocházet z vlastnosti nástroje MSBuild v souboru projektu. Hodnoty lze také nastavit pomocí příkazového řádku `-p:` přepnout (Další příklady naleznete níže).
 
 | Vlastnost | Popis |
 |--------|--------|
@@ -315,7 +337,7 @@ Nastavení další obnovení mohou pocházet z vlastnosti nástroje MSBuild v so
 Příkazový řádek:
 
 ```cli
-msbuild /t:restore /p:RestoreConfigFile=<path>
+msbuild -t:restore -p:RestoreConfigFile=<path>
 ```
 
 Soubor projektu:
