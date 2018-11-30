@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 04/09/2018
 ms.topic: quickstart
-ms.openlocfilehash: b3be75a5af85bd3048c8b0eb71d90238b9349e09
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 9e8aa2250c6fc2843f74a925c56f953be5d48221
+ms.sourcegitcommit: 1591bb230e106b94162a87dd1d86fe427366730a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549719"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52671133"
 ---
 # <a name="installing-nuget-client-tools"></a>Instalace klientských nástrojů Nugetu
 
@@ -75,27 +75,25 @@ Instalace:
 | Funkce | rozhraní příkazového řádku DotNet | nuget rozhraní příkazového řádku (Windows) | nuget rozhraní příkazového řádku (Mono) | Visual Studio (Windows) | Visual Studio for Mac |
 | --- | --- | --- | --- | --- | --- |
 | Hledat balíčky |  | &#10004; | &#10004; | &#10004; | &#10004; |
-| Instalace/Odinstalace balíčků | &#10004;(1) | &#10004;(2) | &#10004; | &#10004; | &#10004; |
+| Instalace/Odinstalace balíčků | &#10004; | &#10004;(1) | &#10004; | &#10004; | &#10004; |
 | Aktualizace balíčků | &#10004; | &#10004; | | &#10004; | &#10004; |
-| Obnovení balíčků | &#10004; | &#10004; | &#10004;(3) | &#10004; | &#10004; |
+| Obnovení balíčků | &#10004; | &#10004; | &#10004;(2) | &#10004; | &#10004; |
 | Správa informační kanály balíčků (zdroje) | | &#10004; | &#10004; | &#10004; | &#10004; |
-| Správa balíčků na informační kanál | &#10004;(1) | &#10004; | &#10004; | | |
+| Správa balíčků na informační kanál | &#10004; | &#10004; | &#10004; | | |
 | Sadu klíčů rozhraní API pro informační kanály | | &#10004; | &#10004; | | |
-| Vytvoření packages(4) | &#10004; | &#10004; | &#10004;(5) | &#10004; | |
-| Publikovat balíčky | &#10004;(1) | &#10004; | &#10004; | &#10004; |  |
+| Vytvoření packages(3) | &#10004; | &#10004; | &#10004;(4) | &#10004; | |
+| Publikovat balíčky | &#10004; | &#10004; | &#10004; | &#10004; |  |
 | Replikovat balíčky |  | &#10004; | &#10004; | | |
 | Správa *globální balíčku* a složek do mezipaměti | &#10004; | &#10004; | &#10004; | | |
 | Správa konfigurace NuGet | | &#10004; | &#10004; | | |
 
-(1) balíčků na nuget.org pouze
+(1) nemá vliv na soubory projektu. použít `dotnet.exe` místo.
 
-(2) nemá vliv na soubory projektu. použít `dotnet.exe` místo.
+(2) pracuje jenom s `packages.config` souboru, nikoli zpětným řešení (`.sln`) soubory.
 
-(3) pracuje jenom s `packages.config` souboru, nikoli zpětným řešení (`.sln`) soubory.
+(3) různé funkce Rozšířené balíček jsou k dispozici prostřednictvím rozhraní příkazového řádku jen nejsou reprezentovány v nástrojích Visual Studio UI.
 
-(4) různých funkcí pokročilé balíček jsou k dispozici prostřednictvím rozhraní příkazového řádku jen nejsou reprezentovány v nástrojích Visual Studio UI.
-
-(5) funguje s `.nuspec` soubory, ale ne s soubory projektu.
+(4) funguje s `.nuspec` soubory, ale ne s soubory projektu.
 
 ### <a name="related-topics"></a>Související témata
 

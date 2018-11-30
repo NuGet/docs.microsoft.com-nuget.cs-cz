@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 81672abf0362e053da2b71c8bd39bd7f96ddf73b
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: c86a07c30631b7ee99526b014ac9c3b9f136aa81
+ms.sourcegitcommit: 1591bb230e106b94162a87dd1d86fe427366730a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549412"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52671185"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Vyhledávání a hodnocení balíčky NuGet pro projekt
 
@@ -100,6 +100,21 @@ Ve stejnou dobu pomocí balíčku NuGet znamená, že se tak závislosti na něj
 
 > [!Note]
 > Vždycky mějte balíčku licenčních podmínek, které můžete zobrazit tak, že vyberete **informace o licenci** na stránce balíčků na nuget.org. Pokud balíček nejsou zadány licenční podmínky, obraťte se přímo pomocí vlastníka balíčku **obraťte se na vlastníky** odkaz na stránce balíček. Společnost Microsoft není licence duševního vlastnictví, od poskytovatelů třetích stran balíček a neodpovídá za informace, které jsou poskytovány třetími stranami.
+
+## <a name="license-url-deprecation"></a>Vyřazení adresu URL licence
+Jak jsme přechod ze [licenseUrl](../reference/nuspec#licenseurl) k [licence](../reference/nuspec#license), někteří klienti NuGet a kanály NuGet ještě nemusí mít možnost surface informace o licencích v některých případech. Zachování zpětné kompatibility, adresa URL licence odkazuje na tento dokument, který pojednává o tom, jak načíst informace o licencích v takových případech.
+
+Pokud kliknete na adresu URL licence pro balíček můžete převést na tuto stránku, předpokládají se balíček obsahuje licenční soubor a
+* Jste připojeni k informační kanál, který ještě nezná jak interpretovat a objevit nové informace o licenci ke klientovi **nebo**
+* Používáte klienta, který ještě nezná jak interpretovat a číst nové licenční informace, které potenciálně poskytuje informační kanál **nebo**
+* Kombinace obojího
+
+Zde je, jak může číst informace obsažené v licenční soubor uvnitř balíčku:
+1. Stáhněte si balíček NuGet a rozbalte svůj obsah rozbalí do složky.
+1. Otevřít `.nuspec` soubor, který by byl v kořenovém adresáři této složky.
+1. Měl by mít značku jako `<license type="file">license\license.txt</license>`. Z toho vyplývá, že licenční soubor `license.txt` a se nachází uvnitř složky s názvem `license` které budou také v kořenovém adresáři této složky.
+1. Přejděte `license` složky a otevřete `license.txt` souboru.
+
 
 ## <a name="search-syntax"></a>Syntaxe vyhledávání
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/26/2017
 ms.topic: conceptual
-ms.openlocfilehash: f911e24da76880410f8dfaa2891b609c7beb4a61
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 6b41b23df115c45e830404afcf9defa23615bd7c
+ms.sourcegitcommit: ce97dded7715f217ec44f6c8368ab0df19c38342
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547886"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52615753"
 ---
 # <a name="package-creation-workflow"></a>Pracovní postup vytvoření balíčku
 
@@ -36,7 +36,7 @@ Odtud můžete zvážit řadu dalších možností pro svůj balíček:
 - [Vytvoření lokalizovaných balíčků](../create-packages/creating-localized-packages.md) popisuje strukturu balíček s více prostředků jazyka a použití samostatné lokalizované satelitní balíčků.
 - [Předběžné verze balíčků](../create-packages/prerelease-packages.md) ukazuje, jak k uvolnění alpha, beta a rc balíčky pro zákazníky, kteří chtějí.
 - [Zdroj a transformace souboru Config](../create-packages/source-and-config-file-transformations.md) popisuje, jak obě jednosměrné token nahrazení v souborech, které jsou přidány do projektu a upravte `web.config` a `app.config` s nastaveními, která se také vztahuje si při odinstalaci balíčku .
-- [Symbol balíčky](../create-packages/symbol-packages.md) nabízí pokyny k zadávání symboly pro knihovny, které umožňují uživatelům Krokovat s vnořením kód během ladění.
+- [Symbol balíčky](../create-packages/symbol-packages-snupkg.md) nabízí pokyny k zadávání symboly pro knihovny, které umožňují uživatelům Krokovat s vnořením kód během ladění.
 - [Balíček správy verzí](../reference/package-versioning.md) popisuje, jak určit přesné verze, které umožňují závislostí (další balíčky, které využívají ze svého balíčku).
 - [Nativní balíčky](../create-packages/native-packages.md) popisuje proces pro vytvoření balíčku pro spotřebitele C++.
 - [Podepisují se balíčky](../create-packages/sign-a-package.md) popisuje proces pro přidávání digitálního podpisu balíčku.
