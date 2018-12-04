@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7b3fc72ddd3ad6c9185c2bd0f2563df59e77f1c8
-ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
+ms.openlocfilehash: a9427d87f69a2e942a9802fbdae5193eead1c724
+ms.sourcegitcommit: af58d59669674c3bc0a230d5764e37020a9a3f1e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453543"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52831017"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Balíček NuGet a obnovení jako cílů MSBuild
 
@@ -192,7 +192,7 @@ Pokud kompilovat soubor typu je mimo složku projektu, pak je právě přidali d
 ### <a name="packing-a-license-expression-or-a-license-file"></a>Balení výrazu licence nebo licenční soubor
 
 Při použití výrazu licence, PackageLicenseExpression vlastnost použít. 
-[Ukázka výrazu licence](#https://github.com/NuGet/Samples/tree/master/PackageLicenseExpressionExample).
+[Ukázka výrazu licence](https://github.com/NuGet/Samples/tree/master/PackageLicenseExpressionExample).
 
 Při balení licenční soubor, budete muset použít vlastnost PackageLicenseFile zadat cesta k balíčku, vzhledem ke kořenové složce balíčku. Kromě toho budete muset Ujistěte se, že je soubor součástí balíčku. Příklad:
 
@@ -205,7 +205,7 @@ Při balení licenční soubor, budete muset použít vlastnost PackageLicenseFi
     <None Include="licenses\LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)"/>
 </ItemGroup>
 ```
-[Ukázka životního licence](#https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample).
+[Ukázkový soubor licence](https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample).
 
 ### <a name="istool"></a>IsTool
 
