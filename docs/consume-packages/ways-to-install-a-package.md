@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 02/12/2018
 ms.topic: overview
-ms.openlocfilehash: 3cb3d5f97e9fb7ce292ddc5a95b61c13f64a17e7
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 955cbdb6766152fd793ed3604cf599987e9805e0
+ms.sourcegitcommit: 673e580ae749544a4a071b4efe7d42fd2bb6d209
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547663"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52977547"
 ---
 # <a name="different-ways-to-install-a-nuget-package"></a>Různé způsoby instalace balíčku NuGet
 
@@ -64,6 +64,7 @@ Obecný postup je následující:
 
 ## <a name="related-articles"></a>Související články
 
+- [Instalace podepsaných balíčků](installing-signed-packages.md)
 - [Přehled a pracovní postup využití balíčků](../consume-packages/overview-and-workflow.md)
 - [Vyhledání a výběr balíčků](../consume-packages/finding-and-choosing-packages.md)
 - [Správa složky mezipaměti a globálních balíčků NuGet](managing-the-global-packages-and-cache-folders.md)

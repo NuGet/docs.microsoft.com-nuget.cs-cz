@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/11/2018
 ms.topic: conceptual
-ms.openlocfilehash: c136a3dffac38a68b80f730de1e4c3a3a9c8bd5d
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: 93a22b423b193874c4c69c37ff9c6d9b4489a48d
+ms.sourcegitcommit: 673e580ae749544a4a071b4efe7d42fd2bb6d209
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580354"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52977573"
 ---
 # <a name="nuget-frequently-asked-questions"></a>NuGet – nejčastější dotazy
 
@@ -39,7 +39,7 @@ Další informace najdete v tématu [hledání a výběr balíčků](../consume-
 - Visual Studio na Windows podporuje [uživatelské rozhraní Správce balíčků](../tools/package-manager-ui.md) a [Konzola správce balíčků](../tools/package-manager-console.md).
 - Visual Studio for Mac obsahuje integrované funkce NuGet, jak je popsáno na [balíček včetně NuGet ve vašem projektu](/visualstudio/mac/nuget-walkthrough).
 - Visual Studio Code (všechny platformy) nemá žádné přímé integraci NuGet. Použití [rozhraní příkazového řádku NuGet](../tools/nuget-exe-cli-reference.md) nebo [rozhraní příkazového řádku dotnet](../tools/dotnet-commands.md).
-- Visual Studio Team Services poskytuje [kroku sestavení pro obnovování balíčků NuGet](/vsts/build-release/tasks/package/nuget). Můžete také [privátní balíček NuGet hostitele informační kanály ve službě Team Services](https://www.visualstudio.com/docs/package/nuget/publish).
+- Poskytuje Azure DevOps [kroku sestavení pro obnovování balíčků NuGet](/vsts/build-release/tasks/package/nuget). Můžete také [privátní balíček NuGet hostitele kanálů na Azure DevOps](https://docs.microsoft.com/azure/devops/artifacts/nuget/publish).
 
 **Jak můžu ověřit přesnou verzi, které jsou nainstalované nástroje NuGet?**
 
@@ -182,7 +182,7 @@ Doporučujeme komunity NuGet spolupráce řešení všech sporů, které mohou v
 
 **Je doporučeno uložit Moje testovací balíčky nuget.org?**
 
-Pro účely testování můžete použít [int.nugettest.org](https://int.nugettest.org), nebo jako alternativní veřejné servery NuGet [webu myget.org](https://myget.org) nebo [Visual Studio Team Services](https://blogs.msdn.microsoft.com/visualstudioalm/2015/08/27/announcing-package-management-support-for-vsotfs/).
+Pro účely testování můžete použít [int.nugettest.org](https://int.nugettest.org), nebo jako alternativní veřejné servery NuGet [webu myget.org](https://myget.org) nebo [Azure DevOps](https://blogs.msdn.microsoft.com/visualstudioalm/2015/08/27/announcing-package-management-support-for-vsotfs/).
 
 Všimněte si, že nemusí být zachována balíčky nahráli do int.nugettest.org.
 
