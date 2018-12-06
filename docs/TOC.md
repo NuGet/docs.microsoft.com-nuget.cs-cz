@@ -10,6 +10,7 @@
 ## [Přehled a pracovní postup](consume-packages/overview-and-workflow.md)
 ## [Vyhledání a výběr balíčků](consume-packages/finding-and-choosing-packages.md)
 ## [Instalace balíčků](consume-packages/ways-to-install-a-package.md)
+###[Podepsané balíčky](consume-packages/installing-signed-packages.md)
 ## [Obnovení balíčku](consume-packages/package-restore.md)
 ### [Odstraňování potíží](consume-packages/package-restore-troubleshooting.md)
 ## [Opětovná instalace a aktualizace balíčků](consume-packages/reinstalling-and-updating-packages.md)
