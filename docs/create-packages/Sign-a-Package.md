@@ -6,60 +6,100 @@ ms.author: rmpablos
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: c598461831323ecfcc5da3877df71bd8d69557f6
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: e8955f9d46bab235c8755d5654814a4291d542d6
+ms.sourcegitcommit: 673e580ae749544a4a071b4efe7d42fd2bb6d209
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551975"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52977560"
 ---
-# <a name="signing-nuget-packages"></a><span data-ttu-id="5cea5-103">Podepisují se balíčky NuGet</span><span class="sxs-lookup"><span data-stu-id="5cea5-103">Signing NuGet Packages</span></span>
+# <a name="signing-nuget-packages"></a><span data-ttu-id="abd65-103">Podepisují se balíčky NuGet</span><span class="sxs-lookup"><span data-stu-id="abd65-103">Signing NuGet Packages</span></span>
 
-<span data-ttu-id="5cea5-104">Podpis balíčku je proces, který zajistí, že balíček nebyl změněn od jeho vytvoření.</span><span class="sxs-lookup"><span data-stu-id="5cea5-104">Signing a package is a process that makes sure the package has not been modified since its creation.</span></span>
+<span data-ttu-id="abd65-104">Podepsané balíčky umožňuje kontroly ověření obsahu, integrity, která poskytuje ochranu proti falšování obsahu.</span><span class="sxs-lookup"><span data-stu-id="abd65-104">Signed packages allows for content integrity verification checks which provides protection against content tampering.</span></span> <span data-ttu-id="abd65-105">Podpis balíčku také slouží jako jediný zdroj pravdivých informací o skutečné původu balíček a poznámkových bloků zvýší pravosti balíčku pro spotřebitele.</span><span class="sxs-lookup"><span data-stu-id="abd65-105">The package signature also serves as the single source of truth about the actual origin of the package and bolsters package authenticity for the consumer.</span></span> <span data-ttu-id="abd65-106">Tento průvodce to předpokládá, že už máte [vytvořil balíček](creating-a-package.md).</span><span class="sxs-lookup"><span data-stu-id="abd65-106">This guide assumes you have already [created a package](creating-a-package.md).</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="5cea5-105">Požadavky</span><span class="sxs-lookup"><span data-stu-id="5cea5-105">Prerequisites</span></span>
+## <a name="get-a-code-signing-certificate"></a><span data-ttu-id="abd65-107">Získat certifikát pro podpis kódu</span><span class="sxs-lookup"><span data-stu-id="abd65-107">Get a code signing certificate</span></span>
 
-1. <span data-ttu-id="5cea5-106">Balíček ( `.nupkg` souboru) pro přihlášení.</span><span class="sxs-lookup"><span data-stu-id="5cea5-106">The package (a `.nupkg` file) to sign.</span></span> <span data-ttu-id="5cea5-107">Zobrazit [vytvoření balíčku](creating-a-package.md).</span><span class="sxs-lookup"><span data-stu-id="5cea5-107">See [Creating a package](creating-a-package.md).</span></span>
+<span data-ttu-id="abd65-108">Platné certifikáty mohou pocházet od veřejné certifikační autority, jako [Symantec](https://trustcenter.websecurity.symantec.com/process/trust/productOptions?productType=SoftwareValidationClass3), [DigiCert](https://www.digicert.com/code-signing/), [Go Daddy](https://www.godaddy.com/web-security/code-signing-certificate), [globální přihlašování](https://www.globalsign.com/en/code-signing-certificate/), [Comodo](https://www.comodo.com/e-commerce/code-signing/code-signing-certificate.php), [Certum](https://www.certum.eu/certum/cert,offer_en_open_source_cs.xml)atd. Úplný seznam certifikačních autorit důvěryhodná pro Windows můžou pocházet od [ http://aka.ms/trustcertpartners ](http://aka.ms/trustcertpartners).</span><span class="sxs-lookup"><span data-stu-id="abd65-108">Valid certificates may be obtained from a public certificate authority such as [Symantec](https://trustcenter.websecurity.symantec.com/process/trust/productOptions?productType=SoftwareValidationClass3), [DigiCert](https://www.digicert.com/code-signing/), [Go Daddy](https://www.godaddy.com/web-security/code-signing-certificate), [Global Sign](https://www.globalsign.com/en/code-signing-certificate/), [Comodo](https://www.comodo.com/e-commerce/code-signing/code-signing-certificate.php), [Certum](https://www.certum.eu/certum/cert,offer_en_open_source_cs.xml), etc. The complete list of certification authorities trusted by Windows can be obtained from [http://aka.ms/trustcertpartners](http://aka.ms/trustcertpartners).</span></span>
 
-1. <span data-ttu-id="5cea5-108">nuget.exe 4.6.0 nebo novější.</span><span class="sxs-lookup"><span data-stu-id="5cea5-108">nuget.exe 4.6.0 or later.</span></span> <span data-ttu-id="5cea5-109">V tématu Jak [instalace rozhraní příkazového řádku NuGet](../install-nuget-client-tools.md#nugetexe-cli).</span><span class="sxs-lookup"><span data-stu-id="5cea5-109">See how to [Install NuGet CLI](../install-nuget-client-tools.md#nugetexe-cli).</span></span>
+<span data-ttu-id="abd65-109">Pro účely testování můžete použít samostatně vydané certifikáty.</span><span class="sxs-lookup"><span data-stu-id="abd65-109">You can use self-issued certificates for testing purposes.</span></span> <span data-ttu-id="abd65-110">Balíčky, které jsou podepsány pomocí samostatně vydané certifikáty nejsou však přijal NuGet.org. Další informace o [vytvoření testovacího certifikátu](#create-a-test-certificate)</span><span class="sxs-lookup"><span data-stu-id="abd65-110">However, packages signed using self-issued certificates are not accepted by NuGet.org. Learn more about [creating a test certificate](#create-a-test-certificate)</span></span>
 
-1. <span data-ttu-id="5cea5-110">[Certifikát pro podpis kódu](../reference/signed-packages-reference.md#get-a-code-signing-certificate).</span><span class="sxs-lookup"><span data-stu-id="5cea5-110">[A code signing certificate](../reference/signed-packages-reference.md#get-a-code-signing-certificate).</span></span>
+## <a name="export-the-certificate-file"></a><span data-ttu-id="abd65-111">Exportovat soubor certifikátu</span><span class="sxs-lookup"><span data-stu-id="abd65-111">Export the certificate file</span></span>
 
-## <a name="sign-a-package"></a><span data-ttu-id="5cea5-111">Podepište balíček</span><span class="sxs-lookup"><span data-stu-id="5cea5-111">Sign a package</span></span>
+* <span data-ttu-id="abd65-112">Existující certifikát, který můžete exportovat do formátu binární kódování DER s použitím Průvodce exportem certifikátu.</span><span class="sxs-lookup"><span data-stu-id="abd65-112">You can export an existing certificate to a binary DER format by using the Certificate Export Wizard.</span></span>
 
-<span data-ttu-id="5cea5-112">K podepsání balíčku, použijte [nuget přihlašování](../tools/cli-ref-sign.md):</span><span class="sxs-lookup"><span data-stu-id="5cea5-112">To sign a package, use [nuget sign](../tools/cli-ref-sign.md):</span></span>
+  ![Průvodce exportem certifikátu](../reference/media/CertificateExportWizard.png)
 
-```cli
-nuget sign MyPackage.nupkg -CertificateSubjectName <MyCertSubjectName> -Timestamper <TimestampServiceURL>
-```
+* <span data-ttu-id="abd65-114">Můžete také exportovat certifikát pomocí [příkazu Powershellu Export certifikátu](/powershell/module/pkiclient/export-certificate.md).</span><span class="sxs-lookup"><span data-stu-id="abd65-114">You can also export the certificate using the [Export-Certificate PowerShell command](/powershell/module/pkiclient/export-certificate.md).</span></span>
 
-<span data-ttu-id="5cea5-113">Jak je popsáno v informace o příkazech, můžete použít certifikát k dispozici v úložišti certifikátů nebo použití certifikátu ze souboru.</span><span class="sxs-lookup"><span data-stu-id="5cea5-113">As described in the command reference, you can use a certificate available in the certificate store or use a certificate from a file.</span></span>
+## <a name="sign-the-package"></a><span data-ttu-id="abd65-115">Podepište balíček</span><span class="sxs-lookup"><span data-stu-id="abd65-115">Sign the package</span></span>
 
-### <a name="common-problems-when-signing-a-package"></a><span data-ttu-id="5cea5-114">Běžné problémy při podepisování balíčku</span><span class="sxs-lookup"><span data-stu-id="5cea5-114">Common problems when signing a package</span></span>
+> [!note]
+> <span data-ttu-id="abd65-116">Vyžaduje nuget.exe 4.6.0 nebo novější</span><span class="sxs-lookup"><span data-stu-id="abd65-116">Requires nuget.exe 4.6.0 or later</span></span>
 
-- <span data-ttu-id="5cea5-115">Certifikát není platný pro podepisování kódu.</span><span class="sxs-lookup"><span data-stu-id="5cea5-115">The certificate is not valid for code signing.</span></span> <span data-ttu-id="5cea5-116">Musíte zajistit, že zadaný certifikát má rozšířené použití klíče (EKU 1.3.6.1.5.5.7.3.3) odpovídající.</span><span class="sxs-lookup"><span data-stu-id="5cea5-116">You must ensure the certificate specified has the appropriate extended key usage (EKU 1.3.6.1.5.5.7.3.3).</span></span>
-- <span data-ttu-id="5cea5-117">Certifikát nesplňuje požadavky na základní například podpisový algoritmus RSA, SHA-256 nebo veřejné klíče 2 048 bitů nebo vyšší.</span><span class="sxs-lookup"><span data-stu-id="5cea5-117">The certificate does not satisfy the basic requirements such as the RSA SHA-256 signature algorithm or a public key 2048 bits or greater.</span></span>
-- <span data-ttu-id="5cea5-118">Certifikátu již vypršela nebo byl odvolán.</span><span class="sxs-lookup"><span data-stu-id="5cea5-118">The certificate has expired or has been revoked.</span></span>
-- <span data-ttu-id="5cea5-119">Serveru časového razítka nesplňuje požadavky na certifikát.</span><span class="sxs-lookup"><span data-stu-id="5cea5-119">The timestamp server does not satisfy the certificate requirements.</span></span>
-
-> [!Note]
-> <span data-ttu-id="5cea5-120">Podepsané balíčky by měly zahrnovat časové razítko, abyste měli jistotu, že podpis zůstává platná, pokud vypršela platnost podpisového certifikátu.</span><span class="sxs-lookup"><span data-stu-id="5cea5-120">Signed packages should include a timestamp to make sure the signature remains valid when the signing certificate has expired.</span></span> <span data-ttu-id="5cea5-121">Vytvořit operace přihlášení [upozornění NU3002](../reference/errors-and-warnings/NU3002.md) při přihlašování bez časového razítka.</span><span class="sxs-lookup"><span data-stu-id="5cea5-121">The sign operation produce a [warning NU3002](../reference/errors-and-warnings/NU3002.md) when signing without a timestamp.</span></span>
-
-## <a name="verify-a-signed-package"></a><span data-ttu-id="5cea5-122">Ověřte podepsaný balíček</span><span class="sxs-lookup"><span data-stu-id="5cea5-122">Verify a signed package</span></span>
-
-<span data-ttu-id="5cea5-123">Použití [ověřte nuget](../tools/cli-ref-verify.md) zobrazíte podrobnosti o podpisu daného balíčku:</span><span class="sxs-lookup"><span data-stu-id="5cea5-123">Use [nuget verify](../tools/cli-ref-verify.md) to see the signature details of a given package:</span></span>
+<span data-ttu-id="abd65-117">Podepsání balíčku pomocí [nuget přihlašování](../tools/cli-ref-sign.md):</span><span class="sxs-lookup"><span data-stu-id="abd65-117">Sign the package using [nuget sign](../tools/cli-ref-sign.md):</span></span>
 
 ```cli
-nuget verify -signature MyPackage.nupkg
+nuget sign MyPackage.nupkg -CertificateFilePath <PathToTheCertificate> -Timestamper <TimestampServiceURL>
 ```
 
-## <a name="install-a-signed-package"></a><span data-ttu-id="5cea5-124">Podepsaný balíček nainstalovat</span><span class="sxs-lookup"><span data-stu-id="5cea5-124">Install a signed package</span></span>
+* <span data-ttu-id="abd65-118">Můžete použít certifikát k dispozici v úložišti certifikátů nebo použití certifikátu ze souboru.</span><span class="sxs-lookup"><span data-stu-id="abd65-118">You can use a certificate available in the certificate store or use a certificate from a file.</span></span> <span data-ttu-id="abd65-119">Viz odkaz pro rozhraní příkazového řádku [nuget přihlašování](../tools/cli-ref-sign.md).</span><span class="sxs-lookup"><span data-stu-id="abd65-119">See CLI reference for [nuget sign](../tools/cli-ref-sign.md).</span></span>
+* <span data-ttu-id="abd65-120">Podepsané balíčky by měly zahrnovat časové razítko, abyste měli jistotu, že podpis zůstává platná, pokud vypršela platnost podpisového certifikátu.</span><span class="sxs-lookup"><span data-stu-id="abd65-120">Signed packages should include a timestamp to make sure the signature remains valid when the signing certificate has expired.</span></span> <span data-ttu-id="abd65-121">Jinak operace přihlášení vytvoří [upozornění](../reference/errors-and-warnings/NU3002.md).</span><span class="sxs-lookup"><span data-stu-id="abd65-121">Else the sign operation will produce a [warning](../reference/errors-and-warnings/NU3002.md).</span></span>
+* <span data-ttu-id="abd65-122">Můžete zobrazit podrobnosti o podpisu daného balíčku pomocí [ověřte nuget](../tools/cli-ref-verify.md).</span><span class="sxs-lookup"><span data-stu-id="abd65-122">You can see the signature details of a given package using [nuget verify](../tools/cli-ref-verify.md).</span></span>
 
-<span data-ttu-id="5cea5-125">Podepsané balíčky nevyžadují žádnou konkrétní akci má být nainstalována. Pokud ale obsah se změnila, protože byla podepsána, instalace se zablokuje a vytváří [chyba NU3008](../reference/errors-and-warnings/NU3008.md).</span><span class="sxs-lookup"><span data-stu-id="5cea5-125">Signed packages don't require any specific action to be installed; however, if the content has been modified since it was signed, the installation is blocked and produces an [error NU3008](../reference/errors-and-warnings/NU3008.md).</span></span>
+## <a name="register-the-certificate-on-nugetorg"></a><span data-ttu-id="abd65-123">Zaregistrovat certifikát na NuGet.org</span><span class="sxs-lookup"><span data-stu-id="abd65-123">Register the certificate on NuGet.org</span></span>
+
+<span data-ttu-id="abd65-124">Chcete-li publikovat podepsaný balíček, musí nejprve zaregistrovat certifikát s NuGet.org. Budete potřebovat certifikát jako `.cer` soubor ve formátu binární kódování DER.</span><span class="sxs-lookup"><span data-stu-id="abd65-124">To publish a signed package, you must first register the certificate with NuGet.org. You need the certificate as a `.cer` file in a binary DER format.</span></span>
+
+1. <span data-ttu-id="abd65-125">[Přihlaste se](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) na NuGet.org.</span><span class="sxs-lookup"><span data-stu-id="abd65-125">[Sign in](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) to NuGet.org.</span></span>
+1. <span data-ttu-id="abd65-126">Přejděte na `Account settings` (nebo `Manage Organization` **>** `Edit Organziation` Pokud byste chtěli zaregistrovat certifikát pomocí účtu organizace).</span><span class="sxs-lookup"><span data-stu-id="abd65-126">Go to `Account settings` (or `Manage Organization` **>** `Edit Organziation` if you would like to register the certificate with an Organization account).</span></span>
+1. <span data-ttu-id="abd65-127">Rozbalte `Certificates` a vyberte `Register new`.</span><span class="sxs-lookup"><span data-stu-id="abd65-127">Expand the `Certificates` section and select `Register new`.</span></span>
+1. <span data-ttu-id="abd65-128">Procházet a vyberte soubor certifikát, který jste dříve exportovali.</span><span class="sxs-lookup"><span data-stu-id="abd65-128">Browse and select the certficate file that was exported earlier.</span></span>
+  <span data-ttu-id="abd65-129">![Certifikáty registrované](../reference/media/registered-certs.png)</span><span class="sxs-lookup"><span data-stu-id="abd65-129">![Registered Certificates](../reference/media/registered-certs.png)</span></span>
+
+<span data-ttu-id="abd65-130">**Poznámka:**</span><span class="sxs-lookup"><span data-stu-id="abd65-130">**Note**</span></span>
+* <span data-ttu-id="abd65-131">Jeden uživatel může odeslat svoji, že více certifikátů a stejný certifikát může být registrováno více uživatelů.</span><span class="sxs-lookup"><span data-stu-id="abd65-131">One user can submit multiple certificates and the same certificate can be registered by multiple users.</span></span>
+* <span data-ttu-id="abd65-132">Jakmile uživatel certifikát zaregistrovaný, všechny příspěvky budoucí balíček **musí** být podepsány pomocí jednoho z certifikátů.</span><span class="sxs-lookup"><span data-stu-id="abd65-132">Once a user has a certificate registered, all future package submissions **must** be signed with one of the certificates.</span></span> <span data-ttu-id="abd65-133">Zobrazit [spravovat podepisování požadavky pro vaše balíčků na NuGet.org](#manage-signing-requirements-for-your-package-on-nugetorg)</span><span class="sxs-lookup"><span data-stu-id="abd65-133">See [Manage signing requirements for your package on NuGet.org](#manage-signing-requirements-for-your-package-on-nugetorg)</span></span>
+* <span data-ttu-id="abd65-134">Uživatelé mohou také odebírat registrovaný certifikát z účtu.</span><span class="sxs-lookup"><span data-stu-id="abd65-134">Users can also remove a registered certificate from the account.</span></span> <span data-ttu-id="abd65-135">Po odebrání certifikátu se nezdaří nové balíčky, které jsou podepsané pomocí tohoto certifikátu na odeslání.</span><span class="sxs-lookup"><span data-stu-id="abd65-135">Once a certificate is removed, new packages signed with that certificate will fail at submission.</span></span> <span data-ttu-id="abd65-136">Nemají vliv na existující balíčky.</span><span class="sxs-lookup"><span data-stu-id="abd65-136">Existing packages aren't affected.</span></span>
+
+## <a name="publish-the-package"></a><span data-ttu-id="abd65-137">Publikování balíčku</span><span class="sxs-lookup"><span data-stu-id="abd65-137">Publish the package</span></span>
+
+<span data-ttu-id="abd65-138">Nyní jste připraveni publikovat balíček na NuGet.org. Zobrazit [publikování balíčků](Publish-a-package.md).</span><span class="sxs-lookup"><span data-stu-id="abd65-138">You are now ready to publish the package to NuGet.org. See [Publishing packages](Publish-a-package.md).</span></span>
+
+## <a name="create-a-test-certificate"></a><span data-ttu-id="abd65-139">Vytvoření testovacího certifikátu</span><span class="sxs-lookup"><span data-stu-id="abd65-139">Create a test certificate</span></span>
+
+<span data-ttu-id="abd65-140">Pro účely testování můžete použít samostatně vydané certifikáty.</span><span class="sxs-lookup"><span data-stu-id="abd65-140">You can use self-issued certificates for testing purposes.</span></span> <span data-ttu-id="abd65-141">Chcete-li vytvořit certifikát vystavený, použijte [příkazu Powershellu New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate.md).</span><span class="sxs-lookup"><span data-stu-id="abd65-141">To create a self-issued certificate, use the [New-SelfSignedCertificate PowerShell command](/powershell/module/pkiclient/new-selfsignedcertificate.md).</span></span>
+
+```ps
+New-SelfSignedCertificate -Subject "CN=NuGet Test Developer, OU=Use for testing purposes ONLY" `
+                          -FriendlyName "NuGetTestDeveloper" `
+                          -Type CodeSigning `
+                          -KeyUsage DigitalSignature `
+                          -KeyLength 2048 `
+                          -KeyAlgorithm RSA `
+                          -HashAlgorithm SHA256 `
+                          -Provider "Microsoft Enhanced RSA and AES Cryptographic Provider" `
+                          -CertStoreLocation "Cert:\CurrentUser\My" 
+```
+
+<span data-ttu-id="abd65-142">Tento příkaz vytvoří testovací certifikát k dispozici v úložišti osobních certifikátů aktuálního uživatele.</span><span class="sxs-lookup"><span data-stu-id="abd65-142">This command creates a testing certificate available in the current user's personal certificate store.</span></span> <span data-ttu-id="abd65-143">Můžete otevřít úložiště certifikátů spuštěním `certmgr.msc` zobrazíte nově vytvořeného certifikátu.</span><span class="sxs-lookup"><span data-stu-id="abd65-143">You can open the certificate store by running `certmgr.msc` to see the newly created certificate.</span></span>
 
 > [!Warning]
-> <span data-ttu-id="5cea5-126">Nedůvěryhodné certifikáty podepsané balíčky jsou považovány za jako bez znaménka a jsou nainstalovány bez žádná upozornění ani chyby, stejně jako jiné balíčky bez znaménka.</span><span class="sxs-lookup"><span data-stu-id="5cea5-126">Packages signed with untrusted certificates are considered as unsigned and are installed without any warnings or errors like any other unsigned package.</span></span>
+> <span data-ttu-id="abd65-144">NuGet.org nepřijímá žádné balíčky podepsané pomocí samostatně vydané certifikáty.</span><span class="sxs-lookup"><span data-stu-id="abd65-144">NuGet.org does not accept packages signed with self-issued certificates.</span></span>
 
-## <a name="see-also"></a><span data-ttu-id="5cea5-127">Viz také:</span><span class="sxs-lookup"><span data-stu-id="5cea5-127">See also</span></span>
+## <a name="manage-signing-requirements-for-your-package-on-nugetorg"></a><span data-ttu-id="abd65-145">Spravovat podepisování požadavky pro vaše balíčků na NuGet.org</span><span class="sxs-lookup"><span data-stu-id="abd65-145">Manage signing requirements for your package on NuGet.org</span></span>
+1. <span data-ttu-id="abd65-146">[Přihlaste se](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) na NuGet.org.</span><span class="sxs-lookup"><span data-stu-id="abd65-146">[Sign in](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) to NuGet.org.</span></span>
 
-[<span data-ttu-id="5cea5-128">Podepsané balíčky odkaz</span><span class="sxs-lookup"><span data-stu-id="5cea5-128">Signed Packages Reference</span></span>](../reference/Signed-Packages-Reference.md)
+1. <span data-ttu-id="abd65-147">Přejděte na `Manage Packages`  
+    ![konfigurace podepsaných balíčků](../reference/media/configure-package-signers.png)</span><span class="sxs-lookup"><span data-stu-id="abd65-147">Go to `Manage Packages` 
+![Configure package signers](../reference/media/configure-package-signers.png)</span></span>
+
+* <span data-ttu-id="abd65-148">Pokud jste jediným vlastníkem balíček, jsou požadované podepisující osoba to znamená všechny certifikáty registrované můžete použít k podepisování a publikovat vaše balíčky NuGet.org.</span><span class="sxs-lookup"><span data-stu-id="abd65-148">If you are the sole owner of a package, you are the required signer i.e. you can use any of the registered certificates to sign and publish your packages to NuGet.org.</span></span>
+
+* <span data-ttu-id="abd65-149">Pokud balíček obsahuje více vlastníkům, ve výchozím nastavení, "Libovolné" vlastník certifikáty lze použít k podpisu balíčku.</span><span class="sxs-lookup"><span data-stu-id="abd65-149">If a package has multiple owners, by default, "Any" owner's certificates can be used to sign the package.</span></span> <span data-ttu-id="abd65-150">Jako spoluvlastníka balíček můžete přepsat "Žádný" sami se sebou nebo jakékoli jiné spoluvlastník bude požadované podepisující osoba.</span><span class="sxs-lookup"><span data-stu-id="abd65-150">As a co-owner of the package, you can override "Any" with yourself or any other co-owner to be the required signer.</span></span> <span data-ttu-id="abd65-151">Pokud provedete vlastníka, který nemá žádné certifikát zaregistrovaný, budou mít povolený balíčky bez znaménka.</span><span class="sxs-lookup"><span data-stu-id="abd65-151">If you make an owner  who does not have any certificate registered, then unsigned packages will be allowed.</span></span> 
+
+* <span data-ttu-id="abd65-152">Podobně, pokud výchozí "Libovolné" výběru balíčky, kde má certifikát zaregistrovaný jednoho vlastníka a dalšího vlastníka nemá žádné certifikát zaregistrovaný, pak NuGet.org přijímá podepsaný balíček s podpisem registrovaných jednoho ze svých vlastníků nebo bez znaménka balíček (protože jeden z vlastníků nemá žádné certifikát zaregistrovaný).</span><span class="sxs-lookup"><span data-stu-id="abd65-152">Similarly, if the default "Any" option is selected for a package where one owner has a certificate registered and another owner does not have any certificate registered, then NuGet.org accepts either a signed package with a signature registered by one of its owners or an unsigned package (because one of the owners does not have any certificate registered).</span></span>
+
+## <a name="related-articles"></a><span data-ttu-id="abd65-153">Související články</span><span class="sxs-lookup"><span data-stu-id="abd65-153">Related articles</span></span>
+
+- [<span data-ttu-id="abd65-154">Instalace podepsaných balíčků</span><span class="sxs-lookup"><span data-stu-id="abd65-154">Installing signed packages</span></span>](../consume-packages/installing-signed-packages.md)
+- [<span data-ttu-id="abd65-155">Podepsané balíčky odkaz</span><span class="sxs-lookup"><span data-stu-id="abd65-155">Signed Packages Reference</span></span>](../reference/Signed-Packages-Reference.md)
