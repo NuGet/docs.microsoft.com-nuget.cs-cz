@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: d4f0177183ee3edf595c4ce10d1f26cbaca5755d
-ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
+ms.openlocfilehash: e4df15be1f29e2c611876aaa49e16ac7d1823938
+ms.sourcegitcommit: be9c51b4b095aea40ef41bbea7e12ef0a194ee74
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453569"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53248452"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Odkazy na balíček (PackageReference) v souborech projektu
 
@@ -47,7 +47,7 @@ Konvence pro určení verze balíčku je stejný jako při použití `packages.c
 V předchozím příkladu 3.6.0 znamená, že všechny verze, která je > = 3.6.0 s předností nejnižší verze, jak je popsáno na [Správa verzí balíčků](../reference/package-versioning.md#version-ranges-and-wildcards).
 
 ## <a name="using-packagereference-for-a-project-with-no-packagereferences"></a>Pomocí projektu s PackageReferences žádné PackageReference
-Pokročilé: Pokud jste žádné balíčky nainstalované v projektu (žádné PackageReferences v souboru projektu) a žádný soubor packages.config, ale chcete projekt tak, aby se obnovit jako PackageReference styl, můžete nastavit vlastnost RestoreProjectStyle projektu na PackageReference v váš soubor projektu.
+Pokročilé: Pokud jste žádné balíčky nainstalované v projektu (žádné PackageReferences v souboru projektu) a žádný soubor packages.config, ale chcete projekt tak, aby se obnovit jako PackageReference styl, můžete nastavit vlastnost projektu RestoreProjectStyle na PackageReference v projektu soubor.
 ```xml
 <PropertyGroup>
     <!--- ... -->
@@ -155,7 +155,7 @@ Podmínek je také možné použít na `ItemGroup` úrovně a má platit pro vš
 ```
 
 ## <a name="locking-dependencies"></a>Uzamčení závislosti
-*Tato funkce je k dispozici s NuGet **4.9** nebo vyšší a sadou Visual Studio 2017 **15.9 ve verzi Preview 5** nebo vyšší.*
+*Tato funkce je k dispozici s NuGet **4.9** nebo vyšší a sadou Visual Studio 2017 **15.9** nebo vyšší.*
 
 Vstup pro obnovení NuGet je sada odkazy na balíčky ze souboru projektu (závislosti nejvyšší úrovně a direct) a výstup je úplné uzavření všechny závislosti balíčků, včetně přechodné závislosti. NuGet se pokusí vždy vytvořila stejný úplný uzavření závislosti balíčků, pokud nedošlo ke změně vstupní seznam PackageReference. Existují však některé scénáře, kdy je to možné. Příklad:
 
@@ -164,7 +164,7 @@ Vstup pro obnovení NuGet je sada odkazy na balíčky ze souboru projektu (závi
 
   * Dne 1: Pokud jste zadali `<PackageReference Include="My.Sample.Lib" Version="4.0.0"/>` ale byly k dispozici verze na úložiště NuGet 4.1.0, 4.2.0 a 4.3.0. V takovém případě by byly vyřešeny NuGet do 4.1.0 (nejbližší minimální verze)
 
-  * Dne 2: Zveřejnění verze 4.0.0. NuGet teď najít přesnou shodu a začít překládat 4.0.0
+  * Dne 2: Získá publikované verze 4.0.0. NuGet teď najít přesnou shodu a začít překládat 4.0.0
 
 * Verze daného balíčku bude odebrána z úložiště. Když nuget.org neumožňuje balíček odstranění, ne všechna úložiště balíčků nastavit toto omezení. Výsledkem je najít nejlepší shodu při nelze přeložit na odstraněné verze NuGet.
 
@@ -213,7 +213,7 @@ Může také nastavit podmíněné vlastnost MSBuild v souboru projektu:
 Pokud uzamčeném režimu `true`, obnovení bude obnovení přesné balíčků, jak je uvedeno v souboru zámku nebo selhat, pokud jste aktualizovali závislosti definované balíčků pro projekt, po vytvoření souboru zámku.
 
 ### <a name="make-lock-file-part-of-your-source-repository"></a>Zařazení zamknout soubor zdrojového úložiště
-Pokud vytváříte aplikaci, spustitelný soubor a dotyčný projektu je na konci řetězu závislostí zkontrolujte v souboru zámku na úložiště zdrojového kódu tak, aby NuGet můžete využít během obnovení.
+Pokud vytváříte aplikaci, spustitelný soubor a dotyčný projektu je na začátku řetězu závislostí zkontrolujte v souboru zámku na úložiště zdrojového kódu tak, aby NuGet můžete využít během obnovení.
 
 Ale pokud váš projekt je projekt knihovny, který jste Nedodávejte nebo běžné projekt kódu na další projekty se závisí na vás **by neměla** jako součást vašeho zdrojového kódu se změnami soubor zámku. Neexistuje nezpůsobily žádné potíže ochraně souboru zámku ale závislosti uzamčené balíčků pro běžné projekt kódu nesmí být použit, jak je uvedeno v souboru zámku během obnovení/sestavení projektu, který závisí na tomto společný kód projektu.
 

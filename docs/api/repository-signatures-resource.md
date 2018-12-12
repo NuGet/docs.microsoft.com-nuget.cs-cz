@@ -8,21 +8,18 @@ description: Prostředek podpisy úložiště umožňuje klientům zdroje balí�
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 50f309b99d4bf59e14f3e29b6b0421d8c3e8aa5a
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 81d32a7011268e45136e00cdb7345a95070aae06
+ms.sourcegitcommit: be9c51b4b095aea40ef41bbea7e12ef0a194ee74
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547978"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53248439"
 ---
 # <a name="repository-signatures"></a>Podpisy úložiště
 
 Pokud zdroj balíčku podporuje přidávání podpisy úložiště publikovaných balíčků, je možné pro klienta k určení podpisové certifikáty, které jsou používány zdroji balíčku. Tento prostředek umožňuje klientům zjišťovat, zda úložiště podepsaný balíček byla změněna nebo má neočekávaný podpisový certifikát.
 
 Prostředek, který používá pro načtení těchto informací podpisu úložiště je `RepositorySignatures` prostředek se nenašel v [index služby](service-index.md).
-
-> [!Note]
-> NuGet.org se spustí oznámení `RepositorySignatures` prostředků v blízké budoucnosti.
 
 ## <a name="versioning"></a>Správa verzí
 
@@ -31,6 +28,7 @@ Následující `@type` hodnota se používá:
 @type Hodnota                | Poznámky
 -------------------------- | -----
 RepositorySignatures/4.7.0 | Počáteční verze
+RepositorySignatures/4.9.0 | Umožňuje povolení `allRepositorySigned`
 
 ## <a name="base-url"></a>Základní adresa URL
 
@@ -59,23 +57,26 @@ Následující požadavek načte index podpisy úložiště.
 
 Signatura indexu úložiště je dokument JSON, který obsahuje objekt s následujícími vlastnostmi:
 
-Název                | Typ             | Požadováno
-------------------- | ---------------- | --------
-allRepositorySigned | Logická hodnota          | Ano
-signingCertificates | Pole objektů | Ano
+Název                | Typ             | Požadováno | Poznámky
+------------------- | ---------------- | -------- | -----
+allRepositorySigned | Logická hodnota          | ano      | Musí být `false` na 4.7.0 prostředků
+signingCertificates | Pole objektů | ano      | 
 
 `allRepositorySigned` Logická hodnota je nastavena na hodnotu false, pokud zdroj balíčku má některé balíčky, které mají žádný podpis úložiště. Pokud je nastavená hodnota true, všechny balíčky, které jsou k dispozici na datový typ boolean zdroje musí mít podpis úložiště vytvořeného pomocí jedné z podpisové certifikáty podle `signingCertificates`.
+
+> [!Warning]
+> `allRepositorySigned` Boolean musí mít hodnotu false na 4.7.0 prostředků. Klienti NuGet v4.7 a v4.8 nelze nainstalovat balíčky ze zdrojů, které mají `allRepositorySigned` nastavenou na hodnotu true.
 
 Měla by existovat jeden nebo více podpisové certifikáty v `signingCertificates` pole, pokud `allRepositorySigned` logická hodnota je nastavena na hodnotu true. Pokud je pole prázdné a `allRepositorySigned` je nastavena na hodnotu true, všechny balíčky ze zdroje by měl být neplatná, i když se zásady klienta může stále povolit spotřebu balíčků. Každý prvek v tomto poli je objekt JSON s následujícími vlastnostmi.
 
 Název         | Typ   | Požadováno | Poznámky
 ------------ | ------ | -------- | -----
-contentUrl   | odkazy řetězců | Ano      | Absolutní adresa URL pro kódování DER veřejný certifikát
-otisky prstů | odkazy objektů | Ano      |
-Předmět      | odkazy řetězců | Ano      | Rozlišující název subjektu z certifikátu
-issuer       | odkazy řetězců | Ano      | Rozlišující název vystavitele certifikátu
-neplatí před    | odkazy řetězců | Ano      | Výchozí časové razítko období platnosti certifikátu
-neplatí po     | odkazy řetězců | Ano      | Časové razítko koncové období platnosti certifikátu
+contentUrl   | odkazy řetězců | ano      | Absolutní adresa URL pro kódování DER veřejný certifikát
+otisky prstů | odkazy objektů | ano      |
+Předmět      | odkazy řetězců | ano      | Rozlišující název subjektu z certifikátu
+issuer       | odkazy řetězců | ano      | Rozlišující název vystavitele certifikátu
+neplatí před    | odkazy řetězců | ano      | Výchozí časové razítko období platnosti certifikátu
+neplatí po     | odkazy řetězců | ano      | Časové razítko koncové období platnosti certifikátu
 
 Všimněte si, `contentUrl` je potřeba zpracovat v přes protokol HTTPS. Tato adresa URL nemá žádné konkrétnímu vzor adresy URL a musí být zjištěny dynamicky, pomocí tohoto dokumentu indexu podpisy úložiště. 
 
@@ -86,7 +87,7 @@ Tyto vlastnosti derivable jsou k dispozici jako usnadnění a minimalizovat vým
 
 Název                   | Typ   | Požadováno | Poznámky
 ---------------------- | ------ | -------- | -----
-2.16.840.1.101.3.4.2.1 | odkazy řetězců | Ano      | Otisk SHA-256
+2.16.840.1.101.3.4.2.1 | odkazy řetězců | ano      | Otisk SHA-256
 
 Název klíče `2.16.840.1.101.3.4.2.1` je OID hashovací algoritmus SHA-256.
 

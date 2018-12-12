@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 7bb5e83b29d1d7e4bf06accfccb73db3aa9ee025
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: bb47c72768b0698d8e712c8261321ff38bba2764
+ms.sourcegitcommit: be9c51b4b095aea40ef41bbea7e12ef0a194ee74
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580334"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53248426"
 ---
 # <a name="nuget-api"></a>Rozhraní API Nugetu
 
@@ -51,10 +51,10 @@ Bez konce protokolu změnám rozhraní API od jeho prvním vydání.
 
 Název prostředku                                                           | Požadováno | Popis
 ----------------------------------------------------------------------  | -------- | -----------
-[`PackagePublish`](package-publish-resource.md)                        | Ano      | Push a delete (nebo vyjmutí ze seznamu) balíčky.
-[`SearchQueryService`](search-query-service-resource.md)               | Ano      | Můžete filtrovat a hledat balíčky – klíčové slovo.
-[`RegistrationsBaseUrl`](registration-base-url-resource.md)            | Ano      | Získáte metadata balíčku.
-[`PackageBaseAddress`](package-base-address-resource.md)               | Ano      | Získáte balíček obsahu (.nupkg).
+[`PackagePublish`](package-publish-resource.md)                        | ano      | Push a delete (nebo vyjmutí ze seznamu) balíčky.
+[`SearchQueryService`](search-query-service-resource.md)               | ano      | Můžete filtrovat a hledat balíčky – klíčové slovo.
+[`RegistrationsBaseUrl`](registration-base-url-resource.md)            | ano      | Získáte metadata balíčku.
+[`PackageBaseAddress`](package-base-address-resource.md)               | ano      | Získáte balíček obsahu (.nupkg).
 [`SearchAutocompleteService`](search-autocomplete-service-resource.md) | Ne       | Zjistíte ID balíčku a verze pomocí dílčí řetězec.
 [`ReportAbuseUriTemplate`](report-abuse-resource.md)                   | Ne       | Vytvořte adresu URL pro přístup k webové stránky "ohlásit nevhodné chování".
 [`RepositorySignatures`](repository-signatures-resource.md)             | Ne      | Získání certifikátů pro podpis úložiště.
@@ -62,6 +62,8 @@ Název prostředku                                                           | P
 [`SymbolPackagePublish`](symbol-package-publish-resource.md)            | Ne      | Nabízená oznámení balíčky symbolů.
 
 Obecně platí všechny NEBINÁRNÍ data vrácená rozhraním API prostředku se serializují pomocí formátu JSON. Schéma odpovědi vrácené každého prostředku v indexu služby je samostatně definované pro daný prostředek. Další informace o jednotlivých prostředcích najdete v tématech uvedených výše.
+
+V budoucnu jak protokol vyvíjí, mohou přidat nové vlastnosti do odpověďmi ve formátu JSON. Pro klienta bude užitečné i v budoucnosti by neměla implementace Předpokládejme, že schéma odpovědi je finální a nemůže obsahovat další data. Všechny vlastnosti, které implementace nerozumí třeba ji ignorovat.
 
 > [!Note]
 > Když zdroj neimplementuje `SearchAutocompleteService` všechna chování automatického dokončování by mělo být zakázáno bez výpadku. Když `ReportAbuseUriTemplate` neimplementována oficiální spadá klienta NuGet zpět na nuget.org ohlásit nevhodné chování adresy URL (sledované podle [Domů NuGet #4924](https://github.com/NuGet/Home/issues/4924)). Jiní klienti mohou zvolit, aby jednoduše adresa URL pro sestavu zneužití nezobrazovat uživateli.
@@ -74,7 +76,7 @@ Všechny časová razítka vrácená rozhraním API jsou UTC nebo jinak zvoleny 
 
 Příkaz   | Použití
 ------ | -----------
-ZÍSKAT    | Provádí operaci jen pro čtení, obvykle načítají se data.
+GET    | Provádí operaci jen pro čtení, obvykle načítají se data.
 HLAVNÍ   | Načte hlavičky odpovědi pro odpovídající `GET` požadavku.
 PUT    | Vytvoří prostředek, který neexistuje, nebo pokud existuje, aktualizuje ji. Některé prostředky nemusí podporovat aktualizaci.
 DELETE | Odstraní nebo unlists prostředku.
