@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: a47a3a56e1c290c9a2f228ce1d0313cbdf0c4c34
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: d6925df63daf3096455a8205d6aeb07b4475f715
+ms.sourcegitcommit: 5c5f0f0e1f79098e27d9566dd98371f6ee16f8b5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549203"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53645630"
 ---
 # <a name="building-pre-release-packages"></a>Vytváření balíčky v předběžné verzi
 
@@ -50,9 +50,9 @@ Ve výchozím nastavení NuGet nezahrnuje předběžných verzí při práci s b
 
     Nastavení nebo zrušením zaškrtnutí tohoto políčka se aktualizuje uživatelské rozhraní Správce balíčků a seznam dostupných verzí, kterou můžete nainstalovat.
 
-- **Konzola správce balíčků**: použijte `-IncludePrerelease` přepněte se `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package`, a `Update-Package` příkazy. Odkazovat [referenční informace prostředí PowerShell](../tools/powershell-reference.md).
+- **Konzola správce balíčků**: Použití `-IncludePrerelease` přepněte se `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package`, a `Update-Package` příkazy. Odkazovat [referenční informace prostředí PowerShell](../tools/powershell-reference.md).
 
-- **Rozhraní příkazového řádku NuGet**: použití `-prerelease` přepněte se `install`, `update`, `delete`, a `mirror` příkazy. Odkazovat [odkaz na rozhraní příkazového řádku NuGet](../tools/nuget-exe-cli-reference.md)
+- **Rozhraní příkazového řádku NuGet**: Použití `-prerelease` přepněte se `install`, `update`, `delete`, a `mirror` příkazy. Odkazovat [odkaz na rozhraní příkazového řádku NuGet](../tools/nuget-exe-cli-reference.md)
 
 ## <a name="semantic-versioning"></a>Sémantické správy verzí
 
@@ -60,15 +60,15 @@ Ve výchozím nastavení NuGet nezahrnuje předběžných verzí při práci s b
 
 V této konvenci, každá verze má tři části `Major.Minor.Patch`, s následující význam:
 
-- `Major`: Nejnovější změny
+- `Major`: Změny způsobující chyby
 - `Minor`: Nové funkce, ale zpětně kompatibilní
-- `Patch`: Zpětné opravy chyb kompatibilní pouze
+- `Patch`: Zpětně kompatibilní chyby opravuje pouze
 
-Předběžné verze jsou rozlišeny pak připojením spojovníkem a řetězec za číslo opravy. Technicky vzato můžete použít * jakékoli * řetězec po spojovníkem a NuGet bude považovat za balíček předběžné verze. Celé číslo verze NuGet pak zobrazí v příslušné uživatelské rozhraní, byste museli opustit příjemci k interpretaci význam sami.
+Předběžné verze jsou rozlišeny pak připojením spojovníkem a řetězec za číslo opravy. Technicky vzato můžete použít *jakékoli* řetězec po spojovníkem a NuGet bude považovat za balíček předběžné verze. Celé číslo verze NuGet pak zobrazí v příslušné uživatelské rozhraní, byste museli opustit příjemci k interpretaci význam sami.
 
 To na paměti je obecně vhodné sledovat rozpoznaný konvence pojmenování, jako je následující:
 
-- `-alpha`: Verze alfa, obvykle se používá pro nedokončenou prací a experimentování
+- `-alpha`: Alfa verze, obvykle se používá pro nedokončenou prací a experimentování
 - `-beta`: Betaverze, obvykle ten, který je funkce pro další plánované vydání, ale může obsahovat známé chyby.
 - `-rc`: Verze Release candidate, obvykle, která je potenciálně konečné vydání (stabilní), není-li významný chyby se objeví.
 

@@ -16,12 +16,12 @@ keywords: Symbol balíčky NuGet, balíček NuGet ladění, podpora, balíček s
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 48ca4b62e722988b3dfe69306565d7f159805962
-ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
+ms.openlocfilehash: 1fbb243a7b3518307a393b5f371feae1edb7623a
+ms.sourcegitcommit: 5c5f0f0e1f79098e27d9566dd98371f6ee16f8b5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453452"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53645656"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Vytváření balíčků symbolů (.snupkg)
 
@@ -31,7 +31,7 @@ ms.locfileid: "52453452"
 
 ## <a name="creating-a-symbol-package"></a>Vytváří se balíček symbolů
 
-Balíček symbolů snupkg lze vytvořit ze souboru .nuspec souboru nebo ze souboru csproj. NuGet.exe a dotnet.exe jsou podporované. Když možnosti ```-Symbols -SymbolPackageFormat snupkg``` se používají k příkazu pack nuget.exe .snupkg soubor vytvoří v dále .nupkg souboru.
+Balíček symbolů snupkg lze vytvořit ze souboru .nuspec souboru nebo ze souboru csproj. NuGet.exe a dotnet.exe jsou podporované. Když možnosti ```-Symbols -SymbolPackageFormat snupkg``` se používají na příkaz pack nuget.exe, vytvoří se soubor .snupkg kromě .nupkg souboru.
 
 Příklady příkazů pro vytvoření .snupkg souborů
 ```

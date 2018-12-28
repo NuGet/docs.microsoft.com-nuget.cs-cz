@@ -5,32 +5,32 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/20/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3da1056f64b76f27afa662d879ef9f85868e2a07
-ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
+ms.openlocfilehash: 7dcb2e430ad80815f716f5567b511ff08acfe31b
+ms.sourcegitcommit: a9babe261f67da0f714d168d04ea54a66628974b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453793"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53735133"
 ---
 # <a name="nuget-49-release-notes"></a>Zpráva k vydání verze 4.9 NuGet
 
-[Visual Studio 2017 15.9.0 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) se dodává s NuGet 4.9.0 funkce.
+Distribuce vozidel NuGet:
 
+| Verze NuGet | K dispozici ve verzi sady Visual Studio| K dispozici v rozhraní .NET SDK, pomocí kterých|
+|:---|:---|:---|
+| **4.9.0** | Visual Studio 2017 verze 15.9.0 | 2.1.500, 2.2.100 |
+| **4.9.1** | není k dispozici | není k dispozici |
+| [**4.9.2**](https://nuget.org/downloads) |[Visual Studio 2017 verze 15.9.4](https://visualstudio.microsoft.com/downloads/) | [2.1.502, 2.2.101](https://www.microsoft.com/net/download/visual-studio-sdks) |
 
-Příkazový řádek verze stejné funkce jsou také k dispozici:
-* NuGet.exe 4.9.x - [nuget.org/downloads](https://nuget.org/downloads)
-* DotNet.exe - [.NET Core SDK 2.1.500](https://www.microsoft.com/net/download/visual-studio-sdks)
+## <a name="summary-whats-new-in-490"></a>Shrnutí: Co je nového v 4.9.0
 
+* Podpis: Povolit ClientPolicies vyžadují použití sady úložišť uvedené v souboru NuGet.Config – a důvěryhodné autoři [#6961](https://github.com/NuGet/Home/issues/6961), [blogový příspěvek](https://blog.nuget.org/20181205/Lock-down-your-dependencies-using-configurable-trust-policies.html)
 
-## <a name="summary-whats-new-in-490"></a>Souhrn: Co je nového v 4.9.0
-
-* Podepisování: Povolit ClientPolicies vyžadují použití sady úložišť uvedené v souboru NuGet.Config – a důvěryhodné autoři [#6961](https://github.com/NuGet/Home/issues/6961)
-
-* Vytvoření souborů ".snupkg" obsahovat symboly v sadě – vylepšovat nabízené pochopit protokol nuget tak, aby přijímal soubory snupkg pro server symbolů - [#6878](https://github.com/NuGet/Home/issues/6878)
+* Vytvoření souborů ".snupkg" obsahovat symboly v sadě – vylepšovat nabízené pochopit protokol nuget tak, aby přijímal soubory snupkg pro server symbolů - [#6878](https://github.com/NuGet/Home/issues/6878), [blogový příspěvek](https://blog.nuget.org/20181116/Improved-debugging-experience-with-the-NuGet-org-symbol-server-and-snupkg.html)
 
 * Plugin přihlašovacích údajů NuGet V2 – [#6642](https://github.com/NuGet/Home/issues/6642)
 
-* Samostatný NuGet balíčky - licence - [#4628](https://github.com/NuGet/Home/issues/4628)
+* Samostatné balíčky NuGet - licence - [#4628](https://github.com/NuGet/Home/issues/4628), [oznámení](https://github.com/NuGet/Announcements/issues/32)
 
 * Umožňují vyjádřit výslovný souhlas metadat "GeneratePathProperty" na PackageReference ke generování jednu vlastnost MSBuild balíčku na "Foo.Bar\1.0\" directory – [#6949](https://github.com/NuGet/Home/issues/6949)
 
@@ -72,7 +72,7 @@ Příkazový řádek verze stejné funkce jsou také k dispozici:
 
 * Neužitečné chybové zprávy, pokud nesprávně tagu nuspec verze balíčku nuget - [#2714](https://github.com/NuGet/Home/issues/2714)
 
-* DCR – podepisování: podporují protokol NuGet: RepositorySignatures/4.9.0 resource - [#7421](https://github.com/NuGet/Home/issues/7421)
+* DCR – podepisování: podporují protokol NuGet: Prostředek RepositorySignatures/4.9.0 – [#7421](https://github.com/NuGet/Home/issues/7421)
 
 * DCR –. během extrakce balíčku - obsahuje "content-hash" - se nyní vytvoří soubor nupkg.metadata [#7283](https://github.com/NuGet/Home/issues/7283)
 
@@ -80,7 +80,7 @@ Příkazový řádek verze stejné funkce jsou také k dispozici:
 
 [Seznam všech problémů, které jsou opravené v této verzi 4.9.0](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9") <br>
 
-## <a name="summary-whats-new-in-491"></a>Souhrn: Co je nového v 4.9.1
+## <a name="summary-whats-new-in-491"></a>Shrnutí: Co je nového v 4.9.1
 
 * Přidání podpory pro čtení zápis do souboru nuget.config prostřednictvím nový příkaz důvěryhodné – podepisující osoby - [#7480](https://github.com/NuGet/Home/issues/7480)
 
@@ -94,15 +94,19 @@ Příkazový řádek verze stejné funkce jsou také k dispozici:
 
 [Seznam všech problémů, které jsou opravené v této verzi 4.9.1](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9.1")
 
+## <a name="summary-whats-new-in-492"></a>Shrnutí: Co je nového v 4.9.2
+
+### <a name="issues-fixed-in-this-release"></a>Chyby opravené v této verzi
+
+* Obnovení VS/dotnet.exe/nuget.exe/msbuild.exe nepoužívá přihlašovacích údajů, když název zdroje obsahuje prázdný znak - [#7517](https://github.com/NuGet/Home/issues/7517)
+
+* Problémů s dostupností LicenseFileWindow a LicenseAcceptanceWindow - [#7452](https://github.com/NuGet/Home/issues/7452)
+
+* Oprava FormatException v DateTime.Parse z DateTimeConverter - [#7539](https://github.com/NuGet/Home/issues/7539)
+
+[Seznam všech problémů, které jsou opravené v této verzi 4.9.2](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9.2")
+
 ## <a name="known-issues"></a>Známé problémy
-
-### <a name="dotnetexenugetexe-doesnt-use-credentials-when-source-name-contains-a-whitespace---7517httpsgithubcomnugethomeissues7517"></a>DotNet.exe/nuget.exe nepoužívá přihlašovacích údajů, když název zdroje obsahuje prázdný znak - [#7517](https://github.com/NuGet/Home/issues/7517)
-
-#### <a name="issue"></a>Problém
-Pokud je prázdný znak v názvu zdroje, nuget.exe vyvolá chybu jako `The ' ' character, hexadecimal value 0x20, cannot be included in a name.`
-
-#### <a name="workaround"></a>Alternativní řešení
-Změňte název zdroje nebude obsahovat prázdný znak.
 
 ### <a name="dotnet-nuget-push---interactive-gives-an-error-on-mac---7519httpsgithubcomnugethomeissues7519"></a>DotNet nuget příkaz push--interaktivní vrátí chybu v systému Mac. - [#7519](https://github.com/NuGet/Home/issues/7519)
 
@@ -111,14 +115,6 @@ Změňte název zdroje nebude obsahovat prázdný znak.
 
 #### <a name="workaround"></a>Alternativní řešení
 Spuštění další příkaz dotnet pomocí interaktivní možnosti, jako `dotnet restore --interactive` a provést ověření. Ověřování potom může do mezipaměti podle poskytovatele přihlašovacích údajů. Potom spusťte `dotnet nuget push`.
-
-### <a name="licenseacceptancewindow-and-licensefilewindow-accessibility-issues---7452httpsgithubcomnugethomeissues7452"></a>Problémů s dostupností LicenseFileWindow a LicenseAcceptanceWindow - [#7452](https://github.com/NuGet/Home/issues/7452)
-
-#### <a name="issue"></a>Problém
-Okno přijetí licence a okno licenční soubor mají problémy s pomocí navigace klávesnicí a komentář pomocí čtečky obrazovky a čtečky JAWS.
-
-#### <a name="workaround"></a>Alternativní řešení
-Alternativní řešení neexistuje.
 
 ### <a name="packages-in-fallbackfolders-installed-by-net-core-sdk-are-custom-installed-and-fail-signature-validation---7414httpsgithubcomnugethomeissues7414"></a>Balíčky v FallbackFolders nainstalovat sadu .NET Core SDK jsou vlastní nainstalované a selhání ověření podpisu. - [#7414](https://github.com/NuGet/Home/issues/7414)
 

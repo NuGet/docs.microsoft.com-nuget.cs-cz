@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: a9427d87f69a2e942a9802fbdae5193eead1c724
-ms.sourcegitcommit: af58d59669674c3bc0a230d5764e37020a9a3f1e
+ms.openlocfilehash: 878fb582a31667c84f3ae306b554718de72eca7a
+ms.sourcegitcommit: 5c5f0f0e1f79098e27d9566dd98371f6ee16f8b5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52831017"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53645669"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Balíček NuGet a obnovení jako cílů MSBuild
 
@@ -117,7 +117,7 @@ Jako součást změn pro [NuGet problém 352](https://github.com/NuGet/Home/issu
 
 Existují dvě vlastnosti nástroje MSBuild, které můžete použít v souboru projektu nebo příkazového řádku do ovládacího prvku kam se obrátit výstupní sestavení:
 
-- `IncludeBuildOutput`: Logickou hodnotu, která určuje, zda sestavení výstupu sestavení by měl být součástí balíčku.
+- `IncludeBuildOutput`: Logická hodnota, která určuje, zda sestavení výstupu sestavení by měl být součástí balíčku.
 - `BuildOutputTargetFolder`: Určuje složku, ve kterém by měl být umístěn výstup sestavení. Výstup sestavení (a ostatních výstupních souborů) jsou zkopírovány do složky jejich příslušných rozhraní framework.
 
 ### <a name="package-references"></a>Odkazy na balíček
@@ -202,7 +202,7 @@ Při balení licenční soubor, budete muset použít vlastnost PackageLicenseFi
 </PropertyGroup>
 
 <ItemGroup>
-    <None Include="licenses\LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)"/>
+    <None Include="licenses\LICENSE.txt" Pack="true" PackagePath=""/>
 </ItemGroup>
 ```
 [Ukázkový soubor licence](https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample).
@@ -252,15 +252,15 @@ Příklad souboru csproj se zabalit soubor nuspec je:
 
 `pack` Cílové poskytuje dva Rozšiřovací body, které běží v vnitřní, cílové rozhraní framework konkrétního sestavení. Rozšiřovací body podporují včetně obsahu konkrétní cílové rozhraní framework a sestavení do balíčku:
 
-- `TargetsForTfmSpecificBuildOutput` Cíl: použití pro soubory `lib` složka nebo složka zadaná pomocí `BuildOutputTargetFolder`.
-- `TargetsForTfmSpecificContentInPackage` Cíl: použití souborů mimo `BuildOutputTargetFolder`.
+- `TargetsForTfmSpecificBuildOutput` Cíl: Použití pro soubory `lib` složka nebo složka zadaná pomocí `BuildOutputTargetFolder`.
+- `TargetsForTfmSpecificContentInPackage` Cíl: Použití souborů mimo `BuildOutputTargetFolder`.
 
 #### <a name="targetsfortfmspecificbuildoutput"></a>TargetsForTfmSpecificBuildOutput
 
 Napsat vlastní cíl a určit ji jako hodnotu `$(TargetsForTfmSpecificBuildOutput)` vlastnost. Pro všechny soubory, které je potřeba, abyste přešli do `BuildOutputTargetFolder` (lib ve výchozím nastavení), cíl by měl zápisu těchto souborů do element ItemGroup `BuildOutputInPackage` a nastavte následující dvě hodnoty metadat:
 
-- `FinalOutputPath`: Na absolutní cestu k souboru; Pokud se nezadá, identita se používá k vyhodnocení cestu ke zdroji.
-- `TargetPath`: (Volitelné) nastavit, pokud je třeba soubor přejděte do podsložky v rámci `lib\<TargetFramework>` , jako jsou satelitní sestavení tohoto go ve složkách, jejich příslušné jazykové verze. Výchozí hodnota je název souboru.
+- `FinalOutputPath`: Absolutní cestu k souboru; Pokud se nezadá, identita se používá k vyhodnocení cestu ke zdroji.
+- `TargetPath`:  (Volitelné) Nastavit, pokud je třeba soubor přejděte do podsložky v rámci `lib\<TargetFramework>` , jako jsou satelitní sestavení tohoto go ve složkách, jejich příslušné jazykové verze. Výchozí hodnota je název souboru.
 
 Příklad:
 
@@ -283,7 +283,7 @@ Příklad:
 Napsat vlastní cíl a určit ji jako hodnotu `$(TargetsForTfmSpecificContentInPackage)` vlastnost. Pro všechny soubory, které chcete zahrnout do balíčku, cíl zápisu těchto souborů do element ItemGroup `TfmSpecificPackageFile` a nastavte následující volitelná metadata:
 
 - `PackagePath`: Cesta kde soubor by měl být výstup v balíčku. NuGet vydá upozornění, pokud více než jeden soubor je přidaný do stejného umístění balíčku.
-- `BuildAction`: Sestavení akce, která má přiřadit k souboru, požadováno, pouze pokud cesta k balíčku v `contentFiles` složky. Výchozí hodnota je "None".
+- `BuildAction`: Akce sestavení, která má přiřadit k souboru, požadováno, pouze pokud cesta k balíčku v `contentFiles` složky. Výchozí hodnota je "None".
 
 Příklad:
 ```xml
