@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 878fb582a31667c84f3ae306b554718de72eca7a
-ms.sourcegitcommit: 5c5f0f0e1f79098e27d9566dd98371f6ee16f8b5
+ms.openlocfilehash: 8132595cbfaf553736fbcc81aada283a44d6cdbf
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53645669"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324848"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Balíček NuGet a obnovení jako cílů MSBuild
 
@@ -43,12 +43,12 @@ Následující tabulka popisuje vlastnosti nástroje MSBuild, které mohou být 
 
 Všimněte si, že `Owners` a `Summary` vlastnosti z `.nuspec` nejsou podporovány nástrojem MSBuild.
 
-| Hodnota atributu/NuSpec | Vlastnosti nástroje MSBuild | Výchozí | Poznámky |
+| Hodnota atributu/NuSpec | MSBuild Property | Výchozí | Poznámky |
 |--------|--------|--------|--------|
-| ID | ID balíčku | AssemblyName | $(AssemblyName) MSBuild |
+| ID | PackageId | AssemblyName | $(AssemblyName) MSBuild |
 | Version | PackageVersion | Version | Toto je semver kompatibilní, například "1.0.0", "1.0.0-beta" nebo "1.0.0-beta-00345" |
 | VersionPrefix | PackageVersionPrefix | empty | Nastavení PackageVersion přepíše PackageVersionPrefix |
-| VersionSuffix | PackageVersionSuffix | empty | $(VersionSuffix) MSBuild. Nastavení PackageVersion přepíše PackageVersionSuffix |
+| VersionSuffix | PackageVersionSuffix | empty | $(VersionSuffix) from MSBuild. Nastavení PackageVersion přepíše PackageVersionSuffix |
 | Autoři | Autoři | Uživatelské jméno aktuálního uživatele | |
 | Vlastníci | Není k dispozici | Není k dispozici v souboru NuSpec | |
 | Název | Název | ID balíčku| |
@@ -72,8 +72,9 @@ Všimněte si, že `Owners` a `Summary` vlastnosti z `.nuspec` nejsou podporová
 ### <a name="pack-target-inputs"></a>vstupy cíl balíčku
 
 - IsPackable
+- SuppressDependenciesWhenPacking
 - PackageVersion
-- ID balíčku
+- PackageId
 - Autoři
 - Popis
 - Copyright
@@ -106,6 +107,10 @@ Všimněte si, že `Owners` a `Summary` vlastnosti z `.nuspec` nejsou podporová
 - NuspecProperties
 
 ## <a name="pack-scenarios"></a>scénáře aktualizací Service Pack
+
+### <a name="suppress-dependencies"></a>Potlačit závislosti
+
+Chcete-li potlačit závislosti balíčků z vygenerované balíčku NuGet, nastavte `SuppressDependenciesWhenPacking` k `true` ta vám umožní ze souboru generovaného nupkg přeskočí všechny závislosti.
 
 ### <a name="packageiconurl"></a>PackageIconUrl
 
@@ -193,6 +198,14 @@ Pokud kompilovat soubor typu je mimo složku projektu, pak je právě přidali d
 
 Při použití výrazu licence, PackageLicenseExpression vlastnost použít. 
 [Ukázka výrazu licence](https://github.com/NuGet/Samples/tree/master/PackageLicenseExpressionExample).
+
+```xml
+<PropertyGroup>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+</PropertyGroup>
+```
+
+[Další informace o výrazech licencí a licencí, které jsou přijaty NuGet.org](nuspec.md#license).
 
 Při balení licenční soubor, budete muset použít vlastnost PackageLicenseFile zadat cesta k balíčku, vzhledem ke kořenové složce balíčku. Kromě toho budete muset Ujistěte se, že je soubor součástí balíčku. Příklad:
 

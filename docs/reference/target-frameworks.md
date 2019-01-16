@@ -6,29 +6,29 @@ ms.author: karann
 ms.date: 12/11/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 047ede14c7935844cb4f6d0315772c2a1190e5b8
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 0c76ea43e871009223cc4328449e21e5d02129bb
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547256"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324874"
 ---
 # <a name="target-frameworks"></a>Cílové architektury
 
 NuGet používá odkazy na cílové rozhraní v různých místech konkrétně identifikovat a izolovat komponenty závisí na architektuře balíčku:
 
-- [manifest souboru .nuspec](../reference/nuspec.md): balíček můžete určit různé balíčky, které mají být zahrnuty v projektu v závislosti na cílové rozhraní projektu.
-- [název složky .nupkg](../create-packages/creating-a-package.md#from-a-convention-based-working-directory): složky uvnitř balíčku `lib` složka může mít název podle cílové rozhraní, z nichž každý obsahuje knihovny DLL a další obsah, který je vhodný pro dané rozhraní.
-- [soubor Packages.config](../reference/packages-config.md): `targetframework` atribut závislosti určuje variantu balíček pro instalaci.
+- [manifest souboru .nuspec](../reference/nuspec.md): Balíček můžete určit různé balíčky, které mají být zahrnuty v projektu v závislosti na cílové rozhraní projektu.
+- [název složky .nupkg](../create-packages/creating-a-package.md#from-a-convention-based-working-directory): Složky uvnitř balíčku `lib` složka může mít název podle cílové rozhraní, z nichž každý obsahuje knihovny DLL a další obsah, který je vhodný pro dané rozhraní.
+- [packages.config](../reference/packages-config.md): `targetframework` Atribut závislosti určuje variantu balíček pro instalaci.
 
 > [!Note]
 > NuGet zdrojový kód klienta, který vypočítá níže uvedených tabulkách se nachází v následujících umístěních:
-> - Nepodporuje názvy framework: [FrameworkConstants.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs)
+> - Názvy podporované architektury: [FrameworkConstants.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs)
 > - Priorita rozhraní Framework a mapování: [DefaultFrameworkMappings.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs)
 
 ## <a name="supported-frameworks"></a>Podporované architektury
 
-Architektura je obvykle odkazuje na moniker krátký cílového rozhraní nebo TFM. V .NET Standard to je taky je zobecněný k *TxM* umožňující jeden odkaz na více platforem.
+Architektura je obvykle odkazuje na moniker krátký cílového rozhraní nebo TFM. V .NET Standard to je také zobecnit pro *TxM* umožňující jeden odkaz na více platforem.
 
 Klienti NuGet podporují rozhraní v následující tabulce. Ekvivalenty jsou uvedeny v hranatých závorkách []. Všimněte si, že některé nástroje, jako například `dotnet`, může být v některé soubory používají variace procesu canonical Tfm. Například `dotnet pack` používá `.NETCoreApp2.0` v `.nuspec` souboru spíše než `netcoreapp2.0`. Různé klientské nástroje Nugetu správně zpracovat tyto varianty, ale vždy používejte canonical Tfm při úpravách souborů přímo.
 
@@ -57,9 +57,9 @@ Klienti NuGet podporují rozhraní v následující tabulce. Ekvivalenty jsou uv
 | | | win8 [netcore45, vyhrajte] |
 | | | win81 [netcore451] |
 | | | win10 (není podporováno platformou Windows 10) |
-Silverlight | SL | sl4 |
+Silverlight | sl | sl4 |
 | | | sl5 |
-Windows Phone (SL) | webové části | wp [wp7] |
+Windows Phone (SL) | wp | wp [wp7] |
 | | | wp7 |
 | | | wp75 |
 | | | wp8 |
@@ -67,7 +67,7 @@ Windows Phone (SL) | webové části | wp [wp7] |
 Windows Phone (UPW) | | wpa81 |
 Univerzální platforma pro Windows | uap | uap [uap10.0] |
 | | | uap10.0 |
-.NET standard | netstandard | netstandard1.0 |
+.NET Standard | netstandard | netstandard1.0 |
 | | | netstandard1.1 |
 | | | netstandard1.2 |
 | | | netstandard1.3 |
@@ -75,7 +75,7 @@ Univerzální platforma pro Windows | uap | uap [uap10.0] |
 | | | netstandard1.5 |
 | | | netstandard1.6 |
 | | | netstandard2.0 |
-Aplikace .NET core | netcoreapp | netcoreapp1.0 |
+.NET Core App | netcoreapp | netcoreapp1.0 |
 | | | netcoreapp1.1 |
 | | | netcoreapp2.0 |
 | | | netcoreapp2.1 |
@@ -114,7 +114,7 @@ Počet rozhraní jsou související s a kompatibilní mezi sebou, ale není nutn
 | uap (Universal Windows Platform) | win81 |
 | | wpa81 |
 | | netcore50 |
-| Vyhrajte (Microsoft Store) | winrt |
+| win (Microsoft Store) | winrt |
 | | |
 
 ## <a name="net-platform-standard"></a>Platforma NET Standard
@@ -134,43 +134,43 @@ Chcete-li definovat cílovou architekturu, která odkazuje na více podřízený
 
 Další architektury definované třetími stranami zajištění kompatibility se další prostředí, které jsou k dispozici tímto způsobem. Kromě toho existuje Zkrácený tvar vlastností profilu čísla, která jsou k dispozici tyto kombinace související rozhraní uvedená ve formě odkazovat `Profile#`, ale nejedná se nedoporučuje používat tato čísla podle snižuje čitelnost složek a `.nuspec`.
 
-| Profil # | Rozhraní | Jméno a příjmení | .NET standard |
+| Profil # | Architektury | Jméno a příjmení | .NET Standard |
  --- | --- | --- | ---
- Profile2 | . NETFramework 4.0 | portable-net40+win8+sl4+wp7 |
+ Profile2 | .NETFramework 4.0 | portable-net40+win8+sl4+wp7 |
  | | Windows 8.0 | |
  | | Silverlight 4.0 |
  | | WindowsPhone 7.0|
- Profile3 | . NETFramework 4.0 | Přenosná net40 + sl4
+ Profile3 | .NETFramework 4.0 | portable-net40+sl4
  | | Silverlight 4.0 |
- Profile4 | . NETFramework 4.5 | portable-net45+sl4+win8+wp7
+ Profile4 | .NETFramework 4.5 | portable-net45+sl4+win8+wp7
  | | Silverlight 4.0 |
  | | Windows 8.0 |
  | | WindowsPhone 7.0 |
- Profile5 | . NETFramework 4.0 | Přenosná net40 + win8
+ Profile5 | .NETFramework 4.0 | portable-net40+win8
  | | Windows 8.0 |
- Profile6 | .NETFramework 4.0.3 | Přenosná net403 + win8
+ Profile6 | .NETFramework 4.0.3 | portable-net403+win8
  | | Windows 8.0 |
- Profile7 | . NETFramework 4.5 | Portable-net45 + win8 | netstandard1.1
+ Profile7 | .NETFramework 4.5 | portable-net45+win8 | netstandard1.1
  | | Windows 8.0 |
- Profile14 | . NETFramework 4.0 | Přenosná net40 + sl5
+ Profile14 | .NETFramework 4.0 | portable-net40+sl5
  | | Silverlight 5.0 |
  Profile18 | .NETFramework 4.0.3 | portable-net403+sl4
  | | Silverlight 4.0 |
  Profile19 | .NETFramework 4.0.3 | portable-net403+sl5
  | | Silverlight 5.0 |
- Profile23 | . NETFramework 4.5 | Portable-net45 + sl4
+ Profile23 | .NETFramework 4.5 | portable-net45+sl4
  | | Silverlight 4.0 |
- Profile24 | . NETFramework 4.5 | portable-net45+sl5
+ Profile24 | .NETFramework 4.5 | portable-net45+sl5
  | | Silverlight 5.0 |
- Profile31 | Windows 8.1 | Přenosná win81 + wp81 | netstandard1.0
+ Profile31 | Windows 8.1 | portable-win81+wp81 | netstandard1.0
  | | WindowsPhone 8.1 (SL) |
- Profile32 | Windows 8.1 | Přenosná win81 + wpa81 | netstandard1.2
+ Profile32 | Windows 8.1 | portable-win81+wpa81 | netstandard1.2
  | | WindowsPhone 8.1 (UPW) |
- Profile36 | . NETFramework 4.0 | portable-net40+sl4+win8+wp8
+ Profile36 | .NETFramework 4.0 | portable-net40+sl4+win8+wp8
  | | Silverlight 4.0 |
  | | Windows 8.0 |
  | | WindowsPhone 8.0 (SL) |
- Profile37 | . NETFramework 4.0 | Přenosná net40 sl5 + win8
+ Profile37 | .NETFramework 4.0 | portable-net40+sl5+win8
  | | Silverlight 5.0 |
  | | Windows 8.0 |
  Profile41 | .NETFramework 4.0.3 | portable-net403+sl4+win8
@@ -179,26 +179,26 @@ Další architektury definované třetími stranami zajištění kompatibility s
  Profile42 | .NETFramework 4.0.3 | portable-net403+sl5+win8
  | | Silverlight 5.0 |
  | | Windows 8.0 |
- Profile44 | . NETFramework 4.5.1 | Přenosná net451 + win81 | netstandard1.2
+ Profile44 | .NETFramework 4.5.1 | portable-net451+win81 | netstandard1.2
  | | Windows 8.1 |
- Profile46 | . NETFramework 4.5 | portable-net45+sl4+win8
+ Profile46 | .NETFramework 4.5 | portable-net45+sl4+win8
  | | Silverlight 4.0 |
  | | Windows 8.0 |
- Profile47 | . NETFramework 4.5 | sl5 Portable-net45 + win8
+ Profile47 | .NETFramework 4.5 | portable-net45+sl5+win8
  | | Silverlight 5.0 |
  | | Windows 8.0 |
- Profile49 | . NETFramework 4.5 | Portable-net45 + wp8 | netstandard1.0
+ Profile49 | .NETFramework 4.5 | portable-net45+wp8 | netstandard1.0
  | | WindowsPhone 8.0 (SL) |
- Profile78 | . NETFramework 4.5 | Portable-net45 + win8 wp8 | netstandard1.0
+ Profile78 | .NETFramework 4.5 | portable-net45+win8+wp8 | netstandard1.0
  | | Windows 8.0 |
  | | WindowsPhone 8.0 (SL) |
- Profile84 | WindowsPhone 8.1 | Přenosná wp81 + wpa81 | netstandard1.0
+ Profile84 | WindowsPhone 8.1 | portable-wp81+wpa81 | netstandard1.0
  | | WindowsPhone 8.1 (UPW) |
- Profile88 | . NETFramework 4.0 | portable-net40+sl4+win8+wp75
+ Profile88 | .NETFramework 4.0 | portable-net40+sl4+win8+wp75
  | | Silverlight 4.0 |
  | | Windows 8.0 |
  | | WindowsPhone 7.5 |
- Profile92 | . NETFramework 4.0 | Přenosná net40 + win8 wpa81
+ Profile92 | .NETFramework 4.0 | portable-net40+win8+wpa81
  | | Windows 8.0 |
  | | WindowsPhone 8.1 (UPW) |
  Profile95 | .NETFramework 4.0.3 | portable-net403+sl4+win8+wp7
@@ -212,14 +212,14 @@ Další architektury definované třetími stranami zajištění kompatibility s
  Profile102 | .NETFramework 4.0.3 | portable-net403+win8+wpa81
  | | Windows 8.0 |
  | | WindowsPhone 8.1 (UPW) |
- Profile104 | . NETFramework 4.5 | portable-net45+sl4+win8+wp75
+ Profile104 | .NETFramework 4.5 | portable-net45+sl4+win8+wp75
  | | Silverlight 4.0 |
  | | Windows 8.0 |
  | | WindowsPhone 7.5 |
- Profile111 | . NETFramework 4.5 | Portable-net45 + win8 wpa81 | netstandard1.1
+ Profile111 | .NETFramework 4.5 | portable-net45+win8+wpa81 | netstandard1.1
  | | Windows 8.0 |
  | | WindowsPhone 8.1 (UPW) |
- Profile136 | . NETFramework 4.0 | Přenosná net40 sl5 + win8 + wp8
+ Profile136 | .NETFramework 4.0 | portable-net40+sl5+win8+wp8
  | | Silverlight 5.0 |
  | | Windows 8.0 |
  | | WindowsPhone 8.0 (SL) |
@@ -231,21 +231,21 @@ Další architektury definované třetími stranami zajištění kompatibility s
  | | Silverlight 5.0 |
  | | Windows 8.0 |
  | | WindowsPhone 8.0 (SL) |
- Profile151 | NETFramework 4.5.1 | Přenosná net451 win81 + wpa81 | netstandard1.2
+ Profile151 | NETFramework 4.5.1 | portable-net451+win81+wpa81 | netstandard1.2
  | | Windows 8.1 |
  | | WindowsPhone 8.1 (UPW) |
- Profile154 | . NETFramework 4.5 | portable-net45+sl4+win8+wp8
+ Profile154 | .NETFramework 4.5 | portable-net45+sl4+win8+wp8
  | | Silverlight 4.0 |
  | | Windows 8.0 |
  | | WindowsPhone 8.0 (SL) |
- Profile157 | Windows 8.1 | Přenosná win81 wp81 + wpa81 | netstandard1.0
+ Profile157 | Windows 8.1 | portable-win81+wp81+wpa81 | netstandard1.0
  | | WindowsPhone 8.1 (SL) |
  | | WindowsPhone 8.1 (UPW) |
- Profile158 | . NETFramework 4.5 | portable-net45+sl5+win8+wp8
+ Profile158 | .NETFramework 4.5 | portable-net45+sl5+win8+wp8
  | | Silverlight 5.0 |
  | | Windows 8.0 |
  | | WindowsPhone 8.0 (SL) |
- Profile225 | . NETFramework 4.0 | Přenosná net40 sl5 + win8 + wpa81
+ Profile225 | .NETFramework 4.0 | portable-net40+sl5+win8+wpa81
  | | Silverlight 5.0 |
  | | Windows 8.0 |
  | | WindowsPhone 8.1 (UPW) |
@@ -253,15 +253,15 @@ Další architektury definované třetími stranami zajištění kompatibility s
  | | Silverlight 5.0 |
  | | Windows 8.0 |
  | | WindowsPhone 8.1 (UPW) |
- Profile255 | . NETFramework 4.5 | portable-net45+sl5+win8+wpa81
+ Profile255 | .NETFramework 4.5 | portable-net45+sl5+win8+wpa81
  | | Silverlight 5.0 |
  | | Windows 8.0 |
  | | WindowsPhone 8.1 (UPW) |
- Profile259 | . NETFramework 4.5 | Portable-net45 + win8 + wpa81 + wp8 | netstandard1.0
+ Profile259 | .NETFramework 4.5 | portable-net45+win8+wpa81+wp8 | netstandard1.0
  | | Windows 8.0 |
  | | WindowsPhone 8.1 (UPW) |
  | | WindowsPhone 8.0 (SL) |
- Profile328 | . NETFramework 4.0 | portable-net40+sl5+win8+wpa81+wp8
+ Profile328 | .NETFramework 4.0 | portable-net40+sl5+win8+wpa81+wp8
  | | Silverlight 5.0 |
  | | Windows 8.0 |
  | | WindowsPhone 8.1 (UPW) |
@@ -271,7 +271,7 @@ Další architektury definované třetími stranami zajištění kompatibility s
  | | Windows 8.0 |
  | | WindowsPhone 8.1 (UPW) |
  | | WindowsPhone 8.0 (SL) |
- Profile344 | . NETFramework 4.5 | portable-net45+sl5+win8+wpa81+wp8
+ Profile344 | .NETFramework 4.5 | portable-net45+sl5+win8+wpa81+wp8
  | | Silverlight 5.0 |
  | | Windows 8.0 |
  | | WindowsPhone 8.1 (UPW) |
@@ -279,7 +279,7 @@ Další architektury definované třetími stranami zajištění kompatibility s
 
 Balíčky NuGet, které cílí na Xamarin kromě toho můžete použít další architektury definované Xamarin. Zobrazit [NuGet vytváření balíčků pro Xamarin](https://developer.xamarin.com/guides/cross-platform/advanced/nuget/).
 
-| Název | Popis | .NET standard |
+| Název | Popis | .NET Standard |
 | --- | --- | ---
 | monoandroid | Mono podporu operačního systému Android | netstandard1.4 |
 | monotouch | Mono – podpora pro iOS | netstandard1.4 |

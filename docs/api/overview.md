@@ -6,18 +6,18 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: bb47c72768b0698d8e712c8261321ff38bba2764
-ms.sourcegitcommit: be9c51b4b095aea40ef41bbea7e12ef0a194ee74
+ms.openlocfilehash: 39b710c483ce4b3f2da30df6bb5b6842f9ee1fca
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53248426"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324835"
 ---
-# <a name="nuget-api"></a>Rozhraní API Nugetu
+# <a name="nuget-api"></a>NuGet API
 
 NuGet rozhraní API je sada koncových bodů HTTP, které je možné stáhnout balíčky, načíst metadata, publikovat nové balíčky a provádějí většinu dalších operací k dispozici v oficiální klienty NuGet.
 
-Toto rozhraní API používá klienta NuGet v sadě Visual Studio, nuget.exe a rozhraní příkazového řádku .NET k provádění operací NuGet, jako [ `dotnet restore` ](/dotnet/articles/core/preview3/tools/dotnet-restore), vyhledávání v Uživatelském rozhraní služby Visual Studio a [ `nuget.exe push` ](../tools/cli-ref-push.md).
+Toto rozhraní API používá klienta NuGet v sadě Visual Studio, nuget.exe a rozhraní příkazového řádku .NET k provádění operací NuGet, jako [ `dotnet restore` ](/dotnet/core/tools/dotnet-restore?tabs=netcore2x), vyhledávání v Uživatelském rozhraní služby Visual Studio a [ `nuget.exe push` ](../tools/cli-ref-push.md).
 
 Všimněte si, v některých případech nuget.org má další požadavky, které nejsou vynucené z jiných zdrojů balíčků. Tyto rozdíly jsou popsány pomocí [protokoly nuget.org](nuget-protocols.md).
 
@@ -35,7 +35,7 @@ Další informace o index služby najdete v tématu [reference k rozhraní API](
 
 ## <a name="versioning"></a>Správa verzí
 
-Rozhraní API je verze 3 protokolu HTTP Nugetu. Tento protokol se někdy označuje jako "V3 API." Tyto referenční dokumenty bude odkazovat na tuto verzi protokolu jednoduše jako "rozhraní API."
+Rozhraní API je verze 3 protokolu HTTP Nugetu. Tento protokol je někdy označovány jako "rozhraní API V3". Tyto referenční dokumenty bude odkazovat na tuto verzi protokolu jednoduše jako "rozhraní API."
 
 Verze schématu indexu služby je indikován `version` vlastnost index služby. Rozhraní API Určuje, zda má řetězec verze číslo hlavní verze `3`. Jak nevýznamných změn schématu indexu služby, zvýší se verze řetězec podverze.
 
@@ -43,7 +43,7 @@ Starší klienti (jako je například nuget.exe 2.x) nepodporují rozhraní API 
 
 Rozhraní API V3 NuGet jmenuje jako takové, protože jedná se o nástupce rozhraní API V2, která byla protokolu založených na protokolu OData implementované verze 2.x oficiální klienta NuGet. Rozhraní API V3 je nejprve podporován ve verzi 3.0 oficiální klienta NuGet a stále verze nejnovější hlavní protokol není podporovaný od klienta NuGet 4.0 a. 
 
-Bez konce protokolu změnám rozhraní API od jeho prvním vydání.
+Bez konce protokolu změnám rozhraní API od prvního vydání.
 
 ## <a name="resources-and-schema"></a>Prostředky a schématu
 
@@ -108,7 +108,7 @@ V případě úrovni 500 stavový kód klienta můžete implementovat mechanismu
 Název                     | Popis
 ------------------------ | -----------
 X-NuGet-ApiKey           | Vyžadováno pro push a delete, naleznete v tématu [ `PackagePublish` prostředků](package-publish-resource.md)
-X-NuGet klienta Version   | **Zastaralé** a nahradit `X-NuGet-Protocol-Version`
+X-NuGet-Client-Version   | **Zastaralé** a nahradit `X-NuGet-Protocol-Version`
 X-NuGet-Protocol-Version | Vyžaduje se v některých případech pouze na nuget.org, naleznete v tématu [protokoly nuget.org](NuGet-Protocols.md)
 X-NuGet-Session-Id       | *Volitelné*. NuGet klientů v4.7 + identifikovat požadavky HTTP, které jsou součástí stejné relace klienta NuGet. Pro `PackageReference` existuje operace obnovení je jedno id relace, pro jiné scénáře, jako je automatické dokončování, a `packages.config` obnovení může být několik různých id relace z důvodu jak dostaneme kód.
 

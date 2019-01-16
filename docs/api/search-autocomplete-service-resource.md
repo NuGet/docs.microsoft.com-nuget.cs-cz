@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 01f919dc3bbfb6752c8f8e055a3cd473ad194e75
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 2d2b20c1ea439ec0a3225cf983d9a4d2eedb0333
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549080"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324757"
 ---
 # <a name="autocomplete"></a>Automatické dokončování
 
@@ -24,8 +24,8 @@ Následující `@type` hodnoty:
 @type Hodnota                          | Poznámky
 ------------------------------------ | -----
 SearchAutocompleteService            | Počáteční verze
-SearchAutocompleteService/3.0.0-beta | Alias `SearchAutocompleteService`
-SearchAutocompleteService/3.0.0-rc   | Alias `SearchAutocompleteService`
+SearchAutocompleteService/3.0.0-beta | Alias of `SearchAutocompleteService`
+SearchAutocompleteService/3.0.0-rc   | Alias of `SearchAutocompleteService`
 
 ## <a name="base-url"></a>Základní adresa URL
 
@@ -73,12 +73,12 @@ Kořenový objekt JSON má následující vlastnosti:
 
 Název      | Typ             | Požadováno | Poznámky
 --------- | ---------------- | -------- | -----
-totalHits | integer          | Ano      | Celkový počet shod, bez ohledu na `skip` a `take`
-data      | pole řetězců | Ano      | Balíček odpovídající ID požadavku
+totalHits | integer          | ano      | Celkový počet shod, bez ohledu na `skip` a `take`
+data      | pole řetězců | ano      | Balíček odpovídající ID požadavku
 
 ### <a name="sample-request"></a>Ukázková žádost
 
-ZÍSKAT https://api-v2v3search-0.nuget.org/autocomplete?q=storage&prerelease=true
+    GET https://api-v2v3search-0.nuget.org/autocomplete?q=storage&prerelease=true
 
 ### <a name="sample-response"></a>Ukázková odpověď
 
@@ -96,7 +96,7 @@ Verze balíčku, který je neuvedené v seznamu se nezobrazí ve výsledcích.
 
 Název        | V     | Typ    | Požadováno | Poznámky
 ----------- | ------ | ------- | -------- | -----
-id          | Adresa URL    | odkazy řetězců  | Ano      | ID balíčku k načtení verze pro
+id          | Adresa URL    | odkazy řetězců  | ano      | ID balíčku k načtení verze pro
 platnost předběžné verze  | Adresa URL    | Logická hodnota | Ne       | `true` nebo `false` určující, jestli se mají zahrnout [balíčky v předběžné verzi](../create-packages/prerelease-packages.md)
 semVerLevel | Adresa URL    | odkazy řetězců  | Ne       | Řetězec SemVer 2.0.0 verze 
 
@@ -112,7 +112,7 @@ Kořenový objekt JSON má následující vlastnost:
 
 Název      | Typ             | Požadováno | Poznámky
 --------- | ---------------- | -------- | -----
-data      | pole řetězců | Ano      | Verze balíčku, který odpovídá požadavku
+data      | pole řetězců | ano      | Verze balíčku, který odpovídá požadavku
 
 Verze balíčku v `data` pole může obsahovat metadata sestavení SemVer 2.0.0 (třeba `1.0.0+metadata`) Pokud `semVerLevel=2.0.0` byla zadaná v řetězci dotazu.
 

@@ -6,16 +6,16 @@ ms.author: patbel
 ms.date: 11/12/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: ffd0cf5d50a2deed16e1722b32e43047bc81df2f
-ms.sourcegitcommit: a1846edf70ddb2505d58e536e08e952d870931b0
+ms.openlocfilehash: ee4ffaa7e250cdbf313476fd794a8d87c80b69f9
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52303728"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324705"
 ---
 # <a name="trusted-signers-command-nuget-cli"></a>příkaz důvěryhodné podepisující osoby (rozhraní příkazového řádku NuGet)
 
-**Platí pro:** balíček spotřeby &bullet; **podporované verze:** 4.9 +
+**Platí pro:** balíček spotřeby &bullet; **podporované verze:** 4.9.1+
 
 Získá nebo nastaví podepisující důvěryhodné osoby pro konfiguraci Nugetu. Další využití, naleznete v tématu [konfigurace chování Nugetu](../consume-packages/configuring-nuget-behavior.md). Podrobnosti o jak nuget.config schéma vypadá jako odkazovat [odkaz na soubor NuGet config](../reference/nuget-config-file.md).
 
@@ -110,7 +110,7 @@ Odebere všechny důvěryhodné podepisující osoby, které odpovídají zadan�
 
 Vyžaduje nejnovější seznam certifikátů používaných v současné době nedůvěryhodný úložiště aktualizovat seznamu existujících certifikátů v důvěryhodné podepisující osoba.
 
-_Poznámka:_: Tento gesta odstraní aktuální seznam certifikátů a nahraďte aktuální seznam z úložiště.
+_Poznámka:_: Tato gesta odstraní aktuální seznam certifikátů a nahraďte aktuální seznam z úložiště.
 
 ## <a name="options"></a>Možnosti
 

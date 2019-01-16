@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 5/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: 641304059c90e360fae4d0956d7b922e34bc6501
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: cf15c4f6a2e3e9f6ce7b6acb2304648041043685
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981116"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324822"
 ---
 # <a name="nuget-48-rtm-release-notes"></a>Zpráva k vydání verze NuGet 4,8 RTM
 
@@ -22,9 +22,9 @@ Příkazový řádek verze stejné funkce jsou také k dispozici:
 * DotNet.exe - [.NET Core SDK 2.1.400](https://www.microsoft.com/net/download/visual-studio-sdks)
 
 
-## <a name="summary-whats-new-in-this-release"></a>Souhrn: Novinky v této verzi
+## <a name="summary-whats-new-in-this-release"></a>Shrnutí: Novinky v této verzi
 * Longfilenames NuGet.exe teď podporuje ve Windows 10 - [#6937](https://github.com/NuGet/Home/issues/6937)
-* Moduly plug-in ověřování nyní pracovat napříč MsBuild, DotNet.exe, NuGet.exe a sady Visual Studio, včetně různé platformy. První generace moduly plug-in ověřování nejsou podporované v nástroji MsBuild, DotNet.exe. Poznámka: Verze Preview VS 2017 15.9 sestavení mají modul plug-in VSTS ověřování zahrnuté. [#6486](https://github.com/NuGet/Home/issues/6486)
+* Moduly plug-in ověřování nyní pracovat napříč MsBuild, DotNet.exe, NuGet.exe a sady Visual Studio, včetně různé platformy. První generace moduly plug-in ověřování nejsou podporované v nástroji MsBuild, DotNet.exe. Poznámka: VS 2017 15.9 Preview sestavení mají modul plug-in VSTS ověřování zahrnuté. [#6486](https://github.com/NuGet/Home/issues/6486)
 * Překladač pro MsBuild SDK nyní sestavení jako součást balíčku nuget a nainstaluje pomocí nástroje NuGet pro VS. Tím se vyhnete si synchronizaci získání verze. [#6799](https://github.com/NuGet/Home/issues/6799)
 * PackageReference teď podporuje metadata DevelopmentDependency – [#4125](https://github.com/NuGet/Home/issues/4125)
 
@@ -62,7 +62,7 @@ Poznámka: Tato chyba byla opravena v sadě VS 2017 15.9 Preview 3
 
 ### <a name="bugs"></a>Chyby
 #### <a name="signing"></a>podepisování
-* Podepisování: Instalace podepsaný balíček v offline prostředí [#7008](https://github.com/NuGet/Home/issues/7008) – oprava v 4.8.1
+* Podpis: Instalace podepsaný balíček v offline prostředí [#7008](https://github.com/NuGet/Home/issues/7008) – oprava v 4.8.1
 * Podepisování: nesprávná adresa URL Kontrola – [#7174](https://github.com/NuGet/Home/issues/7174)
 * Podepisování: Kontrola integrity balíčku v RepositorySignatureVerifier při balíčku je úložiště potvrzeným - [#6926](https://github.com/NuGet/Home/issues/6926)
 * "Kontrola Integrity balíčku neproběhla úspěšně." musí mít ID balíčku v zprávu (a kódem chyby) - [#6944](https://github.com/NuGet/Home/issues/6944)
@@ -72,7 +72,7 @@ Poznámka: Tato chyba byla opravena v sadě VS 2017 15.9 Preview 3
 * Paměť není platný při aktualizaci informací o podepisující osoba při přidávání časové razítko potvrzovací podpis - [#6840](https://github.com/NuGet/Home/issues/6840)
 * Podepisování: odebrání výjimky CTL - [#6794](https://github.com/NuGet/Home/issues/6794)
 * Podepisování: contentUrl musí používat protokol HTTPS - [#6777](https://github.com/NuGet/Home/issues/6777)
-* Podepisování: SignedPackageVerifierSettings.VSClientDefaultPolicy se nepoužívá - [#6601](https://github.com/NuGet/Home/issues/6601)
+* Podpis:  SignedPackageVerifierSettings.VSClientDefaultPolicy se nepoužívá - [#6601](https://github.com/NuGet/Home/issues/6601)
 
 
 #### <a name="pack"></a>balíček

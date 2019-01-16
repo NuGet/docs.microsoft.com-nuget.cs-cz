@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/29/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: e8d4ed1f3fe4394d084a5847200901b23a1b7b39
-ms.sourcegitcommit: c825eb7e222d4a551431643f5b5617ae868ebe0a
+ms.openlocfilehash: 009be99a1c6623a00b4bdbe6db3164ca70782212
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51944077"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324900"
 ---
 # <a name="nuspec-reference"></a>odkaz na souboru .nuspec
 
@@ -72,13 +72,13 @@ Dlouhý popis balíčku zobrazí v uživatelském rozhraní.
 
 ### <a name="optional-metadata-elements"></a>Volitelná metadata elementy
 
-#### <a name="title"></a>Název
+#### <a name="title"></a>název
 Lidské popisný název balíčku, obvykle používaných v uživatelském rozhraní na webech nuget.org a Správce balíčků v sadě Visual Studio. Pokud není zadán, použije se ID balíčku. 
 #### <a name="owners"></a>Vlastníci
 Čárkou oddělený seznam Tvůrce balíčku pomocí názvy profilů na nuget.org. To je často seznamu stejné jako v `authors`a je ignorován při nahrávání balíčku do nuget.org. Zobrazit [vlastníky Správa balíčků na nuget.org](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg). 
-#### <a name="projecturl"></a>ProjectUrl
+#### <a name="projecturl"></a>projectUrl
 Adresa URL domovské stránky balíčku, často zobrazuje v uživatelském rozhraní nuget.org. 
-#### <a name="licenseurl"></a>LicenseUrl
+#### <a name="licenseurl"></a>licenseUrl
 > [!Important]
 > licenseUrl je zastaralé. Místo toho použijte licenci.
 
@@ -105,6 +105,9 @@ Pokud používáte licenci, která ještě není přiřazený identifikátor SPD
   </files>
 </package>
 ```
+
+Ekvivalent MSBuild, podívejte se na [balení výrazu licence nebo licenční soubor](msbuild-targets.md#packing-a-license-expression-or-a-license-file).
+
 Syntaxe výrazů licence NuGet je popsaný dole v [ABNF](https://tools.ietf.org/html/rfc5234).
 ```cli
 license-id            = <short form license identifier from https://spdx.org/spdx-specification-21-web-version#h.luq9dgcle9mo>
@@ -122,10 +125,10 @@ compound-expression =  1*1(simple-expression /
 license-expression =  1*1(simple-expression / compound-expression / UNLICENSED)
 ```
 
-#### <a name="iconurl"></a>IconUrl
+#### <a name="iconurl"></a>iconUrl
 Adresa URL pro bitovou kopii 64 x 64 s průhlednost pozadí použít jako ikona pro balíček zobrazená v uživatelském rozhraní. Ujistěte se, obsahuje tento element *přímá adresa URL obrázku* nikoli adresa URL webové stránky, který obsahuje bitovou kopii. Například pokud chcete použít některou image z Githubu, použijte soubor raw, jako je adresa URL <em>https://github.com/\<username\>/\<repository\>/raw/\<branch\>/\<logo.png\></em>. 
 
-#### <a name="requirelicenseacceptance"></a>RequireLicenseAcceptance
+#### <a name="requirelicenseacceptance"></a>requireLicenseAcceptance
 Logická hodnota určující, zda klient musí požádat spotřebitele o přijetí licence balíčku před instalací balíčku.
 #### <a name="developmentdependency"></a>DevelopmentDependency
 *(2.8+)* Logická hodnota určující, jestli tento balíček představuje označit jako vývoj – jen závislost, což zabrání balíčku nebudou zahrnuty v závislosti na dalších balíčků. S PackageReference (NuGet 4.8 +) tento příznak také znamená, že vyloučí kompilace prostředků z kompilace. Zobrazit [DevelopmentDependency podporu pro PackageReference](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference)
@@ -144,12 +147,12 @@ Mezerami oddělený seznam značek a klíčových slov, které popisují balíč
 #### <a name="repository"></a>úložiště
 Metadata úložiště, skládající se z čtyři volitelné atributy: *typ* a *url* *(4.0 +)*, a *větev* a  *potvrzení* *(4.6 +)*. Tyto atributy umožňují namapovat .nupkg do úložiště, který sestavilo, má potenciál, chcete-li získat podrobné jako jednotlivé větev nebo potvrzení změn, které sestaven balíček. To by měl být veřejně dostupnou adresu url, který lze vyvolat přímo pomocí softwaru pro řízení verzí. Neměl by být stránku html jako ten je určený pro počítače. Pro odkazování na stránku projektu, použijte `projectUrl` pole, místo toho.
 
-#### <a name="minclientversion"></a>MinClientVersion
+#### <a name="minclientversion"></a>minClientVersion
 Určuje minimální verzi klienta NuGet, který můžete nainstalovat tento balíček, vynucuje nuget.exe a Správce balíčků sady Visual Studio. Používá se pokaždé, když se balíček závisí na konkrétních funkcí služby `.nuspec` souborů, které byly přidány v konkrétní verzi klienta NuGet. Třeba balíček pomocí `developmentDependency` atribut by měl určovat "2.8" pro `minClientVersion`. Obdobně balíček pomocí `contentFiles` – element (viz další části) by měl nastavit `minClientVersion` na "3.3". Upozorňujeme také, že klienti NuGet před 2.5 nedokáže rozpoznat tento příznak jsou *vždy* odmítnout instalace balíčku bez ohledu na to, co `minClientVersion` obsahuje.
 
 #### <a name="collection-elements"></a>Elementy v kolekci
 
-#### <a name="packagetypes"></a>PackageTypes
+#### <a name="packagetypes"></a>packageTypes
 *(3.5 +)*  Kolekce nula nebo více `<packageType>` elementy typu balíčku Pokud než tradiční závislost balíčku. Každý packageType má atributy *název* a *verze*. Zobrazit [nastavení typ balíčku](../create-packages/creating-a-package.md#setting-a-package-type).
 #### <a name="dependencies"></a>závislosti
 Kolekce nula nebo více `<dependency>` prvky určení závislostí pro balíček. Každá závislost má atributy *id*, *verze*, *zahrnují* (3.x+), a *vyloučit* (3.x+). Zobrazit [závislosti](#dependencies-element) níže.
@@ -185,7 +188,7 @@ Obvykle, když máte projekt, vytvoříte `.nuspec` zpočátku pomocí `nuget sp
 
 S výjimkou produktů `$configuration$`, jsou hodnoty v projektu použít preferenci pro libovolné přiřazen stejný token v příkazovém řádku.
 
-| Token | Hodnota zdroje | Hodnota
+| Podpisový | Hodnota zdroje | Hodnota
 | --- | --- | ---
 | **$id$** | soubor projektu | AssemblyName (název) ze souboru projektu |
 | **$version$** | AssemblyInfo | AssemblyInformationalVersion, pokud jsou k dispozici, jinak AssemblyVersion |
@@ -382,7 +385,7 @@ Každý `<file>` prvek určuje následující atributy:
 | Atribut | Popis |
 | --- | --- |
 | **src** | Umístění souboru nebo souborů zahrnout v souladu s vyloučení určené `exclude` atribut. Cesta je vzhledem k `.nuspec` souboru není určena absolutní cestu. Zástupný znak `*` je povolený nebo double zástupné `**` znamená rekurzivní hledání složky. |
-| **Cíl** | Relativní cesta ke složce v rámci balíčku, kde jsou umístěny zdrojové soubory, které musí začínat `lib`, `content`, `build`, nebo `tools`. Zobrazit [vytváření souboru .nuspec z pracovního adresáře podle úmluvy](../create-packages/creating-a-package.md#from-a-convention-based-working-directory). |
+| **target** | Relativní cesta ke složce v rámci balíčku, kde jsou umístěny zdrojové soubory, které musí začínat `lib`, `content`, `build`, nebo `tools`. Zobrazit [vytváření souboru .nuspec z pracovního adresáře podle úmluvy](../create-packages/creating-a-package.md#from-a-convention-based-working-directory). |
 | **Vyloučení** | Středníkem oddělený seznam soubory nebo vzory souborů, které chcete vyloučit z `src` umístění. Zástupný znak `*` je povolený nebo double zástupné `**` znamená rekurzivní hledání složky. |
 
 ### <a name="examples"></a>Příklady
@@ -724,6 +727,6 @@ V tomto příkladu tímto se nainstalují pro konkrétní projekt cílí:
 
 - .NET4 -> `System.Web`, `System.Net`
 - . NET4 -> Client Profile `System.Net`
-- -> Silverlight 3 `System.Json`
+- Silverlight 3 -> `System.Json`
 - Silverlight 4 -> `System.Windows.Controls.DomainServices`
 - WindowsPhone -> `Microsoft.Devices.Sensors`

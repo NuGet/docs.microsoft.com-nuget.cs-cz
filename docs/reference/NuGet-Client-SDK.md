@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8e612d9f86bcffc99870c5541aa6091e678db512
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 97ed3ec7d41d2847c0521af69373a1871eb585dd
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547086"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324679"
 ---
 # <a name="nuget-client-sdk"></a>Sada SDK pro klienta NuGet
 
@@ -30,9 +30,13 @@ Zdrojový kód se publikoval na Githubu v projektu [NuGet/NuGet.Client](https://
 Příklady a dokumentaci pro některé z rozhraní API najdete v následujících seriálech blogu podle Dave Glick, publikování 2016:
 
 - [Zkoumání v3 knihovny NuGet, část 1: Úvod a koncepty](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-1)
-- [Zkoumání v3 knihovny NuGet, část 2: vyhledávání balíčků](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-2)
-- [Zkoumání v3 knihovny NuGet, část 3: instalace balíčků](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-3)
+- [Zkoumání v3 knihovny NuGet, část 2: Vyhledávání balíčků](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-2)
+- [Zkoumání v3 knihovny NuGet, část 3: Instalace balíčků](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-3)
 
 > [!Note]
 > Příspěvky na blogu byly napsány krátce po **3.4.3** verzi Nugetu, byly vydané balíčky sady SDK klienta.
 > Novější verze balíčků možná není kompatibilní s informacemi v blogových příspěvků.
+
+Martin Björkström nebyla zpracování blogovém příspěvku k Dave Glick blogovou sérii, kde mu představuje jiný přístup na pomocí klientské sady SDK NuGet pro instalaci balíčků NuGet:
+
+- [Byste nepřešli znovu na v3 knihovny NuGet](https://martinbjorkstrom.com/posts/2018-09-19-revisiting-nuget-client-libraries)

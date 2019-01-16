@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 09/27/2017
 ms.topic: conceptual
-ms.openlocfilehash: c59839240935e2a6c590dea3adf623313f79f02f
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: a755438c1f63d33271f636cb663cc5b51a5aecbc
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981142"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324809"
 ---
 # <a name="supporting-multiple-net-framework-versions"></a>Podpora více verzí rozhraní .NET framework
 
@@ -125,7 +125,7 @@ Podporované profily jsou následující:
 
 Při balení knihovny, které cílí přenosné knihovny tříd může být složité určit, které se zaměřují NuGet, abyste používali v názvech složek a `.nuspec` souborů, zejména v případě cílení na pouze podmnožinu PCL. Tyto externí prostředky vám pomůžou s tímto:
 
-- [Profily rozhraní v rozhraní .NET](http://blog.stephencleary.com/2012/05/framework-profiles-in-net.html) (stephenclearly.com)
+- [Profily rozhraní v rozhraní .NET](http://blog.stephencleary.com/2012/05/framework-profiles-in-net.html) (stephencleary.com)
 - [Přenosné knihovny tříd profily](http://embed.plnkr.co/03ck2dCtnJogBKHJ9EjY/preview) (plnkr.co): Tabulka výčet PCL profily a jejich odpovídající cíle NuGet
 - [Přenosné knihovny tříd profily nástroj](https://github.com/StephenCleary/PortableLibraryProfiles) (webu github.com): nástroj příkazového řádku pro určení PCL profily k dispozici v systému
 
