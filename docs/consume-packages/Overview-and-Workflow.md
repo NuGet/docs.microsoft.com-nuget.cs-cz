@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/22/2018
 ms.topic: conceptual
-ms.openlocfilehash: 5f52b00e0c45882fb7a4bd1c1a80022192f3be6b
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: 506a093ff4d62c10c896246f746e6765f64f33f4
+ms.sourcegitcommit: a801052aa728a3a137225ca3ef3ff89f2d1c6b76
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580243"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54403161"
 ---
 # <a name="package-consumption-workflow"></a>Spotřeba zabalit pracovní postup
 
@@ -35,7 +35,7 @@ Při přidávání projektu kódu do úložiště zdrojového kódu, obvykle neo
 
 ![Obnovují se balíčky NuGet tak, že klonování úložiště a pomocí příkazu restore tok](media/Overview-02-RestoreFlow.png)
 
-[Obnovení balíčků](../consume-packages/package-restore.md) používá informace v souboru projektu nebo `packages.config` přeinstalovat všechny závislosti. Všimněte si, že existují rozdíly v procesu používané, jak je popsáno v [řešení závislostí](../consume-packages/dependency-resolution.md). Navíc výše uvedeném diagramu nezobrazí příkaz restore pro konzolu Správce balíčků proto, že jste s konzolou jste již v rámci sady Visual Studio, která obvykle automaticky obnoví balíčky a poskytuje řešení úrovni příkaz, jak je znázorněno .
+[Obnovení balíčků](../consume-packages/package-restore.md) používá informace v souboru projektu nebo `packages.config` přeinstalovat všechny závislosti. Všimněte si, že existují rozdíly v procesu používané, jak je popsáno v [řešení závislostí](../consume-packages/dependency-resolution.md). Navíc výše uvedeném diagramu nezobrazí příkaz restore pro konzolu Správce balíčků vzhledem k tomu, že pokud jste s konzolou jste již v rámci sady Visual Studio, která obvykle automaticky obnoví balíčky a poskytuje řešení úrovni příkaz jako Zobrazit.
 
 Někdy je potřeba znovu nainstaluje balíčky, které už jsou obsažené v projektu, který může také znovu nainstalovat závislosti. Je to snadné dosáhnout pomocí `nuget reinstall` příkaz nebo konzoly Správce balíčků NuGet. Podrobnosti najdete v tématu [Reinstalling a aktualizace balíčků](../consume-packages/reinstalling-and-updating-packages.md).
 
