@@ -7,12 +7,12 @@ ms.date: 02/12/2018
 ms.topic: overview
 layout: HubPage
 hide_bc: true
-ms.openlocfilehash: 6e2f00c14433e75323e2b185067e110bc554084c
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 35eef5125c40689da0f888992ea8376bb9eb096b
+ms.sourcegitcommit: a801052aa728a3a137225ca3ef3ff89f2d1c6b76
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43550032"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54403148"
 ---
 <div id="main" class="v2">
 <div class="container">
@@ -53,7 +53,7 @@ ms.locfileid: "43550032"
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                            <h3>Rychlé zprovoznění: Použití balíčku</h3>
+                                            <h3>Rychlý start: Použití balíčku</h3>
                                             <p>Zjistěte, jak nainstalovat a používat balíčky NuGet v rámci projektů (k dispozici jsou návody jak pro rozhraní příkazového řádku dotnet, tak pro Visual Studio).</p>
                                         </div>
                                     </div>
@@ -72,7 +72,7 @@ ms.locfileid: "43550032"
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                            <h3>Rychlé zprovoznění: Vytvoření balíčku</h3>
+                                            <h3>Rychlý start: Vytvoření balíčku</h3>
                                             <p>Prozkoumejte nástroje a možnosti NuGetu pro vytváření balíčků (k dispozici jsou návody jak pro rozhraní příkazového řádku dotnet, tak pro Visual Studio).</p>
                                         </div>
                                     </div>
@@ -224,7 +224,7 @@ ms.locfileid: "43550032"
                             </a>
                         </li>
                         <li>
-                            <a href="policies/nuget-faq.md">
+                            <a href="policies/governance.md">
                             <div class="cardSize">
                                 <div class="cardPadding">
                                     <div class="card">
@@ -235,7 +235,7 @@ ms.locfileid: "43550032"
                                         </div>
                                         <div class="cardText">
                                             <h3>Zásady</h3>
-                                            <p>Nejčastější dotazy a informace o systému NuGet jako open source projektu, odstraňování balíčků a řešení sporů</p>
+                                            <p>Informace o NuGetu jako open source projektu, zásadách správného řízení, ekosystému a řešení sporů</p>
                                         </div>
                                     </div>
                                 </div>
