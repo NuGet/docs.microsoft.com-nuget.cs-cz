@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: c5b0a8efeaadbfb0cbebf72e818683c1ec9a5077
+ms.sourcegitcommit: a801052aa728a3a137225ca3ef3ff89f2d1c6b76
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54403174"
+---
 # [Co je NuGet?](what-is-nuget.md)
 # [Instalace klientských nástrojů NuGetu](install-nuget-client-tools.md)
 # Rychlý start
@@ -239,7 +247,6 @@
 ## [Podpora projektových systémů](visual-studio-extensibility/project-system-support.md)
 ## [Šablony sady Visual Studio](visual-studio-extensibility/visual-studio-templates.md)
 # Zásady
-## [NuGet – nejčastější dotazy](policies/nuget-faq.md)
 ## [Zásady správného řízení](policies/governance.md)
 ## [Ekosystém](policies/ecosystem.md)
 ## [Žádosti o data](policies/Data-requests.md)
@@ -305,3 +312,4 @@
 ## [NuGet 1.3](release-notes/NuGet-1.3.md)
 ## [NuGet 1.2](release-notes/NuGet-1.2.md)
 ## [NuGet 1.1](release-notes/NuGet-1.1.md)
+# [Nejčastější dotazy](faqs/nuget-faq.md)
