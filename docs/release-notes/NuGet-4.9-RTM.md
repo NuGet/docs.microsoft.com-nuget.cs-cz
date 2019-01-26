@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/20/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7dcb2e430ad80815f716f5567b511ff08acfe31b
-ms.sourcegitcommit: a9babe261f67da0f714d168d04ea54a66628974b
+ms.openlocfilehash: 99578c5ed7e88b7269872bf88c465bbda462870a
+ms.sourcegitcommit: 585394f063e95dcbc24d7ac0ce07de643eaf6f4d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53735133"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "55045105"
 ---
 # <a name="nuget-49-release-notes"></a>Zpráva k vydání verze 4.9 NuGet
 
@@ -18,9 +18,11 @@ Distribuce vozidel NuGet:
 
 | Verze NuGet | K dispozici ve verzi sady Visual Studio| K dispozici v rozhraní .NET SDK, pomocí kterých|
 |:---|:---|:---|
-| **4.9.0** | Visual Studio 2017 verze 15.9.0 | 2.1.500, 2.2.100 |
-| **4.9.1** | není k dispozici | není k dispozici |
-| [**4.9.2**](https://nuget.org/downloads) |[Visual Studio 2017 verze 15.9.4](https://visualstudio.microsoft.com/downloads/) | [2.1.502, 2.2.101](https://www.microsoft.com/net/download/visual-studio-sdks) |
+| [**4.9.0**](https://nuget.org/downloads) | [Visual Studio 2017 verze 15.9.0](https://visualstudio.microsoft.com/downloads/) | [2.1.500, 2.2.100](https://www.microsoft.com/net/download/visual-studio-sdks) |
+| [**4.9.1**](https://nuget.org/downloads) | není k dispozici | není k dispozici |
+| [**4.9.2**](https://nuget.org/downloads) |[Visual Studio 2017 version 15.9.4](https://visualstudio.microsoft.com/downloads/) | [2.1.502, 2.2.101](https://www.microsoft.com/net/download/visual-studio-sdks) |
+| [**4.9.3**](https://nuget.org/downloads) |[Visual Studio 2017 verze 15.9.6](https://visualstudio.microsoft.com/downloads/) | není k dispozici |
+
 
 ## <a name="summary-whats-new-in-490"></a>Shrnutí: Co je nového v 4.9.0
 
@@ -35,6 +37,8 @@ Distribuce vozidel NuGet:
 * Umožňují vyjádřit výslovný souhlas metadat "GeneratePathProperty" na PackageReference ke generování jednu vlastnost MSBuild balíčku na "Foo.Bar\1.0\" directory – [#6949](https://github.com/NuGet/Home/issues/6949)
 
 * Zlepšení úspěchy zákazníků s operacemi NuGet - [#7108](https://github.com/NuGet/Home/issues/7108)
+
+* Povolení opakovatelných balíček obnovení pomocí zámek souboru - [#5602](https://github.com/NuGet/Home/issues/5602), [oznámení](https://github.com/NuGet/Announcements/issues/28), [blogový příspěvek](https://blog.nuget.org/20181217/Enable-repeatable-package-restores-using-a-lock-file.html)
 
 ### <a name="issues-fixed-in-this-release"></a>Chyby opravené v této verzi
 
@@ -106,6 +110,35 @@ Distribuce vozidel NuGet:
 
 [Seznam všech problémů, které jsou opravené v této verzi 4.9.2](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9.2")
 
+## <a name="summary-whats-new-in-493"></a>Shrnutí: Co je nového v 4.9.3
+
+### <a name="issues-fixed-in-this-release"></a>Chyby opravené v této verzi
+#### <a name="repeatable-package-restores-using-a-lock-file-issues"></a>Problémy s "Opakovatelné balíček obnovení pomocí souboru zámku"
+
+* Uzamčeném režimu nebudou fungovat podle hodnoty hash se počítá nesprávně pro dříve uložené v mezipaměti balíčky - [#7682](https://github.com/NuGet/Home/issues/7682)
+
+* Obnovení se překládá na jinou verzi než definované v `packages.lock.json` soubor – [#7667](https://github.com/NuGet/Home/issues/7667)
+
+* "--uzamčen režim / RestoreLockedMode' způsobuje nesprávné selhání obnovení, když se podílejí projectreferences má za následek - [#7646](https://github.com/NuGet/Home/issues/7646)
+
+* Překladač sady MSBuild SDK se pokusí ověřit SHA pro balíček sady SDK, které při používání packages.lock.json – se nezdaří obnovení [#7599](https://github.com/NuGet/Home/issues/7599)
+
+#### <a name="lock-down-your-dependencies-using-configurable-trust-policies-issues"></a>Problémy s "Zamknout závislostí pomocí vztahu důvěryhodnosti Konfigurovatelné zásady"
+* DotNet.exe by neměl vyhodnotit důvěryhodné podepisující osoby, zatímco podepsané balíčky nejsou podporovány - [#7574](https://github.com/NuGet/Home/issues/7574)
+
+* Pořadí trustedSigners v konfiguračním souboru ovlivňuje vyhodnotit důvěryhodnost - [#7572](https://github.com/NuGet/Home/issues/7572)
+
+* Nejde implementovat ISettings [způsobené refaktoring nastavení rozhraní API k podpoře funkce zásady důvěryhodnosti]- [#7614](https://github.com/NuGet/Home/issues/7614)
+
+#### <a name="improved-debugging-experience-issues"></a>Problémy s "Vylepšené možnosti ladění"
+
+* Nejde publikovat balíček symbolů pro globální nástroji .NET Core – [#7632](https://github.com/NuGet/Home/issues/7632)
+
+#### <a name="self-contained-nuget-packages---license-issues"></a>Problémy s "Balíčky NuGet samostatná - licence"
+
+* Chyba při sestavování .snupkg balíček symbolů při použití vložený soubor s licencí - [#7591](https://github.com/NuGet/Home/issues/7591)
+
+[Seznam všech problémů, které jsou opravené v této verzi 4.9.3](https://github.com/nuget/home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9.3")
 ## <a name="known-issues"></a>Známé problémy
 
 ### <a name="dotnet-nuget-push---interactive-gives-an-error-on-mac---7519httpsgithubcomnugethomeissues7519"></a>DotNet nuget příkaz push--interaktivní vrátí chybu v systému Mac. - [#7519](https://github.com/NuGet/Home/issues/7519)

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: cdbe13df04bb27091b684a4ae27b0e751da1098f
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: a561a49f2e733929e32584adf7b6849ea535c440
+ms.sourcegitcommit: 585394f063e95dcbc24d7ac0ce07de643eaf6f4d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549031"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "55046252"
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>Jak NuGet řeší závislosti balíčků
 
@@ -117,10 +117,10 @@ Existují scénáře, ve kterých sestavení se stejným názvem, může odkazov
 
 Chcete-li tento problém vyřešit, musí přímo odkazovat `C.dll` mají (nebo použijte jiný balíček, který odkazuje na ten správný) a pak přidat závislost na balíčku C, který vylučuje všechny její prostředky. To v závislosti na formát správy balíčků v pomocí provádí následujícím způsobem:
 
-- [PackageReference](../consume-packages/package-references-in-project-files.md): Přidat `Exclude="All"` v závislost:
+- [PackageReference](../consume-packages/package-references-in-project-files.md): Přidat `ExcludeAssets="All"` v závislost:
 
     ```xml
-    <PackageReference Include="PackageC" Version="1.0.0" Exclude="All" />
+    <PackageReference Include="PackageC" Version="1.0.0" ExcludeAssets="All" />
     ```
 
 - `packages.config`: odeberte odkaz na PackageC z `.csproj` souboru tak, aby odkazoval pouze verzi `C.dll` , který chcete.
