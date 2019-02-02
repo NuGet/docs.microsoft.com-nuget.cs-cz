@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: dbdd171321c2560adc06feccbd60fc4e84dcf0a3
-ms.sourcegitcommit: a801052aa728a3a137225ca3ef3ff89f2d1c6b76
+ms.openlocfilehash: 290055a306306e944695d3a6ac970819882ee0c6
+ms.sourcegitcommit: 046717af2eba9ff6f619a0533844dee56a600d1c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54403239"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55648267"
 ---
 # <a name="nuget-frequently-asked-questions"></a>NuGet – nejčastější dotazy
 
@@ -235,10 +235,17 @@ Poznámka: to může být nutné nastavit `HTTP_PROXY` proměnnou prostředí, a
 
 Pokud se to nepodaří, zkuste [tipy uvedených v tomto příspěvku na StackOverflow](http://stackoverflow.com/questions/21049908/using-fiddler-to-sniff-visual-studio-2013-requests-proxy-firewall).
 
-**Jaké jsou koncové body rozhraní API pro nuget.org?**
+## <a name="what-is-the-api-endpoint-for-nugetorg"></a>Co je koncový bod rozhraní API pro nuget.org?
 
-- V3: `https://api.nuget.org/v3/index.json`
-- V2: `https://www.nuget.org/api/v2/` (Všimněte si, že rozhraní API verze 2 je zastaralý a nefunguje s NuGet 4 +.)
+Pokud chcete použít jako úložiště balíčků s klienty NuGet nuget.org, je třeba použít následující koncový bod rozhraní API V3: 
+
+**`https://api.nuget.org/v3/index.json`**
+
+Starší klienti stále může použít protokol v2 k dosažení nuget.org. Nicméně nezapomeňte prosím, že klienti NuGet 3.0 nebo vyšší budou mít nižší a méně spolehlivé služby pomocí protokolu v2:
+
+`https://www.nuget.org/api/v2/` (NEPOUŽÍVANÉ). **Poznámka:** "www". je důležité.
+
+Kromě toho *NuGet.exe seznamu* funguje jenom s protokolem v2.
 
 ## <a name="nugetorg-account-management"></a>Správa účtů nuget.org
 
