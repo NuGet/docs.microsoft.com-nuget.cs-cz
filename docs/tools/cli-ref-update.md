@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: fc34550b3669d83466318645987cfd3078bc3c18
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: ded9b571324d810c2f0e1a46ea76375a28940406
+ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545097"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56145602"
 ---
 # <a name="update-command-nuget-cli"></a>Příkaz update (NuGet CLI)
 
@@ -42,7 +42,7 @@ kde `<configPath>` identifikuje buď `packages.config` nebo soubor řešení, kt
 | Nápověda | Zobrazí nápovědu pro příkaz. |
 | ID | Určuje seznam ID k aktualizaci balíčku. |
 | MSBuildPath | *(4.0 +)*  Určuje cestu k používání pomocí příkazu, přednost `-MSBuildVersion`. |
-| MSBuildVersion | *(3.2 +)*  Určuje verzi Msbuildu, který se má použít tento příkaz. Podporované hodnoty jsou 4, 12, 14, 15. Ve výchozím nastavení se vybere MSBuild na vaší cestě jinak je výchozí hodnotou nejvyšší nainstalovaná verze Msbuildu. |
+| MSBuildVersion | *(3.2 +)*  Určuje verzi Msbuildu, který se má použít tento příkaz. Podporované hodnoty jsou 4, 12, 14, 15.1, 15.3, 15.4, 15.5, verzi 15.6, 15.7, 15.8, 15.9. Ve výchozím nastavení se vybere MSBuild na vaší cestě jinak je výchozí hodnotou nejvyšší nainstalovaná verze Msbuildu. |
 | Neinteraktivní | Potlačí vyzve k zadání uživatele o vstup ani potvrzení. |
 | Platnost předběžné verze | Umožňuje aktualizaci pro předběžné verze. Tento příznak není potřeba při aktualizaci předběžné verze balíčků, které jsou již nainstalovány. |
 | RepositoryPath | Určuje místní složku, ve kterém jsou nainstalované balíčky. |

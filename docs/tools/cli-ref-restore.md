@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 06e3a26863761b7e7a42752866e7fe369f5be4ef
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: adf97196f50f2a55d6b8ceed93d53ff12b67657b
+ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43550349"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56145628"
 ---
 # <a name="restore-command-nuget-cli"></a>příkaz Restore (rozhraní příkazového řádku NuGet)
 
-**Platí pro:** balíček spotřeby &bullet; **podporované verze:** 2.7 +
+**Platí pro:** balíček spotřeby &bullet; **podporované verze:** 2.7+
 
 Stáhne a nainstaluje všechny balíčky, které chybí `packages` složky. Při použití s PackageReference formátu a NuGet 4.0 +, generuje `<project>.nuget.props` v případě potřeby v souboru `obj` složky. (Tento soubor můžete vynechat ze správy zdrojového kódu.)
 
@@ -39,7 +39,7 @@ kde `<projectPath>` Určuje umístění řešení nebo `packages.config` souboru
 | ForceEnglishOutput | *(3.5 +)*  Vynutí nuget.exe pro spuštění pomocí neutrální, základem je angličtina jazyková verze. |
 | Nápověda | Zobrazí nápovědu pro příkaz. |
 | MSBuildPath | *(4.0 +)*  Určuje cestu k používání pomocí příkazu, přednost `-MSBuildVersion`. |
-| MSBuildVersion | *(3.2 +)*  Určuje verzi Msbuildu, který se má použít tento příkaz. Podporované hodnoty jsou 4, 12, 14, 15. Ve výchozím nastavení se vybere MSBuild na vaší cestě jinak je výchozí hodnotou nejvyšší nainstalovaná verze Msbuildu. |
+| MSBuildVersion | *(3.2 +)*  Určuje verzi Msbuildu, který se má použít tento příkaz. Podporované hodnoty jsou 4, 12, 14, 15.1, 15.3, 15.4, 15.5, verzi 15.6, 15.7, 15.8, 15.9. Ve výchozím nastavení se vybere MSBuild na vaší cestě jinak je výchozí hodnotou nejvyšší nainstalovaná verze Msbuildu. |
 | NoCache | Brání použití mezipaměti balíčků NuGet. Zobrazit [Správa globálních balíčků a složek mezipaměti](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
 | Neinteraktivní | Potlačí vyzve k zadání uživatele o vstup ani potvrzení. |
 | OutputDirectory | Určuje složku, ve kterém jsou nainstalované balíčky. Pokud není zadána žádná složka, použije se aktuální složce. Při obnovení se vyžaduje `packages.config` souboru není-li `PackagesDirectory` nebo `SolutionDirectory` se používá.|

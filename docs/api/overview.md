@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 39b710c483ce4b3f2da30df6bb5b6842f9ee1fca
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: 5d0d60cbcf6516d24efeb04f8262902da69d92d1
+ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324835"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56145654"
 ---
 # <a name="nuget-api"></a>NuGet API
 
@@ -49,17 +49,17 @@ Bez konce protokolu změnám rozhraní API od prvního vydání.
 
 **Index služby** popisuje různé druhy prostředků. Aktuální sadu prostředků podporované jsou následující:
 
-Název prostředku                                                           | Požadováno | Popis
-----------------------------------------------------------------------  | -------- | -----------
+Název prostředku                                                          | Požadováno | Popis
+---------------------------------------------------------------------- | -------- | -----------
 [`PackagePublish`](package-publish-resource.md)                        | ano      | Push a delete (nebo vyjmutí ze seznamu) balíčky.
 [`SearchQueryService`](search-query-service-resource.md)               | ano      | Můžete filtrovat a hledat balíčky – klíčové slovo.
 [`RegistrationsBaseUrl`](registration-base-url-resource.md)            | ano      | Získáte metadata balíčku.
 [`PackageBaseAddress`](package-base-address-resource.md)               | ano      | Získáte balíček obsahu (.nupkg).
 [`SearchAutocompleteService`](search-autocomplete-service-resource.md) | Ne       | Zjistíte ID balíčku a verze pomocí dílčí řetězec.
 [`ReportAbuseUriTemplate`](report-abuse-resource.md)                   | Ne       | Vytvořte adresu URL pro přístup k webové stránky "ohlásit nevhodné chování".
-[`RepositorySignatures`](repository-signatures-resource.md)             | Ne      | Získání certifikátů pro podpis úložiště.
-[`Catalog`](catalog-resource.md)                                         | Ne      | Celý záznam všech událostí balíčku.
-[`SymbolPackagePublish`](symbol-package-publish-resource.md)            | Ne      | Nabízená oznámení balíčky symbolů.
+[`RepositorySignatures`](repository-signatures-resource.md)            | Ne       | Získání certifikátů pro podpis úložiště.
+[`Catalog`](catalog-resource.md)                                       | Ne       | Celý záznam všech událostí balíčku.
+[`SymbolPackagePublish`](symbol-package-publish-resource.md)           | Ne       | Nabízená oznámení balíčky symbolů.
 
 Obecně platí všechny NEBINÁRNÍ data vrácená rozhraním API prostředku se serializují pomocí formátu JSON. Schéma odpovědi vrácené každého prostředku v indexu služby je samostatně definované pro daný prostředek. Další informace o jednotlivých prostředcích najdete v tématech uvedených výše.
 
@@ -67,6 +67,19 @@ V budoucnu jak protokol vyvíjí, mohou přidat nové vlastnosti do odpověďmi 
 
 > [!Note]
 > Když zdroj neimplementuje `SearchAutocompleteService` všechna chování automatického dokončování by mělo být zakázáno bez výpadku. Když `ReportAbuseUriTemplate` neimplementována oficiální spadá klienta NuGet zpět na nuget.org ohlásit nevhodné chování adresy URL (sledované podle [Domů NuGet #4924](https://github.com/NuGet/Home/issues/4924)). Jiní klienti mohou zvolit, aby jednoduše adresa URL pro sestavu zneužití nezobrazovat uživateli.
+
+### <a name="undocumented-resources-on-nugetorg"></a>Nezdokumentovaný prostředky na nuget.org
+
+Index služby V3 na nuget.org má některé prostředky, které nejsou uvedené výše. Existuje několik důvodů, proč není dokumentace prostředku.
+
+Nejprve není dokumentujeme prostředky používané jako podrobnost implementace nuget.org. `SearchGalleryQueryService` Spadá do této kategorie. [NuGetGallery](https://github.com/NuGet/NuGetGallery) používá tento prostředek delegovat některé V2 (OData) dotazy do indexu vyhledávání namísto použití databáze. Tento prostředek byl zaveden kvůli škálovatelnosti a není určena pro externí použití.
+
+Za druhé není dokumentujeme prostředky, které nikdy dodáno ve verzi RTM sady oficiální klienta.
+`PackageDisplayMetadataUriTemplate` a `PackageVersionDisplayMetadataUriTemplate` do této kategorie patří.
+
+Za třetí, není dokumentujeme prostředky, které jsou úzce svázány s protokolem V2, které je úmyslně nedokumentované. `LegacyGallery` Prostředek patří do této kategorie. Tento prostředek umožňuje index pro služby V3, tak, aby odkazoval na adresu URL odpovídající zdroj V2. Tento prostředek podporuje `nuget.exe list`.
+
+Pokud prostředek není zdokumentované tady, jsme *důrazně* doporučujeme nepřebírají závislost na ně. Můžeme odebrat nebo změnit chování těchto nedokumentované prostředky, které by mohly narušit vaše implementace neočekávaným způsobem.
 
 ## <a name="timestamps"></a>Časová razítka
 

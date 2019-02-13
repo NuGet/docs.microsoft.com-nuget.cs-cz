@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/25/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 4741d780afa4fbe11001aed49a9f72bf608d96d9
-ms.sourcegitcommit: a1846edf70ddb2505d58e536e08e952d870931b0
+ms.openlocfilehash: 45d8a6557ee02998f3d12b128ee2dc4fd6ae48bb
+ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52303560"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56145589"
 ---
 # <a name="hosting-your-own-nuget-feeds"></a>Hostování vlastní NuGet informační kanály
 
@@ -19,13 +19,13 @@ Místo toho veřejně dostupné balíčky, může být vhodné k uvolnění bal�
 
 Pro tyto účely NuGet podporuje nastavení privátních zdrojů balíčků následujícími způsoby:
 
-- Místní informační kanál: balíčky jsou jednoduše umístěna ve vhodné síťové sdílené složce, v ideálním případě pomocí `nuget init` a `nuget add` vytvořit hierarchická struktura složek (NuGet 3.3 +). Podrobnosti najdete v tématu [místní informační kanály](../hosting-packages/local-feeds.md).
+- Místní informační kanál: Balíčky jsou jednoduše umístěny ve vhodné síťové sdílené složce, v ideálním případě pomocí `nuget init` a `nuget add` vytvořit hierarchická struktura složek (NuGet 3.3 +). Podrobnosti najdete v tématu [místní informační kanály](../hosting-packages/local-feeds.md).
 - NuGet.Server: Balíčky jsou k dispozici prostřednictvím místního serveru HTTP. Podrobnosti najdete v tématu [NuGet.Server](../hosting-packages/nuget-server.md).
 - Galerie NuGet: Balíčky jsou hostované na serveru Internetu pomocí [projektu Galerie NuGet](https://github.com/NuGet/NuGetGallery#build-and-run-the-gallery-in-arbitrary-number-easy-steps) (webu github.com). Galerie NuGet obsahuje funkce, jako je rozsáhlé webové uživatelské rozhraní, které umožňuje vyhledávání a zkoumání balíčků z prohlížeče, podobně jako na nuget.org a správy uživatelů.
 
 Existuje také několik NuGet hostování produkty, které podporují vzdálené privátní kanály, včetně následujících:
 
-- [Visual Studio Team Services Package Management](https://www.visualstudio.com/docs/package/nuget/publish), což je také k dispozici na Team Foundation Server 2017 a novější.
+- [Azure artefakty](https://www.visualstudio.com/docs/package/nuget/publish), což je také k dispozici na Team Foundation Server 2017 a novější.
 - [MyGet](http://myget.org)
 - [ProGet](http://inedo.com/proget) z Inedo
 - [NuGet Server](http://nugetserver.net/), projekt komunitních z Inedo

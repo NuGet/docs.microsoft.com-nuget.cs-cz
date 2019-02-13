@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 290055a306306e944695d3a6ac970819882ee0c6
-ms.sourcegitcommit: 046717af2eba9ff6f619a0533844dee56a600d1c
+ms.openlocfilehash: f15639c883241c328b5fc0a4bf5617540b52b7ee
+ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55648267"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56145680"
 ---
 # <a name="nuget-frequently-asked-questions"></a>NuGet – nejčastější dotazy
 
@@ -237,15 +237,13 @@ Pokud se to nepodaří, zkuste [tipy uvedených v tomto příspěvku na StackOve
 
 ## <a name="what-is-the-api-endpoint-for-nugetorg"></a>Co je koncový bod rozhraní API pro nuget.org?
 
-Pokud chcete použít jako úložiště balíčků s klienty NuGet nuget.org, je třeba použít následující koncový bod rozhraní API V3: 
+Pokud chcete použít jako úložiště balíčků s klienty NuGet nuget.org, měli byste použít následující koncový bod rozhraní API V3: 
 
 **`https://api.nuget.org/v3/index.json`**
 
-Starší klienti stále může použít protokol v2 k dosažení nuget.org. Nicméně nezapomeňte prosím, že klienti NuGet 3.0 nebo vyšší budou mít nižší a méně spolehlivé služby pomocí protokolu v2:
+Starší klienti stále může použít protokol V2 k dosažení nuget.org. Nicméně nezapomeňte prosím, že klienti NuGet 3.0 nebo vyšší budou mít nižší a méně spolehlivé služby pomocí protokolu V2:
 
-`https://www.nuget.org/api/v2/` (NEPOUŽÍVANÉ). **Poznámka:** "www". je důležité.
-
-Kromě toho *NuGet.exe seznamu* funguje jenom s protokolem v2.
+`https://www.nuget.org/api/v2` (NEPOUŽÍVANÉ). **Poznámka:** použijte "www". pro nejlepší spolehlivost.
 
 ## <a name="nugetorg-account-management"></a>Správa účtů nuget.org
 
