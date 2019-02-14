@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: a561a49f2e733929e32584adf7b6849ea535c440
-ms.sourcegitcommit: 585394f063e95dcbc24d7ac0ce07de643eaf6f4d
+ms.openlocfilehash: a2aed3950b3e19e30d9d026ad1b9bdaef44c9d37
+ms.sourcegitcommit: 1ab750ff17e55c763d646c50e7630138804ce8b8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "55046252"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56247643"
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>Jak NuGet řeší závislosti balíčků
 
@@ -24,7 +24,7 @@ Když více balíčků mají stejné závislost, pak stejné ID balíčku mohou 
 
 Při instalaci balíčků do projektů s použitím formátu PackageReference, NuGet přidá odkazy na graf plochých balíčků v příslušný soubor a řeší konflikty předem. Tento proces se označuje jako *tranzitivní obnovení*. Přeinstalace nebo obnovování balíčků je pak proces stahování balíčky uvedené v grafu, výsledkem je rychlejší a předvídatelnější sestavení. Můžete taky využít výhod zástupný znak (s plovoucí desetinnou čárkou) verzí, jako například 2.8. \*, vyhnout náročné a náchylné k chybám volání chyba `nuget update` na klientských počítačích a serverech sestavení.
 
-Když spustíte proces obnovení NuGet před sestavení, nejprve řeší závislosti v paměti a pak zapíše Výsledný graf do souboru s názvem `project.assets.json` v `obj` složky projektu pomocí PackageReference. Nástroj MSBuild pak načte tento soubor a převede ho na sadu složek, kde najdete potenciální odkazy a přidá je do stromu projektu v paměti.
+Když spustíte proces obnovení NuGet před sestavení, nejprve řeší závislosti v paměti a pak zapíše Výsledný graf do souboru s názvem `project.assets.json`. Soubor prostředků, který se nachází v `MSBuildProjectExtensionsPath`, která má výchozí hodnotu "obj" složky projektu. Nástroj MSBuild pak načte tento soubor a převede ho na sadu složek, kde najdete potenciální odkazy a přidá je do stromu projektu v paměti.
 
 Soubor zámku je dočasný a neměl by se přidávat do správy zdrojového kódu. Je uvedený ve výchozím nastavení v obou `.gitignore` a `.tfignore`. Zobrazit [balíčky a Správa zdrojového kódu](packages-and-source-control.md).
 

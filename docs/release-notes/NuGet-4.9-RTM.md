@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/20/2018
 ms.topic: conceptual
-ms.openlocfilehash: 99578c5ed7e88b7269872bf88c465bbda462870a
-ms.sourcegitcommit: 585394f063e95dcbc24d7ac0ce07de643eaf6f4d
+ms.openlocfilehash: aa9bf87504477506dbb1e9ac10d5c1d5841c224f
+ms.sourcegitcommit: 885973352d31808e3ddbb45da6d6e54d1e4fca9d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "55045105"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56224941"
 ---
 # <a name="nuget-49-release-notes"></a>Zpráva k vydání verze 4.9 NuGet
 
@@ -21,7 +21,7 @@ Distribuce vozidel NuGet:
 | [**4.9.0**](https://nuget.org/downloads) | [Visual Studio 2017 verze 15.9.0](https://visualstudio.microsoft.com/downloads/) | [2.1.500, 2.2.100](https://www.microsoft.com/net/download/visual-studio-sdks) |
 | [**4.9.1**](https://nuget.org/downloads) | není k dispozici | není k dispozici |
 | [**4.9.2**](https://nuget.org/downloads) |[Visual Studio 2017 version 15.9.4](https://visualstudio.microsoft.com/downloads/) | [2.1.502, 2.2.101](https://www.microsoft.com/net/download/visual-studio-sdks) |
-| [**4.9.3**](https://nuget.org/downloads) |[Visual Studio 2017 verze 15.9.6](https://visualstudio.microsoft.com/downloads/) | není k dispozici |
+| [**4.9.3**](https://nuget.org/downloads) |[Visual Studio 2017 verze 15.9.6](https://visualstudio.microsoft.com/downloads/) | [2.1.504, 2.2.104](https://www.microsoft.com/net/download/visual-studio-sdks) |
 
 
 ## <a name="summary-whats-new-in-490"></a>Shrnutí: Co je nového v 4.9.0
