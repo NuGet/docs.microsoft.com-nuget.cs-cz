@@ -6,21 +6,21 @@ ms.author: karann
 ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: bd36ae311da1ec824726c5d73670b1232a3f89e0
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: bd19bc402ff9d66d7e2baa4f326d75f0ed444f30
+ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549583"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56852569"
 ---
 # <a name="publishing-packages"></a>Publikování balíčků
 
 Po vytvoření balíčku a mít vaše `.nupkg` soubor spolupráce, je jednoduchý proces, aby byla k dispozici pro jiné vývojáře veřejně nebo soukromě:
 
 - Veřejné balíčky jsou k dispozici pro všechny vývojáře globálně až [nuget.org](https://www.nuget.org/packages/manage/upload) jak je popsáno v tomto článku (vyžaduje NuGet 4.1.0+).
-- Privátní balíčky jsou k dispozici pouze tým nebo organizace, hostováním buď sdílené, privátní server NuGet [Visual Studio Team Services Package Management](https://www.visualstudio.com/docs/package/nuget/publish), nebo jiného úložiště, jako je například myget ProGet, Nexus Úložiště a Artifactory. Další podrobnosti najdete v tématu [hostování balíčků přehled](../hosting-packages/overview.md).
+- Privátní balíčky jsou k dispozici pouze tým nebo organizace, hostováním buď sdílené, privátní server NuGet [Azure artefakty](https://www.visualstudio.com/docs/package/nuget/publish), nebo jiného úložiště, jako je například myget, ProGet, Nexus úložiště a Artifactory. Další podrobnosti najdete v tématu [hostování balíčků přehled](../hosting-packages/overview.md).
 
-Tento článek se týká publikování do nuget.org; publikování do služby Visual Studio Team Services, najdete v části [správy balíčků](https://www.visualstudio.com/docs/package/nuget/publish).
+Tento článek se týká publikování do nuget.org; publikování artefaktů Azure, najdete v části [správy balíčků](https://www.visualstudio.com/docs/package/nuget/publish).
 
 ## <a name="publish-to-nugetorg"></a>Publikování na nuget.org
 
@@ -28,7 +28,7 @@ Pro nuget.org musíte se přihlásit pomocí účtu Microsoft, pomocí kterého 
 
 ![NuGet přihlášení umístění](media/publish_NuGetSignIn.png)
 
-V dalším kroku můžete buď nahrání balíčku prostřednictvím webového portálu nuget.org, push na nuget.org z příkazového řádku (vyžaduje `nuget.exe` 4.1.0+), nebo publikovat jako součást procesu CI/CD pomocí Visual Studio Team Services, jak je popsáno v následujících částech.
+V dalším kroku můžete buď nahrání balíčku prostřednictvím webového portálu nuget.org, push na nuget.org z příkazového řádku (vyžaduje `nuget.exe` 4.1.0+), nebo publikovat jako součást procesu CI/CD DevOps službami Azure, jak je popsáno v následujících částech.
 
 ### <a name="web-portal-use-the-upload-package-tab-on-nugetorg"></a>Webový portál: na kartě nahrání balíčků na nuget.org
 
@@ -93,9 +93,9 @@ Všimněte si, že může trvat nějakou dobu vašeho balíčku indexovat a zobr
 
 ![Zpráva oznamující, že balíček ještě nebyla publikována.](media/publish_NotYetIndexed.png)
 
-### <a name="visual-studio-team-services-cicd"></a>Visual Studio Team Services (CI/CD)
+### <a name="azure-devops-services-cicd"></a>Služby Azure DevOps (CI/CD)
 
-Pokud vložíte balíčků na nuget.org jako součást procesu průběžnou integraci a nasazování pomocí Visual Studio Team Services, je nutné použít `nuget.exe` 4.1 nebo vyšší v úlohách NuGet. Podrobnosti najdete na [pomocí nejnovějšího balíčku NuGet ve vašem buildu](https://blogs.msdn.microsoft.com/devops/2017/09/29/using-the-latest-nuget-in-your-build/) (blogu Microsoft DevOps).
+Pokud vložíte balíčků na nuget.org jako součást procesu průběžnou integraci a nasazování pomocí služby Azure DevOps, je nutné použít `nuget.exe` 4.1 nebo vyšší v úlohách NuGet. Podrobnosti najdete na [pomocí nejnovějšího balíčku NuGet ve vašem buildu](https://blogs.msdn.microsoft.com/devops/2017/09/29/using-the-latest-nuget-in-your-build/) (blogu Microsoft DevOps).
 
 ## <a name="managing-package-owners-on-nugetorg"></a>Správa vlastníků balíčků na nuget.org
 

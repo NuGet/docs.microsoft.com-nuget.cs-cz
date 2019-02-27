@@ -16,14 +16,16 @@ keywords: Symbol balíčky NuGet, balíček NuGet ladění, podpora, balíček s
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 1fbb243a7b3518307a393b5f371feae1edb7623a
-ms.sourcegitcommit: 5c5f0f0e1f79098e27d9566dd98371f6ee16f8b5
+ms.openlocfilehash: 43f346dc64ebbc59d02b9c7875b04205d8c5d83a
+ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53645656"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56852439"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Vytváření balíčků symbolů (.snupkg)
+
+Balíčky symbolů umožňují ladění vylepšit vaše balíčky NuGet.
 
 ## <a name="prerequisites"></a>Požadavky
 
@@ -31,22 +33,28 @@ ms.locfileid: "53645656"
 
 ## <a name="creating-a-symbol-package"></a>Vytváří se balíček symbolů
 
-Balíček symbolů snupkg lze vytvořit ze souboru .nuspec souboru nebo ze souboru csproj. NuGet.exe a dotnet.exe jsou podporované. Když možnosti ```-Symbols -SymbolPackageFormat snupkg``` se používají na příkaz pack nuget.exe, vytvoří se soubor .snupkg kromě .nupkg souboru.
+Můžete vytvořit balíček symbolů snupkg pomocí dotnet.exe, NuGet.exe nebo MSBuild. Pokud používáte NuGet.exe, můžete použít následující příkazy k vytvoření souboru .snupkg kromě .nupkg souboru:
 
-Příklady příkazů pro vytvoření .snupkg souborů
 ```
-dotnet pack MyPackage.csproj --include-symbols -p:SymbolPackageFormat=snupkg
-
 nuget pack MyPackage.nuspec -Symbols -SymbolPackageFormat snupkg
 
 nuget pack MyPackage.csproj -Symbols -SymbolPackageFormat snupkg
-
-msbuild -t:pack MyPackage.csproj -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
 ```
 
-`.snupkgs` nejsou vytvořené ve výchozím nastavení. Je nutné předat `SymbolPackageFormat` vlastnost spolu s `-Symbols` v případě nuget.exe, `--include-symbols` v případě dotnet.exe, nebo `-p:IncludeSymbols` v případě nástroje msbuild.
+Pokud používáte dotnet.exe nebo MSBuild, použijte následující kroky k vytvoření souboru .snupkg kromě .nupkg souboru:
 
-Vlastnost SymbolPackageFormat může mít jednu ze dvou hodnot: `symbols.nupkg` (výchozí) nebo `snupkg`. Pokud SymbolPackageFormat není zadán, použije se výchozí `symbols.nupkg` a vytvoří se balíček symbolů starší verze.
+1. Do souboru .csproj přidejte následující vlastnosti:
+
+    ```xml
+    <PropertyGroup>
+      <IncludeSymbols>true</IncludeSymbols>
+      <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    </PropertyGroup>
+    ```
+
+1. Váš projekt s aktualizací Service Pack `dotnet pack MyPackage.csproj` nebo `msbuild -t:pack MyPackage.csproj`.
+
+`SymbolPackageFormat` Vlastnost může mít jednu ze dvou hodnot: `symbols.nupkg` (výchozí) nebo `snupkg`. Pokud `SymbolPackageFormat` vlastnost není zadaný, použije se výchozí `symbols.nupkg` a vytvoří se balíček symbolů starší verze.
 
 > [!Note]
 > Starší verze formátu `.symbols.nupkg` je ale pouze z důvodů kompatibility stále podporována (viz [starších verzí balíčků symbolů](Symbol-Packages.md)). Server symbolů NuGet.org přijímá pouze nový formát balíček symbolů - `.snupkg`.
@@ -73,7 +81,7 @@ Vlastnost SymbolPackageFormat může mít jednu ze dvou hodnot: `symbols.nupkg` 
 
 NuGet se publikovat oba balíčky nuget.org. `MyPackage.nupkg` se nejprve publikovat, za nímž následuje `MyPackage.snupkg`.
 
-## <a name="nugetorg-symbol-server"></a>Server symbolů NuGet.org
+## <a name="nugetorg-symbol-server"></a>NuGet.org symbol server
 
 NuGet.org podporuje své vlastní úložiště serveru symbolů a přijímá pouze nový formát balíček symbolů - `.snupkg`. Příjemci balíčku můžete použít symboly publikované na nuget.org symbol server tak, že přidáte `https://symbols.nuget.org/download/symbols` k jejich symbol zdroje v sadě Visual Studio, který umožňuje krokování s vnořením do kódu balíček v ladicím programu sady Visual Studio. Zobrazit [zadání symbolu (.pdb) a zdrojových souborů v ladicím programu sady Visual Studio](https://docs.microsoft.com/en-us/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger?view=vs-2017) podrobnosti o tomto procesu.
 
@@ -112,4 +120,4 @@ Soubor .nupkg budou naprosto stejné jako dnes je ale soubor .snupkg by mít ná
 
 ## <a name="see-also"></a>Viz také
 
-[NuGet – balíček – ladění – & - symboly – vylepšení](https://github.com/NuGet/Home/wiki/NuGet-Package-Debugging-&-Symbols-Improvements)
+[NuGet-Package-Debugging-&-Symbols-Improvements](https://github.com/NuGet/Home/wiki/NuGet-Package-Debugging-&-Symbols-Improvements)

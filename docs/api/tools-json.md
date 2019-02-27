@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 08/16/2018
 ms.topic: conceptual
 ms.reviewer: kraigb
-ms.openlocfilehash: 6184fe8e987e0637cb912999f2e3fa3a3dc9b4ba
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 003139abac7808dbdaef4aa66119e09772db2b4f
+ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546932"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56852530"
 ---
 # <a name="toolsjson-for-discovering-nugetexe-versions"></a>Tools.JSON pro zjišťování nuget.exe verze
 
@@ -39,28 +39,28 @@ Kořenový objekt JSON má následující vlastnost:
 
 Název      | Typ             | Požadováno
 --------- | ---------------- | --------
-nuget.exe | Pole objektů | Ano
+nuget.exe | Pole objektů | ano
 
 Každý objekt v `nuget.exe` pole má následující vlastnosti:
 
 Název     | Typ   | Požadováno | Poznámky
 -------- | ------ | -------- | -----
-verze  | odkazy řetězců | Ano      | Řetězec SemVer 2.0.0
-Adresa URL      | odkazy řetězců | Ano      | Absolutní adresa URL pro stahování tato verze programu nuget.exe
-fáze    | odkazy řetězců | Ano      | Řetězec výčtu
-Nahrání | odkazy řetězců | Ano      | Přibližné časové razítko z verze kdy byl k dispozici
+verze  | odkazy řetězců | ano      | Řetězec SemVer 2.0.0
+url      | odkazy řetězců | ano      | Absolutní adresa URL pro stahování tato verze programu nuget.exe
+fáze    | odkazy řetězců | ano      | Řetězec výčtu
+Nahrání | odkazy řetězců | ano      | Přibližné časové razítko ISO 8601 z verze kdy byl k dispozici
 
-Položky v poli budou seřazeny v sestupném pořadí SemVer 2.0.0. Tuto záruku je určená pro usnadnění zatížení na klientovi hledáte nejnovější verzi. 
+Položky v poli budou seřazeny v sestupném pořadí SemVer 2.0.0. Aby se snížila zátěž klienta, který je uvažujete o nejvyšší číslo verze je určená této záruky. Ale to znamená, že seznam není seřazen v chronologickém pořadí. Například pokud nižší hlavní verze se obsluhují na datum pozdější než vyšší hlavní verze, tuto upravenou verzí se nezobrazí v horní části seznamu. Pokud chcete na nejnovější verzi vydal *časové razítko*, jednoduše seřadit pole pomocí `uploaded` řetězec. Tento postup funguje, protože `uploaded` časové razítko není v [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) formát, který lze seřadit chronologicky pomocí lexicographical řazení (to znamená jednoduchým řetězcem řazení).
 
-`stage` Vlastnost určuje, jak vettect tato verze nástroje je. 
+`stage` Vlastnost určuje, jak prověřené je tato verze nástroje. 
 
-fáze              | Význam
+Fáze              | Význam
 ------------------ | ------
 EarlyAccessPreview | Nejsou ještě viditelné na [webové stránce pro stažení](https://www.nuget.org/downloads) a by měl být ověřen od partnerů
 Všeobecně dostupné           | K dispozici na webu Stažení ale ještě není doporučeno pro šíření celou spotřebu
 ReleasedAndBlessed | K dispozici na serveru pro stahování a je doporučena pro využití
 
-Jeden jednoduchým přístupem k nutnosti na nejnovější verzi, doporučená verze je v seznamu, který se má provést první verze `stage` hodnotu `ReleasedAndBlessed`.
+Jeden jednoduchým přístupem k nutnosti na nejnovější verzi, doporučená verze je v seznamu, který se má provést první verze `stage` hodnotu `ReleasedAndBlessed`. Tento postup funguje, protože verze jsou seřazeny podle SemVer 2.0.0.
 
 `NuGet.CommandLine` Balíčků na nuget.org je obvykle pouze aktualizován `ReleasedAndBlessed` verze.
 

@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: b980c1084fe8e31573053a4dcf38bbfa6146e6de
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 6407cd2ea5e5e7a9c9e2be679764a8a0d5dd9260
+ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549770"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56852465"
 ---
 # <a name="package-versioning"></a>Správa verzí balíčků
 
@@ -29,9 +29,9 @@ V tomto tématu:
 
 Číslo konkrétní verze má formát *Hlavníverze.podverze.oprava [-přípona]*, kde komponenty mají následující význam:
 
-- *Hlavní*: Rozbíjející změny v
-- *Vedlejší*: nové funkce, ale zpětně kompatibilní
-- *Oprava*: pouze zpětně kompatibilní opravy chyb
+- *Hlavní*: Změny způsobující chyby
+- *Vedlejší*: Nové funkce, ale zpětně kompatibilní
+- *Oprava*: Zpětně kompatibilní chyby opravuje pouze
 - *-Přípony* (volitelné): spojovník následovaný řetězec označující Předběžná verze (následující [Semantic Versioning nebo SemVer 1.0 konvence](http://semver.org/spec/v1.0.0.html)).
 
 **Příklady:**
@@ -187,9 +187,6 @@ V `packages.config`, všech závislostí je uvedený s přesná `version` atribu
 ```xml
 <!-- Accepts any version 6.1 and above. -->
 <dependency id="ExamplePackage" version="6.1" />
-
-<!-- Accepts any 6.x.y version. -->
-<dependency id="ExamplePackage" version="6.*" />
 
 <!-- Accepts any version above, but not including 4.1.3. Could be
      used to guarantee a dependency with a specific bug fix. -->
