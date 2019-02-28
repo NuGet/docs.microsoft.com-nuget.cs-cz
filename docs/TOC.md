@@ -87,6 +87,7 @@
 ## [Sada SDK pro klienta NuGet](reference/nuget-client-sdk.md)
 ## [Podepsané balíčky](reference/signed-packages-reference.md)
 ## [Organizace na NuGet.org](reference/organizations-on-nuget-org.md)
+## [licenses.nuget.org](reference/licenses.nuget.org.md)
 ## [Chyby a upozornění](reference/Errors-and-Warnings.md)
 ### [NU1000](reference/errors-and-warnings/NU1000.md)
 ### [NU1001](reference/errors-and-warnings/NU1001.md)
