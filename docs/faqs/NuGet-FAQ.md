@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 03223e949eeeadd7eaa6e392297ba79d28eed2f2
-ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
+ms.openlocfilehash: 1c838116f9737b01ea3f9ca17f5d5002f6548044
+ms.sourcegitcommit: 85bf94e0efcfcee1f914650bdc142309ef3e06d9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56852543"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196210"
 ---
 # <a name="nuget-frequently-asked-questions"></a>NuGet – nejčastější dotazy
 
@@ -158,7 +158,7 @@ Každý balíček se řídí podmínkami, které jsou součástí balíčku. Př
 
 Pokud balíček neurčuje licenční podmínky, obraťte se přímo pomocí vlastníka balíčku **obraťte se na vlastníky** odkazu na stránce balíček pro nuget.org. Společnost Microsoft není licence duševního vlastnictví, od poskytovatelů třetích stran balíček a neodpovídá za informace, které jsou poskytovány třetími stranami.
 
-## <a name="managing-packages-on-nugetorg"></a>Správa balíčků na nuget.org
+## <a name="managing-packages-on-nugetorg"></a>Správa balíčků na NuGet.org
 
 **Můžete upravit po je nahraná metadata balíčků?**
 
@@ -167,6 +167,10 @@ NuGet doporučuje podepsat všechny balíčky. Princip návrhu podpisu balíčku
 Všimněte si, že závislostí uvedených pro váš balíček se generují automaticky z balíčku samotného a nelze jej upravit.
 
 Kromě toho nahrání balíčků [int.nugettest.org](https://int.nugettest.org) je skvělý způsob, jak otestovat a ověřit váš balíček přitom balíček k dispozici ve veřejné galerii. Koncový bod rozhraní API: https://apiint.nugettest.org/v3/index.json
+
+**Můžete odstranit balíček publikovány na NuGet.org?**
+
+Odstranění balíčku publikují do NuGet.org obecně nepodporujeme. Další informace o našich [zásady týkající se odstraněním balíčků](../policies/deleting-packages).
 
 **Je možné rezervovat názvy balíčků, které se publikují v budoucnosti?**
 

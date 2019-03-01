@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 901eb09711a6e32740c70829028da66b782870a0
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 833f4a67bc75c5d650e85180b52ecd8f69218f15
+ms.sourcegitcommit: 85bf94e0efcfcee1f914650bdc142309ef3e06d9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548125"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196184"
 ---
 # <a name="deleting-packages"></a>Odstranění balíčků
 
@@ -23,7 +23,7 @@ nuget.org nemá podporuje *unlisting* balíček, což lze provést na stránce S
 
 ## <a name="exceptions"></a>Výjimky
 
-Ve výjimečných případech například porušení autorských práv a potenciálně nebezpečný obsah balíčků můžete odstranit ručně týmu NuGet. Odeslat žádost o podporu prostřednictvím [Galerie NuGet](http://www.nuget.org) zahájíte proces.
+Ve výjimečných případech například porušení autorských práv a potenciálně nebezpečný obsah balíčků můžete odstranit ručně týmu NuGet. Může hlásit balíček pomocí tlačítka "Ohlášení zneužití" na stránce s podrobnostmi balíčku NuGet.org. Pokud jste vlastník balíčku, přihlášení k účtu NuGet.org kontaktovat podporu NuGet pomocí tlačítka "Obraťte se na podporu" na stránce s podrobnostmi balíčku NuGet.org.
 
 ## <a name="prohibited-use"></a>Zakázané použití
 
