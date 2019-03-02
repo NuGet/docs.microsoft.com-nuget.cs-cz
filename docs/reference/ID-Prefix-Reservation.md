@@ -6,12 +6,12 @@ ms.author: diverdan92
 ms.date: 10/09/2017
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: 32f83bede42f7643a9a4fed593643eefea0453c1
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: e8b902c89427333afb7a27ee9de0eeb99a92f391
+ms.sourcegitcommit: 571644118e3c5a2fd818891d305b4b8de8ef21de
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50980999"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57225872"
 ---
 # <a name="package-id-prefix-reservation"></a>Rezervace předpony ID balíčku
 
@@ -31,7 +31,7 @@ Když je vyhrazeno předponu [nuget.org](https://www.nuget.org/), stane se násl
 
 1. Vždy, když se balíček odešle na [nuget.org](https://www.nuget.org/) s ID, který odpovídá rezervované předpona ID, je balíček zamítnuty, pokud pochází z počet vlastníků, která je vyhrazena předpona ID.
 
-1. Libovolný balíček, který odpovídá rezervované předpona ID a mohou být počet vlastníků, která je vyhrazena předpona ID bude mít vizuální označení, v sadě Visual Studio 2017 verze 15.4 nebo novější a na [nuget.org](https://www.nuget.org/) označující, že balíček je v části vyhrazenou předponu ID. To platí pro nový balíček odesílání i existující balíčky v části počet vlastníků. **Poznámka:** indikátoru v sadě Visual Studio se zobrazí jenom v případě, že jako zdroj balíčku byl vybrán jeden kanál.
+1. Libovolný balíček, který odpovídá rezervované předpona ID a mohou být počet vlastníků, která je vyhrazena předpona ID bude mít vizuální označení, v sadě Visual Studio 2017 verze 15.4 nebo novější a na [nuget.org](https://www.nuget.org/) označující, že balíček je v části vyhrazenou předponu ID. To platí pro nový balíček odesílání i existující balíčky v části počet vlastníků. **Poznámka:** Indikátor v sadě Visual Studio se zobrazí jenom v případě, že jako zdroj balíčku byl vybrán jeden kanál.
 
 1. Všechna dříve existující balíčky, které odpovídají vyhrazenou předponou ID, ale jsou *není* vlastněné vlastníka vyhrazený předponu zůstane beze změny (nebudou neuvedené v seznamu, ale nebudou mít také vizuální označení). Kromě toho vlastníků těchto balíčků bude ji možné odeslat nové verze balíčku.
 
@@ -84,6 +84,8 @@ Když zkontrolujete všechny žádosti o rezervace předpony ID [nuget.org](http
 1. By *není* rezervace předpony ID balíčku způsobit nejednoznačnost a záměny pro komunitu?
 
 1. Jsou identifikující vlastnosti balíčků, které odpovídají jasné a konzistentní předpona ID balíčku (zejména autora balíčku)?
+
+1. Mají balíčky licenci (pomocí [licence](https://docs.microsoft.com/en-us/nuget/reference/nuspec#license) metadat elementu a není licenseUrl, který již není používán)?
 
 ## <a name="third-party-feed-provider-scenarios"></a>Informační kanál zprostředkovatele scénáře třetích stran
 

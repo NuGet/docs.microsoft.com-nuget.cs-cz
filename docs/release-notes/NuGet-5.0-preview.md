@@ -5,26 +5,26 @@ author: anangaur
 ms.author: anangaur
 ms.date: 1/25/2019
 ms.topic: conceptual
-ms.openlocfilehash: 57b66b347ac47a3d05907a4bb237002de8981ecc
-ms.sourcegitcommit: 85bf94e0efcfcee1f914650bdc142309ef3e06d9
+ms.openlocfilehash: 4b05dcb9a2960c1e3231e81d4b4c122d3a518753
+ms.sourcegitcommit: 571644118e3c5a2fd818891d305b4b8de8ef21de
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196197"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57225885"
 ---
 # <a name="nuget-50-preview-release-notes"></a>Zpráva k vydání verze NuGet 5.0 ve verzi Preview
 
 ## <a name="nuget-50-preview-releases"></a>NuGet 5.0 předběžné verze
 
-* 27. únoru 2010 - [NuGet 5.0 ve verzi Preview 4](#summary-whats-new-in-50-preview-4)
-* 13. února 2019 - [NuGet 5.0 ve verzi Preview 3](#summary-whats-new-in-50-preview-3)
-* Od 23. května 2019 - [NuGet 5.0 ve verzi Preview 2](#summary-whats-new-in-50-preview-2)
+* 27. února 2019 - [NuGet 5.0 ve verzi Preview 4](#whats-new-in-nuget-50-preview-4)
+* 13. února 2019 - [NuGet 5.0 ve verzi Preview 3](#whats-new-in-nuget-50-preview-3)
+* Od 23. května 2019 - [NuGet 5.0 ve verzi Preview 2](#whats-new-in-nuget-50-preview-2)
 
-## <a name="summary-whats-new-in-nuget-50-preview-4"></a>Shrnutí: Co je nového ve verzi Preview 4 NuGet 5.0
+## <a name="whats-new-in-nuget-50-preview-4"></a>Co je nového ve verzi Preview 4 NuGet 5.0
 
 ### <a name="issues-fixed-in-this-release"></a>Chyby opravené v této verzi
 
-**Chyby:**
+**Chyby**
 
 * NuGet.VisualStudio.IVsPackageInstaller - volání na projektu se žádný balíček odkazuje vždy používá soubor packages.config, i v případě, že ve výchozím nastavení je na PackageReference – [#7005](https://github.com/NuGet/Home/issues/7005)
 
@@ -48,7 +48,7 @@ ms.locfileid: "57196197"
 
 * Dáváte přednost cestu k msbuild zjišťování, pokud uživatel nežádali verze konkrétní msbuild - [#7786](https://github.com/NuGet/Home/issues/7786)
 
-**Chcete:**
+**Chcete**
 
 * omezit požadavek http na zdroji pomocí souboru NuGet.Config - [#4538](https://github.com/NuGet/Home/issues/4538)
 
@@ -61,11 +61,11 @@ ms.locfileid: "57196197"
 * Přidání podpory netstandard2.0 NuGet.* balíčků - [#6516](https://github.com/NuGet/Home/issues/6516)
 
 
-## <a name="summary-whats-new-in-nuget-50-preview-3"></a>Shrnutí: Co je nového ve verzi Preview 3 NuGet 5.0
+## <a name="whats-new-in-nuget-50-preview-3"></a>Co je nového ve verzi Preview 3 NuGet 5.0
 
 ### <a name="issues-fixed-in-this-release"></a>Chyby opravené v této verzi 
 
-**Chyby:**
+**Chyby**
 
 * nuget.exe /? zveřejnit msbuild správná verze – [#7794](https://github.com/NuGet/Home/issues/7794)
 
@@ -81,18 +81,18 @@ ms.locfileid: "57196197"
 
 * minimální podrobnost nástroje MSBuild/t: Restore by měl být minimálnější - [#4695](https://github.com/NuGet/Home/issues/4695)
 
-**Chcete:**
+**Chcete**
 
 * Umožnil autorům balíčků k definování sestavení prostředky přenosné chování - [#6091](https://github.com/NuGet/Home/issues/6091)
 
 * Povolit obnovení v sadě Visual Studio úspěšná, když projekt není součástí řešení nebo není načten, ale se dříve obnovila - [#5820](https://github.com/NuGet/Home/issues/5820)
 
 
-## <a name="summary-whats-new-in-50-preview-2"></a>Shrnutí: Co je nového ve verzi 5.0 Preview 2
+## <a name="whats-new-in-nuget-50-preview-2"></a>Co je nového ve verzi Preview NuGet 5.0 2
 
 ### <a name="issues-fixed-in-this-release"></a>Chyby opravené v této verzi
 
-**Chyby:**
+**Chyby**
 
 * VS pro 16.0 NuGet uživatelského rozhraní obsahuje nečitelná karty z důvodu problémů s barva - [#7735](https://github.com/NuGet/Home/issues/7735)
 
@@ -134,7 +134,7 @@ ms.locfileid: "57196197"
 
 * DotNet restore nezdaří z důvodu široké zakázané počítač kanál – [#5410](https://github.com/NuGet/Home/issues/5410)
 
-**Chcete:**
+**Chcete**
 
 * NuGet 5.0 sestavení tak, aby vyžadovala .NET 4.7.2 (prostřednictvím změnit TFM) - [#7510](https://github.com/NuGet/Home/issues/7510)
 
