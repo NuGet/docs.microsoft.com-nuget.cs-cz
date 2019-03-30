@@ -10,12 +10,12 @@ f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager.general
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
-ms.openlocfilehash: 1de6ddeca6295c621a90409807af198bc3c7a068
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: 422faf99e58e058d86db774a8f3c1c576b3dc393
+ms.sourcegitcommit: 2af17c8bb452a538977794bf559cdd78d58f2790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981181"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58637620"
 ---
 # <a name="nuget-package-manager-ui"></a>Uživatelské rozhraní Správce balíčků NuGet
 
@@ -71,9 +71,9 @@ V tomto tématu:
     ![Aktualizace balíčku](media/UpdatePackages.png)
 
 1. <a name="implicit_reference"></a>Pro některé balíčky **aktualizace** je tlačítko neaktivní a zobrazí se zpráva s informacemi o tom, že jej je "implicitně odkazovat pomocí sady SDK" (nebo "AutoReferenced"). Tato zpráva znamená, že balíček je součástí větší platforma nebo sada SDK a by neměly být aktualizovány nezávisle na sobě. (Tyto balíčky jsou označené interně `<IsImplicitlyDefined>True</IsImplicitlyDefined>`.) Například `Microsoft.NETCore.App` je součástí sady .NET Core SDK, a verze balíčku není stejná jako verze rozhraní framework modulu runtime aplikace používá. Je potřeba [aktualizaci instalace .NET Core](https://aka.ms/dotnet-download) získat nové verze modulu runtime ASP.NET Core a .NET Core. [Najdete v tomto dokumentu podrobné informace o .NET Core metabalíčky a správy verzí](/dotnet/core/packages). To platí pro běžně používané následujících balíčků:
-    * Metabalíček
+    * Microsoft.AspNetCore.All
     * Microsoft.AspNetCore.App
-    * Balíčky Microsoft.NETCore.App
+    * Microsoft.NETCore.App
     * NETStandard.Library
 
     ![Příklad balíček označen jako implicitně odkazy nebo AutoReferenced](media/PackageManagerUIAutoReferenced.png)
@@ -127,7 +127,7 @@ Správa zdroje balíčků:
 1. Chcete-li změnit zdroj balíčku, vyberte ho, proveďte úpravy v **název** a **zdroj** pole a vyberte **aktualizace**.
 1. Zakázat zdroje balíčku, zrušte zaškrtnutí políčka nalevo od názvu v seznamu.
 1. Odebrat zdroj balíčku, vyberte ho a pak vyberte **X** tlačítko.
-1. Nahoru a Šipka dolů změňte pořadí priority zdroje balíčků. Při obnovování balíčků pro projekt sady Visual Studio vyhledá tyto zdroje v pořadí podle priority. Další informace najdete v tématu [obnovení balíčku](../consume-packages/package-restore.md).
+1. Nahoru a Šipka dolů tlačítka nemění pořadí priority zdroje balíčků. Visual Studio bude ignorovat pořadí zdroje balíčků pomocí balíčku od toho zdroje je nejprve reagovat na požadavky. Další informace najdete v tématu [obnovení balíčku](../consume-packages/package-restore.md).
 
 > [!Tip]
 > Pokud po jejím odstranění znovu objeví zdroj balíčku, mohou být uvedeny v úrovni počítače nebo individuální `NuGet.Config` soubory. Naleznete v tématu [konfigurace NuGet chování](../consume-packages/configuring-nuget-behavior.md) pro umístění tyto soubory pak odebrat zdrojový úprava souborů ručně nebo pomocí [nuget zdrojů příkaz](../tools/nuget-exe-CLI-reference.md).

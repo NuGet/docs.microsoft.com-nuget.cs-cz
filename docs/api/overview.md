@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 5d0d60cbcf6516d24efeb04f8262902da69d92d1
-ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
+ms.openlocfilehash: bb15b4decef104f1aefe37fd18f3358181a848af
+ms.sourcegitcommit: 2af17c8bb452a538977794bf559cdd78d58f2790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56145654"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58637659"
 ---
 # <a name="nuget-api"></a>NuGet API
 
@@ -49,17 +49,18 @@ Bez konce protokolu změnám rozhraní API od prvního vydání.
 
 **Index služby** popisuje různé druhy prostředků. Aktuální sadu prostředků podporované jsou následující:
 
-Název prostředku                                                          | Požadováno | Popis
----------------------------------------------------------------------- | -------- | -----------
-[`PackagePublish`](package-publish-resource.md)                        | ano      | Push a delete (nebo vyjmutí ze seznamu) balíčky.
-[`SearchQueryService`](search-query-service-resource.md)               | ano      | Můžete filtrovat a hledat balíčky – klíčové slovo.
-[`RegistrationsBaseUrl`](registration-base-url-resource.md)            | ano      | Získáte metadata balíčku.
-[`PackageBaseAddress`](package-base-address-resource.md)               | ano      | Získáte balíček obsahu (.nupkg).
-[`SearchAutocompleteService`](search-autocomplete-service-resource.md) | Ne       | Zjistíte ID balíčku a verze pomocí dílčí řetězec.
-[`ReportAbuseUriTemplate`](report-abuse-resource.md)                   | Ne       | Vytvořte adresu URL pro přístup k webové stránky "ohlásit nevhodné chování".
-[`RepositorySignatures`](repository-signatures-resource.md)            | Ne       | Získání certifikátů pro podpis úložiště.
-[`Catalog`](catalog-resource.md)                                       | Ne       | Celý záznam všech událostí balíčku.
-[`SymbolPackagePublish`](symbol-package-publish-resource.md)           | Ne       | Nabízená oznámení balíčky symbolů.
+Název prostředku                                                        | Požadováno | Popis
+-------------------------------------------------------------------- | -------- | -----------
+[Katalog](catalog-resource.md)                                       | Ne       | Celý záznam všech událostí balíčku.
+[PackageBaseAddress](package-base-address-resource.md)               | ano      | Získáte balíček obsahu (.nupkg).
+[PackageDetailsUriTemplate](package-details-template-resource.md)    | Ne       | Vytvořte adresu URL pro přístup k balíčku podrobnosti webové stránky.
+[PackagePublish](package-publish-resource.md)                        | ano      | Push a delete (nebo vyjmutí ze seznamu) balíčky.
+[RegistrationsBaseUrl](registration-base-url-resource.md)            | ano      | Získáte metadata balíčku.
+[ReportAbuseUriTemplate](report-abuse-resource.md)                   | Ne       | Vytvořte adresu URL pro přístup k webové stránky sestavy zneužití.
+[RepositorySignatures](repository-signatures-resource.md)            | Ne       | Získání certifikátů pro podpis úložiště.
+[SearchAutocompleteService](search-autocomplete-service-resource.md) | Ne       | Zjistíte ID balíčku a verze pomocí dílčí řetězec.
+[SearchQueryService](search-query-service-resource.md)               | ano      | Můžete filtrovat a hledat balíčky – klíčové slovo.
+[SymbolPackagePublish](symbol-package-publish-resource.md)           | Ne       | Nabízená oznámení balíčky symbolů.
 
 Obecně platí všechny NEBINÁRNÍ data vrácená rozhraním API prostředku se serializují pomocí formátu JSON. Schéma odpovědi vrácené každého prostředku v indexu služby je samostatně definované pro daný prostředek. Další informace o jednotlivých prostředcích najdete v tématech uvedených výše.
 
@@ -123,7 +124,9 @@ Název                     | Popis
 X-NuGet-ApiKey           | Vyžadováno pro push a delete, naleznete v tématu [ `PackagePublish` prostředků](package-publish-resource.md)
 X-NuGet-Client-Version   | **Zastaralé** a nahradit `X-NuGet-Protocol-Version`
 X-NuGet-Protocol-Version | Vyžaduje se v některých případech pouze na nuget.org, naleznete v tématu [protokoly nuget.org](NuGet-Protocols.md)
-X-NuGet-Session-Id       | *Volitelné*. NuGet klientů v4.7 + identifikovat požadavky HTTP, které jsou součástí stejné relace klienta NuGet. Pro `PackageReference` existuje operace obnovení je jedno id relace, pro jiné scénáře, jako je automatické dokončování, a `packages.config` obnovení může být několik různých id relace z důvodu jak dostaneme kód.
+X-NuGet-Session-Id       | *Volitelné*. NuGet klientů v4.7 + identifikovat požadavky HTTP, které jsou součástí stejné relace klienta NuGet.
+
+`X-NuGet-Session-Id` Má jednu hodnotu pro všechny operace související s jeden obnovení v `PackageReference`. Jiné scénáře, jako je automatické dokončování a `packages.config` obnovení může být několik různých relace ID kvůli jak dostaneme kód.
 
 ## <a name="authentication"></a>Ověřování
 

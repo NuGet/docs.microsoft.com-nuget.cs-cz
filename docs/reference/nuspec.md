@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/29/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: a8be66f5871df260581b6baca8eb7959279d66cd
-ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
+ms.openlocfilehash: 21678cc36fd9bf1ed49143bee3f35208640fc8a7
+ms.sourcegitcommit: 2af17c8bb452a538977794bf559cdd78d58f2790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56852582"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58637646"
 ---
 # <a name="nuspec-reference"></a>odkaz na souboru .nuspec
 
@@ -90,7 +90,7 @@ Tady je úplný seznam [SPDX licence identifikátory](https://spdx.org/licenses/
 
 Pokud váš balíček je licencován několik běžných licence, můžete zadat složené licencí pomocí [SPDX výraz syntaxe verze 2.0](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60).<br>Příklad: `<license type="expression">BSD-2-Clause OR MIT</license>`
 
-Pokud používáte licenci, která ještě není přiřazený identifikátor SPDX, nebo vlastní licenci, můžete zabalit do souboru (pouze `.txt.` nebo `.md`) s textem licence. Příklad:
+Pokud používáte licenci, která ještě není přiřazený identifikátor SPDX, nebo vlastní licenci, můžete zabalit do souboru (pouze `.txt` nebo `.md`) s textem licence. Příklad:
 ```xml
 <package>
   <metadata>
