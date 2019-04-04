@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: e8955f9d46bab235c8755d5654814a4291d542d6
-ms.sourcegitcommit: 673e580ae749544a4a071b4efe7d42fd2bb6d209
+ms.openlocfilehash: 8ff92e5a3ab2d5c13ee02a9e49709866e2ac0e87
+ms.sourcegitcommit: 8793f528a11bd8e8fb229cd12e9abba50d61e104
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52977560"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58921569"
 ---
 # <a name="signing-nuget-packages"></a>Podepisují se balíčky NuGet
 
@@ -29,7 +29,7 @@ Pro účely testování můžete použít samostatně vydané certifikáty. Bal�
 
   ![Průvodce exportem certifikátu](../reference/media/CertificateExportWizard.png)
 
-* Můžete také exportovat certifikát pomocí [příkazu Powershellu Export certifikátu](/powershell/module/pkiclient/export-certificate.md).
+* Můžete také exportovat certifikát pomocí [příkazu Powershellu Export certifikátu](/powershell/module/pkiclient/export-certificate).
 
 ## <a name="sign-the-package"></a>Podepište balíček
 
@@ -39,8 +39,11 @@ Pro účely testování můžete použít samostatně vydané certifikáty. Bal�
 Podepsání balíčku pomocí [nuget přihlašování](../tools/cli-ref-sign.md):
 
 ```cli
-nuget sign MyPackage.nupkg -CertificateFilePath <PathToTheCertificate> -Timestamper <TimestampServiceURL>
+nuget sign MyPackage.nupkg -CertificatePath <PathToTheCertificate> -Timestamper <TimestampServiceURL>
 ```
+
+> [!Tip]
+> Poskytovatel certifikátu často také obsahuje adresu URL serveru časového razítka, která vám pomůže `Timestamper` nepovinný argument zobrazit výše. Poraďte se s dokumentaci poskytovatele nebo podporu pro tuto adresu URL služby.
 
 * Můžete použít certifikát k dispozici v úložišti certifikátů nebo použití certifikátu ze souboru. Viz odkaz pro rozhraní příkazového řádku [nuget přihlašování](../tools/cli-ref-sign.md).
 * Podepsané balíčky by měly zahrnovat časové razítko, abyste měli jistotu, že podpis zůstává platná, pokud vypršela platnost podpisového certifikátu. Jinak operace přihlášení vytvoří [upozornění](../reference/errors-and-warnings/NU3002.md).
@@ -56,7 +59,7 @@ Chcete-li publikovat podepsaný balíček, musí nejprve zaregistrovat certifik�
 1. Procházet a vyberte soubor certifikát, který jste dříve exportovali.
   ![Certifikáty registrované](../reference/media/registered-certs.png)
 
-**Poznámka:**
+**Poznámka**
 * Jeden uživatel může odeslat svoji, že více certifikátů a stejný certifikát může být registrováno více uživatelů.
 * Jakmile uživatel certifikát zaregistrovaný, všechny příspěvky budoucí balíček **musí** být podepsány pomocí jednoho z certifikátů. Zobrazit [spravovat podepisování požadavky pro vaše balíčků na NuGet.org](#manage-signing-requirements-for-your-package-on-nugetorg)
 * Uživatelé mohou také odebírat registrovaný certifikát z účtu. Po odebrání certifikátu se nezdaří nové balíčky, které jsou podepsané pomocí tohoto certifikátu na odeslání. Nemají vliv na existující balíčky.
@@ -67,7 +70,7 @@ Nyní jste připraveni publikovat balíček na NuGet.org. Zobrazit [publikován�
 
 ## <a name="create-a-test-certificate"></a>Vytvoření testovacího certifikátu
 
-Pro účely testování můžete použít samostatně vydané certifikáty. Chcete-li vytvořit certifikát vystavený, použijte [příkazu Powershellu New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate.md).
+Pro účely testování můžete použít samostatně vydané certifikáty. Chcete-li vytvořit certifikát vystavený, použijte [příkazu Powershellu New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate).
 
 ```ps
 New-SelfSignedCertificate -Subject "CN=NuGet Test Developer, OU=Use for testing purposes ONLY" `
@@ -89,8 +92,8 @@ Tento příkaz vytvoří testovací certifikát k dispozici v úložišti osobn�
 ## <a name="manage-signing-requirements-for-your-package-on-nugetorg"></a>Spravovat podepisování požadavky pro vaše balíčků na NuGet.org
 1. [Přihlaste se](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) na NuGet.org.
 
-1. Přejděte na `Manage Packages`  
-    ![konfigurace podepsaných balíčků](../reference/media/configure-package-signers.png)
+1. Přejděte na `Manage Packages` 
+   ![konfigurace podepsaných balíčků](../reference/media/configure-package-signers.png)
 
 * Pokud jste jediným vlastníkem balíček, jsou požadované podepisující osoba to znamená všechny certifikáty registrované můžete použít k podepisování a publikovat vaše balíčky NuGet.org.
 

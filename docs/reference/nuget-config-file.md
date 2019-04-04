@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: reference
-ms.openlocfilehash: c294e4c188db2e90e6bcb62b60f71ed5529977fe
-ms.sourcegitcommit: a1846edf70ddb2505d58e536e08e952d870931b0
+ms.openlocfilehash: d7c943c1f13edf782dabe4afee9d19a1a42bd42a
+ms.sourcegitcommit: 9f94e00428d83aef4a7a87db679129eff7720c59
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52303516"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58911085"
 ---
 # <a name="nugetconfig-reference"></a>odkaz na soubor nuget.config
 
@@ -45,7 +45,7 @@ Obsahuje nastavení různé konfigurace, které lze nastavit pomocí [ `nuget co
 
 `dependencyVersion` a `repositoryPath` platí pouze pro projekty pomocí `packages.config`. `globalPackagesFolder` platí pouze pro projekty ve formátu PackageReference.
 
-| Key | Hodnota |
+| Key | Value |
 | --- | --- |
 | dependencyVersion (`packages.config` jenom) | Výchozí hodnota `DependencyVersion` hodnotu pro instalaci balíčku, obnovení a aktualizace, když `-DependencyVersion` přepínač není zadán přímo. Tato hodnota se používá také pomocí uživatelského rozhraní Správce balíčků NuGet. Hodnoty jsou `Lowest`, `HighestPatch`, `HighestMinor`, `Highest`. |
 | globalPackagesFolder (projekty pouze pomocí PackageReference) | Umístění složky globálních balíčků výchozí. Výchozí hodnota je `%userprofile%\.nuget\packages` (Windows) nebo `~/.nuget/packages` (Mac/Linux). Relativní cesta lze použít v projektu konkrétní `nuget.config` soubory. Toto nastavení je přepsán NUGET_PACKAGES proměnné prostředí, která má přednost. |
@@ -70,7 +70,7 @@ Obsahuje nastavení různé konfigurace, které lze nastavit pomocí [ `nuget co
 
 Konfiguruje, zda NuGet nepodporuje automatické přesměrování vazby při instalaci balíčku.
 
-| Key | Hodnota |
+| Key | Value |
 | --- | --- |
 | Přeskočit | Logická hodnota označující, zda se mají přeskočit automatické přesměrování vazby. Výchozí hodnota je false. |
 
@@ -86,7 +86,7 @@ Konfiguruje, zda NuGet nepodporuje automatické přesměrování vazby při inst
 
 Ovládací prvky obnovení balíčků během sestavení.
 
-| Key | Hodnota |
+| Key | Value |
 | --- | --- |
 | Povoleno | Logická hodnota označující, zda NuGet můžete provést automatické obnovení. Můžete také nastavit `EnableNuGetPackageRestore` proměnnou prostředí s hodnotou `True` namísto nastavení tohoto klíče v konfiguračním souboru. |
 | automatická | Logická hodnota označující, zda NuGet by měla kontrolovat chybějící balíčky během sestavení. |
@@ -104,7 +104,7 @@ Ovládací prvky obnovení balíčků během sestavení.
 
 Ovládací prvky, zda `packages` složka řešení je součástí správy zdrojového kódu. Tato část funguje pouze v `nuget.config` soubory ve složce řešení.
 
-| Key | Hodnota |
+| Key | Value |
 | --- | --- |
 | disableSourceControlIntegration | Logická hodnota označující, jestli se má ignorovat složku packages při práci se správou zdrojového kódu. Výchozí hodnota je False. |
 
@@ -128,7 +128,7 @@ Všimněte si, že je adresa URL zdroje pro nuget.org `https://api.nuget.org/v3/
 
 Uvádí všechny zdroje balíčků známé. Pořadí je ignorována během operace obnovení a s žádným projektem formátu PackageReference. Pořadí zdrojů pro instalace respektuje NuGet a aktualizovat operace s projekty pomocí `packages.config`.
 
-| Key | Hodnota |
+| Key | Value |
 | --- | --- |
 | (název přiřazení ke zdroji balíčku) | Cesta nebo adresa URL zdroje balíčku. |
 
@@ -149,7 +149,7 @@ Ukládá uživatelská jména a hesla pro zdroje, obvykle se zadává `-username
 | Key | Hodnota |
 | --- | --- |
 | uživatelské jméno | Uživatelské jméno pro zdroj ve formátu prostého textu. |
-| Heslo | Šifrované heslo pro zdroj. |
+| heslo | Šifrované heslo pro zdroj. |
 | cleartextpassword | Nezašifrované heslo pro zdroj. |
 
 **Příklad:**
@@ -204,7 +204,7 @@ Ukládá klíče pro zdroje, které používají ověřování pomocí klíče r
 
 Zjištěné zdroje aktuálně zakázáno. Může být prázdný.
 
-| Key | Hodnota |
+| Key | Value |
 | --- | --- |
 | (název zdroje) | Logická hodnota označující, zda zdroj je zakázáno. |
 
@@ -225,7 +225,7 @@ Zjištěné zdroje aktuálně zakázáno. Může být prázdný.
 
 Identifikuje zdroj aktuálně aktivní nebo označuje souhrn všech zdrojů.
 
-| Key | Hodnota |
+| Key | Value |
 | --- | --- |
 | (název zdroje) nebo `All` | Pokud klíč je název zdroje, hodnota je zdrojová cesta nebo adresa URL. Pokud `All`, hodnotou by měla být `(Aggregate source)` kombinovat všechny zdroje balíčků, které jinak nejsou zakázané. |
 

@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 2d2b20c1ea439ec0a3225cf983d9a4d2eedb0333
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: fdc3ad8aa239a42d8a4c169a757715e856bdcb41
+ms.sourcegitcommit: 9f94e00428d83aef4a7a87db679129eff7720c59
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324757"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58911046"
 ---
 # <a name="autocomplete"></a>Automatické dokončování
 
@@ -45,7 +45,7 @@ Balíček se pouze neuvedené v seznamu verzí se nezobrazí ve výsledcích.
 
 ### <a name="request-parameters"></a>Parametry žádosti
 
-Název        | V     | Typ    | Požadováno | Poznámky
+Name        | V     | Type    | Požadováno | Poznámky
 ----------- | ------ | ------- | -------- | -----
 q           | Adresa URL    | odkazy řetězců  | Ne       | Řetězec určený k porovnání s ID balíčku
 Přeskočit        | Adresa URL    | integer | Ne       | Počet výsledků, chcete-li přeskočit pro stránkování
@@ -71,7 +71,7 @@ Odpověď je dokument JSON obsahující až `take` výsledky automatického doko
 
 Kořenový objekt JSON má následující vlastnosti:
 
-Název      | Typ             | Požadováno | Poznámky
+Name      | Type             | Požadováno | Poznámky
 --------- | ---------------- | -------- | -----
 totalHits | integer          | ano      | Celkový počet shod, bez ohledu na `skip` a `take`
 data      | pole řetězců | ano      | Balíček odpovídající ID požadavku
@@ -94,7 +94,7 @@ Verze balíčku, který je neuvedené v seznamu se nezobrazí ve výsledcích.
 
 ### <a name="request-parameters"></a>Parametry žádosti
 
-Název        | V     | Typ    | Požadováno | Poznámky
+Name        | V     | Type    | Požadováno | Poznámky
 ----------- | ------ | ------- | -------- | -----
 id          | Adresa URL    | odkazy řetězců  | ano      | ID balíčku k načtení verze pro
 platnost předběžné verze  | Adresa URL    | Logická hodnota | Ne       | `true` nebo `false` určující, jestli se mají zahrnout [balíčky v předběžné verzi](../create-packages/prerelease-packages.md)
@@ -110,11 +110,11 @@ Odpověď je dokument JSON obsahující všechny verze balíčků poskytovaný b
 
 Kořenový objekt JSON má následující vlastnost:
 
-Název      | Typ             | Požadováno | Poznámky
+Name      | Type             | Požadováno | Poznámky
 --------- | ---------------- | -------- | -----
 data      | pole řetězců | ano      | Verze balíčku, který odpovídá požadavku
 
-Verze balíčku v `data` pole může obsahovat metadata sestavení SemVer 2.0.0 (třeba `1.0.0+metadata`) Pokud `semVerLevel=2.0.0` byla zadaná v řetězci dotazu.
+Verze balíčku v `data` pole může obsahovat metadata sestavení SemVer 2.0.0 (třeba `1.0.0+metadata`) Pokud `semVerLevel=2.0.0` je k dispozici v řetězci dotazu.
 
 ### <a name="sample-request"></a>Ukázková žádost
 
