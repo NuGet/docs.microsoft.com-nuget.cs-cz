@@ -1,22 +1,22 @@
 ---
-title: Poznámky k vydané verzi
+title: Zpráva k vydání verze
 description: Seznam poznámek ke všem vydaným verzím NuGetu a jejich známých problémů
 author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: a9b497fd8e5e74f66f9fdf0ef882cd57befcafe6
-ms.sourcegitcommit: 0cb4c9853cde3647291062eadee2298dd273311e
+ms.openlocfilehash: 42d497dabd41d7487bb8bf4adef0dfdb424f13f8
+ms.sourcegitcommit: 9f94e00428d83aef4a7a87db679129eff7720c59
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55084922"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58911111"
 ---
-# <a name="release-notes"></a>Poznámky k vydané verzi
+# <a name="release-notes"></a>Zpráva k vydání verze
 
 [Známé problémy](../release-notes/known-issues.md)
 
-[NuGet 5.0 Preview](../release-notes/NuGet-5.0-preview.md)
+[NuGet 5.0 RTM](../release-notes/NuGet-5.0-RTM.md)
 
 [NuGet 4.9 RTM](../release-notes/NuGet-4.9-RTM.md)
 
