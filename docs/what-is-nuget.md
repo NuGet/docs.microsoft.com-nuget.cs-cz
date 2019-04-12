@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/10/2018
 ms.topic: overview
-ms.openlocfilehash: d688aecaa73cecbfee184e3b13801ed22326a852
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: 87f7494ea97a4fa65be04b2692d7b894938c3fe5
+ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580321"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59509123"
 ---
 # <a name="an-introduction-to-nuget"></a>Úvod do NuGet
 
@@ -46,10 +46,10 @@ Kromě hostování podpory NuGet také poskytuje celou řadu nástrojů, které 
 | Nástroj | Platformy | Použít scénáře | Popis |
 | --- | --- | --- | --- |
 | [nuget.exe CLI](tools/nuget-exe-cli-reference.md) | Všechny | Vytvoření, spotřeby | Nabízí všechny funkce NuGet, kdy některé příkazy použití speciálně pro tvůrce balíčku, použití pouze pro uživatele, a ostatní použitím obou. Například použití Tvůrce balíčku `nuget pack` příkaz pro vytvoření balíčku z různých sestavení a související soubory, balíček příjemci použití `nuget install` zahrnout balíčky do složky projektu a všichni používá `nuget config` nastavit konfiguraci NuGet proměnné. Jako nástroj pro více platforem rozhraní příkazového řádku NuGet nekomunikuje s projekty aplikace Visual Studio. |
-| [rozhraní příkazového řádku DotNet](tools/dotnet-Commands.md) | Všechny | Vytvoření, spotřeby | Poskytuje určité rozhraní příkazového řádku NuGet funkce přímo v rámci řetězce nástrojů .NET Core. Stejně jako u rozhraní příkazového řádku NuGet rozhraní příkazového řádku dotnet nekomunikuje s projekty aplikace Visual Studio. |
-| [Konzola Správce balíčků](tools/package-manager-console.md) | Visual Studio na Windows | Spotřeba | Poskytuje [příkazy prostředí PowerShell](tools/Powershell-Reference.md) pro instalaci a správu balíčků v projektech Visual Studio. |
-| [Uživatelské rozhraní Správce balíčků](tools/package-manager-ui.md) | Visual Studio na Windows | Spotřeba | Poskytuje snadným ovládáním uživatelského rozhraní pro instalaci a správu balíčků v projektech Visual Studio. |
-| [Spravovat NuGet uživatelského rozhraní](/visualstudio/mac/nuget-walkthrough) | Visual Studio for Mac | Spotřeba | Poskytují-použití uživatelského rozhraní pro instalaci a správu balíčků v sadě Visual Studio pro Mac projekty. |
+| [dotnet CLI](tools/dotnet-Commands.md) | Všechny | Vytvoření, spotřeby | Poskytuje určité rozhraní příkazového řádku NuGet funkce přímo v rámci řetězce nástrojů .NET Core. Stejně jako u rozhraní příkazového řádku NuGet rozhraní příkazového řádku dotnet nekomunikuje s projekty aplikace Visual Studio. |
+| [Konzola Správce balíčků](tools/package-manager-console.md) | Visual Studio na Windows | Využití | Poskytuje [příkazy prostředí PowerShell](tools/Powershell-Reference.md) pro instalaci a správu balíčků v projektech Visual Studio. |
+| [Uživatelské rozhraní Správce balíčků](tools/package-manager-ui.md) | Visual Studio na Windows | Využití | Poskytuje snadným ovládáním uživatelského rozhraní pro instalaci a správu balíčků v projektech Visual Studio. |
+| [Spravovat NuGet uživatelského rozhraní](/visualstudio/mac/nuget-walkthrough) | Visual Studio for Mac | Využití | Poskytují-použití uživatelského rozhraní pro instalaci a správu balíčků v sadě Visual Studio pro Mac projekty. |
 | [MSBuild](reference/msbuild-targets.md) | Windows | Vytvoření, spotřeby | Umožňuje vytvořit balíčky a obnovení balíčků se používá v projektu přímo prostřednictvím řetězec nástroje MSBuild. |
 
 Jak je vidět, nástroje NuGet, které při práci s velmi lišit v závislosti na tom, jestli už vytváříte, využívání nebo publikování balíčků a platformy, na kterém pracujete. Tvůrce balíčku jsou obvykle také spotřebitelů, protože jsou postaveny funkce, která existuje v dalších balíčcích NuGet. A tyto balíčky, samozřejmě, může pak záviset na stále jiných.
@@ -82,7 +82,7 @@ Počítač, který přijímá projektu, jako je získání kopie projektu jako s
 
 Je zřejmé pak Nugetu primární roli. Pokud máte obavy vývojáři udržuje tento odkaz seznam jménem vašeho projektu a poskytuje způsob, jak efektivně obnovení (a aktualizovat) odkazované balíčky. Tento seznam je zachován v jedné ze dvou *balíček správy formáty*, jako jsou volány:
 
-- [`packages.config`](reference/packages-config.md): *(NuGet) 1.0 +* soubor ve formátu XML, který udržuje seznam bez stromové struktury všechny závislosti v projektu, včetně závislostí jiných nainstalované balíčky. Balíčky nainstalované nebo obnovený jsou uložené v `packages` složky.
+- [`packages.config`](reference/packages-config.md): *(NuGet 1.0 +)*  Soubor ve formátu XML, který udržuje seznam bez stromové struktury všechny závislosti v projektu, včetně závislostí jiných nainstalované balíčky. Balíčky nainstalované nebo obnovený jsou uložené v `packages` složky.
 
 - [PackageReference](consume-packages/package-references-in-project-files.md) (nebo "balíček odkazy v souborech projektu") | *(NuGet 4.0 +)* udržuje seznam nejvyšší úrovně závislosti projektu přímo v rámci souboru projektu, takže je potřeba žádný samostatný soubor. Přidružený soubor `obj/project.assets.json`, generuje dynamicky spravovat celkový graf závislosti balíčků, které projekt používá spolu se všemi závislostmi nižší úrovně. PackageReference vždy používá projekty .NET Core.
 

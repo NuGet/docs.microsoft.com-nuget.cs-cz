@@ -8,12 +8,12 @@ description: Prostředek podpisy úložiště umožňuje klientům zdroje balí�
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 81d32a7011268e45136e00cdb7345a95070aae06
-ms.sourcegitcommit: be9c51b4b095aea40ef41bbea7e12ef0a194ee74
+ms.openlocfilehash: ea318446c41a0d85d3fbf959dd38c929a0d0e9a1
+ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53248439"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59509019"
 ---
 # <a name="repository-signatures"></a>Podpisy úložiště
 
@@ -28,7 +28,8 @@ Následující `@type` hodnota se používá:
 @type Hodnota                | Poznámky
 -------------------------- | -----
 RepositorySignatures/4.7.0 | Počáteční verze
-RepositorySignatures/4.9.0 | Umožňuje povolení `allRepositorySigned`
+RepositorySignatures/4.9.0 | Podporuje NuGet v4.9 + klientů
+RepositorySignatures/5.0.0 | Umožňuje povolení `allRepositorySigned`. Podporuje NuGet 5.0 + klientů
 
 ## <a name="base-url"></a>Základní adresa URL
 
@@ -57,19 +58,19 @@ Následující požadavek načte index podpisy úložiště.
 
 Signatura indexu úložiště je dokument JSON, který obsahuje objekt s následujícími vlastnostmi:
 
-Název                | Typ             | Požadováno | Poznámky
+Name                | Type             | Požadováno | Poznámky
 ------------------- | ---------------- | -------- | -----
-allRepositorySigned | Logická hodnota          | ano      | Musí být `false` na 4.7.0 prostředků
+allRepositorySigned | Logická hodnota          | ano      | Musí být `false` 4.7.0 a 4.9.0 prostředků
 signingCertificates | Pole objektů | ano      | 
 
 `allRepositorySigned` Logická hodnota je nastavena na hodnotu false, pokud zdroj balíčku má některé balíčky, které mají žádný podpis úložiště. Pokud je nastavená hodnota true, všechny balíčky, které jsou k dispozici na datový typ boolean zdroje musí mít podpis úložiště vytvořeného pomocí jedné z podpisové certifikáty podle `signingCertificates`.
 
 > [!Warning]
-> `allRepositorySigned` Boolean musí mít hodnotu false na 4.7.0 prostředků. Klienti NuGet v4.7 a v4.8 nelze nainstalovat balíčky ze zdrojů, které mají `allRepositorySigned` nastavenou na hodnotu true.
+> `allRepositorySigned` Boolean musí mít hodnotu false u 4.7.0 a 4.9.0 prostředků. Klienti NuGet v4.7, v4.8 a v4.9 nelze nainstalovat balíčky ze zdrojů, které mají `allRepositorySigned` nastavenou na hodnotu true.
 
 Měla by existovat jeden nebo více podpisové certifikáty v `signingCertificates` pole, pokud `allRepositorySigned` logická hodnota je nastavena na hodnotu true. Pokud je pole prázdné a `allRepositorySigned` je nastavena na hodnotu true, všechny balíčky ze zdroje by měl být neplatná, i když se zásady klienta může stále povolit spotřebu balíčků. Každý prvek v tomto poli je objekt JSON s následujícími vlastnostmi.
 
-Název         | Typ   | Požadováno | Poznámky
+Name         | Type   | Požadováno | Poznámky
 ------------ | ------ | -------- | -----
 contentUrl   | odkazy řetězců | ano      | Absolutní adresa URL pro kódování DER veřejný certifikát
 otisky prstů | odkazy objektů | ano      |
@@ -85,7 +86,7 @@ Tyto vlastnosti derivable jsou k dispozici jako usnadnění a minimalizovat vým
 
 `fingerprints` Objektu má následující vlastnosti:
 
-Název                   | Typ   | Požadováno | Poznámky
+Name                   | Type   | Požadováno | Poznámky
 ---------------------- | ------ | -------- | -----
 2.16.840.1.101.3.4.2.1 | odkazy řetězců | ano      | Otisk SHA-256
 

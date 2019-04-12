@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/29/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 21678cc36fd9bf1ed49143bee3f35208640fc8a7
-ms.sourcegitcommit: 2af17c8bb452a538977794bf559cdd78d58f2790
+ms.openlocfilehash: ebb1dd929042a1fcd269d0ac50154ae6b8234be2
+ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58637646"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59509097"
 ---
 # <a name="nuspec-reference"></a>odkaz na souboru .nuspec
 
@@ -84,11 +84,13 @@ Adresa URL domovské stránky balíčku, často zobrazuje v uživatelském rozhr
 
 Adresa URL licence balíčku, často zobrazuje v uživatelském rozhraní nuget.org.
 #### <a name="license"></a>Licence
-Výraz SPDX licence nebo cesta k souboru licencí v rámci balíčku, často zobrazuje v uživatelském rozhraní nuget.org. V případě, že licencujete balíčku v rámci běžných licence, jako je například BSD-2klauzule nebo MIT, použijte přidružený identifikátor SPDX licence.<br>Příklad: `<license type="expression">MIT</license>`
+Výraz SPDX licence nebo cesta k souboru licencí v rámci balíčku, často zobrazuje v uživatelském rozhraní nuget.org. V případě, že licencujete balíčku v rámci běžných licence, jako je například BSD-2klauzule nebo MIT, použijte přidružený identifikátor SPDX licence.<br>Příklad:
+`<license type="expression">MIT</license>`
 
 Tady je úplný seznam [SPDX licence identifikátory](https://spdx.org/licenses/). NuGet.org přijímá pouze OSI nebo licenci FSF schválení licence při použití výrazu typu.
 
-Pokud váš balíček je licencován několik běžných licence, můžete zadat složené licencí pomocí [SPDX výraz syntaxe verze 2.0](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60).<br>Příklad: `<license type="expression">BSD-2-Clause OR MIT</license>`
+Pokud váš balíček je licencován několik běžných licence, můžete zadat složené licencí pomocí [SPDX výraz syntaxe verze 2.0](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60).<br>Příklad:
+`<license type="expression">BSD-2-Clause OR MIT</license>`
 
 Pokud používáte licenci, která ještě není přiřazený identifikátor SPDX, nebo vlastní licenci, můžete zabalit do souboru (pouze `.txt` nebo `.md`) s textem licence. Příklad:
 ```xml
@@ -385,8 +387,8 @@ Každý `<file>` prvek určuje následující atributy:
 | Atribut | Popis |
 | --- | --- |
 | **src** | Umístění souboru nebo souborů zahrnout v souladu s vyloučení určené `exclude` atribut. Cesta je vzhledem k `.nuspec` souboru není určena absolutní cestu. Zástupný znak `*` je povolený nebo double zástupné `**` znamená rekurzivní hledání složky. |
-| **target** | Relativní cesta ke složce v rámci balíčku, kde jsou umístěny zdrojové soubory, které musí začínat `lib`, `content`, `build`, nebo `tools`. Zobrazit [vytváření souboru .nuspec z pracovního adresáře podle úmluvy](../create-packages/creating-a-package.md#from-a-convention-based-working-directory). |
-| **Vyloučení** | Středníkem oddělený seznam soubory nebo vzory souborů, které chcete vyloučit z `src` umístění. Zástupný znak `*` je povolený nebo double zástupné `**` znamená rekurzivní hledání složky. |
+| **cíl** | Relativní cesta ke složce v rámci balíčku, kde jsou umístěny zdrojové soubory, které musí začínat `lib`, `content`, `build`, nebo `tools`. Zobrazit [vytváření souboru .nuspec z pracovního adresáře podle úmluvy](../create-packages/creating-a-package.md#from-a-convention-based-working-directory). |
+| **exclude** | Středníkem oddělený seznam soubory nebo vzory souborů, které chcete vyloučit z `src` umístění. Zástupný znak `*` je povolený nebo double zástupné `**` znamená rekurzivní hledání složky. |
 
 ### <a name="examples"></a>Příklady
 
@@ -590,7 +592,7 @@ Tyto soubory jsou určené sadu atributů, které popisují, jak mají být pou�
 | Atribut | Popis |
 | --- | --- |
 | **include** | (Povinné) Umístění souboru nebo souborů zahrnout v souladu s vyloučení určené `exclude` atribut. Cesta je vzhledem k `.nuspec` souboru není určena absolutní cestu. Zástupný znak `*` je povolený nebo double zástupné `**` znamená rekurzivní hledání složky. |
-| **Vyloučení** | Středníkem oddělený seznam soubory nebo vzory souborů, které chcete vyloučit z `src` umístění. Zástupný znak `*` je povolený nebo double zástupné `**` znamená rekurzivní hledání složky. |
+| **exclude** | Středníkem oddělený seznam soubory nebo vzory souborů, které chcete vyloučit z `src` umístění. Zástupný znak `*` je povolený nebo double zástupné `**` znamená rekurzivní hledání složky. |
 | **buildAction** | Akce sestavení zařadit do obsahu položky nástroje MSBuild, jako například `Content`, `None`, `Embedded Resource`, `Compile`atd. Výchozí hodnota je `Compile`. |
 | **copyToOutput** | Logická hodnota označující, jestli se má kopírovat položky obsahu pro sestavení (nebo publikovat) výstupní složka. Výchozí hodnota je false. |
 | **Sloučit** | Logická hodnota označující, zda se můžete kopírovat položky obsahu na jedinou složku ve výstupu sestavení (pravda), nebo zachovat strukturu složek v balíčku (false). Tento příznak funguje pouze v případě copyToOutput příznak je nastaven na hodnotu true. Výchozí hodnota je false. |
@@ -727,6 +729,5 @@ V tomto příkladu tímto se nainstalují pro konkrétní projekt cílí:
 
 - .NET4 -> `System.Web`, `System.Net`
 - . NET4 -> Client Profile `System.Net`
-- Silverlight 3 -> `System.Json`
-- Silverlight 4 -> `System.Windows.Controls.DomainServices`
+- -> Silverlight 3 `System.Json`
 - WindowsPhone -> `Microsoft.Devices.Sensors`
