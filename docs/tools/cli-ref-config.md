@@ -38,9 +38,9 @@ Ve Správci NuGet 3.4 + `<value>` můžete použít [proměnné prostředí](cli
 | AsPath | Vrátí hodnotu konfigurace jako cestu, ignoruje při `-Set` se používá. |
 | ConfigFile | Konfigurační soubor NuGet upravit. Pokud není zadán, `%AppData%\NuGet\NuGet.Config` (Windows) nebo `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) se používá.|
 | ForceEnglishOutput | *(3.5 +)*  Vynutí nuget.exe pro spuštění pomocí neutrální, základem je angličtina jazyková verze. |
-| Nápověda | Zobrazí nápovědu pro příkaz. |
-| Neinteraktivní | Potlačí vyzve k zadání uživatele o vstup ani potvrzení. |
-| Podrobnosti | Určuje množství podrobností, na které se zobrazí ve výstupu: *normální*, *quiet*, *podrobné*. |
+| Help | Zobrazí nápovědu pro příkaz. |
+| NonInteractive | Potlačí vyzve k zadání uživatele o vstup ani potvrzení. |
+| Verbosity | Určuje množství podrobností, na které se zobrazí ve výstupu: *normální*, *quiet*, *podrobné*. |
 
 Viz také [proměnné prostředí](cli-ref-environment-variables.md)
 

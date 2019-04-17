@@ -42,11 +42,11 @@ kde `<packagePath>` je cesta k balíčku, který chcete přidat, a `<sourcePath>
 | Možnost | Popis |
 | --- | --- |
 | ConfigFile | Konfigurační soubor NuGet použít. Pokud není zadán, `%AppData%\NuGet\NuGet.Config` (Windows) nebo `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) se používá.|
-| Rozbalte položku | Přidá všechny soubory v balíčku ke zdroji balíčku. |
+| Expand | Přidá všechny soubory v balíčku ke zdroji balíčku. |
 | ForceEnglishOutput | *(3.5 +)*  Vynutí nuget.exe pro spuštění pomocí neutrální, základem je angličtina jazyková verze. |
-| Nápověda | Zobrazí nápovědu pro příkaz. |
-| Neinteraktivní | Potlačí vyzve k zadání uživatele o vstup ani potvrzení. |
-| Podrobnosti | Určuje množství podrobností, na které se zobrazí ve výstupu: *normální*, *quiet*, *podrobné*. |
+| Help | Zobrazí nápovědu pro příkaz. |
+| NonInteractive | Potlačí vyzve k zadání uživatele o vstup ani potvrzení. |
+| Verbosity | Určuje množství podrobností, na které se zobrazí ve výstupu: *normální*, *quiet*, *podrobné*. |
 
 Viz také [proměnné prostředí](cli-ref-environment-variables.md)
 
