@@ -34,7 +34,7 @@ kde `<packageID>` a `<packageVersion>` určit přesné balíček odstranit nebo 
 | ConfigFile | Konfigurační soubor NuGet použít. Pokud není zadán, `%AppData%\NuGet\NuGet.Config` (Windows) nebo `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) se používá.|
 | ForceEnglishOutput | *(3.5 +)*  Vynutí nuget.exe pro spuštění pomocí neutrální, základem je angličtina jazyková verze. |
 | Help | Zobrazí nápovědu pro příkaz. |
-| Neinteraktivní | Potlačí vyzve k zadání uživatele o vstup ani potvrzení. |
+| NonInteractive | Potlačí vyzve k zadání uživatele o vstup ani potvrzení. |
 | Source | Určuje adresu URL serveru. Adresa URL nuget.org `https://api.nuget.org/v3/index.json`. Pro privátní kanály, nahraďte název hostitele, například *%hostname%/api/v3*. |
 | Verbosity | Určuje množství podrobností, na které se zobrazí ve výstupu: *normální*, *quiet*, *podrobné*. |
 
