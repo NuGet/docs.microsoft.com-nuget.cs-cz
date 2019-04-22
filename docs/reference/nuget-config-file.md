@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 10/25/2017
 ms.topic: reference
 ms.openlocfilehash: d7c943c1f13edf782dabe4afee9d19a1a42bd42a
-ms.sourcegitcommit: 9f94e00428d83aef4a7a87db679129eff7720c59
+ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58911085"
 ---
 # <a name="nugetconfig-reference"></a>odkaz na soubor nuget.config
@@ -70,7 +70,7 @@ Obsahuje nastavení různé konfigurace, které lze nastavit pomocí [ `nuget co
 
 Konfiguruje, zda NuGet nepodporuje automatické přesměrování vazby při instalaci balíčku.
 
-| Key | Value |
+| Key | Hodnota |
 | --- | --- |
 | Přeskočit | Logická hodnota označující, zda se mají přeskočit automatické přesměrování vazby. Výchozí hodnota je false. |
 
@@ -146,7 +146,7 @@ Uvádí všechny zdroje balíčků známé. Pořadí je ignorována během opera
 
 Ukládá uživatelská jména a hesla pro zdroje, obvykle se zadává `-username` a `-password` přepínače s `nuget sources`. Hesla jsou ve výchozím nastavení zašifrované, pokud `-storepasswordincleartext` možnost je také použít.
 
-| Key | Hodnota |
+| Key | Value |
 | --- | --- |
 | uživatelské jméno | Uživatelské jméno pro zdroj ve formátu prostého textu. |
 | heslo | Šifrované heslo pro zdroj. |
@@ -188,7 +188,7 @@ Při použití nešifrovaná hesla:
 
 Ukládá klíče pro zdroje, které používají ověřování pomocí klíče rozhraní API, jak se [ `nuget setapikey` příkaz](../tools/cli-ref-setapikey.md).
 
-| Key | Hodnota |
+| Key | Value |
 | --- | --- |
 | (adresa URL zdroje) | Šifrovaný klíč rozhraní API. |
 
@@ -225,7 +225,7 @@ Zjištěné zdroje aktuálně zakázáno. Může být prázdný.
 
 Identifikuje zdroj aktuálně aktivní nebo označuje souhrn všech zdrojů.
 
-| Key | Value |
+| Key | Hodnota |
 | --- | --- |
 | (název zdroje) nebo `All` | Pokud klíč je název zdroje, hodnota je zdrojová cesta nebo adresa URL. Pokud `All`, hodnotou by měla být `(Aggregate source)` kombinovat všechny zdroje balíčků, které jinak nejsou zakázané. |
 

@@ -7,10 +7,10 @@ ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
 ms.openlocfilehash: 8ff92e5a3ab2d5c13ee02a9e49709866e2ac0e87
-ms.sourcegitcommit: 8793f528a11bd8e8fb229cd12e9abba50d61e104
+ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58921569"
 ---
 # <a name="signing-nuget-packages"></a>Podepisují se balíčky NuGet
@@ -92,8 +92,8 @@ Tento příkaz vytvoří testovací certifikát k dispozici v úložišti osobn�
 ## <a name="manage-signing-requirements-for-your-package-on-nugetorg"></a>Spravovat podepisování požadavky pro vaše balíčků na NuGet.org
 1. [Přihlaste se](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) na NuGet.org.
 
-1. Přejděte na `Manage Packages` 
-   ![konfigurace podepsaných balíčků](../reference/media/configure-package-signers.png)
+1. Přejděte na `Manage Packages`  
+    ![konfigurace podepsaných balíčků](../reference/media/configure-package-signers.png)
 
 * Pokud jste jediným vlastníkem balíček, jsou požadované podepisující osoba to znamená všechny certifikáty registrované můžete použít k podepisování a publikovat vaše balíčky NuGet.org.
 
