@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: adf97196f50f2a55d6b8ceed93d53ff12b67657b
-ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
+ms.openlocfilehash: 9964186dcbfedfbf2415a57102f8f019a1eef23a
+ms.sourcegitcommit: 6b71926f062ecddb8729ef8567baf67fd269642a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56145628"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59931992"
 ---
 # <a name="restore-command-nuget-cli"></a>příkaz Restore (rozhraní příkazového řádku NuGet)
 
@@ -37,11 +37,11 @@ kde `<projectPath>` Určuje umístění řešení nebo `packages.config` souboru
 | DisableParallelProcessing | Zakáže obnovování více balíčků paralelně. |
 | FallbackSource | *(3.2 +)*  Seznam zdrojů balíčků, které má být použit jako náhrad balíček nebyl nalezen v primární nebo výchozí zdroj. |
 | ForceEnglishOutput | *(3.5 +)*  Vynutí nuget.exe pro spuštění pomocí neutrální, základem je angličtina jazyková verze. |
-| Nápověda | Zobrazí nápovědu pro příkaz. |
+| Help | Zobrazí nápovědu pro příkaz. |
 | MSBuildPath | *(4.0 +)*  Určuje cestu k používání pomocí příkazu, přednost `-MSBuildVersion`. |
 | MSBuildVersion | *(3.2 +)*  Určuje verzi Msbuildu, který se má použít tento příkaz. Podporované hodnoty jsou 4, 12, 14, 15.1, 15.3, 15.4, 15.5, verzi 15.6, 15.7, 15.8, 15.9. Ve výchozím nastavení se vybere MSBuild na vaší cestě jinak je výchozí hodnotou nejvyšší nainstalovaná verze Msbuildu. |
 | NoCache | Brání použití mezipaměti balíčků NuGet. Zobrazit [Správa globálních balíčků a složek mezipaměti](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
-| Neinteraktivní | Potlačí vyzve k zadání uživatele o vstup ani potvrzení. |
+| NonInteractive | Potlačí vyzve k zadání uživatele o vstup ani potvrzení. |
 | OutputDirectory | Určuje složku, ve kterém jsou nainstalované balíčky. Pokud není zadána žádná složka, použije se aktuální složce. Při obnovení se vyžaduje `packages.config` souboru není-li `PackagesDirectory` nebo `SolutionDirectory` se používá.|
 | PackageSaveMode | Určuje typy souborů, uložte po instalaci balíčku: jeden z `nuspec`, `nupkg`, nebo `nuspec;nupkg`. |
 | PackagesDirectory | Stejné jako `OutputDirectory`. Při obnovení se vyžaduje `packages.config` souboru není-li `OutputDirectory` nebo `SolutionDirectory` se používá. |
@@ -49,8 +49,8 @@ kde `<projectPath>` Určuje umístění řešení nebo `packages.config` souboru
 | rekurzivní | *(4.0 +)*  Obnoví všechny odkazy na projekty pro projekty UPW a .NET Core. Se nedá použít u projektů s použitím `packages.config`. |
 | RequireConsent | Ověří, zda je povoleno obnovují se balíčky před stažením a instalací balíčků. Podrobnosti najdete v tématu [obnovení balíčků](../consume-packages/package-restore.md). |
 | SolutionDirectory | Určuje složku řešení. Není platný při obnovují se balíčky pro řešení. Při obnovení se vyžaduje `packages.config` souboru není-li `PackagesDirectory` nebo `OutputDirectory` se používá. |
-| Zdroj | Určuje seznam zdrojů balíčků (jako adresy URL) pro obnovení. Pokud tento parametr vynechán, příkaz používá zdroje k dispozici v konfiguračních souborech naleznete v tématu [konfigurace NuGet chování](../consume-packages/configuring-nuget-behavior.md). |
-| Podrobnosti |> určuje množství podrobností, na které se zobrazí ve výstupu: *normální*, *quiet*, *podrobné*. |
+| Source | Určuje seznam zdrojů balíčků (jako adresy URL) pro obnovení. Pokud tento parametr vynechán, příkaz používá zdroje k dispozici v konfiguračních souborech naleznete v tématu [konfigurace NuGet chování](../consume-packages/configuring-nuget-behavior.md). |
+| Verbosity |> určuje množství podrobností, na které se zobrazí ve výstupu: *normální*, *quiet*, *podrobné*. |
 
 Viz také [proměnné prostředí](cli-ref-environment-variables.md)
 
@@ -71,7 +71,7 @@ Příkaz restore provede následující kroky:
 2. Určení složky balíčků v následujícím pořadí priority (NuGet vrátí chybu, pokud se nenajdou žádné z těchto složek):
 
     - Zadaná složka s `-PackagesDirectory`.
-    - `repositoryPath` Hodnotu v `Nuget.Config`
+    - `repositoryPath` Hodnota v `Nuget.Config`
     - Zadaná složka s `-SolutionDirectory`
     - `$(SolutionDir)\packages`
 

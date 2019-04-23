@@ -5,18 +5,21 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: fd5824d1c5e05df08301dac1cf656ba1d5ca75cd
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: ac1bf2b65ab6ec4e8cf864810181fc661236262a
+ms.sourcegitcommit: 6b71926f062ecddb8729ef8567baf67fd269642a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551735"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59931979"
 ---
 # <a name="nuget-cli-environment-variables"></a>Proměnné prostředí rozhraní příkazového řádku NuGet
 
 Chování programu nuget.exe rozhraní příkazového řádku je možné nakonfigurovat procházet celou řadou proměnné prostředí, které ovlivňují nuget.exe pro celý počítač, uživatele nebo zpracovat úrovně. Proměnné prostředí vždy přepíší všechna nastavení v `NuGet.Config` soubory, což serverů sestavení ke změňte příslušná nastavení beze změny všech souborů.
 
 Obecně platí, mají přednost před možností přímo na příkazovém řádku nebo v konfiguračních souborech na NuGet, ale existuje pár výjimek, jako *FORCE_NUGET_EXE_INTERACTIVE*. Pokud zjistíte, že tento nuget.exe chová odlišně mezi různými počítači, proměnné prostředí může být příčinou. Azure Web Apps Kudu (používá se během nasazení) má například *NUGET_XMLDOC_MODE* nastavena na *přeskočit* zrychlit výkonu obnovení balíčku a ušetřit místo na disku.
+
+Rozhraní příkazového řádku NuGet používá ke čtení souborů projektu MSBuild. Všechny proměnné prostředí jsou k dispozici jako [vlastnosti](/visualstudio/msbuild/msbuild-command-line-reference) během vyhodnocování MSBuild.
+Seznam vlastností, které jsou popsány v [NuGet aktualizací Service pack a obnovení jako cílů MSBuild](../reference/msbuild-targets.md#restore-properties) můžete také nastavit jako proměnné prostředí.
 
 | Proměnná | Popis | Poznámky |
 | --- | --- | --- |
@@ -34,4 +37,5 @@ Obecně platí, mají přednost před možností přímo na příkazovém řádk
 | NUGET_RESTORE_MSBUILD_VERBOSITY | Nastaví úroveň podrobností protokolu MSBuild. | Výchozí hodnota je *quiet* ("/ v: q"). Možné hodnoty *q [uiet]*, *m [inimal]*, *n [ormal]*, *d [etailed]*, a *diag [nostic]*. |
 | NUGET_SHOW_STACK | Určuje, zda má být zobrazen úplných informacích o výjimce (včetně trasování zásobníku) pro uživatele. | Zadaný jako *true* nebo *false* (výchozí). |
 | NUGET_XMLDOC_MODE | Určuje, jak by měl být zpracována extrakce souborů dokumentace XML sestavení. | Jsou podporované režimy *přeskočit* (ne extrahovat soubory dokumentace XML), *komprimovat* (Uložit soubory dokumentu XML jako archiv zip) nebo *žádný* (výchozí, považovat za standardní soubory XML doc soubory). |
-| NUGET_CERT_REVOCATION_MODE | Určuje, jak zkontrolovat stav odvolání certifikátu použitého k podepsání balíčku, pefromed při instalaci nebo obnovit podepsaný balíček. Pokud není nastavený, výchozí hodnota je `online`.| Možné hodnoty *online* (výchozí), *offline*.  Související s [NU3028](../reference/errors-and-warnings/NU3028.md) |
+| NUGET_CERT_REVOCATION_MODE | Určuje, jak zkontrolovat stav odvolání certifikátu použitého k podepsání balíčku, se provádí při instalaci nebo obnovit podepsaný balíček. Pokud není nastavený, výchozí hodnota je `online`.| Možné hodnoty *online* (výchozí), *offline*.  Související s [NU3028](../reference/errors-and-warnings/NU3028.md) |
+

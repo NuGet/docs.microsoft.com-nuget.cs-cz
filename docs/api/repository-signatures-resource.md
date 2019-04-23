@@ -9,11 +9,11 @@ ms.reviewer:
 - karann
 - unniravindranathan
 ms.openlocfilehash: ea318446c41a0d85d3fbf959dd38c929a0d0e9a1
-ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
+ms.sourcegitcommit: 6b71926f062ecddb8729ef8567baf67fd269642a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59509019"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59931849"
 ---
 # <a name="repository-signatures"></a>Podpisy úložiště
 
@@ -58,7 +58,7 @@ Následující požadavek načte index podpisy úložiště.
 
 Signatura indexu úložiště je dokument JSON, který obsahuje objekt s následujícími vlastnostmi:
 
-Name                | Type             | Požadováno | Poznámky
+Název                | Type             | Požadováno | Poznámky
 ------------------- | ---------------- | -------- | -----
 allRepositorySigned | Logická hodnota          | ano      | Musí být `false` 4.7.0 a 4.9.0 prostředků
 signingCertificates | Pole objektů | ano      | 
@@ -70,7 +70,7 @@ signingCertificates | Pole objektů | ano      |
 
 Měla by existovat jeden nebo více podpisové certifikáty v `signingCertificates` pole, pokud `allRepositorySigned` logická hodnota je nastavena na hodnotu true. Pokud je pole prázdné a `allRepositorySigned` je nastavena na hodnotu true, všechny balíčky ze zdroje by měl být neplatná, i když se zásady klienta může stále povolit spotřebu balíčků. Každý prvek v tomto poli je objekt JSON s následujícími vlastnostmi.
 
-Name         | Type   | Požadováno | Poznámky
+Název         | Type   | Požadováno | Poznámky
 ------------ | ------ | -------- | -----
 contentUrl   | odkazy řetězců | ano      | Absolutní adresa URL pro kódování DER veřejný certifikát
 otisky prstů | odkazy objektů | ano      |
@@ -86,7 +86,7 @@ Tyto vlastnosti derivable jsou k dispozici jako usnadnění a minimalizovat vým
 
 `fingerprints` Objektu má následující vlastnosti:
 
-Name                   | Type   | Požadováno | Poznámky
+Název                   | Type   | Požadováno | Poznámky
 ---------------------- | ------ | -------- | -----
 2.16.840.1.101.3.4.2.1 | odkazy řetězců | ano      | Otisk SHA-256
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8132595cbfaf553736fbcc81aada283a44d6cdbf
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: 1e89aeb46f2538d46c013561a51a41702b2472d8
+ms.sourcegitcommit: 6b71926f062ecddb8729ef8567baf67fd269642a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324848"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59932096"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Balíček NuGet a obnovení jako cílů MSBuild
 
@@ -67,7 +67,7 @@ Všimněte si, že `Owners` a `Summary` vlastnosti z `.nuspec` nejsou podporová
 | Úložiště a větve | RepositoryBranch | empty | Informace o volitelných úložišti větev *RepositoryUrl* musí být také zadána pro tuto vlastnost, která mají být zahrnuty. Příklad: *hlavní* (NuGet 4.7.0+) |
 | Úložiště na potvrzení | RepositoryCommit | empty | Volitelné úložiště potvrzení změn nebo sadu změn k označení, které zdroje balíčku byla vytvořena. *RepositoryUrl* musí být také zadána pro tuto vlastnost, která mají být zahrnuty. Příklad: *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0+) |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
-| Souhrn | Nepodporováno | | |
+| Souhrn | Není podporováno | | |
 
 ### <a name="pack-target-inputs"></a>vstupy cíl balíčku
 
@@ -322,7 +322,7 @@ Příklad:
 
 1. Číst všechny odkazy typu projekt na projekt
 1. Přečtěte si vlastnosti projektu k vyhledání zprostředkující složky a cílové architektury
-1. Předání dat msbuild NuGet.Build.Tasks.dll
+1. Předání dat MSBuild NuGet.Build.Tasks.dll
 1. Spustit obnovení
 1. Stáhnout balíčky
 1. Zápis souboru prostředků, cíle a vlastnosti
@@ -341,9 +341,14 @@ Nastavení další obnovení mohou pocházet z vlastnosti nástroje MSBuild v so
 | RestoreConfigFile | Cesta k `Nuget.Config` souboru a aplikovat. |
 | RestoreNoCache | Při hodnotě true se vyhnete použitím balíčky v mezipaměti. Zobrazit [Správa globálních balíčků a složek mezipaměti](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
 | RestoreIgnoreFailedSources | Při hodnotě true se ignoruje neúspěšné nebo chybějící zdroje balíčků. |
+| RestoreFallbackFolders | Záložní složky použít stejným způsobem balíčky uživatele, který se používá složka. |
+| RestoreAdditionalProjectSources | Další zdroje k použití během obnovení. |
+| RestoreAdditionalProjectFallbackFolders | Použití náhradní lokality použít další složky při obnovení. |
+| RestoreAdditionalProjectFallbackFoldersExcludes | Vyloučí záložní složky zadané v `RestoreAdditionalProjectFallbackFolders` |
 | RestoreTaskAssemblyFile | Cesta k `NuGet.Build.Tasks.dll`. |
 | RestoreGraphProjectInput | Středníkem oddělený seznam projekty k obnovení, který by měl obsahovat absolutní cesty. |
-| RestoreOutputPath | Výstupní složky, jako výchozí se použije `obj` složky. |
+| RestoreUseSkipNonexistentTargets  | Pokud projekty jsou shromažďovány prostřednictvím Určuje, zda jsou jsou shromažďovány, pomocí nástroje MSBuild `SkipNonexistentTargets` optimalizace. Pokud není nastavený, výchozí hodnota je `true`. Důsledkem je typu fail-fast chování při cíle projektu nelze importovat. |
+| MSBuildProjectExtensionsPath | Výstupní složky, jako výchozí se použije `BaseIntermediateOutputPath` a `obj` složky. |
 
 #### <a name="examples"></a>Příklady
 
@@ -370,6 +375,23 @@ Obnovení vytvoří následující soubory v sestavení `obj` složky:
 | `project.assets.json` | Obsahuje všechny odkazy na balíčky v grafu závislostí. |
 | `{projectName}.projectFileExtension.nuget.g.props` | Odkazy na vlastnosti MSBuild součástí balíčků |
 | `{projectName}.projectFileExtension.nuget.g.targets` | Odkazy na obsažených v balíčcích cíle nástroje MSBuild |
+
+### <a name="restoring-and-building-with-one-msbuild-command"></a>Obnovení a vytváření pomocí jednoho příkazu MSBuild
+
+Skutečnost, že NuGet můžete obnovit balíčky, které přinášejí cíle nástroje MSBuild a vlastnosti, obnovit a hodnocení sestavení se spouštějí s různými vlastnostmi globální.
+To znamená, že následující bude mít nepředvídatelné a často nesprávné chování.
+
+```cli
+msbuild -t:restore,build
+```
+
+ Místo toho je doporučený postup:
+
+```cli
+msbuild -t:build -restore
+```
+
+Stejná logika platí mířící podobný `build`.
 
 ### <a name="packagetargetfallback"></a>PackageTargetFallback
 
