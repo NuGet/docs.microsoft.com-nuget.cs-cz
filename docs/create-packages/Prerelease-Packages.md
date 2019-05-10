@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: d6925df63daf3096455a8205d6aeb07b4475f715
-ms.sourcegitcommit: 5c5f0f0e1f79098e27d9566dd98371f6ee16f8b5
+ms.openlocfilehash: 696f51905198defdbfd475ba7d010ac3e27ac557
+ms.sourcegitcommit: 3fc93f7a64be040699fe12125977dd25a7948470
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53645630"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64877946"
 ---
 # <a name="building-pre-release-packages"></a>Vytváření balíčky v předběžné verzi
 
@@ -22,7 +22,7 @@ Stabilní verze je ten, který se považuje za dostatečně spolehlivé na to, k
 
 Pro podporu životního cyklu verze softwaru, NuGet 1.6 nebo novější umožňuje distribuční balíčky v předběžné verzi, kde číslo verze zahrnuje příponu sémantické správy verzí, například `-alpha`, `-beta`, nebo `-rc`. Další informace najdete v tématu [Správa verzí balíčků](../reference/package-versioning.md#pre-release-versions).
 
-Tyto verze můžete zadat dvěma způsoby:
+Tyto verze můžete určit třemi způsoby:
 
 - `.nuspec` soubor: zahrnout příponu sémantickou verzi v `version` element:
 
@@ -30,7 +30,15 @@ Tyto verze můžete zadat dvěma způsoby:
     <version>1.0.1-alpha</version>
     ```
 
-- Atributy sestavení: při vytváření balíčku projektu sady Visual Studio (`.csproj` nebo `.vbproj`), použijte `AssemblyInformationalVersionAttribute` k zadání verze:
+- `.csproj` soubor: zahrnout příponu sémantickou verzi v `PackageVersion` element:
+
+    ```xml
+    <PropertyGroup>
+        <PackageVersion>1.0.1-alpha</PackageVersion>
+    </PropertyGroup>
+    ```
+
+- Atributy sestavení: Zadejte verzi pomocí `AssemblyInformationalVersionAttribute`:
 
     ```cs
     [assembly: AssemblyInformationalVersion("1.0.1-beta")]
@@ -56,7 +64,7 @@ Ve výchozím nastavení NuGet nezahrnuje předběžných verzí při práci s b
 
 ## <a name="semantic-versioning"></a>Sémantické správy verzí
 
-[Semantic Versioning nebo SemVer konvence](http://semver.org/spec/v1.0.0.html) popisuje, jak využívat řetězce v číslech verzí k předání jejich význam základní kód.
+[Semantic Versioning nebo SemVer konvence](http://semver.org/spec/v1.0.0.html) popisuje, jak využívat řetězce v číslech verzí na významu základní kód.
 
 V této konvenci, každá verze má tři části `Major.Minor.Patch`, s následující význam:
 

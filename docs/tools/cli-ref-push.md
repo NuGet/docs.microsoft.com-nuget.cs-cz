@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 125671ca3f695f82bd74f8097e590c3972003e22
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 4a9460944e2c232e2a72195434a491d26eee3559
+ms.sourcegitcommit: 3fc93f7a64be040699fe12125977dd25a7948470
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548340"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64877961"
 ---
 # <a name="push-command-nuget-cli"></a>příkazu push (rozhraní příkazového řádku NuGet)
 
@@ -39,14 +39,14 @@ kde `<packagePath>` identifikuje balíček nainstalovat do serveru.
 | ConfigFile | Konfigurační soubor NuGet použít. Pokud není zadán, `%AppData%\NuGet\NuGet.Config` (Windows) nebo `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) se používá.|
 | DisableBuffering | Zakáže ukládání do vyrovnávací paměti při odesílání na server http (s) ke snížení využití paměti. Upozornění: když tuto možnost použít, nemusí fungovat integrované ověřování Windows. |
 | ForceEnglishOutput | *(3.5 +)*  Vynutí nuget.exe pro spuštění pomocí neutrální, základem je angličtina jazyková verze. |
-| Nápověda | Zobrazí nápovědu pro příkaz. |
-| Neinteraktivní | Potlačí vyzve k zadání uživatele o vstup ani potvrzení. |
+| Help | Zobrazí nápovědu pro příkaz. |
+| NonInteractive | Potlačí vyzve k zadání uživatele o vstup ani potvrzení. |
 | NoSymbols | *(3.5 +)*  Pokud balíček symbolů existuje, neodešle se na server symbolů. |
-| Zdroj | Určuje adresu URL serveru. Určuje název UNC nebo místní složku zdroje a jednoduše zkopíruje soubor existuje místo doručením (push) pomocí protokolu HTTP NuGet.  Také, počínaje NuGet 3.4.2, je to povinný parametr Pokud `NuGet.Config` Určuje soubor *DefaultPushSource* hodnotu (naleznete v tématu [konfigurace NuGet chování](../consume-packages/configuring-nuget-behavior.md)). |
+| Source | Určuje adresu URL serveru. Určuje název UNC nebo místní složku zdroje a jednoduše zkopíruje soubor existuje místo doručením (push) pomocí protokolu HTTP NuGet.  Také, počínaje NuGet 3.4.2, je to povinný parametr Pokud `NuGet.Config` Určuje soubor *DefaultPushSource* hodnotu (naleznete v tématu [konfigurace NuGet chování](../consume-packages/configuring-nuget-behavior.md)). |
 | SymbolSource | *(3.5 +)*  Určuje adresu URL serveru symbolů; při odesílání do nuget.org se použije nuget.smbsrc.net |
 | SymbolApiKey | *(3.5 +)*  Určuje klíč rozhraní API pro adresu URL zadané v `-SymbolSource`. |
 | časový limit | Určuje časový limit v sekundách pro odesílání na server. Výchozí hodnota je 300 sekund (5 minut). |
-| Podrobnosti | Určuje množství podrobností, na které se zobrazí ve výstupu: *normální*, *quiet*, *podrobné*. |
+| Verbosity | Určuje množství podrobností, na které se zobrazí ve výstupu: *normální*, *quiet*, *podrobné*. |
 
 Viz také [proměnné prostředí](cli-ref-environment-variables.md)
 
@@ -67,5 +67,5 @@ nuget push foo.nupkg 4003d786-cc37-4004-bfdf-c4f3e8ef9b3a -Source https://api.nu
 
 nuget push foo.nupkg 4003d786-cc37-4004-bfdf-c4f3e8ef9b3a
 
-nuget push foo.nupkg 4003d786-cc37-4004-bfdf-c4f3e8ef9b3a -s https://customsource/
+nuget push foo.nupkg 4003d786-cc37-4004-bfdf-c4f3e8ef9b3a -src https://customsource/
 ```
