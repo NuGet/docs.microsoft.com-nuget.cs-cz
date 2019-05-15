@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 04/02/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5e48ff19ea5c4908d7eb0a3cb19a31b738e348eb
-ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
+ms.openlocfilehash: 7e719a3bb5069c461820c6f884487af1eb04bf86
+ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58921582"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610669"
 ---
 # <a name="nuget-50-release-notes"></a>Zpráva k vydání verze 5.0 verze NuGet
 
@@ -19,6 +19,7 @@ Distribuce vozidel NuGet:
 | Verze NuGet | K dispozici ve verzi sady Visual Studio| K dispozici v rozhraní .NET SDK, pomocí kterých|
 |:---|:---|:---|
 | [**5.0.0**](https://nuget.org/downloads) | [Visual Studio 2019 version 16.0](https://visualstudio.microsoft.com/downloads/) | [2.1.602](https://dotnet.microsoft.com/download/dotnet-core/2.1)<sup>1</sup>, [2.2.202](https://dotnet.microsoft.com/download/dotnet-core/2.2)<sup>2</sup> |
+| [**5.0.2**](https://nuget.org/downloads) | [Visual Studio 2019 version 16.0.4](https://visualstudio.microsoft.com/downloads/) | [2.1.60X](https://dotnet.microsoft.com/download/dotnet-core/2.1)<sup>1</sup>, [2.2.20X](https://dotnet.microsoft.com/download/dotnet-core/2.2)<sup>2</sup> |
 
 <sup>1</sup>nainstalované s Visual Studio 2019 se sadou .NET Core 
 
@@ -153,6 +154,13 @@ Distribuce vozidel NuGet:
 * Povolit EmbedInteropTypes pro PackageReference (odpovídající souboru Packages.Config schopnost) - [#2365](https://github.com/NuGet/Home/issues/2365)
 
 **[Seznam všech problémů, které jsou opravené v této verzi - 5.0 RTM](https://github.com/NuGet/Home/milestone/84?closed=1)**
+
+## <a name="summary-whats-new-in-502"></a>Shrnutí: Co je nového v 5.0.2
+
+* Zabezpečení (při spuštění prostřednictvím dotnet.exe nebo mono.exe) – s správná oprávnění by měl vytvořit složku obj [#7908](https://github.com/NuGet/Home/issues/7908)
+
+* obnovení nuget.exe v mono, MacOS se nezdaří s vlastní soubor nuget.config a `PackageSignatureValidity: False` [#8011](https://github.com/NuGet/Home/issues/8011)
+
 
 ## <a name="known-issues"></a>Známé problémy
 

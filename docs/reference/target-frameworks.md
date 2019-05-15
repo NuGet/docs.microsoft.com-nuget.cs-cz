@@ -6,14 +6,14 @@ ms.author: karann
 ms.date: 12/11/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: c74a128c87a7700232a4fbddb73ff7c8f1984a29
-ms.sourcegitcommit: 885973352d31808e3ddbb45da6d6e54d1e4fca9d
+ms.openlocfilehash: 0b2a4fe45d0311b7540c73b481d6821357c723af
+ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56224954"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610645"
 ---
-# <a name="target-frameworks"></a>Cílové architektury
+# <a name="target-frameworks"></a>Cílová rozhraní
 
 NuGet používá odkazy na cílové rozhraní v různých místech konkrétně identifikovat a izolovat komponenty závisí na architektuře balíčku:
 
@@ -32,7 +32,7 @@ Architektura je obvykle odkazuje na moniker krátký cílového rozhraní nebo T
 
 Klienti NuGet podporují rozhraní v následující tabulce. Ekvivalenty jsou uvedeny v hranatých závorkách []. Všimněte si, že některé nástroje, jako například `dotnet`, může být v některé soubory používají variace procesu canonical Tfm. Například `dotnet pack` používá `.NETCoreApp2.0` v `.nuspec` souboru spíše než `netcoreapp2.0`. Různé klientské nástroje Nugetu správně zpracovat tyto varianty, ale vždy používejte canonical Tfm při úpravách souborů přímo.
 
-| Název | Zkratka | Tfm/TxMs |
+| Name | Zkratka | Tfm/TxMs |
 | ------------- | ------------ | --------- |
 |.NET Framework | NET | net11 |
 | | | net20 |
@@ -48,6 +48,7 @@ Klienti NuGet podporují rozhraní v následující tabulce. Ekvivalenty jsou uv
 | | | net47 |
 | | | net471 |
 | | | net472 |
+| | | net48 |
 |Microsoft Store (Windows Store) | netcore | netcore [netcore45] |
 | | | netcore45 [vyhrajte, win8] |
 | | | netcore451 [win81] |
@@ -80,6 +81,7 @@ Univerzální platforma pro Windows | uap | uap [uap10.0] |
 | | | netcoreapp1.1 |
 | | | netcoreapp2.0 |
 | | | netcoreapp2.1 |
+| | | netcoreapp2.2 |
 Tizen | Tizen | tizen3 |
 | | | tizen4 |
 
@@ -280,7 +282,7 @@ Další architektury definované třetími stranami zajištění kompatibility s
 
 Balíčky NuGet, které cílí na Xamarin kromě toho můžete použít další architektury definované Xamarin. Zobrazit [NuGet vytváření balíčků pro Xamarin](https://developer.xamarin.com/guides/cross-platform/advanced/nuget/).
 
-| Název | Popis | .NET Standard |
+| Name | Popis | .NET Standard |
 | --- | --- | ---
 | monoandroid | Mono podporu operačního systému Android | netstandard1.4 |
 | monotouch | Mono – podpora pro iOS | netstandard1.4 |

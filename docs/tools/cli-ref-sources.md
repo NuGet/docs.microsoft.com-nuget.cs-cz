@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 7ef856f783c8e11cdb40edb0d1c1458730d87262
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 94134b87f83e057d5d11a2722d9067fb76cc8e21
+ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548105"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610619"
 ---
 # <a name="sources-command-nuget-cli"></a>Příkaz sources (NuGet CLI)
 
@@ -26,7 +26,7 @@ Všimněte si, že je adresa URL zdroje pro nuget.org `https://api.nuget.org/v3/
 nuget sources <operation> -Name <name> -Source <source>
 ```
 
-kde `<operation>` je jedním z *seznamu, přidávat, odstraňovat, povolit, zakázat,* nebo *aktualizace*, `<name>` je název zdroje, a `<source>` je zdrojové adrese URL.
+kde `<operation>` je jedním z *seznamu, přidávat, odstraňovat, povolit, zakázat,* nebo *aktualizace*, `<name>` je název zdroje, a `<source>` je zdrojové adrese URL. Najednou můžete provozovat na jenom jeden zdroj.
 
 ## <a name="options"></a>Možnosti
 
@@ -35,12 +35,12 @@ kde `<operation>` je jedním z *seznamu, přidávat, odstraňovat, povolit, zak�
 | ConfigFile | Konfigurační soubor NuGet použít. Pokud není zadán, `%AppData%\NuGet\NuGet.Config` (Windows) nebo `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) se používá.|
 | ForceEnglishOutput | *(3.5 +)*  Vynutí nuget.exe pro spuštění pomocí neutrální, základem je angličtina jazyková verze. |
 | Formát | Platí pro `list` akce a může být `Detailed` (výchozí) nebo `Short`. |
-| Nápověda | Zobrazí nápovědu pro příkaz. |
-| Neinteraktivní | Potlačí vyzve k zadání uživatele o vstup ani potvrzení. |
+| Help | Zobrazí nápovědu pro příkaz. |
+| NonInteractive | Potlačí vyzve k zadání uživatele o vstup ani potvrzení. |
 | Heslo | Určuje heslo pro ověřování ve zdroji. |
 | StorePasswordInClearText | Označuje, že k uložení hesla v nešifrovaném textu místo výchozí chování ukládání zašifrované podobě. |
 | UserName | Určuje uživatelské jméno pro ověřování ve zdroji. |
-| Podrobnosti | Určuje množství podrobností, na které se zobrazí ve výstupu: *normální*, *quiet*, *podrobné*. |
+| Verbosity | Určuje množství podrobností, na které se zobrazí ve výstupu: *normální*, *quiet*, *podrobné*. |
 
 > [!Note]
 > Ujistěte se, že přidání hesla se zdroji ve stejném kontextu uživatele, protože nuget.exe se později používá pro přístup ke zdroji balíčku. Heslo bude uložen zašifrovaný v konfiguračním souboru a mohou ho dešifrovat jenom v rámci stejného uživatele jako byl zašifrován. Proto například při použití serveru sestavení pro obnovování balíčků NuGet, které heslo musí být zašifrován pomocí stejného uživatele Windows, ve kterém se spustí úloha serveru sestavení.
@@ -54,7 +54,7 @@ nuget sources Add -Name "MyServer" -Source \\myserver\packages
 
 nuget sources Disable -Name "MyServer"
 
-nuget source Enable -Name "nuget.org"
+nuget sources Enable -Name "nuget.org"
 
 nuget sources add -name foo.bar -source C:\NuGet\local -username foo -password bar -StorePasswordInClearText -configfile %AppData%\NuGet\my.config
 ```

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: 696f51905198defdbfd475ba7d010ac3e27ac557
-ms.sourcegitcommit: 3fc93f7a64be040699fe12125977dd25a7948470
+ms.openlocfilehash: 845f0ea84bcb92fedf9e5f4fb2b1deee1462a004
+ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64877946"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610496"
 ---
 # <a name="building-pre-release-packages"></a>Vytváření balíčky v předběžné verzi
 
@@ -22,15 +22,9 @@ Stabilní verze je ten, který se považuje za dostatečně spolehlivé na to, k
 
 Pro podporu životního cyklu verze softwaru, NuGet 1.6 nebo novější umožňuje distribuční balíčky v předběžné verzi, kde číslo verze zahrnuje příponu sémantické správy verzí, například `-alpha`, `-beta`, nebo `-rc`. Další informace najdete v tématu [Správa verzí balíčků](../reference/package-versioning.md#pre-release-versions).
 
-Tyto verze můžete určit třemi způsoby:
+Můžete zadat tyto verze pomocí jedné z následujících způsobů:
 
-- `.nuspec` soubor: zahrnout příponu sémantickou verzi v `version` element:
-
-    ```xml
-    <version>1.0.1-alpha</version>
-    ```
-
-- `.csproj` soubor: zahrnout příponu sémantickou verzi v `PackageVersion` element:
+- **Pokud váš projekt používá [ `PackageReference` ](../consume-packages/package-references-in-project-files.md)** : zahrnout příponu sémantickou verzi v `.csproj` souboru [ `PackageVersion` ](/dotnet/core/tools/csproj.md#packageversion) element:
 
     ```xml
     <PropertyGroup>
@@ -38,13 +32,11 @@ Tyto verze můžete určit třemi způsoby:
     </PropertyGroup>
     ```
 
-- Atributy sestavení: Zadejte verzi pomocí `AssemblyInformationalVersionAttribute`:
+- **Pokud má váš projekt [ `packages.config` ](../reference/packages-config.md) souboru**: zahrnout příponu sémantickou verzi v [ `.nuspec` ](../reference/nuspec.md) souboru [ `version` ](../reference/nuspec.md#version) element:
 
-    ```cs
-    [assembly: AssemblyInformationalVersion("1.0.1-beta")]
+    ```xml
+    <version>1.0.1-alpha</version>
     ```
-
-    NuGet vybere tuto hodnotu místo verze zadaná v `AssemblyVersion` atribut, který nepodporuje sémantické správy verzí.
 
 Jakmile budete připraveni k uvolnění stabilní verzi, odeberte příponu a balíček má přednost před všechny předběžné verze. Znovu, naleznete v tématu [Správa verzí balíčků](../reference/package-versioning.md#pre-release-versions).
 

@@ -5,24 +5,24 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: conceptual
-ms.openlocfilehash: c23b464ca39fd8d872f21846a7d6d34edf9dce93
-ms.sourcegitcommit: 1bd72dca2f85b4267b9924236f1d23dd7b0ed733
+ms.openlocfilehash: db968189e892723c8fd080cb01a7222696c9d3f3
+ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50088929"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610577"
 ---
-# <a name="configuring-nuget-behavior"></a>Konfigurace chování Nugetu
+# <a name="configuring-nuget-behavior"></a>Konfigurace chování NuGetu
 
 Chování Nugetu doprovází nahromaděné nastavení v jedné nebo více `NuGet.Config` soubory (XML), které mohou existovat úrovni projektu –, uživatel- a celý počítač. Globální `NuGetDefaults.Config` soubor nastaví také konkrétně zdroje balíčků. Nastavení platí pro všechny příkazy vydané v rozhraní příkazového řádku, konzole Správce balíčků a uživatelské rozhraní Správce balíčků.
 
 ## <a name="config-file-locations-and-uses"></a>Umístění souboru konfigurace a použití
 
-| Rozsah | Umístění souboru NuGet.Config | Popis |
+| Scope | Umístění souboru NuGet.Config | Popis |
 | --- | --- | --- |
-| Projekt | Aktuální složce (označuje se také jako složka projektu) nebo libovolnou složku do kořenové jednotky.| Ve složce projektu nastavení platí jenom pro daný projekt. V nadřazené složky, které obsahují více projektů podsložky nastavení platí pro všechny projekty v těchto podsložky. |
+| Project | Aktuální složce (označuje se také jako složka projektu) nebo libovolnou složku do kořenové jednotky.| Ve složce projektu nastavení platí jenom pro daný projekt. V nadřazené složky, které obsahují více projektů podsložky nastavení platí pro všechny projekty v těchto podsložky. |
 | Uživatel | Windows: `%appdata%\NuGet\NuGet.Config`<br/>Mac/Linux: `~/.config/NuGet/NuGet.Config` nebo `~/.nuget/NuGet/NuGet.Config` (se liší podle operačního systému distribučního) | Nastavení platí pro všechny operace, ale jsou přepsány všechna nastavení na úrovni projektu. |
-| Počítače | Windows: `%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux: `$XDG_DATA_HOME`. Pokud `$XDG_DATA_HOME` má hodnotu null nebo je prázdný, `~/.local/share` nebo `/usr/local/share` použije (se liší podle operačního systému distribučního)  | Nastavení platí pro všechny operace v počítači, ale jsou přepsány žádné nastavení na úrovni uživatele nebo projektu. |
+| Computer | Windows: `%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux: `$XDG_DATA_HOME`. Pokud `$XDG_DATA_HOME` má hodnotu null nebo je prázdný, `~/.local/share` nebo `/usr/local/share` použije (se liší podle operačního systému distribučního)  | Nastavení platí pro všechny operace v počítači, ale jsou přepsány žádné nastavení na úrovni uživatele nebo projektu. |
 
 Poznámky pro starší verze balíčku nuget:
 - NuGet 3.3 a dříve použitých `.nuget` složku pro nastavení řešení. Tento soubor není používán ve Správci NuGet 3.4 +.
@@ -186,17 +186,17 @@ Disk_drive_2/Project2/NuGet.Config D. souboru:
 
 NuGet pak načte a použije nastavení následujícím způsobem, v závislosti na tom, kde je vyvolána:
 
-- **Vyvolat z disk_drive_1/uživatele v**: se používá pouze výchozí úložiště uvedené v souboru konfigurace na úrovni uživatele (A), protože se jedná o jediný soubor na disk_drive_1.
+- **Vyvolat z disk_drive_1/uživatele v**: Se používá pouze výchozí úložiště uvedené v souboru konfigurace na úrovni uživatele (A), protože se jedná o jediný soubor na disk_drive_1.
 
-- **Vyvolat z disk_drive_2 / nebo disk_drive_/tmp**: individuální souboru (A) je načten jako první, potom NuGet přejde do kořenového adresáře disk_drive_2 a najde soubor (B). NuGet také hledá v konfiguračním souboru v TMP, ale nebyl nalezen jeden. V důsledku toho se používá výchozí úložiště na nuget.org, obnovení balíčku je povolená a balíčky získat rozbalení v disk_drive_2/tmp.
+- **Vyvolat z disk_drive_2 / nebo disk_drive_/tmp**: Individuální souboru (A) je načten jako první, potom NuGet přejde do kořenového adresáře disk_drive_2 a najde soubor (B). NuGet také hledá v konfiguračním souboru v TMP, ale nebyl nalezen jeden. V důsledku toho se používá výchozí úložiště na nuget.org, obnovení balíčku je povolená a balíčky získat rozbalení v disk_drive_2/tmp.
 
-- **Vyvolání z disk_drive_2/Project1 nebo disk_drive_2/Project1/zdroje**: nejprve načtení souboru individuální (A) a pak NuGet načtení souboru (B) z kořenového adresáře disk_drive_2, za nímž následuje souboru (C). Nastavení v (C) mají přednost před akcemi v (B) (A) a proto `repositoryPath` kde instalovat balíčky je disk_drive_2/Project1/externí/balíčky místo *disk_drive_2/tmp*. Navíc protože (C) vymaže `<packageSources>`, nuget.org již není k dispozici jako zdroj byste museli opustit pouze `https://MyPrivateRepo/ES/nuget`.
+- **Vyvolání z disk_drive_2/Project1 nebo disk_drive_2/Project1/zdroje**: Individuální souboru (A) je načten jako první, potom načte soubor NuGet (B) z kořenového adresáře disk_drive_2, za nímž následuje souboru (C). Nastavení v (C) mají přednost před akcemi v (B) (A) a proto `repositoryPath` kde instalovat balíčky je disk_drive_2/Project1/externí/balíčky místo *disk_drive_2/tmp*. Navíc protože (C) vymaže `<packageSources>`, nuget.org již není k dispozici jako zdroj byste museli opustit pouze `https://MyPrivateRepo/ES/nuget`.
 
-- **Vyvolání z disk_drive_2 / "project2" nebo disk_drive_2 / "project2" / zdroje**: načtení souboru individuální (A) nejprve následovaný soubor (B) a soubor (D). Protože `packageSources` není zaškrtnuto, obě `nuget.org` a `https://MyPrivateRepo/DQ/nuget` jsou k dispozici jako zdroje. Získejte balíčky rozbalení v disk_drive_2/tmp, jak je uvedeno v (B).
+- **Vyvolání z disk_drive_2 / "project2" nebo disk_drive_2 / "project2" / zdroje**: Soubor individuální (A) je načíst první následovaný soubor (B) a soubor (D). Protože `packageSources` není zaškrtnuto, obě `nuget.org` a `https://MyPrivateRepo/DQ/nuget` jsou k dispozici jako zdroje. Získejte balíčky rozbalení v disk_drive_2/tmp, jak je uvedeno v (B).
 
 ## <a name="nuget-defaults-file"></a>Soubor výchozích hodnot NuGet
 
-`NuGetDefaults.Config` Soubor existuje, můžete určit zdroje balíčků, ze kterých jsou nainstalované a aktualizovat balíčky a řídit výchozí cíl pro publikování balíčky s `nuget push`. Protože správci můžou jednoduše (například pomocí zásad skupiny) nasadit konzistentní `NuGetDefaults.Config` soubory na vývojáře a počítače sestavení, můžete zajistit, že všichni uživatelé v organizaci používá správný balíček zdroje místo nuget.org.
+`NuGetDefaults.Config` Soubor existuje, můžete určit zdroje balíčků, ze kterých jsou nainstalované a aktualizovat balíčky a řídit výchozí cíl pro publikování balíčky s `nuget push`. Protože správci můžou jednoduše (například pomocí zásad skupiny) nasadit konzistentní `NuGetDefaults.Config` soubory pro vývojáře a počítačům sestavení zajistí, že všichni uživatelé v organizaci používá správný balíček zdroje místo nuget.org.
 
 > [!Important]
 > `NuGetDefaults.Config` Souboru nikdy způsobí, že zdroj balíčku, který chcete odebrat z konfigurace NuGet pro vývojáře. To znamená, že pokud se už používá NuGet vývojář a proto má zdroj balíčku nuget.org zaregistrovali, se neodstraní po vytvoření `NuGetDefaults.Config` souboru.
@@ -207,7 +207,7 @@ NuGet pak načte a použije nastavení následujícím způsobem, v závislosti 
 
 Následující tabulka popisuje, kde `NuGetDefaults.Config` souboru by měla být uložena v závislosti na použitý operační systém:
 
-| Platforma operačního systému  | NuGetDefaults.Config umístění |
+| Platforma operačního systému  | NuGetDefaults.Config Location |
 | --- | --- |
 | Windows      | **Visual Studio 2017 nebo NuGet 4.x+:** `%ProgramFiles(x86)%\NuGet\Config` <br />**Visual Studio 2015 a starší nebo NuGet 3.x a dříve:** `%PROGRAMDATA%\NuGet` |
 | Mac/Linux    | `$XDG_DATA_HOME` (obvykle `~/.local/share` nebo `/usr/local/share`, v závislosti na operačním systémem distribuce)|

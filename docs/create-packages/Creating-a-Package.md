@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: db02089bec3d2b8c001518fa0542375dc5418eb8
-ms.sourcegitcommit: c825eb7e222d4a551431643f5b5617ae868ebe0a
+ms.openlocfilehash: f0d9667b752caf7831278ac3fd63cfd67f7d34a4
+ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51944064"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610584"
 ---
 # <a name="creating-nuget-packages"></a>Vytváření balíčků NuGet
 
@@ -151,7 +151,7 @@ Vytvoření kompletní manifestu obvykle začíná základní `.nuspec` soubor g
 
 - [Podle úmluvy pracovní adresář](#from-a-convention-based-working-directory)
 - [Sestavení knihovny DLL](#from-an-assembly-dll)
-- [Projekt sady Visual Studio](#from-a-visual-studio-project)    
+- [A Visual Studio project](#from-a-visual-studio-project)    
 - [Nový soubor s výchozími hodnotami.](#new-file-with-default-values)
 
 Pak upravíte soubor ručně tak, aby popisuje přesný obsah, který chcete ve finálním balíčku.
@@ -166,7 +166,7 @@ Vzhledem k tomu, že balíček NuGet je jenom soubor ZIP, který je byl přejmen
 Výhodou tohoto přístupu je, že nemusíte určit v manifestu soubory, které chcete zahrnout do balíčku (jak je popsáno dále v tomto tématu). Můžete jednoduše použít proces sestavení vytvořit strukturu přesně složka, která přejdou do balíčku a snadno můžete zahrnout další soubory, které nemusí být součástí projektu jinak:
 
 - Obsah a zdrojový kód, který by měl být vloženy do cílový projekt.
-- Skripty prostředí PowerShell (balíčky používané ve Správci NuGet 2.x může zahrnovat také skriptů instalace, což není podporováno ve Správci NuGet 3.x a novější).
+- Skripty prostředí PowerShell
 - Transformací do existující konfigurace a soubory zdrojového kódu v projektu.
 
 Vytváření složky jsou následující:
@@ -174,7 +174,7 @@ Vytváření složky jsou následující:
 | Folder | Popis | Akce při instalaci balíčku |
 | --- | --- | --- |
 | (uživatel root) | Umístění pro soubor readme.txt | Při instalaci balíčku sady Visual Studio zobrazí soubor readme.txt v kořenovém adresáři balíčku. |
-| lib / {tfm} | Sestavení (`.dll`), dokumentace ke službě (`.xml`) a symbol (`.pdb`) soubory pro dané cílové rozhraní Framework Moniker (TFM) | Sestavení jsou přidány jako odkazy pro kompilaci, jakož i modul runtime; `.xml` a `.pdb` zkopírovány do složky projektu. Zobrazit [podpora více cílových platforem](supporting-multiple-target-frameworks.md) pro vytvoření dílčí složky specifické pro cílové rozhraní framework. |
+| lib/{tfm} | Sestavení (`.dll`), dokumentace ke službě (`.xml`) a symbol (`.pdb`) soubory pro dané cílové rozhraní Framework Moniker (TFM) | Sestavení jsou přidány jako odkazy pro kompilaci, jakož i modul runtime; `.xml` a `.pdb` zkopírovány do složky projektu. Zobrazit [podpora více cílových platforem](supporting-multiple-target-frameworks.md) pro vytvoření dílčí složky specifické pro cílové rozhraní framework. |
 | REF / {tfm} | Sestavení (`.dll`) a symbol (`.pdb`) soubory pro dané cílové rozhraní Framework Moniker (TFM) | Sestavení jsou přidány jako odkazy pouze pro kompilaci; Proto nic budou zkopírovány do složky bin projektu. |
 | Moduly runtime | Sestavení specifické pro architekturu (`.dll`), symbol (`.pdb`) a nativní prostředky (`.pri`) soubory | Sestavení jsou přidány jako odkazy pouze na modul runtime; Další soubory jsou zkopírovány do složky projektu. By měl vždy být odpovídající (TFM) `AnyCPU` konkrétní sestavení v rámci `/ref/{tfm}` složky zadejte odpovídající sestavení v době kompilace. Zobrazit [podpora více cílových platforem](supporting-multiple-target-frameworks.md). |
 | obsah | Různé soubory | Obsah je zkopírován do kořenového adresáře projektu. Představte si, že **obsah** složky jako kořen cílové aplikace, takže v konečném důsledku využívajícího balíček. Balíček v aplikaci prvku přidat obrázek */obrázky* složku, umístěte ho do balíčku *obsah nebo imagí* složky. |
@@ -250,8 +250,8 @@ Identifikátor balíčku (`<id>` element) a číslo verze (`<version>` element) 
 
 **Osvědčené postupy pro identifikátor balíčku:**
 
-- **Jedinečnost**: identifikátor musí být jedinečný v rámci nuget.org nebo libovolné galerii hostitelem balíčku. Než se rozhodnete u identifikátoru Prohledat galerii použít ke kontrole, zda název je již používán. Aby nedocházelo ke konfliktům, je použít název vaší společnosti jako první část identifikátoru, jako dobrý vzorek `Contoso.`.
-- **Namespace jako názvy**: tvar podobný obory názvů v rozhraní .NET, pomocí zápisu s tečkou místo pomlčky. Například použít `Contoso.Utility.UsefulStuff` spíše než `Contoso-Utility-UsefulStuff` nebo `Contoso_Utility_UsefulStuff`. Příjemci také užitečné, když identifikátor balíčku shoduje s obory názvů používané v kódu.
+- **Jedinečnost**: Identifikátor musí být jedinečný mezi nuget.org nebo libovolné galerii hostitelem balíčku. Než se rozhodnete u identifikátoru Prohledat galerii použít ke kontrole, zda název je již používán. Aby nedocházelo ke konfliktům, je použít název vaší společnosti jako první část identifikátoru, jako dobrý vzorek `Contoso.`.
+- **Namespace jako názvy**: Postupujte podle vzoru podobný obory názvů v rozhraní .NET, pomocí zápisu s tečkou místo pomlčky. Například použít `Contoso.Utility.UsefulStuff` spíše než `Contoso-Utility-UsefulStuff` nebo `Contoso_Utility_UsefulStuff`. Příjemci také užitečné, když identifikátor balíčku shoduje s obory názvů používané v kódu.
 - **Ukázkové balíčky**: Pokud možno vytvořit balíček ukázek kódu, který ukazuje, jak použít jiný balíček, připojit `.Sample` jako příponu k identifikátoru, jako v `Contoso.Utility.UsefulStuff.Sample`. (Ukázkového balíčku by samozřejmě mít závislost na jiný balíček.) Při vytváření balíčku vzorku, použijte podle úmluvy pracovní adresář metody popsané dříve. V `content` složky, uspořádat ukázkový kód do složky s názvem `\Samples\<identifier>` stejně jako v `\Samples\Contoso.Utility.UsefulStuff.Sample`.
 
 **Osvědčené postupy pro verze balíčku:**
@@ -261,7 +261,7 @@ Identifikátor balíčku (`<id>` element) a číslo verze (`<version>` element) 
 
 > Následující řadu stručný blogové příspěvky jsou také užitečné k pochopení správy verzí:
 >
-> - [Část 1: Pořízení na knihoven DLL](http://blog.davidebbo.com/2011/01/nuget-versioning-part-1-taking-on-dll.html)
+> - [Část 1: S ohledem na knihoven DLL](http://blog.davidebbo.com/2011/01/nuget-versioning-part-1-taking-on-dll.html)
 > - [Část 2: Základní algoritmus](http://blog.davidebbo.com/2011/01/nuget-versioning-part-2-core-algorithm.html)
 > - [3. část: Sjednocení prostřednictvím přesměrování vazeb](http://blog.davidebbo.com/2011/01/nuget-versioning-part-3-unification-via.html)
 
@@ -357,7 +357,7 @@ Včetně cíle a vlastnosti nástroje MSBuild v balíčku byl [představeny s n�
 
 Po instalaci balíček NuGet `\build` soubory, přidá MSBuild `<Import>` elementy v souboru projektu, přejdete `.targets` a `.props` soubory. (`.props` je přidán v horní části souboru projektu. `.targets` je přidán v dolní části.) Samostatné podmíněné MSBuild `<Import>` prvek přidán pro každou cílovou architekturu.
 
-Nástroj MSBuild `.props` a `.targets` soubory pro cílení na různé architektury je možné umístit `\buildCrossTargeting` složky. Během instalace balíčku NuGet přidá odpovídající `<Import>` prvků, které se soubor projektu s podmínkou, která Cílová architektura, která není nastavena (vlastnost MSBuild `$(TargetFramework)` musí být prázdný).
+Nástroj MSBuild `.props` a `.targets` soubory pro cílení na různé architektury je možné umístit `\buildMultiTargeting` složky. Během instalace balíčku NuGet přidá odpovídající `<Import>` prvků, které se soubor projektu s podmínkou, která Cílová architektura, která není nastavena (vlastnost MSBuild `$(TargetFramework)` musí být prázdný).
 
 Nuget 3.x cíle nebyly přidány do projektu, ale místo toho jsou k dispozici prostřednictvím `project.lock.json`.
 
@@ -423,7 +423,7 @@ Několik, která jsou běžné u projektů sady Visual Studio jsou následujíc�
 
     Pokud obsahuje odkazovaný projekt `.nuspec` soubor sama, pak NuGet přidá tento Odkazovaný projekt jako závislost místo.  Budete muset balíček a publikujte tento projekt samostatně.
 
-- **Konfigurace sestavení**: ve výchozím nastavení používá NuGet výchozí konfigurace sestavení, nastavte v souboru projektu, obvykle *ladění*. Aby zabalil soubory z jiné sestavení konfigurace, jako například *verze*, použijte `-properties` možnost s konfigurací:
+- **Konfigurace sestavení**: Standardně používá NuGet výchozí konfigurace sestavení, nastavte v souboru projektu, obvykle *ladění*. Aby zabalil soubory z jiné sestavení konfigurace, jako například *verze*, použijte `-properties` možnost s konfigurací:
 
     ```cli
     nuget pack MyProject.csproj -properties Configuration=Release
