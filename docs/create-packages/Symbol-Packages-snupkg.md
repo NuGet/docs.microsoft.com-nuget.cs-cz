@@ -16,12 +16,12 @@ keywords: Symbol balíčky NuGet, balíček NuGet ladění, podpora, balíček s
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 43f346dc64ebbc59d02b9c7875b04205d8c5d83a
-ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
+ms.openlocfilehash: 18d54e28d77f2bdcfea70ff9ae9def05278cb26c
+ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56852439"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610558"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Vytváření balíčků symbolů (.snupkg)
 
@@ -54,7 +54,7 @@ Pokud používáte dotnet.exe nebo MSBuild, použijte následující kroky k vyt
 
 1. Váš projekt s aktualizací Service Pack `dotnet pack MyPackage.csproj` nebo `msbuild -t:pack MyPackage.csproj`.
 
-`SymbolPackageFormat` Vlastnost může mít jednu ze dvou hodnot: `symbols.nupkg` (výchozí) nebo `snupkg`. Pokud `SymbolPackageFormat` vlastnost není zadaný, použije se výchozí `symbols.nupkg` a vytvoří se balíček symbolů starší verze.
+[ `SymbolPackageFormat` ](/dotnet/core/tools/csproj.md#symbolpackageformat) Vlastnost může mít jednu ze dvou hodnot: `symbols.nupkg` (výchozí) nebo `snupkg`. Pokud [ `SymbolPackageFormat` ](/dotnet/core/tools/csproj.md#symbolpackageformat) vlastnost nezadáte, bude vytvořen balíček symbolů starší verze.
 
 > [!Note]
 > Starší verze formátu `.symbols.nupkg` je ale pouze z důvodů kompatibility stále podporována (viz [starších verzí balíčků symbolů](Symbol-Packages.md)). Server symbolů NuGet.org přijímá pouze nový formát balíček symbolů - `.snupkg`.
@@ -80,6 +80,9 @@ Pokud používáte dotnet.exe nebo MSBuild, použijte následující kroky k vyt
     ```
 
 NuGet se publikovat oba balíčky nuget.org. `MyPackage.nupkg` se nejprve publikovat, za nímž následuje `MyPackage.snupkg`.
+
+> [!Note]
+> Pokud balíček symbolů není publikována, zkontrolujte, že jste nakonfigurovali jako zdroj NuGet.org `https://api.nuget.org/v3/index.json`. Publikování balíčku symbolů je podporovaná jenom rozhraním [rozhraní API V3 NuGet](../api/overview.md#versioning).
 
 ## <a name="nugetorg-symbol-server"></a>NuGet.org symbol server
 
