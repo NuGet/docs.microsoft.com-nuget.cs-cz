@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 4a9460944e2c232e2a72195434a491d26eee3559
-ms.sourcegitcommit: 3fc93f7a64be040699fe12125977dd25a7948470
+ms.openlocfilehash: bce04864224a66019a52cdfff8355f68dc424204
+ms.sourcegitcommit: 69b5eb1494a1745a4b1a7f320a91255d5d8356a9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64877961"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65974994"
 ---
 # <a name="push-command-nuget-cli"></a>příkazu push (rozhraní příkazového řádku NuGet)
 
@@ -43,6 +43,7 @@ kde `<packagePath>` identifikuje balíček nainstalovat do serveru.
 | NonInteractive | Potlačí vyzve k zadání uživatele o vstup ani potvrzení. |
 | NoSymbols | *(3.5 +)*  Pokud balíček symbolů existuje, neodešle se na server symbolů. |
 | Source | Určuje adresu URL serveru. Určuje název UNC nebo místní složku zdroje a jednoduše zkopíruje soubor existuje místo doručením (push) pomocí protokolu HTTP NuGet.  Také, počínaje NuGet 3.4.2, je to povinný parametr Pokud `NuGet.Config` Určuje soubor *DefaultPushSource* hodnotu (naleznete v tématu [konfigurace NuGet chování](../consume-packages/configuring-nuget-behavior.md)). |
+| SkipDuplicate | Pokud balíček a verzí již existuje, jeho přeskočit a pokračovat další balíček nabízeného oznámení, pokud existuje. |
 | SymbolSource | *(3.5 +)*  Určuje adresu URL serveru symbolů; při odesílání do nuget.org se použije nuget.smbsrc.net |
 | SymbolApiKey | *(3.5 +)*  Určuje klíč rozhraní API pro adresu URL zadané v `-SymbolSource`. |
 | časový limit | Určuje časový limit v sekundách pro odesílání na server. Výchozí hodnota je 300 sekund (5 minut). |
@@ -68,4 +69,7 @@ nuget push foo.nupkg 4003d786-cc37-4004-bfdf-c4f3e8ef9b3a -Source https://api.nu
 nuget push foo.nupkg 4003d786-cc37-4004-bfdf-c4f3e8ef9b3a
 
 nuget push foo.nupkg 4003d786-cc37-4004-bfdf-c4f3e8ef9b3a -src https://customsource/
+
+:: In the example below -SkipDuplicate will skip pushing the package if package "Foo" version "5.0.2" already exists on NuGet.org
+nuget push Foo.5.0.2.nupkg 4003d786-cc37-4004-bfdf-c4f3e8ef9b3a -src https://api.nuget.org/v3/index.json -SkipDuplicate
 ```
