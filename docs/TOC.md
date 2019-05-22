@@ -260,6 +260,7 @@
 ## [Odstranění balíčků](policies/deleting-packages.md)
 # Zpráva k vydání verze
 ## [Známé problémy](release-notes/known-issues.md)
+## [NuGet 5.1 RTM](release-notes/NuGet-5.1-RTM.md)
 ## [NuGet 5.0 RTM](release-notes/NuGet-5.0-RTM.md)
 ## NuGet 4.x
 ### [NuGet 4.9 RTM](release-notes/NuGet-4.9-RTM.md)
