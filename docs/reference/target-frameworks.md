@@ -13,7 +13,7 @@ ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/14/2019
 ms.locfileid: "65610645"
 ---
-# <a name="target-frameworks"></a>Cílová rozhraní
+# <a name="target-frameworks"></a>Cílové architektury
 
 NuGet používá odkazy na cílové rozhraní v různých místech konkrétně identifikovat a izolovat komponenty závisí na architektuře balíčku:
 

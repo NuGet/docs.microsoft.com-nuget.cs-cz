@@ -7,7 +7,7 @@ ms.date: 12/4/2017
 ms.topic: conceptual
 ms.openlocfilehash: 01ecd8c7de1a0f713766e3c413d889038522bac7
 ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 09/04/2018
 ms.locfileid: "43548293"
@@ -32,11 +32,11 @@ Správce balíčků NuGet nezobrazuje a nepovoluje přidat nebo aktualizovat Dot
 
 V souboru projektu se musí ručně upravit DotNetCLIToolReferences.
 
-### <a name="retargeting-target-framework-version-may-lead-to-incomplete-intellisense"></a>Změna cílení cílové verze rozhraní může vést k nekompletnímu IntelliSense
+### <a name="retargeting-target-framework-version-may-lead-to-incomplete-intellisense"></a>Změna cílení verze cílové architektury může vést k nekompletnímu IntelliSense
 
 #### <a name="issue"></a>Problém
 
-Změna cílení cílové verze rozhraní v sadě Visual Studio může vést k nekompletnímu IntelliSense. To se stává, když jako formát správce balíčků používáte PackageReferences. [NuGet#4216](https://github.com/NuGet/Home/issues/4216)
+Změna cílení verze cílové architektury v sadě Visual Studio může vést k nekompletnímu IntelliSense. To se stává, když jako formát správce balíčků používáte PackageReferences. [NuGet#4216](https://github.com/NuGet/Home/issues/4216)
 
 #### <a name="workaround"></a>Alternativní řešení
 
