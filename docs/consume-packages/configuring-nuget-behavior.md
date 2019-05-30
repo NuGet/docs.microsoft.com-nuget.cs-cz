@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: conceptual
-ms.openlocfilehash: db968189e892723c8fd080cb01a7222696c9d3f3
-ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
+ms.openlocfilehash: 963d1d59ea7e65e3d75bc7105b8864e3e4045938
+ms.sourcegitcommit: ef08f376688f0191a8d3d873b6a4386afd799373
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610577"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266342"
 ---
 # <a name="configuring-nuget-behavior"></a>Konfigurace chování NuGetu
 
@@ -20,7 +20,7 @@ Chování Nugetu doprovází nahromaděné nastavení v jedné nebo více `NuGet
 
 | Scope | Umístění souboru NuGet.Config | Popis |
 | --- | --- | --- |
-| Project | Aktuální složce (označuje se také jako složka projektu) nebo libovolnou složku do kořenové jednotky.| Ve složce projektu nastavení platí jenom pro daný projekt. V nadřazené složky, které obsahují více projektů podsložky nastavení platí pro všechny projekty v těchto podsložky. |
+| Řešení | Aktuální složce (označuje se také jako složku řešení) nebo libovolnou složku do kořenové jednotky.| Ve složce řešení použít nastavení platí pro všechny projekty v podsložkách. Všimněte si, že pokud je konfigurační soubor je umístěn ve složce projektu, nemá žádný vliv na tento projekt. |
 | Uživatel | Windows: `%appdata%\NuGet\NuGet.Config`<br/>Mac/Linux: `~/.config/NuGet/NuGet.Config` nebo `~/.nuget/NuGet/NuGet.Config` (se liší podle operačního systému distribučního) | Nastavení platí pro všechny operace, ale jsou přepsány všechna nastavení na úrovni projektu. |
 | Computer | Windows: `%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux: `$XDG_DATA_HOME`. Pokud `$XDG_DATA_HOME` má hodnotu null nebo je prázdný, `~/.local/share` nebo `/usr/local/share` použije (se liší podle operačního systému distribučního)  | Nastavení platí pro všechny operace v počítači, ale jsou přepsány žádné nastavení na úrovni uživatele nebo projektu. |
 

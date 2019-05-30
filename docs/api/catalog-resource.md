@@ -6,16 +6,16 @@ ms.author: jver
 ms.date: 10/30/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: fd5188c92f8154391359b8da5c8a32f4d5d6f2c0
-ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
+ms.openlocfilehash: 4884de71151ee1ae3c0a78b803c9222f9c1d86ec
+ms.sourcegitcommit: ef08f376688f0191a8d3d873b6a4386afd799373
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453582"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266360"
 ---
 # <a name="catalog"></a>Katalog
 
-**Katalogu** je prostředek, který zaznamenává všechny operace balíčků ve zdroji balíčku, jako je například vytvoření a odstranění. Prostředek katalogu má `Catalog` zadejte [index služby](service-index.md).
+**Katalogu** je prostředek, který zaznamenává všechny operace balíčků ve zdroji balíčku, jako je například vytvoření a odstranění. Prostředek katalogu má `Catalog` zadejte [index služby](service-index.md). Můžete použít tento prostředek k [dotazů pro všechny publikované balíčky](../guides/api/query-for-all-published-packages.md).
 
 > [!Note]
 > Vzhledem k tomu, že katalog není používán oficiální klienta NuGet, ne všechny zdroje balíčků implementovat v katalogu.
@@ -67,12 +67,12 @@ Následující požadavek načte index katalogu.
 
 Index katalogu je dokument JSON, který obsahuje objekt s následujícími vlastnostmi:
 
-Název            | Typ             | Požadováno | Poznámky
+Name            | Type             | Požadováno | Poznámky
 --------------- | ---------------- | -------- | -----
-commitId        | odkazy řetězců           | Ano      | Jedinečné ID přidružené k nejnovějším potvrzení
-commitTimeStamp | odkazy řetězců           | Ano      | Časové razítko poslední potvrzení změn
-count           | integer          | Ano      | Počet stránek v indexu
-Položky           | Pole objektů | Ano      | Pole objektů, každý objekt představující stránku
+commitId        | odkazy řetězců           | ano      | Jedinečné ID přidružené k nejnovějším potvrzení
+commitTimeStamp | odkazy řetězců           | ano      | Časové razítko poslední potvrzení změn
+count           | integer          | ano      | Počet stránek v indexu
+items           | Pole objektů | ano      | Pole objektů, každý objekt představující stránku
 
 Každý prvek `items` pole je objekt s minimální podrobnosti o jednotlivých stránkách. Tyto objekty stránky neobsahují ponechá katalogu (položky). Pořadí prvků v tomto poli není definován. Stránky lze provést řazení podle klienta v paměti pomocí jejich `commitTimeStamp` vlastnost.
 
@@ -84,12 +84,12 @@ Přidávání položek do katalogu, index `commitId` se změní a `commitTimeSta
 
 Objekty stránky katalogu nalezena v katalogu indexu `items` vlastnosti mají následující vlastnosti:
 
-Název            | Typ    | Požadováno | Poznámky
+Name            | Type    | Požadováno | Poznámky
 --------------- | ------- | -------- | -----
-@id             | odkazy řetězců  | Ano      | Adresa URL stránky načtení katalogu
-commitId        | odkazy řetězců  | Ano      | Jedinečné ID přidružené k nejnovějším potvrzení na této stránce
-commitTimeStamp | odkazy řetězců  | Ano      | Časové razítko poslední potvrzení změn na této stránce
-count           | integer | Ano      | Počet položek na stránce katalog
+@id             | odkazy řetězců  | ano      | Adresa URL stránky načtení katalogu
+commitId        | odkazy řetězců  | ano      | Jedinečné ID přidružené k nejnovějším potvrzení na této stránce
+commitTimeStamp | odkazy řetězců  | ano      | Časové razítko poslední potvrzení změn na této stránce
+count           | integer | ano      | Počet položek na stránce katalog
 
 Rozdíl od [balíček metadata resource](registration-base-url-resource.md) což v některých případech inlines opustí do indexu, nechá katalogu nikdy jsou vloženy do indexu a musí být vždy získána pomocí stránky `@id` adresy URL.
 
@@ -109,13 +109,13 @@ Přidání nových položek katalogu se na stránku v katalogu index pouze s nej
 
 Katalog stránky dokumentu je objekt JSON s následujícími vlastnostmi:
 
-Název            | Typ             | Požadováno | Poznámky
+Name            | Type             | Požadováno | Poznámky
 --------------- | ---------------- | -------- | -----
-commitId        | odkazy řetězců           | Ano      | Jedinečné ID přidružené k nejnovějším potvrzení na této stránce
-commitTimeStamp | odkazy řetězců           | Ano      | Časové razítko poslední potvrzení změn na této stránce
-count           | integer          | Ano      | Počet položek na stránce
-Položky           | Pole objektů | Ano      | Položky katalogu na této stránce
-Nadřazené          | odkazy řetězců           | Ano      | Adresa URL indexu katalogu
+commitId        | odkazy řetězců           | ano      | Jedinečné ID přidružené k nejnovějším potvrzení na této stránce
+commitTimeStamp | odkazy řetězců           | ano      | Časové razítko poslední potvrzení změn na této stránce
+count           | integer          | ano      | Počet položek na stránce
+items           | Pole objektů | ano      | Položky katalogu na této stránce
+Nadřazené          | odkazy řetězců           | ano      | Adresa URL indexu katalogu
 
 Každý prvek `items` pole je objekt s minimální podrobnosti o položky katalogu. Tyto objekty položky neobsahují všechna data položky katalogu. Pořadí položek na stránce `items` pole není definován. Položky lze provést řazení podle klienta v paměti pomocí jejich `commitTimeStamp` vlastnost.
 
@@ -129,14 +129,14 @@ Při přidání položky na stránku `commitId` změny a `commitTimeStamp` zvyš
 
 Najít objekty položky katalogu na stránce katalog `items` vlastnosti mají následující vlastnosti:
 
-Název            | Typ    | Požadováno | Poznámky
+Name            | Type    | Požadováno | Poznámky
 --------------- | ------- | -------- | -----
-@id             | odkazy řetězců  | Ano      | Adresa URL pro načtení položky katalogu
-@type           | odkazy řetězců  | Ano      | Typ položky katalogu
-commitId        | odkazy řetězců  | Ano      | ID potvrzení změn, které jsou přidružené k této položky katalogu
-commitTimeStamp | odkazy řetězců  | Ano      | Časové razítko potvrzení této položky katalogu
-nuget:ID        | odkazy řetězců  | Ano      | ID balíčku, týkající se tohoto listu
-nuget:Version   | odkazy řetězců  | Ano      | Verze balíčku, týkající se tohoto listu
+@id             | odkazy řetězců  | ano      | Adresa URL pro načtení položky katalogu
+@type           | odkazy řetězců  | ano      | Typ položky katalogu
+commitId        | odkazy řetězců  | ano      | ID potvrzení změn, které jsou přidružené k této položky katalogu
+commitTimeStamp | odkazy řetězců  | ano      | Časové razítko potvrzení této položky katalogu
+nuget:ID        | odkazy řetězců  | ano      | ID balíčku, týkající se tohoto listu
+nuget:Version   | odkazy řetězců  | ano      | Verze balíčku, týkající se tohoto listu
 
 `@type` Hodnota bude jeden z následujících dvou hodnot:
 
@@ -159,14 +159,14 @@ Katalog typu list obsahuje metadata o konkrétní ID a verzi v určitém okamži
 
 Dokument listu katalogu je objekt JSON s následujícími vlastnostmi:
 
-Název                    | Typ                       | Požadováno | Poznámky
+Name                    | Type                       | Požadováno | Poznámky
 ----------------------- | -------------------------- | -------- | -----
-@type                   | řetězec nebo pole řetězců | Ano      | Typy položek katalogu
-katalog: commitId        | odkazy řetězců                     | Ano      | ID potvrzení změn přidružené k této položky katalogu
-catalog:commitTimeStamp | odkazy řetězců                     | Ano      | Časové razítko potvrzení této položky katalogu
-id                      | odkazy řetězců                     | Ano      | ID balíčku položky katalogu
-Publikování               | odkazy řetězců                     | Ano      | Položka katalogu datum publikování balíčku
-verze                 | odkazy řetězců                     | Ano      | Verze balíčku položky katalogu
+@type                   | řetězec nebo pole řetězců | ano      | Typy položek katalogu
+catalog:commitId        | odkazy řetězců                     | ano      | ID potvrzení změn přidružené k této položky katalogu
+catalog:commitTimeStamp | odkazy řetězců                     | ano      | Časové razítko potvrzení této položky katalogu
+id                      | odkazy řetězců                     | ano      | ID balíčku položky katalogu
+Publikování               | odkazy řetězců                     | ano      | Položka katalogu datum publikování balíčku
+verze                 | odkazy řetězců                     | ano      | Verze balíčku položky katalogu
 
 ### <a name="item-types"></a>Typy položek
 
@@ -190,27 +190,27 @@ Klienti využívání položky katalogu by se neměly pokoušet zjistit, které 
 
 Položky katalogu podrobnosti balíčku mají následující vlastnosti kromě těch [na všechny listy katalogu](#catalog-leaf).
 
-Název                    | Typ                       | Požadováno | Poznámky
+Name                    | Type                       | Požadováno | Poznámky
 ----------------------- | -------------------------- | -------- | -----
 Autoři                 | odkazy řetězců                     | Ne       |
 Vytvoření                 | odkazy řetězců                     | Ne       | Časové razítko z při prvním vytvoření balíčku. Základní vlastnosti: `published`.
 dependencyGroups        | Pole objektů           | Ne       | Stejný formát jako [balíček metadata resource](registration-base-url-resource.md#package-dependency-group)
 description             | odkazy řetězců                     | Ne       |
-IconUrl                 | odkazy řetězců                     | Ne       |
+iconUrl                 | odkazy řetězců                     | Ne       |
 isPrerelease            | Logická hodnota                    | Ne       | Určuje, jestli je předběžná verze balíčku. Můžete zjistit z `version`.
 jazyk                | odkazy řetězců                     | Ne       |
-LicenseUrl              | odkazy řetězců                     | Ne       |
+licenseUrl              | odkazy řetězců                     | Ne       |
 uvedené v seznamu                  | Logická hodnota                    | Ne       | Určuje, jestli je balíček uvedený
-MinClientVersion        | odkazy řetězců                     | Ne       |
-packageHash             | odkazy řetězců                     | Ano      | Hodnota hash balíčku kódování pomocí [standardní base-64](https://tools.ietf.org/html/rfc4648#section-4)
-packageHashAlgorithm    | odkazy řetězců                     | Ano      |
-packageSize             | integer                    | Ano      | Velikost balíčku .nupkg v bajtech
-ProjectUrl              | odkazy řetězců                     | Ne       |
+minClientVersion        | odkazy řetězců                     | Ne       |
+packageHash             | odkazy řetězců                     | ano      | Hodnota hash balíčku kódování pomocí [standardní base-64](https://tools.ietf.org/html/rfc4648#section-4)
+packageHashAlgorithm    | odkazy řetězců                     | ano      |
+packageSize             | integer                    | ano      | Velikost balíčku .nupkg v bajtech
+projectUrl              | odkazy řetězců                     | Ne       |
 ReleaseNotes            | odkazy řetězců                     | Ne       |
 requireLicenseAgreement | Logická hodnota                    | Ne       | Předpokládejme `false` -li vyloučit
 souhrn                 | odkazy řetězců                     | Ne       |
 značky                    | pole řetězců           | Ne       |
-Název                   | odkazy řetězců                     | Ne       |
+název                   | odkazy řetězců                     | Ne       |
 verbatimVersion         | odkazy řetězců                     | Ne       | Řetězec verze, protože původně součástí souboru .nuspec
 
 Balíček `version` vlastnost po normalizace řetězce plnou verzi. To znamená, že data SemVer 2.0.0 sestavení může být součástí tady.

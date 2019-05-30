@@ -1,4 +1,15 @@
+---
+ms.openlocfilehash: 1f65939493cf423a76c024607264acee6c7e9050
+ms.sourcegitcommit: ef08f376688f0191a8d3d873b6a4386afd799373
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66271499"
+---
 #### <a name="windows"></a>Windows
+
+> [!Note]
+> NuGet.exe 5.0 nebo novější vyžaduje rozhraní .NET Framework 4.7.2 nebo později ke spuštění.
 
 1. Navštivte [nuget.org/downloads](https://nuget.org/downloads) a vyberte NuGet 3.3 nebo novější (2.8.6 přílohy není kompatibilní s Mono). Doporučujeme vždy na nejnovější verzi a 4.1.0+ je potřeba publikovat balíčky nuget.org.
 1. Každý soubor ke stažení je `nuget.exe` přímo soubor. Dáte pokyn, aby prohlížeč k uložení souboru do složky podle vašeho výběru. Soubor je *není* příslušný instalační program; vám nic neuvidí, je-li spustit přímo z prohlížeče.
