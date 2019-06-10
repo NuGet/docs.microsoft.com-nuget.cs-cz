@@ -3,25 +3,25 @@ title: Instalace klientských nástrojů Nugetu
 description: Pokyny k instalaci klientských nástrojů dotnet tak pro nuget rozhraní příkazového řádku (CLI) a Správce balíčků pro Visual Studio.
 author: karann-msft
 ms.author: karann
-ms.date: 04/09/2018
+ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: 9e8aa2250c6fc2843f74a925c56f953be5d48221
-ms.sourcegitcommit: 1591bb230e106b94162a87dd1d86fe427366730a
+ms.openlocfilehash: 4336377ee90f2187234c0f637620c5fac1f05fb1
+ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52671133"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812852"
 ---
 # <a name="installing-nuget-client-tools"></a>Instalace klientských nástrojů Nugetu
 
 > **Pokud chcete balíček nainstalovat? Zobrazit [způsoby instalace balíčků NuGet](consume-packages/ways-to-install-a-package.md).**
 
-Pro práci s NuGet, jako příjemce balíčku nebo autora, můžete použít [nástroje rozhraní příkazového řádku (CLI)](#cli-tools) stejně jako [funkcí NuGet v sadě Visual Studio](#visual-studio). Tento článek stručně popisuje funkce různých nástrojů, jak nainstalovat a jejich srovnávacích [dostupnost funkcí](#feature-availability). Využívání balíčků pomocí NuGet, najdete v článku [instalace a použití balíčku (rozhraní příkazového řádku .NET)](quickstart/install-and-use-a-package-using-the-dotnet-cli.md) a [instalace a použití balíčku (Visual Studio)](quickstart/install-and-use-a-package-in-visual-studio.md). Chcete-li začít vytvářet balíčky NuGet, přečtěte si téma [vytvoření a publikování balíčku .NET Standard (rozhraní příkazového řádku dotnet)](quickstart/create-and-publish-a-package-using-the-dotnet-cli.md) a [vytvoření a publikování balíčku .NET Standard (Visual Studio)](quickstart/create-and-publish-a-package-using-visual-studio.md).
+Pro práci s NuGet, jako příjemce balíčku nebo autora, můžete použít nástroje rozhraní příkazového řádku (CLI) a také funkcí NuGet v sadě Visual Studio. Tento článek stručně popisuje funkce různých nástrojů, jak nainstalovat a jejich srovnávacích [dostupnost funkcí](#feature-availability). Využívání balíčků pomocí NuGet, najdete v článku [instalace a použití balíčku (rozhraní příkazového řádku .NET)](quickstart/install-and-use-a-package-using-the-dotnet-cli.md) a [instalace a použití balíčku (Visual Studio)](quickstart/install-and-use-a-package-in-visual-studio.md). Chcete-li začít vytvářet balíčky NuGet, přečtěte si téma [vytvoření a publikování balíčku .NET Standard (rozhraní příkazového řádku dotnet)](quickstart/create-and-publish-a-package-using-the-dotnet-cli.md) a [vytvoření a publikování balíčku .NET Standard (Visual Studio)](quickstart/create-and-publish-a-package-using-visual-studio.md).
 
 | Nástroj&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Popis | Stáhnout&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
 |:------------- |:-------------|:-----|
-| [dotnet.exe](#dotnetexe-cli) | Součástí sady SDK .NET Core a poskytuje základní funkce NuGet na všech platformách. | [.NET core SDK](https://www.microsoft.com/net/download/) |
-| [nuget.exe](#nugetexe-cli) | Nabízí všechny funkce NuGet na Windows, poskytuje většinu funkcí na Mac a Linux, pokud je spuštěno mono. | [nuget.exe](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe) |
+| [dotnet.exe](#dotnetexe-cli) | Nástroje rozhraní příkazového řádku pro knihovny .NET Core a .NET Standard a sady SDK – vizuální styl projekty, které cílí na rozhraní .NET Framework (viz [SDK atribut](/dotnet/core/tools/csproj#additions)). Součástí sady SDK .NET Core a poskytuje základní funkce NuGet na všech platformách. | [.NET Core SDK](https://www.microsoft.com/net/download/) |
+| [nuget.exe](#nugetexe-cli) | Nástroj příkazového řádku pro knihovny rozhraní .NET Framework a sady SDK styl projekty, které cílit na knihovny .NET Standard. Nabízí všechny funkce NuGet na Windows, poskytuje většinu funkcí na Mac a Linux, pokud je spuštěno mono. | [nuget.exe](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe) |
 | [Visual Studio](#visual-studio) | Na Windows poskytuje možnosti NuGet prostřednictvím uživatelského rozhraní Správce balíčků a konzole Správce balíčků; součástí. NET související úlohy. Na počítači Mac poskytuje některé funkce přes uživatelské rozhraní. Ve Visual Studio Code jsou k dispozici NuGet funkce prostřednictvím rozšíření. | [Visual Studio 2017](https://www.visualstudio.com/downloads/) |
 
 [Rozhraní příkazového řádku MSBuild](reference/msbuild-targets.md) také poskytuje možnost obnovení a vytváření balíčků, což je užitečné hlavně na serverech sestavení. Nástroj MSBuild není univerzální nástroj pro práci s NuGet.
@@ -29,6 +29,9 @@ Pro práci s NuGet, jako příjemce balíčku nebo autora, můžete použít [n�
 ## <a name="cli-tools"></a>Nástroje rozhraní příkazového řádku
 
 Jsou dva nástroje rozhraní příkazového řádku NuGet `dotnet.exe` a `nuget.exe`. Zobrazit [dostupnost funkcí](#feature-availability) porovnání.
+
+* Pokud chcete cílit na .NET Core nebo .NET Standard, použijte rozhraní příkazového řádku dotnet. Rozhraní příkazového řádku dotnet, je třeba formát projektu SDK – vizuální styl, který používá [SDK atribut](/dotnet/core/tools/csproj#additions).
+* Chcete-li cílit na rozhraní .NET Framework ve vašem projektu, použijte `nuget.exe CLI`.
 
 ### <a name="dotnetexe-cli"></a>dotnet.exe CLI
 
@@ -41,7 +44,7 @@ Instalace:
 
 Další informace najdete v tématu [nástroje rozhraní příkazového řádku .NET Core](/dotnet/core/tools/index?tabs=netcore2x#tabpanel_fXL5YCOYDa_netcore2x).
 
-### <a name="nugetexe-cli"></a>rozhraní příkazového řádku nuget.exe
+### <a name="nugetexe-cli"></a>nuget.exe CLI
 
 Rozhraní příkazového řádku NuGet `nuget.exe`, je nástroj příkazového řádku pro Windows, který poskytuje všechny možnosti NuGet, můžete spustit také na Mac OSX a Linux pomocí [Mono](http://www.mono-project.com/docs/getting-started/install/) s určitými omezeními. Na rozdíl od `dotnet`, `nuget.exe` rozhraní příkazového řádku nemá vliv na soubory projektu a neaktualizuje `packages.config` při instalaci balíčků.
 
@@ -57,14 +60,14 @@ Instalace:
 
 ## <a name="visual-studio"></a>Visual Studio
 
-- Visual Studio Code: NuGet možnosti jsou k dispozici prostřednictvím rozšíření na webu marketplace nebo použít `dotnet.exe` nebo `nuget.exe` nástroje rozhraní příkazového řádku.
+- Visual Studio Code: NuGet možnosti jsou k dispozici prostřednictvím rozšíření na webu marketplace nebo použijte `dotnet.exe` nebo `nuget.exe` nástroje rozhraní příkazového řádku.
 
 - Visual Studio pro Mac: některé funkce NuGet jsou integrované přímo v. Zobrazit [balíček včetně NuGet ve vašem projektu](/visualstudio/mac/nuget-walkthrough) návod. Pro další možnosti, použijte `dotnet.exe` nebo `nuget.exe` nástroje rozhraní příkazového řádku.
 
 - Visual Studio ve Windows: **Správce balíčků NuGet** je součástí sady Visual Studio 2012 a novější. Poskytuje správce balíčků [uživatelské rozhraní Správce balíčků](tools/package-manager-ui.md) a [Konzola správce balíčků](tools/package-manager-console.md), pomocí které můžete spouštět většinu operací NuGet.
   - Instalační program sady Visual Studio 2017 obsahuje Správce balíčků NuGet u jakékoli úlohy, která využívá rozhraní .NET. Nainstalovat samostatně, nebo ověřte, zda je nainstalován Správce balíčků, spusťte instalační program sady Visual Studio 2017 a zaškrtněte možnost v rámci **jednotlivé komponenty > kód nástroje > Správce balíčků NuGet**.
   - Uživatelské rozhraní Správce balíčků a konzole jsou jedinečné pro Visual Studio na Windows. Nejsou v současné době k dispozici v sadě Visual Studio pro Mac.
-  - Visual Studio automaticky nezahrnuje `nuget.exe` rozhraní příkazového řádku, který se musí nainstalovat samostatně, jak je popsáno výše.
+  - Nástroj příkazového řádku se vyžaduje pro podporu funkcí NuGet v integrovaném vývojovém prostředí. Můžete použít buď `dotnet` rozhraní příkazového řádku nebo `nuget.exe` rozhraní příkazového řádku. `dotnet` Se některé úlohy sady Visual Studio, jako je .NET Core je nainstalované rozhraní příkazového řádku. `nuget.exe` Rozhraní příkazového řádku musí být nainstalován samostatně, jak je popsáno výše.
   - Konzola správce balíčků příkazy fungují pouze v rámci sady Visual Studio na Windows a v rámci jiných prostředí PowerShell, nebudou fungovat.
   - Pro sadu Visual Studio 2010 a starší nainstalujte "NuGet Package Manager pro rozšíření sady Visual Studio".
   - Rozšíření NuGet pro Visual Studio 2013 a 2015 si můžete také stáhnout z [ https://dist.nuget.org/index.html ](https://dist.nuget.org/index.html).
@@ -72,7 +75,7 @@ Instalace:
 
 ## <a name="feature-availability"></a>Dostupnost funkcí
 
-| Funkce | rozhraní příkazového řádku DotNet | nuget rozhraní příkazového řádku (Windows) | nuget rozhraní příkazového řádku (Mono) | Visual Studio (Windows) | Visual Studio for Mac |
+| Funkce | dotnet CLI | nuget rozhraní příkazového řádku (Windows) | nuget CLI (Mono) | Visual Studio (Windows) | Visual Studio for Mac |
 | --- | --- | --- | --- | --- | --- |
 | Hledat balíčky |  | &#10004; | &#10004; | &#10004; | &#10004; |
 | Instalace/Odinstalace balíčků | &#10004; | &#10004;(1) | &#10004; | &#10004; | &#10004; |

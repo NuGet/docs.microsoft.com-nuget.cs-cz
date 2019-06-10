@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: e4df15be1f29e2c611876aaa49e16ac7d1823938
-ms.sourcegitcommit: be9c51b4b095aea40ef41bbea7e12ef0a194ee74
+ms.openlocfilehash: c2dfce8de6b28aaee99e3d5ab75cd28950a8cb0f
+ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53248452"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812835"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Odkazy na balíček (PackageReference) v souborech projektu
 
@@ -18,7 +18,11 @@ Balíček odkazů pomocí nástroje `PackageReference` uzlu, správě závislost
 
 S PackageReference můžete také použít podmínky nástroje MSBuild zvolit odkazy na balíček na cílovou architekturu, konfigurace, platformy nebo další seskupení. Umožňuje také pro detailní kontrolu nad závislostí a obsahu toku. (Další podrobnosti najdete v [NuGet aktualizací Service pack a obnovení jako cílů MSBuild](../reference/msbuild-targets.md).)
 
-Ve výchozím nastavení je použít PackageReference pro projekty .NET Core, .NET Standard projekty a projekty UPW cílení na Windows 10 sestavení 15063 (Creators Update) a novější, s výjimkou projekty C++ UWP. Projekty rozhraní .NET framework podporují PackageReference, ale nyní jako výchozí `packages.config`. Použití PackageReference migrovat závislosti z `packages.config` do souboru projektu, odstraňte soubor packages.config.
+## <a name="project-type-support"></a>Podpora typu projektu
+
+Ve výchozím nastavení je použít PackageReference pro projekty .NET Core, .NET Standard projekty a projekty UPW cílení na Windows 10 sestavení 15063 (Creators Update) a novější, s výjimkou projekty C++ UWP. Projekty rozhraní .NET framework podporují PackageReference, ale nyní jako výchozí `packages.config`. Použití PackageReference, [migrovat](../reference/migrate-packages-config-to-package-reference.md) závislosti z `packages.config` do souboru projektu, odstraňte soubor packages.config.
+
+Aplikace ASP.NET cílí na úplné rozhraní .NET Framework obsahují pouze [omezenou podporu](https://github.com/NuGet/Home/issues/5877) pro PackageReference. C++a typy projektů jazyka JavaScript se nepodporují.
 
 ## <a name="adding-a-packagereference"></a>Přidávání PackageReference
 
@@ -96,7 +100,7 @@ Následující značky metadat určovat závislost prostředky:
 
 Povolené hodnoty pro tyto značky jsou následujícím způsobem s více hodnotami, které jsou odděleny středníkem s výjimkou s `all` a `none` který musí být uvedena samy o sobě:
 
-| Hodnota | Popis |
+| Value | Popis |
 | --- | ---
 | Kompilace | Obsah `lib` složky a ovládací prvky, jestli můžete zkompilovat váš projekt proti sestavení ve složce |
 | modul runtime | Obsah `lib` a `runtimes` složky a ovládací prvky, jestli tato sestavení bude zkopírována do sestavení výstupního adresáře |

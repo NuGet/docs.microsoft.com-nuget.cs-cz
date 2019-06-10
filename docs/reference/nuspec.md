@@ -3,15 +3,15 @@ title: Odkaz na soubor souboru .nuspec pro NuGet
 description: Souboru .nuspec soubor obsahuje metadata balíčků používat při vytváření balíčku a zadejte informace pro spotřebitele balíčku.
 author: karann-msft
 ms.author: karann
-ms.date: 08/29/2017
+ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: ebb1dd929042a1fcd269d0ac50154ae6b8234be2
-ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
+ms.openlocfilehash: 6c545ddeddb0c5909f57e879912eaeed744e42d5
+ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59509097"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812936"
 ---
 # <a name="nuspec-reference"></a>odkaz na souboru .nuspec
 
@@ -27,6 +27,16 @@ V tomto tématu:
 - [Včetně souborů sestavení](#including-assembly-files)
 - [Včetně souborů obsahu](#including-content-files)
 - [Příklad souboru nuspec soubory](#example-nuspec-files)
+
+## <a name="project-type-compatibility"></a>Kompatibilita typů projektu
+
+- Použít `.nuspec` s `nuget.exe pack` bez SDK-style projekty, které používají `packages.config`.
+
+- A `.nuspec` soubor není nezbytný k vytváření balíčků pro projekty založenými na sadě SDK (projekty .NET Core a .NET Standard, které používají [SDK atribut](/dotnet/core/tools/csproj#additions)). (Všimněte si, že `.nuspec` se vygeneruje, když vytvoříte balíček.)
+
+   Při vytváření balíčku pomocí `dotnet.exe pack` nebo `msbuild pack target`, doporučujeme vám [zahrnout všechny vlastnosti](../reference/msbuild-targets.md#pack-target) , které jsou obvykle v `.nuspec` místo souboru v souboru projektu. Ale můžete místo toho nastavit [použít `.nuspec` souboru se zabalit pomocí `dotnet.exe` nebo `msbuild pack target` ](../reference/msbuild-targets.md#packing-using-a-nuspec).
+
+- Pro projekty migrované z `packages.config` k [PackageReference](../consume-packages/package-references-in-project-files.md), `.nuspec` soubor není nezbytný k vytvoření balíčku. Místo toho použijte [msbuild pack](../reference/migrate-packages-config-to-package-reference.md#create-a-package-after-migration).
 
 ## <a name="general-form-and-schema"></a>Obecný tvar a schématu
 
@@ -145,7 +155,7 @@ Mezerami oddělený seznam značek a klíčových slov, které popisují balíč
 #### <a name="serviceable"></a>možnost změny 
 *(3.3+)* Pouze pro interní NuGet použít.
 #### <a name="repository"></a>úložiště
-Metadata úložiště, skládající se z čtyři volitelné atributy: *typ* a *url* *(4.0 +)*, a *větev* a  *potvrzení* *(4.6 +)*. Tyto atributy umožňují namapovat .nupkg do úložiště, který sestavilo, má potenciál, chcete-li získat podrobné jako jednotlivé větev nebo potvrzení změn, které sestaven balíček. To by měl být veřejně dostupnou adresu url, který lze vyvolat přímo pomocí softwaru pro řízení verzí. Neměl by být stránku html jako ten je určený pro počítače. Pro odkazování na stránku projektu, použijte `projectUrl` pole, místo toho.
+Metadata úložiště, skládající se z čtyři volitelné atributy: *typ* a *url* *(4.0 +)* , a *větev* a  *potvrzení* *(4.6 +)* . Tyto atributy umožňují namapovat .nupkg do úložiště, který sestavilo, má potenciál, chcete-li získat podrobné jako jednotlivé větev nebo potvrzení změn, které sestaven balíček. To by měl být veřejně dostupnou adresu url, který lze vyvolat přímo pomocí softwaru pro řízení verzí. Neměl by být stránku html jako ten je určený pro počítače. Pro odkazování na stránku projektu, použijte `projectUrl` pole, místo toho.
 
 #### <a name="minclientversion"></a>minClientVersion
 Určuje minimální verzi klienta NuGet, který můžete nainstalovat tento balíček, vynucuje nuget.exe a Správce balíčků sady Visual Studio. Používá se pokaždé, když se balíček závisí na konkrétních funkcí služby `.nuspec` souborů, které byly přidány v konkrétní verzi klienta NuGet. Třeba balíček pomocí `developmentDependency` atribut by měl určovat "2.8" pro `minClientVersion`. Obdobně balíček pomocí `contentFiles` – element (viz další části) by měl nastavit `minClientVersion` na "3.3". Upozorňujeme také, že klienti NuGet před 2.5 nedokáže rozpoznat tento příznak jsou *vždy* odmítnout instalace balíčku bez ohledu na to, co `minClientVersion` obsahuje.
@@ -162,7 +172,7 @@ Kolekce nula nebo více `<dependency>` prvky určení závislostí pro balíček
 *(1.5 +)*  Kolekce nula nebo více `<reference>` prvky názvy sestavení v balíčku `lib` složku, která jsou přidány jako odkazy na projekt. Každý odkaz má *souboru* atribut. `<references>` může také obsahovat `<group>` element s *targetFramework* atribut, pak obsahující `<reference>` elementy. Pokud tento parametr vynechán, všechny odkazy v `lib` jsou zahrnuty. Zobrazit [odkazy na sestavení explicitní určení](#specifying-explicit-assembly-references) níže.
 #### <a name="contentfiles"></a>contentFiles
 *(3.3 +)*  Kolekce `<files>` prvky, které identifikují soubory obsahu, které mají být zahrnuty náročné projektu. Tyto soubory jsou určené sadu atributů, které popisují, jak mají být použity v rámci systému projektů. Zobrazit [určující soubory, které chcete zahrnout do balíčku](#specifying-files-to-include-in-the-package) níže.
-#### <a name="files"></a>soubory  
+#### <a name="files"></a>soubory 
 `<package>` Uzel může obsahovat `<files>` uzel na stejné úrovni k `<metadata>`a `<contentFiles>` dítě `<metadata>`, určete, jaké soubory sestavení a obsah zahrnout do balíčku. Zobrazit [včetně souborů sestavení](#including-assembly-files) a [včetně soubory obsahu](#including-content-files) dále v tomto tématu podrobnosti.
 
 ## <a name="replacement-tokens"></a>Nahrazování tokenů
@@ -626,23 +636,29 @@ Můžete použít prázdné složky `.` chcete vyjádřit výslovný nesouhlas p
 #### <a name="example-contentfiles-section"></a>Vzorový oddíl contentFiles
 
 ```xml
-<contentFiles>
-    <!-- Embed image resources -->
-    <files include="any/any/images/dnf.png" buildAction="EmbeddedResource" />
-    <files include="any/any/images/ui.png" buildAction="EmbeddedResource" />
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        ...
+        <contentFiles>
+            <!-- Embed image resources -->
+            <files include="any/any/images/dnf.png" buildAction="EmbeddedResource" />
+            <files include="any/any/images/ui.png" buildAction="EmbeddedResource" />
 
-    <!-- Embed all image resources under contentFiles/cs/ -->
-    <files include="cs/**/*.png" buildAction="EmbeddedResource" />
+            <!-- Embed all image resources under contentFiles/cs/ -->
+            <files include="cs/**/*.png" buildAction="EmbeddedResource" />
 
-    <!-- Copy config.xml to the root of the output folder -->
-    <files include="cs/uap/config/config.xml" buildAction="None" copyToOutput="true" flatten="true" />
+            <!-- Copy config.xml to the root of the output folder -->
+            <files include="cs/uap/config/config.xml" buildAction="None" copyToOutput="true" flatten="true" />
 
-    <!-- Copy run.cmd to the output folder and keep the directory structure -->
-    <files include="cs/commands/run.cmd" buildAction="None" copyToOutput="true" flatten="false" />
+            <!-- Copy run.cmd to the output folder and keep the directory structure -->
+            <files include="cs/commands/run.cmd" buildAction="None" copyToOutput="true" flatten="false" />
 
-    <!-- Include everything in the scripts folder except exe files -->
-    <files include="cs/net45/scripts/*" exclude="**/*.exe"  buildAction="None" copyToOutput="true" />
-</contentFiles>
+            <!-- Include everything in the scripts folder except exe files -->
+            <files include="cs/net45/scripts/*" exclude="**/*.exe"  buildAction="None" copyToOutput="true" />
+        </contentFiles>
+        </metadata>
+</package>
 ```
 
 ## <a name="example-nuspec-files"></a>Příklad souboru nuspec soubory

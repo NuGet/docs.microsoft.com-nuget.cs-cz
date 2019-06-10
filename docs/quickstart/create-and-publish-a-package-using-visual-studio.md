@@ -3,14 +3,14 @@ title: Vytvoření a publikování balíčku .NET Standard ve Windows pomocí sa
 description: Kurz návod týkající se vytváření a publikování balíčku .NET Standard NuGet pomocí sady Visual Studio 2017 na Windows.
 author: karann-msft
 ms.author: karann
-ms.date: 05/18/2018
+ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: faea00372bd387aee1502e388ad1ea88de07b95d
-ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
+ms.openlocfilehash: d30e89473b5f00895136b75a90d8d95b7645a100
+ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453517"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812976"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Rychlý start: Vytvoření a publikování balíčku NuGet pomocí sady Visual Studio (.NET Standard, jenom Windows)
 
@@ -23,9 +23,11 @@ Je jednoduchý proces vytvoření balíčku NuGet z knihovny .NET Standard tří
 
 1. Instalaci libovolné edice sady Visual Studio 2017 z [visualstudio.com](https://www.visualstudio.com/) s žádným. NET související úlohy. Visual Studio 2017 automaticky zahrnuje NuGet možnosti, když je nainstalovaná úloha .NET.
 
-1. Nainstalujte `nuget.exe` rozhraní příkazového řádku, stáhněte si ji z [nuget.org](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe), ukládání, který `.exe` soubor vhodný složky a přidání složky do proměnné prostředí PATH.
+1. Nainstalujte jedním z nástrojů rozhraní příkazového řádku.
 
-    Případně pokud máte [.NET Core SDK](https://www.microsoft.com/net/download/) nainstalované, můžete použít `dotnet` rozhraní příkazového řádku.
+   * Pro `dotnet` rozhraní příkazového řádku, nainstalujte [.NET Core SDK](https://www.microsoft.com/net/download/). Dotnet CLI se vyžaduje pro .NET Standard projekty, které používají formát SDK – vizuální styl (atribut SDK).
+
+   * Pro `nuget.exe` rozhraní příkazového řádku, si ji stáhnout z [nuget.org](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe), uložení `.exe` soubor vhodný složky a přidání složky do proměnné prostředí PATH. Rozhraní příkazového řádku nuget.exe se používá pro knihovny .NET Standard ve formátu sady SDK style.
 
 1. [Zaregistrujte si bezplatný účet na nuget.org](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) Pokud již nemáte. Vytvoření nového účtu se odešle e-mail s potvrzením. Účet musí ověřit dříve, než můžete nahrát balíček.
 
@@ -112,7 +114,13 @@ Jakmile budete mít `.nupkg` souboru, ji publikujete do nuget.org buď pomocí `
 
 [!INCLUDE [publish-api-key](includes/publish-api-key.md)]
 
-### <a name="publish-with-nuget-push"></a>Publikování pomocí nuget nasdílení změn
+### <a name="publish-with-dotnet-nuget-push-dotnet-cli"></a>Publikování pomocí nasdílení změn nuget dotnet (rozhraní příkazového řádku dotnet)
+
+Tento krok je alternativou k používání `nuget.exe`.
+
+[!INCLUDE [publish-dotnet](includes/publish-dotnet.md)]
+
+### <a name="publish-with-nuget-push-nugetexe-cli"></a>Publikování pomocí nasdílení změn nuget (nuget.exe rozhraní příkazového řádku)
 
 Tento krok je alternativou k používání `dotnet.exe`.
 
@@ -134,12 +142,6 @@ Tento krok je alternativou k používání `dotnet.exe`.
     ```
 
 Zobrazit [nuget nabízených](../tools/cli-ref-push.md).
-
-### <a name="publish-with-dotnet-nuget-push"></a>Publikování pomocí nuget dotnet nasdílení změn
-
-Tento krok je alternativou k používání `nuget.exe`.
-
-[!INCLUDE [publish-dotnet](includes/publish-dotnet.md)]
 
 ### <a name="publish-errors"></a>Publikování chyby
 

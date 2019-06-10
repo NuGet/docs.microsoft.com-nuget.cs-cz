@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/22/2018
 ms.topic: conceptual
-ms.openlocfilehash: 506a093ff4d62c10c896246f746e6765f64f33f4
-ms.sourcegitcommit: a801052aa728a3a137225ca3ef3ff89f2d1c6b76
+ms.openlocfilehash: 556683e5a24c57a6c32d8b4e368bfdccd4d19b48
+ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54403161"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812872"
 ---
 # <a name="package-consumption-workflow"></a>Spotřeba zabalit pracovní postup
 
@@ -22,7 +22,7 @@ Mezi nuget.org a privátní balíček galerie, které vaše organizace může vy
 
 Další podrobnosti najdete v tématu [hledání a výběr balíčků](../consume-packages/finding-and-choosing-packages.md) a [různých způsobů, jak nainstalovat balíček NuGet](ways-to-install-a-package.md).
 
-NuGet si pamatuje identity a verze počet každý nainstalovaný balíček nahrávání buď [ `packages.config` ](../reference/packages-config.md) nebo soubor projektu (pomocí [PackageReference](../consume-packages/package-references-in-project-files.md)), v závislosti na typu projektu a verze balíčku nuget. Nuget 4.0 +, PackageReference upřednostňována, i když je to možnost konfigurace v sadě Visual Studio prostřednictvím [možnosti uživatelského rozhraní Správce balíčků](../tools/package-manager-ui.md). V každém případě můžete prohlédnout v souboru příslušné kdykoli chcete zobrazit úplný seznam závislostí pro váš projekt.
+NuGet si pamatuje identity a verze počet každý nainstalovaný balíček záznam v jednom souboru projektu (pomocí [PackageReference](../consume-packages/package-references-in-project-files.md)) nebo [ `packages.config` ](../reference/packages-config.md), v závislosti na typu projektu a verze balíčku nuget. Nuget 4.0 +, PackageReference upřednostňována, i když je to možnost konfigurace v sadě Visual Studio prostřednictvím [možnosti uživatelského rozhraní Správce balíčků](../tools/package-manager-ui.md). V každém případě můžete prohlédnout v souboru příslušné kdykoli chcete zobrazit úplný seznam závislostí pro váš projekt.
 
 > [!Tip]
 > Je vhodné vždy zkontrolujte licence pro každý balíček, který chcete používat váš software. Na nuget.org, můžete najít **informace o licenci** odkaz na pravé straně stránky popis každého balíčku. Pokud balíček nejsou zadány licenční podmínky, obraťte se přímo pomocí vlastníka balíčku **obraťte se na vlastníky** odkaz na stránce balíček. Společnost Microsoft není licence duševního vlastnictví, od poskytovatelů třetích stran balíček a neodpovídá za informace, které jsou poskytovány třetími stranami.

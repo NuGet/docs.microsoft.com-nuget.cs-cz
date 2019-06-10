@@ -3,25 +3,31 @@ title: Jak vytvořit balíček NuGet
 description: Podrobné pokyny k procesu návrhu a vytvoření balíčku NuGet, včetně klíčových rozhodovací body, jako jsou soubory a správy verzí.
 author: karann-msft
 ms.author: karann
-ms.date: 12/12/2017
+ms.date: 05/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: f0d9667b752caf7831278ac3fd63cfd67f7d34a4
-ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
+ms.openlocfilehash: 5e362673acfab4b31c8a2e02a521afd8b19d2754
+ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610584"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812916"
 ---
 # <a name="creating-nuget-packages"></a>Vytváření balíčků NuGet
 
-Bez ohledu na to co dělá váš balíček nebo co kódu obsahuje, použít `nuget.exe` do balíčku, které tuto funkci do komponenty, které můžete sdílet s a používat libovolný počet dalších vývojářů. Chcete-li nainstalovat `nuget.exe`, naleznete v tématu [nainstalovat rozhraní příkazového řádku NuGet](../install-nuget-client-tools.md#nugetexe-cli). Všimněte si, že Visual Studio automaticky nezahrnuje `nuget.exe`.
+Bez ohledu na to co dělá váš balíček nebo co kódu obsahuje, použít jednu z nástroje rozhraní příkazového řádku, buď `nuget.exe` nebo `dotnet.exe`, do balíčku, které tuto funkci do komponenty, které můžete sdílet s a používat libovolný počet dalších vývojářů. Chcete-li instalovat nástroje rozhraní příkazového řádku NuGet, naleznete v tématu [klientských nástrojů Nugetu nainstalovat](../install-nuget-client-tools.md). Všimněte si, že Visual Studio automaticky nezahrnuje nástroj rozhraní příkazového řádku.
+
+- Pro projekty .NET Core a .NET Standard, které používají formát SDK – vizuální styl ([SDK atribut](/dotnet/core/tools/csproj#additions)), a všechny ostatní sady SDK – vizuální styl projekty, NuGet přímo k vytvoření balíčku používá informace v souboru projektu. Podrobnosti najdete v tématu [vytvořit standardní balíčky .NET se sadou Visual Studio 2017](../quickstart/create-and-publish-a-package-using-visual-studio.md) a [NuGet aktualizací Service pack a obnovení jako cílů MSBuild](../reference/msbuild-targets.md).
+
+- Projekty sady SDK styl postupujte podle kroků popsaných v tomto článku vytvořte balíček.
+
+- Pro projekty migrované z `packages.config` k [PackageReference](../consume-packages/package-references-in-project-files.md), použijte [msbuild - t: pack](../reference/migrate-packages-config-to-package-reference.md#create-a-package-after-migration).
 
 Technicky vzato balíček NuGet je jenom soubor ZIP, který je byl přejmenován s `.nupkg` rozšíření a jehož obsah odpovídat určité konvence. Toto téma popisuje podrobný postup vytvoření balíčku, který splňuje tyto konvence. Podrobný návod najdete v tématu [rychlý start: vytvoření a publikování balíčku](../quickstart/create-and-publish-a-package.md).
 
 Balení začíná zkompilovaného kódu (sestavení), symboly a/nebo jiné soubory, které má být dodána jako balíček (viz [přehled a pracovní postup](overview-and-workflow.md)). Tento proces je nezávislý na kompilace nebo jinak generování souborů, které patří do balíčku, i když můžete nakreslit z informací v souboru projektu pro synchronizaci kompilované sestavení a balíčky.
 
 > [!Note]
-> Toto téma platí pro typy projektů než projekty .NET Core pomocí sady Visual Studio 2017 a NuGet 4.0 +. V těchto projektech .NET Core NuGet používá informace v souboru projektu přímo. Podrobnosti najdete v tématu [vytvořit standardní balíčky .NET se sadou Visual Studio 2017](../guides/create-net-standard-packages-vs2017.md) a [NuGet aktualizací Service pack a obnovení jako cílů MSBuild](../reference/msbuild-targets.md).
+> Toto téma platí pro projekty SDK styl, obvykle projekty jiné než .NET Core a .NET Standard projektů pomocí Visual Studio 2017 a NuGet 4.0 +.
 
 ## <a name="deciding-which-assemblies-to-package"></a>Rozhodování o tom, která sestavení do balíčku
 
@@ -455,7 +461,7 @@ Jakmile vytvoříte balíček, který je `.nupkg` souboru ji také publikovat po
 Můžete také chtít rozšířit možnosti vašeho balíčku nebo jinak podporovala jiné scénáře, jak je popsáno v následujících tématech:
 
 - [Správa verzí balíčků](../reference/package-versioning.md)
-- [Podpora více cílových verzí rozhraní .NET Framework](../create-packages/supporting-multiple-target-frameworks.md)
+- [Podpora více cílových architektur](../create-packages/supporting-multiple-target-frameworks.md)
 - [Transformace zdrojového a konfiguračních souborů](../create-packages/source-and-config-file-transformations.md)
 - [Lokalizace](../create-packages/creating-localized-packages.md)
 - [Předběžné verze](../create-packages/prerelease-packages.md)

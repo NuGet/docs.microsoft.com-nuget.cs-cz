@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/21/2017
 ms.topic: tutorial
-ms.openlocfilehash: 16e19be0356bc1d2734ade5cd593ca3ef05bbe5a
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: a4c609b3390748099d85a73f7d168ebe4de2676a
+ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546418"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812938"
 ---
 # <a name="create-uwp-packages"></a>Vytvoření balíčků UPW
 
@@ -138,6 +138,9 @@ V rámci vaší komponenty základní logiky ImageEnhancer typ je v nativním k�
         <file src="..\ARM\Debug\ImageEnhancer\ImageEnhancer.dll" target="runtimes\win10-arm\native"/>
         <file src="..\ARM\Debug\ImageEnhancer\ImageEnhancer.pri" target="runtimes\win10-arm\native"/>
 
+        <file src="..\ARM64\Debug\ImageEnhancer\ImageEnhancer.dll" target="runtimes\win10-arm64\native"/>
+        <file src="..\ARM64\Debug\ImageEnhancer\ImageEnhancer.pri" target="runtimes\win10-arm64\native"/>
+
         <file src="..\x64\Debug\ImageEnhancer\ImageEnhancer.dll" target="runtimes\win10-x64\native"/>
         <file src="..\x64\Debug\ImageEnhancer\ImageEnhancer.pri" target="runtimes\win10-x64\native"/>
 
@@ -150,7 +153,7 @@ V rámci vaší komponenty základní logiky ImageEnhancer typ je v nativním k�
 
 ### <a name="adding-targets"></a>Přidání .targets
 
-Projekty C++ a JavaScript, které může využívat svůj balíček NuGet dále, třeba souboru .targets pro identifikaci potřebné soubory sestavení a soubor winmd. (Projekty jazyka C# a Visual Basic udělat automaticky.) Tento soubor vytvořit zkopírováním níže uvedený text do `ImageEnhancer.targets` a uložte ho do stejné složky jako `.nuspec` souboru. _Poznámka:_: to `.targets` soubor musí být stejný název jako ID balíčku (například `<Id>` element v `.nupspec` souboru):
+Projekty C++ a JavaScript, které může využívat svůj balíček NuGet dále, třeba souboru .targets pro identifikaci potřebné soubory sestavení a soubor winmd. (Projekty jazyka C# a Visual Basic udělat automaticky.) Tento soubor vytvořit zkopírováním níže uvedený text do `ImageEnhancer.targets` a uložte ho do stejné složky jako `.nuspec` souboru. _Poznámka:_ To `.targets` soubor musí být stejný název jako ID balíčku (například `<Id>` element v `.nupspec` souboru):
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -216,6 +219,8 @@ Výsledná `.nuspec` soubor by teď měl vypadat jako následující, kde znovu 
     <!-- DLLs and resources -->
     <file src="..\ARM\Debug\ImageEnhancer\ImageEnhancer.dll" target="runtimes\win10-arm\native"/>
     <file src="..\ARM\Debug\ImageEnhancer\ImageEnhancer.pri" target="runtimes\win10-arm\native"/>
+    <file src="..\ARM64\Debug\ImageEnhancer\ImageEnhancer.dll" target="runtimes\win10-arm64\native"/>
+    <file src="..\ARM64\Debug\ImageEnhancer\ImageEnhancer.pri" target="runtimes\win10-arm64\native"/>     
     <file src="..\x64\Debug\ImageEnhancer\ImageEnhancer.dll" target="runtimes\win10-x64\native"/>
     <file src="..\x64\Debug\ImageEnhancer\ImageEnhancer.pri" target="runtimes\win10-x64\native"/>
     <file src="..\Debug\ImageEnhancer\ImageEnhancer.dll" target="runtimes\win10-x86\native"/>
