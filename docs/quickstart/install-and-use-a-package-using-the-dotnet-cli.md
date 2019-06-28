@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.openlocfilehash: 4b593cc215ad68629e5a93d1f17c90e53c0b4f4f
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: 1060d98278fed89ac63ee17c1896ae8bdce72a9e
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324627"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426169"
 ---
 # <a name="quickstart-install-and-use-a-package-using-the-dotnet-cli"></a>Rychlý start: Instalace a použití balíčku pomocí rozhraní příkazového řádku dotnet
 
@@ -103,7 +103,7 @@ Balíčky NuGet můžete nainstalovat do projektu .NET určitého druhu. V tomto
 
 ## <a name="related-articles"></a>Související články
 
+- [Nainstalovat a používat balíčky pomocí rozhraní příkazového řádku dotnet](../consume-packages/install-use-packages-dotnet-cli.md)
 - [Přehled a pracovní postup využití balíčků](../consume-packages/overview-and-workflow.md)
 - [Vyhledání a výběr balíčků](../consume-packages/finding-and-choosing-packages.md)
-- [Způsoby instalace balíčku](../consume-packages/ways-to-install-a-package.md)
-- [Konfigurace chování NuGetu](../consume-packages/configuring-nuget-behavior.md)
+- [Obvyklé konfigurace NuGet](../consume-packages/configuring-nuget-behavior.md)

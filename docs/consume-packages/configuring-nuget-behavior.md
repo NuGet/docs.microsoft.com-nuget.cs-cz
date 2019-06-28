@@ -1,18 +1,18 @@
 ---
-title: Konfigurace chování nugetu
+title: Obvyklé konfigurace NuGet
 description: Soubor NuGet.Config soubory řízení chování Nugetu globálně i na základě jednotlivých projektů a jsou upraveny pomocí příkazu config nuget.
 author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: conceptual
-ms.openlocfilehash: 963d1d59ea7e65e3d75bc7105b8864e3e4045938
-ms.sourcegitcommit: ef08f376688f0191a8d3d873b6a4386afd799373
+ms.openlocfilehash: 57b7f29b533a8e6d7db2710c7e42a239f50199a1
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66266342"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426656"
 ---
-# <a name="configuring-nuget-behavior"></a>Konfigurace chování NuGetu
+# <a name="common-nuget-configurations"></a>Obvyklé konfigurace NuGet
 
 Chování Nugetu doprovází nahromaděné nastavení v jedné nebo více `NuGet.Config` soubory (XML), které mohou existovat úrovni projektu –, uživatel- a celý počítač. Globální `NuGetDefaults.Config` soubor nastaví také konkrétně zdroje balíčků. Nastavení platí pro všechny příkazy vydané v rozhraní příkazového řádku, konzole Správce balíčků a uživatelské rozhraní Správce balíčků.
 
@@ -20,7 +20,7 @@ Chování Nugetu doprovází nahromaděné nastavení v jedné nebo více `NuGet
 
 | Scope | Umístění souboru NuGet.Config | Popis |
 | --- | --- | --- |
-| Řešení | Aktuální složce (označuje se také jako složku řešení) nebo libovolnou složku do kořenové jednotky.| Ve složce řešení použít nastavení platí pro všechny projekty v podsložkách. Všimněte si, že pokud je konfigurační soubor je umístěn ve složce projektu, nemá žádný vliv na tento projekt. |
+| Řešení | Aktuální složce (označuje se také jako složku řešení) nebo libovolnou složku do kořenové jednotky.| Ve složce řešení nastavení platí pro všechny projekty v podsložkách. Všimněte si, že pokud je konfigurační soubor je umístěn ve složce projektu, nemá žádný vliv na tento projekt. |
 | Uživatel | Windows: `%appdata%\NuGet\NuGet.Config`<br/>Mac/Linux: `~/.config/NuGet/NuGet.Config` nebo `~/.nuget/NuGet/NuGet.Config` (se liší podle operačního systému distribučního) | Nastavení platí pro všechny operace, ale jsou přepsány všechna nastavení na úrovni projektu. |
 | Computer | Windows: `%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux: `$XDG_DATA_HOME`. Pokud `$XDG_DATA_HOME` má hodnotu null nebo je prázdný, `~/.local/share` nebo `/usr/local/share` použije (se liší podle operačního systému distribučního)  | Nastavení platí pro všechny operace v počítači, ale jsou přepsány žádné nastavení na úrovni uživatele nebo projektu. |
 

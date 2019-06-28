@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: c547ae1d46079d040d7c3aa4c7678e70cd199dce
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 4b365488c8dd0e081449552b06451e7b40b5223b
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548010"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426617"
 ---
 # <a name="managing-the-global-packages-cache-and-temp-folders"></a>Správa globálních balíčků, mezipaměť a dočasné složky
 
 Pokaždé, když se nainstalovat, aktualizovat nebo obnovit balíček NuGet spravuje balíčky a informace o balíčku v mimo strukturu projektu několik složek:
 
-| Název | Popis a umístění (na jednoho uživatele)|
+| Name | Popis a umístění (na jednoho uživatele)|
 | --- | --- |
 | globální&#8209;balíčky | *Global-packages* kde NuGet nainstaluje všechny staženého balíčku je složka. Každý balíček je úplně rozbalen do podsložky, která odpovídá identifikátor balíčku a číslo verze. Projekty pomocí PackageReference formátu vždy balíčky pro použití přímo z této složky. Při použití `packages.config`, balíčky se nainstalují do *global-packages* složku, pak zkopíruje do projektu `packages` složky.<br/><ul><li>Windows: `%userprofile%\.nuget\packages`</li><li>Mac/Linux: `~/.nuget/packages`</li><li>Přepsat pomocí proměnné prostředí NUGET_PACKAGES `globalPackagesFolder` nebo `repositoryPath` [nastavení konfigurace](../reference/nuget-config-file.md#config-section) (při použití PackageReference a `packages.config`v uvedeném pořadí), nebo `RestorePackagesPath` MSBuild vlastnosti (pouze nástroj MSBuild). Proměnná prostředí má přednost před nastavením konfigurace.</li></ul> |
 | http&#8209;cache | Balíček správce sady Visual Studio (NuGet 3.x+) a `dotnet` nástroj úložiště kopie v mezipaměti stažených balíčků (Uložit jako `.dat` soubory) uspořádaných do podsložky pro jednotlivé zdroje balíčku. Balíčky nejsou rozbalen a mezipaměti má čas vypršení platnosti 30 minut.<br/><ul><li>Windows: `%localappdata%\NuGet\v3-cache`</li><li>Mac/Linux: `~/.local/share/NuGet/v3-cache`</li><li>Přepište NUGET_HTTP_CACHE_PATH proměnné prostředí.</li></ul> |
@@ -30,7 +30,7 @@ Mezipaměť a *global-packages* složek, NuGet obecně se vyhnete stahovali bal�
 
 Když se zobrazí výzva k načtení balíčku, nejprve hledá NuGet v *global-packages* složky. Pokud není přesné verze balíčku, NuGet kontroluje všechny zdroje balíčků jiným protokolem než HTTP. Pokud balíček není stále nalezen, NuGet hledá v balíčku *http-cache* neurčíte `--no-cache` s `dotnet.exe` příkazy nebo `-NoCache` s `nuget.exe` příkazy. Pokud balíček není v mezipaměti, nebo do mezipaměti se nepoužívá, NuGet pak načte balíček přes protokol HTTP.
 
-Další informace najdete v tématu [co se stane, když je nainstalován balíček](ways-to-install-a-package.md#what-happens-when-a-package-is-installed).
+Další informace najdete v tématu [co se stane, když je nainstalován balíček?](../concepts/package-installation-process.md).
 
 ## <a name="viewing-folder-locations"></a>Zobrazení umístění složek
 
@@ -100,7 +100,7 @@ nuget locals all -clear
 
 Všechny balíčky, které používají projekty, které jsou právě otevřeny v sadě Visual Studio se vymazat z *global-packages* složky.
 
-V sadě Visual Studio 2017, použijte **nástroje > Správce balíčků NuGet > Nastavení správce balíčků** nabídce příkaz a pak vyberte **vymazat všechny mezipaměti NuGet**. Správa mezipaměti není v současné době dostupná přes konzolu Správce balíčků. V sadě Visual Studio 2015 pomocí příkazů rozhraní příkazového řádku.
+Spouští se v sadě Visual Studio 2017, použijte **nástroje > Správce balíčků NuGet > Nastavení správce balíčků** nabídce příkaz a pak vyberte **vymazat všechny mezipaměti NuGet**. Správa mezipaměti není v současné době dostupná přes konzolu Správce balíčků. V sadě Visual Studio 2015 pomocí příkazů rozhraní příkazového řádku.
 
 ![Příkaz NuGet možnost pro vymazání mezipaměti](media/options-clear-caches.png)
 
@@ -108,7 +108,7 @@ V sadě Visual Studio 2017, použijte **nástroje > Správce balíčků NuGet > 
 
 Těmto chybám může dojít při použití `nuget locals` nebo `dotnet nuget locals`:
 
-- *Chyba: Proces nemá přístup k souboru <package> protože ho používá jiný proces* nebo *vymazat místní prostředky se nezdařilo: nelze odstranit jeden nebo více souborů*
+- *Chyba: Proces nemá přístup k souboru <package> protože ho používá jiný proces* nebo *vymazat místní prostředky se nezdařilo: Nepovedlo se odstranit jednoho nebo více souborů*
 
     Jeden nebo více souborů ve složce se používají v jiném procesu; otevřít, který odkazuje na balíčky v projektu sady Visual Studio je třeba *global-packages* složky. Zavřít tyto procesy a zkuste to znovu.
 

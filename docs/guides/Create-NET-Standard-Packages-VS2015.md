@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 02/02/2018
 ms.topic: tutorial
-ms.openlocfilehash: 7b1ccfbede4cec53cee3ec7d1c023e4c5be60bf0
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: af0c42853a9e407557a010ff2793406499b4b2ef
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545910"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426883"
 ---
 # <a name="create-net-standard-and-net-framework-packages-with-visual-studio-2015"></a>Vytváření balíčků pro .NET Standard a .NET Framework pomocí sady Visual Studio 2015
 
@@ -31,7 +31,7 @@ Tento průvodce vás provede vytvořením cílí na .NET Standard knihovny 1.4 b
 
 ## <a name="create-the-class-library-project"></a>Vytvořte projekt knihovny tříd
 
-1. V sadě Visual Studio **soubor > Nový > projekt**, rozbalte **Visual C# > Windows** uzlu, vyberte **knihovna tříd (přenosná)**, změňte název na AppLogger a vyberte **OK**.
+1. V sadě Visual Studio **soubor > Nový > projekt**, rozbalte **Visual C# > Windows** uzlu, vyberte **knihovna tříd (přenosná)** , změňte název na AppLogger a vyberte **OK**.
 
     ![Vytvořit nový projekt knihovny tříd](media/NetStandard-NewProject.png)
 
@@ -159,7 +159,7 @@ Tím se vygeneruje `AppLogger.YOUR_NAME.1.0.0.nupkg`. Tento soubor otevřete v n
 > [!Tip]
 > A `.nupkg` soubor je jenom soubor ZIP s jinou příponou. Můžete také prozkoumat obsah balíčku, potom změnou `.nupkg` k `.zip`, ale nezapomeňte k obnovení rozšíření před nahráním balíčků na nuget.org.
 
-Aby váš balíček k dispozici s ostatními vývojáři, postupujte podle pokynů [publikování balíčku](../create-packages/publish-a-package.md).
+Aby váš balíček k dispozici s ostatními vývojáři, postupujte podle pokynů [publikování balíčku](../nuget-org/publish-a-package.md).
 
 Všimněte si, že `pack` vyžaduje Mono 4.4.2 v Mac OS X a nebude fungovat v systémech Linux. Na počítači Mac, je také nutné převést Windows cest v `.nuspec` soubor do cesty k systému UNIX.
 

@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/30/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 4884de71151ee1ae3c0a78b803c9222f9c1d86ec
-ms.sourcegitcommit: ef08f376688f0191a8d3d873b6a4386afd799373
+ms.openlocfilehash: 34c205e7dac60c7abfb6323b4dc45bf4f074d46a
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66266360"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426790"
 ---
 # <a name="catalog"></a>Katalog
 
@@ -67,7 +67,7 @@ Následující požadavek načte index katalogu.
 
 Index katalogu je dokument JSON, který obsahuje objekt s následujícími vlastnostmi:
 
-Name            | Type             | Požadováno | Poznámky
+Name            | type             | Požadováno | Poznámky
 --------------- | ---------------- | -------- | -----
 commitId        | odkazy řetězců           | ano      | Jedinečné ID přidružené k nejnovějším potvrzení
 commitTimeStamp | odkazy řetězců           | ano      | Časové razítko poslední potvrzení změn
@@ -84,7 +84,7 @@ Přidávání položek do katalogu, index `commitId` se změní a `commitTimeSta
 
 Objekty stránky katalogu nalezena v katalogu indexu `items` vlastnosti mají následující vlastnosti:
 
-Name            | Type    | Požadováno | Poznámky
+Name            | type    | Požadováno | Poznámky
 --------------- | ------- | -------- | -----
 @id             | odkazy řetězců  | ano      | Adresa URL stránky načtení katalogu
 commitId        | odkazy řetězců  | ano      | Jedinečné ID přidružené k nejnovějším potvrzení na této stránce
@@ -109,7 +109,7 @@ Přidání nových položek katalogu se na stránku v katalogu index pouze s nej
 
 Katalog stránky dokumentu je objekt JSON s následujícími vlastnostmi:
 
-Name            | Type             | Požadováno | Poznámky
+Name            | type             | Požadováno | Poznámky
 --------------- | ---------------- | -------- | -----
 commitId        | odkazy řetězců           | ano      | Jedinečné ID přidružené k nejnovějším potvrzení na této stránce
 commitTimeStamp | odkazy řetězců           | ano      | Časové razítko poslední potvrzení změn na této stránce
@@ -129,7 +129,7 @@ Při přidání položky na stránku `commitId` změny a `commitTimeStamp` zvyš
 
 Najít objekty položky katalogu na stránce katalog `items` vlastnosti mají následující vlastnosti:
 
-Name            | Type    | Požadováno | Poznámky
+Name            | type    | Požadováno | Poznámky
 --------------- | ------- | -------- | -----
 @id             | odkazy řetězců  | ano      | Adresa URL pro načtení položky katalogu
 @type           | odkazy řetězců  | ano      | Typ položky katalogu
@@ -159,7 +159,7 @@ Katalog typu list obsahuje metadata o konkrétní ID a verzi v určitém okamži
 
 Dokument listu katalogu je objekt JSON s následujícími vlastnostmi:
 
-Name                    | Type                       | Požadováno | Poznámky
+Name                    | type                       | Požadováno | Poznámky
 ----------------------- | -------------------------- | -------- | -----
 @type                   | řetězec nebo pole řetězců | ano      | Typy položek katalogu
 catalog:commitId        | odkazy řetězců                     | ano      | ID potvrzení změn přidružené k této položky katalogu
@@ -190,7 +190,7 @@ Klienti využívání položky katalogu by se neměly pokoušet zjistit, které 
 
 Položky katalogu podrobnosti balíčku mají následující vlastnosti kromě těch [na všechny listy katalogu](#catalog-leaf).
 
-Name                    | Type                       | Požadováno | Poznámky
+Name                    | type                       | Požadováno | Poznámky
 ----------------------- | -------------------------- | -------- | -----
 Autoři                 | odkazy řetězců                     | Ne       |
 Vytvoření                 | odkazy řetězců                     | Ne       | Časové razítko z při prvním vytvoření balíčku. Základní vlastnosti: `published`.
@@ -236,8 +236,8 @@ ZÍSKAT https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.
 
 Položky s typem katalogu `PackageDelete` obsahují minimální sadu informaci o katalogu klientům, že balíček se odstranil z balíčku zdroje a není už k dispozici pro libovolnou operaci balíčku (například obnovení).
 
-> [!Note]
-> Je možné pro balíček, který chcete odstranit a později znovu publikovat pomocí stejné ID balíčku a verzi. Na nuget.org to je velmi vzácný případ, protože to naruší oficiální klienta z předpokladu, že ID balíčku a verzi implikují určitý balíček obsahu. Další informace o odstranění balíčků na nuget.org, naleznete v tématu [naše zásady](../policies/deleting-packages.md).
+> [!NOTE]
+> Je možné pro balíček, který chcete odstranit a později znovu publikovat pomocí stejné ID balíčku a verzi. Na nuget.org to je velmi vzácný případ, protože to naruší oficiální klienta z předpokladu, že ID balíčku a verzi implikují určitý balíček obsahu. Další informace o odstranění balíčků na nuget.org, naleznete v tématu [naše zásady](../nuget-org/policies/deleting-packages.md).
 
 Položky katalogu odstranit balíček mají žádné další vlastnosti, kromě těch [na všechny listy katalogu](#catalog-leaf).
 

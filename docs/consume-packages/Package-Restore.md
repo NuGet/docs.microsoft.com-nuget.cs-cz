@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 9acb87a5f5731fb33c91a1ae9b106c6df492ddcd
-ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
+ms.openlocfilehash: 3e19d0ee6986021f0a23128f2e62e739d970ac9a
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453530"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426684"
 ---
 # <a name="package-restore"></a>Obnovení balíčku
 
@@ -22,7 +22,7 @@ Obnovení balíčků zajišťuje, že všechny projektu závislosti jsou k dispo
 
 Obnovují se balíčky nejdřív nainstaluje přímé závislosti projektu podle potřeby a potom nainstaluje všechny závislosti tyto balíčky v průběhu graf závislostí pro celé.
 
-Pokud balíček není nainstalovaná, NuGet se nejprve pokusí načíst z [mezipaměti](../consume-packages/managing-the-global-packages-and-cache-folders.md). Pokud balíček není v mezipaměti, NuGet se pak pokusí stáhnout balíček ze všech zdrojů povolené (naleznete v tématu [konfigurace NuGet chování](Configuring-NuGet-Behavior.md); zdroje se zobrazí také v **nástroje > Možnosti > Správce balíčků NuGet > Zdroje balíčků** seznamu v sadě Visual Studio). Během obnovení NuGet ignoruje pořadí zdroje balíčků pomocí balíčku od toho zdroje je nejprve reagovat na požadavky.
+Pokud balíček není nainstalovaná, NuGet se nejprve pokusí načíst z [mezipaměti](../consume-packages/managing-the-global-packages-and-cache-folders.md). Pokud balíček není v mezipaměti, NuGet se pak pokusí stáhnout balíček ze všech zdrojů povolené (naleznete v tématu [konfigurace běžných NuGet](Configuring-NuGet-Behavior.md); zdroje se zobrazí také v **nástroje > Možnosti > Správce balíčků NuGet > Zdroje balíčků** seznamu v sadě Visual Studio). Během obnovení NuGet ignoruje pořadí zdroje balíčků pomocí balíčku od toho zdroje je nejprve reagovat na požadavky.
 
 > [!Note]
 > NuGet neznamená neúspěšného obnovení balíčku, dokud byly vráceny všechny zdroje. V tu chvíli NuGet hlásí selhání pouze poslední zdroje v seznamu. Chyba znamená, že nebyl k dispozici v balíčku *jakékoli* z jiných zdrojů i v případě chyby se nezobrazují pro každou z těchto zdrojů jednotlivě.
@@ -31,7 +31,7 @@ Obnovení balíčku se aktivuje následujícími způsoby:
 
 - **rozhraní příkazového řádku DotNet**: použijte [dotnet restore](/dotnet/core/tools/dotnet-restore?tabs=netcore2x) příkaz, který obnoví balíčky uvedené v souboru projektu (viz [PackageReference](../consume-packages/package-references-in-project-files.md)). S .NET Core 2.0 nebo novější, obnovení se provádí automaticky pomocí `dotnet build` a `dotnet run`.
 
-- **Uživatelské rozhraní Správce balíčků (Visual Studio na Windows)**: obnovení balíčků automaticky při vytvoření projektu ze šablony a při sestavování projektu (v souladu s možnosti popsané v [povolení a zakázání balíček obnovení](#enabling-and-disabling-package-restore)). Ve Správci NuGet 4.0 + obnovit také dojde automaticky při změn projektu založeného na .NET Core SDK.
+- **Uživatelské rozhraní Správce balíčků (Visual Studio na Windows)** : Obnovení balíčků automaticky při vytvoření projektu ze šablony a při sestavování projektu (v souladu s možnosti popsané v [povolení a zákaz obnovení balíčku](#enabling-and-disabling-package-restore)). Ve Správci NuGet 4.0 + obnovit také dojde automaticky při změn projektu založeného na .NET Core SDK.
 
     Chcete-li obnovit ručně, klikněte pravým tlačítkem na řešení v Průzkumníku řešení a vyberte **obnovit balíčky NuGet**. Pokud jeden nebo více jednotlivých balíčků se stále není správně nainstalován (tj., Průzkumník řešení zobrazuje ikona chyby) a pak použijte uživatelské rozhraní Správce balíčků odinstalovat a znovu nainstalovat ovlivněné balíčky. Zobrazit [Reinstalling a aktualizace balíčků](../consume-packages/reinstalling-and-updating-packages.md)
 
@@ -39,9 +39,9 @@ Obnovení balíčku se aktivuje následujícími způsoby:
 
 - **Rozhraní příkazového řádku NuGet**: použijte [obnovení nuget](../tools/cli-ref-restore.md) příkaz, který obnoví balíčky uvedené v souboru projektu nebo v `packages.config`. Můžete také určit soubor řešení.
 
-- **MSBuild**: použijte [msbuild - t: restore](../reference/msbuild-targets.md#restore-target) příkaz, který obnoví balíčky balíčky uvedené v souboru projektu (pouze PackageReference). K dispozici pouze v NuGet 4.x+ a MSBuild 15.1 +, které jsou součástí sady Visual Studio 2017. `nuget restore` a `dotnet restore` obě použijte tento příkaz pro příslušné projekty.
+- **MSBuild**: použijte [msbuild - t: restore](../reference/msbuild-targets.md#restore-target) příkaz, který obnoví balíčky balíčky uvedené v souboru projektu (pouze PackageReference). K dispozici pouze v NuGet 4.x+ a MSBuild 15.1 +, které jsou součástí sady Visual Studio 2017 a vyšší verze. `nuget restore` a `dotnet restore` obě použijte tento příkaz pro příslušné projekty.
 
-- **Visual Studio Team Services**: při vytváření definice sestavení ve službě Team Services, patří [obnovení NuGet](/vsts/build-release/tasks/package/nuget#restore-nuget-packages) nebo [obnovení aplikace .NET Core](/vsts/build-release/tasks/build/dotnet-core#restore-nuget-packages) úloh v definici před libovolná sestavení úkolu. Tato úloha je zahrnuté ve výchozím nastavení v počtu šablon sestavení.
+- **Visual Studio Team Services**: Při vytváření definice sestavení ve službě Team Services, patří [obnovení NuGet](/vsts/build-release/tasks/package/nuget#restore-nuget-packages) nebo [obnovení aplikace .NET Core](/vsts/build-release/tasks/build/dotnet-core#restore-nuget-packages) úloh v definici před libovolná sestavení úkolu. Tato úloha je zahrnuté ve výchozím nastavení v počtu šablon sestavení.
 
 - **Team Foundation Server**: TFS 2013 a novější automatické obnovení balíčků během sestavení, za předpokladu, že používáte týmového sestavení šablony pro TFS 2013 nebo novější. Pro starší verze TFS můžete zahrnout krok sestavení k vyvolání jednu z výše uvedených možností příkazového řádku obnovení. Volitelně můžete migrovat šablony sestavení do TFS 2013. Další informace najdete v tématu [návod k obnovení balíčků pomocí procesu Team Foundation Build](../consume-packages/team-foundation-build.md).
 
@@ -82,7 +82,7 @@ Obnovení balíčku především zajišťuje **nástroje > Možnosti > Správce 
 
 Odkaz, najdete v článku [NuGet konfiguračního souboru – část packageRestore](../reference/nuget-config-file.md#packagerestore-section).
 
-V některých případech může být vhodné pro vývojáře nebo společnosti k povolení nebo zakázání obnovení balíčků pro všechny uživatele v počítači. K tomuto účelu přidat do globální NuGet konfigurační soubor umístěný ve stejné nastavení výše `%ProgramData%\NuGet\Config` (Windows, potenciálně v rámci konkrétní `\{IDE}\{Version}\{SKU}\` složka pro sadu Visual Studio) nebo `~/.local/share` (Mac/Linux). Jednotlivým uživatelům můžete selektivně povolte obnovení podle potřeby na úrovni projektu. Zobrazit [konfigurace NuGet chování](../consume-packages/configuring-nuget-behavior.md#how-settings-are-applied) najdete přesné informace o tom, jak NuGet upřednostňuje více konfiguračních souborů.
+V některých případech může být vhodné pro vývojáře nebo společnosti k povolení nebo zakázání obnovení balíčků pro všechny uživatele v počítači. K tomuto účelu přidat do globální NuGet konfigurační soubor umístěný ve stejné nastavení výše `%ProgramData%\NuGet\Config` (Windows, potenciálně v rámci konkrétní `\{IDE}\{Version}\{SKU}\` složka pro sadu Visual Studio) nebo `~/.local/share` (Mac/Linux). Jednotlivým uživatelům můžete selektivně povolte obnovení podle potřeby na úrovni projektu. Zobrazit [konfigurace běžných NuGet](../consume-packages/configuring-nuget-behavior.md#how-settings-are-applied) najdete přesné informace o tom, jak NuGet upřednostňuje více konfiguračních souborů.
 
 > [!Important]
 > Pokud upravíte `packageRestore` přímo v nastavení `nuget.config`, restartujte aplikaci Visual Studio tak, aby se dialogové okno Možnosti zobrazuje aktuální hodnoty.
@@ -97,7 +97,7 @@ Při obnovování balíčků pomocí libovolné metody, NuGet respektuje omezen�
     <package id="Newtonsoft.json" version="6.0.4" allowedVersions="[6,7)" />
     ```
 
-- Soubor projektu (PackageReference): přímo s číslem verze závislosti uvádět rozsah verzí. Příklad:
+- Soubor projektu (PackageReference): Přímo s číslem verze závislosti uvádět rozsah verzí. Příklad:
 
     ```xml
     <PackageReference Include="Newtonsoft.json" Version="[6, 7)" />

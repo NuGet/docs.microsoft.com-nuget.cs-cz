@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 6c545ddeddb0c5909f57e879912eaeed744e42d5
-ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
+ms.openlocfilehash: e4c57c0580fe9018703291c08d60e559f95183dc
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812936"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426207"
 ---
 # <a name="nuspec-reference"></a>odkaz na souboru .nuspec
 
@@ -85,7 +85,7 @@ Dlouhý popis balíčku zobrazí v uživatelském rozhraní.
 #### <a name="title"></a>název
 Lidské popisný název balíčku, obvykle používaných v uživatelském rozhraní na webech nuget.org a Správce balíčků v sadě Visual Studio. Pokud není zadán, použije se ID balíčku. 
 #### <a name="owners"></a>Vlastníci
-Čárkou oddělený seznam Tvůrce balíčku pomocí názvy profilů na nuget.org. To je často seznamu stejné jako v `authors`a je ignorován při nahrávání balíčku do nuget.org. Zobrazit [vlastníky Správa balíčků na nuget.org](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg). 
+Čárkou oddělený seznam Tvůrce balíčku pomocí názvy profilů na nuget.org. To je často seznamu stejné jako v `authors`a je ignorován při nahrávání balíčku do nuget.org. Zobrazit [vlastníky Správa balíčků na nuget.org](../nuget-org/publish-a-package.md#managing-package-owners-on-nugetorg). 
 #### <a name="projecturl"></a>projectUrl
 Adresa URL domovské stránky balíčku, často zobrazuje v uživatelském rozhraní nuget.org. 
 #### <a name="licenseurl"></a>licenseUrl
@@ -198,7 +198,7 @@ Obvykle, když máte projekt, vytvoříte `.nuspec` zpočátku pomocí `nuget sp
 
 S výjimkou produktů `$configuration$`, jsou hodnoty v projektu použít preferenci pro libovolné přiřazen stejný token v příkazovém řádku.
 
-| Podpisový | Hodnota zdroje | Value
+| Podpisový | Hodnota zdroje | Hodnota
 | --- | --- | ---
 | **$id$** | soubor projektu | AssemblyName (název) ze souboru projektu |
 | **$version$** | AssemblyInfo | AssemblyInformationalVersion, pokud jsou k dispozici, jinak AssemblyVersion |
@@ -300,7 +300,7 @@ Následující příklad ukazuje různé varianty `<group>` element:
 
 ## <a name="explicit-assembly-references"></a>Odkazy na explicitní sestavení
 
-`<references>` Prvek explicitně určuje sestavení, které by měly odkazovat na cílový projekt, při použití balíčku. Pokud tento prvek je k dispozici, NuGet přidat odkazy pouze na uvedené sestavení; nepřidá odkazy pro jiná sestavení v balíčku `lib` složky.
+`<references>` Element je používán projektů s použitím `packages.config` explicitně zadejte sestavení, které by měly odkazovat na cílový projekt, při použití balíčku. Explicitní odkazy se obvykle používají pro pouze na sestavení doby návrhu. Další informace naleznete na stránce na [výběr sestavení odkazovaných projektů](../create-packages/select-assemblies-referenced-by-projects.md) Další informace.
 
 Například následující `<references>` element dává pokyn NuGet pro přidání odkazů na pouze `xunit.dll` a `xunit.extensions.dll` i v případě, že existují další sestavení v balíčku:
 
@@ -310,10 +310,6 @@ Například následující `<references>` element dává pokyn NuGet pro přidá
     <reference file="xunit.extensions.dll" />
 </references>
 ```
-
-Explicitní odkazy se obvykle používají pro pouze na sestavení doby návrhu. Při použití [kontrakty kódu](/dotnet/framework/debug-trace-profile/code-contracts), například sestavení kontraktu musí být vedle sestavení modulu runtime, které se rozšiřují, aby Visual Studio můžete najít, ale kontrakt sestavení nemusí být odkazuje projekt nebo zkopírovat do projektu `bin` složky.
-
-Podobně je možné explicitní odkazy pro rozhraní pro testování částí, jako jsou XUnit, která potřebuje jeho nástroje pro sestavení vedle sestavení modulu runtime, ale nemá potřebovat, který je zahrnutý jako odkazy na projekt.
 
 ### <a name="reference-groups"></a>Referenční skupiny
 

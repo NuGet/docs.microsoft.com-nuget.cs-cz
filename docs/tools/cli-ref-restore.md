@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 9964186dcbfedfbf2415a57102f8f019a1eef23a
-ms.sourcegitcommit: 6b71926f062ecddb8729ef8567baf67fd269642a
+ms.openlocfilehash: 3d7a4188de4fb6f812ca19e7f9e302a5a133c58b
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59931992"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67425962"
 ---
 # <a name="restore-command-nuget-cli"></a>příkaz Restore (rozhraní příkazového řádku NuGet)
 
@@ -50,7 +50,7 @@ kde `<projectPath>` Určuje umístění řešení nebo `packages.config` souboru
 | RequireConsent | Ověří, zda je povoleno obnovují se balíčky před stažením a instalací balíčků. Podrobnosti najdete v tématu [obnovení balíčků](../consume-packages/package-restore.md). |
 | SolutionDirectory | Určuje složku řešení. Není platný při obnovují se balíčky pro řešení. Při obnovení se vyžaduje `packages.config` souboru není-li `PackagesDirectory` nebo `OutputDirectory` se používá. |
 | Source | Určuje seznam zdrojů balíčků (jako adresy URL) pro obnovení. Pokud tento parametr vynechán, příkaz používá zdroje k dispozici v konfiguračních souborech naleznete v tématu [konfigurace NuGet chování](../consume-packages/configuring-nuget-behavior.md). |
-| Verbosity |> určuje množství podrobností, na které se zobrazí ve výstupu: *normální*, *quiet*, *podrobné*. |
+| Verbosity | Určuje množství podrobností, na které se zobrazí ve výstupu: *normální*, *quiet*, *podrobné*. |
 
 Viz také [proměnné prostředí](cli-ref-environment-variables.md)
 

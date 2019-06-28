@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.openlocfilehash: 8cfb7bd31c37847d83ffe31f11ba61eadc717eb8
-ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
+ms.openlocfilehash: 014b316ea03b45584406c313d46b96ad36340124
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812905"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426222"
 ---
 # <a name="quickstart-install-and-use-a-package-in-visual-studio"></a>Rychlý start: Nainstalovat a používat balíčky v sadě Visual Studio
 
@@ -123,6 +123,6 @@ S balíčkem Newtonsoft.Json v projektu, můžete volat jeho `JsonConvert.Serial
 ## <a name="related-articles"></a>Související články
 
 - [Přehled a pracovní postup využití balíčků](../consume-packages/overview-and-workflow.md)
+- [Instalace a Správa balíčků s využitím sady Visual Studio](../tools/package-manager-ui.md)
 - [Vyhledání a výběr balíčků](../consume-packages/finding-and-choosing-packages.md)
-- [Způsoby instalace balíčku](../consume-packages/ways-to-install-a-package.md)
-- [Konfigurace chování NuGetu](../consume-packages/configuring-nuget-behavior.md)
+- [Obvyklé konfigurace NuGet](../consume-packages/configuring-nuget-behavior.md)

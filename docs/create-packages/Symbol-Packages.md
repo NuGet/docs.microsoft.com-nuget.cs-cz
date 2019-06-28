@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 09/12/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 56125516345b2255998c1f734db60b58b9a92a06
-ms.sourcegitcommit: 585394f063e95dcbc24d7ac0ce07de643eaf6f4d
+ms.openlocfilehash: 40f934f3c3fcea62acae66639c22108a93363b8b
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "55046325"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426770"
 ---
 # <a name="creating-symbol-packages-legacy"></a>Vytváření balíčků symbolů (starší verze)
 
@@ -102,7 +102,7 @@ Balíček symbolů se dají podle konvence z strukturu složek, jak je popsáno 
 > [!Important]
 > Push balíčků na nuget.org je nutné použít [nuget.exe v4.9.1 nebo vyšší](https://www.nuget.org/downloads), který implementuje požadované [NuGet protokoly](../api/nuget-protocols.md).
 
-1. Pro usnadnění práce, uložte svůj klíč rozhraní API s NuGet (viz [publikování balíčku](../create-packages/publish-a-package.md), které bude platit na webech nuget.org a symbolsource.org, protože symbolsource.org zkontroluje s nuget.org a ověřte, zda jste vlastníkem balíčku.
+1. Pro usnadnění práce, uložte svůj klíč rozhraní API s NuGet (viz [publikování balíčku](../nuget-org/publish-a-package.md), které bude platit na webech nuget.org a symbolsource.org, protože symbolsource.org zkontroluje s nuget.org a ověřte, zda jste vlastníkem balíčku.
 
     ```cli
     nuget SetApiKey Your-API-Key

@@ -1,24 +1,26 @@
 ---
-title: Průvodce konzoly Správce balíčků NuGet
+title: Nainstalovat a spravovat balíčky NuGet v sadě Visual Studio pomocí Powershellu
 description: Pokyny k používání konzoly Správce balíčků NuGet v sadě Visual Studio pro práci s balíčky.
 author: karann-msft
 ms.author: karann
-ms.date: 01/23/2018
+ms.date: 06/24/2019
 ms.topic: conceptual
 f1_keywords:
 - vs.nuget.packagemanager.console
-ms.openlocfilehash: 88979c67ea7f073f2ea5a02c445186642f77f210
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 11ec25598d3110ba84dec5044642e205e13346af
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546875"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426209"
 ---
-# <a name="package-manager-console"></a>Konzola správce balíčků
+# <a name="install-and-manage-packages-using-powershell-in-visual-studio"></a>Instalace a Správa balíčků s využitím prostředí PowerShell v sadě Visual Studio
 
-Konzola správce balíčků NuGet je součástí sady Visual Studio ve Windows 2012 a novější verze. (Není součástí sady Visual Studio pro Mac nebo Visual Studio Code.)
+Konzola správce balíčků NuGet umožňuje používat [příkazy prostředí NuGet PowerShell](../tools/powershell-reference.md) najít, nainstalovat, odinstalujte a aktualizovat balíčky NuGet. Pomocí konzoly je nutné v případech, kdy uživatelské rozhraní Správce balíčků neposkytuje způsob, jak provádět operace. Použití `nuget.exe` příkazy rozhraní příkazového řádku v konzole, najdete v článku [pomocí nuget.exe rozhraní příkazového řádku v konzole](#using-the-nugetexe-cli-in-the-console).
 
-Konzole vám umožní používat [příkazy prostředí NuGet PowerShell](../tools/powershell-reference.md) najít, nainstalovat, odinstalujte a aktualizovat balíčky NuGet. Pomocí konzoly je nutné v případech, kdy uživatelské rozhraní Správce balíčků neposkytuje způsob, jak provádět operace. Použití `nuget.exe` příkazy v konzole, najdete v článku [pomocí nuget.exe rozhraní příkazového řádku v konzole](#using-the-nugetexe-cli-in-the-console).
+Konzole je součástí sady Visual Studio ve Windows. Není součástí sady Visual Studio pro Mac nebo Visual Studio Code.
+
+## <a name="find-and-install-a-package"></a>Najít a nainstalovat balíček
 
 Vyhledání a instalace balíčku se provádí pomocí tří snadných kroků:
 
@@ -74,7 +76,7 @@ Install-Package Elmah -ProjectName UtilitiesLib
 
 Zobrazit [Install-Package](../tools/ps-ref-install-package.md).
 
-Instalace balíčku v konzole provádí stejným způsobem, jak je popsáno v [co se stane, když je nainstalován balíček](../consume-packages/ways-to-install-a-package.md#what-happens-when-a-package-is-installed), s těmito přídavky:
+Instalace balíčku v konzole provádí stejným způsobem, jak je popsáno v [co se stane, když je nainstalován balíček](../concepts/package-installation-process.md), s těmito přídavky:
 
 - Této konzole se zobrazují v okně s implicitní dohodu příslušných licenčních podmínkách. Pokud nesouhlasíte s podmínkami, byste měli odinstalovat balíček okamžitě.
 - Také odkaz na balíček se přidá do souboru projektu a zobrazí se v **Průzkumníka řešení** pod **odkazy** uzel, je nutné uložit projekt tak, aby se změny v souboru projektu přímo.
@@ -139,7 +141,7 @@ Zobrazit [najít balíček](../tools/ps-ref-find-package.md). V sadě Visual Stu
 
 ## <a name="availability-of-the-console"></a>Dostupnost konzoly nástroje
 
-V sadě Visual Studio 2017 Správce balíčků NuGet a NuGet jsou automaticky nainstalovány se některé vyberte. Úlohy související s NET; můžete ho také nainstalovat jednotlivě kontrolou **jednotlivé komponenty > kód nástroje > Správce balíčků NuGet** možnost v instalačním programu sady Visual Studio 2017.
+Spouští se v sadě Visual Studio 2017, NuGet a Správce balíčků NuGet jsou automaticky nainstalovány se některé vyberte. Úlohy související s NET; můžete ho také nainstalovat jednotlivě kontrolou **jednotlivé komponenty > kód nástroje > Správce balíčků NuGet** možnost v instalačním programu sady Visual Studio.
 
 Zkontrolujte taky, pokud jste chybí Správce balíčků NuGet v sadě Visual Studio 2015 a starší, **nástroje > rozšíření a aktualizace...**  a hledání rozšíření Správce balíčků NuGet. Pokud nemůžete použít instalační program rozšíření v sadě Visual Studio, můžete stáhnout přímo z rozšíření [ https://dist.nuget.org/index.html ](https://dist.nuget.org/index.html).
 

@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: reference
-ms.openlocfilehash: d7c943c1f13edf782dabe4afee9d19a1a42bd42a
-ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
+ms.openlocfilehash: 2eceb6e94a353cb29b83aea114c6cea2acbac266
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58911085"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426151"
 ---
 # <a name="nugetconfig-reference"></a>odkaz na soubor nuget.config
 
-Chování Nugetu je řízena nastavením v různých `NuGet.Config` soubory, jak je popsáno v [konfigurace chování Nugetu](../consume-packages/configuring-nuget-behavior.md).
+Chování Nugetu je řízena nastavením v různých `NuGet.Config` soubory, jak je popsáno v [konfigurace běžných NuGet](../consume-packages/configuring-nuget-behavior.md).
 
 `nuget.config` je soubor XML obsahující na nejvyšší úrovni `<configuration>` uzlu, který pak obsahuje část prvky popsané v tomto tématu. Každý oddíl obsahuje nula nebo více položek. Zobrazit [příklady konfiguračního souboru](#example-config-file). Názvy nastavení rozlišují velikost písmen a můžete použít hodnoty [proměnné prostředí](#using-environment-variables).
 
@@ -70,7 +70,7 @@ Obsahuje nastavení různé konfigurace, které lze nastavit pomocí [ `nuget co
 
 Konfiguruje, zda NuGet nepodporuje automatické přesměrování vazby při instalaci balíčku.
 
-| Key | Hodnota |
+| Key | Value |
 | --- | --- |
 | Přeskočit | Logická hodnota označující, zda se mají přeskočit automatické přesměrování vazby. Výchozí hodnota je false. |
 
@@ -88,7 +88,7 @@ Ovládací prvky obnovení balíčků během sestavení.
 
 | Key | Value |
 | --- | --- |
-| Povoleno | Logická hodnota označující, zda NuGet můžete provést automatické obnovení. Můžete také nastavit `EnableNuGetPackageRestore` proměnnou prostředí s hodnotou `True` namísto nastavení tohoto klíče v konfiguračním souboru. |
+| enabled | Logická hodnota označující, zda NuGet můžete provést automatické obnovení. Můžete také nastavit `EnableNuGetPackageRestore` proměnnou prostředí s hodnotou `True` namísto nastavení tohoto klíče v konfiguračním souboru. |
 | automatická | Logická hodnota označující, zda NuGet by měla kontrolovat chybějící balíčky během sestavení. |
 
 **Příklad**:
@@ -104,7 +104,7 @@ Ovládací prvky obnovení balíčků během sestavení.
 
 Ovládací prvky, zda `packages` složka řešení je součástí správy zdrojového kódu. Tato část funguje pouze v `nuget.config` soubory ve složce řešení.
 
-| Key | Value |
+| Key | Hodnota |
 | --- | --- |
 | disableSourceControlIntegration | Logická hodnota označující, jestli se má ignorovat složku packages při práci se správou zdrojového kódu. Výchozí hodnota je False. |
 
@@ -148,8 +148,8 @@ Ukládá uživatelská jména a hesla pro zdroje, obvykle se zadává `-username
 
 | Key | Value |
 | --- | --- |
-| uživatelské jméno | Uživatelské jméno pro zdroj ve formátu prostého textu. |
-| heslo | Šifrované heslo pro zdroj. |
+| username | Uživatelské jméno pro zdroj ve formátu prostého textu. |
+| password | Šifrované heslo pro zdroj. |
 | cleartextpassword | Nezašifrované heslo pro zdroj. |
 
 **Příklad:**
@@ -225,7 +225,7 @@ Zjištěné zdroje aktuálně zakázáno. Může být prázdný.
 
 Identifikuje zdroj aktuálně aktivní nebo označuje souhrn všech zdrojů.
 
-| Key | Hodnota |
+| Key | Value |
 | --- | --- |
 | (název zdroje) nebo `All` | Pokud klíč je název zdroje, hodnota je zdrojová cesta nebo adresa URL. Pokud `All`, hodnotou by měla být `(Aggregate source)` kombinovat všechny zdroje balíčků, které jinak nejsou zakázané. |
 

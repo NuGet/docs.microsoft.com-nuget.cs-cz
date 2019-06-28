@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: 6aa5c7bcb2a46e5f8dcf8f2c04a91eafe9ca03b6
-ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
+ms.openlocfilehash: 051fcc355fb78c0ab208125c2295b6316236fd46
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812991"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426362"
 ---
 # <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>Rychlý start: Vytvoření a publikování balíčku (rozhraní příkazového řádku dotnet)
 
@@ -104,7 +104,7 @@ Jakmile budete mít `.nupkg` souboru, ji publikujete do nuget.org pomocí `dotne
 ## <a name="related-topics"></a>Související témata
 
 - [Vytvoření balíčku](../create-packages/creating-a-package.md)
-- [Publikování balíčku](../create-packages/publish-a-package.md)
+- [Publikování balíčku](../nuget-org/publish-a-package.md)
 - [Balíčky v předběžné verzi](../create-packages/Prerelease-Packages.md)
 - [Podpora více cílových platforem](../create-packages/supporting-multiple-target-frameworks.md)
 - [Správa verzí balíčků](../reference/package-versioning.md)

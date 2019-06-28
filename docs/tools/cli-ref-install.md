@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 8261cdb83af72d9d9379124f4c446c7cd2a50299
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 8088c6dcb7d453650950c219e1cc4dd047a64417
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549133"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67425998"
 ---
 # <a name="install-command-nuget-cli"></a>Příkaz install (NuGet CLI)
 
@@ -21,7 +21,7 @@ Stáhne a nainstaluje balíček do projektu, jako výchozí se použije aktuáln
 > [!Tip]
 > Chcete-li stáhnout balíček přímo mimo kontext projektu, navštivte stránku balíčku na [nuget.org](https://www.nuget.org) a vyberte **Stáhnout** odkaz.
 
-Pokud nejsou zadány žádné zdroje, jsou uvedeny v souboru globální konfiguraci `%appdata%\NuGet\NuGet.Config` (Windows) nebo `~/.nuget/NuGet/NuGet.Config` (Mac/Linux), se používají. Zobrazit [konfigurace NuGet chování](../consume-packages/configuring-nuget-behavior.md) další podrobnosti.
+Pokud nejsou zadány žádné zdroje, jsou uvedeny v souboru globální konfiguraci `%appdata%\NuGet\NuGet.Config` (Windows) nebo `~/.nuget/NuGet/NuGet.Config` (Mac/Linux), se používají. Zobrazit [konfigurace běžných NuGet](../consume-packages/configuring-nuget-behavior.md) další podrobnosti.
 
 Pokud nejsou zadány žádné konkrétní balíčky, `install` nainstaluje všechny balíčky uvedené v projektu `packages.config` souboru, takže podobný [ `restore` ](cli-ref-restore.md).
 
@@ -48,16 +48,16 @@ kde `<packageID>` názvy balíček nainstalovat (pomocí nejnovější verze), n
 | FallbackSource | *(3.2 +)*  Seznam zdrojů balíčků, které má být použit jako náhrad balíček nebyl nalezen v primární nebo výchozí zdroj. |
 | ForceEnglishOutput | *(3.5 +)*  Vynutí nuget.exe pro spuštění pomocí neutrální, základem je angličtina jazyková verze. |
 | Rozhraní .NET Framework | *(4.4 +)*  Cílové rozhraní framework slouží k výběru závislosti. Výchozí hodnota je "Žádný" Pokud nejsou zadané. |
-| Nápověda | Zobrazí nápovědu pro příkaz. |
+| Help | Zobrazí nápovědu pro příkaz. |
 | NoCache | Brání použití mezipaměti balíčků NuGet. Zobrazit [Správa globálních balíčků a složek mezipaměti](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
-| Neinteraktivní | Potlačí vyzve k zadání uživatele o vstup ani potvrzení. |
+| NonInteractive | Potlačí vyzve k zadání uživatele o vstup ani potvrzení. |
 | OutputDirectory | Určuje složku, ve kterém jsou nainstalované balíčky. Pokud není zadána žádná složka, použije se aktuální složce. |
 | PackageSaveMode | Určuje typy souborů, uložte po instalaci balíčku: jeden z `nuspec`, `nupkg`, nebo `nuspec;nupkg`. |
 | Platnost předběžné verze | Umožňuje předběžné verze balíčků k instalaci. Tento příznak není vyžadován obnovují se balíčky s `packages.config`. |
 | RequireConsent | Ověří, zda je povoleno obnovují se balíčky před stažením a instalací balíčků. Podrobnosti najdete v tématu [obnovení balíčků](../consume-packages/package-restore.md). |
 | SolutionDirectory | Určuje kořenovou složku řešení, pro které se mají balíčky obnovit. |
-| Zdroj | Určuje seznam zdrojů balíčků (jako adresy URL) používat. Pokud tento parametr vynechán, příkaz používá zdroje k dispozici v konfiguračních souborech naleznete v tématu [konfigurace NuGet chování](../consume-packages/configuring-nuget-behavior.md). |
-| Podrobnosti | Určuje množství podrobností, na které se zobrazí ve výstupu: *normální*, *quiet*, *podrobné*. |
+| Source | Určuje seznam zdrojů balíčků (jako adresy URL) používat. Pokud tento parametr vynechán, příkaz používá zdroje k dispozici v konfiguračních souborech naleznete v tématu [konfigurace běžných NuGet](../consume-packages/configuring-nuget-behavior.md). |
+| Verbosity | Určuje množství podrobností, na které se zobrazí ve výstupu: *normální*, *quiet*, *podrobné*. |
 | Version | Určuje verzi balíčku pro instalaci. |
 
 Viz také [proměnné prostředí](cli-ref-environment-variables.md)

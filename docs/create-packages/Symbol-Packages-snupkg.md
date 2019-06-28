@@ -16,12 +16,12 @@ keywords: Symbol balíčky NuGet, balíček NuGet ladění, podpora, balíček s
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 18d54e28d77f2bdcfea70ff9ae9def05278cb26c
-ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
+ms.openlocfilehash: 0d82cf8614b88247bc3a3ba3019c11bf1b5e2593
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610558"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426805"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Vytváření balíčků symbolů (.snupkg)
 
@@ -61,7 +61,7 @@ Pokud používáte dotnet.exe nebo MSBuild, použijte následující kroky k vyt
 
 ## <a name="publishing-a-symbol-package"></a>Publikování balíčku symbolů
 
-1. Pro usnadnění práce, uložte svůj klíč rozhraní API s NuGet (viz [publikování balíčku](../create-packages/publish-a-package.md)).
+1. Pro usnadnění práce, uložte svůj klíč rozhraní API s NuGet (viz [publikování balíčku](../nuget-org/publish-a-package.md)).
 
     ```cli
     nuget SetApiKey Your-API-Key

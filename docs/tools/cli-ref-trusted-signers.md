@@ -6,18 +6,18 @@ ms.author: patbel
 ms.date: 11/12/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: ee4ffaa7e250cdbf313476fd794a8d87c80b69f9
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: c22c7f0a6b6878bec4f8396e02e2d97998170455
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324705"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67425983"
 ---
 # <a name="trusted-signers-command-nuget-cli"></a>příkaz důvěryhodné podepisující osoby (rozhraní příkazového řádku NuGet)
 
 **Platí pro:** balíček spotřeby &bullet; **podporované verze:** 4.9.1+
 
-Získá nebo nastaví podepisující důvěryhodné osoby pro konfiguraci Nugetu. Další využití, naleznete v tématu [konfigurace chování Nugetu](../consume-packages/configuring-nuget-behavior.md). Podrobnosti o jak nuget.config schéma vypadá jako odkazovat [odkaz na soubor NuGet config](../reference/nuget-config-file.md).
+Získá nebo nastaví podepisující důvěryhodné osoby pro konfiguraci Nugetu. Další využití, naleznete v tématu [konfigurace běžných NuGet](../consume-packages/configuring-nuget-behavior.md). Podrobnosti o jak nuget.config schéma vypadá jako odkazovat [odkaz na soubor NuGet config](../reference/nuget-config-file.md).
 
 ## <a name="usage"></a>Použití
 
@@ -80,7 +80,7 @@ Poskytuje i `-Author` a `-Repository` není podporováno ve stejnou dobu.
 nuget trusted-signers add -Name <name> [options]
 ```
 
-_Poznámka:_: Tato možnost přidá jenom důvěryhodné úložiště. 
+_Poznámka:_ Tato možnost přidá jenom důvěryhodné úložiště. 
 
 | Možnost | Popis |
 | --- | --- |
@@ -94,7 +94,7 @@ _Poznámka:_: Tato možnost přidá jenom důvěryhodné úložiště.
 nuget trusted-signers add -Name <name> [options]
 ```
 
-_Poznámka:_: Pokud důvěryhodné podepisující osoba s daným názvem již existuje, položku certifikátu se přidají do této podepisující osoba. V opačném případě důvěryhodného autora vytvoří s položkou certifikát z daných informace o certifikátu.
+_Poznámka:_ Pokud důvěryhodné podepisující osoba s daným názvem již existuje, položku certifikátu se přidají do této podepisující osoba. V opačném případě důvěryhodného autora vytvoří s položkou certifikát z daných informace o certifikátu.
 
 | Možnost | Popis |
 | --- | --- |
@@ -110,7 +110,7 @@ Odebere všechny důvěryhodné podepisující osoby, které odpovídají zadan�
 
 Vyžaduje nejnovější seznam certifikátů používaných v současné době nedůvěryhodný úložiště aktualizovat seznamu existujících certifikátů v důvěryhodné podepisující osoba.
 
-_Poznámka:_: Tato gesta odstraní aktuální seznam certifikátů a nahraďte aktuální seznam z úložiště.
+_Poznámka:_ Tato gesta odstraní aktuální seznam certifikátů a nahraďte aktuální seznam z úložiště.
 
 ## <a name="options"></a>Možnosti
 
@@ -118,8 +118,8 @@ _Poznámka:_: Tato gesta odstraní aktuální seznam certifikátů a nahraďte a
 | --- | --- |
 | ConfigFile | Konfigurační soubor NuGet použít. Pokud není zadán, `%AppData%\NuGet\NuGet.Config` (Windows) nebo `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) se používá.|
 | ForceEnglishOutput | Vynutí nuget.exe pro spuštění pomocí neutrální, základem je angličtina jazyková verze. |
-| Nápověda | Zobrazí nápovědu pro příkaz. |
-| Podrobnosti | Určuje množství podrobností, na které se zobrazí ve výstupu: *normální*, *quiet*, *podrobné*. |
+| Help | Zobrazí nápovědu pro příkaz. |
+| Verbosity | Určuje množství podrobností, na které se zobrazí ve výstupu: *normální*, *quiet*, *podrobné*. |
 
 ## <a name="examples"></a>Příklady
 

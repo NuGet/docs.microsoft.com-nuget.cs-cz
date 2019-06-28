@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: overview
-ms.openlocfilehash: 4ab87f072bdace9dd18cecc4100de52b3547136d
-ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
+ms.openlocfilehash: 087bb043ba4b388b9de6d94cd838915a2e7247f4
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66813009"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426135"
 ---
 # <a name="an-introduction-to-nuget"></a>Úvod do NuGet
 
 Je to důležitý nástroj pro libovolnou platformu moderní vývojové mechanismus, pomocí kterého můžete vytvořit, sdílet a využívat užitečné kód vývojáře. Takový kód je často seskupeny do "packages", které obsahují zkompilovaného kódu (jako knihovny DLL) společně s další obsah, je potřeba v projektech, které využívají tyto balíčky.
 
-Pro platformu .NET (včetně .NET Core), je mechanismus podporovaný společností Microsoft ke sdílení kódu **NuGet**, který definuje, jak balíčků pro .NET jsou vytvořeny, hostované a využívat a poskytuje nástroje pro každou z těchto rolí.
+Pro platformu .NET (včetně .NET Core), je mechanismus podporovaný společností Microsoft ke sdílení kódu **NuGet**, která definuje, jak jsou vytvoření balíčků pro .NET, prostředí a spotřebované, a [poskytuje nástroje,](install-nuget-client-tools.md) pro každou z Tyto role.
 
 Jednoduše řečeno, umístěte NuGet je balíček jednoho souboru ZIP s `.nupkg` rozšíření, které obsahuje zkompilovaný kód knihovny (DLL), další soubory související s tímto kódem a popisný manifestu, který obsahuje informace, jako číslo verze balíčku. Vývojářům kód sdílet vytvořit balíčky a publikujte do veřejných nebo privátních hostitele. Spotřebitele balíčku získat tyto balíčky z vhodné hostitele, je přidat do svých projektů a poté zavolejte funkci balíčku v jejich projektu kódu. NuGet samotné pak zpracovává všechny zprostředkující podrobnosti.
 
@@ -45,8 +45,8 @@ Kromě hostování podpory NuGet také poskytuje celou řadu nástrojů, které 
 
 | Nástroj | Platformy | Použít scénáře | Popis |
 | --- | --- | --- | --- |
-| [dotnet CLI](tools/dotnet-Commands.md) | Všechny | Vytvoření, spotřeby | Nástroje rozhraní příkazového řádku pro knihovny .NET Core a .NET Standard a sady SDK – vizuální styl projekty, které cílí na rozhraní .NET Framework (viz [SDK atribut](/dotnet/core/tools/csproj#additions)). Poskytuje určité rozhraní příkazového řádku NuGet funkce přímo v rámci řetězce nástrojů .NET Core. Stejně jako u rozhraní příkazového řádku NuGet rozhraní příkazového řádku dotnet nekomunikuje s projekty aplikace Visual Studio. |
-| [nuget.exe CLI](tools/nuget-exe-cli-reference.md) | Všechny | Vytvoření, spotřeby | Nástroj příkazového řádku pro knihovny rozhraní .NET Framework a sady SDK styl projekty, které cílit na knihovny .NET Standard. Nabízí všechny funkce NuGet, kdy některé příkazy použití speciálně pro tvůrce balíčku, použití pouze pro uživatele, a ostatní použitím obou. Například použití Tvůrce balíčku `nuget pack` příkaz pro vytvoření balíčku z různých sestavení a související soubory, balíček příjemci použití `nuget install` zahrnout balíčky do složky projektu a všichni používá `nuget config` nastavit konfiguraci NuGet proměnné. Jako nástroj pro více platforem rozhraní příkazového řádku NuGet nekomunikuje s projekty aplikace Visual Studio. |
+| [dotnet CLI](consume-packages/install-use-packages-dotnet-cli.md) | Všechny | Vytvoření, spotřeby | Nástroje rozhraní příkazového řádku pro knihovny .NET Core a .NET Standard a sady SDK – vizuální styl projekty, které cílí na rozhraní .NET Framework (viz [SDK atribut](/dotnet/core/tools/csproj#additions)). Poskytuje určité rozhraní příkazového řádku NuGet funkce přímo v rámci řetězce nástrojů .NET Core. Stejně jako u rozhraní příkazového řádku NuGet rozhraní příkazového řádku dotnet nekomunikuje s projekty aplikace Visual Studio. |
+| [nuget.exe CLI](consume-packages/install-use-packages-nuget-cli.md) | Všechny | Vytvoření, spotřeby | Nástroj příkazového řádku pro knihovny rozhraní .NET Framework a sady SDK styl projekty, které cílit na knihovny .NET Standard. Nabízí všechny funkce NuGet, kdy některé příkazy použití speciálně pro tvůrce balíčku, použití pouze pro uživatele, a ostatní použitím obou. Například použití Tvůrce balíčku `nuget pack` příkaz pro vytvoření balíčku z různých sestavení a související soubory, balíček příjemci použití `nuget install` zahrnout balíčky do složky projektu a všichni používá `nuget config` nastavit konfiguraci NuGet proměnné. Jako nástroj pro více platforem rozhraní příkazového řádku NuGet nekomunikuje s projekty aplikace Visual Studio. |
 | [Konzola Správce balíčků](tools/package-manager-console.md) | Visual Studio na Windows | Využití | Poskytuje [příkazy prostředí PowerShell](tools/Powershell-Reference.md) pro instalaci a správu balíčků v projektech Visual Studio. |
 | [Uživatelské rozhraní Správce balíčků](tools/package-manager-ui.md) | Visual Studio na Windows | Využití | Poskytuje snadným ovládáním uživatelského rozhraní pro instalaci a správu balíčků v projektech Visual Studio. |
 | [Spravovat NuGet uživatelského rozhraní](/visualstudio/mac/nuget-walkthrough) | Visual Studio for Mac | Využití | Poskytují-použití uživatelského rozhraní pro instalaci a správu balíčků v sadě Visual Studio pro Mac projekty. |

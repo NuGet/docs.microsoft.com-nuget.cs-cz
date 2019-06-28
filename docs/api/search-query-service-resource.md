@@ -1,17 +1,17 @@
 ---
-title: Hledání rozhraní API Nugetu
+title: Search, NuGet API
 description: Vyhledávací služba umožňuje klientům k vytvoření dotazu na balíčky pomocí klíčového slova a k filtrování výsledků na určitá pole balíčku.
 author: joelverhagen
 ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: cfcb52ba7689f1b392c782b4ad42ba820a76c8bf
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: d462b289c39c2dd1418304dabcad47d0d4217f82
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981129"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426735"
 ---
 # <a name="search"></a>Hledat
 
@@ -24,8 +24,8 @@ Následující `@type` hodnoty:
 @type Hodnota                   | Poznámky
 ----------------------------- | -----
 SearchQueryService            | Počáteční verze
-SearchQueryService/3.0.0-beta | Alias `SearchQueryService`
-SearchQueryService/3.0.0-rc   | Alias `SearchQueryService`
+SearchQueryService/3.0.0-beta | Alias of `SearchQueryService`
+SearchQueryService/3.0.0-rc   | Alias of `SearchQueryService`
 
 ## <a name="base-url"></a>Základní adresa URL
 
@@ -45,7 +45,7 @@ Neuvedené v seznamu balíčků by nikdy nezobrazí ve výsledcích hledání.
 
 ### <a name="request-parameters"></a>Parametry žádosti
 
-Název        | V     | Typ    | Požadováno | Poznámky
+Name        | V     | type    | Požadováno | Poznámky
 ----------- | ------ | ------- | -------- | -----
 q           | Adresa URL    | odkazy řetězců  | Ne       | Hledané termíny a slouží k filtrování balíčky
 Přeskočit        | Adresa URL    | integer | Ne       | Počet výsledků, chcete-li přeskočit pro stránkování
@@ -71,43 +71,43 @@ Odpověď je dokument JSON obsahující až `take` výsledky hledání. Výsledk
 
 Kořenový objekt JSON má následující vlastnosti:
 
-Název      | Typ             | Požadováno | Poznámky
+Name      | type             | Požadováno | Poznámky
 --------- | ---------------- | -------- | -----
-totalHits | integer          | Ano      | Celkový počet shod, bez ohledu na `skip` a `take`
-data      | Pole objektů | Ano      | Výsledky hledání odpovídající požadavek
+totalHits | integer          | ano      | Celkový počet shod, bez ohledu na `skip` a `take`
+data      | Pole objektů | ano      | Výsledky hledání odpovídající požadavek
 
 ### <a name="search-result"></a>Výsledek vyhledávání
 
 Každá položka v `data` pole je objekt JSON, které se skládá ze skupiny verze balíčku sdílení stejné ID balíčku.
 Objekt má následující vlastnosti:
 
-Název           | Typ                       | Požadováno | Poznámky
+Name           | type                       | Požadováno | Poznámky
 -------------- | -------------------------- | -------- | -----
-id             | odkazy řetězců                     | Ano      | ID odpovídající balíček
-verze        | odkazy řetězců                     | Ano      | Úplný řetězec SemVer 2.0.0 verze balíčku (může obsahovat metadata sestavení)
+id             | odkazy řetězců                     | ano      | ID odpovídající balíček
+verze        | odkazy řetězců                     | ano      | Úplný řetězec SemVer 2.0.0 verze balíčku (může obsahovat metadata sestavení)
 description    | odkazy řetězců                     | Ne       | 
-verze       | Pole objektů           | Ano      | Všechny verze odpovídající balíček `prerelease` parametr
+verze       | Pole objektů           | ano      | Všechny verze odpovídající balíček `prerelease` parametr
 Autoři        | řetězec nebo pole řetězců | Ne       | 
-IconUrl        | odkazy řetězců                     | Ne       | 
-LicenseUrl     | odkazy řetězců                     | Ne       | 
+iconUrl        | odkazy řetězců                     | Ne       | 
+licenseUrl     | odkazy řetězců                     | Ne       | 
 Vlastníci         | řetězec nebo pole řetězců | Ne       | 
-ProjectUrl     | odkazy řetězců                     | Ne       | 
+projectUrl     | odkazy řetězců                     | Ne       | 
 registrace   | odkazy řetězců                     | Ne       | Absolutní adresa URL s příslušnými [registrace indexu](registration-base-url-resource.md#registration-index)
 souhrn        | odkazy řetězců                     | Ne       | 
 značky           | řetězec nebo pole řetězců | Ne       | 
-Název          | odkazy řetězců                     | Ne       | 
+název          | odkazy řetězců                     | Ne       | 
 totalDownloads | integer                    | Ne       | Vynásobí součtem soubory ke stažení v jde odvodit tuto hodnotu `versions` pole
-ověření       | Logická hodnota                    | Ne       | JSON logická hodnota označující, jestli tento balíček představuje [ověření](../reference/id-prefix-reservation.md)
+ověření       | Logická hodnota                    | Ne       | JSON logická hodnota označující, jestli tento balíček představuje [ověření](../nuget-org/id-prefix-reservation.md)
 
 Ověřené balíček na nuget.org, je znak, který se má ID balíčku odpovídající vyhrazenou předponu ID a vlastní pomocí jedné z vlastníků vyhrazenou předponou. Další informace najdete v tématu [dokumentaci ke službě rezervace předpony ID](../reference/id-prefix-reservation.md).
 
 Metadat obsažených v objektu výsledků hledání je převzata z nejnovější verze balíčku. Každá položka v `versions` pole je objekt JSON s následujícími vlastnostmi:
 
-Název      | Typ    | Požadováno | Poznámky
+Name      | type    | Požadováno | Poznámky
 --------- | ------- | -------- | -----
-@id       | odkazy řetězců  | Ano      | Absolutní adresa URL s příslušnými [registrace typu list](registration-base-url-resource.md#registration-leaf)
-verze   | odkazy řetězců  | Ano      | Úplný řetězec SemVer 2.0.0 verze balíčku (může obsahovat metadata sestavení)
-Soubory ke stažení | integer | Ano      | Počet souborů ke stažení pro tento konkrétní balíček verze
+@id       | odkazy řetězců  | ano      | Absolutní adresa URL s příslušnými [registrace typu list](registration-base-url-resource.md#registration-leaf)
+verze   | odkazy řetězců  | ano      | Úplný řetězec SemVer 2.0.0 verze balíčku (může obsahovat metadata sestavení)
+Soubory ke stažení | integer | ano      | Počet souborů ke stažení pro tento konkrétní balíček verze
 
 ### <a name="sample-request"></a>Ukázková žádost
 

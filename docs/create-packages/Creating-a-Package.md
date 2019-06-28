@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5e362673acfab4b31c8a2e02a521afd8b19d2754
-ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
+ms.openlocfilehash: e3a40a521a3b16d9757ef1bbf2511a1537d8bddb
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812916"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67425806"
 ---
 # <a name="creating-nuget-packages"></a>Vytváření balíčků NuGet
 
 Bez ohledu na to co dělá váš balíček nebo co kódu obsahuje, použít jednu z nástroje rozhraní příkazového řádku, buď `nuget.exe` nebo `dotnet.exe`, do balíčku, které tuto funkci do komponenty, které můžete sdílet s a používat libovolný počet dalších vývojářů. Chcete-li instalovat nástroje rozhraní příkazového řádku NuGet, naleznete v tématu [klientských nástrojů Nugetu nainstalovat](../install-nuget-client-tools.md). Všimněte si, že Visual Studio automaticky nezahrnuje nástroj rozhraní příkazového řádku.
 
-- Pro projekty .NET Core a .NET Standard, které používají formát SDK – vizuální styl ([SDK atribut](/dotnet/core/tools/csproj#additions)), a všechny ostatní sady SDK – vizuální styl projekty, NuGet přímo k vytvoření balíčku používá informace v souboru projektu. Podrobnosti najdete v tématu [vytvořit standardní balíčky .NET se sadou Visual Studio 2017](../quickstart/create-and-publish-a-package-using-visual-studio.md) a [NuGet aktualizací Service pack a obnovení jako cílů MSBuild](../reference/msbuild-targets.md).
+- Pro projekty .NET Core a .NET Standard, které používají formát SDK – vizuální styl ([SDK atribut](/dotnet/core/tools/csproj#additions)), a všechny ostatní sady SDK – vizuální styl projekty, NuGet přímo k vytvoření balíčku používá informace v souboru projektu. Podrobnosti najdete v tématu [vytvořit standardní balíčky .NET pomocí sady Visual Studio](../quickstart/create-and-publish-a-package-using-visual-studio.md) a [NuGet aktualizací Service pack a obnovení jako cílů MSBuild](../reference/msbuild-targets.md).
 
 - Projekty sady SDK styl postupujte podle kroků popsaných v tomto článku vytvořte balíček.
 
@@ -27,7 +27,7 @@ Technicky vzato balíček NuGet je jenom soubor ZIP, který je byl přejmenován
 Balení začíná zkompilovaného kódu (sestavení), symboly a/nebo jiné soubory, které má být dodána jako balíček (viz [přehled a pracovní postup](overview-and-workflow.md)). Tento proces je nezávislý na kompilace nebo jinak generování souborů, které patří do balíčku, i když můžete nakreslit z informací v souboru projektu pro synchronizaci kompilované sestavení a balíčky.
 
 > [!Note]
-> Toto téma platí pro projekty SDK styl, obvykle projekty jiné než .NET Core a .NET Standard projektů pomocí Visual Studio 2017 a NuGet 4.0 +.
+> V tomto tématu se vztahují na projekty SDK styl, obvykle projekty jiné než .NET Core a .NET Standard projektů pomocí Visual Studio 2017 a vyšší verze a NuGet 4.0 +.
 
 ## <a name="deciding-which-assemblies-to-package"></a>Rozhodování o tom, která sestavení do balíčku
 
@@ -408,7 +408,7 @@ Ve všech případech `nuget pack` vyloučí složek, které začínají tečkou
 
 NuGet uvádí, jestli jsou všechny chyby `.nuspec` soubor, který vyžadují opravu, jako je například zapomínání Chcete-li změnit hodnoty zástupných symbolů v manifestu.
 
-Jednou `nuget pack` proběhne úspěšně, je nutné `.nupkg` souborů, které můžete publikovat do vhodný galerie, jak je popsáno v [publikování balíčku](../create-packages/publish-a-package.md).
+Jednou `nuget pack` proběhne úspěšně, je nutné `.nupkg` souborů, které můžete publikovat do vhodný galerie, jak je popsáno v [publikování balíčku](../nuget-org/publish-a-package.md).
 
 > [!Tip]
 > Užitečný způsob, jak prozkoumat balíčku po jeho vytvoření je otevřít v [Průzkumníku balíčků](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer) nástroj. To poskytuje grafické zobrazení obsahu balíčku a jeho manifestu. Můžete také přejmenovat, výsledná `.nupkg` do souboru `.zip` soubor a seznamte se s jeho obsahem přímo.
@@ -445,7 +445,7 @@ Několik, která jsou běžné u projektů sady Visual Studio jsou následujíc�
 
 Před publikováním balíčku se obvykle chcete otestovat proces instalace balíčku do projektu. Testy, zkontrolujte, zda nutně soubory všechny ukládaly do jejich správné umístění v projektu.
 
-Můžete testovat zařízení ručně v sadě Visual Studio nebo na příkazovém řádku pomocí běžných [balíček instalační postup, který](../consume-packages/ways-to-install-a-package.md).
+Můžete testovat zařízení ručně v sadě Visual Studio nebo na příkazovém řádku pomocí běžných [balíček instalační postup, který](../consume-packages/overview-and-workflow.md#ways-to-install-a-nuget-package).
 
 Pro automatizované testování základní proces je následujícím způsobem:
 
@@ -456,7 +456,7 @@ Pro automatizované testování základní proces je následujícím způsobem:
 
 ## <a name="next-steps"></a>Další kroky
 
-Jakmile vytvoříte balíček, který je `.nupkg` souboru ji také publikovat podle vašeho výběru v galerii podle popisu v [publikování balíčku](../create-packages/publish-a-package.md).
+Jakmile vytvoříte balíček, který je `.nupkg` souboru ji také publikovat podle vašeho výběru v galerii podle popisu v [publikování balíčku](../nuget-org/publish-a-package.md).
 
 Můžete také chtít rozšířit možnosti vašeho balíčku nebo jinak podporovala jiné scénáře, jak je popsáno v následujících tématech:
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: conceptual
-ms.openlocfilehash: c58cf38bab45793bef820e2c52914a91d745ec77
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 9b2a7b299a0cb944ad9045684e14cc7b83e1cff4
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551780"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426671"
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>Jak znovu nainstalovat a aktualizovat balíčky
 
@@ -22,7 +22,10 @@ Aktualizace a přeinstalace balíčků se provádí následujícím způsobem:
 | --- | --- | --- |
 | Konzola správce balíčků (popsané v [pomocí Update-Package](#using-update-package)) | `Update-Package` Příkaz | `Update-Package -reinstall` Příkaz |
 | Uživatelské rozhraní Správce balíčků | Na **aktualizace** kartu, vyberte jeden nebo více balíčků a vyberte **aktualizace** | Na **nainstalováno** kartu, vyberte balíček, zaznamenejte její název a potom vyberte **odinstalovat**. Přepněte **Procházet** kartu, vyhledejte název balíčku, vyberte ji a potom vyberte **nainstalovat**). |
-| rozhraní příkazového řádku nuget.exe | `nuget update` Příkaz | Pro všechny balíčky, odstraňte složku balíčku a potom spusťte `nuget install`. Pro jeden balíček, odstraňte složku s balíčkem a použít `nuget install <id>` stejný jako ten přeinstalovat. |
+| nuget.exe CLI | `nuget update` Příkaz | Pro všechny balíčky, odstraňte složku balíčku a potom spusťte `nuget install`. Pro jeden balíček, odstraňte složku s balíčkem a použít `nuget install <id>` stejný jako ten přeinstalovat. |
+
+> [!NOTE]
+> Pro rozhraní příkazového řádku dotnet se postup nevyžaduje. V podobném scénáři můžete [obnovit balíčky pomocí rozhraní příkazového řádku dotnet](../consume-packages/install-use-packages-dotnet-cli.md#restore-packages).
 
 V tomto článku:
 
@@ -31,11 +34,11 @@ V tomto článku:
 
 ## <a name="when-to-reinstall-a-package"></a>Kdy se má znovu nainstalovat balíček
 
-1. **Po obnovení balíčků nefunguje odkazy**: Pokud máte otevřen projekt a obnovit balíčky NuGet, ale stále viz nefunkční odkazy, zkuste přeinstalovat každý z těchto balíčků.
-1. **Projekt je přerušeno z důvodu odstraněné soubory**: NuGet není vám zabrání odebrat položky přidané z balíčků, tak, aby byl snadno omylem změna nainstalované z balíčku obsahu a přerušení váš projekt. Chcete-li obnovit projekt, přeinstalujte ovlivněné balíčky.
-1. **Balíček aktualizace se podařilo přerušit projektu**: Pokud aktualizace balíčku přeruší projektu, selhání je obecně způsobené závislost balíčku, který může mít také aktualizovat. Obnovit stav závislost, přeinstalujte na konkrétní balíček.
-1. **Mění se cílení projektu nebo upgradovat**: to může být užitečné, když se změnilo nebo upgradovat projekt, a pokud balíček vyžaduje přeinstalace z důvodu změny v rozhraní .NET framework. NuGet zobrazuje chybu sestavení v takových případech ihned po mění se cílení projektu a upozornění na další sestavení vám oznamuje, že možná bude nutné přeinstalovat balíček. Pro upgrade projektu NuGet zobrazuje chybu do protokolu upgradu projektu.
-1. **Opětovná instalace balíčku při jeho vývoji**: balíček Autoři často potřeba znovu nainstalovat stejnou verzi balíčku vyvíjejí otestovat chování. `Install-Package` Příkaz neposkytuje možnost vynutit přeinstalaci, proto `Update-Package -reinstall` místo.
+1. **Po obnovení balíčků nefunguje odkazy**: Pokud jste otevřeli projektu a obnovený balíčky NuGet, ale pořád ještě považuje poškozenými odkazy, zkuste přeinstalovat každý z těchto balíčků.
+1. **Projekt je přerušeno z důvodu odstraněné soubory**: NuGet nebrání odebírat položky přidané z balíčků, tak, aby byl snadno omylem změna nainstalované z balíčku obsahu a přerušení váš projekt. Chcete-li obnovit projekt, přeinstalujte ovlivněné balíčky.
+1. **Balíček aktualizace se podařilo přerušit projektu**: Pokud aktualizace balíčku přeruší projektu, je selhání většinou způsoben závislostí balíčku, který může mít také aktualizovat. Obnovit stav závislost, přeinstalujte na konkrétní balíček.
+1. **Mění se cílení projektu nebo upgradovat**: To může být užitečné, když se změnilo nebo upgradovat projekt, a pokud balíček vyžaduje přeinstalace z důvodu změny v rozhraní .NET framework. NuGet zobrazuje chybu sestavení v takových případech ihned po mění se cílení projektu a upozornění na další sestavení vám oznamuje, že možná bude nutné přeinstalovat balíček. Pro upgrade projektu NuGet zobrazuje chybu do protokolu upgradu projektu.
+1. **Opětovná instalace balíčku při jeho vývoji**: Autoři balíček často potřeba znovu nainstalovat stejnou verzi balíčku vyvíjejí otestovat chování. `Install-Package` Příkaz neposkytuje možnost vynutit přeinstalaci, proto `Update-Package -reinstall` místo.
 
 ## <a name="constraining-upgrade-versions"></a>Omezení verze k upgradu
 
@@ -96,7 +99,7 @@ Aktualizují se balíčky v projektu nebo řešení pomocí [PackageReference](.
 
 Všechny podrobnosti o příkazu najdete v článku [Update-Package](../Tools/ps-ref-update-package.md) odkaz.
 
-### <a name="considerations"></a>Důležité informace
+### <a name="considerations"></a>Požadavky
 
 Následující mohou být ovlivněny při opětovné instalaci balíčku:
 

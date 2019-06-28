@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: d30e89473b5f00895136b75a90d8d95b7645a100
-ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
+ms.openlocfilehash: e44f7b4040e5450f9f987eef62fd16d12abc6b20
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812976"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426302"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Rychlý start: Vytvoření a publikování balíčku NuGet pomocí sady Visual Studio (.NET Standard, jenom Windows)
 
@@ -174,7 +174,7 @@ Tato možnost zahrne soubor s názvem `readme.txt` v kořenovém adresáři bal�
 ## <a name="related-topics"></a>Související témata
 
 - [Vytvoření balíčku](../create-packages/creating-a-package.md)
-- [Publikování balíčku](../create-packages/publish-a-package.md)
+- [Publikování balíčku](../nuget-org/publish-a-package.md)
 - [Balíčky v předběžné verzi](../create-packages/Prerelease-Packages.md)
 - [Podpora více cílových platforem](../create-packages/supporting-multiple-target-frameworks.md)
 - [Správa verzí balíčků](../reference/package-versioning.md)

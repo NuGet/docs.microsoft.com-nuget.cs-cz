@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: b47f73c1c225540226d3780e17053427b8ea4a8a
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 5d10d6bf27614980a144c30c3af6f9892a109061
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545684"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426192"
 ---
 # <a name="nuget-12-release-notes"></a>NuGet 1.2 poznámky
 
@@ -54,7 +54,7 @@ Tato sestavení nejsou součástí vašeho balíčku, jak se budou považovat za
 
 ### <a name="nugetexe-now-is-able-to-store-api-key-credentials"></a>nuget.exe je nyní schopen ukládání přihlašovacích údajů, klíč rozhraní API
 
-Při použití nástroje příkazového řádku nuget.exe, můžete nyní použít příkaz SetApiKey ukládat svůj klíč rozhraní API. Díky tomu nebudete muset pokaždé, když nasdílíš změny balíčku je zadat. Podrobné informace o ukládání svůj klíč rozhraní API s nuget.exe [, přečtěte si dokumentaci o publikování balíčku](../create-packages/publish-a-package.md).
+Při použití nástroje příkazového řádku nuget.exe, můžete nyní použít příkaz SetApiKey ukládat svůj klíč rozhraní API. Díky tomu nebudete muset pokaždé, když nasdílíš změny balíčku je zadat. Podrobné informace o ukládání svůj klíč rozhraní API s nuget.exe [, přečtěte si dokumentaci o publikování balíčku](../nuget-org/publish-a-package.md).
 
 ### <a name="package-explorer"></a>Průzkumník balíčků
 Aktualizovali jsme Průzkumníku balíčků do podpory NuGet 1.2. Další informace, podívejte se [zpráva k vydání verze Průzkumníku balíčků](http://nuget.codeplex.com/wikipage?title=New%20features%20in%20NuGet%20Package%20Explorer%201.0).
@@ -65,6 +65,6 @@ Předchozím seznamu se nejvíce patrné mnoho funkcí, které jsme implementova
 
 ## <a name="known-issues"></a>Známé problémy
 
-* **1.2 balíček nekompatibility**: balíčky sestavené pomocí nejnovější verze nástroje příkazového řádku, nuget.exe (> 1.2) nebude fungovat se staršími verzemi doplněk NuGet VS (například 1.1). Pokud narazíte na chybovou zprávu s informacemi o tom něco o nekompatibilní schématu, používáte k této chybě. Aktualizujte NuGet na nejnovější verzi.
-* **Nekompatibilita NuGet.Server**: hostuješ interní NuGet informačního kanálu pomocí aplikace NuGet.Server project, budete muset aktualizovat na nejnovější verzi NuGet.Server tohoto projektu.
-* **Chyba Neshoda podpisu**: Pokud narazíte na chybu během upgradu a zobrazí se zpráva o podpis neshoda, musíte nejprve odinstalovat NuGet a nainstalujte ji. Je uvedena v našich [známé problémy v sadě stránky](../release-notes/known-issues.md) který poskytuje další podrobnosti. Problém pouze ovlivňuje spuštěné Visual Studio 2010 SP1 a verze NuGet 1.0 nainstalované, který byl nesprávně podepsané. Tato verze byla pouze k dispozici z webu CodePlex během krátké doby tak tento problém by neměla mít vliv na příliš mnoho lidí.
+* **1.2 balíček nekompatibility**: Balíčky sestavené s nejnovější verzi nástroje příkazového řádku nuget.exe (> 1.2) nebude fungovat se staršími verzemi doplněk NuGet VS (například 1.1). Pokud narazíte na chybovou zprávu s informacemi o tom něco o nekompatibilní schématu, používáte k této chybě. Aktualizujte NuGet na nejnovější verzi.
+* **Nekompatibilita NuGet.Server**: Pokud máte interní NuGet informačního kanálu pomocí aplikace NuGet.Server project, budete muset aktualizovat na nejnovější verzi NuGet.Server tohoto projektu.
+* **Chybová zpráva o neshodě podpis**: Pokud narazíte na chybu během upgradu a zobrazí se zpráva o podpis neshoda, musíte nejprve odinstalovat NuGet a nainstalujte ji. Je uvedena v našich [známé problémy v sadě stránky](../release-notes/known-issues.md) který poskytuje další podrobnosti. Problém pouze ovlivňuje spuštěné Visual Studio 2010 SP1 a verze NuGet 1.0 nainstalované, který byl nesprávně podepsané. Tato verze byla pouze k dispozici z webu CodePlex během krátké doby tak tento problém by neměla mít vliv na příliš mnoho lidí.

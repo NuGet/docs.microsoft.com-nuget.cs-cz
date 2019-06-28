@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/25/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 45d8a6557ee02998f3d12b128ee2dc4fd6ae48bb
-ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
+ms.openlocfilehash: f05c3a7a51bdc0760097422004cfc4339bf9ee2c
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56145589"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426611"
 ---
 # <a name="hosting-your-own-nuget-feeds"></a>Hostování vlastní NuGet informační kanály
 
@@ -28,6 +28,7 @@ Existuje také několik NuGet hostování produkty, které podporují vzdálené
 - [Azure artefakty](https://www.visualstudio.com/docs/package/nuget/publish), což je také k dispozici na Team Foundation Server 2017 a novější.
 - [MyGet](http://myget.org)
 - [ProGet](http://inedo.com/proget) z Inedo
+- [GitHub balíčku registru](https://help.github.com/articles/configuring-nuget-for-use-with-github-package-registry)
 - [NuGet Server](http://nugetserver.net/), projekt komunitních z Inedo
 - [NuGet Server (Otevřít zdroj)](http://nuget-server.net), podobně jako NuGet Server Inedo na open source implementace
 - [LiGet](https://github.com/ai-traders/liget), open source implementace NuGet V2 serveru, který běží na kestrel v dockeru

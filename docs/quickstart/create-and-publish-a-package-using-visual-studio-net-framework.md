@@ -1,16 +1,16 @@
 ---
 title: Vytvoření a publikování balíčku .NET Framework pomocí sady Visual Studio na Windows
-description: Kurz návod týkající se vytváření a publikování balíčku NuGet pro rozhraní .NET Framework pomocí sady Visual Studio 2017 na Windows.
+description: Kurz návod týkající se vytváření a publikování balíčku NuGet pro rozhraní .NET Framework pomocí sady Visual Studio na Windows.
 author: karann-msft
 ms.author: karann
 ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: 68593211da1a34649c7050753a5db0f3a03cb41b
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: efdaa0128d47f948c86c3cc83d6a332410cbf99f
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549625"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426328"
 ---
 # <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>Rychlý start: Vytvoření a publikování balíčku pomocí sady Visual Studio (.NET Framework, Windows)
 
@@ -115,9 +115,9 @@ Spuštění `nuget spec` jen jednou pro generování počátečního manifestu. 
 
 1. NuGet dojde k chybě při pokusu vytvořit balíček s výchozími hodnotami v vaše `.nuspec` souboru, proto je nutné upravit následující pole, než budete pokračovat. V tématu [odkaz na soubor souboru .nuspec – elementy volitelná metadata](../reference/nuspec.md#optional-metadata-elements) popis jak používají.
 
-    - LicenseUrl
-    - ProjectUrl
-    - IconUrl
+    - licenseUrl
+    - projectUrl
+    - iconUrl
     - ReleaseNotes
     - značky
 
@@ -175,7 +175,7 @@ Zobrazit [nuget nabízených](../tools/cli-ref-push.md).
 ## <a name="related-topics"></a>Související témata
 
 - [Vytvoření balíčku](../create-packages/creating-a-package.md)
-- [Publikování balíčku](../create-packages/publish-a-package.md)
+- [Publikování balíčku](../nuget-org/publish-a-package.md)
 - [Balíčky v předběžné verzi](../create-packages/Prerelease-Packages.md)
 - [Podpora více cílových platforem](../create-packages/supporting-multiple-target-frameworks.md)
 - [Správa verzí balíčků](../reference/package-versioning.md)

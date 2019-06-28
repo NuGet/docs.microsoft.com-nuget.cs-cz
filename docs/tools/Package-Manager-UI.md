@@ -1,5 +1,5 @@
 ---
-title: Odkaz uživatelského rozhraní Správce balíčků NuGet
+title: Nainstalovat a spravovat balíčky NuGet v sadě Visual Studio
 description: Pokyny k používání uživatelského rozhraní Správce balíčků NuGet v sadě Visual Studio pro práci s balíčky NuGet.
 author: karann-msft
 ms.author: karann
@@ -10,30 +10,21 @@ f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager.general
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
-ms.openlocfilehash: 422faf99e58e058d86db774a8f3c1c576b3dc393
-ms.sourcegitcommit: 2af17c8bb452a538977794bf559cdd78d58f2790
+ms.openlocfilehash: 97e5de3f07199cd3c6a645749c8f2f1603ca630e
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58637620"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426239"
 ---
-# <a name="nuget-package-manager-ui"></a>Uživatelské rozhraní Správce balíčků NuGet
+# <a name="install-and-manage-packages-in-visual-studio"></a>Instalace a Správa balíčků v sadě Visual Studio
 
 Uživatelské rozhraní Správce balíčků NuGet v sadě Visual Studio ve Windows umožňuje snadno nainstalování, odinstalování a aktualizace balíčků NuGet do projektů a řešení. Prostředí sady Visual Studio pro Mac, najdete v části [balíček včetně NuGet ve vašem projektu](/visualstudio/mac/nuget-walkthrough). Uživatelské rozhraní Správce balíčků není součástí systému Visual Studio Code.
 
-V tomto tématu:
-
-- [Vyhledání a instalace balíčku (Karta Procházet)](#finding-and-installing-a-package)
-- [Odinstalovává se balíček (stiskněte klávesu tab nainstalováno)](#uninstalling-a-package)
-- [Aktualizuje se balíček (karty nainstalováno a aktualizace)](#updating-a-package) (zahrnuje ["Implicitně odkazovaná sadu SDK" nebo "AutoReferenced" zpráva](#implicit_reference))
-- [Správa balíčků pro řešení](#managing-packages-for-the-solution) (práce s více projektů současně).
-- [Zdroje balíčků](#package-sources)
-- [Ovládací prvek možnosti Správce balíčků](#package-manager-options-control)
-
-> [!Note]
+> [!NOTE]
 > Pokud jste chybí Správce balíčků NuGet v sadě Visual Studio 2015, zkontrolujte **nástroje > rozšíření a aktualizace...**  , vyhledejte *Správce balíčků NuGet* rozšíření. Pokud nemůžete použít instalační program rozšíření v sadě Visual Studio, stáhněte si rozšíření přímo z [ https://dist.nuget.org/index.html ](https://dist.nuget.org/index.html).
 >
-> V sadě Visual Studio 2017 NuGet a Správce balíčků NuGet se instalují automaticky s žádné. NET související úlohy. Instalovat jednotlivě tak, že vyberete **jednotlivé komponenty > kód nástroje > Správce balíčků NuGet** možnost v instalačním programu sady Visual Studio 2017.
+> Spouští se v sadě Visual Studio 2017, NuGet a Správce balíčků NuGet se instalují automaticky s žádné. NET související úlohy. Instalovat jednotlivě tak, že vyberete **jednotlivé komponenty > kód nástroje > Správce balíčků NuGet** možnost v instalačním programu sady Visual Studio.
 
 ## <a name="finding-and-installing-a-package"></a>Vyhledání a instalace balíčku
 
@@ -123,14 +114,14 @@ Správa zdroje balíčků:
 
     ![Možnosti zdroje balíčku](media/options.png)
 
-1. Chcete-li přidat zdroj **+**, upravte název, zadejte adresu URL nebo cestu **zdroj** ovládací prvek a vyberte **aktualizace**. Zdroj se teď zobrazí v rozevírací seznam pro výběr.
+1. Chcete-li přidat zdroj **+** , upravte název, zadejte adresu URL nebo cestu **zdroj** ovládací prvek a vyberte **aktualizace**. Zdroj se teď zobrazí v rozevírací seznam pro výběr.
 1. Chcete-li změnit zdroj balíčku, vyberte ho, proveďte úpravy v **název** a **zdroj** pole a vyberte **aktualizace**.
 1. Zakázat zdroje balíčku, zrušte zaškrtnutí políčka nalevo od názvu v seznamu.
 1. Odebrat zdroj balíčku, vyberte ho a pak vyberte **X** tlačítko.
 1. Nahoru a Šipka dolů tlačítka nemění pořadí priority zdroje balíčků. Visual Studio bude ignorovat pořadí zdroje balíčků pomocí balíčku od toho zdroje je nejprve reagovat na požadavky. Další informace najdete v tématu [obnovení balíčku](../consume-packages/package-restore.md).
 
 > [!Tip]
-> Pokud po jejím odstranění znovu objeví zdroj balíčku, mohou být uvedeny v úrovni počítače nebo individuální `NuGet.Config` soubory. Naleznete v tématu [konfigurace NuGet chování](../consume-packages/configuring-nuget-behavior.md) pro umístění tyto soubory pak odebrat zdrojový úprava souborů ručně nebo pomocí [nuget zdrojů příkaz](../tools/nuget-exe-CLI-reference.md).
+> Pokud po jejím odstranění znovu objeví zdroj balíčku, mohou být uvedeny v úrovni počítače nebo individuální `NuGet.Config` soubory. Naleznete v tématu [konfigurace běžných NuGet](../consume-packages/configuring-nuget-behavior.md) pro umístění tyto soubory pak odebrat zdrojový úprava souborů ručně nebo pomocí [nuget zdrojů příkaz](../tools/nuget-exe-CLI-reference.md).
 
 ## <a name="package-manager-options-control"></a>Ovládací prvek možnosti Správce balíčků
 

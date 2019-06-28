@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: c86a07c30631b7ee99526b014ac9c3b9f136aa81
-ms.sourcegitcommit: 1591bb230e106b94162a87dd1d86fe427366730a
+ms.openlocfilehash: 8cd7529c4a1ecf659abde03fb1632e26431aebf3
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52671185"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426754"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Vyhledávání a hodnocení balíčky NuGet pro projekt
 
@@ -58,11 +58,11 @@ V sadě Visual Studio a při použití nástroje rozhraní příkazového řádk
 
     ![Políčko zahrnout předběžné verze v sadě Visual Studio](media/Prerelease_02-CheckPrerelease.png)
 
-- **Konzola správce balíčků**: použijte `-IncludePrerelease` přepněte se `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package`, a `Update-Package` příkazy. Odkazovat [referenční informace prostředí PowerShell](../tools/powershell-reference.md).
+- **Konzola správce balíčků**: Použití `-IncludePrerelease` přepněte se `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package`, a `Update-Package` příkazy. Odkazovat [referenční informace prostředí PowerShell](../tools/powershell-reference.md).
 
-- **rozhraní příkazového řádku nuget.exe**: použití `-prerelease` přepněte se `install`, `update`, `delete`, a `mirror` příkazy. Odkazovat [odkaz na rozhraní příkazového řádku NuGet](../tools/nuget-exe-cli-reference.md)
+- **nuget.exe CLI**: Použití `-prerelease` přepněte se `install`, `update`, `delete`, a `mirror` příkazy. Odkazovat [odkaz na rozhraní příkazového řádku NuGet](../tools/nuget-exe-cli-reference.md)
 
-- **DotNet.exe rozhraní příkazového řádku**: zadat přesné předběžné verze pomocí `-v` argument. Odkazovat [se příkaz dotnet add odkaz na balíček](/dotnet/core/tools/dotnet-add-package).
+- **dotnet.exe CLI**: Zadat přesné předběžné verze pomocí `-v` argument. Odkazovat [se příkaz dotnet add odkaz na balíček](/dotnet/core/tools/dotnet-add-package).
 
 <a name="native-cpp-packages"></a>
 
@@ -96,13 +96,13 @@ Ve stejnou dobu pomocí balíčku NuGet znamená, že se tak závislosti na něj
 
 - *Dotazovat vlastníci*: pro nové vývojáře určitě může být stejně zaměřuje na vytváření skvělých balíčků můžete použít, a je dobré dáte jim možnost vám něco nového ekosystému NuGet. S myslete na to, kontaktujte přímo do balíčku vývojáře prostřednictvím **kontakt vlastníky** v části **informace** na stránce výpis. Je pravděpodobné, že potěší spolupracovat s vámi na sloužit vašim potřebám!
 
-- *Vyhrazené předpony adres ID balíčku*: jste použili pro mnoho vlastníků balíčku a byla udělena [předpona ID balíčku vyhrazené](../reference/id-prefix-reservation.md). Když se zobrazí vizuální značky zaškrtnutí vedle ID balíčku na [nuget.org](https://www.nuget.org/), nebo v sadě Visual Studio, to znamená, že splňuje vlastníka balíčku naše [kritéria](../reference/id-prefix-reservation.md#id-prefix-reservation-criteria) ID předpony rezervace. To znamená, že se vymazat o identifikaci sami sebe i jejich balíček vlastníka balíčku.
+- *Vyhrazené předpony adres ID balíčku*: jste použili pro mnoho vlastníků balíčku a byla udělena [předpona ID balíčku vyhrazené](../nuget-org/id-prefix-reservation.md). Když se zobrazí vizuální značky zaškrtnutí vedle ID balíčku na [nuget.org](https://www.nuget.org/), nebo v sadě Visual Studio, to znamená, že splňuje vlastníka balíčku naše [kritéria](../nuget-org/id-prefix-reservation.md#id-prefix-reservation-criteria) ID předpony rezervace. To znamená, že se vymazat o identifikaci sami sebe i jejich balíček vlastníka balíčku.
 
 > [!Note]
 > Vždycky mějte balíčku licenčních podmínek, které můžete zobrazit tak, že vyberete **informace o licenci** na stránce balíčků na nuget.org. Pokud balíček nejsou zadány licenční podmínky, obraťte se přímo pomocí vlastníka balíčku **obraťte se na vlastníky** odkaz na stránce balíček. Společnost Microsoft není licence duševního vlastnictví, od poskytovatelů třetích stran balíček a neodpovídá za informace, které jsou poskytovány třetími stranami.
 
 ## <a name="license-url-deprecation"></a>Vyřazení adresu URL licence
-Jak jsme přechod ze [licenseUrl](../reference/nuspec#licenseurl) k [licence](../reference/nuspec#license), někteří klienti NuGet a kanály NuGet ještě nemusí mít možnost surface informace o licencích v některých případech. Zachování zpětné kompatibility, adresa URL licence odkazuje na tento dokument, který pojednává o tom, jak načíst informace o licencích v takových případech.
+Jak jsme přechod ze [licenseUrl](../reference/nuspec.md#licenseurl) k [licence](../reference/nuspec.md#license), někteří klienti NuGet a kanály NuGet ještě nemusí mít možnost surface informace o licencích v některých případech. Zachování zpětné kompatibility, adresa URL licence odkazuje na tento dokument, který pojednává o tom, jak načíst informace o licencích v takových případech.
 
 Pokud kliknete na adresu URL licence pro balíček můžete převést na tuto stránku, předpokládají se balíček obsahuje licenční soubor a
 * Jste připojeni k informační kanál, který ještě nezná jak interpretovat a objevit nové informace o licenci ke klientovi **nebo**
@@ -121,8 +121,8 @@ Zde je, jak může číst informace obsažené v licenční soubor uvnitř balí
 Balíček NuGet – hledání funguje na nuget.org, z příkazového řádku NuGet a z tohoto rozšíření Správce balíčků NuGet v sadě Visual Studio. Obecně platí hledání se použije pro klíčová slova, jakož i popis balíčku.
 
 - **Klíčová slova**: Vyhledá odpovídající balíčky, které obsahují některé zadaná klíčová slova. Příklad: `modern UI`. Hledání pro balíčky, které obsahují všechna zadaná klíčová slova, použijte "+" mezi podmínky, jako například `modern+UI`.
-- **Fráze**: zadání termínů v uvozovkách hledá přesné shod nerozlišujících velikost písmen s těmito podmínkami. Příklad: `"modern UI" package`
-- **Filtrování**: můžete použít hledaný výraz na specifickou vlastnost pomocí syntaxe `<property>:<term>` kde `<property>` (velká a malá písmena) může být `id`, `packageid`, `version`, `title`, `tags`, `author`, `description`, `summary`, a `owner`. Podmínky mohou být obsaženy v uvozovkách podle potřeby a více vlastností můžete vyhledat ve stejnou dobu. Také, hledá `id` vlastnosti jsou shody podřetězců, zatímco `packageid` používá přesnou shodu. Příklady:
+- **Fráze**: Zadání termínů v uvozovkách hledá přesné shod nerozlišujících velikost písmen s těmito podmínkami. Příklad: `"modern UI" package`
+- **Filtrování**: Můžete použít hledaný výraz na specifickou vlastnost pomocí syntaxe `<property>:<term>` kde `<property>` (velká a malá písmena) může být `id`, `packageid`, `version`, `title`, `tags`, `author`, `description`, `summary`, a `owner`. Podmínky mohou být obsaženy v uvozovkách podle potřeby a více vlastností můžete vyhledat ve stejnou dobu. Také, hledá `id` vlastnosti jsou shody podřetězců, zatímco `packageid` používá přesnou shodu. Příklady:
 
     ```
     id:NuGet.Core                # Match any part of the id property

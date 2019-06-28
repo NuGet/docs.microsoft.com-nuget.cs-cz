@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 740defc34077793b81fb35db73a2eee393ae3bac
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 2f0f93e0cee78ea03cbd53194cdc2a10871fd7e1
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547151"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426755"
 ---
 # <a name="package-content"></a>Balíček obsahu
 
@@ -46,9 +46,9 @@ Pokud klient zná ID balíčku a chcete zjistit, které balíček verze balíčk
 
 ### <a name="request-parameters"></a>Parametry žádosti
 
-Název     | V     | Typ    | Požadováno | Poznámky
+Name     | V     | type    | Požadováno | Poznámky
 -------- | ------ | ------- | -------- | -----
-LOWER_ID | Adresa URL    | odkazy řetězců  | Ano      | ID balíčku, malá písmena
+LOWER_ID | Adresa URL    | odkazy řetězců  | ano      | ID balíčku, malá písmena
 
 `LOWER_ID` Hodnotu ID požadovaný balíček psané malými písmeny pomocí pravidel implementované. NET společnosti [ `System.String.ToLowerInvariant()` ](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) metody.
 
@@ -58,9 +58,9 @@ Pokud zdroj balíčku má žádné verze ID zadaného balíčku, je vrácen stav
 
 Pokud zdroj balíčku má jednu nebo více verzí, vrátí se kód stavový kód 200. Text odpovědi je objekt JSON s následující vlastnost:
 
-Název     | Typ             | Požadováno | Poznámky
+Name     | type             | Požadováno | Poznámky
 -------- | ---------------- | -------- | -----
-verze | pole řetězců | Ano      | Balíček ID, které jsou k dispozici
+verze | pole řetězců | ano      | Balíček ID, které jsou k dispozici
 
 Řetězce ve `versions` pole jsou všechny psané malými písmeny, [normalizovat řetězce verze NuGet](../reference/package-versioning.md#normalized-version-numbers). Řetězce verze neobsahuje žádné SemVer 2.0.0 metadat sestavení.
 
@@ -82,10 +82,10 @@ Pokud klient zná ID balíčku a verzi a chce stáhnout obsah balíčku, potřeb
 
 ### <a name="request-parameters"></a>Parametry žádosti
 
-Název          | V     | Typ   | Požadováno | Poznámky
+Name          | V     | type   | Požadováno | Poznámky
 ------------- | ------ | ------ | -------- | -----
-LOWER_ID      | Adresa URL    | odkazy řetězců | Ano      | ID balíčku, malá písmena
-LOWER_VERSION | Adresa URL    | odkazy řetězců | Ano      | Verze balíčku, normalizovaná a psané malými písmeny
+LOWER_ID      | Adresa URL    | odkazy řetězců | ano      | ID balíčku, malá písmena
+LOWER_VERSION | Adresa URL    | odkazy řetězců | ano      | Verze balíčku, normalizovaná a psané malými písmeny
 
 Obě `LOWER_ID` a `LOWER_VERSION` jsou psané malými písmeny pomocí pravidel implementované. NET. [`System.String.ToLowerInvariant()`](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant)
 Metoda.
@@ -114,10 +114,10 @@ Pokud klient zná ID balíčku a verzi a chce, aby se stáhnout manifest balíč
 
 ### <a name="request-parameters"></a>Parametry žádosti
 
-Název          | V     | Typ    | Požadováno | Poznámky
-------------- | ------ | ------- | -------- | -----
-LOWER_ID      | Adresa URL    | odkazy řetězců  | Ano      | ID balíčku, malá písmena
-LOWER_VERSION | Adresa URL    | integer | Ano      | Verze balíčku, normalizovaná a psané malými písmeny
+Name          | V     | type   | Požadováno | Poznámky
+------------- | ------ | ------ | -------- | -----
+LOWER_ID      | Adresa URL    | odkazy řetězců | ano      | ID balíčku, malá písmena
+LOWER_VERSION | Adresa URL    | odkazy řetězců | ano      | Verze balíčku, normalizovaná a psané malými písmeny
 
 Obě `LOWER_ID` a `LOWER_VERSION` jsou psané malými písmeny pomocí pravidel implementované. NET společnosti [ `System.String.ToLowerInvariant()` ](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) metody.
 

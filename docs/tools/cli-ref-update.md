@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: ded9b571324d810c2f0e1a46ea76375a28940406
-ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
+ms.openlocfilehash: a242d02a54fd86899cbe274ab63538b53307c1bb
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56145602"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67425922"
 ---
 # <a name="update-command-nuget-cli"></a>Příkaz update (NuGet CLI)
 
@@ -39,17 +39,17 @@ kde `<configPath>` identifikuje buď `packages.config` nebo soubor řešení, kt
 | ConfigFile | Konfigurační soubor NuGet použít. Pokud není zadán, `%AppData%\NuGet\NuGet.Config` (Windows) nebo `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) se používá.|
 | FileConflictAction | Určuje akce má být provedena, když se zobrazí výzva k přepsání nebo ignorovat existující soubory, které jsou odkazované projektem. Hodnoty jsou *přepsat, ignorovat, none*. |
 | ForceEnglishOutput | *(3.5 +)*  Vynutí nuget.exe pro spuštění pomocí neutrální, základem je angličtina jazyková verze. |
-| Nápověda | Zobrazí nápovědu pro příkaz. |
-| ID | Určuje seznam ID k aktualizaci balíčku. |
+| Help | Zobrazí nápovědu pro příkaz. |
+| Id | Určuje seznam ID k aktualizaci balíčku. |
 | MSBuildPath | *(4.0 +)*  Určuje cestu k používání pomocí příkazu, přednost `-MSBuildVersion`. |
 | MSBuildVersion | *(3.2 +)*  Určuje verzi Msbuildu, který se má použít tento příkaz. Podporované hodnoty jsou 4, 12, 14, 15.1, 15.3, 15.4, 15.5, verzi 15.6, 15.7, 15.8, 15.9. Ve výchozím nastavení se vybere MSBuild na vaší cestě jinak je výchozí hodnotou nejvyšší nainstalovaná verze Msbuildu. |
-| Neinteraktivní | Potlačí vyzve k zadání uživatele o vstup ani potvrzení. |
+| NonInteractive | Potlačí vyzve k zadání uživatele o vstup ani potvrzení. |
 | Platnost předběžné verze | Umožňuje aktualizaci pro předběžné verze. Tento příznak není potřeba při aktualizaci předběžné verze balíčků, které jsou již nainstalovány. |
 | RepositoryPath | Určuje místní složku, ve kterém jsou nainstalované balíčky. |
 | Bezpečné | Určuje, která aktualizuje pouze s nejvyšší verze k dispozici v rámci stejné hlavní a dílčí verze jako nainstalovaného balíčku se nainstaluje. |
 | Vlastní | Aktualizuje na nejnovější verzi; nuget.exe Další argumenty jsou ignorovány. |
-| Zdroj | Určuje seznam zdrojů balíčků (jako adresy URL) použít pro aktualizace. Pokud tento parametr vynechán, příkaz používá zdroje k dispozici v konfiguračních souborech naleznete v tématu [konfigurace NuGet chování](../consume-packages/configuring-nuget-behavior.md). |
-| Podrobnosti | Určuje množství podrobností, na které se zobrazí ve výstupu: *normální*, *quiet*, *podrobné*. |
+| Source | Určuje seznam zdrojů balíčků (jako adresy URL) použít pro aktualizace. Pokud tento parametr vynechán, příkaz používá zdroje k dispozici v konfiguračních souborech naleznete v tématu [konfigurace běžných NuGet](../consume-packages/configuring-nuget-behavior.md). |
+| Verbosity | Určuje množství podrobností, na které se zobrazí ve výstupu: *normální*, *quiet*, *podrobné*. |
 | Version | Zadáním jednoho ID balíčku, určuje verzi balíčku aktualizace. |
 
 Viz také [proměnné prostředí](cli-ref-environment-variables.md)
