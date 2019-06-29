@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: b85b586e76e424442dc0ba3acfecbee1e8755345
-ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
+ms.openlocfilehash: 3be8d1dad6552db2fc04b2f324145ac7ce86acb2
+ms.sourcegitcommit: b9a134a6e10d7d8502613f389f7d5f9b9e206ec8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453465"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67467775"
 ---
 # <a name="troubleshooting-package-restore-errors"></a>Řešení potíží s chybami obnovení balíčku
 
-Tento článek se zaměřuje na běžných chyb při obnovování balíčků a kroky k jejich řešení. Kompletní informace o obnovování balíčků, najdete v části [obnovení balíčku](../consume-packages/package-restore.md#enabling-and-disabling-package-restore).
+Tento článek se zaměřuje na běžných chyb při obnovování balíčků a kroky k jejich řešení. Kompletní informace o obnovování balíčků, najdete v části [obnovení balíčku](../consume-packages/package-restore.md#enable-and-disable-package-restore).
 
 Pokud zde uvedených pokynů, nebudou fungovat, [založte prosím problém na Githubu](https://github.com/NuGet/docs.microsoft.com-nuget/issues) tak, aby nám více pečlivě prozkoumat váš scénář. Nepoužívejte "je tato stránka užitečná?" ovládací prvek, který může zobrazit na této stránce, protože se nám nedává možnost kontaktovat v souvislosti s další informace.
 

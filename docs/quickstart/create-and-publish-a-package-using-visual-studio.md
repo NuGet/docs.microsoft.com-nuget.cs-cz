@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: e44f7b4040e5450f9f987eef62fd16d12abc6b20
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: c75785d361f25564c8a59d7a2d85924c570a7b9a
+ms.sourcegitcommit: b9a134a6e10d7d8502613f389f7d5f9b9e206ec8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426302"
+ms.locfileid: "67467816"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Rychlý start: Vytvoření a publikování balíčku NuGet pomocí sady Visual Studio (.NET Standard, jenom Windows)
 
@@ -29,7 +29,7 @@ Je jednoduchý proces vytvoření balíčku NuGet z knihovny .NET Standard tří
 
    * Pro `nuget.exe` rozhraní příkazového řádku, si ji stáhnout z [nuget.org](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe), uložení `.exe` soubor vhodný složky a přidání složky do proměnné prostředí PATH. Rozhraní příkazového řádku nuget.exe se používá pro knihovny .NET Standard ve formátu sady SDK style.
 
-1. [Zaregistrujte si bezplatný účet na nuget.org](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) Pokud již nemáte. Vytvoření nového účtu se odešle e-mail s potvrzením. Účet musí ověřit dříve, než můžete nahrát balíček.
+1. [Zaregistrujte si bezplatný účet na nuget.org](https://docs.microsoft.com/en-us/nuget/nuget-org/individual-accounts#add-a-new-individual-account) Pokud již nemáte. Vytvoření nového účtu se odešle e-mail s potvrzením. Účet musí ověřit dříve, než můžete nahrát balíček.
 
 ## <a name="create-a-class-library-project"></a>Vytvořte projekt knihovny tříd
 

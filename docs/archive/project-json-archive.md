@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: aa5cd1a2f3e3a6707a9d68204306db85651b0a18
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: d43f002b740b669de13f5872844ac0df97fc8fdc
+ms.sourcegitcommit: b9a134a6e10d7d8502613f389f7d5f9b9e206ec8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545197"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67467787"
 ---
 # <a name="projectjson-archive"></a>Archiv Project.JSON
 
@@ -22,7 +22,7 @@ Viz také:
 - [dopad Project.JSON autory balíčku](project-json-impact.md)
 - [project.json a UPW](project-json-and-uwp.md)
 
-## <a name="projectjson-management-format"></a>Formát správu Project.JSON
+## <a name="projectjson-management-format"></a>Formát souboru pro správu project.json
 
 *Původně v [obnovení balíčku](../what-is-nuget.md).*
 
@@ -38,9 +38,9 @@ Funguje s `project.json`.
 
 ## <a name="constraining-package-versions-with-restore"></a>Omezující verze balíčků pomocí obnovení
 
-*Původně v [obnovení balíčku](../consume-packages/package-restore.md#constraining-package-versions-with-restore).*
+*Původně v [obnovení balíčku](../consume-packages/package-restore.md#constrain-package-versions-with-restore).*
 
-- `project.json`: Zadejte rozsah verzí přímo s číslem verze na závislost. Příklad:
+- `project.json`: Přímo s číslem verze závislosti uvádět rozsah verzí. Příklad:
 
     ```json
     "Newtonsoft.json": "[6, 7)"
@@ -93,7 +93,7 @@ Přidání prostředků řešení chyb:
 
 *Původně v [platforem](../reference/target-frameworks.md).*
 
-- [Project.JSON](project-json.md): `frameworks` uzlu určuje verze rozhraní framework projektu může být zkompilována proti.
+- [project.json](project-json.md): `frameworks` Uzlu určuje verze rozhraní framework projektu může být zkompilována proti.
 
 ## <a name="creating-a-package"></a>Vytvoření balíčku
 
