@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/30/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 34c205e7dac60c7abfb6323b4dc45bf4f074d46a
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 8e4fb376e471a207333d241aeb414da7d5c3571e
+ms.sourcegitcommit: 2a9d149bc6f5ff76b0b657324820bd0429cddeef
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426790"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67496546"
 ---
 # <a name="catalog"></a>Katalog
 
@@ -194,7 +194,8 @@ Name                    | type                       | Požadováno | Poznámky
 ----------------------- | -------------------------- | -------- | -----
 Autoři                 | odkazy řetězců                     | Ne       |
 Vytvoření                 | odkazy řetězců                     | Ne       | Časové razítko z při prvním vytvoření balíčku. Základní vlastnosti: `published`.
-dependencyGroups        | Pole objektů           | Ne       | Stejný formát jako [balíček metadata resource](registration-base-url-resource.md#package-dependency-group)
+dependencyGroups        | Pole objektů           | Ne       | Závislosti balíčků, seskupených podle cílové rozhraní framework ([stejný formát jako resource metadata balíčku](registration-base-url-resource.md#package-dependency-group))
+Vyřazení             | odkazy objektů                     | Ne       | Vyřazení přidružené k balíčku ([stejný formát jako resource metadata balíčku](registration-base-url-resource.md#package-deprecation))
 description             | odkazy řetězců                     | Ne       |
 iconUrl                 | odkazy řetězců                     | Ne       |
 isPrerelease            | Logická hodnota                    | Ne       | Určuje, jestli je předběžná verze balíčku. Můžete zjistit z `version`.

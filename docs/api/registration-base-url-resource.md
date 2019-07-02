@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 19a1f48164f65f1ff805e036e55abb110247aa72
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: 0b35e2bbdde63f7f7a5298bd035c180389cd345d
+ms.sourcegitcommit: 2a9d149bc6f5ff76b0b657324820bd0429cddeef
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324861"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67496502"
 ---
 # <a name="package-metadata"></a>Metadata balíčků
 
@@ -76,7 +76,7 @@ Heuristiky, který používá nuget.org je následující: Pokud je 128 nebo ví
 
 ### <a name="request-parameters"></a>Parametry žádosti
 
-Název     | V     | Typ    | Požadováno | Poznámky
+Name     | V     | type    | Požadováno | Poznámky
 -------- | ------ | ------- | -------- | -----
 LOWER_ID | Adresa URL    | odkazy řetězců  | ano      | ID balíčku, psané malými písmeny
 
@@ -86,10 +86,10 @@ LOWER_ID | Adresa URL    | odkazy řetězců  | ano      | ID balíčku, psané 
 
 Odpověď je dokument JSON, který má kořenový objekt s následujícími vlastnostmi:
 
-Název  | Typ             | Požadováno | Poznámky
+Name  | type             | Požadováno | Poznámky
 ----- | ---------------- | -------- | -----
 count | integer          | ano      | Počet stránek registrace v indexu
-Položky | Pole objektů | ano      | Pole registrační stránky
+items | Pole objektů | ano      | Pole registrační stránky
 
 Každou položku v indexu objektu `items` pole je objekt JSON představující registrační stránku.
 
@@ -97,13 +97,13 @@ Každou položku v indexu objektu `items` pole je objekt JSON představující r
 
 Registrace objektu stránku v indexu registrace má následující vlastnosti:
 
-Název   | Typ             | Požadováno | Poznámky
+Name   | type             | Požadováno | Poznámky
 ------ | ---------------- | -------- | -----
 @id    | odkazy řetězců           | ano      | Adresa URL na registrační stránku
 count  | integer          | ano      | Číslo registrace ponechá na stránce
-Položky  | Pole objektů | Ne       | Pole registrace ponechá a jejich přidružených metadat
+items  | Pole objektů | Ne       | Pole registrace ponechá a jejich přidružených metadat
 Nižší  | odkazy řetězců           | ano      | Nejnižší verze SemVer 2.0.0 na stránce (včetně)
-nadřazené | odkazy řetězců           | Ne       | Adresa URL pro registraci indexu
+Nadřazené | odkazy řetězců           | Ne       | Adresa URL pro registraci indexu
 horní  | odkazy řetězců           | ano      | Nejvyšší verze SemVer 2.0.0 na stránce (včetně)
 
 `lower` a `upper` hranice objektu page jsou užitečné v případě potřeby metadata pro konkrétní stránka verze.
@@ -121,7 +121,7 @@ Každá položka v objektu page `items` pole je objekt JSON představující typ
 
 Registrace objektu typu list najít na stránce registrace má následující vlastnosti:
 
-Název           | Typ   | Požadováno | Poznámky
+Name           | type   | Požadováno | Poznámky
 -------------- | ------ | -------- | -----
 @id            | odkazy řetězců | ano      | Adresa URL pro registraci typu list
 catalogEntry   | odkazy objektů | ano      | Položka katalogu obsahující metadata balíčků
@@ -133,11 +133,12 @@ Každý registrace typu list objekt představuje data související s verzí jed
 
 `catalogEntry` Vlastnost v objektu typu list registrace má následující vlastnosti:
 
-Název                     | Typ                       | Požadováno | Poznámky
+Name                     | type                       | Požadováno | Poznámky
 ------------------------ | -------------------------- | -------- | -----
 @id                      | odkazy řetězců                     | ano      | Adresa URL pro dokument použitý k vytvoření tohoto objektu
 Autoři                  | řetězec nebo pole řetězců | Ne       | 
 dependencyGroups         | Pole objektů           | Ne       | Závislosti balíčků, seskupených podle cílové rozhraní framework
+Vyřazení              | odkazy objektů                     | Ne       | Vyřazení přidružené k balíčku
 description              | odkazy řetězců                     | Ne       | 
 iconUrl                  | odkazy řetězců                     | Ne       | 
 id                       | odkazy řetězců                     | ano      | ID balíčku
@@ -163,7 +164,7 @@ Hodnota `licenseExpression` vlastnost v souladu s [syntaxe výrazu licence NuGet
 
 Každý objekt skupiny závislosti má následující vlastnosti:
 
-Název            | Typ             | Požadováno | Poznámky
+Name            | type             | Požadováno | Poznámky
 --------------- | ---------------- | -------- | -----
 targetFramework | odkazy řetězců           | Ne       | Cílová architektura, která se vztahují na tyto závislosti
 závislosti    | Pole objektů | Ne       |
@@ -176,13 +177,33 @@ závislosti    | Pole objektů | Ne       |
 
 Každá závislost balíčku má následující vlastnosti:
 
-Název         | Typ   | Požadováno | Poznámky
+Name         | type   | Požadováno | Poznámky
 ------------ | ------ | -------- | -----
 id           | odkazy řetězců | ano      | ID závislosti balíčků
 range        | odkazy objektů | Ne       | Povolených [rozsah verzí](../reference/package-versioning.md#version-ranges-and-wildcards) závislosti
 registrace | odkazy řetězců | Ne       | Adresa URL pro registraci index pro tuto závislost
 
 Pokud `range` vyloučené vlastnost nebo prázdný řetězec, klient by měl jako výchozí rozsah verzí `(, )`. To znamená je povolené všechny verze závislosti.
+
+#### <a name="package-deprecation"></a>Odstranění balíčku
+
+Vyřazení každý balíček má následující vlastnosti:
+
+Name             | type             | Požadováno | Poznámky
+---------------- | ---------------- | -------- | -----
+důvody          | pole řetězců | ano      | Z důvodů, proč se přestala nabízet balíčku
+zpráva          | odkazy řetězců           | Ne       | Další podrobnosti o tomto vyřazení
+alternatePackage | odkazy objektů           | Ne       | Závislost balíčku, který se má použít místo toho
+
+`reasons` Vlastností musí obsahovat alespoň jeden řetězec a by měl obsahovat pouze řetězce z následující tabulky:
+
+Důvod       | Popis             
+------------ | -----------
+Starší verze       | Balíček se již neudržuje
+CriticalBugs | Balíček obsahuje chyby, které vhodný pro použití
+Ostatní        | Balíček je zastaralý z důvodu není v tomto seznamu
+
+Pokud `reasons` vlastnost obsahuje řetězce, které nejsou ze sady známá, mají se ignorovat. Řetězce jsou malá a velká písmena, takže `legacy` by měl být stejné považován `Legacy`. Neexistuje žádné pořadí omezení pole, tak řetězce můžete uspořádat v libovolném libovolného pořadí. Kromě toho pokud vlastnost obsahuje pouze řetězce, které nejsou ze sady známé, ji by měl být zpracován jako obsahoval pouze "Other" řetězec.
 
 ### <a name="sample-request"></a>Ukázková žádost
 
@@ -200,13 +221,13 @@ Na registrační stránku obsahuje listy registrace. Adresu URL pro načtení st
 
 Když `items` pole není k dispozici v indexu registrace, požadavek HTTP GET ze `@id` hodnotu vrátí dokument JSON, který má jako jeho kořenový objekt. Objekt má následující vlastnosti:
 
-Název   | Typ             | Požadováno | Poznámky
+Name   | type             | Požadováno | Poznámky
 ------ | ---------------- | -------- | -----
 @id    | odkazy řetězců           | ano      | Adresa URL na registrační stránku
 count  | integer          | ano      | Číslo registrace ponechá na stránce
-Položky  | Pole objektů | ano      | Pole registrace ponechá a jejich přidružených metadat
+items  | Pole objektů | ano      | Pole registrace ponechá a jejich přidružených metadat
 Nižší  | odkazy řetězců           | ano      | Nejnižší verze SemVer 2.0.0 na stránce (včetně)
-nadřazené | odkazy řetězců           | ano      | Adresa URL pro registraci indexu
+Nadřazené | odkazy řetězců           | ano      | Adresa URL pro registraci indexu
 horní  | odkazy řetězců           | ano      | Nejvyšší verze SemVer 2.0.0 na stránce (včetně)
 
 Tvar listové objekty registrace je stejné jako index registrace [nad](#registration-leaf-object-in-a-page).
@@ -227,7 +248,7 @@ Adresa URL pro načtení typu registrace se získávají z `@id` vlastnosti obje
 
 Registrace typu list je dokument JSON s kořenovým objektem s následujícími vlastnostmi:
 
-Název           | Typ    | Požadováno | Poznámky
+Name           | type    | Požadováno | Poznámky
 -------------- | ------- | -------- | -----
 @id            | odkazy řetězců  | ano      | Adresa URL pro registraci typu list
 catalogEntry   | odkazy řetězců  | Ne       | Adresa URL položek katalogu, který vytvořil tyto typu list
