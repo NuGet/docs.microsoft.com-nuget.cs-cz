@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: efdaa0128d47f948c86c3cc83d6a332410cbf99f
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: bf561d36a06bf42c029eb96ff1b7930abffa4c0a
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426328"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842048"
 ---
 # <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>Rychlý start: Vytvoření a publikování balíčku pomocí sady Visual Studio (.NET Framework, Windows)
 
@@ -145,7 +145,7 @@ Jakmile budete mít `.nupkg` souboru, ji publikujete do nuget.org pomocí `nuget
 
 ### <a name="publish-with-nuget-push"></a>Publikování pomocí nuget nasdílení změn
 
-1. Změnit na složku obsahující `.nupkg` souboru.
+1. Otevřete příkazový řádek a změňte na složku obsahující `.nupkg` souboru.
 
 1. Spusťte následující příkaz, zadávání názvu balíčku a nahraďte hodnotu klíče svůj klíč rozhraní API:
 
@@ -177,6 +177,6 @@ Zobrazit [nuget nabízených](../tools/cli-ref-push.md).
 - [Vytvoření balíčku](../create-packages/creating-a-package.md)
 - [Publikování balíčku](../nuget-org/publish-a-package.md)
 - [Balíčky v předběžné verzi](../create-packages/Prerelease-Packages.md)
-- [Podpora více cílových platforem](../create-packages/supporting-multiple-target-frameworks.md)
+- [Podpora více cílových architektur](../create-packages/supporting-multiple-target-frameworks.md)
 - [Správa verzí balíčků](../reference/package-versioning.md)
 - [Vytvoření lokalizovaných balíčků](../create-packages/creating-localized-packages.md)

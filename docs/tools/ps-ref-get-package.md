@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: a28b29614dfe5abdeb24438b3451d96634a120db
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: d0d25cb6e21f6d0d42389e08340b6f1e1baf8a64
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551439"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842506"
 ---
 # <a name="get-package-package-manager-console-in-visual-studio"></a>Get-Package (konzola Správce balíčků v sadě Visual Studio)
 
-*Toto téma popisuje příkaz v rámci [Konzola správce balíčků NuGet](package-manager-console.md) v sadě Visual Studio ve Windows. Obecný příkaz prostředí PowerShell Get-Package, najdete v článku [odkazu modulu Powershellu PackageManagement](/powershell/module/packagemanagement/?view=powershell-6).*
+*Toto téma popisuje příkaz v rámci [Konzola správce balíčků](package-manager-console.md) v sadě Visual Studio ve Windows. Obecný příkaz prostředí PowerShell Get-Package, najdete v článku [odkazu modulu Powershellu PackageManagement](/powershell/module/packagemanagement/?view=powershell-6).*
 
 Načte seznam balíčků nainstalovaných v místním úložišti, zobrazí seznam dostupných balíčků z balíčku zdroje při použití s přepínačem - ListAvailable nebo vypíše dostupné aktualizace při použití s přepínačem - Update.
 
@@ -32,7 +32,7 @@ Bez parametrů `Get-Package` zobrazí seznam balíčků nainstalovaných ve výc
 
 | Parametr | Popis |
 | --- | --- |
-| Zdroj | Cesta adresy URL nebo složka balíčku. Cesty k místní složce může být absolutní nebo relativní vzhledem k aktuální složky. Pokud tento parametr vynechán, `Get-Package` hledá aktuálně vybraném zdroji balíčku. Při použití s - ListAvailable, výchozí hodnota je nuget.org. |
+| Source | Cesta adresy URL nebo složka balíčku. Cesty k místní složce může být absolutní nebo relativní vzhledem k aktuální složky. Pokud tento parametr vynechán, `Get-Package` hledá aktuálně vybraném zdroji balíčku. Při použití s - ListAvailable, výchozí hodnota je nuget.org. |
 | ListAvailable | Zobrazí seznam balíčků z balíčku zdroje, jako výchozí se použije na nuget.org. Ukazuje na výchozí hodnotu 50 balíčky jsou určena - PageSize nebo - první. |
 | Aktualizace | Zobrazí seznam balíčků, které mají k dispozici aktualizace ze zdroje balíčku. |
 | ProjectName | Projekt, ze kterého se mají balíčky nainstalovat. Pokud tento parametr vynechán, vrátí nainstalované projekty pro celé řešení. |
@@ -47,7 +47,7 @@ Bez parametrů `Get-Package` zobrazí seznam balíčků nainstalovaných ve výc
 
 ## <a name="common-parameters"></a>Společné parametry
 
-`Get-Package` podporuje následující [společné parametry prostředí PowerShell](http://go.microsoft.com/fwlink/?LinkID=113216): ladění, Chyba akce, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction a WarningVariable.
+`Get-Package` podporuje následující [společné parametry prostředí PowerShell](http://go.microsoft.com/fwlink/?LinkID=113216): Ladění, Chyba akce, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction a WarningVariable.
 
 ## <a name="examples"></a>Příklady
 

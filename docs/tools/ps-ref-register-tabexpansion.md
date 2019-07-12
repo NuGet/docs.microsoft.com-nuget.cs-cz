@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 98171c598bd4a3468bd23e2d6060e267c38021b4
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 8adb80af85e2e32fa8c35e5272cf90ff0c0ddcbb
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546602"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842486"
 ---
 # <a name="register-tabexpansion-package-manager-console-in-visual-studio"></a>Register-TabExpansion (konzola Správce balíčků v sadě Visual Studio)
 
-*K dispozici pouze v rámci [Konzola správce balíčků NuGet](package-manager-console.md) v sadě Visual Studio ve Windows.*
+*K dispozici pouze v rámci [Konzola správce balíčků](package-manager-console.md) v sadě Visual Studio ve Windows.*
 
 Zaregistruje rozšíření tab pro parametry zadaný příkaz tak, aby při karta se používá při zadání příkazu, rozšířené hodnoty se zobrazí jako dostupné možnosti pro parametr nejistá. Všechny předchozí rozšíření příkazu jsou přepsány.
 
@@ -28,14 +28,14 @@ Register-TabExpansion [-Name] <String> [-Definition] <Object> [<CommonParameters
 
 | Parametr | Popis |
 | --- | --- |
-| Název | (Povinné) Příkaz pro registraci rozšíření. -Název je volitelný přepínač samotný. |
+| Name | (Povinné) Příkaz pro registraci rozšíření. -Název je volitelný přepínač samotný. |
 | Definice | (Povinné) Objekt popisující argument v syntaxi `@{'<parameter>' = {'<value1>', '<value2>', ...}}` kde `<parameter>` je název parametru k úpravě a každý `<value>` poskytuje konkrétní rozšíření. Jednoduché i dvojité uvozovky jsou přijaty. |
 
 Žádná z těchto parametrů přijímat kanálu vstup nebo zástupné znaky.
 
 ## <a name="common-parameters"></a>Společné parametry
 
-`Register-TabExpansion` podporuje následující [společné parametry prostředí PowerShell](http://go.microsoft.com/fwlink/?LinkID=113216): ladění, Chyba akce, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction a WarningVariable.
+`Register-TabExpansion` podporuje následující [společné parametry prostředí PowerShell](http://go.microsoft.com/fwlink/?LinkID=113216): Ladění, Chyba akce, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction a WarningVariable.
 
 ## <a name="examples"></a>Příklady
 

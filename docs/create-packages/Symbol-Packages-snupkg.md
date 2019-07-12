@@ -16,12 +16,12 @@ keywords: Symbol balíčky NuGet, balíček NuGet ladění, podpora, balíček s
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 0d82cf8614b88247bc3a3ba3019c11bf1b5e2593
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 9f9cdd188cf2ec678bc9047604e618f1af9124ae
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426805"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842455"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Vytváření balíčků symbolů (.snupkg)
 
@@ -54,7 +54,7 @@ Pokud používáte dotnet.exe nebo MSBuild, použijte následující kroky k vyt
 
 1. Váš projekt s aktualizací Service Pack `dotnet pack MyPackage.csproj` nebo `msbuild -t:pack MyPackage.csproj`.
 
-[ `SymbolPackageFormat` ](/dotnet/core/tools/csproj.md#symbolpackageformat) Vlastnost může mít jednu ze dvou hodnot: `symbols.nupkg` (výchozí) nebo `snupkg`. Pokud [ `SymbolPackageFormat` ](/dotnet/core/tools/csproj.md#symbolpackageformat) vlastnost nezadáte, bude vytvořen balíček symbolů starší verze.
+[ `SymbolPackageFormat` ](/dotnet/core/tools/csproj#symbolpackageformat) Vlastnost může mít jednu ze dvou hodnot: `symbols.nupkg` (výchozí) nebo `snupkg`. Pokud [ `SymbolPackageFormat` ](/dotnet/core/tools/csproj#symbolpackageformat) vlastnost nezadáte, bude vytvořen balíček symbolů starší verze.
 
 > [!Note]
 > Starší verze formátu `.symbols.nupkg` je ale pouze z důvodů kompatibility stále podporována (viz [starších verzí balíčků symbolů](Symbol-Packages.md)). Server symbolů NuGet.org přijímá pouze nový formát balíček symbolů - `.snupkg`.

@@ -5,18 +5,18 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/03/2019
 ms.topic: conceptual
-ms.openlocfilehash: e60bca8fe2f80b044e466db2a100d6c6d167edb7
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: a7177b956930835693921163e634321548c22462
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67427629"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842373"
 ---
 # <a name="manage-packages-using-the-nugetexe-cli"></a>Správa balíčků s využitím rozhraní příkazového řádku nuget.exe
 
 Nástroj příkazového řádku můžete snadno aktualizovat a obnovení balíčků NuGet do projektů a řešení. Tento nástroj poskytuje všechny funkce NuGet pro Windows a také poskytuje většinu funkcí na Mac a Linux, když je spuštěno mono.
 
-Rozhraní příkazového řádku nuget.exe je pro projekty SDK styl, (například jeden, který cílí na knihovny .NET Standard) a rozhraní .NET Framework projektu. Pokud používáte sadu SDK styl projektu, který se migroval na `PackageReference`, místo toho použijte rozhraní příkazového řádku dotnet. Vyžaduje se rozhraní příkazového řádku NuGet [souboru packages.config](../reference/packages-config.md) soubor pro odkazy na balíček.
+Rozhraní příkazového řádku nuget.exe je pro projekty SDK stylu (například-sady SDK styl projekt, který cílí na knihovny .NET Standard) a rozhraní .NET Framework projektu. Pokud používáte sadu SDK styl projektu, který se migroval na `PackageReference`, místo toho použijte rozhraní příkazového řádku dotnet. Vyžaduje se rozhraní příkazového řádku NuGet [souboru packages.config](../reference/packages-config.md) soubor pro odkazy na balíček.
 
 > [!NOTE]
 > Ve většině scénářů doporučujeme [migraci projektů SDK styl](../reference/migrate-packages-config-to-package-reference.md) , které používají `packages.config` na PackageReference, a pak můžete použít rozhraní příkazového řádku dotnet místo `nuget.exe` rozhraní příkazového řádku. Migrace není aktuálně k dispozici pro projekty jazyka C++ a technologií ASP.NET.
@@ -113,6 +113,8 @@ nuget update
 Použití [obnovení](../tools/cli-ref-restore.md) příkaz, který se stáhne a nainstaluje všechny balíčky, které chybí *balíčky* složky.
 
 `restore` pouze balíčky přidá na disk, ale nedojde ke změně závislosti projektu. Chcete-li obnovit závislosti projektu, upravte `packages.config`, pak použít `restore` příkaz.
+
+Stejně jako u druhé `dotnet` příkazy rozhraní příkazového řádku, nejprve otevřete příkazový řádek a přejděte do adresáře, který obsahuje váš soubor projektu.
 
 Chcete-li obnovit balíček pomocí `restore`:
 

@@ -1,5 +1,5 @@
 ---
-title: Nainstalovat a spravovat balíčky NuGet v sadě Visual Studio pomocí Powershellu
+title: Nainstalovat a spravovat balíčky NuGet v sadě Visual Studio pomocí konzoly
 description: Pokyny k používání konzoly Správce balíčků NuGet v sadě Visual Studio pro práci s balíčky.
 author: karann-msft
 ms.author: karann
@@ -7,14 +7,14 @@ ms.date: 06/24/2019
 ms.topic: conceptual
 f1_keywords:
 - vs.nuget.packagemanager.console
-ms.openlocfilehash: 11ec25598d3110ba84dec5044642e205e13346af
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 91ab3859994e5ae738c6637219681ebbfc92d420
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426209"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842586"
 ---
-# <a name="install-and-manage-packages-using-powershell-in-visual-studio"></a>Instalace a Správa balíčků s využitím prostředí PowerShell v sadě Visual Studio
+# <a name="install-and-manage-packages-with-the-package-manager-console-in-visual-studio-powershell"></a>Instalace a Správa balíčků pomocí konzole Správce balíčků v sadě Visual Studio (PowerShell)
 
 Konzola správce balíčků NuGet umožňuje používat [příkazy prostředí NuGet PowerShell](../tools/powershell-reference.md) najít, nainstalovat, odinstalujte a aktualizovat balíčky NuGet. Pomocí konzoly je nutné v případech, kdy uživatelské rozhraní Správce balíčků neposkytuje způsob, jak provádět operace. Použití `nuget.exe` příkazy rozhraní příkazového řádku v konzole, najdete v článku [pomocí nuget.exe rozhraní příkazového řádku v konzole](#using-the-nugetexe-cli-in-the-console).
 

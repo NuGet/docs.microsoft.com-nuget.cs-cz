@@ -1,33 +1,34 @@
 ---
 title: Vytvoření a publikování balíčku .NET Standard ve Windows pomocí sady Visual Studio
-description: Kurz návod týkající se vytváření a publikování balíčku .NET Standard NuGet pomocí sady Visual Studio 2017 na Windows.
+description: Kurz návod týkající se vytváření a publikování balíčku .NET Standard NuGet pomocí sady Visual Studio na Windows.
 author: karann-msft
 ms.author: karann
-ms.date: 05/24/2019
+ms.date: 07/09/2019
 ms.topic: quickstart
-ms.openlocfilehash: c75785d361f25564c8a59d7a2d85924c570a7b9a
-ms.sourcegitcommit: b9a134a6e10d7d8502613f389f7d5f9b9e206ec8
+ms.openlocfilehash: d9eccfa373a5a283542fd158e76ba74b1872f3d6
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67467816"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842152"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Rychlý start: Vytvoření a publikování balíčku NuGet pomocí sady Visual Studio (.NET Standard, jenom Windows)
 
 Je jednoduchý proces vytvoření balíčku NuGet z knihovny .NET Standard třídy v sadě Visual Studio ve Windows a potom ji publikovat na nuget.org pomocí nástroje příkazového řádku.
 
 > [!Note]
-> V tomto rychlém startu platí pro Visual Studio 2017 pro Windows pouze. Visual Studio pro Mac nezahrnuje možnosti popsané tady. Použití [nástroje rozhraní příkazového řádku dotnet](create-and-publish-a-package-using-the-dotnet-cli.md) místo.
+> Pokud používáte Visual Studio pro Mac, podívejte se na [tyto informace](/xamarin/cross-platform/app-fundamentals/nuget-multiplatform-libraries/existing-library) vytvoření balíčku NuGet, nebo použít [nástroje rozhraní příkazového řádku dotnet](create-and-publish-a-package-using-the-dotnet-cli.md).
 
 ## <a name="prerequisites"></a>Požadavky
 
-1. Instalaci libovolné edice sady Visual Studio 2017 z [visualstudio.com](https://www.visualstudio.com/) s žádným. NET související úlohy. Visual Studio 2017 automaticky zahrnuje NuGet možnosti, když je nainstalovaná úloha .NET.
+1. Instalaci libovolné edice sady Visual Studio 2017 nebo novější z [visualstudio.com](https://www.visualstudio.com/) s žádným. NET související úlohy. Visual Studio 2017 a vyšší automaticky zahrnují možnosti NuGet, když je nainstalovaná úloha .NET.
 
-1. Nainstalujte jedním z nástrojů rozhraní příkazového řádku.
+1. Nainstalujte `dotnet` rozhraní příkazového řádku.
 
-   * Pro `dotnet` rozhraní příkazového řádku, nainstalujte [.NET Core SDK](https://www.microsoft.com/net/download/). Dotnet CLI se vyžaduje pro .NET Standard projekty, které používají formát SDK – vizuální styl (atribut SDK).
-
-   * Pro `nuget.exe` rozhraní příkazového řádku, si ji stáhnout z [nuget.org](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe), uložení `.exe` soubor vhodný složky a přidání složky do proměnné prostředí PATH. Rozhraní příkazového řádku nuget.exe se používá pro knihovny .NET Standard ve formátu sady SDK style.
+   Pro `dotnet` rozhraní příkazového řádku, spouští se v sadě Visual Studio 2017 `dotnet` rozhraní příkazového řádku je automaticky nainstalován se sadou jakékoli .NET Core související úlohy. V opačném případě nainstalovat [.NET Core SDK](https://www.microsoft.com/net/download/) zobrazíte `dotnet` rozhraní příkazového řádku. `dotnet` Je vyžadován pro .NET Standard projekty, které používají rozhraní příkazového řádku [SDK – vizuální styl formátu](../resources/check-project-format.md) (atribut SDK). Výchozí šablona knihovny tříd v sadě Visual Studio 2017 a novější, který se používá v tomto článku, používá atribut SDK.
+   
+   > [!Important]
+   > Pro účely tohoto článku `dotnet` se doporučuje rozhraní příkazového řádku. I když můžete publikovat jakékoli pomocí balíčku NuGet `nuget.exe` rozhraní příkazového řádku, některé kroky v tomto článku jsou specifické pro projekty založenými na sadě SDK a rozhraní příkazového řádku dotnet. Nuget.exe rozhraní příkazového řádku se používá pro [SDK styl projekty](../resources/check-project-format.md) (obvykle rozhraní .NET Framework). Pokud pracujete s projektem sada SDK styl, postupujte podle pokynů v [vytvoření a publikování balíčku .NET Framework (Visual Studio)](create-and-publish-a-package-using-visual-studio-net-framework.md) vytvoření a publikování balíčku.
 
 1. [Zaregistrujte si bezplatný účet na nuget.org](https://docs.microsoft.com/en-us/nuget/nuget-org/individual-accounts#add-a-new-individual-account) Pokud již nemáte. Vytvoření nového účtu se odešle e-mail s potvrzením. Účet musí ověřit dříve, než můžete nahrát balíček.
 
@@ -59,7 +60,9 @@ namespace AppLogger
 
 ## <a name="configure-package-properties"></a>Konfigurace vlastností balíčku
 
-1. Vyberte **projektu > vlastnosti** nabídce příkaz a pak vyberte **balíčku** kartu. ( **Balíčku** kartě se zobrazí pouze pro projekty knihovny tříd .NET Standard; Pokud se zaměřujete na rozhraní .NET Framework, přečtěte si téma [vytvoření a publikování balíčku .NET Framework](create-and-publish-a-package-using-visual-studio-net-framework.md) místo. Pokud se nezobrazí pro projekt .NET Standard, budete muset aktualizovat na nejnovější verzi sady Visual Studio 2017.)
+1. Klikněte pravým tlačítkem na projekt v Průzkumníku řešení a zvolte **vlastnosti** nabídce příkaz a pak vyberte **balíčku** kartu.
+
+   **Balíčku** kartě se zobrazí pouze pro projekty založenými na sadě SDK v sadě Visual Studio, obvykle .NET Standard nebo projekty knihovny tříd .NET Core, pokud cílíte na styl projektu – sada SDK (obvykle rozhraní .NET Framework), buď [ Projekt migrovat,](../reference/migrate-packages-config-to-package-reference.md) a používat `dotnet` rozhraní příkazového řádku, nebo naleznete v tématu [vytvoření a publikování balíčku .NET Framework](create-and-publish-a-package-using-visual-studio-net-framework.md) nebo naleznete v tématu [vytvoření a publikování balíčku .NET Framework](create-and-publish-a-package-using-visual-studio-net-framework.md) místo toho pro podrobné pokyny.
 
     ![Vlastnosti balíčku NuGet v projektu sady Visual Studio](media/qs_create-vs-01-package-properties.png)
 
@@ -75,6 +78,8 @@ namespace AppLogger
 
 1. Volitelné: Pokud chcete zobrazit vlastnosti přímo v souboru projektu, klikněte pravým tlačítkem na projekt v Průzkumníku řešení a vyberte **upravit AppLogger.csproj**.
 
+   Tato možnost je pouze k dispozici pro projekty, které používají atribut SDK – vizuální styl od v sadě Visual Studio 2017. V opačném případě klikněte pravým tlačítkem na projekt a zvolte **uvolnit projekt**. Klikněte pravým tlačítkem na projekt uvolněn a zvolte **upravit AppLogger.csproj**.
+
 ## <a name="run-the-pack-command"></a>Spusťte příkaz pack
 
 1. Nastavení konfigurace **vydání**.
@@ -82,6 +87,8 @@ namespace AppLogger
 1. Klikněte pravým tlačítkem myši na projekt v **Průzkumníka řešení** a vyberte **Pack** příkaz:
 
     ![Příkaz balíčku NuGet v místní nabídce projektu sady Visual Studio](media/qs_create-vs-02-pack-command.png)
+
+    Pokud se nezobrazí **Pack** projektu není pravděpodobně SDK styl projektu a budete muset použít příkaz `nuget.exe` rozhraní příkazového řádku. Buď [projekt migrovat,](../reference/migrate-packages-config-to-package-reference.md) a použít `dotnet` rozhraní příkazového řádku, nebo se podívejte [vytvoření a publikování balíčku .NET Framework](create-and-publish-a-package-using-visual-studio-net-framework.md) místo pro podrobné pokyny.
 
 1. Visual Studio vytvoří projekt a vytvoří `.nupkg` souboru. Zkontrolujte **výstup** okna podrobnosti (podobně jako následující), který obsahuje cestu k souboru balíčku. Všimněte si také, že sestavení je v `bin\Release\netstandard2.0` befits jako cílové rozhraní .NET Standard 2.0.
 
@@ -116,7 +123,9 @@ Jakmile budete mít `.nupkg` souboru, ji publikujete do nuget.org buď pomocí `
 
 ### <a name="publish-with-dotnet-nuget-push-dotnet-cli"></a>Publikování pomocí nasdílení změn nuget dotnet (rozhraní příkazového řádku dotnet)
 
-Tento krok je alternativou k používání `nuget.exe`.
+Tento krok je doporučenou alternativou k použití `nuget.exe`.
+
+Před publikováním balíčku, je nutné otevřít příkazový řádek.
 
 [!INCLUDE [publish-dotnet](includes/publish-dotnet.md)]
 
@@ -124,9 +133,9 @@ Tento krok je alternativou k používání `nuget.exe`.
 
 Tento krok je alternativou k používání `dotnet.exe`.
 
-1. Změnit na složku obsahující `.nupkg` souboru.
+1. Otevřete příkazový řádek a změňte na složku obsahující `.nupkg` souboru.
 
-1. Spusťte následující příkaz, zadávání názvu balíčku a nahraďte hodnotu klíče svůj klíč rozhraní API:
+1. Spusťte následující příkaz, zadávání názvu balíčku (ID balíčku jedinečný) a nahraďte hodnotu klíče svůj klíč rozhraní API:
 
     ```cli
     nuget push AppLogger.1.0.0.nupkg qz2jga8pl3dvn2akksyquwcs9ygggg4exypy3bhxy6w6x6 -Source https://api.nuget.org/v3/index.json
@@ -176,7 +185,7 @@ Tato možnost zahrne soubor s názvem `readme.txt` v kořenovém adresáři bal�
 - [Vytvoření balíčku](../create-packages/creating-a-package.md)
 - [Publikování balíčku](../nuget-org/publish-a-package.md)
 - [Balíčky v předběžné verzi](../create-packages/Prerelease-Packages.md)
-- [Podpora více cílových platforem](../create-packages/supporting-multiple-target-frameworks.md)
+- [Podpora více cílových architektur](../create-packages/supporting-multiple-target-frameworks.md)
 - [Správa verzí balíčků](../reference/package-versioning.md)
 - [Vytvoření lokalizovaných balíčků](../create-packages/creating-localized-packages.md)
 - [Dokumentace ke službě knihovna .NET standard](/dotnet/articles/standard/library)

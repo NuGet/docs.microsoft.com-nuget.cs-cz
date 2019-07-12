@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 8119664b1bafe9238b12b1819cc46dc1ee7bdd00
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: de0b612e1335cafdcd6a0b802d54f2182d27ad22
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547991"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842252"
 ---
 # <a name="sync-package-package-manager-console-in-visual-studio"></a>Sync-Package (konzola Správce balíčků v sadě Visual Studio)
 
-*Verze 3.0 a; k dispozici pouze v rámci [Konzola správce balíčků NuGet](package-manager-console.md) v sadě Visual Studio ve Windows.*
+*Verze 3.0 a; k dispozici pouze v rámci [Konzola správce balíčků](package-manager-console.md) v sadě Visual Studio ve Windows.*
 
 Získá verzi nainstalovaného balíčku ze zadané (nebo výchozí) projektu a synchronizuje na verzi, aby Zbývající projekty v řešení.
 
@@ -30,11 +30,11 @@ Sync-Package [-Id] <string> [-IgnoreDependencies] [-ProjectName <string>] [[-Ver
 
 | Parametr | Popis |
 | --- | --- |
-| ID | (Povinné) Identifikátor balíčku, který se synchronizuje. -Id je volitelný přepínač samotný. |
+| Id | (Povinné) Identifikátor balíčku, který se synchronizuje. -Id je volitelný přepínač samotný. |
 | IgnoreDependencies | Nainstalujte pouze tento balíček a nikoli jeho závislé. |
 | ProjectName | Projekt pro synchronizaci balíčku, jako výchozí se použije výchozí projekt. |
 | Version | Verze balíčku k synchronizaci, jako výchozí se použije aktuálně nainstalovanou verzi. |
-| Zdroj | Cesta URL nebo složku zdroje balíčku. Chcete-li hledat. Cesty k místní složce může být absolutní nebo relativní vzhledem k aktuální složky. Pokud tento parametr vynechán, `Sync-Package` hledá aktuálně vybraném zdroji balíčku. |
+| Source | Cesta URL nebo složku zdroje balíčku. Chcete-li hledat. Cesty k místní složce může být absolutní nebo relativní vzhledem k aktuální složky. Pokud tento parametr vynechán, `Sync-Package` hledá aktuálně vybraném zdroji balíčku. |
 | IncludePrerelease | Obsahuje předběžné verze balíčků v synchronizace. |
 | FileConflictAction | Akce, který se má provést, když se zobrazí výzva k přepsání nebo ignorovat existující soubory, které jsou odkazované projektem. Možné hodnoty jsou *přepsat, ignorovat, None, OverwriteAll*, a *(3.0 +)* *IgnoreAll*. |
 | DependencyVersion | Verze závislé balíčky použití, které může být jedna z následujících akcí:<br/><ul><li>*Nejnižší* (výchozí): nejnižší verze</li><li>*HighestPatch*: verze s nejnižší hlavní, vedlejší nejnižší, nejvyšší oprava</li><li>*HighestMinor*: verze s hlavní nejnižší, nejvyšší podverze, nejvyšší oprava</li><li>*Nejvyšší* (výchozí pro Update-Package bez parametrů): nejvyšší verze</li></ul>Můžete nastavit výchozí hodnotu používanou [ `dependencyVersion` ](../reference/nuget-config-file.md#config-section) nastavení `Nuget.Config` souboru. |
@@ -44,7 +44,7 @@ Sync-Package [-Id] <string> [-IgnoreDependencies] [-ProjectName <string>] [[-Ver
 
 ## <a name="common-parameters"></a>Společné parametry
 
-`Sync-Package` podporuje následující [společné parametry prostředí PowerShell](http://go.microsoft.com/fwlink/?LinkID=113216): ladění, Chyba akce, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction a WarningVariable.
+`Sync-Package` podporuje následující [společné parametry prostředí PowerShell](http://go.microsoft.com/fwlink/?LinkID=113216): Ladění, Chyba akce, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction a WarningVariable.
 
 ## <a name="examples"></a>Příklady
 

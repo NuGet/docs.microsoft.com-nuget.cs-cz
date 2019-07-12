@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3be8d1dad6552db2fc04b2f324145ac7ce86acb2
-ms.sourcegitcommit: b9a134a6e10d7d8502613f389f7d5f9b9e206ec8
+ms.openlocfilehash: 287237cf4041870c562a6a7f48f233d8fdc8ef33
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67467775"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842387"
 ---
 # <a name="troubleshooting-package-restore-errors"></a>Řešení potíží s chybami obnovení balíčku
 
-Tento článek se zaměřuje na běžných chyb při obnovování balíčků a kroky k jejich řešení. Kompletní informace o obnovování balíčků, najdete v části [obnovení balíčku](../consume-packages/package-restore.md#enable-and-disable-package-restore).
+Tento článek se zaměřuje na běžných chyb při obnovování balíčků a kroky k jejich řešení. Kompletní informace o obnovování balíčků, najdete v části [obnovení balíčku](../consume-packages/package-restore.md#enable-and-disable-package-restore-visual-studio).
 
 Pokud zde uvedených pokynů, nebudou fungovat, [založte prosím problém na Githubu](https://github.com/NuGet/docs.microsoft.com-nuget/issues) tak, aby nám více pečlivě prozkoumat váš scénář. Nepoužívejte "je tato stránka užitečná?" ovládací prvek, který může zobrazit na této stránce, protože se nám nedává možnost kontaktovat v souvislosti s další informace.
 
@@ -29,7 +29,7 @@ Pokud používáte Visual Studio, nejprve následujícím způsobem povolte obno
 
 ![Povolit obnovení balíčků NuGet v dialogovém okně nástroje/Možnosti](../consume-packages/media/restore-01-autorestoreoptions.png)
 
-Tato nastavení lze také změnit v vaše `NuGet.config` souboru; najdete v článku [souhlas](#consent) oddílu.
+Tato nastavení lze také změnit v vaše `NuGet.config` souboru; najdete v článku [souhlas](#consent) oddílu. Pokud váš projekt je starší projekt, který používá obnovení balíčku integrované nástroje MSBuild, budete muset [migrovat](package-restore.md#migrate-to-automatic-package-restore-visual-studio) balíček automatické obnovení.
 
 <a name="missing"></a>
 
@@ -54,10 +54,10 @@ Chyba může dojít, pokud váš soubor projektu obsahuje absolutní cesty k um�
 Obnovení balíčků, použijte jednu z následujících metod:
 
 - Pokud po přesunutí souboru projektu, upravte soubor přímo aktualizovat odkazy na balíček.
-- V sadě Visual Studio povolit obnovení balíčků tak, že vyberete **nástroje > Správce balíčků NuGet > Nastavení správce balíčků** příkazu nabídky nastavení obě možnosti v části **obnovení balíčků**a výběrem  **OK**. Poté znovu sestavte řešení.
-- Pro projekty .NET Core, spusťte `dotnet restore` nebo `dotnet build` (který automaticky spustí obnovení).
-- Na příkazovém řádku spusťte `nuget restore` (s výjimkou projekty vytvořené pomocí `dotnet`, v takovém případě použijte `dotnet restore`).
-- V příkazovém řádku s projekty pomocí formátu PackageReference spustit `msbuild -t:restore`.
+- (Visual Studio) Povolit obnovení balíčků tak, že vyberete **nástroje > Správce balíčků NuGet > Nastavení správce balíčků** příkazu nabídky nastavení obě možnosti v části **obnovení balíčků**a výběrem **OK** . Poté znovu sestavte řešení.
+- (rozhraní příkazového řádku dotnet) Na příkazovém řádku přejděte do složky, která obsahuje váš projekt a pak spusťte `dotnet restore` nebo `dotnet build` (který automaticky spustí obnovení).
+- (nuget.exe rozhraní příkazového řádku) Na příkazovém řádku přejděte do složky, která obsahuje váš projekt a pak spusťte `nuget restore` (s výjimkou projekty vytvořené pomocí `dotnet` rozhraní příkazového řádku, ve které případu použití `dotnet restore`).
+- (Projekty migrovat do PackageReference) Na příkazovém řádku spusťte `msbuild -t:restore`.
 
 Po úspěšné obnovení by měla být k dispozici v balíčku *global-packages* složky. Pro projekty pomocí PackageReference obnovení musí znovu vytvořit `obj/project.assets.json` soubor; pro projekty používající `packages.config`, balíček by se měla objevit v projektu `packages` složky. Projekt by měl nyní úspěšně sestavit. V opačném případě [založte problém na Githubu](https://github.com/NuGet/docs.microsoft.com-nuget/issues) tak jsme poradí s vámi.
 

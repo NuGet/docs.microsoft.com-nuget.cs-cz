@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 849261711fafcadbab38bf6fe99340c4b79e1e21
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 2ceb1557eafd213c148d3ab870925ef5bbbee145
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43550434"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842284"
 ---
 # <a name="get-project-package-manager-console-in-visual-studio"></a>Get-Project (konzola Správce balíčků v sadě Visual Studio)
 
-*K dispozici pouze v rámci [Konzola správce balíčků NuGet](package-manager-console.md) v sadě Visual Studio ve Windows.*
+*K dispozici pouze v rámci [Konzola správce balíčků](package-manager-console.md) v sadě Visual Studio ve Windows.*
 
 Zobrazí informace o výchozích nebo zadaný projekt. `Get-Project` Konkrétně vrací referenční objekt Visual Studio DTE (Development Tools Environment) pro projekt.
 
@@ -28,14 +28,14 @@ Get-Project [[-Name] <string>] [-All] [<CommonParameters>]
 
 | Parametr | Popis |
 | --- | --- |
-| Název | Určuje projekt k zobrazení, jako výchozí se použije výchozí projekt vybraný v konzole Správce balíčků. – Název přepínače je volitelné. |
+| Name | Určuje projekt k zobrazení, jako výchozí se použije výchozí projekt vybraný v konzole Správce balíčků. – Název přepínače je volitelné. |
 | Všechny | Zobrazí informace pro každý projekt v řešení; pořadí projekty není deterministický. |
 
 Žádná z těchto parametrů přijímat kanálu vstup nebo zástupné znaky.
 
 ## <a name="common-parameters"></a>Společné parametry
 
-`Get-Project` podporuje následující [společné parametry prostředí PowerShell](http://go.microsoft.com/fwlink/?LinkID=113216): ladění, Chyba akce, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction a WarningVariable.
+`Get-Project` podporuje následující [společné parametry prostředí PowerShell](http://go.microsoft.com/fwlink/?LinkID=113216): Ladění, Chyba akce, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction a WarningVariable.
 
 ## <a name="examples"></a>Příklady
 

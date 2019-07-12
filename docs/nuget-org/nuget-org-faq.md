@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: c2fc11c0f5dd5d98c40c8b97f9d5a72c4a334b79
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: fd846632e7a1f5c49fa72d75b18e51cfc7539949
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67427602"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67841947"
 ---
 # <a name="nugetorg-frequently-asked-questions"></a>Nejčastější dotazy NuGet.org
 
@@ -252,13 +252,15 @@ Postupujte podle kroků uvedených v [odstranění účtu nuget.org](#how-to-del
 
 Chcete-li odstranit svůj účet, mějte prosím na paměti, že vám doporučujeme převést vlastnictví všechny balíčky, kde jste jediným vlastníkem. Další informace o [Správa vlastníků balíčku](https://docs.microsoft.com/en-us/nuget/create-packages/publish-a-package#managing-package-owners-on-nugetorg) o tom, jak to udělat. To vám také pomůže nám ohledně urychlení jejich zpracování vaší žádosti.
 
+Pokud chcete transformovat váš účet organizace, postupujte podle kroků uvedených v [transformace nuget.org účet organizace](#how-to-transform-my-nugetorg-account-to-an-organization).
+
 > [!Important]
 > Odstraňuje se uživatel bude mít za následek následující:
+>  1. Vaše uživatelské jméno se vyhradí a nebude moct znovu používat, můžete vytvořit samostatný účet nebo účet organizace
 >  1. Odvolat přidružené klíče rozhraní API. 
->  2. Tento účet odeberte jako vlastníka pro všechny balíčky, které podřízené.
->  3. Zrušit přidružení všechny dříve existující rezervace předpony ID, pomocí tohoto účtu.
->  4. Odeberte účet členem jakékoli organizace.
->  5. Vaše uživatelské jméno se vyhradí a nebude moci znovu jeho použití znovu bez naše oprávnění.
+>  1. Tento účet odeberte jako vlastníka pro všechny balíčky, které podřízené.
+>  1. Zrušit přidružení všechny dříve existující rezervace předpony ID, pomocí tohoto účtu.
+>  1. Odeberte účet členem jakékoli organizace.
 
 Postupujte podle následujících kroků a pokračujte odstranění účtu.
 1. [Přihlaste se k nuget.org](https://www.nuget.org/users/account/LogOn) pomocí účtu, který chcete odstranit.

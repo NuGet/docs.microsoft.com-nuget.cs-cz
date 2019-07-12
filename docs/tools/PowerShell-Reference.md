@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/02/2017
 ms.topic: reference
-ms.openlocfilehash: 977e06d36962366abd69f1c7f21ef33eca4e5029
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 425ba736eba4609ebd6b5185ae3f1f976ab07a67
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426128"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842568"
 ---
 # <a name="powershell-reference"></a>Referenční informace o prostředí PowerShell
 
-Konzola správce balíčků zajišťuje rozhraní prostředí PowerShell v rámci sady Visual Studio ve Windows pro interakci s NuGet přes konkrétní příkazy uvedené níže. (Konzola není v současné době k dispozici v sadě Visual Studio for Mac) Návod k použití konzole, najdete v části [instalaci a správě balíčků pomocí prostředí PowerShell](../tools/package-manager-console.md) tématu.
+Konzola správce balíčků zajišťuje rozhraní prostředí PowerShell v rámci sady Visual Studio ve Windows pro interakci s NuGet přes konkrétní příkazy uvedené níže. (Konzola není v současné době k dispozici v sadě Visual Studio for Mac) Návod k použití konzole, najdete v části [instalaci a správě balíčků pomocí konzole Správce balíčků](../tools/package-manager-console.md) tématu.
 
 > [!Tip]
 > Všechny příkazy prostředí PowerShell se vztahují pouze na využití balíčků. Žádné příkazy prostředí PowerShell se vztahují k vytváření a publikování balíčků s výjimkou rozsahu, balíčku může být také příjemce další balíčky.

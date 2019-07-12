@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.openlocfilehash: 1060d98278fed89ac63ee17c1896ae8bdce72a9e
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 0d637c441cf9f36e8e3e04e47b524b2defecae52
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426169"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67841670"
 ---
 # <a name="quickstart-install-and-use-a-package-using-the-dotnet-cli"></a>Rychlý start: Instalace a použití balíčku pomocí rozhraní příkazového řádku dotnet
 
@@ -23,7 +23,7 @@ Po instalaci se odkazovat na balíček v kódu s `using <namespace>` kde \<obor 
 
 ## <a name="prerequisites"></a>Požadavky
 
-- [.NET Core SDK](https://www.microsoft.com/net/download/), která poskytuje `dotnet` nástroj příkazového řádku.
+- [.NET Core SDK](https://www.microsoft.com/net/download/), která poskytuje `dotnet` nástroj příkazového řádku. Spouští se v sadě Visual Studio 2017, které pomocí libovolné platformy .NET Core se automaticky nainstaluje rozhraní příkazového řádku dotnet související úlohy.
 
 ## <a name="create-a-project"></a>Vytvoření projektu
 
@@ -106,4 +106,4 @@ Balíčky NuGet můžete nainstalovat do projektu .NET určitého druhu. V tomto
 - [Nainstalovat a používat balíčky pomocí rozhraní příkazového řádku dotnet](../consume-packages/install-use-packages-dotnet-cli.md)
 - [Přehled a pracovní postup využití balíčků](../consume-packages/overview-and-workflow.md)
 - [Vyhledání a výběr balíčků](../consume-packages/finding-and-choosing-packages.md)
-- [Obvyklé konfigurace NuGet](../consume-packages/configuring-nuget-behavior.md)
+- [Běžné konfigurace NuGetu](../consume-packages/configuring-nuget-behavior.md)

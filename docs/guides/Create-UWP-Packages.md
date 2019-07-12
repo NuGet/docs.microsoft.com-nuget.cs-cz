@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/21/2017
 ms.topic: tutorial
-ms.openlocfilehash: 52f2057f7d1012b75bba9e8730eacffd99adacfa
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 344c8d764180d0f33c1bce77b721e3657297e74e
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426865"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842123"
 ---
 # <a name="create-uwp-packages"></a>Vytvoření balíčků UPW
 
@@ -58,7 +58,7 @@ Chcete-li vytvořit počáteční `.nuspec` soubor, proveďte následující tř
     nuget spec
     ```
 
-1. Otevřít `ImageEnhancer.nuspec` v editoru a aktualizujte ji, aby se shodoval s následujícím, nahradíte vaše_jméno odpovídající hodnotu. `<id>` , Konkrétně musí být hodnota jedinečná napříč nuget.org (naleznete v tématu Zásady vytváření názvů je popsáno v [vytvoření balíčku](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number)). Všimněte si také, že budete muset taky aktualizovat Autor a popis značky nebo dojde k chybě během kroku balení.
+1. Otevřít `ImageEnhancer.nuspec` v editoru a aktualizujte ji, aby se shodoval s následujícím, nahradíte vaše_jméno odpovídající hodnotu. `<id>` , Konkrétně musí být hodnota jedinečná napříč nuget.org (naleznete v tématu Zásady vytváření názvů je popsáno v [vytvoření balíčku](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number)). Všimněte si také, že budete muset taky aktualizovat Autor a popis značky nebo dojde k chybě během kroku balení.
 
     ```xml
     <?xml version="1.0"?>
@@ -256,5 +256,5 @@ Aby váš balíček k dispozici s ostatními vývojáři, postupujte podle pokyn
 - [Balíčky symbolů](../create-packages/symbol-packages.md)
 - [Správa verzí balíčků](../reference/package-versioning.md)
 - [Podpora více verzí rozhraní .NET Framework](../create-packages/supporting-multiple-target-frameworks.md)
-- [Zahrnout do balíčku cíle a vlastnosti nástroje MSBuild](../create-packages/creating-a-package.md#including-msbuild-props-and-targets-in-a-package)
+- [Zahrnout do balíčku cíle a vlastnosti nástroje MSBuild](../create-packages/creating-a-package.md#include-msbuild-props-and-targets-in-a-package)
 - [Vytvoření lokalizovaných balíčků](../create-packages/creating-localized-packages.md)

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: 051fcc355fb78c0ab208125c2295b6316236fd46
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 4e96d9969c8b4570ee69501d6529986f891ea4dc
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426362"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842597"
 ---
 # <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>Rychlý start: Vytvoření a publikování balíčku (rozhraní příkazového řádku dotnet)
 
@@ -18,7 +18,7 @@ Je jednoduchý proces vytvoření balíčku NuGet z knihovny tříd .NET a publi
 
 ## <a name="prerequisites"></a>Požadavky
 
-1. Nainstalujte [.NET Core SDK](https://www.microsoft.com/net/download/), což zahrnuje `dotnet` rozhraní příkazového řádku.
+1. Nainstalujte [.NET Core SDK](https://www.microsoft.com/net/download/), což zahrnuje `dotnet` rozhraní příkazového řádku. Spouští se v sadě Visual Studio 2017, které pomocí libovolné platformy .NET Core se automaticky nainstaluje rozhraní příkazového řádku dotnet související úlohy.
 
 1. [Zaregistrujte si bezplatný účet na nuget.org](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) Pokud již nemáte. Vytvoření nového účtu se odešle e-mail s potvrzením. Účet musí ověřit dříve, než můžete nahrát balíček.
 
@@ -106,7 +106,7 @@ Jakmile budete mít `.nupkg` souboru, ji publikujete do nuget.org pomocí `dotne
 - [Vytvoření balíčku](../create-packages/creating-a-package.md)
 - [Publikování balíčku](../nuget-org/publish-a-package.md)
 - [Balíčky v předběžné verzi](../create-packages/Prerelease-Packages.md)
-- [Podpora více cílových platforem](../create-packages/supporting-multiple-target-frameworks.md)
+- [Podpora více cílových architektur](../create-packages/supporting-multiple-target-frameworks.md)
 - [Správa verzí balíčků](../reference/package-versioning.md)
 - [Vytvoření lokalizovaných balíčků](../create-packages/creating-localized-packages.md)
 - [Vytváření balíčků symbolů](../create-packages/symbol-packages-snupkg.md)

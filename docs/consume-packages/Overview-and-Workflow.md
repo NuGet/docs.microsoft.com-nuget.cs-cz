@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/22/2018
 ms.topic: conceptual
-ms.openlocfilehash: eeae62a09a9f405d27cd113ff586393f6305ba47
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 4cfc2fde08b240288851b87a391dc42c1ac8ecaf
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426703"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842323"
 ---
 # <a name="package-consumption-workflow"></a>Spotřeba zabalit pracovní postup
 
@@ -49,5 +49,5 @@ Balíčky NuGet se stáhnout a nainstalovat pomocí některé z metod v následu
 | --- | --- |
 | [dotnet.exe CLI](install-use-packages-dotnet-cli.md) | (Všechny platformy) Nástroje rozhraní příkazového řádku pro knihovny .NET Core a .NET Standard a sady SDK – vizuální styl projekty, které cílí na rozhraní .NET Framework (viz [SDK atribut](/dotnet/core/tools/csproj#additions)). Načte balíček identifikovaný \<název_balíčku\> a přidá odkaz na soubor projektu. Také načte a nainstaluje závislosti. |
 | Visual Studio | (Windows a Mac) Poskytuje uživatelské rozhraní, která můžete procházet, vybrat a nainstalovat balíčky a jejich závislosti do projektu ze zdroje zadaného balíčku. Přidá odkazy na balíčky nainstalované do souboru projektu.<ul><li>[Instalace a Správa balíčků s využitím sady Visual Studio](../tools/package-manager-ui.md)</li><li>[Zahrnutí balíčku NuGet do projektu (Mac)](/visualstudio/mac/nuget-walkthrough)</li></ul> |
-| [Prostředí PowerShell v sadě Visual Studio](../tools/package-manager-console.md) | (Jenom Windows) Načte a nainstaluje balíček identifikovaný \<název_balíčku\> z vybraného zdroje do zadaného projektu v řešení, přidá odkaz na soubor projektu. Také načte a nainstaluje závislosti. |
+| [Konzola správce balíčků v sadě Visual Studio](../tools/package-manager-console.md) | (Jenom Windows) Načte a nainstaluje balíček identifikovaný \<název_balíčku\> z vybraného zdroje do zadaného projektu v řešení, přidá odkaz na soubor projektu. Také načte a nainstaluje závislosti. |
 | [nuget.exe CLI](install-use-packages-dotnet-cli.md) | (Všechny platformy) Nástroj příkazového řádku pro knihovny rozhraní .NET Framework a sady SDK styl projekty, které cílit na knihovny .NET Standard. Načte balíček identifikovaný \<název_balíčku\> a rozšíří jeho obsah do složky v aktuálním adresáři, můžete také načíst všechny balíčky uvedené v `packages.config` souboru. Také načte a nainstaluje závislosti, ale neprovede žádné změny do souborů projektu nebo `packages.config`. |

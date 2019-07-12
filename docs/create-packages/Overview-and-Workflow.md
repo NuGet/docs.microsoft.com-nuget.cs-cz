@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/26/2017
 ms.topic: conceptual
-ms.openlocfilehash: a285650034c99026e34fcda398ca7ced4855e40a
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 58ad05cb854c8f7233d90d03c1b320f8797ca2ab
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67425721"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842390"
 ---
 # <a name="package-creation-workflow"></a>Pracovní postup vytvoření balíčku
 
@@ -21,9 +21,7 @@ Balíček může také sloužit k pouze o přijetí změn v jakémkoli počtu Da
 > [!Note]
 > Při vytváření balíčku pro použití pro jiné vývojáře, je důležité pochopit, že se tak závislosti na svoji práci. V důsledku toho vytváření a publikování balíčku také znamená závazkem oprava chyb a provádění dalších aktualizací nebo na velmi nejméně provedete k dispozici jako balíček opensourcových ostatní mohli pomoct k její údržbě.
 
-Bez ohledu případ, vytvoření balíčku začíná rozhodování o tom, která sestavení a další soubory balíčku. Vytvořte soubor manifestu, označuje jako `.nuspec` souboru k popisu obsah balíčku společně s jeho identifikátor, číslo verze, informace o autorských právech, vlastnosti nástroje MSBuild a cíle a spoustu dalších věcí.
-
-Když jste připravili všechny potřebné soubory do příslušných složek a vytvořili odpovídající `.nuspec` soubor, pak použijete `nuget pack` příkazu (nebo [cíl nástroje MSBuild pack](../reference/msbuild-targets.md)) sestavit vše, co do `.nupkg` souboru. Pak jste připraveni nasadit balíček do libovolné hostitele zpřístupňuje je s ostatními vývojáři.
+Bez ohledu případ, vytvoření balíčku začíná rozhodování identifikátoru, číslo verze, licence, informace o autorských právech a další nezbytné obsah. Až to bude hotové, můžete příkaz "balíček" sestavit vše, co do `.nupkg` souboru. Tento soubor můžete publikovat do informačního kanálu, jako je nuget.org NuGet.
 
 > [!Tip]
 > Balíček NuGet s `.nupkg` rozšíření je soubor ZIP. Chcete-li snadněji zkontrolovat všechny balíčky obsahu, změňte příponu na `.zip` a rozbalte svůj obsah jako obvykle. Jenom nezapomeňte změnit rozšíření zpět `.nupkg` před pokusem o jeho nahrání do hostitele.

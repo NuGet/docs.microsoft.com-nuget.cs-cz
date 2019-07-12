@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: e4c57c0580fe9018703291c08d60e559f95183dc
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: fd6ecab05a392a2a0b4ddf1ac15eb108f2653703
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426207"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842402"
 ---
 # <a name="nuspec-reference"></a>odkaz na souboru .nuspec
 
@@ -32,7 +32,7 @@ V tomto tématu:
 
 - Použít `.nuspec` s `nuget.exe pack` bez SDK-style projekty, které používají `packages.config`.
 
-- A `.nuspec` soubor není nezbytný k vytváření balíčků pro projekty založenými na sadě SDK (projekty .NET Core a .NET Standard, které používají [SDK atribut](/dotnet/core/tools/csproj#additions)). (Všimněte si, že `.nuspec` se vygeneruje, když vytvoříte balíček.)
+- A `.nuspec` souboru není nutné k vytváření balíčků pro [projekty založenými na sadě SDK](../resources/check-project-format.md) (obvykle projekty .NET Core a .NET Standard, které používají [SDK atribut](/dotnet/core/tools/csproj#additions)). (Všimněte si, že `.nuspec` se vygeneruje, když vytvoříte balíček.)
 
    Při vytváření balíčku pomocí `dotnet.exe pack` nebo `msbuild pack target`, doporučujeme vám [zahrnout všechny vlastnosti](../reference/msbuild-targets.md#pack-target) , které jsou obvykle v `.nuspec` místo souboru v souboru projektu. Ale můžete místo toho nastavit [použít `.nuspec` souboru se zabalit pomocí `dotnet.exe` nebo `msbuild pack target` ](../reference/msbuild-targets.md#packing-using-a-nuspec).
 
@@ -72,7 +72,7 @@ I když tyto prvky jsou minimální požadavky pro balíček, měli byste zváž
 Tyto prvky musí být uvedena v rámci `<metadata>` elementu.
 
 #### <a name="id"></a>id 
-Identifikátor balíčku velká a malá písmena, která musí být jedinečný v rámci nuget.org nebo cokoli jiného balíčku se nachází v galerii. ID nemůže obsahovat mezery nebo znaky, které nejsou platné pro adresu URL a obvykle postupují podle pravidla oboru názvů .NET. Zobrazit [výběr balíčku jedinečný identifikátor](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number) pokyny.
+Identifikátor balíčku velká a malá písmena, která musí být jedinečný v rámci nuget.org nebo cokoli jiného balíčku se nachází v galerii. ID nemůže obsahovat mezery nebo znaky, které nejsou platné pro adresu URL a obvykle postupují podle pravidla oboru názvů .NET. Zobrazit [výběr balíčku jedinečný identifikátor](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number) pokyny.
 #### <a name="version"></a>verze
 Verze balíčku, následující *hlavníverze.podverze.oprava* vzor. Čísla verzí může obsahovat příponu předběžné verze, jak je popsáno v [Správa verzí balíčků](../reference/package-versioning.md#pre-release-versions). 
 #### <a name="description"></a>description
@@ -82,25 +82,32 @@ Dlouhý popis balíčku zobrazí v uživatelském rozhraní.
 
 ### <a name="optional-metadata-elements"></a>Volitelná metadata elementy
 
-#### <a name="title"></a>název
-Lidské popisný název balíčku, obvykle používaných v uživatelském rozhraní na webech nuget.org a Správce balíčků v sadě Visual Studio. Pokud není zadán, použije se ID balíčku. 
 #### <a name="owners"></a>Vlastníci
 Čárkou oddělený seznam Tvůrce balíčku pomocí názvy profilů na nuget.org. To je často seznamu stejné jako v `authors`a je ignorován při nahrávání balíčku do nuget.org. Zobrazit [vlastníky Správa balíčků na nuget.org](../nuget-org/publish-a-package.md#managing-package-owners-on-nugetorg). 
+
 #### <a name="projecturl"></a>projectUrl
 Adresa URL domovské stránky balíčku, často zobrazuje v uživatelském rozhraní nuget.org. 
+
 #### <a name="licenseurl"></a>licenseUrl
 > [!Important]
 > licenseUrl je zastaralé. Místo toho použijte licenci.
 
-Adresa URL licence balíčku, často zobrazuje v uživatelském rozhraní nuget.org.
+Adresa URL licence balíčku, často zobrazuje v uživatelská rozhraní, jako je nuget.org.
+
 #### <a name="license"></a>Licence
-Výraz SPDX licence nebo cesta k souboru licencí v rámci balíčku, často zobrazuje v uživatelském rozhraní nuget.org. V případě, že licencujete balíčku v rámci běžných licence, jako je například BSD-2klauzule nebo MIT, použijte přidružený identifikátor SPDX licence.<br>Příklad: `<license type="expression">MIT</license>`
+Výraz SPDX licence nebo cesta k souboru licencí v rámci balíčku, často zobrazuje v uživatelská rozhraní, jako je nuget.org. V případě, že licencujete balíčku v rámci běžných licence, jako je MIT nebo BSD 2 klauzule, použijte přidruženého [SPDX licence identifikátor](https://spdx.org/licenses/). Příklad:
 
-Tady je úplný seznam [SPDX licence identifikátory](https://spdx.org/licenses/). NuGet.org přijímá pouze OSI nebo licenci FSF schválení licence při použití výrazu typu.
+`<license type="expression">MIT</license>`
 
-Pokud váš balíček je licencován několik běžných licence, můžete zadat složené licencí pomocí [SPDX výraz syntaxe verze 2.0](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60).<br>Příklad: `<license type="expression">BSD-2-Clause OR MIT</license>`
+> [!Note]
+> NuGet.org přijímá pouze výrazy licence, které schválí Open Source iniciativa nebo Bezplatný Software Foundation.
 
-Pokud používáte licenci, která ještě není přiřazený identifikátor SPDX, nebo vlastní licenci, můžete zabalit do souboru (pouze `.txt` nebo `.md`) s textem licence. Příklad:
+Pokud váš balíček je licencován několik běžných licence, můžete zadat složené licencí pomocí [SPDX výraz syntaxe verze 2.0](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60). Příklad:
+
+`<license type="expression">BSD-2-Clause OR MIT</license>`
+
+Pokud používáte vlastní licenci, která nepodporuje výrazy licence, můžete zabalit `.txt` nebo `.md` soubor s textem licence. Příklad:
+
 ```xml
 <package>
   <metadata>
@@ -140,30 +147,41 @@ Adresa URL pro bitovou kopii 64 x 64 s průhlednost pozadí použít jako ikona 
 
 #### <a name="requirelicenseacceptance"></a>requireLicenseAcceptance
 Logická hodnota určující, zda klient musí požádat spotřebitele o přijetí licence balíčku před instalací balíčku.
+
 #### <a name="developmentdependency"></a>DevelopmentDependency
 *(2.8+)* Logická hodnota určující, jestli tento balíček představuje označit jako vývoj – jen závislost, což zabrání balíčku nebudou zahrnuty v závislosti na dalších balíčků. S PackageReference (NuGet 4.8 +) tento příznak také znamená, že vyloučí kompilace prostředků z kompilace. Zobrazit [DevelopmentDependency podporu pro PackageReference](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference)
+
 #### <a name="summary"></a>souhrn
 Krátký popis balíčku zobrazí v uživatelském rozhraní. Pokud tento parametr vynechán, zkrácená verze `description` se používá.
+
 #### <a name="releasenotes"></a>ReleaseNotes
 *(1.5+)* Popis změn provedených v této verzi balíčku, často používají v uživatelském rozhraní, jako **aktualizace** kartu z Visual Studio Správce balíčků namísto popisu balíčku.
+
 #### <a name="copyright"></a>Copyright
 *(1.5+)* Copyright podrobnosti balíčku.
+
 #### <a name="language"></a>jazyk
 ID národního prostředí pro balíček. Zobrazit [vytvoření lokalizovaných balíčků](../create-packages/creating-localized-packages.md).
+
 #### <a name="tags"></a>značky
 Mezerami oddělený seznam značek a klíčových slov, které popisují balíček a podpora zjistitelnost balíčků prostřednictvím vyhledávání a filtrování. 
+
 #### <a name="serviceable"></a>možnost změny 
 *(3.3+)* Pouze pro interní NuGet použít.
+
 #### <a name="repository"></a>úložiště
 Metadata úložiště, skládající se z čtyři volitelné atributy: *typ* a *url* *(4.0 +)* , a *větev* a  *potvrzení* *(4.6 +)* . Tyto atributy umožňují namapovat .nupkg do úložiště, který sestavilo, má potenciál, chcete-li získat podrobné jako jednotlivé větev nebo potvrzení změn, které sestaven balíček. To by měl být veřejně dostupnou adresu url, který lze vyvolat přímo pomocí softwaru pro řízení verzí. Neměl by být stránku html jako ten je určený pro počítače. Pro odkazování na stránku projektu, použijte `projectUrl` pole, místo toho.
 
 #### <a name="minclientversion"></a>minClientVersion
 Určuje minimální verzi klienta NuGet, který můžete nainstalovat tento balíček, vynucuje nuget.exe a Správce balíčků sady Visual Studio. Používá se pokaždé, když se balíček závisí na konkrétních funkcí služby `.nuspec` souborů, které byly přidány v konkrétní verzi klienta NuGet. Třeba balíček pomocí `developmentDependency` atribut by měl určovat "2.8" pro `minClientVersion`. Obdobně balíček pomocí `contentFiles` – element (viz další části) by měl nastavit `minClientVersion` na "3.3". Upozorňujeme také, že klienti NuGet před 2.5 nedokáže rozpoznat tento příznak jsou *vždy* odmítnout instalace balíčku bez ohledu na to, co `minClientVersion` obsahuje.
 
+#### <a name="title"></a>název
+Zobrazí lidských popisný název balíčku, který může být použit v některých uživatelského rozhraní. (nuget.org a Správce balíčků v sadě Visual Studio nezobrazovat nadpis)
+
 #### <a name="collection-elements"></a>Elementy v kolekci
 
 #### <a name="packagetypes"></a>packageTypes
-*(3.5 +)*  Kolekce nula nebo více `<packageType>` elementy typu balíčku Pokud než tradiční závislost balíčku. Každý packageType má atributy *název* a *verze*. Zobrazit [nastavení typ balíčku](../create-packages/creating-a-package.md#setting-a-package-type).
+*(3.5 +)*  Kolekce nula nebo více `<packageType>` elementy typu balíčku Pokud než tradiční závislost balíčku. Každý packageType má atributy *název* a *verze*. Zobrazit [nastavení typ balíčku](../create-packages/set-package-type.md).
 #### <a name="dependencies"></a>závislosti
 Kolekce nula nebo více `<dependency>` prvky určení závislostí pro balíček. Každá závislost má atributy *id*, *verze*, *zahrnují* (3.x+), a *vyloučit* (3.x+). Zobrazit [závislosti](#dependencies-element) níže.
 #### <a name="frameworkassemblies"></a>frameworkAssemblies
@@ -198,7 +216,7 @@ Obvykle, když máte projekt, vytvoříte `.nuspec` zpočátku pomocí `nuget sp
 
 S výjimkou produktů `$configuration$`, jsou hodnoty v projektu použít preferenci pro libovolné přiřazen stejný token v příkazovém řádku.
 
-| Podpisový | Hodnota zdroje | Hodnota
+| Podpisový | Hodnota zdroje | Value
 | --- | --- | ---
 | **$id$** | soubor projektu | AssemblyName (název) ze souboru projektu |
 | **$version$** | AssemblyInfo | AssemblyInformationalVersion, pokud jsou k dispozici, jinak AssemblyVersion |

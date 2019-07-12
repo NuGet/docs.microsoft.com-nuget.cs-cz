@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 9db24b2dd6ced0869ac84b25f9796ded5df10f86
-ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
+ms.openlocfilehash: c3a01b7747be96f02f7b93b3bf66f5d1783ceed7
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56145641"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842557"
 ---
 # <a name="pack-command-nuget-cli"></a>Příkaz Pack (NuGet CLI)
 
@@ -39,7 +39,7 @@ kde `<nuspecPath>` a `<projectPath>` zadejte `.nuspec` nebo souboru, resp. proje
 | ExcludeEmptyDirectories | Zabraňuje zahrnovaly prázdné adresáře při sestavování balíčku. |
 | ForceEnglishOutput | *(3.5 +)*  Vynutí nuget.exe pro spuštění pomocí neutrální, základem je angličtina jazyková verze. |
 | ConfigFile | Zadejte konfigurační soubor pro příkaz pack. |
-| Nápověda | Zobrazí nápovědu pro příkaz. |
+| Help | Zobrazí nápovědu pro příkaz. |
 | IncludeReferencedProjects | Označuje, že sestavení balíčku by měl zahrnovat odkazované projekty buď jako závislosti, nebo jako součást balíčku. Pokud odkazovaný projekt má odpovídající `.nuspec` soubor, který má stejný název jako projekt, pak tento Odkazovaný projekt je přidán jako závislost. V opačném případě Odkazovaný projekt je přidán jako součást balíčku. |
 | MinClientVersion | Nastavte *minClientVersion* atribut pro vytvořený balíček. Tato hodnota se přepíše stávající hodnotu *minClientVersion* atribut (pokud existuje) `.nuspec` souboru. |
 | MSBuildPath | *(4.0 +)*  Určuje cestu k používání pomocí příkazu, přednost `-MSBuildVersion`. |
@@ -50,8 +50,9 @@ kde `<nuspecPath>` a `<projectPath>` zadejte `.nuspec` nebo souboru, resp. proje
 | Vlastnosti | By se zobrazit poslední na příkazovém řádku po další možnosti. Určuje seznam vlastností, které přepisují hodnoty v souboru projektu. Zobrazit [obecné vlastnosti projektu nástroje MSBuild](/visualstudio/msbuild/common-msbuild-project-properties) pro názvy vlastností. Vlastnosti argumentu tady je seznam token = dvojice hodnot oddělených středníkem, ve kterém každý výskyt `$token$` v `.nuspec` soubor se nahradí zadanou hodnotu. Hodnoty mohou být řetězce v uvozovkách. Všimněte si, že pro vlastnost "Konfigurace" Výchozí hodnota je "Debug". Chcete-li změnit konfiguraci vydané verze, použijte `-Properties Configuration=Release`. |
 | Přípona | *(3.4.4+)*  Připojí přípona interně vygenerovanému číslu verze, obvykle se používá pro připojování sestavení nebo jiné předběžné verze identifikátory. Například použití `-suffix nightly` vytvoří balíček s lajk číslo verze `1.2.3-nightly`. Přípony musí začínat písmenem, aby se zabránilo upozornění a chyby, kde najdete potenciální nekompatibility s různými verzemi nástroje NuGet a Správce balíčků NuGet. |
 | Symboly | Určuje, zda balíček obsahuje zdroje a symbolů. Při použití s `.nuspec` soubor, vytvoří běžný soubor balíčku NuGet a odpovídající balíček symbolů. Ve výchozím nastavení vytvoří [symbol starší verze balíčku](../create-packages/Symbol-Packages.md). Nové doporučený formát pro balíčky symbolů je .snupkg. Zobrazit [vytváření balíčků symbolů (.snupkg)](../create-packages/Symbol-Packages-snupkg.md). |
+| SymbolPackageFormat | Určuje formát balíček symbolů: *symbols.nupkg* (starší verze) nebo *snupkg* (doporučeno). Ve výchozím nastavení vytvoří [symbol starší verze balíčku](../create-packages/Symbol-Packages.md). Zobrazit [vytváření balíčků symbolů (.snupkg)](../create-packages/Symbol-Packages-snupkg.md). |
 | Nástroj | Určuje, že výstupní soubory projektu musí být umístěné ve `tool` složky. |
-| Podrobnosti | Určuje množství podrobností, na které se zobrazí ve výstupu: *normální*, *quiet*, *podrobné*. |
+| Verbosity | Určuje množství podrobností, na které se zobrazí ve výstupu: *normální*, *quiet*, *podrobné*. |
 | Version | Přepíše číslo verze z `.nuspec` souboru. |
 
 Viz také [proměnné prostředí](cli-ref-environment-variables.md)

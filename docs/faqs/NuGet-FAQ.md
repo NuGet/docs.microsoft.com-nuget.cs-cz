@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8bc6af90638408847af6e97cebcbf428f1d5d886
-ms.sourcegitcommit: b9a134a6e10d7d8502613f389f7d5f9b9e206ec8
+ms.openlocfilehash: 20a55c6ba89478e70d8e6837aaebc1b7b7754a93
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67467754"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842440"
 ---
 # <a name="nuget-frequently-asked-questions"></a>NuGet – nejčastější dotazy
 
@@ -135,7 +135,7 @@ Nastavte [ `disableSourceControlIntegration` ](../reference/nuget-config-file.md
 
 **Jak můžu vypnout obnovení balíčků?**
 
-Zobrazit [povolení a zákaz obnovení balíčku](../consume-packages/package-restore.md#enable-and-disable-package-restore).
+Zobrazit [povolení a zákaz obnovení balíčku](../consume-packages/package-restore.md#enable-and-disable-package-restore-visual-studio).
 
 **Proč se zobrazí zpráva "Nelze přeložit došlo k chybě závislosti" při instalaci místního balíčku se vzdálených závislostí?**
 
