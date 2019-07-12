@@ -14,4 +14,5 @@
 # Odkaz
 ## [NuGet API](../api/overview.md)
 ## [licenses.nuget.org](licenses.nuget.org.md)
+# Zdroje a prostředky
 ## [Nejčastější dotazy](nuget-org-faq.md)
