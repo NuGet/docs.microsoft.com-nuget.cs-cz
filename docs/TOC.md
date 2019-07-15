@@ -15,11 +15,11 @@
 ### [Visual Studio pro Mac](/visualstudio/mac/nuget-walkthrough?toc=/nuget/toc.json)
 ### [dotnet CLI](consume-packages/install-use-packages-dotnet-cli.md)
 ### [nuget.exe CLI](consume-packages/install-use-packages-nuget-cli.md)
-### [PowerShell](tools/package-manager-console.md)
+### [Konzola Správce balíčků (PowerShell)](tools/package-manager-console.md)
 ## Konfigurace NuGetu
 ### Možnosti obnovení balíčku
 #### [Možnosti obnovení](consume-packages/package-restore.md)
-#### [Odstraňování potíží](consume-packages/package-restore-troubleshooting.md)
+#### [Řešení potíží](consume-packages/package-restore-troubleshooting.md)
 ### [Opětovná instalace a aktualizace balíčků](consume-packages/reinstalling-and-updating-packages.md)
 ### [Správa globálních balíčků a složek mezipaměti](consume-packages/managing-the-global-packages-and-cache-folders.md)
 ### [Správa rozsahu důvěryhodnosti balíčků](consume-packages/installing-signed-packages.md)
@@ -31,21 +31,23 @@
 ### [packages.config](reference/packages-config.md)
 # Vytváření balíčků
 ## [Přehled a pracovní postup](create-packages/overview-and-workflow.md)
-## [Vytvoření balíčku – nuget.exe CLI](create-packages/creating-a-package.md)
+## [Vytvoření balíčku](create-packages/creating-a-package.md)
 ## [Vytvoření balíčku nástrojem MSBuild](reference/msbuild-targets.md)
 ## [Podpora více cílových architektur](create-packages/supporting-multiple-target-frameworks.md)
 ## [Vytvoření předběžné verze balíčku](create-packages/prerelease-packages.md)
 ## [Vytvoření balíčku symbolů](create-packages/symbol-packages-snupkg.md)
 ## Pokročilé úlohy
 ### [Úprava zdrojového kódu a konfiguračních souborů](create-packages/source-and-config-file-transformations.md)
-### [Vytvoření lokalizovaného balíčku](create-packages/creating-localized-packages.md)
 ### [Výběr sestavení odkazovaných projekty](create-packages/select-assemblies-referenced-by-projects.md)
+### [Nastavení typu balíčku](create-packages/set-package-type.md)
+### [Vytvoření lokalizovaného balíčku](create-packages/creating-localized-packages.md)
 ## Příručky pro specifický obsah
 ### [Vytvoření balíčku UPW](guides/create-uwp-packages.md)
 ### [Vytvoření nativního balíčku](create-packages/native-packages.md)
 ### [Vytvoření ovládacích prvků uživatelského rozhraní jako balíčku NuGet](guides/create-UI-controls.md)
 ### [Vytvoření analyzátoru jako balíčku NuGet](reference/analyzers-conventions.md)
 ### [Vytvoření balíčku pro Xamarin pomocí sady Visual Studio 2015](guides/create-packages-for-xamarin.md)
+### [Vytvoření balíčku se sestaveními zprostředkovatele komunikace s objekty COM](create-packages/author-packages-with-COM-interop-assemblies.md)
 ## Podepisování balíčků
 ### [Podepsání balíčku](create-packages/sign-a-package.md)
 ### [Podpisy a požadavky podepsaných balíčků](reference/signed-packages-reference.md)
@@ -101,7 +103,7 @@
 ### [Update-Package](tools/ps-ref-update-package.md)
 ## NuGet API
 ### [Přehled](api/overview.md)
-### Prostředky
+### Zdroje a prostředky
 #### [Automatické dokončování](api/search-autocomplete-service-resource.md)
 #### [Katalog](api/catalog-resource.md)
 #### [Obsah balíčků](api/package-base-address-resource.md)
@@ -111,7 +113,7 @@
 #### [Doručení balíčků symbolů](api/symbol-package-publish-resource.md)
 #### [Adresa URL pro ohlášení zneužití](api/report-abuse-resource.md)
 #### [Podpisy úložiště](api/repository-signatures-resource.md)
-#### [Hledání](api/search-query-service-resource.md)
+#### [Search](api/search-query-service-resource.md)
 #### [Index služby](api/service-index.md)
 ### [Postup: Vytvoření dotazu na všechny balíčky pomocí rozhraní API](guides/api/query-for-all-published-packages.md)
 ### [Limity počtů požadavků](api/rate-limits.md)
@@ -264,12 +266,12 @@
 ### [Rozhraní API NuGetu ve Visual Studiu](visual-studio-extensibility/nuget-api-in-visual-studio.md)
 ### [Podpora projektových systémů](visual-studio-extensibility/project-system-support.md)
 ### [Šablony sady Visual Studio](visual-studio-extensibility/visual-studio-templates.md)
-# Prostředky
+# Zdroje a prostředky
 ## Zásady
 ### [Zásady správného řízení](policies/governance.md)
 ### [Ekosystém](policies/ecosystem.md)
 ### [Zásady NuGet.org](nuget-org/policies/data-requests.md)
-## Zpráva k vydání verze
+## Poznámky k verzi
 ### [Známé problémy](release-notes/known-issues.md)
 ### [NuGet 5.0 RTM](release-notes/NuGet-5.0-RTM.md)
 ### NuGet 4.x
@@ -335,4 +337,5 @@
 #### [NuGet 1.2](release-notes/NuGet-1.2.md)
 #### [NuGet 1.1](release-notes/NuGet-1.1.md)
 ## [Nejčastější dotazy](faqs/nuget-faq.md)
+## [Formát projektu](resources/check-project-format.md)
 # [NuGet.org](nuget-org/overview-nuget-org.md)
