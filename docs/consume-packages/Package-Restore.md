@@ -1,61 +1,61 @@
 ---
-title: Obnovení balíčků NuGet
-description: Přehled, jak balíčky NuGet obnovení projektu závisí na, včetně postup zakázání obnovení a omezení verze.
+title: Obnovení balíčku NuGet
+description: Přehled o tom, jak NuGet obnovuje balíčky, na kterých je projekt závislý, včetně toho, jak zakázat obnovení a omezit verze
 author: karann-msft
 ms.author: karann
 ms.date: 06/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: e85d8cc3fd9492118bd8f34cfd05f20a9724c281
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 0df2b0ebcf438fba99291558f1cf929dcb32618b
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842344"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68316991"
 ---
-# <a name="package-restore-options"></a>Možnosti obnovení balíčku
+# <a name="package-restore-options"></a>Možnosti obnovení balíčků
 
-Zvýšit úroveň čištění vývojového prostředí a snížit velikost úložiště, NuGet **obnovení balíčků** instaluje všechny závislosti projektu, které jsou uvedené v souboru projektu nebo `packages.config`. .NET Core 2.0 + `dotnet build` a `dotnet run` příkazy provést obnovení automatické balíčku. Visual Studio můžete balíčky obnovit automaticky při sestavení projektu, a kdykoli prostřednictvím sady Visual Studio, můžete obnovit balíčky `nuget restore`, `dotnet restore`a xbuild v Mono.
+Pro zvýšení úrovně čisticího vývojového prostředí a snížení velikosti úložiště nainstaluje **obnovení balíčku** NuGet všechny závislosti projektu uvedené v souboru projektu nebo `packages.config`. Rozhraní .NET Core 2.0 + `dotnet build` a `dotnet run` provede automatické obnovení balíčku. Visual Studio může automaticky obnovovat balíčky při sestavení projektu a balíčky můžete kdykoli obnovit pomocí sady Visual Studio, `nuget restore`, `dotnet restore`a xbuild na mono.
 
-Obnovení balíčků zajišťuje, že všechny projektu závislosti jsou k dispozici, bez nutnosti mít uložené ve správě zdrojového kódu. Nakonfigurování svým úložištěm řízení zdrojů pro vyloučení binární soubory balíčku najdete v tématu [balíčky a Správa zdrojového kódu](../consume-packages/packages-and-source-control.md). 
+Obnovení balíčku zajistí, že jsou k dispozici všechny závislosti projektu, aniž by bylo nutné je ukládat do správy zdrojového kódu. Chcete-li konfigurovat úložiště správy zdrojového kódu pro vyloučení binárních souborů balíčku, přečtěte si téma [balíčky a Správa zdrojového kódu](../consume-packages/packages-and-source-control.md). 
 
 ## <a name="package-restore-overview"></a>Přehled obnovení balíčků
 
-Obnovení balíčku nejdřív nainstaluje přímé závislosti projektu podle potřeby a potom nainstaluje všechny závislosti tyto balíčky v průběhu graf závislostí pro celé.
+Obnovení balíčků nejprve nainstaluje přímé závislosti projektu podle potřeby a pak nainstaluje všechny závislosti těchto balíčků do celého grafu závislostí.
 
-Pokud balíček není nainstalovaná, NuGet se nejprve pokusí načíst z [mezipaměti](../consume-packages/managing-the-global-packages-and-cache-folders.md). Pokud balíček není v mezipaměti, NuGet se pokusí stáhnout balíček ze všech zdrojů povoleno v seznamu v **nástroje** > **možnosti** > **Správce balíčků NuGet**   >  **Balíček zdroje** v sadě Visual Studio. Během obnovení NuGet ignoruje pořadí zdroje balíčků a používá balíček z libovolným zdrojem je nejprve reagovat na požadavky. Další informace o tom, jak se chová NuGet naleznete v tématu [konfigurace běžných NuGet](Configuring-NuGet-Behavior.md). 
+Pokud balíček ještě není nainstalovaný, NuGet se nejdřív pokusí ho načíst z [mezipaměti](../consume-packages/managing-the-global-packages-and-cache-folders.md). Pokud balíček v mezipaměti není, nástroj NuGet se pokusí stáhnout balíček ze všech povolených zdrojů v seznamu ve**volbách** >  **nástroje** >  > **Správce balíčků NuGet** **zdroje balíčku** ve vizuálu. Studio. V průběhu obnovení NuGet ignoruje pořadí zdrojů balíčků a při použití balíčku z libovolného zdroje je nejdříve odpovídat na požadavky. Další informace o tom, jak se NuGet chová, najdete v tématu [běžné konfigurace NuGet](Configuring-NuGet-Behavior.md). 
 
 > [!Note]
-> NuGet neukazuje, nepovedlo se obnovit balíček, dokud byly vráceny všechny zdroje. V tu chvíli NuGet hlásí selhání pouze poslední zdroje v seznamu. Chyba znamená, že nebyl k dispozici v balíčku *jakékoli* z jiných zdrojů i v případě chyby se nezobrazují pro každou z těchto zdrojů jednotlivě.
+> NuGet neindikuje selhání při obnovování balíčku, dokud nebudou všechny zdroje zkontrolovány. V tuto chvíli hlásí NuGet selhání jenom pro poslední zdroj v seznamu. Tato chyba znamená, že balíček nebyl přítomen na *žádném* z ostatních zdrojů, a to i v případě, že chyby nejsou pro každý z těchto zdrojů zobrazovány jednotlivě.
 
-## <a name="restore-packages"></a>Obnovení balíčků
+## <a name="restore-packages"></a>Obnovit balíčky
 
-Obnovení balíčků můžete spustit v některém z následujících způsobů:
+Obnovení balíčku můžete aktivovat některým z následujících způsobů:
 
-- **Visual Studio**: V sadě Visual Studio na Windows použijte jednu z následujících metod.
+- **Visual Studio**: V aplikaci Visual Studio ve Windows použijte jednu z následujících metod.
 
-    - Obnovení balíčků automaticky. Obnovení balíčku dojde automaticky při vytvoření projektu ze šablony nebo sestavení projektu, v souladu s možností [povolení a zákaz obnovení balíčku](#enable-and-disable-package-restore-visual-studio). Ve Správci NuGet 4.0 + obnovit také dojde automaticky když provedete změny do sady SDK – vizuální styl projektu (obvykle projektu .NET Core nebo .NET Standard).
+    - Obnovte balíčky automaticky. K obnovení balíčku dojde automaticky při vytvoření projektu ze šablony nebo sestavení projektu v závislosti na možnostech v části [Povolit a zakázat obnovení balíčku](#enable-and-disable-package-restore-visual-studio). V NuGet 4.0 + dojde k obnovení také automaticky při provádění změn v projektu ve stylu sady SDK (obvykle se jedná o .NET Core nebo .NET Standard projekt).
 
-    - Obnovení balíčků ručně. Pokud chcete obnovit ručně, klikněte pravým tlačítkem na řešení v **Průzkumníka řešení** a vyberte **obnovit balíčky NuGet**. Pokud jeden nebo více jednotlivých balíčků ještě nejsou nainstalovány správně, **Průzkumníka řešení** se zobrazuje ikona chyba. Klikněte pravým tlačítkem a vyberte **spravovat balíčky NuGet**a použijte **Správce balíčků** odinstalovat a znovu nainstalovat ovlivněné balíčky. Další informace najdete v tématu [znovu nainstalovat a aktualizace balíčků](../consume-packages/reinstalling-and-updating-packages.md)
+    - Obnovte balíčky ručně. Ruční obnovení získáte tak, že kliknete pravým tlačítkem na řešení v **Průzkumník řešení** a vyberete **obnovit balíčky NuGet**. Pokud některé balíčky stále nejsou nainstalované správně, **Průzkumník řešení** zobrazí ikonu chyby. Klikněte pravým tlačítkem a vyberte **Spravovat balíčky NuGet**a pomocí **Správce balíčků** odinstalujte a znovu nainstalujte ovlivněné balíčky. Další informace najdete v tématu [Přeinstalace a aktualizace balíčků](../consume-packages/reinstalling-and-updating-packages.md) .
 
-    Pokud se zobrazí chyba "Tento projekt odkazuje na balíčky NuGet, které jsou na tomto počítači chybí" nebo "jeden nebo více balíčků NuGet je nutné obnovit, ale nepodařilo, protože nebyl udělen souhlas," [povolit automatické obnovení](#enable-and-disable-package-restore-visual-studio). Viz také [migrace na balíček automatické obnovení](#migrate-to-automatic-package-restore-visual-studio) a [obnovení balíčků řešení potíží s](Package-restore-troubleshooting.md).
+    Pokud se zobrazí chyba "Tento projekt odkazuje na balíčky NuGet, které v tomto počítači chybí", "nebo" jeden nebo více balíčků NuGet je nutné obnovit, ale nedala se k udělení souhlasu " [Povolit automatické obnovení](#enable-and-disable-package-restore-visual-studio)". Přečtěte si také téma [migrace na automatické obnovení balíčků](#migrate-to-automatic-package-restore-visual-studio) a [řešení potíží s obnovením balíčků](Package-restore-troubleshooting.md).
 
-- **rozhraní příkazového řádku DotNet**: Na příkazovém řádku přejděte do složky, která obsahuje váš projekt a pak použít [dotnet restore](/dotnet/core/tools/dotnet-restore?tabs=netcore2x) příkazu Obnovit balíčky uvedené v souboru projektu s [PackageReference](../consume-packages/package-references-in-project-files.md). S .NET Core 2.0 nebo novější, obnovení se automaticky stane s `dotnet build` a `dotnet run` příkazy.  
+- **DOTNET CLI**: V příkazovém řádku přejděte do složky, která obsahuje váš projekt, a pak pomocí příkazu [dotnet Restore](/dotnet/core/tools/dotnet-restore?tabs=netcore2x) obnovte balíčky uvedené v souboru projektu pomocí [PackageReference](../consume-packages/package-references-in-project-files.md). Pomocí .NET Core 2,0 a novějšího se k obnovení dochází automaticky `dotnet build` pomocí `dotnet run` příkazů a.  
 
-- **nuget.exe CLI**: Na příkazovém řádku přejděte do složky, která obsahuje váš projekt a pak použít [obnovení nuget](../tools/cli-ref-restore.md) příkazu Obnovit balíčky uvedené v souboru projektu nebo řešení, nebo v `packages.config`. 
+- rozhraní příkazového **řádku NuGet. exe**: V příkazovém řádku přejděte do složky, která obsahuje váš projekt, a pak pomocí příkazu [NuGet Restore](../reference/cli-reference/cli-ref-restore.md) obnovte balíčky uvedené v souboru projektu nebo řešení nebo v `packages.config`. 
 
-- **MSBuild**: Použití [msbuild - t: restore](../reference/msbuild-targets.md#restore-target) příkazu Obnovit balíčky uvedené v souboru projektu pomocí PackageReference. Tento příkaz je k dispozici pouze v NuGet 4.x+ a MSBuild 15.1 +, které jsou součástí sady Visual Studio 2017 a vyšší verze. Obě `nuget restore` a `dotnet restore` použijte tento příkaz pro příslušné projekty.
+- **MSBuild**: Pomocí příkazu [MSBuild-t:Restore](../reference/msbuild-targets.md#restore-target) obnovte balíčky uvedené v souboru projektu pomocí PackageReference. Tento příkaz je k dispozici pouze v NuGet 4. x + a MSBuild 15.1 +, které jsou součástí sady Visual Studio 2017 a novějších verzí. `nuget restore` A`dotnet restore` použijte tento příkaz pro příslušné projekty.
 
-- **Kanály Azure**: Při vytváření definice sestavení v kanálech Azure zahrnují NuGet [obnovení](/azure/devops/pipelines/tasks/package/nuget#restore-nuget-packages) nebo .NET Core [obnovení](/azure/devops/pipelines/tasks/build/dotnet-core-cli?view=azure-devops) úloh v definici předtím, než se některé úlohy sestavení. Některé šablony sestavení zahrnout úlohy obnovení ve výchozím nastavení.
+- **Azure Pipelines**: Při vytváření definice sestavení v Azure Pipelines zahrňte do definice úlohu [obnovení](/azure/devops/pipelines/tasks/package/nuget#restore-nuget-packages) NuGet nebo [obnovení](/azure/devops/pipelines/tasks/build/dotnet-core-cli?view=azure-devops) .NET Core před všemi úlohami sestavení. Některé šablony sestavení obsahují ve výchozím nastavení úlohu obnovit.
 
-- **Azure DevOps Server**: Azure DevOps Server a sadu TFS 2013 a novější automaticky obnovení balíčků během sestavení, pokud používáte TFS 2013 nebo vyšší šablony Team Build. U starších verzí sady TFS můžete zahrnout krok sestavení spustit možnost příkazového řádku obnovení nebo volitelně šablony sestavení migrovat na novější verzi. Další informace najdete v tématu [nastavit obnovení balíčku s Team Foundation Build](../consume-packages/team-foundation-build.md).
+- **Azure DevOps Server**: Azure DevOps Server a TFS 2013 a novější automaticky Obnovují balíčky během sestavování, pokud používáte šablonu týmu sestavení sady TFS 2013 nebo novější. Pro starší verze TFS můžete zahrnout krok sestavení pro spuštění možnosti obnovení z příkazového řádku nebo volitelně migrovat šablonu sestavení na novější verzi. Další informace najdete v tématu [nastavení obnovení balíčku pomocí Team Foundation Build](../consume-packages/team-foundation-build.md).
 
-## <a name="enable-and-disable-package-restore-visual-studio"></a>Povolení a zákaz obnovení balíčku (Visual Studio)
+## <a name="enable-and-disable-package-restore-visual-studio"></a>Povolit a zakázat obnovení balíčku (Visual Studio)
 
-V sadě Visual Studio, můžete řídit obnovení balíčků primárně prostřednictvím **nástroje** > **možnosti** > **Správce balíčků NuGet**:
+V aplikaci Visual Studio můžete řídit obnovení balíčků hlavně prostřednictvím **nástrojů** > **Možnosti** > **Správce balíčků NuGet**:
 
-![Ovládací prvek obnovení balíčků prostřednictvím možnosti Správce balíčků NuGet](media/Restore-01-AutoRestoreOptions.png)
+![Řízení obnovení balíčku pomocí možností Správce balíčků NuGet](media/Restore-01-AutoRestoreOptions.png)
 
-- **Umožnit správci balíčků NuGet stáhnout chybějící balíčky** řídí všechny formy obnovení balíčku tak, že změníte `packageRestore/enabled` nastavení [packageRestore části](../reference/nuget-config-file.md#packagerestore-section) z `NuGet.Config` souboru, v `%AppData%\NuGet\` na Windows, nebo `~/.nuget/NuGet/` na Mac/Linux. Toto nastavení také povolí **obnovit balíčky NuGet** příkazu v místní nabídce řešení v sadě Visual Studio.
+- **Umožněte, aby NuGet stáhl chybějící balíčky** řídí všechny formy obnovení balíčku, a to `packageRestore/enabled` tak, že změníte nastavení v `NuGet.Config` [části packageRestore](../reference/nuget-config-file.md#packagerestore-section) souboru, `%AppData%\NuGet\` ve Windows nebo `~/.nuget/NuGet/` na Mac/Linux. Toto nastavení také povoluje příkaz **obnovit balíčky NuGet** v kontextové nabídce řešení v aplikaci Visual Studio,.
 
     ```xml
     <configuration>
@@ -68,9 +68,9 @@ V sadě Visual Studio, můžete řídit obnovení balíčků primárně prostře
     ```
     
   > [!Note]
-  > Globálně přepsat `packageRestore/enabled` nastavení, nastavte proměnnou prostředí **EnableNuGetPackageRestore** s hodnotou PRAVDA nebo NEPRAVDA před spuštěním aplikace Visual Studio nebo spuštění sestavení.
+  > Chcete-li globálně `packageRestore/enabled` přepsat nastavení, nastavte proměnnou prostředí **EnableNuGetPackageRestore** s hodnotou true nebo false před spuštěním sady Visual Studio nebo spuštěním sestavení.
 
-- **Automaticky zjišťovat pro chybějící balíčky během vytváření v sadě Visual Studio** řídí automatické obnovení tak, že změníte `packageRestore/automatic` nastavení [packageRestore části](../reference/nuget-config-file.md#packagerestore-section) z `NuGet.Config` souboru. Pokud tato možnost nastavená na hodnotu True, systémem sestavení ze sady Visual Studio automaticky obnoví všechny chybějící balíčky. Toto nastavení nemá vliv na sestavení spusťte z příkazového řádku MSBuild.
+- **Automaticky kontrolovat chybějící balíčky během sestavování v aplikaci Visual Studio** řídí automatické obnovení změnou `packageRestore/automatic` nastavení v `NuGet.Config` [části packageRestore](../reference/nuget-config-file.md#packagerestore-section) souboru. Pokud je tato možnost nastavena na hodnotu true, spuštění sestavení ze sady Visual Studio automaticky obnoví všechny chybějící balíčky. Toto nastavení nemá vliv na sestavení spouštěná z příkazového řádku MSBuild.
 
     ```xml
     ...
@@ -84,66 +84,66 @@ V sadě Visual Studio, můžete řídit obnovení balíčků primárně prostře
     </configuration>
     ```
 
-K povolení nebo zakázání obnovení balíčků pro všechny uživatele v počítači, vývojář nebo společnosti můžete přidat nastavení konfigurace na globální `nuget.config` souboru. Globální `nuget.config` je ve Windows na `%ProgramData%\NuGet\Config`, někdy v konkrétní `\{IDE}\{Version}\{SKU}\` složku Visual Studio, nebo v systému Mac/Linux na `~/.local/share`. Jednotlivým uživatelům můžete selektivně povolte obnovení podle potřeby na úrovni projektu. Podrobné informace o tom, jak NuGet upřednostňuje více konfiguračních souborů naleznete v tématu [konfigurace běžných NuGet](../consume-packages/configuring-nuget-behavior.md#how-settings-are-applied).
+Pokud chcete povolit nebo zakázat obnovení balíčků pro všechny uživatele v počítači, může vývojář nebo společnost přidat konfigurační nastavení do globálního `nuget.config` souboru. Globální `nuget.config` je ve `%ProgramData%\NuGet\Config`Windows v, někdy v určité `\{IDE}\{Version}\{SKU}\` složce sady Visual Studio, nebo v systému Mac/Linux na `~/.local/share`adrese. Jednotliví uživatelé pak můžou selektivně povolit obnovení podle potřeby na úrovni projektu. Další podrobnosti o tom, jak NuGet upřednostňuje více konfiguračních souborů, najdete v tématu [běžné konfigurace NuGet](../consume-packages/configuring-nuget-behavior.md#how-settings-are-applied).
 
 > [!Important]
-> Pokud upravíte `packageRestore` přímo v nastavení `nuget.config`, restartujte Visual Studio, tak, aby **možnosti** dialogové okno zobrazuje aktuální hodnoty.
+> Pokud upravíte `packageRestore` nastavení přímo v `nuget.config`, restartujte Visual Studio, aby se v dialogovém okně **Možnosti** zobrazily aktuální hodnoty.
 
-## <a name="constrain-package-versions-with-restore"></a>Omezení verze balíčků pomocí obnovení
+## <a name="constrain-package-versions-with-restore"></a>Omezení verzí balíčku s obnovením
 
-Když NuGet obnoví balíčky pomocí libovolné metody, respektuje žádná omezení, které jste zadali v `packages.config` nebo soubor projektu:
+Když NuGet obnoví balíčky jakýmkoli způsobem, splní všechna omezení, která jste zadali v `packages.config` souboru, nebo soubor projektu:
 
-- V `packages.config`, můžete zadat rozsah verzí v `allowedVersion` vlastnost závislosti. Zobrazit [verze k upgradu omezit](../consume-packages/reinstalling-and-updating-packages.md#constraining-upgrade-versions) Další informace. Příklad:
+- V `packages.config`nástroji můžete zadat rozsah verze `allowedVersion` ve vlastnosti závislosti. Další informace najdete v tématu [omezení verzí upgradu](../consume-packages/reinstalling-and-updating-packages.md#constraining-upgrade-versions) . Příklad:
 
     ```xml
     <package id="Newtonsoft.json" version="6.0.4" allowedVersions="[6,7)" />
     ```
 
-- V souboru projektu můžete použít PackageReference přímo určovat rozsah závislostí. Příklad:
+- V souboru projektu můžete použít PackageReference k určení rozsahu závislosti přímo. Příklad:
 
     ```xml
     <PackageReference Include="Newtonsoft.json" Version="[6, 7)" />
     ```
 
-Ve všech případech použijte notaci podle [Správa verzí balíčků](../reference/package-versioning.md).
+Ve všech případech použijte zápis popsaný v tématu [Správa verzí balíčku](../reference/package-versioning.md).
 
-## <a name="force-restore-from-package-sources"></a>Vynutit obnovení ze zdroje balíčku
+## <a name="force-restore-from-package-sources"></a>Vynutit obnovení ze zdrojů balíčku
 
-Ve výchozím nastavení, operace obnovení NuGet používat balíčky z *global-packages* a *http-cache* složek, které jsou popsány v [Správa globálních balíčků a ukládat do mezipaměti složky](managing-the-global-packages-and-cache-folders.md).
+Ve výchozím nastavení operace obnovení NuGet používají balíčky ze složek *Global-Package* a *HTTP-cache* , které jsou popsány v tématu [Správa globálních balíčků a složek mezipaměti](managing-the-global-packages-and-cache-folders.md).
 
-Abyste se vyhnuli použití *global-packages* složky, proveďte jednu z následujících akcí:
+Chcete-li se vyhnout použití složky *Global-Packages* , proveďte jednu z následujících akcí:
 
-- Zrušte pomocí složky `nuget locals global-packages -clear` nebo `dotnet nuget locals global-packages --clear`.
-- Dočasně změnit umístění *global-packages* složky, před provedením operace obnovení, pomocí jedné z následujících metod:
-  - Nastavte proměnnou prostředí NUGET_PACKAGES do jiné složky.
-  - Vytvoření `NuGet.Config` souboru, který nastaví `globalPackagesFolder` (Pokud se používá PackageReference) nebo `repositoryPath` (Pokud používáte `packages.config`) do jiné složky. Další informace najdete v tématu [nastavení konfigurace](../reference/nuget-config-file.md#config-section).
-  - Pouze MSBuild: Zadejte jinou složku s `RestorePackagesPath` vlastnost.
+- Vymažte složku pomocí `nuget locals global-packages -clear` nebo `dotnet nuget locals global-packages --clear`.
+- Dočasnou změnu umístění složky *Global-Packages* před operací obnovení, a to pomocí jedné z následujících metod:
+  - Nastavte proměnnou prostředí NUGET_PACKAGES na jinou složku.
+  - Vytvořte soubor, který nastaví `globalPackagesFolder` (Pokud používáte PackageReference) nebo `repositoryPath` (Pokud se `packages.config`používá) do jiné složky. `NuGet.Config` Další informace najdete v tématu [nastavení konfigurace](../reference/nuget-config-file.md#config-section).
+  - Pouze nástroj MSBuild: Zadejte jinou složku s `RestorePackagesPath` vlastností.
 
-Abyste se vyhnuli použití mezipaměti u zdrojů HTTP, proveďte jednu z následujících akcí:
+Chcete-li se vyhnout použití mezipaměti pro zdroje HTTP, proveďte jednu z následujících akcí:
 
-- Použití `-NoCache` spolu s možností `nuget restore`, nebo `--no-cache` spolu s možností `dotnet restore`. Tyto možnosti nechcete vliv na operace obnovení prostřednictvím správce sady Visual Studio balíček nebo konzoly.
-- Vymazání mezipaměti pomocí `nuget locals http-cache -clear` nebo `dotnet nuget locals http-cache --clear`.
-- Dočasně nastavte proměnnou prostředí NUGET_HTTP_CACHE_PATH do jiné složky.
+- Použijte možnost s `nuget restore`nebo `--no-cache` s`dotnet restore`možností. `-NoCache` Tyto možnosti neovlivňují operace obnovení prostřednictvím Správce balíčků nebo konzole sady Visual Studio.
+- Vymažte mezipaměť pomocí `nuget locals http-cache -clear` nebo `dotnet nuget locals http-cache --clear`.
+- Dočasně nastavte proměnnou prostředí NUGET_HTTP_CACHE_PATH na jinou složku.
 
-## <a name="migrate-to-automatic-package-restore-visual-studio"></a>Migrace na balíček automatické obnovení (Visual Studio)
+## <a name="migrate-to-automatic-package-restore-visual-studio"></a>Migrace na automatické obnovení balíčku (Visual Studio)
 
-U NuGet 2.6 a dřívějších verzí obnovení balíčků integrovaný nástroj MSBuild se dříve podporovaly ale, který už není true. (Jeho povolování obvykle tak, že kliknete pravým tlačítkem řešení v sadě Visual Studio a vyberete **povolit obnovení balíčků NuGet**). Pokud váš projekt používá obnovení nepoužívané balíčku integrované nástroje MSBuild, migrujte prosím na balíček automatické obnovení.
+Pro NuGet 2,6 a starší se dřív podporovalo obnovení balíčku integrovaného v MSBuild, ale už není pravdivé. (Obvykle se povolilo tak, že kliknete pravým tlačítkem na řešení v aplikaci Visual Studio a vyberete **Povolit obnovení balíčku NuGet**). Pokud váš projekt používá nepoužívané obnovení balíčku integrované v nástroji MSBuild, proveďte migraci na automatické obnovení balíčku.
 
-Projekty, které používají obnovení integrované nástroje MSBuild balíčku obvykle obsahují *.nuget* složka s tři soubory: *Soubor NuGet.config*, *nuget.exe*, a *NuGet.targets*. Přítomnost *NuGet.targets* soubor Určuje, zda NuGet budou i nadále použít MSBuild untegrated přístup, takže tento soubor musí být během migrace neodebere.
+Projekty, které používají nástroj MSBuild – integrované obnovení balíčku obvykle obsahují složku *. NuGet* se třemi soubory: *NuGet. config*, *NuGet. exe*a *NuGet. targets*. Přítomnost souboru *NuGet. targets* určuje, jestli bude NuGet dál používat přístup pomocí nástroje MSBuild-untegrated, takže tento soubor musí být během migrace odebraný.
 
-Migrace na balíček automatické obnovení:
+Migrace na automatické obnovení balíčků:
 
 1. Zavřete Visual Studio.
-2. Odstranit *.nuget/nuget.exe* a *.nuget/NuGet.targets*.
-3. Pro každý soubor projektu, odeberte `<RestorePackages>` elementu a odebrat všechny odkazy na *NuGet.targets*.
+2. Odstraňte *. NuGet/NuGet. exe* a *. NuGet/NuGet. targets*.
+3. Pro každý soubor projektu odeberte `<RestorePackages>` prvek a odeberte všechny odkazy na *NuGet. targets*.
 
-Otestovat balíček automatické obnovení:
+Test automatického obnovení balíčků:
 
-1. Odeberte *balíčky* složku z řešení.
-2. Otevřete řešení v sadě Visual Studio a spustit sestavení.
+1. Odeberte složku *Packages* z řešení.
+2. Otevřete řešení v aplikaci Visual Studio a spusťte sestavení.
 
-   Balíček automatické obnovení by měla stáhnout a nainstalovat každý balíček závislostí bez nutnosti přidávat do správy zdrojového kódu.
+   Automatické obnovení balíčků by mělo stáhnout a nainstalovat všechny balíčky závislostí, aniž byste je museli přidávat do správy zdrojového kódu.
 
 ## <a name="troubleshooting"></a>Poradce při potížích
 
-Zobrazit [Poradce při potížích s obnovení balíčku](package-restore-troubleshooting.md).
+Podívejte se na téma [řešení potíží s obnovením balíčku](package-restore-troubleshooting.md).

@@ -1,60 +1,60 @@
 ---
 title: Podepsané balíčky
-description: Požadavky na podepisování balíčků NuGet.
+description: Požadavky na podepisování balíčku NuGet
 author: rido-min
 ms.author: rmpablos
 ms.date: 05/18/2018
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: 952256a24246543ecd4c37285cd001622aa2bc46
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: e02b2a241008b1b7096f20b351173fd3df7ed172
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426180"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317518"
 ---
 # <a name="signed-packages"></a>Podepsané balíčky
 
-*NuGet 4.6.0+ a sady Visual Studio 2017 verze 15.6 a novější*
+*NuGet 4.6.0 + a Visual Studio 2017 verze 15,6 a novější*
 
-Balíčky NuGet může obsahovat digitální podpis, který poskytuje ochranu proti zmanipulovanou obsah. Tento podpis je vytvořen z certifikát X.509, který také přidává testování konceptů pravosti skutečné zdroji balíčku.
+Balíčky NuGet můžou obsahovat digitální podpis, který poskytuje ochranu proti úmyslnému obsahu. Tento podpis je vytvořený z certifikátu X. 509, který taky do skutečného původce balíčku přidá ověření pravosti.
 
-Podepsané balíčky poskytují nejsilnější ověření začátku do konce. Existují dva různé typy podpisů NuGet:
-- **Vytváření podpis**. Podpis autora zaručuje, že balíček nebyl změněn od autora podpisu balíčku, bez ohledu na to, z které úložiště nebo co přenosu metodu doručení balíčku. Kromě toho Autor podepsané balíčky poskytnout další ověřovací mechanismus pro publikování kanál nuget.org, protože podpisový certifikát musí být zaregistrované předem. Další informace najdete v tématu [registrace certifikátů](#signature-requirements-on-nugetorg).
-- **Podpis úložiště**. Podpisy úložiště poskytuje záruku integrity **všechny** balíčků v úložišti, ať už jsou Autor nebo nemají, i když tyto balíčky jsou získány z jiného umístění než původní úložiště, ve kterém byly podepsané.   
+Podepsané balíčky poskytují nejsilnější kompletní ověřování. Existují dva různé typy signatur NuGet:
+- **Podpis autora** Podpis autora zaručuje, že balíček se nezměnil od autora podpisu balíčku bez ohledu na to, ze kterého úložiště nebo jakou metodu transportu balíček doručí. Navíc balíčky podepsané autorem poskytují pro kanál publikování nuget.org dodatečný mechanismus ověřování, protože podpisový certifikát musí být zaregistrovaný předem. Další informace najdete v tématu [Registrace certifikátů](#signature-requirements-on-nugetorg).
+- **Podpis úložiště** Signatury úložiště poskytují záruku integrity pro **všechny** balíčky v úložišti bez ohledu na to, jestli jsou autorem podepsané, nebo ne, a to i v případě, že se tyto balíčky získávají z jiného umístění, než je původní úložiště, ve kterém byly podepsané.   
 
-Podrobnosti o vytvoření podepsaný balíček Autor najdete v tématu [podepisování balíčků](../create-packages/Sign-a-package.md) a [přihlašovací příkaz nuget](../tools/cli-ref-sign.md).
+Podrobnosti o vytvoření balíčku podepsaného autorem najdete v tématu [podepisování balíčků](../create-packages/Sign-a-package.md) a [příkaz NuGet Sign](../reference/cli-reference/cli-ref-sign.md).
 
 > [!Important]
-> Podepisování balíčků aktuálně podporuje jenom při použití nuget.exe ve Windows. Ověření podepsaných balíčků aktuálně podporuje jenom při použití nuget.exe nebo Visual Studio na Windows.
+> Podepisování balíčků se v současné době podporuje jenom při použití NuGet. exe ve Windows. Ověřování podepsaných balíčků se v současné době podporuje jenom při použití NuGet. exe nebo sady Visual Studio ve Windows.
 
 ## <a name="certificate-requirements"></a>Požadavky na certifikát
 
-Podepisování balíčků vyžaduje certifikát, který je speciální typ certifikátu, který je platný pro podpis kódu `id-kp-codeSigning` účel [[RFC 5280 části 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)]. Certifikát musí mít navíc veřejné délka klíče RSA 2048 bitů nebo vyšší.
+Podepisování balíčků vyžaduje certifikát pro podpis kódu, což je zvláštní typ certifikátu, který je platný pro `id-kp-codeSigning` účely [[RFC 5280 Section 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)]. Certifikát navíc musí mít délku veřejného klíče RSA 2048 bitů nebo vyšší.
 
 ## <a name="timestamp-requirements"></a>Požadavky na časové razítko
 
-Podepsané balíčky by měl obsahovat časového razítka RFC 3161 zajistit platnost podpisu mimo období platnosti certifikátu podpisu balíčku. Certifikát použitý k podpisu časového razítka musí být platná pro `id-kp-timeStamping` účel [[RFC 5280 části 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)]. Certifikát musí mít navíc veřejné délka klíče RSA 2048 bitů nebo vyšší.
+Podepsané balíčky by měly zahrnovat časové razítko RFC 3161 k zajištění platnosti podpisu mimo období platnosti podpisového certifikátu balíčku. Certifikát použitý k podepsání časového razítka musí být platný pro `id-kp-timeStamping` účely [[RFC 5280 Section 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)]. Certifikát navíc musí mít délku veřejného klíče RSA 2048 bitů nebo vyšší.
 
-Další technické podrobnosti najdete v [balíček technické specifikace podpis](https://github.com/NuGet/Home/wiki/Package-Signatures-Technical-Details) (GitHub).
+Další technické podrobnosti najdete v [technické specifikaci signatury balíčku](https://github.com/NuGet/Home/wiki/Package-Signatures-Technical-Details) (GitHub).
 
 ## <a name="signature-requirements-on-nugetorg"></a>Požadavky na podpis na NuGet.org
 
-nuget.org mají další požadavky pro přijetí podepsaný balíček:
+nuget.org má další požadavky na přijetí podepsaného balíčku:
 
-- Primární podpis musí být podpis autora.
-- Primární podpis musí mít jediné platné časové razítko.
-- Certifikátů X.509 pro podpis autora a jeho podpis časového razítka:
-  - Musí mít veřejný klíč RSA 2048 bitů nebo vyšší.
-  - Musí být v rozsahu období platnosti podle aktuálního času UTC v době ověřování balíčků na nuget.org.
-  - Musí být propojeny s důvěryhodnou kořenovou autoritou, která je důvěryhodná pro výchozí na Windows. Balíčky, které jsou podepsané pomocí samostatně vydané certifikáty byly zamítnuty.
-  - Musí být platný pro její účel: 
-    - Autor podpisový certifikát musí být platný pro podepisování kódu.
-    - Certifikát časového razítka musí být platný pro časových razítek.
-  - Nesmí být odvolaný při podepisování čas. (Toto video asi knowable při odesílání, takže nuget.org proběhne znovu pravidelně u stav odvolání).
+- Primární signatura musí být podpis autora.
+- Primární podpis musí mít jedno platné časové razítko.
+- Certifikáty X. 509 pro podpis autora i podpis časového razítka:
+  - Musí mít veřejný klíč RSA (2048) nebo vyšší.
+  - Musí spadat do období platnosti za aktuální čas UTC v době ověření balíčku v nuget.org.
+  - Musí být zřetězené s důvěryhodnou kořenovou autoritou, která je ve Windows ve výchozím nastavení důvěryhodná. Balíčky podepsané pomocí certifikátů vystavených svým držitelem jsou odmítnuty.
+  - Musí být platný pro svůj účel: 
+    - Podpisový certifikát autora musí být platný pro podepisování kódu.
+    - Certifikát časového razítka musí být platný pro časová razítka.
+  - Nesmí být odvoláno v době podepisování. (To nemusí být knowable v době odeslání, takže nuget.org pravidelně znovu kontroluje stav odvolání).
   
   
 ## <a name="related-articles"></a>Související články
 
-- [Podepisují se balíčky NuGet](../create-packages/Sign-a-Package.md)
-- [Spravovat hranice vztahu důvěryhodnosti balíčku](../consume-packages/installing-signed-packages.md)
+- [Podepisování balíčků NuGet](../create-packages/Sign-a-Package.md)
+- [Správa rozsahu důvěryhodnosti balíčků](../consume-packages/installing-signed-packages.md)

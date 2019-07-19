@@ -1,30 +1,30 @@
 ---
-title: Spravovat hranice vztahu důvěryhodnosti balíčku
-description: Popisuje postup instalace NuGet podepsané balíčky a konfiguraci podpis balíčku důvěryhodných nastavení.
+title: Správa hranic vztahů důvěryhodnosti balíčku
+description: Popisuje proces instalace podepsaných balíčků NuGet a konfigurace nastavení důvěryhodnosti podpisu balíčku.
 author: karann-msft
 ms.author: karann
 ms.date: 11/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8da57dc295ea78f2eb183226fc9b2f4a37e3f5db
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 7b92d07d19a2e9073ecc38ed37b4ee2491080443
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426625"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317774"
 ---
-# <a name="manage-package-trust-boundaries"></a>Spravovat hranice vztahu důvěryhodnosti balíčku
+# <a name="manage-package-trust-boundaries"></a>Správa hranic vztahů důvěryhodnosti balíčku
 
-Podepsané balíčky nevyžadují žádnou konkrétní akci má být nainstalována. ale pokud obsah se změnila, protože byla podepsána, instalace se zablokuje s chybou [NU3008](../reference/errors-and-warnings/NU3008.md).
+Podepsané balíčky nevyžadují, aby se nainstalovala žádná konkrétní akce. Pokud se ale obsah od svého podepsání změnil, instalace je zablokovaná s chybou [NU3008](../reference/errors-and-warnings/NU3008.md).
 
 > [!Warning]
-> Nedůvěryhodné certifikáty podepsané balíčky jsou považovány za jako bez znaménka a jsou nainstalovány bez žádná upozornění ani chyby, stejně jako jiné balíčky bez znaménka.
+> Balíčky podepsané pomocí nedůvěryhodných certifikátů se považují za nepodepsané a instalují se bez jakýchkoli upozornění a chyb, jako jakýkoli jiný nepodepsaný balíček.
 
-## <a name="configure-package-signature-requirements"></a>Konfigurovat požadavky na podpis balíčku
+## <a name="configure-package-signature-requirements"></a>Konfigurace požadavků na podpis balíčku
 
 > [!Note]
-> Vyžaduje NuGet 4.9.0+ a sady Visual Studio verzi 15.9 a později na Windows
+> Vyžaduje NuGet 4.9.0 + a Visual Studio verze 15,9 a novější ve Windows.
 
-Můžete nakonfigurovat, jak NuGet – klienti ověřují podpisů balíčků tak, že nastavíte `signatureValidationMode` k `require` v [nuget.config](../reference/nuget-config-file.md) soubor pomocí [ `nuget config` ](../tools/cli-ref-config.md) příkazu.
+Můžete `signatureValidationMode` nakonfigurovat, `require` jak klienti NuGet ověřují signatury balíčků, nastavením na v souboru [`nuget config`](../reference/cli-reference/cli-ref-config.md) [NuGet. config](../reference/nuget-config-file.md) pomocí příkazu.
 
 ```cmd
 nuget.exe config -set signatureValidationMode=require
@@ -36,11 +36,11 @@ nuget.exe config -set signatureValidationMode=require
   </config>
 ```
 
-Tento režim se ověří, že všechny balíčky jsou podepsány některý z certifikátů v důvěryhodné `nuget.config` souboru. Tento soubor umožňuje určit, které autoři a/nebo úložiště jsou důvěryhodné podle otisk certifikátu.
+V tomto režimu se ověří, jestli jsou všechny balíčky podepsané všemi certifikáty, které jsou v `nuget.config` souboru důvěryhodné. Tento soubor vám umožní určit, které autory nebo úložiště jsou důvěryhodné na základě otisku certifikátu.
 
-### <a name="trust-package-author"></a>Důvěřovat autora balíčku
+### <a name="trust-package-author"></a>Autor balíčku důvěryhodnosti
 
-Důvěřovat balíčky, které jsou založeny na použití podpis autora [ `trusted-signers` ](../tools/cli-ref-trusted-signers.md) příkazu nastavte `author` vlastnost v nuget.config.
+Pro důvěřování balíčkům na základě podpisu autora použijte [`trusted-signers`](../reference/cli-reference/cli-ref-trusted-signers.md) příkaz pro `author` nastavení vlastnosti v souboru NuGet. config.
 
 ```cmd
 nuget.exe  trusted-signers Add -Name MyCompanyCert -CertificateFingerprint CE40881FF5F0AD3E58965DA20A9F571EF1651A56933748E1BF1C99E537C4E039 -FingerprintAlgorithm SHA256
@@ -55,12 +55,12 @@ nuget.exe  trusted-signers Add -Name MyCompanyCert -CertificateFingerprint CE408
 ```
 
 >[!TIP]
->Použití `nuget.exe` [ověřte příkaz](../tools/cli-ref-verify.md) zobrazíte `SHA256` hodnotu otisk certifikátu.
+>`nuget.exe` K získání`SHA256` hodnoty otisku certifikátu použijte [příkaz Verify](../reference/cli-reference/cli-ref-verify.md) .
 
 
-### <a name="trust-all-packages-from-a-repository"></a>Důvěřovat všechny balíčky z úložiště
+### <a name="trust-all-packages-from-a-repository"></a>Důvěřovat všem balíčkům z úložiště
 
-Důvěřovat balíčky, které jsou založeny na použití podpisu úložiště `repository` element:
+K důvěřování balíčkům na základě podpisu úložiště použijte `repository` element:
 
 ```xml
 <trustedSigners>  
@@ -72,9 +72,9 @@ Důvěřovat balíčky, které jsou založeny na použití podpisu úložiště 
 </trustedSigners>
 ```
 
-### <a name="trust-package-owners"></a>Důvěřovat vlastníky balíčku
+### <a name="trust-package-owners"></a>Důvěřovat vlastníkům balíčku
 
-Podpisy úložiště zahrnují další metadata, chcete-li určit vlastníky balíčku v okamžiku odeslání. Můžete omezit balíčky z úložiště na základě seznamu vlastníků:
+Signatury úložiště obsahují další metadata, která určují vlastníky balíčku v době odeslání. Balíčky můžete omezit z úložiště na základě seznamu vlastníků:
 
 ```xml
 <trustedSigners>  
@@ -87,21 +87,21 @@ Podpisy úložiště zahrnují další metadata, chcete-li určit vlastníky bal
 </trustedSigners>
 ```
 
-Pokud balíček obsahuje více vlastníkům a některou z těchto vlastníci je v seznamu důvěryhodných, bude úspěšné instalace balíčku.
+Pokud má balíček více vlastníků a některý z těchto vlastníků je v seznamu důvěryhodných, instalace balíčku bude úspěšná.
 
-### <a name="untrusted-root-certificates"></a>Nedůvěryhodné certifikáty kořenové
+### <a name="untrusted-root-certificates"></a>Nedůvěryhodné kořenové certifikáty
 
-V některých situacích můžete povolit ověřování pomocí certifikátů, které nejsou zřetězené s důvěryhodným kořenovým v místním počítači. Můžete použít `allowUntrustedRoot` atributů k přizpůsobení tohoto chování.
+V některých situacích možná budete chtít povolit ověřování pomocí certifikátů, které se neřetězí k důvěryhodnému kořenovému adresáři v místním počítači. K přizpůsobení tohoto chování `allowUntrustedRoot` můžete použít atribut.
 
-### <a name="sync-repository-certificates"></a>Synchronizace úložiště certifikátů
+### <a name="sync-repository-certificates"></a>Synchronizovat certifikáty úložiště
 
-Úložiště balíčku by měl oznamujeme certifikáty se používají v jejich [index služby](../api/service-index.md). Nakonec bude úložiště aktualizovat tyto certifikáty, třeba když tomuto certifikátu vyprší platnost. Pokud k tomu dojde, klienti s konkrétní zásady budou vyžadovat aktualizaci v konfiguraci zahrnout nově přidané certifikátu. Budete moct snadno upgradovat podepsaných důvěryhodným přidružit k úložišti pomocí `nuget.exe` [důvěryhodné podepisující osoby synchronizovat příkaz](../tools/cli-ref-trusted-signers.md#nuget-trusted-signers-sync--name-).
+Úložiště balíčků by měla oznamovat certifikáty, které používají v [indexu služeb](../api/service-index.md). Úložiště pak tyto certifikáty aktualizuje, např. po vypršení platnosti certifikátu. V takovém případě budou klienti s konkrétními zásadami vyžadovat aktualizaci konfigurace, aby zahrnovala nově přidaný certifikát. Důvěryhodné podepsané přidružené k úložišti můžete snadno upgradovat pomocí `nuget.exe` [příkazu pro synchronizaci důvěryhodného přihlášení](../reference/cli-reference/cli-ref-trusted-signers.md#nuget-trusted-signers-sync--name-).
 
-### <a name="schema-reference"></a>Schéma – referenční informace
+### <a name="schema-reference"></a>Odkaz na schéma
 
-Odkaz na kompletní schématu pro zásady klienta najdete v [odkaz na soubor nuget.config](../reference/nuget-config-file.md#trustedsigners-section)
+Úplný odkaz na schéma pro zásady klienta najdete v referenčních informacích k [NuGet. config.](../reference/nuget-config-file.md#trustedsigners-section)
 
 ## <a name="related-articles"></a>Související články
 
-- [Podepisují se balíčky NuGet](../create-packages/Sign-a-Package.md)
-- [Podepsané balíčky odkaz](../reference/Signed-Packages-Reference.md)
+- [Podepisování balíčků NuGet](../create-packages/Sign-a-Package.md)
+- [Reference na podepsané balíčky](../reference/Signed-Packages-Reference.md)

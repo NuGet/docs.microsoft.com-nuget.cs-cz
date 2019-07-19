@@ -1,74 +1,74 @@
 ---
-title: NuGet pro různé platformy ověřování modulu plug-in
-description: NuGet pro různé platformy ověřování moduly plug-in pro NuGet.exe, dotnet.exe, msbuild.exe a sady Visual Studio
+title: Víceplatformní ověřovací moduly plug-in NuGet
+description: Moduly plug-in pro ověřování na různých platformách NuGet pro NuGet. exe, dotnet. exe, MSBuild. exe a Visual Studio
 author: nkolev92
 ms.author: nikolev
 ms.date: 07/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: b76fab1028ec9a4172d2390083fbf9adb4290a6c
-ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
+ms.openlocfilehash: a716737343ea826d28da6de46c32ca73aef590bd
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453504"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317281"
 ---
-# <a name="nuget-cross-platform-authentication-plugin"></a>NuGet pro různé platformy ověřování modulu plug-in
+# <a name="nuget-cross-platform-authentication-plugin"></a>Víceplatformní ověřovací moduly plug-in NuGet
 
-Ve verzi 4.8 +, všechny klienty (NuGet.exe, Visual Studio, dotnet.exe a MSBuild.exe) můžete použít ověřování modul plug-in postavený na NuGet [NuGet pro různé platformy moduly plug-in](NuGet-Cross-Platform-Plugins.md) modelu.
+Ve verzi 4.8 + můžou všichni klienti NuGet (NuGet. exe, Visual Studio, dotnet. exe a MSBuild. exe) používat modul plug-in pro ověřování sestavený nad modelem [modulů plug-in NuGet pro různé platformy](NuGet-Cross-Platform-Plugins.md) .
 
-## <a name="authentication-in-dotnetexe"></a>Ověřování v dotnet.exe
+## <a name="authentication-in-dotnetexe"></a>Ověřování v příkazu dotnet. exe
 
-Visual Studio a NuGet.exe jsou ve výchozím nastavení interaktivní. NuGet.exe obsahuje přepínač k němu [neinteraktivního](../../tools/nuget-exe-CLI-Reference.md).
-Kromě modulů plug-in NuGet.exe a sady Visual Studio vyzve uživatele k zadání.
-V dotnet.exe není nebude tato výzva a výchozí hodnota je není interaktivní.
+Visual Studio a NuGet. exe jsou ve výchozím nastavení interaktivní. NuGet. exe obsahuje přepínač, který ho [neinteraktivní](../nuget-exe-CLI-Reference.md).
+Navíc nástroje NuGet. exe a moduly plug-in sady Visual Studio vyzvat uživatele ke vstupu.
+V příkazu dotnet. exe není žádné výzvy a výchozí hodnota není interaktivní.
 
-Mechanismus ověřování ve dotnet.exe je tok zařízení. Při obnovení nebo přidat operaci balíčku je spustit interaktivně, operace bloky a pokyny pro uživatele, jak k dokončení ověřování, poskytneme vám na příkazovém řádku.
-Když je ověřování dokončeno uživatel operace bude pokračovat.
+Mechanismus ověřování v příkazu dotnet. exe je tok zařízení. Pokud se operace obnovení nebo přidání balíčku spustí interaktivně, zablokují se operace a pokyny pro uživatele, jak dokončit ověřování, k dispozici na příkazovém řádku.
+Když uživatel dokončí ověřování, operace bude pokračovat.
 
-Operace interaktivní, jeden by měl předáním `--interactive`.
-Aktuálně pouze explicitní `dotnet restore` a `dotnet add package` příkazy podpory interaktivní přepínače.
-Neexistuje žádný interaktivní přepínač na `dotnet build` a `dotnet publish`.
+Aby byla operace interaktivní, jedna by se měla `--interactive`předat.
+V současné době pouze `dotnet restore` explicitní `dotnet add package` příkazy a podporují interaktivní přepínač.
+V `dotnet build` a`dotnet publish`není k dispozici žádný interaktivní přepínač.
 
 ## <a name="authentication-in-msbuild"></a>Ověřování v nástroji MSBuild
 
-Podobně jako dotnet.exe MSBuild.exe je ve výchozím nastavení není že interaktivní je ověřovací mechanismus MSBuild.exe tok zařízení.
-Pokud chcete povolit obnovení pozastavení a počkejte, ověřování, volání obnovení s `msbuild -t:restore -p:NuGetInteractive="true"`.
+Podobně jako dotnet. exe, MSBuild. exe je ve výchozím nastavení neinteraktivním mechanismem ověřování MSBuild. exe je tok zařízení.
+Chcete-li obnovit pozastavení a čekání na ověření, zavolejte příkaz Restore `msbuild -t:restore -p:NuGetInteractive="true"`with.
 
-## <a name="creating-a-cross-platform-authentication-plugin"></a>Vytvoření modulu plug-in pro ověřování různé platformy
+## <a name="creating-a-cross-platform-authentication-plugin"></a>Vytvoření modulu plug-in pro ověřování pro různé platformy
 
-Ukázková implementace lze nalézt v [modul plugin poskytovatele přihlašovacích údajů Microsoft](https://github.com/Microsoft/artifacts-credprovider).
+Ukázkovou implementaci najdete v [modulu plug-in zprostředkovatele přihlašovacích údajů Microsoftu](https://github.com/Microsoft/artifacts-credprovider).
 
-Je velmi důležité, moduly plug-in odpovídá na požadavky na zabezpečení stanoví pomocí klientských nástrojů Nugetu.
-Minimální verze požadovaná pro modul plug-in bude ověřování modul plug-in je *2.0.0*.
-NuGet provede ověření typu handshake modulu plug-in a dotazů pro deklarace identity podporovaná operace.
-NuGet pro různé platformy modul plug-in najdete [zprávy protokolu](NuGet-Cross-Platform-Plugins.md#protocol-messages-index) další podrobnosti o konkrétní zprávy.
+Je velmi důležité, aby moduly plug-in splňovaly požadavky na zabezpečení stanovené klientskými nástroji NuGet.
+Minimální požadovaná verze modulu plug-in pro ověřování je *2.0.0*.
+NuGet provede metodu handshake s modulem plug-in a dotazem na podporované deklarace operací.
+Další podrobnosti o konkrétních zprávách najdete v [zprávách protokolu](NuGet-Cross-Platform-Plugins.md#protocol-messages-index) plug-in pro různé platformy NuGet.
 
-NuGet nastavit úroveň protokolu, který se poskytují informace o proxy serveru pro modul plug-in v případě potřeby.
-Protokolování NuGet konzoly je přijatelné až NuGet nastavil úroveň protokolování pro modul plug-in.
+NuGet nastaví úroveň protokolu a v případě potřeby poskytne informace o proxy na modul plug-in.
+Protokolování do konzoly NuGet je přijatelné až poté, co NuGet nastaví úroveň protokolu na modul plug-in.
 
-- Chování ověřování modulu plug-in rozhraní .NET framework
+- Chování ověřování modulu plug-in .NET Framework
 
-V rozhraní .NET Framework na moduly plug-in můžou vyzvat uživatele k zadání vstupu v podobě dialogové okno.
+V .NET Framework můžou moduly plug-in zobrazit uživateli výzvu k zadání vstupu ve formě dialogového okna.
 
-- Chování ověřování modulu plug-in .NET core
+- Chování ověřování modulem plug-in .NET Core
 
-V .NET Core nelze zobrazit dialogové okno. Moduly plug-in k ověření používala zařízení toku.
-Modul plug-in můžete odesílat zprávy protokolu NuGet s pokyny pro uživatele.
-Všimněte si, že je protokolování je k dispozici po úroveň protokolu je nastavená na modul plug-in.
-NuGet nepořizuje žádné interaktivní vstup z příkazového řádku.
+V rozhraní .NET Core nelze zobrazit dialog. Moduly plug-in by měly používat tok zařízení k ověření.
+Modul plug-in může do nástroje NuGet odeslat zprávy protokolu s pokyny pro uživatele.
+Všimněte si, že protokolování je dostupné po nastavení úrovně protokolu na modul plug-in.
+NuGet nebude mít žádný interaktivní vstup z příkazového řádku.
 
-Když klient volá modul plug-in se získat přihlašovací údaje pro ověření, třeba moduly plug-in v souladu s přepínačem interaktivitu a respektovat přepínač dialogové okno. 
+Když klient zavolá modul plug-in s přihlašovacími údaji pro ověření, moduly plug-in musí splňovat přepínač interaktivity a respektovat přepínač pro dialog. 
 
-Následující tabulka shrnuje chování modulu plug-in pro všechny kombinace.
+Následující tabulka shrnuje, jak se má modul plug-in chovat pro všechny kombinace.
 
 | IsNonInteractive | CanShowDialog | Chování modulu plug-in |
 | ---------------- | ------------- | --------------- |
-| true | true | Přepínač IsNonInteractive má přednost před přepínačem dialogového okna. Modul plug-in není povoleno vyvolat přes pop dialogové okno. Tato kombinace platí pouze pro moduly plug-in rozhraní .NET Framework |
-| true | false | Přepínač IsNonInteractive má přednost před přepínačem dialogového okna. Modul plug-in není povolené blokování. Tato kombinace platí pouze pro moduly plug-in .NET Core |
-| false | true | Modul plug-in by se zobrazit dialogové okno. Tato kombinace platí pouze pro moduly plug-in rozhraní .NET Framework |
-| false | false | Modul plug-in byste/může nezobrazovat dialogové okno. Modul plug-in byste tok zařízení používají k ověření protokolováním zprávu instrukce prostřednictvím protokolovacího nástroje. Tato kombinace platí pouze pro moduly plug-in .NET Core |
+| true | true | Přepínač IsNonInteractive má přednost před přepínačem dialogu. Modul plug-in nemůže automaticky otevřít dialog. Tato kombinace je platná jenom pro .NET Framework moduly plug-in. |
+| true | false | Přepínač IsNonInteractive má přednost před přepínačem dialogu. Modul plug-in není povolený blokování. Tato kombinace je platná jenom pro moduly plug-in .NET Core. |
+| false | true | Modul plug-in by měl zobrazovat dialogové okno. Tato kombinace je platná jenom pro .NET Framework moduly plug-in. |
+| false | false | Modul plug-in nemůže zobrazit dialog. Modul plug-in by měl použít tok zařízení k ověření protokolováním zprávy instrukcí prostřednictvím protokolovacího nástroje. Tato kombinace je platná jenom pro moduly plug-in .NET Core. |
 
-Před zápisem modul plug-in najdete následující specifika plánu.
+Než začnete psát modul plug-in, přečtěte si následující specifikace.
 
-- [Modul plug-in stahování balíčku NuGet](https://github.com/NuGet/Home/wiki/NuGet-Package-Download-Plugin)
-- [NuGet pro různé platformy ověřování modulu plug-in](https://github.com/NuGet/Home/wiki/NuGet-cross-plat-authentication-plugin)
+- [Modul plug-in pro stažení balíčku NuGet](https://github.com/NuGet/Home/wiki/NuGet-Package-Download-Plugin)
+- [Modul plug-in NuGet pro ověřování přes NuGet](https://github.com/NuGet/Home/wiki/NuGet-cross-plat-authentication-plugin)

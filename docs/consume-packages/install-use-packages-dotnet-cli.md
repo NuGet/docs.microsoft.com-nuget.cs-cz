@@ -1,50 +1,50 @@
 ---
-title: Nainstalovat a spravovat balíčky NuGet pomocí rozhraní příkazového řádku dotnet
-description: Pokyny k používání rozhraní příkazového řádku dotnet pro práci s balíčky NuGet.
+title: Instalace a Správa balíčků NuGet pomocí rozhraní příkazového řádku dotnet
+description: Pokyny pro použití rozhraní příkazového řádku dotnet pro práci s balíčky NuGet.
 author: mikejo5000
 ms.author: mikejo
 ms.date: 06/03/2019
 ms.topic: conceptual
-ms.openlocfilehash: 64f3a1978cd336064a77c9f3872357e65c37fc10
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: a796c7a7537c3052259c7cf3f17d60981a495442
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842350"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317719"
 ---
-# <a name="install-and-manage-packages-using-the-dotnet-cli"></a>Instalace a Správa balíčků s využitím rozhraní příkazového řádku dotnet
+# <a name="install-and-manage-packages-using-the-dotnet-cli"></a>Instalace a Správa balíčků pomocí rozhraní příkazového řádku dotnet
 
-Nástroj příkazového řádku umožňuje snadno nainstalování, odinstalování a aktualizace balíčků NuGet do projektů a řešení. Běží na Windows, Mac OS X a Linux.
+Nástroj rozhraní příkazového řádku umožňuje snadno nainstalovat, odinstalovat a aktualizovat balíčky NuGet v projektech a řešeních. Běží na Windows, Mac OS X a Linux.
 
-Rozhraní příkazového řádku dotnet je pro použití v projektu .NET Core a .NET Standard (typy SDK – vizuální styl projektu) a pro jakékoli jiné sady SDK – vizuální styl projekty (například SDK – vizuální styl projektu aplikace, které cílí na .NET Framework). Další informace najdete v tématu [SDK atribut](/dotnet/core/tools/csproj#additions).
+Rozhraní příkazového řádku dotnet je pro použití ve vašem projektu .NET Core a .NET Standard (typy projektů ve stylu sady SDK) a pro všechny další projekty ve stylu sady SDK (například projekt sady SDK, který cílí na .NET Framework). Další informace najdete v tématu [atribut sady SDK](/dotnet/core/tools/csproj#additions).
 
-Tento článek popisuje základní informace o využití pro některé z nejčastěji používané příkazy rozhraní příkazového řádku dotnet. Pro většinu těchto příkazů nástroje rozhraní příkazového řádku hledá soubor projektu do aktuálního adresáře, pokud soubor projektu je zadané v příkazu (soubor projektu je volitelný přepínač). Úplný seznam příkazů a argumenty, které můžete použít, najdete v článku [nástroje rozhraní příkazového řádku (CLI) pro .NET Core](../tools/dotnet-commands.md).
+Tento článek popisuje základní použití pro několik nejběžnějších příkazů příkazového řádku dotnet. Pro většinu těchto příkazů nástroj CLI vyhledá soubor projektu v aktuálním adresáři, pokud soubor projektu není zadán v příkazu (soubor projektu je volitelný přepínač). Úplný seznam příkazů a argumenty, které můžete použít, najdete v tématu [nástroje rozhraní příkazového řádku (CLI) .NET Core](../reference/dotnet-commands.md).
 
 ## <a name="prerequisites"></a>Požadavky
 
-- [.NET Core SDK](https://www.microsoft.com/net/download/), která poskytuje `dotnet` nástroj příkazového řádku. Spouští se v sadě Visual Studio 2017, které pomocí libovolné platformy .NET Core se automaticky nainstaluje rozhraní příkazového řádku dotnet související úlohy.
+- [.NET Core SDK](https://www.microsoft.com/net/download/), která poskytuje `dotnet` nástroj příkazového řádku. Počínaje sadou Visual Studio 2017 se rozhraní příkazového řádku dotnet automaticky nainstaluje se všemi úlohami souvisejícími s .NET Core.
 
 ## <a name="install-a-package"></a>Instalace balíčku
 
-[příkaz DotNet add package](/dotnet/core/tools/dotnet-add-package?tabs=netcore2x) přidá odkaz na balíček do souboru projektu a pak spustí `dotnet restore` k instalaci balíčku.
+[dotnet Add Package](/dotnet/core/tools/dotnet-add-package?tabs=netcore2x) přidá odkaz na balíček do souboru projektu a potom spustí `dotnet restore` instalaci balíčku.
 
-1. Otevřete příkazový řádek a přejděte do adresáře, který obsahuje váš soubor projektu.
+1. Otevřete příkazový řádek a přejděte do adresáře, který obsahuje soubor projektu.
 
-2. Použijte následující příkaz k instalaci balíčku Nuget:
+2. K instalaci balíčku NuGet použijte následující příkaz:
 
     ```cli
     dotnet add package <PACKAGE_NAME>
     ```
 
-    Například, chcete-li nainstalovat `Newtonsoft.Json` balíček, použijte následující příkaz
+    Pokud například chcete `Newtonsoft.Json` balíček nainstalovat, použijte následující příkaz.
 
     ```cli
     dotnet add package Newtonsoft.Json
     ```
 
-3. Po dokončení příkazu, podívejte se na soubor projektu a ujistěte se, že byl nainstalován balíček.
+3. Po dokončení příkazu si prohlédněte soubor projektu a ujistěte se, že byl balíček nainstalován.
 
-   Můžete otevřít `.csproj` soubor přidaný odkaz:
+   Tento `.csproj` soubor můžete otevřít a zobrazit tak přidaný odkaz:
 
     ```xml
    <ItemGroup>
@@ -54,21 +54,21 @@ Tento článek popisuje základní informace o využití pro některé z nejčas
 
 ## <a name="install-a-specific-version-of-a-package"></a>Instalace konkrétní verze balíčku
 
-Pokud není zadána verze, NuGet nainstaluje nejnovější verzi balíčku. Můžete také použít [se příkaz dotnet add package](/dotnet/core/tools/dotnet-add-package?tabs=netcore2x) příkaz k instalaci na konkrétní verzi balíčku Nuget:
+Pokud není zadaná verze, NuGet nainstaluje nejnovější verzi balíčku. K instalaci konkrétní verze balíčku NuGet můžete použít taky příkaz [dotnet Add Package](/dotnet/core/tools/dotnet-add-package?tabs=netcore2x) :
 
 ```cli
 dotnet add package <PACKAGE_NAME> -v <VERSION>
 ```
 
-Chcete-li například přidat verzi 12.0.1 `Newtonsoft.Json` balíček, použijte tento příkaz:
+Pokud například chcete přidat 12.0.1 `Newtonsoft.Json` verze balíčku, použijte tento příkaz:
 
 ```cli
 dotnet add package Newtonsoft.Json -v 12.0.1
 ```
 
-## <a name="list-package-references"></a>Odkazy na balíček seznamu
+## <a name="list-package-references"></a>Výpis odkazů na balíčky
 
-Můžete zobrazit seznam odkazy na balíček pro váš projekt používá [uvedení balíčku dotnet](/dotnet/core/tools/dotnet-list-package?tabs=netcore2x) příkazu.
+Odkazy na balíček pro svůj projekt můžete zobrazit pomocí příkazu pro [Výpis balíčku dotnet](/dotnet/core/tools/dotnet-list-package?tabs=netcore2x) .
 
 ```cli
 dotnet list package
@@ -76,13 +76,13 @@ dotnet list package
 
 ## <a name="remove-a-package"></a>Odebrat balíček
 
-Použití [dotnet odebrat balíček](/dotnet/core/tools/dotnet-remove-package?tabs=netcore2x) příkazu odeberte odkaz na balíček ze souboru projektu.
+Pomocí příkazu [dotnet Remove Package](/dotnet/core/tools/dotnet-remove-package?tabs=netcore2x) odeberte odkaz na balíček ze souboru projektu.
 
 ```cli
 dotnet remove package <PACKAGE_NAME>
 ```
 
-Například, chcete-li odebrat `Newtonsoft.Json` balíček, použijte následující příkaz
+Chcete-li například odebrat `Newtonsoft.Json` balíček, použijte následující příkaz
 
 ```cli
 dotnet remove package Newtonsoft.Json
@@ -90,15 +90,15 @@ dotnet remove package Newtonsoft.Json
 
 ## <a name="update-a-package"></a>Aktualizace balíčku
 
-NuGet nainstaluje nejnovější verzi balíčku, při použití `dotnet add package` příkazu, pokud neurčíte verzi balíčku (`-v` přepínače).
+NuGet nainstaluje nejnovější verzi balíčku, když použijete `dotnet add package` příkaz, pokud nezadáte verzi balíčku (`-v` přepínač).
 
-## <a name="restore-packages"></a>Obnovení balíčků
+## <a name="restore-packages"></a>Obnovit balíčky
 
-Použití [dotnet restore](/dotnet/core/tools/dotnet-restore?tabs=netcore2x) příkaz, který obnoví balíčky uvedené v souboru projektu (viz [PackageReference](../consume-packages/package-references-in-project-files.md)). S .NET Core 2.0 nebo novější, obnovení se provádí automaticky pomocí `dotnet build` a `dotnet run`. Od verze NuGet 4.0, toto řešení běží stejný kód jako `nuget restore`.
+Použijte příkaz [dotnet Restore](/dotnet/core/tools/dotnet-restore?tabs=netcore2x) , který obnoví balíčky uvedené v souboru projektu (viz [PackageReference](../consume-packages/package-references-in-project-files.md)). Pomocí .NET Core 2,0 a novějšího se obnovení provádí automaticky s `dotnet build` a `dotnet run`. Od NuGet 4,0 to spustí stejný kód jako `nuget restore`.
 
-Stejně jako u druhé `dotnet` příkazy rozhraní příkazového řádku, nejprve otevřete příkazový řádek a přejděte do adresáře, který obsahuje váš soubor projektu.
+Stejně jako u ostatních `dotnet` příkazů CLI otevřete příkazový řádek a přejděte do adresáře, který obsahuje soubor projektu.
 
-Chcete-li obnovit balíček pomocí `dotnet restore`:
+Postup obnovení balíčku pomocí `dotnet restore`:
 
 ```cli
 dotnet restore 

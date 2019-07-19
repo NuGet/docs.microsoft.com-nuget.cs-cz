@@ -1,38 +1,38 @@
 ---
-title: Odkaz na soubor nuget.config
-description: Odkaz na soubor NuGet.Config včetně konfigurace, bindingRedirects, packageRestore, řešení a packageSource oddíly.
+title: Odkaz na soubor NuGet. config
+description: Odkaz na soubor NuGet. config včetně oddílů config, bindingRedirects, packageRestore, Solution a packageSource
 author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: reference
-ms.openlocfilehash: 2eceb6e94a353cb29b83aea114c6cea2acbac266
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: b03bb8da0191a679671e5898ac70fff2024d52f2
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426151"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317222"
 ---
-# <a name="nugetconfig-reference"></a>odkaz na soubor nuget.config
+# <a name="nugetconfig-reference"></a>Referenční dokumentace NuGet. config
 
-Chování Nugetu je řízena nastavením v různých `NuGet.Config` soubory, jak je popsáno v [konfigurace běžných NuGet](../consume-packages/configuring-nuget-behavior.md).
+Chování NuGet se řídí nastavením v různých `NuGet.Config` souborech, jak je popsáno v tématu [běžné konfigurace NuGet](../consume-packages/configuring-nuget-behavior.md).
 
-`nuget.config` je soubor XML obsahující na nejvyšší úrovni `<configuration>` uzlu, který pak obsahuje část prvky popsané v tomto tématu. Každý oddíl obsahuje nula nebo více položek. Zobrazit [příklady konfiguračního souboru](#example-config-file). Názvy nastavení rozlišují velikost písmen a můžete použít hodnoty [proměnné prostředí](#using-environment-variables).
+`nuget.config`je soubor XML obsahující uzel nejvyšší úrovně `<configuration>` , který pak obsahuje prvky oddílu popsané v tomto tématu. Každý oddíl obsahuje nula nebo více položek. Podívejte se na [příklady konfiguračního souboru](#example-config-file). U názvů nastavení se nerozlišují malá a velká písmena a hodnoty můžou používat [proměnné prostředí](#using-environment-variables).
 
 V tomto tématu:
 
 - [konfigurační oddíl](#config-section)
-- [část bindingRedirects](#bindingredirects-section)
-- [část packageRestore](#packagerestore-section)
+- [oddíl bindingRedirects](#bindingredirects-section)
+- [oddíl packageRestore](#packagerestore-section)
 - [oddíl řešení](#solution-section)
-- [Balíček zdrojové oddíly](#package-source-sections):
+- [Zdrojové oddíly balíčku](#package-source-sections):
   - [packageSources](#packagesources)
   - [packageSourceCredentials](#packagesourcecredentials)
   - [apikeys](#apikeys)
   - [disabledPackageSources](#disabledpackagesources)
   - [activePackageSource](#activepackagesource)
-- [část trustedSigners](#trustedsigners-section)
+- [oddíl trustedSigners](#trustedsigners-section)
 - [Použití proměnných prostředí](#using-environment-variables)
-- [Příklad konfiguračního souboru](#example-config-file)
+- [Ukázkový konfigurační soubor](#example-config-file)
 
 <a name="dependencyVersion"></a>
 <a name="globalPackagesFolder"></a>
@@ -41,18 +41,18 @@ V tomto tématu:
 
 ## <a name="config-section"></a>konfigurační oddíl
 
-Obsahuje nastavení různé konfigurace, které lze nastavit pomocí [ `nuget config` příkaz](../tools/cli-ref-config.md).
+Obsahuje různá nastavení konfigurace, která lze nastavit pomocí [ `nuget config` příkazu](../reference/cli-reference/cli-ref-config.md).
 
-`dependencyVersion` a `repositoryPath` platí pouze pro projekty pomocí `packages.config`. `globalPackagesFolder` platí pouze pro projekty ve formátu PackageReference.
+`dependencyVersion`a `repositoryPath` platí pouze pro projekty pomocí `packages.config`. `globalPackagesFolder`platí jenom pro projekty, které používají formát PackageReference.
 
-| Key | Value |
+| Key | Hodnota |
 | --- | --- |
-| dependencyVersion (`packages.config` jenom) | Výchozí hodnota `DependencyVersion` hodnotu pro instalaci balíčku, obnovení a aktualizace, když `-DependencyVersion` přepínač není zadán přímo. Tato hodnota se používá také pomocí uživatelského rozhraní Správce balíčků NuGet. Hodnoty jsou `Lowest`, `HighestPatch`, `HighestMinor`, `Highest`. |
-| globalPackagesFolder (projekty pouze pomocí PackageReference) | Umístění složky globálních balíčků výchozí. Výchozí hodnota je `%userprofile%\.nuget\packages` (Windows) nebo `~/.nuget/packages` (Mac/Linux). Relativní cesta lze použít v projektu konkrétní `nuget.config` soubory. Toto nastavení je přepsán NUGET_PACKAGES proměnné prostředí, která má přednost. |
-| repositoryPath (`packages.config` jenom) | Umístění, ve kterém k instalaci balíčků NuGet místo výchozího `$(Solutiondir)/packages` složky. Relativní cesta lze použít v projektu konkrétní `nuget.config` soubory. Toto nastavení je přepsán NUGET_PACKAGES proměnné prostředí, která má přednost. |
-| defaultPushSource | Určuje adresu URL nebo cestu zdroje balíčku, který se použije jako výchozí, pokud se nenajdou žádné jiné zdroje balíčků pro operaci. |
-| http_proxy http_proxy.user http_proxy.password no_proxy | Nastavení proxy serveru mají používat při připojování ke zdrojům balíčků; `http_proxy` by měl být ve formátu `http://<username>:<password>@<domain>`. Hesla jsou zašifrované a nelze ji přidat ručně. Pro `no_proxy`, hodnota je čárkou oddělený seznam domén obejít proxy server. Můžete také použít proměnné prostředí http_proxy a no_proxy pro tyto hodnoty. Další podrobnosti najdete v tématu [nastavení proxy serveru NuGet](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (skolima.blogspot.com). |
-| signatureValidationMode | Určuje režim ověřování pro ověřování podpisů balíčků pro instalaci balíčků a obnovení. Hodnoty jsou `accept`, `require`. Výchozí hodnota je `accept`.
+| dependencyVersion (`packages.config` pouze) | Výchozí `DependencyVersion` hodnota pro instalaci balíčku, obnovení a aktualizaci, `-DependencyVersion` když přepínač není zadán přímo Tuto hodnotu používá také uživatelské rozhraní Správce balíčků NuGet. Hodnoty jsou `Lowest`, `HighestPatch`, `HighestMinor`, .`Highest` |
+| globalPackagesFolder (projekty používající pouze PackageReference) | Umístění výchozí složky globálních balíčků. Výchozí hodnota je `%userprofile%\.nuget\packages` (Windows) nebo `~/.nuget/packages` (Mac/Linux). Relativní cestu lze použít v souborech specifických `nuget.config` pro projekt. Toto nastavení je přepsáno proměnnou prostředí NUGET_PACKAGES, která má přednost. |
+| repositoryPath (`packages.config` pouze) | Místo, kde se mají instalovat balíčky NuGet místo výchozí `$(Solutiondir)/packages` složky Relativní cestu lze použít v souborech specifických `nuget.config` pro projekt. Toto nastavení je přepsáno proměnnou prostředí NUGET_PACKAGES, která má přednost. |
+| defaultPushSource | Určuje adresu URL nebo cestu ke zdroji balíčku, který má být použit jako výchozí, pokud pro operaci nebyly nalezeny žádné jiné zdroje balíčků. |
+| http_proxy http_proxy. User http_proxy. Password NO_PROXY | Nastavení proxy serveru, které se má použít při připojování ke zdrojům balíčků; by měl být ve formátu `http://<username>:<password>@<domain>`. `http_proxy` Hesla jsou šifrovaná a nelze je přidat ručně. `no_proxy`V případě je tato hodnota čárkami oddělený seznam domén, které proxy server obejít. Pro tyto hodnoty můžete alternativně použít proměnné prostředí http_proxy a NO_PROXY. Další podrobnosti najdete v tématu [nastavení proxy NuGet](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (skolima.blogspot.com). |
+| signatureValidationMode | Určuje režim ověřování, který se používá k ověření signatur balíčků pro instalaci balíčku a obnovení. Hodnoty jsou `accept`, `require`. Výchozí hodnota je `accept`.
 
 **Příklad**:
 
@@ -66,13 +66,13 @@ Obsahuje nastavení různé konfigurace, které lze nastavit pomocí [ `nuget co
 </config>
 ```
 
-## <a name="bindingredirects-section"></a>část bindingRedirects
+## <a name="bindingredirects-section"></a>oddíl bindingRedirects
 
-Konfiguruje, zda NuGet nepodporuje automatické přesměrování vazby při instalaci balíčku.
+Nakonfiguruje, jestli NuGet při instalaci balíčku automaticky přesměrovává vazby.
 
 | Key | Value |
 | --- | --- |
-| Přeskočit | Logická hodnota označující, zda se mají přeskočit automatické přesměrování vazby. Výchozí hodnota je false. |
+| Přeskočit | Logická hodnota označující, zda se má přeskočit automatický přesměrování vazby Výchozí hodnota je false. |
 
 **Příklad**:
 
@@ -82,14 +82,14 @@ Konfiguruje, zda NuGet nepodporuje automatické přesměrování vazby při inst
 </bindingRedirects>
 ```
 
-## <a name="packagerestore-section"></a>část packageRestore
+## <a name="packagerestore-section"></a>oddíl packageRestore
 
-Ovládací prvky obnovení balíčků během sestavení.
+Řídí obnovení balíčku během sestavení.
 
 | Key | Value |
 | --- | --- |
-| enabled | Logická hodnota označující, zda NuGet můžete provést automatické obnovení. Můžete také nastavit `EnableNuGetPackageRestore` proměnnou prostředí s hodnotou `True` namísto nastavení tohoto klíče v konfiguračním souboru. |
-| automatická | Logická hodnota označující, zda NuGet by měla kontrolovat chybějící balíčky během sestavení. |
+| enabled | Logická hodnota označující, zda může NuGet provádět automatické obnovení. Můžete také nastavit `EnableNuGetPackageRestore` proměnnou prostředí s `True` hodnotou místo nastavení tohoto klíče v konfiguračním souboru. |
+| automatická | Logická hodnota označující, zda má NuGet při sestavení kontrolovat chybějící balíčky. |
 
 **Příklad**:
 
@@ -102,11 +102,11 @@ Ovládací prvky obnovení balíčků během sestavení.
 
 ## <a name="solution-section"></a>oddíl řešení
 
-Ovládací prvky, zda `packages` složka řešení je součástí správy zdrojového kódu. Tato část funguje pouze v `nuget.config` soubory ve složce řešení.
+Určuje, zda `packages` je složka řešení obsažena ve správě zdrojového kódu. Tato část funguje pouze v `nuget.config` souborech ve složce řešení.
 
 | Key | Hodnota |
 | --- | --- |
-| disableSourceControlIntegration | Logická hodnota označující, jestli se má ignorovat složku packages při práci se správou zdrojového kódu. Výchozí hodnota je False. |
+| disableSourceControlIntegration | Logická hodnota označující, zda se má při práci se správou zdrojových kódů ignorovat složku balíčků. Výchozí hodnota je False. |
 
 **Příklad**:
 
@@ -116,21 +116,21 @@ Ovládací prvky, zda `packages` složka řešení je součástí správy zdrojo
 </solution>
 ```
 
-## <a name="package-source-sections"></a>Části zdroje balíčku
+## <a name="package-source-sections"></a>Zdrojové oddíly balíčku
 
-`packageSources`, `packageSourceCredentials`, `apikeys`, `activePackageSource`, `disabledPackageSources` a `trustedSigners` veškerou práci dohromady a nakonfigurujte, jak NuGet pracuje s úložišť balíčků během instalace, obnovení a operace aktualizace.
+Všechnypracují`packageSourceCredentials`společně `packageSources` ,`apikeys` abynakonfigurovali,jakNuGetfungujesúložištěmibalíčkuběhemoperacíinstalace,obnoveníaaktualizace`activePackageSource`. `disabledPackageSources` `trustedSigners`
 
-[ `nuget sources` Příkaz](../tools/cli-ref-sources.md) se obecně používají tato nastavení můžete spravovat, s výjimkou `apikeys` spravovaném pomocí [ `nuget setapikey` příkaz](../tools/cli-ref-setapikey.md), a `trustedSigners` spravovaném použití [ `nuget trusted-signers` příkaz](../tools/cli-ref-trusted-signers.md).
+[ `nuget setapikey` ](../reference/cli-reference/cli-ref-setapikey.md) `apikeys` `trustedSigners` [ `nuget trusted-signers` ](../reference/cli-reference/cli-ref-trusted-signers.md) [ Příkaz`nuget sources` ](../reference/cli-reference/cli-ref-sources.md) se obecně používá ke správě těchto nastavení, s výjimkou toho, že je spravován pomocí příkazu a který je spravován pomocí příkazu.
 
-Všimněte si, že je adresa URL zdroje pro nuget.org `https://api.nuget.org/v3/index.json`.
+Všimněte si, že zdrojová adresa URL pro `https://api.nuget.org/v3/index.json`NuGet.org je.
 
 ### <a name="packagesources"></a>packageSources
 
-Uvádí všechny zdroje balíčků známé. Pořadí je ignorována během operace obnovení a s žádným projektem formátu PackageReference. Pořadí zdrojů pro instalace respektuje NuGet a aktualizovat operace s projekty pomocí `packages.config`.
+Zobrazí seznam všech známých zdrojů balíčků. Pořadí se ignoruje během operací obnovení a s jakýmkoli projektem pomocí formátu PackageReference. NuGet respektuje pořadí zdrojů pro operace instalace a aktualizace s projekty pomocí `packages.config`.
 
 | Key | Value |
 | --- | --- |
-| (název přiřazení ke zdroji balíčku) | Cesta nebo adresa URL zdroje balíčku. |
+| (název, který se má přiřadit ke zdroji balíčku) | Cesta nebo adresa URL zdroje balíčku. |
 
 **Příklad**:
 
@@ -144,17 +144,17 @@ Uvádí všechny zdroje balíčků známé. Pořadí je ignorována během opera
 
 ### <a name="packagesourcecredentials"></a>packageSourceCredentials
 
-Ukládá uživatelská jména a hesla pro zdroje, obvykle se zadává `-username` a `-password` přepínače s `nuget sources`. Hesla jsou ve výchozím nastavení zašifrované, pokud `-storepasswordincleartext` možnost je také použít.
+Ukládá uživatelská jména a hesla pro zdroje, obvykle zadané s `-username` přepínači a `-password` s `nuget sources`. Hesla jsou zašifrována ve výchozím `-storepasswordincleartext` nastavení, pokud není použita ani tato možnost.
 
 | Key | Value |
 | --- | --- |
-| username | Uživatelské jméno pro zdroj ve formátu prostého textu. |
-| password | Šifrované heslo pro zdroj. |
-| cleartextpassword | Nezašifrované heslo pro zdroj. |
+| username | Uživatelské jméno pro zdroj v prostém textu. |
+| password | Šifrované heslo pro zdroj |
+| cleartextpassword | Nešifrované heslo zdroje |
 
 **Příklad:**
 
-V konfiguračním souboru `<packageSourceCredentials>` prvek obsahuje podřízené uzly pro každý název příslušným zdrojovým (s nahrazením mezer v názvu `_x0020_`). To znamená, že u zdrojů s názvem "Contoso" a "Zdroj testu" konfigurační soubor obsahuje následující při použití šifrovaná hesla:
+V konfiguračním souboru `<packageSourceCredentials>` element obsahuje podřízené uzly pro každý platný název zdroje (mezery v názvu jsou nahrazeny řetězcem `_x0020_`). To znamená, že pro zdroje s názvem "contoso" a "zdroj testu" obsahuje konfigurační soubor při použití šifrovaných hesel následující:
 
 ```xml
 <packageSourceCredentials>
@@ -169,7 +169,7 @@ V konfiguračním souboru `<packageSourceCredentials>` prvek obsahuje podřízen
 </packageSourceCredentials>
 ```
 
-Při použití nešifrovaná hesla:
+Při použití nezašifrovaných hesel:
 
 ```xml
 <packageSourceCredentials>
@@ -186,11 +186,11 @@ Při použití nešifrovaná hesla:
 
 ### <a name="apikeys"></a>apikeys
 
-Ukládá klíče pro zdroje, které používají ověřování pomocí klíče rozhraní API, jak se [ `nuget setapikey` příkaz](../tools/cli-ref-setapikey.md).
+Ukládá klíče pro zdroje, které používají ověřování pomocí klíče rozhraní API, jak [ `nuget setapikey` ](../reference/cli-reference/cli-ref-setapikey.md)je nastaveno pomocí příkazu.
 
-| Key | Value |
+| Key | Hodnota |
 | --- | --- |
-| (adresa URL zdroje) | Šifrovaný klíč rozhraní API. |
+| (zdrojová adresa URL) | Šifrovaný klíč rozhraní API. |
 
 **Příklad**:
 
@@ -202,11 +202,11 @@ Ukládá klíče pro zdroje, které používají ověřování pomocí klíče r
 
 ### <a name="disabledpackagesources"></a>disabledPackageSources
 
-Zjištěné zdroje aktuálně zakázáno. Může být prázdný.
+Identifikovány aktuálně zakázané zdroje. Může být prázdné.
 
 | Key | Value |
 | --- | --- |
-| (název zdroje) | Logická hodnota označující, zda zdroj je zakázáno. |
+| (název zdroje) | Logická hodnota označující, zda je zdroj zakázán. |
 
 **Příklad:**
 
@@ -221,13 +221,13 @@ Zjištěné zdroje aktuálně zakázáno. Může být prázdný.
 
 ### <a name="activepackagesource"></a>activePackageSource
 
-*(pouze 2.x; zastaralé v 3.x+)*
+*(pouze 2. x; zastaralé v 3. x +)*
 
-Identifikuje zdroj aktuálně aktivní nebo označuje souhrn všech zdrojů.
+Identifikuje aktuálně aktivní zdroj nebo označuje agregaci všech zdrojů.
 
 | Key | Value |
 | --- | --- |
-| (název zdroje) nebo `All` | Pokud klíč je název zdroje, hodnota je zdrojová cesta nebo adresa URL. Pokud `All`, hodnotou by měla být `(Aggregate source)` kombinovat všechny zdroje balíčků, které jinak nejsou zakázané. |
+| (název zdroje) nebo`All` | Pokud je klíč názvem zdroje, hodnota je zdrojová cesta nebo adresa URL. Pokud `All`by měla být `(Aggregate source)` hodnota pro kombinování všech zdrojů balíčků, které nejsou jinak zakázané. |
 
 **Příklad**:
 
@@ -240,21 +240,21 @@ Identifikuje zdroj aktuálně aktivní nebo označuje souhrn všech zdrojů.
     <add key="All" value="(Aggregate source)" />
 </activePackageSource>
 ```
-## <a name="trustedsigners-section"></a>část trustedSigners
+## <a name="trustedsigners-section"></a>oddíl trustedSigners
 
-Úložiště důvěryhodných podepisující osoby, které umožňují balíček při instalaci nebo obnovování. Tento seznam nemůže být prázdný, pokud uživatel nastaví `signatureValidationMode` k `require`. 
+Ukládá důvěryhodné podepisující osoby používané k povolení balíčku při instalaci nebo obnovení. Tento seznam nemůže být prázdný, pokud je uživatel `signatureValidationMode` nastaven `require`na. 
 
-Tato část je možné aktualizovat pomocí [ `nuget trusted-signers` příkaz](../tools/cli-ref-trusted-signers.md).
+Tuto část lze aktualizovat pomocí [ `nuget trusted-signers` příkazu](../reference/cli-reference/cli-ref-trusted-signers.md).
 
 **Schéma**:
 
-Důvěryhodné podepisující osoba má kolekci `certificate` položky, které zařadit všechny certifikáty, které identifikují dané podepisující osoba. Důvěryhodné podepisující osoba může být buď `Author` nebo `Repository`.
+Důvěryhodný podpis má kolekci `certificate` položek, které zařadí všechny certifikáty identifikující daného podepisujícího. Důvěryhodný podpis může být buď `Author` `Repository`nebo.
 
-Důvěryhodný *úložiště* také určuje `serviceIndex` úložiště (který musí být platný `https` identifikátor uri) a volitelně můžete zadat středníkem oddělený seznam `owners` omezit ještě více který je důvěryhodný z tohoto konkrétního úložiště.
+Důvěryhodné *úložiště* také určuje `serviceIndex` úložiště (které musí být platným `https` identifikátorem URI) a může volitelně zadat středníkem oddělený seznam, který omezí ještě více uživatelů `owners` , kteří jsou z tohoto konkrétního typu považováni za důvěryhodné. úložištì.
 
-Jsou podporované hashovací algoritmy používané pro otisku certifikátu `SHA256`, `SHA384` a `SHA512`.
+Podporované algoritmy hash používané pro otisk certifikátu jsou `SHA256` `SHA384` a `SHA512`.
 
-Pokud `certificate` Určuje `allowUntrustedRoot` jako `true` daný certifikát řetězce na nedůvěryhodném kořenu může při sestavování řetězu certifikátů jako součást ověření podpisu.
+Pokud je jako`true`daný certifikát povoleno řetězení k nedůvěryhodnému kořenovému adresáři při sestavování řetězu certifikátů v rámci ověření podpisu. `allowUntrustedRoot` `certificate`
 
 **Příklad**:
 
@@ -272,17 +272,17 @@ Pokud `certificate` Určuje `allowUntrustedRoot` jako `true` daný certifikát �
 
 ## <a name="using-environment-variables"></a>Použití proměnných prostředí
 
-Můžete použít proměnné prostředí v `nuget.config` hodnoty (NuGet 3.4 +) k aplikování nastavení běhu.
+Pokud chcete použít nastavení v době `nuget.config` běhu, můžete použít proměnné prostředí v hodnotách (NuGet 3.4 +).
 
-Například pokud `HOME` proměnné prostředí na Windows nastavená na `c:\users\username`, pak hodnota `%HOME%\NuGetRepository` v konfiguraci souboru přeloží na `c:\users\username\NuGetRepository`.
+Například pokud `HOME` je proměnná prostředí ve Windows nastavená na `c:\users\username` `%HOME%\NuGetRepository` , pak hodnota v konfiguračním souboru se přeloží na `c:\users\username\NuGetRepository`.
 
-Podobně pokud `HOME` na Mac/Linux je nastavena na `/home/myStuff`, pak `%HOME%/NuGetRepository` v konfiguraci souboru přeloží na `/home/myStuff/NuGetRepository`.
+Podobně, pokud `HOME` je on Mac/Linux nastavený na `/home/myStuff`, `%HOME%/NuGetRepository` se v konfiguračním souboru přeloží na `/home/myStuff/NuGetRepository`.
 
-Pokud není nalezena proměnné prostředí, používá NuGet hodnota literálu z konfiguračního souboru.
+Pokud se proměnná prostředí nenajde, NuGet použije hodnotu literálu z konfiguračního souboru.
 
-## <a name="example-config-file"></a>Příklad konfiguračního souboru
+## <a name="example-config-file"></a>Ukázkový konfigurační soubor
 
-Tady je příklad `nuget.config` soubor, který ukazuje několik položek nastavení:
+Níže je příklad `nuget.config` souboru, který ilustruje několik nastavení:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

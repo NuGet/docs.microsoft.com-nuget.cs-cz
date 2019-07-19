@@ -1,53 +1,53 @@
 ---
-title: Přehled a pracovní postup pomocí balíčků NuGet
-description: Přehled procesu využívání balíčků NuGet v projektu, s odkazy na další konkrétní části procesu.
+title: Přehled a pracovní postup použití balíčků NuGet
+description: Přehled procesu využívání balíčků NuGet v projektu s odkazy na jiné konkrétní části procesu.
 author: karann-msft
 ms.author: karann
 ms.date: 03/22/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4cfc2fde08b240288851b87a391dc42c1ac8ecaf
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 0b3ecb535c07459bff517102b3cf6f4e6dc42195
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842323"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317048"
 ---
-# <a name="package-consumption-workflow"></a>Spotřeba zabalit pracovní postup
+# <a name="package-consumption-workflow"></a>Pracovní postup spotřeby balíčku
 
-Mezi nuget.org a privátní balíček galerie, které vaše organizace může vytvořit najdete desítky tisíc balíčků velmi užitečné pro použití ve vašich aplikacích a službách. Ale bez ohledu na zdroj, spotřebovává balíček následuje stejný obecný pracovní postup.
+Mezi nuget.org a soukromými balíčky, které může vaše organizace navázat, najdete desítky tisíců vysoce užitečných balíčků, které můžete použít ve svých aplikacích a službách. Ale bez ohledu na zdroj, spotřeba balíčku se řídí stejným obecným pracovním postupem.
 
-![Tok přejdete ke zdroji balíčku, vyhledání balíčku, instalace v projektu a přidání pomocí příkazu a volání rozhraní API balíčku](media/Overview-01-GeneralFlow.png)
+![Postup přechodu na zdroj balíčku, vyhledání balíčku, jeho instalace do projektu a přidání příkazu Using a volání do rozhraní API balíčku](media/Overview-01-GeneralFlow.png)
 
-\* _Visual Studio a `dotnet.exe` pouze. `nuget install` Příkaz neprovede žádné změny soubory projektu nebo `packages.config` soubor; položky se musí spravovat ručně._
+\*Pouze Visual Studio `dotnet.exe`a.  _Příkaz neupraví soubory projektu `packages.config` ani soubor; položky musí být spravovány ručně. `nuget install`_
 
-Další podrobnosti najdete v tématu [hledání a výběr balíčků](../consume-packages/finding-and-choosing-packages.md) a [co se stane, když je nainstalován balíček?](../concepts/package-installation-process.md).
+Další podrobnosti najdete v tématu [vyhledání a výběr balíčků](../consume-packages/finding-and-choosing-packages.md) a [co se stane, když se balíček nainstaluje?](../concepts/package-installation-process.md).
 
-NuGet si pamatuje identity a verze počet každý nainstalovaný balíček záznam v jednom souboru projektu (pomocí [PackageReference](../consume-packages/package-references-in-project-files.md)) nebo [ `packages.config` ](../reference/packages-config.md), v závislosti na typu projektu a verze balíčku nuget. Nuget 4.0 +, PackageReference upřednostňována, i když je to možnost konfigurace v sadě Visual Studio prostřednictvím [uživatelské rozhraní Správce balíčků](../tools/package-manager-ui.md). V každém případě můžete prohlédnout v souboru příslušné kdykoli chcete zobrazit úplný seznam závislostí pro váš projekt.
+NuGet si pamatuje identitu a číslo verze každého nainstalovaného balíčku, nahrává ho buď do souboru projektu (pomocí [PackageReference](../consume-packages/package-references-in-project-files.md)), nebo [`packages.config`](../reference/packages-config.md)v závislosti na typu projektu a vaší verzi nugetu. S NuGet 4.0 + je PackageReference upřednostňovaný, i když se to dá nakonfigurovat v aplikaci Visual Studio prostřednictvím [uživatelského rozhraní Správce balíčků](install-use-packages-visual-studio.md). V každém případě se můžete kdykoli podívat na příslušný soubor a zobrazit úplný seznam závislostí pro váš projekt.
 
 > [!Tip]
-> Je vhodné vždy zkontrolujte licence pro každý balíček, který chcete používat váš software. Na nuget.org, můžete najít **informace o licenci** odkaz na pravé straně stránky popis každého balíčku. Pokud balíček nejsou zadány licenční podmínky, obraťte se přímo pomocí vlastníka balíčku **obraťte se na vlastníky** odkaz na stránce balíček. Společnost Microsoft není licence duševního vlastnictví, od poskytovatelů třetích stran balíček a neodpovídá za informace, které jsou poskytovány třetími stranami.
+> Je vhodné vždycky kontrolovat licenci pro každý balíček, který máte v úmyslu používat ve svém softwaru. Na nuget.org najdete odkaz **licenční informace** na pravé straně každé stránky s popisem balíčku. Pokud balíček neurčí licenční smlouvu, obraťte se na vlastníka balíčku přímo pomocí odkazu **vlastníci kontaktu** na stránce balíček. Společnost Microsoft nelicencuje žádné duševní vlastnictví od poskytovatelů balíčků třetích stran a nezodpovídá za informace poskytované třetími stranami.
 
-Při instalaci balíčků NuGet obvykle zkontroluje, jestli tento balíček již k dispozici uloženou v mezipaměti. Můžete ručně vymazat tuto mezipaměť z příkazového řádku, jak je popsáno na [Správa globálních balíčků a složek mezipaměti](../consume-packages/managing-the-global-packages-and-cache-folders.md).
+Při instalaci balíčků NuGet obvykle kontroluje, jestli je balíček už dostupný z jeho mezipaměti. Tuto mezipaměť můžete ručně vymazat z příkazového řádku, jak je popsáno v tématu [Správa globálních balíčků a složek mezipaměti](../consume-packages/managing-the-global-packages-and-cache-folders.md).
 
-NuGet také zajišťuje, že jsou kompatibilní s vaším projektem cílových platforem podporovaných balíček. Pokud balíček neobsahuje kompatibilní sestavení, NuGet zobrazí chybu. Zobrazit [řešení chyb nekompatibilní balíček](dependency-resolution.md#resolving-incompatible-package-errors).
+NuGet také zajišťuje, aby cílové architektury podporované balíčkem byly kompatibilní s vaším projektem. Pokud balíček neobsahuje kompatibilní sestavení, NuGet zobrazí chybu. Viz [řešení chyb nekompatibilních balíčků](dependency-resolution.md#resolving-incompatible-package-errors).
 
-Při přidávání projektu kódu do úložiště zdrojového kódu, obvykle neobsahuje balíčky NuGet. Uživatele, kteří později naklonujte úložiště nebo jinak získají projektu, včetně agentů sestavení na systémech, jako je Visual Studio Team Services, musíte obnovit potřebné balíčky před spuštěním sestavení:
+Při přidávání kódu projektu do zdrojového úložiště obvykle nezahrnujete balíčky NuGet. Uživatelé, kteří později naklonují úložiště nebo jinak nastavili projekt, včetně agentů sestavení v systémech, jako je Visual Studio Team Services, musí před spuštěním sestavení obnovit potřebné balíčky:
 
-![Obnovují se balíčky NuGet tak, že klonování úložiště a pomocí příkazu restore tok](media/Overview-02-RestoreFlow.png)
+![Tok obnovování balíčků NuGet klonováním úložiště a pomocí příkazu pro obnovení](media/Overview-02-RestoreFlow.png)
 
-[Obnovení balíčků](../consume-packages/package-restore.md) používá informace v souboru projektu nebo `packages.config` přeinstalovat všechny závislosti. Všimněte si, že existují rozdíly v procesu používané, jak je popsáno v [řešení závislostí](../consume-packages/dependency-resolution.md). Navíc výše uvedeném diagramu nezobrazí příkaz restore pro konzolu Správce balíčků vzhledem k tomu, že pokud jste s konzolou jste již v rámci sady Visual Studio, která obvykle automaticky obnoví balíčky a poskytuje řešení úrovni příkaz jako Zobrazit.
+[Obnovení balíčku](../consume-packages/package-restore.md) používá informace v souboru projektu nebo `packages.config` přeinstaluje všechny závislosti. Všimněte si, že v procesu je nějaký rozdíl, jak je popsáno v tématu [řešení závislosti](../consume-packages/dependency-resolution.md). Kromě toho diagram výše nezobrazuje příkaz Restore pro konzolu Správce balíčků, protože pokud jste s konzolou, kterou už máte v kontextu sady Visual Studio, která obvykle obnovuje balíčky automaticky a poskytuje příkaz na úrovni řešení jako objeví.
 
-Někdy je potřeba znovu nainstaluje balíčky, které už jsou obsažené v projektu, který může také znovu nainstalovat závislosti. Je to snadné dosáhnout pomocí `nuget reinstall` příkaz nebo konzoly Správce balíčků NuGet. Podrobnosti najdete v tématu [Reinstalling a aktualizace balíčků](../consume-packages/reinstalling-and-updating-packages.md).
+V některých případech je potřeba přeinstalovat balíčky, které už jsou zahrnuté v projektu, což může přeinstalovat i závislosti. To je snadné pomocí `nuget reinstall` příkazu nebo konzoly Správce balíčků NuGet. Podrobnosti najdete v tématu [Přeinstalace a aktualizace balíčků](../consume-packages/reinstalling-and-updating-packages.md).
 
-Nakonec doprovází chování Nugetu `Nuget.Config` soubory. Více souborů umožňuje centralizovat určitá nastavení na různých úrovních, jak je vysvětleno v [konfigurace chování Nugetu](../consume-packages/configuring-nuget-behavior.md).
+Nakonec se chování NuGet řídí `Nuget.Config` soubory. Více souborů lze použít k centralizaci určitých nastavení na různých úrovních, jak je vysvětleno v tématu [Konfigurace chování NuGet](../consume-packages/configuring-nuget-behavior.md).
 
-## <a name="ways-to-install-a-nuget-package"></a>Způsoby, jak nainstalovat balíček NuGet
+## <a name="ways-to-install-a-nuget-package"></a>Způsoby instalace balíčku NuGet
 
-Balíčky NuGet se stáhnout a nainstalovat pomocí některé z metod v následující tabulce.
+Balíčky NuGet se stahují a instalují pomocí kterékoli z metod v následující tabulce.
 
 | Nástroj | Popis |
 | --- | --- |
-| [dotnet.exe CLI](install-use-packages-dotnet-cli.md) | (Všechny platformy) Nástroje rozhraní příkazového řádku pro knihovny .NET Core a .NET Standard a sady SDK – vizuální styl projekty, které cílí na rozhraní .NET Framework (viz [SDK atribut](/dotnet/core/tools/csproj#additions)). Načte balíček identifikovaný \<název_balíčku\> a přidá odkaz na soubor projektu. Také načte a nainstaluje závislosti. |
-| Visual Studio | (Windows a Mac) Poskytuje uživatelské rozhraní, která můžete procházet, vybrat a nainstalovat balíčky a jejich závislosti do projektu ze zdroje zadaného balíčku. Přidá odkazy na balíčky nainstalované do souboru projektu.<ul><li>[Instalace a Správa balíčků s využitím sady Visual Studio](../tools/package-manager-ui.md)</li><li>[Zahrnutí balíčku NuGet do projektu (Mac)](/visualstudio/mac/nuget-walkthrough)</li></ul> |
-| [Konzola správce balíčků v sadě Visual Studio](../tools/package-manager-console.md) | (Jenom Windows) Načte a nainstaluje balíček identifikovaný \<název_balíčku\> z vybraného zdroje do zadaného projektu v řešení, přidá odkaz na soubor projektu. Také načte a nainstaluje závislosti. |
-| [nuget.exe CLI](install-use-packages-dotnet-cli.md) | (Všechny platformy) Nástroj příkazového řádku pro knihovny rozhraní .NET Framework a sady SDK styl projekty, které cílit na knihovny .NET Standard. Načte balíček identifikovaný \<název_balíčku\> a rozšíří jeho obsah do složky v aktuálním adresáři, můžete také načíst všechny balíčky uvedené v `packages.config` souboru. Také načte a nainstaluje závislosti, ale neprovede žádné změny do souborů projektu nebo `packages.config`. |
+| [dotnet.exe CLI](install-use-packages-dotnet-cli.md) | (Všechny platformy) Nástroj rozhraní příkazového řádku pro knihovny .NET Core a .NET Standard a pro projekty ve stylu sady SDK, které cílí na .NET Framework (viz [atribut sady SDK](/dotnet/core/tools/csproj#additions)). Načte balíček identifikovaný \<package_name\> a přidá odkaz na soubor projektu. Také načte a nainstaluje závislosti. |
+| Visual Studio | (Windows a Mac) Poskytuje uživatelské rozhraní, pomocí kterého můžete procházet, vybírat a instalovat balíčky a jejich závislosti do projektu ze zadaného zdroje balíčku. Přidá odkazy na nainstalované balíčky do souboru projektu.<ul><li>[Instalace a Správa balíčků pomocí sady Visual Studio](install-use-packages-visual-studio.md)</li><li>[Zahrnutí balíčku NuGet do projektu (Mac)](/visualstudio/mac/nuget-walkthrough)</li></ul> |
+| [Konzola Správce balíčků (Visual Studio)](install-use-packages-powershell.md) | (Jenom Windows) Načte a nainstaluje balíček identifikovaný \<package_name\> z vybraného zdroje do zadaného projektu v řešení a pak přidá odkaz na soubor projektu. Také načte a nainstaluje závislosti. |
+| [nuget.exe CLI](install-use-packages-nuget-cli.md) | (Všechny platformy) Nástroj rozhraní příkazového řádku pro knihovny .NET Framework a projekty, které nejsou ve stylu sady SDK, které cílí na .NET Standard knihovny. Načte balíček identifikovaný \<package_name\> a rozbalí jeho obsah do složky v aktuálním adresáři. může také načíst `packages.config` všechny balíčky uvedené v souboru. Také načte a nainstaluje závislosti, ale neprovede žádné změny v souborech projektu nebo `packages.config`. |

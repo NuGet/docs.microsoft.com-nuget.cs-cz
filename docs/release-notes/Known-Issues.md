@@ -1,51 +1,51 @@
 ---
 title: Známé problémy
-description: Známé problémy s NuGet, včetně ověřování, instalace balíčku a nástroje.
+description: Známé problémy s nástrojem NuGet, včetně ověřování, instalace balíčků a nástrojů.
 author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: fc338ba3810a125f638a937cf14456bf519a24a8
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: b104eb39ddeacd9ca1ea45937cf98ad57531112a
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548471"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317144"
 ---
 # <a name="known-issues-with-nuget"></a>Známé problémy s NuGet
 
-Jedná se nejčastěji používané známé problémy s NuGet, které jsou hlášeny opakovaně. Pokud máte potíže s instalací NuGet nebo správu balíčků, věnujte prosím najdete pomocí těchto známých problémů a jejich řešení.
+Jedná se o nejběžnější známé problémy se systémem NuGet, který se opakovaně hlásí. Pokud máte potíže s instalací NuGet nebo správou balíčků, Projděte si tyto známé problémy a jejich řešení.
 
 > [!Note]
-> Od verze NuGet 4.0, známé problémy jsou součástí příslušné poznámky.
+> Počínaje verzí NuGet 4,0 jsou známé problémy součástí odpovídajících poznámek k verzi.
 
-## <a name="authentication-issues-with-nuget-feeds-in-vsts-with-nugetexe-v343"></a>Problémy s ověřováním pomocí NuGet informační kanály ve službě VSTS s nuget.exe v3.4.3
+## <a name="authentication-issues-with-nuget-feeds-in-vsts-with-nugetexe-v343"></a>Problémy s ověřováním pomocí kanálů NuGet v VSTS s NuGet. exe v 3.4.3
 
-**Problém:**
+**Řešení**
 
-Pokud použijeme následující příkaz k uložení přihlašovacích údajů, jsme skončit double šifrováním osobní přístupový Token.
+Když použijeme následující příkaz k uložení přihlašovacích údajů, ukončíme dvojitou šifrování osobního přístupového tokenu.
 
-$PAT = "Svůj osobní přístupový token" $Feed = "url".\nuget.exe zdroje přidat – název testu-$UserName $Feed zdroje - UserName-$PAT heslo
+$PAT = "váš osobní přístupový token" $Feed = "vaše adresa URL" .\nuget.exe sources add-name test-source $Feed-UserName $UserName-Password $PAT
 
-**Alternativní řešení:**
+**Odstraníte**
 
-Store hesla v nešifrovaném textu pomocí [- StorePasswordInClearText](../tools/cli-ref-sources.md) možnost.
+Ukládejte hesla jako nešifrovaný text pomocí možnosti [-StorePasswordInClearText](../reference/cli-reference/cli-ref-sources.md) .
 
-## <a name="error-installing-packages-with-nuget-34-341"></a>Chyba při instalaci balíčků pomocí NuGet 3.4, 3.4.1
+## <a name="error-installing-packages-with-nuget-34-341"></a>Chyba při instalaci balíčků pomocí NuGet 3,4, 3.4.1
 
-**Problém:**
+**Řešení**
 
-NuGet 3.4 a 3.4.1 při použití – v NuGet, jsou hlášeny jako k dispozici žádné zdroje a nejde přidat nové zdroje v okně konfigurace. Výsledkem je podobně jako na následujícím obrázku:
+V NuGet 3,4 a 3.4.1 při použití doplňku NuGet nejsou žádné zdroje hlášeny jako dostupné a v okně Konfigurace nemůžete přidávat nové zdroje. Výsledek je podobný následujícímu obrázku:
 
-![NuGet config s žádné zdroje](./media/knownIssue-34-NoSources.PNG)
+![Konfigurace NuGet bez zdrojů](./media/knownIssue-34-NoSources.PNG)
 
-`NuGet.Config` Ve vašich `%AppData%\NuGet\` (Windows) nebo `~/.nuget/` (Mac/Linux) složka omylem byla vyprázdněna. Chcete-li tento problém vyřešit: Zavřete sadu Visual Studio (ve Windows, pokud je k dispozici), odstranit `NuGet.Config` soubor a zkuste operaci zopakovat. NuGet vygeneroval nový `NuGet.Config` a musí být možné pokračovat.
+Soubor ve složce (Windows`~/.nuget/` ) nebo (Mac/Linux) byl omylem vyprázdněn. `%AppData%\NuGet\` `NuGet.Config` Oprava: Ukončete aplikaci Visual Studio (v systému Windows, pokud je k dispozici) `NuGet.Config` , odstraňte soubor a opakujte operaci. NuGet vygeneroval nové `NuGet.Config` a mělo by být možné pokračovat.
 
-## <a name="error-installing-packages-with-nuget-27"></a>Chyba při instalaci balíčků pomocí NuGet 2.7
+## <a name="error-installing-packages-with-nuget-27"></a>Chyba při instalaci balíčků pomocí NuGet 2,7
 
-**Problém:**
+**Řešení**
 
-NuGet 2.7 nebo výše, při pokusu nainstalovat libovolný balíček, který obsahuje odkazy na sestavení, můžete obdržet chybovou zprávu **"vstupní řetězec nemá správný formát."** , třeba níže:
+Pokud se při pokusu o instalaci balíčku obsahujícího odkazy na sestavení v NuGet 2,7 nebo vyšší, může se zobrazit chybová zpráva **"vstupní řetězec nebyl ve správném formátu"** , například níže:
 
 ```ps
 install-package log4net
@@ -61,40 +61,40 @@ install-package log4net
         FullyQualifiedErrorId : NuGetCmdletUnhandledException,NuGet.PowerShell.Commands.InstallPackageCommand
 ```
 
-To je způsobeno knihovnu typů pro `VSLangProj.dll` komponenty modelu COM, jejíž registrace se ruší ve vašem systému. K tomu může dojít například až budete mít dvě verze sady Visual Studio nainstalovat vedle sebe a potom odinstalujte starší verzi. To může nechtěně zrušit registraci výše uvedené knihovny COM.
+To je způsobeno tím, že knihovna typů `VSLangProj.dll` pro komponentu modelu COM je v systému odregistrována. K tomu může dojít například v případě, že máte nainstalovanou dvě verze sady Visual Studio vedle sebe a pak odinstalujete starší verzi. V takovém případě může neúmyslně zrušit registraci výše uvedené knihovny COM.
 
-**Řešení:**:
+**Řešení:** :
 
-Spusťte tento příkaz z **řádku se zvýšenými oprávněními** znovu zaregistrovat knihovnu typů pro `VSLangProj.dll`
+Spusťte tento příkaz z **příkazového řádku se zvýšenými oprávněními** a znovu Zaregistrujte knihovnu typů pro`VSLangProj.dll`
 
     regsvr32 "C:\Program Files (x86)\Common Files\microsoft shared\MSEnv\VsLangproj.olb"
 
-Pokud se příkaz nezdaří, zkontrolujte, jestli soubor existuje v dané oblasti.
+Pokud se příkaz nezdařil, zkontrolujte, zda soubor v tomto umístění existuje.
 
-Další informace o této chybě najdete v tomto [pracovní položku](https://nuget.codeplex.com/workitem/3609 "pracovní položku 3609").
+Další informace o této chybě naleznete v části Tato pracovní [Položka pracovní položky](https://nuget.codeplex.com/workitem/3609 "3609").
 
-## <a name="build-failure-after-package-update-in-vs-2012"></a>Selhání sestavení po aktualizaci balíčku v VS 2012
+## <a name="build-failure-after-package-update-in-vs-2012"></a>Chyba sestavení po aktualizaci balíčku ve VS 2012
 
-Problém: používáte VS 2012 RTM. Při aktualizaci balíčků NuGet, se zobrazí tato zpráva: "jeden nebo více balíčků nešlo dokončit, odinstalovat." a zobrazí se výzva k restartování sady Visual Studio. Po restartu VS, dojde k chybám divné sestavení.
+Problém: Používáte VS 2012 RTM. Při aktualizaci balíčků NuGet se zobrazí tato zpráva: Nepovedlo se dokončit odinstalaci jednoho nebo víc balíčků. a zobrazí se výzva k restartování sady Visual Studio. Po restartování VS se zobrazí chyby sestavení divné.
 
-Příčinou je, že určité soubory do staré balíčků uzamkla MSBuild proces na pozadí. I po restartování VS pozadí procesu MSBuild dál používá soubory do staré balíčků způsobuje selhání sestavení.
+Příčinou je, že některé soubory ve starších balíčcích jsou uzamčeny procesem MSBuild na pozadí. I po restartování VS, proces MSBuild na pozadí stále používá soubory ve starších balíčcích, což způsobuje selhání sestavení.
 
-Opravou je instalace VS 2012 aktualizace, například VS 2012 Update 2.
+Opravou je instalace VS 2012 Update, například VS 2012 Update 2.
 
-## <a name="upgrading-to-latest-nuget-from-an-older-version-causes-a-signature-verification-error"></a>Upgrade na nejnovější NuGet ze starší verze způsobí chybu ověření podpisu
+## <a name="upgrading-to-latest-nuget-from-an-older-version-causes-a-signature-verification-error"></a>Upgrade na nejnovější verzi NuGet ze starší verze způsobí chybu při ověřování podpisu.
 
-Pokud spustíte VS 2010 SP1, můžete narazit na následující chybová zpráva při pokusech o upgradu Nugetu, pokud máte nainstalovaný starší verze.
+Pokud používáte VS 2010 SP1, můžete při pokusu o upgrade NuGetu v případě, že máte nainstalovanou starší verzi, použít následující chybovou zprávu.
 
-![Instalační služba rozšíření sady Visual Studio](./media/Visual-Studio-Extension-Installer.png)
+![Instalační program rozšíření sady Visual Studio](./media/Visual-Studio-Extension-Installer.png)
 
-Při prohlížení protokolů, může se zobrazit poznámku o `SignatureMismatchException`.
+Při prohlížení protokolů se může zobrazit zmínka `SignatureMismatchException`o.
 
-Pokud chcete zabránit tím, že je [oprava hotfix Visual Studio 2010 SP1](http://bit.ly/vsixcertfix) můžete nainstalovat.
-Alternativním řešením je můžete také jednoduše odinstalovat NuGet (při spuštění sady Visual Studio jako správce) a nainstalujte ho z Galerie rozšíření VS.  Zobrazit [ http://support.microsoft.com/kb/2581019 ](http://support.microsoft.com/kb/2581019) Další informace.
+Aby k tomu nedošlo, je k dispozici [oprava hotfix sady Visual Studio 2010 SP1](http://bit.ly/vsixcertfix) , kterou můžete nainstalovat.
+Alternativně je alternativním řešením jednoduše odinstalovat NuGet (při spuštění sady Visual Studio jako správce) a pak ji nainstalovat z galerie rozšíření VS.  Další [http://support.microsoft.com/kb/2581019](http://support.microsoft.com/kb/2581019) informace najdete v tématu.
 
-## <a name="package-manager-console-throws-an-exception-when-the-reflector-visual-studio-add-in-is-also-installed"></a>Konzola správce balíčků vyvolá výjimku, když Reflector Visual Studio Add-In je také nainstalována.
+## <a name="package-manager-console-throws-an-exception-when-the-reflector-visual-studio-add-in-is-also-installed"></a>Konzola správce balíčků vyvolá výjimku, pokud je nainstalován i doplněk pro odrážející sadu Visual Studio.
 
-Při spuštění konzoly Správce balíčků, můžete jej spustit do následující zpráva o výjimce Pokud máte Reflector VS doplněk nainstalovaný.
+Při spuštění konzoly Správce balíčků můžete spustit následující zprávu o výjimce, pokud máte nainstalovanou odrážející doplněk VS.
 
     The following error occurred while loading the extended type data file:
     Microsoft.PowerShell.Core, C:\Windows\SysWOW64\WindowsPowerShell\v1.0\types.ps1xml(2950) :
@@ -132,13 +132,13 @@ or
        at NuGetConsole.Implementation.Console.ConsoleDispatcher.Start()
        at NuGetConsole.Implementation.PowerConsoleToolWindow.MoveFocus(FrameworkElement consolePane)
 
-Kontaktovali jsme autorem tohoto doplňku v šancí práce na řešení.
+Kontaktovali jsme autora doplňku v hodlá řešení problému.
 
-<p class="info">Aktualizace: Jsme ověřili, že nejnovější verze Reflector, 6.5, již nezpůsobuje, že tato výjimka v konzole.</p>
+<p class="info">Aktualizace: Ověřili jsme, že nejnovější verze Odrazer, 6,5, už tuto výjimku nezpůsobuje v konzole nástroje.</p>
 
-## <a name="opening-package-manager-console-fails-with-objectsecurity-exception"></a>Konzola správce balíčků otevírání selže s výjimkou ObjectSecurity
+## <a name="opening-package-manager-console-fails-with-objectsecurity-exception"></a>Spuštění konzoly Správce balíčků se nezdařilo s výjimkou ObjectSecurity
 
-Při pokusu o otevření konzole Správce balíčků, může se zobrazit tyto chyby:
+Tyto chyby se můžou zobrazit při pokusu o otevření konzoly Správce balíčků:
 
     The following error occurred while loading the extended type data file: Microsoft.PowerShell.Core, C:\Windows\SysWOW64\WindowsPowerShell\v1.0\types.ps1xml(2977) : Error in type "System.Security.AccessControl.ObjectSecurity": Exception: The getter method should be public, non void, static, and have one parameter of type PSObject.
     The following error occurred while loading the extended type data file: Microsoft.PowerShell.Core, C:\Windows\SysWOW64\WindowsPowerShell\v1.0\types.ps1xml(2984) : Error in type "System.Security.AccessControl.ObjectSecurity": Exception: The getter method should be public, non void, static, and have one parameter of type PSObject.
@@ -147,45 +147,45 @@ Při pokusu o otevření konzole Správce balíčků, může se zobrazit tyto ch
     The following error occurred while loading the extended type data file: Microsoft.PowerShell.Core, C:\Windows\SysWOW64\WindowsPowerShell\v1.0\types.ps1xml(3005) : Error in type "System.Security.AccessControl.ObjectSecurity": Exception: The getter method should be public, non void, static, and have one parameter of type PSObject.
     The term 'Get-ExecutionPolicy' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
 
-Pokud ano, postupujte podle řešení [popsané na StackOverflow](http://stackoverflow.com/questions/12638289/embedding-powershell-v2-0-in-net-app-on-windows-8-rtm) a opravte je.
+Pokud ano, opravte je podle řešení [v tématu StackOverflow](http://stackoverflow.com/questions/12638289/embedding-powershell-v2-0-in-net-app-on-windows-8-rtm) .
 
-## <a name="the-add-package-library-reference-dialog-throws-an-exception-if-the-solution-contains-installshield-limited-edition-project"></a>Dialogové okno Přidat odkaz na balíček knihovny vyvolá výjimku, pokud řešení obsahuje projekt InstallShield Limited Edition
+## <a name="the-add-package-library-reference-dialog-throws-an-exception-if-the-solution-contains-installshield-limited-edition-project"></a>Dialogové okno Přidat knihovnu balíčků vyvolá výjimku, pokud řešení obsahuje projekt InstallShield Limited Edition
 
-Jste zjistili jsme, že pokud vaše řešení obsahuje nejmíň jeden projekt InstallShield Limited Edition, **přidat odkaz na balíček knihovny** vyvolá výjimku při otevření dialogového okna. Aktuálně neexistuje žádné alternativní řešení ještě s výjimkou odebírání projektů InstallShield nebo jejich uvolnění.
+Zjistili jsme, že pokud vaše řešení obsahuje jeden nebo více projektů InstallShield s omezeným voláním, dialogové okno **přidat knihovnu balíčků** vyvolá při otevření výjimku. V současné době zatím neexistuje alternativní řešení s výjimkou odebrání projektů InstallShield nebo jejich uvolnění.
 
-## <a name="uninstall-button-greyed-out-nuget-requires-admin-privileges-to-installuninstall"></a>Odinstalovat tlačítko šedě? NuGet vyžaduje oprávnění správce, aby instalace/odinstalace
+## <a name="uninstall-button-greyed-out-nuget-requires-admin-privileges-to-installuninstall"></a>Tlačítko odinstalovat šedé? NuGet vyžaduje oprávnění správce k instalaci/odinstalaci.
 
-Pokud se pokusíte odinstalovat pomocí správce sady Visual Studio rozšíření NuGet, můžete si všimnout, že k dispozici tlačítko odinstalovat. NuGet vyžaduje přístup správce k instalaci a odinstalaci. Znovu spusťte Visual Studio jako správce a odinstalujte rozšíření. NuGet nevyžaduje přístup správce k jeho použití.
+Pokud se pokusíte odinstalovat NuGet pomocí Správce rozšíření sady Visual Studio, můžete si všimnout, že je tlačítko odinstalovat zakázané. NuGet vyžaduje přístup správce k instalaci a odinstalaci. Pokud chcete rozšíření odinstalovat, znovu spusťte Visual Studio jako správce. NuGet nevyžaduje přístup správce k jeho použití.
 
-## <a name="the-package-manager-console-crashes-when-i-open-it-in-windows-xp-whats-wrong"></a>Když otevřete ve Windows XP dojde k chybě konzole Správce balíčků. Co je?
+## <a name="the-package-manager-console-crashes-when-i-open-it-in-windows-xp-whats-wrong"></a>Konzola správce balíčků při otevření v systému Windows XP dojde k chybě. Co je?
 
-NuGet vyžaduje modul runtime Powershell 2.0. Windows XP, nemá ve výchozím nastavení, prostředí Powershell 2.0. Můžete si stáhnout modul runtime Powershell 2.0 z [ http://support.microsoft.com/kb/968929 ](http://support.microsoft.com/kb/968929). Po instalaci, restartujte Visual Studio a byste měli používat konzolu Správce balíčků.
+NuGet vyžaduje prostředí PowerShell 2,0 Runtime. Windows XP ve výchozím nastavení nemá PowerShell 2,0. Modul runtime PowerShellu 2,0 si můžete stáhnout [http://support.microsoft.com/kb/968929](http://support.microsoft.com/kb/968929)z. Po instalaci nástroje restartujte sadu Visual Studio a měli byste být schopni spustit konzolu Správce balíčků.
 
-## <a name="visual-studio-2010-sp1-beta-crashes-on-exit-if-the-package-manager-console-is-open"></a>Visual Studio 2010 SP1 Beta chyby při ukončení, pokud je otevřená Konzola správce balíčků.
+## <a name="visual-studio-2010-sp1-beta-crashes-on-exit-if-the-package-manager-console-is-open"></a>Po otevření konzoly Správce balíčků dojde k chybě sady Visual Studio 2010 SP1 Beta.
 
-Pokud jste nainstalovali Visual Studio 2010 SP1 Beta, můžete si všimnout, že pokud zůstat otevřeno, konzola Správce balíčků a zavřete sadu Visual Studio, jeho dojde k chybě. Toto je známý problém nástroje Visual Studio a bude vyřešen v aktualizaci SP1 RTM verze. Prozatím ignorovat selhání nebo odinstalovat beta verzi SP1, pokud je to možné.
+Pokud jste nainstalovali sadu Visual Studio 2010 SP1 Beta verze, můžete si všimnout, že pokud ponecháte konzolu Správce balíčků otevřenou a zavřete Visual Studio, dojde k chybě. Toto je známý problém sady Visual Studio a bude opraven ve verzi SP1 RTM. Prozatím tuto chybu ignorujte nebo odinstalujte SP1 Beta, pokud můžete.
 
-## <a name="the-element-metadata--has-invalid-child-element-exception-occurs"></a>Element 'metadat'... má neplatný podřízený element výjimka nastane
+## <a name="the-element-metadata--has-invalid-child-element-exception-occurs"></a>Element ' metadata '... Vyvolá se neplatná výjimka podřízeného elementu.
 
-Pokud jste nainstalovali balíčky sestavené s předběžnou verzi verzi Nugetu, chybová zpráva s oznámením "element"metadat' v oboru názvů "schemas.microsoft.com/packaging/2010/07/nuspec.xsd" má neplatný podřízený element"může dojít při spuštění verzi RTM verze balíčku nuget s tímto projektem. Budete muset odinstalovat a znovu nainstalovat každý balíček pomocí RTM verze balíčku nuget.
+Pokud jste nainstalovali balíčky sestavené s předběžnou verzí NuGet, může se zobrazit chybová zpráva s oznámením, že při spuštění RTM má element metadata v oboru názvů schemas.microsoft.com/packaging/2010/07/nuspec.xsd neplatný podřízený element. verze NuGetu s tímto projektem Každý balíček musíte odinstalovat a znovu nainstalovat pomocí verze RTM balíčku NuGet.
 
-## <a name="attempting-to-install-or-uninstall-results-in-the-error-cannot-create-a-file-when-that-file-already-exists"></a>Pokus o instalaci nebo odinstalaci výsledkem chyba "Nelze vytvořit soubor, který již existuje."
+## <a name="attempting-to-install-or-uninstall-results-in-the-error-cannot-create-a-file-when-that-file-already-exists"></a>Při pokusu o instalaci nebo odinstalaci dojde k chybě "nelze vytvořit soubor, pokud tento soubor již existuje".
 
-Z nějakého důvodu rozšíření sady Visual Studio můžete získat v divné stavu, ve kterém jste odinstalovat rozšíření VSIX, ale některé soubory byly zachovají. Alternativní řešení tohoto problému:
+Z nějakého důvodu můžou rozšíření sady Visual Studio získat ve stavu divné, kdy jste odinstalovali rozšíření VSIX, ale některé soubory zůstaly na pozadí. Alternativní řešení tohoto problému:
 
 1. Ukončení sady Visual Studio
-1. Otevřete následující složku (může být na jinou jednotku na počítači)
+1. Otevřete následující složku (může to být na jiné jednotce počítače).
 
-    C:\Program soubory (x86) \Microsoft Visual Studio 10.0\Common7\IDE\Extensions\Microsoft Správce balíčků Corporation\NuGet\<verze > \
+    C:\Program Files (x86) \Microsoft Visual Studio 10.0 \ Common7\IDE\Extensions\Microsoft Corporation\NuGet – správce\<balíčků verze > \
 
-1. Odstranit všechny soubory s *.deleteme* rozšíření.
-1. Znovu otevřete Visual Studio
+1. Odstraňte všechny soubory s příponou *. Deleteme* .
+1. Znovu otevřít Visual Studio
 
-Po provedení těchto kroků, by měl být pokračovat.
+Po provedení tohoto postupu byste měli být schopní pokračovat.
 
-## <a name="in-rare-cases-compiling-with-code-analysis-turned-on-causes-error"></a>Ve výjimečných případech kompilaci pomocí analýzy kódu zapnuté způsobí chybu.
+## <a name="in-rare-cases-compiling-with-code-analysis-turned-on-causes-error"></a>Ve výjimečných případech se při kompilování se zapnutou analýzou kódu vynutí chyba.
 
-Může být zobrazí následující chyba, pokud nainstaluje FluentNHibernate pomocí konzole Správce balíčků a poté zkompilovat váš projekt s "Analýzu kódu" zapnuté.
+Pokud nainstalujete FluentNHibernate s konzolou správce balíčků a potom zkompilujete projekt pomocí funkce Analýza kódu, může se zobrazit následující chyba.
 
     Error 3 CA0058 : The referenced assembly
     'NHibernate, Version=3.0.0.2001, Culture=neutral, PublicKeyToken=aa95f207798dfdb4'
@@ -193,36 +193,36 @@ Může být zobrazí následující chyba, pokud nainstaluje FluentNHibernate po
     C:\temp\Scratch\src\MyProject.UnitTests\bin\Debug\MyProject.UnitTests.dll.
     MyProject.UnitTests
 
-Ve výchozím nastavení vyžaduje FluentNHibernate NHibernate 3.0.0.2001. Ale záměrné NuGet se do svého projektu nainstalovat NHibernate 3.0.0.4000 a přidat že příslušnou datovou vazbu přesměruje tak, že bude fungovat. Projekt zkompiluje bez potíží, pokud analýza kódu není zapnutá. Na rozdíl od kompilátor nástroj pro analýzu kódu není postupujte z správně 3.0.0.4000 nahrazujícím 3.0.0.2001 přesměrování vazby. Můžete tak buď instalaci NHibernate 3.0.0.2001 tento problém obejít nebo řekněte nástroj pro analýzu kódu se chová stejně jako kompilátor následujícím způsobem:
+Ve výchozím nastavení FluentNHibernate vyžaduje NHibernate 3.0.0.2001. Nicméně návrh NuGet nainstaluje do projektu NHibernate 3.0.0.4000 a přidá odpovídající přesměrování vazby, aby fungoval. Projekt bude zkompilován pouze v případě, že analýza kódu není zapnuta. Na rozdíl od kompilátoru Nástroj Analýza kódu nesprávně dodržuje přesměrování vazby na použití 3.0.0.4000 namísto 3.0.0.2001. Problém můžete obejít buď instalací NHibernate 3.0.0.2001, nebo oznámením, že nástroj pro analýzu kódu se chová stejně jako kompilátor, a to následujícím způsobem:
 
-1. Přejděte na *%PROGRAMFILES%\Microsoft Visual Studio 10.0\Team Tools\Static analýzy Tools\FxCop*
-1. Otevřete FxCopCmd.exe.config a změňte `AssemblyReferenceResolveMode` z `StrongName` k `StrongNameIgnoringVersion`.
-1. Změnu uložíte a znovu sestavte projekt.
+1. Přejít na *%ProgramFiles%\Microsoft Visual Studio 10.0 \ Team Tools\Static Analysis Tools\FxCop*
+1. Otevřete soubor FxCopCmd. exe. config a `AssemblyReferenceResolveMode` změňte `StrongName` z `StrongNameIgnoringVersion`na.
+1. Uložte změnu a znovu sestavte projekt.
 
-## <a name="write-error-command-doesnt-work-inside-installps1uninstallps1initps1"></a>Chyba při zápisu příkaz nefunguje uvnitř install.ps1/uninstall.ps1/init.ps1
+## <a name="write-error-command-doesnt-work-inside-installps1uninstallps1initps1"></a>Příkaz Write-Error nefunguje v průběhu instalace. ps1/Uninstall. ps1/init. ps1
 
-Jedná se o známý problém. Namísto volání Write-Error, zkuste volat vyvolání výjimky.
+Jedná se o známý problém. Namísto volání metody Write-Error Zkuste zavolat throw.
 
     throw "My error message"
 
-## <a name="installing-nuget-with-restricted-access-on-windows-2003-can-crash-visual-studio"></a>Instalace NuGet s omezeným přístupem na Windows serveru 2003, můžete chybu sady Visual Studio
+## <a name="installing-nuget-with-restricted-access-on-windows-2003-can-crash-visual-studio"></a>Instalace NuGet s omezeným přístupem v systému Windows 2003 může selhat se sadou Visual Studio
 
-Při pokusu o instalaci balíčku NuGet pomocí Správce rozšíření sady Visual Studio a není spuštěna jako správce &#8220;spustit jako&#8221; zobrazí dialogové okno s zaškrtávací políčko s popiskem &#8220;spustit tento program s omezeným přístupem&#8221; vráceno uživatelem Výchozí nastavení.
+Když se pokusíte nainstalovat NuGet pomocí Správce rozšíření sady Visual Studio a neběží jako správce, zobrazí se &#8220;dialogové okno&#8221; spustit jako s popiskem &#8220;spustit tento program s omezeným přístupem&#8221; . výchozí.
 
-![Spustit jako s omezeným přístupem dialogového okna](./media/RunAsRestricted.png)
+![Dialogové okno Spustit jako s omezením](./media/RunAsRestricted.png)
 
-Kliknutím na tlačítko OK se specifikací zaškrtnuto, dojde k chybě sady Visual Studio. Ujistěte se, že zrušit zaškrtnutí této možnosti před instalací NuGet.
+Kliknutím na OK s zaškrtnutými chybami sady Visual Studio. Než nainstalujete NuGet, nezapomeňte tuto možnost zrušit.
 
-## <a name="cannot-uninstall-nuget-for-windows-phone-tools"></a>Nelze odinstalovat nástroje NuGet pro Windows Phone
+## <a name="cannot-uninstall-nuget-for-windows-phone-tools"></a>Nejde odinstalovat NuGet pro nástroje Windows Phone.
 
-Nástroje Windows Phone nemá podporu doplňku Správce rozšíření pro Visual Studio. Pokud chcete odinstalovat NuGet, spusťte následující příkaz.
+Windows Phone nástroje nepodporují Správce rozšíření sady Visual Studio. Chcete-li odinstalovat NuGet, spusťte následující příkaz.
 
      vsixinstaller.exe /uninstall:NuPackToolsVsix.Microsoft.67e54e40-0ae3-42c5-a949-fddf5739e7a5
 
-## <a name="changing-the-capitalization-of-nuget-package-ids-breaks-package-restore"></a>Změna velikosti písmen ID balíčku NuGet přestane fungovat obnovení balíčku
+## <a name="changing-the-capitalization-of-nuget-package-ids-breaks-package-restore"></a>Změna velkých a malých písmen ID balíčků NuGet – obnovení balíčků
 
-Jak Dlouze na [tento problém Githubu](https://github.com/Particular/NServiceBus/issues/1271#issuecomment-20865932), změna velikosti písmen balíčků NuGet je možné díky podpoře NuGet, ale způsobí komplikace během obnovení balíčků pro uživatele, kteří mají stávající, jinak malými a velkými písmeny, balíčky v jejich *global-packages* složky. Doporučujeme pouze žádosti o změnu velikosti písmen, až budete mít způsob, jak komunikovat s existující uživateli vašeho balíčku o přerušení, ke kterému může dojít k jejich obnovení balíčku čas sestavení.
+Jak je popsáno u [tohoto problému GitHubu](https://github.com/Particular/NServiceBus/issues/1271#issuecomment-20865932), změna velkých a malých písmen balíčků NuGet je možné provést prostřednictvím podpory NuGet, ale způsobí komplikace při obnovení balíčku pro uživatele, kteří mají existující, různě použita, balíčky v jejich  *Složka Global-Packages* . Doporučujeme, abyste požádali o změnu velikosti písmen, pokud máte způsob, jak komunikovat se stávajícími uživateli balíčku o přerušení, ke kterému může dojít při obnovení balíčku při sestavení.
 
 ## <a name="reporting-issues"></a>Hlášení problémů s
 
-K hlášení problémů NuGet, navštivte [ https://github.com/nuget/home/issues ](https://github.com/nuget/home/issues).
+Chcete-li ohlásit problémy NuGet [https://github.com/nuget/home/issues](https://github.com/nuget/home/issues), navštivte.

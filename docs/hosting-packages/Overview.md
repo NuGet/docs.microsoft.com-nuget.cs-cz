@@ -1,41 +1,41 @@
 ---
-title: Přehled hostování vlastní kanály NuGet
-description: Přehled se otevře pro hostování své vlastní informační kanály balíčků NuGet nebo v galeriích místně nebo vzdáleně.
+title: Přehled hostování vlastních kanálů NuGet
+description: Přehled otevření pro hostování vlastních informačních kanálů nebo galerií balíčků NuGet buď místně, nebo vzdáleně.
 author: karann-msft
 ms.author: karann
 ms.date: 08/25/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: f05c3a7a51bdc0760097422004cfc4339bf9ee2c
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 737b13be70de9aaa7dec7904d4c2a4ec494ef7b3
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426611"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317556"
 ---
-# <a name="hosting-your-own-nuget-feeds"></a>Hostování vlastní NuGet informační kanály
+# <a name="hosting-your-own-nuget-feeds"></a>Hostování vlastních kanálů NuGet
 
-Místo toho veřejně dostupné balíčky, může být vhodné k uvolnění balíčky pouze určité cílové skupině, jako je například vaše organizace nebo pracovní skupině. Kromě toho některé společnosti chtít omezit které knihovny třetích stran vývojářů může použít a proto směrovat tyto vývojáře k vykreslení ze zdroje balíčku omezené spíše než nuget.org.
+Místo toho, aby byly balíčky veřejně dostupné, možná budete chtít uvolnit balíčky pouze do omezené cílové skupiny, jako je například vaše organizace nebo pracovní skupina. Některé společnosti navíc můžou chtít omezit to, které knihovny třetích stran můžou vývojáři používat, a tak tyto vývojáře nasměrovat z omezeného zdroje balíčků, ale nenuget.org.
 
-Pro tyto účely NuGet podporuje nastavení privátních zdrojů balíčků následujícími způsoby:
+Pro všechny takové účely podporuje NuGet nastavení zdrojů privátních balíčků následujícími způsoby:
 
-- Místní informační kanál: Balíčky jsou jednoduše umístěny ve vhodné síťové sdílené složce, v ideálním případě pomocí `nuget init` a `nuget add` vytvořit hierarchická struktura složek (NuGet 3.3 +). Podrobnosti najdete v tématu [místní informační kanály](../hosting-packages/local-feeds.md).
-- NuGet.Server: Balíčky jsou k dispozici prostřednictvím místního serveru HTTP. Podrobnosti najdete v tématu [NuGet.Server](../hosting-packages/nuget-server.md).
-- Galerie NuGet: Balíčky jsou hostované na serveru Internetu pomocí [projektu Galerie NuGet](https://github.com/NuGet/NuGetGallery#build-and-run-the-gallery-in-arbitrary-number-easy-steps) (webu github.com). Galerie NuGet obsahuje funkce, jako je rozsáhlé webové uživatelské rozhraní, které umožňuje vyhledávání a zkoumání balíčků z prohlížeče, podobně jako na nuget.org a správy uživatelů.
+- Místní kanál: Balíčky je možné jednoduše umístit do vhodné síťové sdílené složky, ideálně pomocí `nuget init` a `nuget add` k vytvoření hierarchické struktury složek (NuGet 3.3 +). Podrobnosti najdete v tématu [místní informační kanály](../hosting-packages/local-feeds.md).
+- NuGet.Server: Balíčky jsou zpřístupněny prostřednictvím místního HTTP serveru. Podrobnosti najdete v tématu [NuGet. Server](../hosting-packages/nuget-server.md).
+- Galerie NuGet: Balíčky se hostují na internetovém serveru pomocí [projektu galerie NuGet](https://github.com/NuGet/NuGetGallery#build-and-run-the-gallery-in-arbitrary-number-easy-steps) (GitHub.com). Galerie NuGet poskytuje správu uživatelů a funkce, jako je například rozsáhlé webové uživatelské rozhraní, které umožňuje prohledávat a prozkoumat balíčky v prohlížeči, podobně jako nuget.org.
 
-Existuje také několik NuGet hostování produkty, které podporují vzdálené privátní kanály, včetně následujících:
+K dispozici je také několik dalších produktů NuGet pro hostování, které podporují vzdálené privátní kanály, včetně následujících:
 
-- [Azure artefakty](https://www.visualstudio.com/docs/package/nuget/publish), což je také k dispozici na Team Foundation Server 2017 a novější.
+- [Azure Artifacts](https://www.visualstudio.com/docs/package/nuget/publish), který je také k dispozici v Team Foundation Server 2017 a novějším.
 - [MyGet](http://myget.org)
 - [ProGet](http://inedo.com/proget) z Inedo
-- [GitHub balíčku registru](https://help.github.com/articles/configuring-nuget-for-use-with-github-package-registry)
-- [NuGet Server](http://nugetserver.net/), projekt komunitních z Inedo
-- [NuGet Server (Otevřít zdroj)](http://nuget-server.net), podobně jako NuGet Server Inedo na open source implementace
-- [LiGet](https://github.com/ai-traders/liget), open source implementace NuGet V2 serveru, který běží na kestrel v dockeru
-- [BaGet](https://github.com/loic-sharma/BaGet), open source implementace NuGet V3 server založená na technologii ASP.NET Core
-- [Sleet](https://github.com/emgarten/sleet), generátor kanálu statické NuGet V3 open source
+- [Registr balíčku GitHubu](https://help.github.com/articles/configuring-nuget-for-use-with-github-package-registry)
+- [Server NuGet](http://nugetserver.net/), projekt komunity z Inedo
+- [Server NuGet (Open Source)](http://nuget-server.net), open source implementace podobná Inedo serveru NuGet
+- [LiGet](https://github.com/ai-traders/liget), open source implementace serveru NuGet v2, který běží na Kestrel v Docker
+- [BaGet](https://github.com/loic-sharma/BaGet), open source implementace serveru NuGet v3, která je postavená na ASP.NET Core
+- [Sleet](https://github.com/emgarten/sleet), open source generátor statických kanálů NuGet V3
 - [Artifactory](https://www.jfrog.com/artifactory/) z JFrog.
 - [Nexus](http://www.sonatype.org/nexus/) z Sonatype.
-- [TeamCity](https://www.jetbrains.com/teamcity/) od JetBrains.
+- [TeamCity](https://www.jetbrains.com/teamcity/) z JetBrains.
 
-Bez ohledu na to, jak balíčky jsou hostované, můžete k nim přistupovat jejich přidáním do seznamu dostupných zdrojů v `NuGet.Config`. To můžete udělat v sadě Visual Studio podle popisu v [zdroje balíčků](../tools/package-manager-ui.md#package-sources), nebo z příkazového řádku pomocí [ `nuget sources` ](../tools/cli-ref-sources.md). Cesta ke zdroji může být cesta místní složku, síťový název nebo adresu URL.
+Bez ohledu na to, jakým způsobem jsou balíčky hostované, můžete k nim přistupovat tak, že je přidáte `NuGet.Config`do seznamu dostupných zdrojů v. To lze provést v aplikaci Visual Studio, jak je popsáno v části [zdroje balíčků](../consume-packages/install-use-packages-visual-studio.md#package-sources)nebo z příkazového [`nuget sources`](../reference/cli-reference/cli-ref-sources.md)řádku pomocí příkazu. Cestou ke zdroji může být cesta k místní složce, název sítě nebo adresa URL.
