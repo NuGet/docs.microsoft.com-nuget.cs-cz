@@ -1,33 +1,33 @@
 ---
-title: Úvodní příručka k pomocí NuGet balíčky pomocí rozhraní příkazového řádku dotnet
-description: Kurz návod týkající se procesu instalace a použití balíčku NuGet v projektu .NET Core.
+title: Instalace a použití balíčku NuGet pomocí rozhraní příkazového řádku dotnet
+description: Návodný postup pro instalaci a používání balíčku NuGet v projektu .NET Core.
 author: karann-msft
 ms.author: karann
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.openlocfilehash: 0d637c441cf9f36e8e3e04e47b524b2defecae52
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: ee456fd49675db37fee78dc14502a897d84a2b99
+ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67841670"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68342468"
 ---
 # <a name="quickstart-install-and-use-a-package-using-the-dotnet-cli"></a>Rychlý start: Instalace a použití balíčku pomocí rozhraní příkazového řádku dotnet
 
-Balíčky NuGet obsahují opakovaně použitelný kód, který jinými vývojáři zpřístupnit je pro použití ve vašich projektech. Zobrazit [co je NuGet?](../What-is-NuGet.md) pro pozadí. Balíčky se nainstalují do projektu .NET Core s použitím `dotnet add package` příkaz, jak je popsáno v tomto článku pro oblíbené [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) balíčku.
+Balíčky NuGet obsahují opakovaně použitelný kód, který vám pro použití v projektech zpřístupní jiní vývojáři. Podívejte [se, co je NuGet?](../What-is-NuGet.md) pro pozadí. Balíčky jsou nainstalovány do projektu .NET Core pomocí `dotnet add package` příkazu, jak je popsáno v tomto článku pro oblíbený balíček [Newtonsoft. JSON](https://www.nuget.org/packages/Newtonsoft.Json/) .
 
-Po instalaci se odkazovat na balíček v kódu s `using <namespace>` kde \<obor názvů\> je specifický pro balíček, který používáte. Pak můžete použít rozhraní API balíčku.
+Po instalaci se podívejte na balíček v kódu `using <namespace>` , kde \<obor názvů\> je specifický pro balíček, který používáte. Pak můžete použít rozhraní API balíčku.
 
 > [!Tip]
-> **Začněte s nuget.org**: Procházení nuget.org je, jak vývojáři na platformě .NET obvykle najdete součásti můžete znovu použít ve svých vlastních aplikacích. Můžete vyhledat nuget.org přímo nebo najít a nainstalovat balíčky v sadě Visual Studio, jak je znázorněno v tomto článku.
+> **Začínáme s NuGet.org**: Procházení nuget.org je způsob, jakým vývojáři rozhraní .NET obvykle hledají komponenty, které mohou znovu použít ve svých vlastních aplikacích. Můžete vyhledat nuget.org přímo nebo vyhledat a nainstalovat balíčky v sadě Visual Studio, jak je znázorněno v tomto článku.
 
 ## <a name="prerequisites"></a>Požadavky
 
-- [.NET Core SDK](https://www.microsoft.com/net/download/), která poskytuje `dotnet` nástroj příkazového řádku. Spouští se v sadě Visual Studio 2017, které pomocí libovolné platformy .NET Core se automaticky nainstaluje rozhraní příkazového řádku dotnet související úlohy.
+- [.NET Core SDK](https://www.microsoft.com/net/download/), která poskytuje `dotnet` nástroj příkazového řádku. Počínaje sadou Visual Studio 2017 se rozhraní příkazového řádku dotnet automaticky nainstaluje se všemi úlohami souvisejícími s .NET Core.
 
 ## <a name="create-a-project"></a>Vytvoření projektu
 
-Balíčky NuGet můžete nainstalovat do projektu .NET určitého druhu. V tomto návodu vytvořte jednoduchý projekt konzoly .NET Core následujícím způsobem:
+Balíčky NuGet se dají nainstalovat do projektu .NET nějakého druhu. Pro tento návod vytvořte jednoduchý projekt konzoly .NET Core následujícím způsobem:
 
 1. Vytvořte složku pro projekt.
 
@@ -37,17 +37,17 @@ Balíčky NuGet můžete nainstalovat do projektu .NET určitého druhu. V tomto
     dotnet new console
     ```
 
-1. Použití `dotnet run` k otestování, zda aplikace byl vytvořen správně.
+1. Použijte `dotnet run` k otestování, jestli se aplikace správně vytvořila.
 
-## <a name="add-the-newtonsoftjson-nuget-package"></a>Přidejte balíček Newtonsoft.Json NuGet
+## <a name="add-the-newtonsoftjson-nuget-package"></a>Přidejte balíček NuGet Newtonsoft. JSON.
 
-1. Použijte následující příkaz k instalaci `Newtonsoft.json` balíčku:
+1. K instalaci `Newtonsoft.json` balíčku použijte následující příkaz:
 
     ```cli
     dotnet add package Newtonsoft.Json
     ```
 
-2. Po dokončení příkazu Otevřít `.csproj` soubor přidaný odkaz:
+2. Po dokončení příkazu otevřete `.csproj` soubor, abyste viděli přidaný odkaz:
 
     ```xml
    <ItemGroup>
@@ -55,15 +55,15 @@ Balíčky NuGet můžete nainstalovat do projektu .NET určitého druhu. V tomto
    </ItemGroup>
     ```
 
-## <a name="use-the-newtonsoftjson-api-in-the-app"></a>Použít Newtonsoft.Json rozhraní API v aplikaci
+## <a name="use-the-newtonsoftjson-api-in-the-app"></a>Použití rozhraní API Newtonsoft. JSON v aplikaci
 
-1. Otevřít `Program.cs` a přidejte následující řádek na začátek souboru:
+1. `Program.cs` Otevřete soubor a na začátek souboru přidejte následující řádek:
 
     ```cs
     using Newtonsoft.Json;
     ```
 
-1. Přidejte následující kód před `class Program` řádku:
+1. Přidejte následující kód před `class Program` řádek:
 
     ```cs
     public class Account
@@ -74,7 +74,7 @@ Balíčky NuGet můžete nainstalovat do projektu .NET určitého druhu. V tomto
     }
     ```
 
-1. Nahradit `Main` funkce následujícím kódem:
+1. Nahraďte `Main` tuto funkci následujícím způsobem:
 
     ```cs
     static void Main(string[] args)
@@ -91,7 +91,7 @@ Balíčky NuGet můžete nainstalovat do projektu .NET určitého druhu. V tomto
     }
     ```
 
-1. Sestavte a spusťte aplikaci pomocí `dotnet run` příkazu. Výstup by měl být reprezentaci JSON `Account` objekt v kódu:
+1. Sestavte a spusťte aplikaci pomocí `dotnet run` příkazu. Výstup by měl být reprezentace `Account` objektu ve formátu JSON v kódu:
 
     ```output
     {
@@ -101,9 +101,15 @@ Balíčky NuGet můžete nainstalovat do projektu .NET určitého druhu. V tomto
     }
     ```
 
-## <a name="related-articles"></a>Související články
+## <a name="next-steps"></a>Další postup
 
-- [Nainstalovat a používat balíčky pomocí rozhraní příkazového řádku dotnet](../consume-packages/install-use-packages-dotnet-cli.md)
-- [Přehled a pracovní postup využití balíčků](../consume-packages/overview-and-workflow.md)
+Blahopřejeme k instalaci a používání vašeho prvního balíčku NuGet!
+
+> [!div class="nextstepaction"]
+> [Instalace a použití balíčků pomocí rozhraní příkazového řádku dotnet](../consume-packages/install-use-packages-dotnet-cli.md)
+
+Pokud chcete prozkoumat další možnosti, které NuGet nabízí, vyberte odkazy níže.
+
+- [Přehled a pracovní postup pro spotřebu balíčku](../consume-packages/overview-and-workflow.md)
 - [Vyhledání a výběr balíčků](../consume-packages/finding-and-choosing-packages.md)
-- [Běžné konfigurace NuGetu](../consume-packages/configuring-nuget-behavior.md)
+- [Odkazy na balíčky v souborech projektů](../consume-packages/package-references-in-project-files.md)

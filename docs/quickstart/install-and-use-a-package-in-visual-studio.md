@@ -1,16 +1,16 @@
 ---
-title: Úvodní příručka k používání balíčků NuGet v sadě Visual Studio
+title: Instalace a použití balíčku NuGet v aplikaci Visual Studio
 description: Návodný postup pro instalaci a používání balíčku NuGet v projektu sady Visual Studio.
 author: karann-msft
 ms.author: karann
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.openlocfilehash: deedc251b605b5b58659d3b70e1ca01b19c72865
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 1976d1dc7129da4edb44a1346c6ce74ad3e93b1b
+ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317559"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68342485"
 ---
 # <a name="quickstart-install-and-use-a-package-in-visual-studio"></a>Rychlý start: Instalace a použití balíčku v aplikaci Visual Studio
 
@@ -120,8 +120,15 @@ Pomocí balíčku Newtonsoft. JSON v projektu můžete zavolat jeho `JsonConvert
 
     ![Výstup aplikace UWP po výběru tlačítka](media/QS_Use-07-AppEnd.png)
 
-## <a name="related-articles"></a>Související články
+## <a name="next-steps"></a>Další kroky
+
+Blahopřejeme k instalaci a používání vašeho prvního balíčku NuGet!
+
+> [!div class="nextstepaction"]
+> [Instalace a Správa balíčků pomocí sady Visual Studio](../consume-packages/install-use-packages-visual-studio.md)
+
+Pokud chcete prozkoumat další možnosti, které NuGet nabízí, vyberte odkazy níže.
 
 - [Přehled a pracovní postup pro spotřebu balíčku](../consume-packages/overview-and-workflow.md)
 - [Vyhledání a výběr balíčků](../consume-packages/finding-and-choosing-packages.md)
-- [Běžné konfigurace NuGetu](../consume-packages/configuring-nuget-behavior.md)
+- [Odkazy na balíčky v souborech projektů](../consume-packages/package-references-in-project-files.md)
