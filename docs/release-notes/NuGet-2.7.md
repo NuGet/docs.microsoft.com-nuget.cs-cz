@@ -1,166 +1,166 @@
 ---
-title: Zpráva k vydání verze 2.7 NuGet
-description: Zpráva k vydání verze pro NuGet 2.7 včetně známých problémů, opravy chyb, nové funkce a chcete.
+title: Zpráva k vydání verze NuGet 2,7
+description: Poznámky k verzi pro NuGet 2,7, včetně známých problémů, oprav chyb, přidaných funkcí a chcete odeslat obecnou.
 author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 97d3e5f0238fd6947a54e5eb3229b89b6746f18c
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: f26ac80046ec321ce5bdbf2bac23c0e1939cd69a
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43550962"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317072"
 ---
-# <a name="nuget-27-release-notes"></a>Zpráva k vydání verze 2.7 NuGet
+# <a name="nuget-27-release-notes"></a>Zpráva k vydání verze NuGet 2,7
 
-[NuGet 2.6.1 pro WebMatrix poznámky](../release-notes/nuget-2.6.1-for-webmatrix.md) | [zpráva k vydání verze NuGet 2.7.1](../release-notes/nuget-2.7.1.md)
+[2.6.1 NuGet](../release-notes/nuget-2.6.1-for-webmatrix.md) | – poznámky k[verzi NuGet 2.7.1](../release-notes/nuget-2.7.1.md) pro poznámky k verzi pro WebMatrix
 
-22. srpna 2013 byla vydána NuGet 2.7.
+NuGet 2,7 byl vydán 22. srpna 2013.
 
 ## <a name="acknowledgements"></a>Potvrzení
 
-Rádi bychom vám chceme poděkovat následující externí přispěvatele pro své důležité příspěvky 2.7 NuGet:
+Rádi bychom pro své významné příspěvky k NuGet 2,7 měli Děkujeme za tyto externí přispěvatele:
 
-1. [Mike Roth](http://www.codeplex.com/site/users/view/mxrss) ([@mxrss](https://twitter.com/mxrss))
-    - Zobrazit adresu url licence při podrobný výpis balíčky a podrobností.
-2. [ADAM Ralph](http://www.codeplex.com/site/users/view/adamralph) ([@adamralph](https://twitter.com/adamralph))
-    - [#1956](http://nuget.codeplex.com/workitem/1956) – přidání atributu developmentDependency `packages.config` a použít v příkazu balíčku obsahovat pouze balíčky runtime
+1. [Mike Skořepa](http://www.codeplex.com/site/users/view/mxrss) ([@mxrss](https://twitter.com/mxrss))
+    - Zobrazit adresu URL licence při výpisu balíčků a podrobné podrobnosti
+2. [Adam – petrpo](http://www.codeplex.com/site/users/view/adamralph) ([@adamralph](https://twitter.com/adamralph))
+    - [#1956](http://nuget.codeplex.com/workitem/1956) – přidat atribut developmentDependency do `packages.config` a použít ho v balení příkazu, aby zahrnoval jenom balíčky za běhu
 3. [Rafael Nicoletti](http://www.codeplex.com/site/users/view/tkrafael) ([@tkrafael](https://twitter.com/tkrafael))
-    - Vyhněte se duplicitním klíčem vlastnosti v příkazu pack nuget.exe.
+    - Vyhněte se duplicitním klíčovým vlastnostem v příkazu NuGet. exe Pack.
 4. [Robert Phegan](http://www.codeplex.com/site/users/view/benphegan) ([@BenPhegan](https://twitter.com/benphegan))
-    - [#2610](http://nuget.codeplex.com/workitem/2610) -zvětšete velikost mezipaměti počítače na 200.
+    - [#2610](http://nuget.codeplex.com/workitem/2610) – zvyšte velikost mezipaměti počítače na 200.
 5. [Slava Trenogin](http://www.codeplex.com/site/users/view/derigel) ([@derigel](https://twitter.com/derigel))
-    - [#3217](http://nuget.codeplex.com/workitem/3217) – dialogové okno vyřešit NuGet zobrazující aktualizace v kartě nesprávný
-    - Oprava Project.TargetFramework může mít hodnotu null v Vedoucí_projektu
-    - [#3248](http://nuget.codeplex.com/workitem/3248) – oprava FindPackage/FindPackagesById SharedPackageRepository selže na neexistující ID balíčku
+    - Dialogové okno [#3217](http://nuget.codeplex.com/workitem/3217) – opravit NuGet zobrazující aktualizace na nesprávné kartě
+    - Oprava projektu. TargetFramework může mít hodnotu null v ProjectManager
+    - [#3248](http://nuget.codeplex.com/workitem/3248) -Fix SharedPackageRepository FindPackage/FindPackagesById selže v neexistujícím packageId
 6. [Kevin Boyle](http://www.codeplex.com/site/users/view/KevinBoyleRG) ([@kevfromireland](https://twitter.com/kevfromireland))
-    - [#3234](http://nuget.codeplex.com/workitem/3234) – povolení podpory pro Nomad projektu
+    - [#3234](http://nuget.codeplex.com/workitem/3234) – povolit podporu pro projekt Nomad
 7. [Corin Blaikie](http://www.codeplex.com/site/users/view/corinblaikie) ([@corinblaikie](https://twitter.com/corinblaikie))
-    - [#3252](http://nuget.codeplex.com/workitem/3252) – oprava nabízených příkaz selže s ukončovacím kódu 0, pokud soubor neexistuje.
+    - [#3252](http://nuget.codeplex.com/workitem/3252) – oprava příkazu push se nezdařila s ukončovacím kódem 0, pokud soubor neexistuje.
 8. [Martin Veselý](http://www.codeplex.com/site/users/view/veselkamartin)
-    - [#3226](http://nuget.codeplex.com/workitem/3226) -opravit chybu pomocí příkazu Add-BindingRedirect při projekt odkazuje na databázový projekt.
+    - [#3226](http://nuget.codeplex.com/workitem/3226) – opravit chybu pomocí příkazu Add-BindingRedirect, když projekt odkazuje na projekt databáze.
 9. [Miroslav Bajtos](http://www.codeplex.com/site/users/view/miroslavbajtos) ([@bajtos](https://twitter.com/bajtos))
-    - [#2891](http://nuget.codeplex.com/workitem/2891) – oprava chyb nuget.pack nesprávně parsování zástupných znaků v atributu "vyloučit".
-10. [Justin Dearing](http://www.codeplex.com/site/users/view/zippy1981) ([@zippy1981](https://twitter.com/zippy1981))
-     - [#3307](http://nuget.codeplex.com/workitem/3307) – oprava chyb `NuGet.targets` nepředá $(Platform) nuget.exe při obnovování balíčků.
+    - [#2891](http://nuget.codeplex.com/workitem/2891) -opravit chybu souboru NuGet. Pack pro analýzu zástupného znaku v atributu Exclude nesprávně.
+10. [Justin vážený](http://www.codeplex.com/site/users/view/zippy1981) ([@zippy1981](https://twitter.com/zippy1981))
+     - [#3307](http://nuget.codeplex.com/workitem/3307) – Oprava chyby `NuGet.targets` neprojde při obnovení balíčků $ (Platform) do souboru NuGet. exe.
 11. [Brian Federici](http://www.codeplex.com/site/users/view/benerdin)
-     - [#3294](http://nuget.codeplex.com/workitem/3294) – oprava chyby v příkazu nuget.exe balíček, který by umožnilo přidávání souborů se stejným názvem, ale jinou velikostí písmen, eventuálně výjimka "Položka už existuje".
+     - [#3294](http://nuget.codeplex.com/workitem/3294) – opravit chybu v příkazu balíčku NuGet. exe, který umožňuje přidat soubory se stejným názvem, ale s různou velikostí písmen, a nakonec způsobit výjimku "položka už existuje".
 12. [Daniel Cazzulino](http://www.codeplex.com/site/users/view/dcazzulino) ([@kzu](https://twitter.com/kzu))
-     - [#2990](http://nuget.codeplex.com/workitem/2990) – vlastnost přidání verze do NetPortableProfile třídy.
+     - [#2990](http://nuget.codeplex.com/workitem/2990) – přidejte vlastnost verze do třídy NetPortableProfile.
 13. [David Simner](https://www.codeplex.com/site/users/view/DavidSimner)
-     - [#3460](https://nuget.codeplex.com/workitem/3460) – oprava chyby NullReferenceException Pokud requireApiKey = true, ale hlavičku X-NUGET-APIKEY není k dispozici
+     - [#3460](https://nuget.codeplex.com/workitem/3460) – opravit chybu NullReferenceException, pokud requireApiKey = true, ale hlavička X-NUGET-APIKEY není k dispozici.
 14. [Michael Friis](https://www.codeplex.com/site/users/view/friism) ([@friism](https://twitter.com/friism))
-     - [#3278](https://nuget.codeplex.com/workitem/3278) – opravy NuGet.Build cíle do souboru, který bude fungovat správně v MonoDevelop
+     - [#3278](https://nuget.codeplex.com/workitem/3278) – opraví soubor s cíli sestavení NuGet. sestavení tak, aby fungovalo správně ve MonoDevelop
 15. [Pranav Krishnamoorthy](https://www.codeplex.com/site/users/view/pranavkm) ([@pranav_km](https://twitter.com/pranav_km))
-     - Výkon příkaz Restore zvýšením paralelizace
+     - Zlepšení výkonu příkazu obnovit zvýšením paralelismu
 
-## <a name="notable-features-in-the-release"></a>Důležité funkce ve verzi
+## <a name="notable-features-in-the-release"></a>Významné funkce v této verzi
 
-### <a name="package-restore-by-default-with-implicit-consent"></a>Obnovení balíčků ve výchozím nastavení (s implicitní souhlas)
+### <a name="package-restore-by-default-with-implicit-consent"></a>Obnovení balíčků ve výchozím nastavení (s implicitním souhlasem)
 
-Zavádí nový přístup k obnovení balíčků NuGet 2.7 a také na překonává hlavní mezní: souhlas obnovení balíčků je nyní ve výchozím! Kombinace nový přístup a implicitní souhlasu výrazně zjednodušuje scénáře obnovení balíčku.
+NuGet 2,7 zavádí nový přístup k obnovení balíčků a také přináší větší mezní hodnoty: Souhlas s obnovením balíčku je teď ve výchozím nastavení zapnuté. Kombinací nového přístupu a implicitního souhlasu se drasticky zjednoduší scénáře obnovení balíčků.
 
 #### <a name="implicit-consent"></a>Implicitní souhlas
 
-S verzí 2.0, 2.1, 2.2, 2.5 a 2.6 NuGet uživatelé museli explicitně umožnit správci balíčků NuGet stáhnout chybějící balíčky během vytváření. Pokud svůj souhlas není explicitně dostali, a řešení, které bylo povoleno obnovení balíčku selže k sestavení, dokud uživatel měl udělení souhlasu.
+V případě NuGet verze 2,0, 2,1, 2,2, 2,5 a 2,6 mohou uživatelé, kteří mají explicitně možnost stáhnout chybějící balíčky během sestavení, výslovně dovolit NuGet. Pokud se tomuto souhlasu výslovně nedali, pak se sestavení s povoleným obnovením balíčku nepodaří sestavit, dokud uživatel neudělí souhlas.
 
-Od verze NuGet 2.7, souhlasu obnovení balíčku dále ve výchozím nastavení je zároveň umožní uživatelům explicitně *Odhlásit se totiž* balíček obnovení v případě potřeby pomocí zaškrtávacího políčka v nastavení NuGet v sadě Visual Studio. Tato změna pro implicitní souhlasu ovlivní NuGet v následujících prostředích:
+Počínaje verzí NuGet 2,7 je souhlas balíčku pro obnovení ve výchozím nastavení zapnutý, ale pokud  chcete, aby se uživatelé výslovně odhlásili z obnovení balíčků, pokud je to potřeba, použijte zaškrtávací políčko v nastavení NuGet v aplikaci Visual Studio. Tato změna implicitního souhlasu má vliv na NuGet v následujících prostředích:
 
 * Visual Studio 2013 Preview
 * Visual Studio 2012
 * Visual Studio 2010
-* Nástroj příkazového řádku nuget.exe
+* Nástroj příkazového řádku NuGet. exe
 
-#### <a name="automatic-package-restore-in-visual-studio"></a>Balíček automatické obnovení v sadě Visual Studio
+#### <a name="automatic-package-restore-in-visual-studio"></a>Automatické obnovení balíčků v aplikaci Visual Studio
 
-Od verze NuGet 2.7, NuGet se automaticky stáhnout chybějící balíčky během sestavování v sadě Visual Studio, i v případě obnovení balíčku nebyla povolena explicitně pro řešení. Toto automatické obnovení balíčku se stane v sadě Visual Studio, při sestavování projektu nebo řešení, ale před vyvoláním MSBuild. To poskytuje několik významné výhody:
+Počínaje NuGet 2,7, NuGet automaticky stáhne chybějící balíčky během sestavování v aplikaci Visual Studio, i když není pro řešení explicitně zapnuté obnovení balíčku. K tomuto automatickému obnovení balíčku dojde v aplikaci Visual Studio při sestavení projektu nebo řešení, ale před vyvoláním nástroje MSBuild. To přináší několik významných výhod:
 
-1. Dál budete muset použít gesto "Povolit obnovení balíčků NuGet" ve vašem řešení
-1. Projekty není nutné upravovat a NuGet nebudou měnit projekt tak, aby Ujistěte se, že je povoleno obnovení balíčku
-1. Obnoví všechny balíčky NuGet, včetně těch, které zahrnuté MSBuild importy pro soubory props/cíle *před* MSBuild je vyvolána, zajištění tyto vlastnosti a cíle jsou správně rozpoznány během sestavení
+1. Ve vašem řešení už nemusíte používat gesto povolit obnovení balíčku NuGet.
+1. Projekty není nutné upravovat a NuGet neprovede změny v projektu, aby bylo zajištěno, že je povoleno obnovení balíčku.
+1. Všechny balíčky NuGet včetně těch, které zahrnovaly importy nástroje MSBuild pro soubory props/targets, budou obnoveny *před* vyvoláním nástroje MSBuild, čímž se zajistí, že tyto props/cíle budou během sestavení správně rozpoznány.
 
-Chcete-li použít automatické obnovení balíčku v sadě Visual Studio, stačí provést jednu (akci palce):
+Chcete-li použít automatické obnovení balíčku v aplikaci Visual Studio, stačí provést jednu akci (v):
 
-1. Nezaregistrují, platí vaše `packages` složky
+1. Nevracet se změnami `packages` složku
 
-Existuje několik způsobů, jak vynechat, nechte vaše `packages` složky ze správy zdrojového kódu. Další informace najdete v tématu [balíčky a Správa zdrojového kódu](../consume-packages/packages-and-source-control.md) tématu.
+Existuje několik způsobů, jak `packages` složku vynechat ze správy zdrojového kódu. Další informace najdete v tématu [balíčky a Správa zdrojového kódu](../consume-packages/packages-and-source-control.md) .
 
-Všichni uživatelé jsou implicitně přihlášení ke službě Automatické obnovení balíčku souhlasu, můžete jednoduše odhlásit prostřednictvím nastavení Správce balíčků v sadě Visual Studio.
+I když se všichni uživatelé implicitně zařadí do automatického souhlasu balíčku pro obnovení, můžete se snadno odhlásit prostřednictvím nastavení správce balíčků v aplikaci Visual Studio.
 
 ![Nastavení správce balíčků](./media/NuGet-2.7/package-manager-settings.png)
 
-#### <a name="simplified-package-restore-from-the-command-line"></a>Obnovení balíčku zjednodušené z příkazového řádku
+#### <a name="simplified-package-restore-from-the-command-line"></a>Zjednodušené obnovení balíčků z příkazového řádku
 
-NuGet 2.7 představuje novou funkci pro nuget.exe: `nuget.exe restore`
+NuGet 2,7 zavádí novou funkci pro NuGet. exe:`nuget.exe restore`
 
-Tento nový příkaz Obnovit umožňuje snadno obnovit všechny balíčky pro řešení pomocí jediného příkazu přijetím řešení soubor nebo složku jako argument. Kromě toho tento argument je vyjádřena, když pouze jedno řešení v aktuální složce. To znamená, že všechny následující fungovat ze složky, která obsahuje soubor řešení (MySolution.sln):
+Tento nový příkaz pro obnovení umožňuje snadno obnovit všechny balíčky pro řešení jediným příkazem a přijmout soubor řešení nebo složku jako argument. Kromě toho je tento argument implicitní, pokud je v aktuální složce pouze jedno řešení. To znamená, že následující vše funguje ze složky, která obsahuje jeden soubor řešení (Mojereseni. sln):
 
-1. obnovení nuget.exe MySolution.sln
-1. nuget.exe obnovení.
-1. obnovení nuget.exe
+1. NuGet. exe Restore Mojereseni. sln
+1. obnovení NuGet. exe.
+1. obnovení NuGet. exe
 
-Příkaz Restore bude otevřete soubor řešení a najít všechny projekty v řešení. Odtud najde `packages.config` soubory pro jednotlivé projekty a obnovení všech balíčků nalezen. Také obnoví balíčků řešení na úrovni součástí `.nuget\packages.config` souboru. Další informace o nový příkaz obnovení najdete v [Reference k příkazovému řádku](../tools/cli-ref-restore.md).
+Příkaz Restore otevře soubor řešení a vyhledá všechny projekty v rámci řešení. Odtud vám nalezne `packages.config` soubory pro každý z projektů a obnoví všechny nalezené balíčky. Také obnoví balíčky na úrovni řešení nalezené v `.nuget\packages.config` souboru. Další informace o novém příkazu pro obnovení najdete v části Reference k [příkazovému řádku](../reference/cli-reference/cli-ref-restore.md).
 
-#### <a name="the-new-package-restore-workflow"></a>Nový pracovní postup obnovení balíčku
+#### <a name="the-new-package-restore-workflow"></a>Nový pracovní postup pro obnovení balíčku
 
-S potěšením o tyto změny k obnovení balíčků, protože zavádí nový pracovní postup. Pokud chcete vynechat, nechte své balíčky ze správy zdrojových kódů jednoduše není potvrzení `packages` složky. Visual Studio, kteří otevřít a sestavit řešení se zobrazí balíčky automaticky obnoví. Pro sestavení příkazového řádku, jednoduše vyvolat `nuget.exe restore` před vyvoláním `msbuild`. Už nemusíte nezapomeňte použít gesto "Povolit obnovení balíčků NuGet" na své řešení a jsme už budete potřebovat k úpravě vaše projekty ke změně sestavení. A to také poskytuje mnohem lepší prostředí pro balíčky, které zahrnují MSBuild importy, zejména pro importy přidané prostřednictvím Nugetu pro nejnovější funkce [automatickým importem props/cíle soubory](../release-notes/nuget-2.5.md#automatic-import-of-msbuild-targets-and-props-files) ze složky \build.
+O těchto změnách zajímáme obnovení balíčku, protože zavádí nový pracovní postup. Pokud chcete balíčky vynechat ze správy zdrojového kódu, nebudete ji moct jednoduše `packages` potvrzovat. Uživatelé sady Visual Studio, kteří otevřou a sestavují řešení, budou zobrazovat balíčky automaticky. Pro sestavení příkazového řádku stačí vyvolat `nuget.exe restore` před vyvoláním. `msbuild` Už nemusíte používat gesto povolit obnovení balíčku NuGet ve vašem řešení a nebudete už muset upravovat vaše projekty pro změnu sestavení. A také poskytuje mnohem vylepšené prostředí pro balíčky, které zahrnují importy nástroje MSBuild, zejména pro importy přidané prostřednictvím nedávné funkce NuGet pro [Automatické importování souborů props/targets](../release-notes/nuget-2.5.md#automatic-import-of-msbuild-targets-and-props-files) ze složky \Build.
 
-Kromě práce, kterou jsme udělali sami také spolupracujeme se některé důležité partnerům zaokrouhlí tento nový přístup. Konkrétní časové osy pro některé z těchto zatím nemáme, ale je také, jak jsme se o nový přístup jednotlivých partnerů.
+Kromě práce, kterou jsme dokončili dodržovali, pracujeme také s některými důležitými partnery k tomu, abyste tento nový postup zaokrouhlí. Pro žádné z nich ještě neexistují žádné konkrétní časové osy, ale každý partner se zajímá od nového přístupu.
 
-* Team Foundation Service - funkčnost integrace volání `nuget.exe restore` do výchozí sestavení scénáře.
-* Windows Azure Web Sites – pracují aby bylo možné posunout svůj projekt do Azure a mají `nuget.exe restore` volá předtím, než vaše webová stránka je sestaven.
-* TeamCity – aktualizují jejich instalačního programu NuGet modulu plug-in pro TeamCity 8.x
-* AppHarbor - pracují a umožňuje tak push úložišti AppHarbor a mít `nuget.exe restore` voláno před provedením vaše řešení je sestavení.
+* Team Foundation Service – pracují na integraci volání `nuget.exe restore` do do výchozích scénářů sestavení.
+* Weby Windows Azure – fungují tak, aby vám umožnily nasdílet projekt do Azure a `nuget.exe restore` volat se před sestavením webu.
+* TeamCity – aktualizuje se modul plug-in instalačního programu NuGet pro TeamCity 8. x
+* AppHarbor – pracují na to, aby vám umožnily nasdílení úložiště do AppHarbor a `nuget.exe restore` bylo voláno před tím, než se vaše řešení sestaví.
 
-S každou z výše uvedených partnerů by používají vlastní kopii nuget.exe a nebude potřeba provádět nuget.exe ve vašem řešení.
+U každého z výše uvedených partnerů by používaly svou vlastní kopii NuGet. exe a v řešení byste nemuseli přenášet NuGet. exe.
 
 #### <a name="known-issues"></a>Známé problémy
 
-Existují dva známé problémy s nuget.exe obnovení s počáteční verze 2.7, ale nebudou opraveny 9/6/2013 s aktualizací [NuGet.CommandLine balíčku](http://www.nuget.org/packages/NuGet.CommandLine/).  Tato aktualizace je také k dispozici na [stránku pro stažení NuGet 2.7](https://nuget.codeplex.com/releases/view/107605) na webu CodePlex.  Spuštění `nuget.exe update -self` aktualizuje na nejnovější verzi.
+Byly zjištěny dva známé problémy s nástrojem NuGet. exe Restore s počáteční verzí 2,7, ale byly opraveny na 9/6/2013 s aktualizací [balíčku NuGet. CommandLine](http://www.nuget.org/packages/NuGet.CommandLine/).  Tato aktualizace je také k dispozici na [stránce pro stažení NuGet 2,7](https://nuget.codeplex.com/releases/view/107605) na webu CodePlex.  Spuštění `nuget.exe update -self` se aktualizuje na nejnovější verzi.
 
-Pevné byly:
+Opraveno:
 
-1. [Nový balíček obnovení nebude fungovat v Mono, při použití souboru SLN](https://nuget.codeplex.com/workitem/3596)
-1. [Nové obnovení balíčků nefunguje s projekty Wix](https://nuget.codeplex.com/workitem/3598)
+1. [Nové obnovení balíčku nefunguje na mono při použití souboru SLN.](https://nuget.codeplex.com/workitem/3596)
+1. [Nové obnovení balíčku nefunguje s projekty WIX](https://nuget.codeplex.com/workitem/3598)
 
-Je také známý problém s nový pracovní postup obnovení balíčku důvěryhodných [automatické obnovení balíčků nefunguje pro projekty v rámci složky řešení](https://nuget.codeplex.com/workitem/3625). Tento problém byl vyřešen v NuGet 2.7.1.
+Existuje taky známý problém s novým pracovním postupem pro obnovení balíčků, kdy [Automatické obnovení balíčku nefunguje pro projekty ve složce řešení](https://nuget.codeplex.com/workitem/3625). Tento problém byl opravený ve 2.7.1 NuGet.
 
-### <a name="project-retargeting-and-upgrade-build-errorswarnings"></a>Chyby a upozornění sestavení projektu mění se cílení a Upgrade
+### <a name="project-retargeting-and-upgrade-build-errorswarnings"></a>Změny cílení projektu a upgrade chyb a upozornění buildu
 
-V mnoha případech po Přeorientovat nebo upgrade projektu, pro vás, nejsou některé balíčky NuGet funguje správně. Bohužel neexistuje žádná zpráva o této a nejsou k dispozici žádné pokyny o tom, jak řešit. V rámci NuGet 2.7 využíváme teď některé události aplikace Visual Studio rozpoznat jste změnilo nebo upgradovat projekt způsobem, který má vliv na nainstalované balíčky NuGet.
+V mnoha případech po provedení změny cílení nebo upgradu projektu zjistíte, že některé balíčky NuGet nefungují správně. Bohužel k tomu neexistují žádné informace a neexistují žádné pokyny k tomu, jak je řešit. S NuGet 2,7 teď používáme některé události sady Visual Studio k rozpoznávání, když jste změnili cílení nebo upgradovat projekt způsobem, který má vliv na nainstalované balíčky NuGet.
 
-Pokud je zjištěno, že některý z balíčků byly ovlivněny Přeorientovat nebo upgrade, vytváříme budete okamžitě sestavení chyby s oznámením. Kromě chybě okamžité sestavení jsme také zachovat `requireReinstallation="true"` příznak ve vaší `packages.config` souboru pro všechny balíčky, které nebyly ovlivněné podle mění se cílení a každý další sestavení v sadě Visual Studio vyvolá upozornění sestavení pro tyto balíčky.
+Pokud zjistíme, že všechny vaše balíčky byly ovlivněny změnou cíle nebo upgrade, vytvoříme okamžité chyby sestavení, abychom vám věděli. Kromě chyby okamžitého sestavení také uchovává `requireReinstallation="true"` příznak `packages.config` v souboru pro všechny balíčky ovlivněné změnou cíle a každé následné sestavení v aplikaci Visual Studio vyvolá upozornění sestavení pro tyto balíčky.
 
-NuGet nelze provést automatickou akci k přeinstalování ovlivněné balíčky, Věříme, že toto označení a upozornění vás provedou nápovědy je zjistit, kdy je potřeba znovu nainstaluje balíčky. Pracujeme také na [balíček přeinstalace doprovodných materiálech](../consume-packages/reinstalling-and-updating-packages.md) , že tyto chybové zprávy směrovat na.
+I když NuGet nemůže provést automatickou akci přeinstalovat ovlivněné balíčky, doufáme, že toto oznámení a upozornění vám pomůže zjistit, kdy potřebujete balíčky znovu nainstalovat. Pracujeme také na dokumentaci s [pokyny k přeinstalaci balíčku](../consume-packages/reinstalling-and-updating-packages.md) , na kterou vás tyto chybové zprávy přesměrují.
 
-### <a name="nuget-configuration-defaults"></a>Výchozí konfigurace NuGet
+### <a name="nuget-configuration-defaults"></a>Výchozí hodnoty konfigurace NuGet
 
-Mnoho společností NuGet používají interně, ale měli obtížné provést potřebnými svého vývojáře nahrazujícím balíčku interní zdroje nuget.org. NuGet 2.7 představuje výchozí konfigurační hodnoty funkci, která umožňuje nastavit pro celý počítač výchozí hodnota:
+Mnohé společnosti používají NuGet interně, ale měly by mít čas od času, kdy vývojáři používají místo nuget.org interní zdroje balíčků. NuGet 2,7 zavádí funkci výchozích hodnot konfigurace, která umožňuje zadat výchozí nastavení pro všechny počítače:
 
-1. Povolenému zdroji balíčků
-1. Zaregistrované, ale zdroji balíčků
-1. Výchozí zdroj nuget.exe nabízených oznámení
+1. Povolené zdroje balíčků
+1. Zaregistrováno, ale zakázané zdroje balíčků
+1. Výchozí zdroj nabízených oznámení NuGet. exe
 
-Každý z nich se teď dá nakonfigurovat v souboru umístěného v `%ProgramData%\NuGet\NuGetDefaults.Config`. Pokud tento konfigurační soubor Určuje zdroje balíčků, pak výchozí zdroj balíčku nuget.org se automaticky nezaregistruje a v `NuGetDefaults.Config` místo něj se zaregistruje.
+Každý z nich se teď dá nakonfigurovat v rámci souboru umístěného `%ProgramData%\NuGet\NuGetDefaults.Config`na. Pokud tento konfigurační soubor určuje zdroje balíčků, výchozí zdroj balíčku NuGet.org nebude zaregistrován automaticky a `NuGetDefaults.Config` místo toho budou zaregistrovány.
 
-Přestože se nevyžaduje použití této funkce, Očekáváme, že společnosti nasadit `NuGetDefaults.Config` soubory pomocí zásad skupiny.
+I když není nutné používat tuto funkci, očekáváme, že společnosti `NuGetDefaults.Config` nasadí soubory pomocí Zásady skupiny.
 
-*Všimněte si, že tato funkce se nikdy nezpůsobí zdroj balíčku, který má být odebrán z nastavení NuGet pro vývojáře. To znamená, že pokud se už používá NuGet vývojář a proto má zdroj balíčku nuget.org zaregistrovali, se neodstraní po vytvoření `NuGetDefaults.Config` souboru.*
+*Všimněte si, že tato funkce nikdy nezpůsobí odebrání zdroje balíčku z nastavení NuGet vývojáře. To znamená, že pokud vývojář již použil NuGet, a proto má registrovaný zdroj balíčku NuGet.org, po vytvoření `NuGetDefaults.Config` souboru se neodstraní.*
 
-Zobrazit [výchozí konfigurace NuGet](../consume-packages/configuring-nuget-behavior.md#nuget-defaults-file) Další informace o této funkci.
+Další informace o této funkci najdete v tématu [výchozí hodnoty konfigurace NuGet](../consume-packages/configuring-nuget-behavior.md#nuget-defaults-file) .
 
-### <a name="renaming-the-default-package-source"></a>Přejmenování výchozí zdroj balíčku
+### <a name="renaming-the-default-package-source"></a>Přejmenování výchozího zdroje balíčku
 
-NuGet má vždy zaregistrovaný zdroj balíčku výchozím názvem "Oficiální zdroj balíčku NuGet", který odkazuje na nuget.org. Tento název jste podrobné a je také neurčili, nevložily kde ve skutečnosti odkazuje. Pro vyřešení těchto problémů dvou, My jste přejmenovali zdroje tohoto balíčku do jednoduše "nuget.org" v uživatelském rozhraní. Adresa URL zdroje balíčku byl také změněn na zahrnují "www". Předpona. Po použití NuGet 2.7, vaše existující "oficiální zdroj balíčku NuGet" se automaticky aktualizují na "nuget.org" jako název a "<https://www.nuget.org/api/v2/>" jako její adresu URL.
+NuGet vždy zaregistroval výchozí zdroj balíčku nazvaný "oficiální zdroj balíčků NuGet", který odkazuje na nuget.org. Tento název byl podrobný a zároveň neurčil, kde byl skutečně ukázán. Abychom vyřešili tyto dva problémy, přejmenovali jsme tento zdroj balíčku na jednoduše "nuget.org" v uživatelském rozhraní. Změnila se taky adresa URL pro zdroj balíčku, aby obsahovala "www". směr. Po použití NuGet 2,7 se existující "oficiální zdroj balíčku NuGet" automaticky aktualizuje na "NuGet.org" jako jeho název a<https://www.nuget.org/api/v2/>jako jeho adresa URL.
 
 ### <a name="performance-improvements"></a>Zvýšení výkonu
 
-Provedli jsme některá vylepšení výkonu v 2.7, který poskytne menší nároky na paměť, méně využití disku a rychlejší instalace balíčku. Také jsme provedli inteligentnější dotazy na informační kanály založených na protokolu OData, které se sníží celkové datové části.
+Provedli jsme vylepšení výkonu v 2,7, což bude mít za následek menší nároky na paměť, méně využití disku a rychlejší instalaci balíčku. Provedli jsme také inteligentnější dotazy na kanály založené na OData, které omezí celkovou datovou část.
 
-### <a name="new-extensibility-apis"></a>Nové rozhraní API pro rozšiřitelnost
+### <a name="new-extensibility-apis"></a>Nová rozhraní API pro rozšiřitelnost
 
-Jsme přidali několik nových rozhraní API pro naše služby rozšíření k vyplnění mezer chybějící funkce v předchozích verzích.
+Do naší služby rozšiřitelnosti jsme přidali několik nových rozhraní API, která vyplní mezery chybějících funkcí v předchozích verzích.
 
 #### <a name="ivspackageinstallerservices"></a>IVsPackageInstallerServices
 
@@ -182,18 +182,18 @@ Jsme přidali několik nových rozhraní API pro naše služby rozšíření k v
     void InstallPackagesFromVSExtensionRepository(string extensionId, bool isPreUnzipped, bool skipAssemblyReferences, Project project, IDictionary<string, string> packageVersions);
     ```
 
-### <a name="development-only-dependencies"></a>Závislosti jen pro vývoj
+### <a name="development-only-dependencies"></a>Pouze závislosti pro vývoj
 
-Tato funkce byla přispěla [Adam Ralph](https://twitter.com/adamralph) a umožňuje autorům balíčků pro deklaraci závislosti, které byly použity jen na vývoj čas a nevyžadují závislosti balíčků. Přidáním `developmentDependency="true"` atribut balíčku v `packages.config`, `nuget.exe pack` bude již obsahovat tento balíček jako závislost.
+Tato funkce byla vyvinuta službou [Adam petrpo](https://twitter.com/adamralph) a umožňuje autorům balíčků deklarovat závislosti, které byly použity pouze v době vývoje a nevyžadují závislosti balíčků. Přidáním `developmentDependency="true"` atributu do `packages.config` balíčku`nuget.exe pack` v nástroji již nebude tento balíček zahrnovat jako závislost.
 
-### <a name="removed-support-for-visual-studio-2010-express-for-windows-phone"></a>Odebrat podporu pro Visual Studio 2010 Express pro Windows Phone
+### <a name="removed-support-for-visual-studio-2010-express-for-windows-phone"></a>Odebrala se podpora pro Visual Studio 2010 Express for Windows Phone.
 
-Nový model obnovení balíčku v 2.7 implementují nové VSPackage, která se liší od hlavního balíčku NuGet VSPackage. Kvůli technickému problému, tento nový VSPackage nebude fungovat správně v *Visual Studio 2010 Express pro Windows Phone* SKU Jaro stejného základu kódu s ostatními nepodporuje produktová SKU sady Visual Studio. Proto od verze NuGet 2.7, jsme se vyřazení podpory pro *Visual Studio 2010 Express pro Windows Phone* z publikovaných rozšíření. Podpora pro *Visual Studio 2010 Express for Web* je však stále součástí primární linka publikována do Galerie rozšíření Visual Studio.
+Nový model obnovení balíčků v 2,7 je implementován novým rozhraním VSPackage, které se liší od hlavního balíčku NuGet. Z důvodu technického problému tento nový produkt VSPackage nefunguje správně v rámci sady *Visual Studio 2010 Express for Windows Phone* SKU, protože sdílíme stejný základ kódu s ostatními podporovanými SKU sady Visual Studio. Počínaje verzí NuGet 2,7 proto vynecháváme podporu sady *Visual Studio 2010 Express for Windows Phone* z publikovaného rozšíření. Podpora pro *Visual Studio 2010 Express for Web* je stále zahrnutá v primárním rozšíření publikovaném v galerii rozšíření sady Visual Studio.
 
-Protože jsme nejste jistí, jak mnoho vývojářů v této verzi nebo edici sady Visual Studio stále používají NuGet, Snažíme se publikování používat samostatné rozšíření sady Visual Studio speciálně pro tyto uživatele a jeho publikování na webu CodePlex (spíše než Galerie rozšíření sady Visual Studio) . Plánujeme není nadále spravovat rozšíření, ale pokud se vás tato změna týká dejte nám vědět, můžete založením problému na webu CodePlex.
+Vzhledem k tomu, že si nejste jistí, kolik vývojářů v této verzi nebo edici sady Visual Studio stále používá NuGet, publikujeme samostatné rozšíření sady Visual Studio, konkrétně pro tyto uživatele a publikování na webu CodePlex (nikoli v galerii rozšíření pro Visual Studio). . Neplánujeme toto rozšíření dál spravovat, ale pokud se to bude informovat, dejte nám prosím na webu CodePlex problém.
 
-Správce balíčků NuGet stáhnout (pro Visual Studio 2010 Express pro Windows Phone), najdete v tématu [stáhne 2.7 NuGet](https://nuget.codeplex.com/releases/view/107605) stránky.
+Chcete-li stáhnout správce balíčků NuGet (pro Visual Studio 2010 Express for Windows Phone), navštivte stránku se [soubory ke stažení nuget 2,7](https://nuget.codeplex.com/releases/view/107605) .
 
 ### <a name="bug-fixes"></a>Opravy chyb
 
-Kromě těchto funkcí tato verze NuGet obsahuje také mnoho ostatní opravy chyb. Došlo k 97 celkový problémy zákazníky a vyřešené ve verzi. Úplný seznam pracovních položek opravených NuGet 2.7 prosím zobrazení [NuGet sledování problémů pro tuto verzi](https://nuget.codeplex.com/workitem/list/advanced?release=NuGet%202.7&status=all).
+Kromě těchto funkcí obsahuje tato verze NuGet také mnoho dalších oprav chyb. V této verzi byly vyřešeny 97 celkové problémy. Úplný seznam pracovních položek opravených v NuGet 2,7 najdete v [přehledu problémů NuGet pro tuto verzi](https://nuget.codeplex.com/workitem/list/advanced?release=NuGet%202.7&status=all).

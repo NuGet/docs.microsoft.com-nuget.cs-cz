@@ -1,47 +1,71 @@
 ---
-title: Samostatné účty
-description: Jednotlivé acccounts na NuGet.org je potřeba publikovat balíčky
+title: Jednotlivé účty
+description: Pro publikování balíčků se vyžadují jednotlivé acccounts na NuGet.org.
 author: mikejo5000
 ms.author: mikejo
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: e1e31e0534706dab43f8d7b1b0db059cd6f29b80
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: c88b88015bd6d5bae4789765126c0a3dec527e24
+ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67427557"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68419848"
 ---
-# <a name="individual-accounts"></a>Samostatné účty
+# <a name="individual-accounts"></a>Jednotlivé účty
 
-Musíte vytvořit samostatný účet pro publikování a správě balíčků na NuGet.org.
+Abyste mohli publikovat a spravovat balíčky na NuGet.org, musíte vytvořit jednotlivý účet.
 
-## <a name="individual-accounts-vs-organization-accounts"></a>Samostatné účty a účty organizace
+## <a name="individual-accounts-vs-organization-accounts"></a>Jednotlivé účty vs. účty organizace
 
-Váš účet osoba (uživatel) je svoji identitu na NuGet.org a může mít libovolný počet organizace. Balíček může patřit k účtu organizace jako můžou patřit do individuálního účtu. Balíček příjemci nezobrazuje žádný rozdíl mezi samostatný účet nebo účet organizace: oba se objeví jako balíček `owners`.
+Váš jednotlivý uživatelský účet je vaší identitou v NuGet.org a může být členem libovolného počtu organizací. Balíček může patřit k účtu organizace, jako by mohl patřit k individuálnímu účtu. Uživatelé balíčku nevidí žádný rozdíl mezi jednotlivými účty nebo účtem organizace: obě se zobrazí jako balíčky `owners`.
 
-Účet organizace má jeden nebo více samostatné účty jako členy. Tyto členy můžete spravovat sadu balíčků při zachování jedinou identitu pro vlastnictví.
+Účet organizace má jako členy jeden nebo více jednotlivých účtů. Tito členové mohou spravovat sadu balíčků a přitom zachovat jedinou identitu pro vlastnictví.
 
-## <a name="add-a-new-individual-account"></a>Přidat nový individuálního účtu
+## <a name="add-a-new-individual-account"></a>Přidat nový jednotlivý účet
 
-Pokud chcete vytvořit účet NuGet.org, potřebujete osobní účet Microsoft (MSA) nebo účet Azure Active Directory (AAD). Pokud nemáte, můžete si [vytvořit](https://signup.live.com) jeden. Pokud již máte účet MSA nebo AAD, postupujte podle následujících kroků.
+Pokud chcete vytvořit účet NuGet.org, musíte mít osobní účet Microsoft (MSA) nebo účet Azure Active Directory (AAD). Pokud žádný nemáte, můžete si ho [vytvořit](https://signup.live.com) . Pokud máte účet MSA nebo AAD, postupujte podle následujících kroků.
 
-1. Přejděte [NuGet.org přihlašovací stránku](https://www.nuget.org/users/account/LogOn).
+1. Přejít na [přihlašovací stránku NuGet.org](https://www.nuget.org/users/account/LogOn)
 
-1. Klikněte na **přihlásit se účtem Microsoft** tlačítko.
+1. Klikněte na tlačítko **Přihlásit se účtem Microsoft** .
 
-1. Zadejte svůj účet Microsoft nebo podrobnosti o účtu služby Azure Active Directory.
+1. Zadejte účet Microsoft nebo Azure Active Directory podrobnosti účtu.
 
-1. Po klepnutí na **Ano** tak, aby přijímal oprávnění k *NuGet.org* aplikace.
+1. Kliknutím na **Ano** přijměte oprávnění k aplikaci *NuGet.org* .
 
-   ![Udělení oprávnění ke NuGet.org](media/nuget-org-permissions.png)
+   ![Udělení oprávnění NuGet.org](media/nuget-org-permissions.png)
 
-1. Budete přesměrováni na *nuget.org*a zobrazí se výzva k registraci uživatelské jméno.
+1. Budete přesměrováni na *NuGet.org*a požádáni, abyste zaregistrovali uživatelské jméno.
 
-1. Zadejte uživatelské jméno do vstupního pole. Pamatujte, že uživatelské jméno **je** malá a velká citlivé a nelze změnit ani přejmenovat později.
+1. Do vstupního pole zadejte uživatelské jméno. Všimněte si, **že uživatelské jméno** rozlišuje velká a malá písmena a nelze je změnit nebo přejmenovat později.
 
-   ![Zadejte uživatelské jméno na NuGet.org](media/nuget-org-register.png) 
+   ![Zadat uživatelské jméno na NuGet.org](media/nuget-org-register.png) 
 
-1. Klikněte na tlačítko **zaregistrovat** tlačítko.
+1. Klikněte na tlačítko **Registrovat** .
 
-Teď máte účet NuGet.org. Správa účtů můžete provádět na [nastavení účtu](https://www.nuget.org/account) stránky.
+Teď máte účet NuGet.org. Správu účtů můžete provádět na stránce [Nastavení účtu](https://www.nuget.org/account) .
+
+## <a name="enable-two-factor-authentication-2fa"></a>Povolit dvojúrovňové ověřování (2FA)
+
+Chcete-li lépe chránit svůj účet, povolte dvojúrovňové ověřování (doporučeno).
+
+1. Když se přihlásíte k účtu, otevřete svůj profil a v části **přihlašovací účet**vyberte **Povolit** .
+
+   ![Povolit 2FA](media/nuget-org-register-2fa.png)
+
+   Zobrazí se zpráva s informacemi o tom, že při příštím přihlášení k *NuGet.org*budete požádáni o další přihlašovací údaje.
+
+2. Pokud chcete ověřování dokončit, odhlaste se a znovu se přihlaste.
+
+3. Když se přihlásíte, vyberte jako druhou formu ověřování buď text, nebo e-mail.
+
+   Ověřte telefonní číslo nebo e-mailovou adresu, která je už přidružená k vašemu účet Microsoft. Pro svůj účet možná budete muset zadat nové telefonní číslo nebo e-mailovou adresu. Pokud ano, zadejte požadované informace podle pokynů a klikněte na tlačítko **Další**.
+
+   ![Povolit 2FA](media/nuget-org-sign-in-2fa.png)
+
+4. Ověřte svoje zařízení nebo e-mailový účet a zadejte kód, který jste právě odeslali.
+
+   ![Povolit 2FA](media/nuget-org-enter-code-2fa.png)
+
+5. Dokončete dvojúrovňové ověřování podle všech dalších pokynů.

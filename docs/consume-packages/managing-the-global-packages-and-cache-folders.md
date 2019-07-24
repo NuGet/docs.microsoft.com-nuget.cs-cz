@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: 2a30904c5d26ea2114432dfbef08f53407926a33
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: f5d418fd5b6b9bb88958d6b7e9e3034f40485a7d
+ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317758"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68419957"
 ---
 # <a name="managing-the-global-packages-cache-and-temp-folders"></a>Správa globálních balíčků, mezipaměti a dočasných složek
 
@@ -18,7 +18,7 @@ Kdykoli nainstalujete, aktualizujete nebo obnovíte balíček, aplikace NuGet sp
 
 | Name | Popis a umístění (na uživatele)|
 | --- | --- |
-| globální&#8209;balíčky | Složka *Global-Packages* je místo, kde NuGet nainstaluje libovolný stažený balíček. Každý balíček je plně rozbalen do podsložky, která odpovídá identifikátoru a číslu verze balíčku. Projekty, které používají formát PackageReference, vždy používají balíčky přímo z této složky. Při použití nástroje `packages.config`jsou balíčky nainstalovány do složky *Global-Packages* a následně zkopírovány `packages` do složky projektu.<br/><ul><li>Windows: `%userprofile%\.nuget\packages`</li><li>Mac/Linux: `~/.nuget/packages`</li><li>Popište pomocí proměnné prostředí `globalPackagesFolder` NUGET_PACKAGES, [nastavení konfigurace](../reference/nuget-config-file.md#config-section) `packages.config`nebo `repositoryPath` (při použití PackageReference `RestorePackagesPath` a, v uvedeném pořadí) nebo pomocí vlastnosti MSBuild (jenom MSBuild). Proměnná prostředí má přednost před nastavením konfigurace.</li></ul> |
+| globální&#8209;balíčky | Složka *Global-Packages* je místo, kde NuGet nainstaluje libovolný stažený balíček. Každý balíček je plně rozbalen do podsložky, která odpovídá identifikátoru a číslu verze balíčku. Projekty, které používají formát [PackageReference](package-references-in-project-files.md) , vždy používají balíčky přímo z této složky. Při použití [souboru Packages. config](../reference/packages-config.md)jsou balíčky nainstalovány do složky *Global-Packages* a následně zkopírovány do `packages` složky projektu.<br/><ul><li>Windows: `%userprofile%\.nuget\packages`</li><li>Mac/Linux: `~/.nuget/packages`</li><li>Popište pomocí proměnné prostředí `globalPackagesFolder` NUGET_PACKAGES, [nastavení konfigurace](../reference/nuget-config-file.md#config-section) `packages.config`nebo `repositoryPath` (při použití PackageReference `RestorePackagesPath` a, v uvedeném pořadí) nebo pomocí vlastnosti MSBuild (jenom MSBuild). Proměnná prostředí má přednost před nastavením konfigurace.</li></ul> |
 | http&#8209;cache | Správce balíčků sady Visual Studio (NuGet 3. x +) a `dotnet` nástroj ukládá kopie stažených balíčků v této mezipaměti (uložené jako `.dat` soubory), které jsou uspořádány do podsložek pro každý zdroj balíčku. Balíčky nejsou rozbalené a mezipaměť má čas vypršení platnosti 30 minut.<br/><ul><li>Windows: `%localappdata%\NuGet\v3-cache`</li><li>Mac/Linux: `~/.local/share/NuGet/v3-cache`</li><li>Popište pomocí proměnné prostředí NUGET_HTTP_CACHE_PATH.</li></ul> |
 | názvem | Složka, ve které NuGet ukládá dočasné soubory během různých operací.<br/><li>Windows: `%temp%\NuGetScratch`</li><li>Mac/Linux: `/tmp/NuGetScratch`</li></ul> |
 | moduly plug-in – mezipaměť **4,8 +** | Složka, ve které NuGet ukládá výsledky z požadavku na Operations identity<br/><ul><li>Windows: `%localappdata%\NuGet\plugins-cache`</li><li>Mac/Linux: `~/.local/share/NuGet/plugins-cache`</li><li>Popište pomocí proměnné prostředí NUGET_PLUGINS_CACHE_PATH.</li></ul> |

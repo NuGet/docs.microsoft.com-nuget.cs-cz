@@ -1,86 +1,86 @@
 ---
-title: Migrace ze souborů package.config do PackageReference formátů
-description: Podrobnosti o tom, jak migrovat projekt z formátu souborů package.config správy do PackageReference podporuje NuGet 4.0 + a VS2017 a .NET Core 2.0
+title: Migrace ze souboru Package. config do formátů PackageReference
+description: Podrobnosti o tom, jak migrovat projekt z formátu správy Package. config na PackageReference, který podporuje NuGet 4.0 + a VS2017 a .NET Core 2,0
 author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 09d132aeaf00d2a1d095b9638b455cc23de91f2c
-ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
+ms.openlocfilehash: d1c32f4a926f1f688db3ea6a9ca2eed1a21b2dec
+ms.sourcegitcommit: f9e39ff9ca19ba4a26e52b8a5e01e18eb0de5387
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812874"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68433293"
 ---
-# <a name="migrate-from-packagesconfig-to-packagereference"></a>Migrovat ze souboru packages.config na PackageReference
+# <a name="migrate-from-packagesconfig-to-packagereference"></a>Migrace ze souboru Packages. config na PackageReference
 
-Visual Studio 2017 verze 15.7 a novějších verzích podporuje migraci projektů z [souboru packages.config](./packages-config.md) správu formát [PackageReference](../consume-packages/Package-References-in-Project-Files.md) formátu.
+Visual Studio 2017 verze 15,7 a novější podporuje migraci projektu z formátu správy [Packages. config](./packages-config.md) na formát [PackageReference](../consume-packages/Package-References-in-Project-Files.md) .
 
 ## <a name="benefits-of-using-packagereference"></a>Výhody použití PackageReference
 
-* **Spravovat všechny závislosti projektu na jednom místě**: Stejně jako odkazy typu projekt na projekt a odkazy na sestavení odkazuje na balíček NuGet (pomocí `PackageReference` uzlu) se spravují přímo v rámci projektových souborů a nikoli pomocí souboru packages.config samostatné.
-* **Nezahlcený zobrazení nejvyšší úrovně závislosti**: Na rozdíl od souboru packages.config PackageReference uvádí jenom balíčky NuGet v projektu přímo nainstalován. Uživatelské rozhraní Správce balíčků NuGet a soubor projektu nejsou v důsledku toho nepotřebná data, se závislostmi nižší úrovně.
-* **Vylepšení výkonu**: Při použití PackageReference balíčky jsou zachována ve *global-packages* složky (jak je popsáno na [Správa globálních balíčků a složek mezipaměti](../consume-packages/managing-the-global-packages-and-cache-folders.md) spíše než v `packages` složky v rámci řešení. PackageReference v důsledku toho provádí rychleji a spotřebovávají méně místa na disku.
-* **Jemné kontrolu nad závislostí a obsahu toku**: Použití stávajících funkcí nástroje MSBuild umožňuje [podmíněně odkázat na balíček NuGet](../consume-packages/Package-References-in-Project-Files.md#adding-a-packagereference-condition) a zvolte odkazy na balíček na cílovou architekturu, konfigurace, platformy nebo jiných pivotů.
-* **PackageReference se aktivně vyvíjí**: Zobrazit [PackageReference problémů na Githubu](https://aka.ms/nuget-pr-improvements). soubor Packages.config se už nebude aktivně vyvíjí.
+* **Spravujte všechny závislosti projektu na jednom místě**: Stejně jako odkazy na projekt a odkazy na sestavení, odkazy na balíček NuGet (pomocí `PackageReference` uzlu) jsou spravovány přímo v rámci souborů projektu, nikoli pomocí samostatného souboru Packages. config.
+* **Nepotřebné zobrazení závislostí nejvyšší úrovně**: Na rozdíl od souboru Packages. config PackageReference vypíše pouze balíčky NuGet, které jste přímo nainstalovali v projektu. V důsledku toho uživatelské rozhraní Správce balíčků NuGet a soubor projektu nejsou v závislosti na nižší úrovni nepotřebné.
+* **Vylepšení výkonu**: Při použití PackageReference se balíčky udržují ve složce *Global-Packages* (jak je popsáno v tématu [Správa globálních balíčků a složek mezipaměti](../consume-packages/managing-the-global-packages-and-cache-folders.md) , nikoli ve `packages` složce v rámci řešení. V důsledku toho PackageReference provádí rychlejší a spotřebovává méně místa na disku.
+* **Jemné řízení závislostí a toku obsahu**: Použití existujících funkcí nástroje MSBuild umožňuje [podmíněně odkazovat na balíček NuGet](../consume-packages/Package-References-in-Project-Files.md#adding-a-packagereference-condition) a vybrat odkazy na balíčky pro cílovou architekturu, konfiguraci, platformu nebo jiné pivoty.
+* **PackageReference je v aktivním vývoji**: Viz [PackageReference problémy na GitHubu](https://aka.ms/nuget-pr-improvements). soubor Packages. config už není v aktivním vývoji.
 
 ### <a name="limitations"></a>Omezení
 
-* NuGet PackageReference není k dispozici v sadě Visual Studio 2015 a starší. Migrované projektů lze otevřít pouze v sadě Visual Studio 2017.
-* Migrace není aktuálně k dispozici pro projekty jazyka C++ a technologií ASP.NET.
+* V aplikaci Visual Studio 2015 a starší není PackageReference NuGet k dispozici. Migrované projekty lze otevřít pouze v aplikaci Visual Studio 2017 nebo novější.
+* Migrace není aktuálně k dispozici C++ pro projekty a ASP.NET.
 * Některé balíčky nemusí být plně kompatibilní s PackageReference. Další informace najdete v tématu [problémy s kompatibilitou balíčků](#package-compatibility-issues).
 
 ### <a name="known-issues"></a>Známé problémy
 
-1. `Migrate packages.config to PackageReference...` Možnost není k dispozici v místní nabídce klikněte pravým tlačítkem na 
+1. Tato `Migrate packages.config to PackageReference...` možnost není k dispozici v místní nabídce kliknutím pravým tlačítkem myši. 
 
 #### <a name="issue"></a>Problém 
  
-Při prvním otevření projektu NuGet nemusí mít inicializace, dokud se provádí operace NuGet. To způsobí, že není uveden v místní nabídce klikněte pravým tlačítkem na možnost migrace `packages.config` nebo `References`. 
+Při prvním otevření projektu se nemusí NuGet inicializovat, dokud se neprovede operace NuGet. To způsobí, že se možnost migrace nebude zobrazovat v místní nabídce klikněte pravým tlačítkem myši `packages.config` na `References`nebo. 
 
 #### <a name="workaround"></a>Alternativní řešení 
 
-Proveďte některou z následujících akcí NuGet: 
-* Otevřít uživatelské rozhraní Správce balíčků – klikněte pravým tlačítkem na `References` a vyberte `Manage NuGet Packages...` 
-* Otevřete konzolu Správce balíčků pro - ze `Tools > NuGet Package Manager`vyberte `Package Manager Console` 
-* Spuštění obnovení NuGet – klikněte pravým tlačítkem na uzel řešení v Průzkumníku řešení a vyberte `Restore NuGet Packages` 
-* Sestavte projekt, který také aktivuje obnovení NuGet 
+Proveďte jednu z následujících akcí NuGet: 
+* Otevřete uživatelské rozhraní Správce balíčků – klikněte pravým tlačítkem `References` na a vyberte`Manage NuGet Packages...` 
+* Otevřete konzolu Správce balíčků – v `Tools > NuGet Package Manager`vyberte`Package Manager Console` 
+* Spustit obnovení NuGet – pravým tlačítkem myši klikněte na uzel řešení v Průzkumník řešení a vyberte`Restore NuGet Packages` 
+* Sestavení projektu, který také aktivuje obnovení NuGet 
 
-Teď by měl být vidět možnost migrace. Všimněte si, že tato možnost není podporována a nezobrazí se pro typy projektů ASP.NET a C++. 
+Nyní byste měli být schopni zobrazit možnost migrace. Všimněte si, že tato možnost není podporovaná a nebude se zobrazovat pro ASP.NET C++ a typy projektů. 
 
 ## <a name="migration-steps"></a>Kroky migrace
 
 > [!Note]
-> Před zahájením migrace, sada Visual Studio vytvoří zálohu projektu, aby bylo možné [vrácení zpět do souboru packages.config](#how-to-roll-back-to-packagesconfig) v případě potřeby.
+> Před zahájením migrace vytvoří Visual Studio zálohu projektu, abyste v případě potřeby mohli [vrátit zpět do souboru Packages. config](#how-to-roll-back-to-packagesconfig) .
 
 1. Otevřete řešení obsahující projekt pomocí `packages.config`.
 
-1. V **Průzkumníka řešení**, klikněte pravým tlačítkem na **odkazy** uzlu nebo `packages.config` a vyberte možnost **migrovat packages.config na PackageReference...** .
+1. V **Průzkumník řešení**klikněte pravým tlačítkem myši na  `packages.config` uzel odkazy nebo na soubor a vyberte **migrovat Packages. config na PackageReference...** .
 
-1. Migrator analyzuje odkazy na balíčky NuGet projektu a pokusí se zařadit do **závislosti nejvyšší úrovně** (balíčky NuGet, které jste nainstalovali přímo) a **přechodné závislosti** (balíčky, které byly nainstalovány jako závislosti balíčků nejvyšší úrovně).
+1. Migrace analyzuje odkazy na balíček NuGet projektu a pokusy o jejich kategorizaci do závislostí na **nejvyšší úrovni** (balíčky NuGet, které jste nainstalovali přímo), a **přenosných závislostí** (balíčky, které byly nainstalovány jako závislosti balíčků nejvyšší úrovně).
 
    > [!Note]
-   > PackageReference podporuje obnovení přenosných balíčků a řeší závislosti dynamicky, což znamená, že přechodné závislosti nemusí explicitně nainstalována.
+   > PackageReference podporuje dynamické obnovení a překládání závislostí, což znamená, že přenositelné závislosti není nutné instalovat explicitně.
 
-1. (Volitelné) Můžete se rozhodnout zacházet se balíček NuGet jsou klasifikovány jako přechodné závislosti jako závislost nejvyšší úrovně tak, že vyberete **nejvyšší úrovně** možnost pro balíček. Tato možnost se automaticky nastaví pro balíčky obsahující prostředky, které nejsou tok přechodně (těm `build`, `buildCrossTargeting`, `contentFiles`, nebo `analyzers` složky) a jsou označeny jako vývojovou závislost (`developmentDependency = "true"`).
+1. Volitelné Můžete se rozhodnout zacházet s balíčkem NuGet klasifikovaným jako tranzitivní závislost jako se závislostí na nejvyšší úrovni, a to tak, že vyberete možnost **nejvyšší úrovně** pro balíček. Tato možnost je automaticky nastavena pro balíčky obsahující prostředky, které nezpůsobují `build`průjezd (ty v složkách `contentFiles`, `buildCrossTargeting`, nebo `analyzers` ), a ty, které jsou označeny jako závislost pro`developmentDependency = "true"`vývoj ().
 
-1. Kontroly všech [problémy s kompatibilitou balíčků](#package-compatibility-issues).
+1. Projděte si všechny [problémy s kompatibilitou balíčku](#package-compatibility-issues).
 
-1. Vyberte **OK** zahájíte migraci.
+1. Kliknutím na **OK** zahajte migraci.
 
-1. Na konci migrace Visual Studio poskytuje sestavy s cestou k zálohování, seznam nainstalovaných balíčků (závislosti nejvyšší úrovně), seznam balíčků na něho odkazovat jako přechodné závislosti a seznam problémů s kompatibilitou identifikovali na začátku migrace. Sestava je uložena v zálohovací složce.
+1. Na konci migrace poskytuje Visual Studio zprávu s cestou k zálohování, seznam nainstalovaných balíčků (závislostí nejvyšší úrovně), seznam balíčků, na které se odkazuje jako na přenositelné závislosti, a seznam problémů s kompatibilitou zjištěných na začátku migrace. Sestava se uloží do zálohovací složky.
 
-1. Ověřte, že toto řešení vytvoří a spustí. Pokud narazíte na potíže, [založte problém na Githubu](https://github.com/NuGet/Home/issues/).
+1. Ověřte, že řešení sestavuje a spouští. Pokud narazíte na problémy, zapište [problém na GitHubu](https://github.com/NuGet/Home/issues/).
 
-## <a name="how-to-roll-back-to-packagesconfig"></a>Tom, jak vrátit zpět do souboru packages.config
+## <a name="how-to-roll-back-to-packagesconfig"></a>Postup vrácení zpět do souboru Packages. config
 
-1. Zavřete migrovaného projektu.
+1. Zavřete migrovaný projekt.
 
 1. Zkopírujte soubor projektu a `packages.config` ze zálohy (obvykle `<solution_root>\MigrationBackup\<unique_guid>\<project_name>\`) do složky projektu. Odstraňte složku obj, pokud existuje v kořenovém adresáři projektu.
 
 1. Otevřete projekt.
 
-1. Otevřete konzolu Správce balíčků pro použití **nástroje > Správce balíčků NuGet > Konzola správce balíčků** příkazu nabídky.
+1. Otevřete konzolu Správce balíčků pomocí **nástrojů > správce balíčků NuGet > konzole správce balíčků** .
 
 1. V konzole spusťte následující příkaz:
 
@@ -90,40 +90,40 @@ Teď by měl být vidět možnost migrace. Všimněte si, že tato možnost nen�
 
 ## <a name="create-a-package-after-migration"></a>Vytvoření balíčku po migraci
 
-Po dokončení migrace doporučujeme vám, že přidáte odkaz na [nuget.build.tasks.pack](https://www.nuget.org/packages/nuget.build.tasks.pack) nuget balíček a pak pomocí [msbuild pack](../reference/msbuild-targets.md#pack-target) k vytvoření balíčku. I když v některých scénářích můžete použít `dotnet.exe pack` místo `msbuild pack`, se nedoporučuje.
+Po dokončení migrace doporučujeme přidat odkaz na balíček NuGet [. Build. Tasks. Pack](https://www.nuget.org/packages/nuget.build.tasks.pack) a pak pomocí nástroje [MSBuild-t:Pack](../reference/msbuild-targets.md#pack-target) vytvořit balíček. I když v některých scénářích můžete `dotnet.exe pack` použít `msbuild -t:pack`místo, nedoporučuje se.
 
 ## <a name="package-compatibility-issues"></a>Problémy s kompatibilitou balíčků
 
-Některé aspekty, které byly k dispozici v souboru packages.config nepodporuje PackageReference. Migrator analyzuje a rozpoznává tyto problémy. Libovolný balíček, který má jeden nebo více z následujících problémů nemusí chovat dle očekávání po migraci.
+Některé aspekty, které byly podporovány v souboru Packages. config, nejsou v PackageReference podporovány. Migrace analyzuje a detekuje takové problémy. Každý balíček, který má jeden nebo více následujících problémů, se nemusí po migraci chovat podle očekávání.
 
-### <a name="installps1-scripts-are-ignored-when-the-package-is-installed-after-the-migration"></a>"install.ps1" skripty jsou ignorovány, pokud je tento balíček nainstaluje po migraci
-
-| | |
-| --- | --- |
-| **Popis** | S PackageReference install.ps1 a uninstall.ps1 skripty prostředí PowerShell nebudou provedeny během instalace nebo odinstalace balíčku. |
-| **Potenciální dopad** | Balíčky, které jsou závislé na tyto skripty pro konfiguraci některých chování v cílový projekt nemusí fungovat podle očekávání. |
-
-### <a name="content-assets-are-not-available-when-the-package-is-installed-after-the-migration"></a>"obsah" prostředky nejsou k dispozici, když se balíček nainstaluje po migraci
+### <a name="installps1-scripts-are-ignored-when-the-package-is-installed-after-the-migration"></a>skripty Install. ps1 se při instalaci balíčku po migraci ignorují.
 
 | | |
 | --- | --- |
-| **Popis** | Prostředky v balíčku `content` složku s PackageReference se nepodporují a budou ignorovány. PackageReference přidává podporu pro `contentFiles` lépe přenositelný podpory a sdíleného obsahu.  |
-| **Potenciální dopad** | Prostředky v `content` nejsou zkopírovány do projektu a projekt vyžaduje refaktoring kódu, který závisí na přítomnosti tyto prostředky.  |
+| **Popis** | Pomocí PackageReference nainstalujte. ps1 a odinstalujte. ps1 skripty PowerShellu se při instalaci nebo odinstalaci balíčku nespustí. |
+| **Potenciální dopad** | Balíčky, které závisí na těchto skriptech ke konfiguraci určitého chování v cílovém projektu, nemusí fungovat podle očekávání. |
 
-### <a name="xdt-transforms-are-not-applied-when-the-package-is-installed-after-the-upgrade"></a>Transformace XDT se nepoužívají při instalaci balíčku po upgradu
-
-| | |
-| --- | --- |
-| **Popis** | Transformace XDT nepodporuje PackageReference a `.xdt` souborů jsou ignorovány, pokud instalace nebo odinstalace balíčku.   |
-| **Potenciální dopad** | Transformace XDT se nepoužije žádné soubory XML projektu nejčastěji `web.config.install.xdt` a `web.config.uninstall.xdt`, což znamená, že projekt` web.config` soubor není aktualizován při instalaci nebo odinstalaci balíčku. |
-
-### <a name="assemblies-in-the-lib-root-are-ignored-when-the-package-is-installed-after-the-migration"></a>Sestavení v kořenovém adresáři lib jsou ignorovány, pokud je tento balíček nainstaluje po migraci
+### <a name="content-assets-are-not-available-when-the-package-is-installed-after-the-migration"></a>prostředky Content nejsou dostupné, když se balíček nainstaluje po migraci.
 
 | | |
 | --- | --- |
-| **Popis** | S PackageReference, sestavení k dispozici v kořenovém adresáři `lib` složku bez přípony cílové rozhraní framework konkrétní dílčí složky jsou ignorovány. Vyhledá dílčí složku odpovídající odpovídající cílové rozhraní projektu moniker cílového rozhraní (TFM) a nainstaluje odpovídající sestavení do projektu NuGet. |
-| **Potenciální dopad** | Balíčky, které nemají odpovídající moniker cílového rozhraní (TFM) odpovídající cílové rozhraní projektu podsložku nemusí chovat dle očekávání po přechodu nebo selhání instalace během migrace |
+| **Popis** | Prostředky ve `content` složce balíčku nejsou podporovány v PackageReference a jsou ignorovány. PackageReference přidává podporu pro `contentFiles` pro zajištění lepší přenosové podpory a sdíleného obsahu.  |
+| **Potenciální dopad** | Prostředky v `content` nejsou zkopírovány do projektu a kód projektu, který závisí na přítomnosti těchto assetů, vyžaduje refaktoring.  |
 
-## <a name="found-an-issue-report-it"></a>Najít chyby? Nahlaste to!
+### <a name="xdt-transforms-are-not-applied-when-the-package-is-installed-after-the-upgrade"></a>Transformace XDT se neaplikují, když se balíček nainstaluje po upgradu.
 
-Pokud narazíte na potíže s prostředím migrace, [založit problém na úložiště NuGet GitHub](https://github.com/NuGet/Home/issues/).
+| | |
+| --- | --- |
+| **Popis** | Transformace XDT nejsou podporované PackageReference a `.xdt` soubory se při instalaci nebo odinstalaci balíčku ignorují.   |
+| **Potenciální dopad** | Transformace XDT nejsou aplikovány na žádné soubory XML projektu, nejčastěji `web.config.install.xdt` a `web.config.uninstall.xdt`,` web.config` což znamená, že soubor projektu není aktualizován při instalaci nebo odinstalaci balíčku. |
+
+### <a name="assemblies-in-the-lib-root-are-ignored-when-the-package-is-installed-after-the-migration"></a>Sestavení v kořenovém adresáři lib se při instalaci balíčku po migraci ignorují.
+
+| | |
+| --- | --- |
+| **Popis** | V PackageReference, sestavení přítomná v kořenu `lib` složky bez konkrétní podsložky cílového rozhraní, se ignorují. NuGet vyhledá podsložku odpovídající monikeru cílového rozhraní (TFM), který odpovídá cílovému rozhraní .NET Framework projektu, a nainstaluje odpovídající sestavení do projektu. |
+| **Potenciální dopad** | Balíčky, které nemají podsložku odpovídající cílovému monikeru rozhraní .NET Framework (TFM) odpovídající cílovému rozhraní projektu, se nemusí chovat podle očekávání po přechodu nebo při neúspěšné instalaci během migrace. |
+
+## <a name="found-an-issue-report-it"></a>Našel se problém? Report IT!
+
+Pokud narazíte na problém s možností migrace, uveďte [problém v úložišti GitHub NuGet](https://github.com/NuGet/Home/issues/).

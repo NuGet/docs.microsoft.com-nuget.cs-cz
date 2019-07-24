@@ -1,54 +1,54 @@
 ---
-title: Spravovat balíčky NuGet pomocí rozhraní příkazového řádku nuget.exe
-description: Pokyny k používání rozhraní příkazového řádku nuget.exe pro práci s balíčky NuGet.
+title: Správa balíčků NuGet pomocí rozhraní příkazového řádku NuGet. exe
+description: Pokyny k použití rozhraní příkazového řádku NuGet. exe pro práci s balíčky NuGet.
 author: mikejo5000
 ms.author: mikejo
 ms.date: 06/03/2019
 ms.topic: conceptual
-ms.openlocfilehash: a7177b956930835693921163e634321548c22462
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 9eefed6f2c1a362f27c4a5d33d07645d743379fa
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842373"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317736"
 ---
-# <a name="manage-packages-using-the-nugetexe-cli"></a>Správa balíčků s využitím rozhraní příkazového řádku nuget.exe
+# <a name="manage-packages-using-the-nugetexe-cli"></a>Správa balíčků pomocí rozhraní příkazového řádku NuGet. exe
 
-Nástroj příkazového řádku můžete snadno aktualizovat a obnovení balíčků NuGet do projektů a řešení. Tento nástroj poskytuje všechny funkce NuGet pro Windows a také poskytuje většinu funkcí na Mac a Linux, když je spuštěno mono.
+Nástroj rozhraní příkazového řádku umožňuje snadno aktualizovat a obnovovat balíčky NuGet v projektech a řešeních. Tento nástroj poskytuje všechny funkce NuGet ve Windows a poskytuje i většinu funkcí v systémech Mac a Linux, když běží v mono.
 
-Rozhraní příkazového řádku nuget.exe je pro projekty SDK stylu (například-sady SDK styl projekt, který cílí na knihovny .NET Standard) a rozhraní .NET Framework projektu. Pokud používáte sadu SDK styl projektu, který se migroval na `PackageReference`, místo toho použijte rozhraní příkazového řádku dotnet. Vyžaduje se rozhraní příkazového řádku NuGet [souboru packages.config](../reference/packages-config.md) soubor pro odkazy na balíček.
+Rozhraní `nuget.exe` příkazového řádku je pro vaše .NET Framework projektů a projektů, které nejsou ve stylu sady SDK (například projekt bez sady SDK, který cílí na .NET Standard knihovny). Pokud používáte projekt, který není ve stylu sady SDK, který byl migrován do `PackageReference`, `dotnet` použijte místo toho příkaz CLI. Rozhraní `nuget.exe` příkazového řádku vyžaduje soubor [Packages. config](../reference/packages-config.md) pro odkazy na balíčky.
 
 > [!NOTE]
-> Ve většině scénářů doporučujeme [migraci projektů SDK styl](../reference/migrate-packages-config-to-package-reference.md) , které používají `packages.config` na PackageReference, a pak můžete použít rozhraní příkazového řádku dotnet místo `nuget.exe` rozhraní příkazového řádku. Migrace není aktuálně k dispozici pro projekty jazyka C++ a technologií ASP.NET.
+> Ve většině scénářů doporučujeme [migrovat projekty, které nejsou ve stylu sady SDK](../reference/migrate-packages-config-to-package-reference.md) , `packages.config` které používají PackageReference, a pak můžete použít rozhraní `dotnet` příkazového řádku namísto `nuget.exe` rozhraní příkazového řádku. Migrace není aktuálně k dispozici C++ pro projekty a ASP.NET.
 
-Tento článek popisuje základní informace o využití pro některé z nejčastěji používané příkazy rozhraní příkazového řádku nuget.exe. Pro většinu těchto příkazů nástroje rozhraní příkazového řádku hledá soubor projektu do aktuálního adresáře, pokud soubor projektu je zadané v příkazu. Úplný seznam příkazů a argumenty, které můžete použít, najdete v článku [referenční informace o rozhraní příkazového řádku nuget.exe](../tools/nuget-exe-cli-reference.md).
+Tento článek popisuje základní použití pro několik nejběžnějších příkazů rozhraní `nuget.exe` příkazového řádku. Pro většinu těchto příkazů nástroj CLI vyhledá soubor projektu v aktuálním adresáři, pokud není v příkazu zadaný soubor projektu. Úplný seznam příkazů a argumenty, které můžete použít, najdete v referenčních informacích k [NuGet. exe CLI](../reference/nuget-exe-cli-reference.md).
 
 ## <a name="prerequisites"></a>Požadavky
 
-- Nainstalujte `nuget.exe` rozhraní příkazového řádku, stáhněte si ji z [nuget.org](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe), ukládání, který `.exe` soubor vhodný složky a přidání složky do proměnné prostředí PATH.
+- Nainstalujte rozhraní `nuget.exe` příkazového řádku stažením z [NuGet.org](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe), uložte tento `.exe` soubor do vhodné složky a přidejte tuto složku do proměnné prostředí PATH.
 
 ## <a name="install-a-package"></a>Instalace balíčku
 
-[Nainstalovat](../tools/cli-ref-install.md) příkaz stáhne a nainstaluje balíček do projektu, jako výchozí se použije aktuální složku, pomocí zadaného balíčku zdroje. Nainstalovat nové balíčky do *balíčky* složku v kořenovém adresáři projektu.
+Příkaz [install](../reference/cli-reference/cli-ref-install.md) stáhne a nainstaluje balíček do projektu, přičemž použije výchozí nastavení pro aktuální složku pomocí zadaných zdrojů balíčků. Nainstalujte nové balíčky do složky *Packages* v kořenovém adresáři projektu.
 
 > [!IMPORTANT]
-> `install`Příkaz neprovede žádné změny souboru projektu nebo *souboru packages.config*; tímto způsobem je podobný `restore` , pouze na disk přidá balíčky ale nedojde ke změně závislosti projektu. Můžete přidat závislost, přidejte balíček přes uživatelské rozhraní Správce balíčků nebo konzoly v sadě Visual Studio, nebo upravte *souboru packages.config* a spustit některý `install` nebo `restore`.
+> Příkaz neupraví soubor projektu nebo Packages *. config*; tímto způsobem je podobný `restore` jako v tom, že přidává pouze balíčky na disk, ale nemění závislosti projektu. `install` Chcete-li přidat závislost, buď přidejte balíček prostřednictvím uživatelského rozhraní nebo konzoly Správce balíčků v aplikaci Visual Studio, nebo upravte soubor *Packages. config* a `install` potom `restore`spusťte nebo.
 
-1. Otevřete příkazový řádek a přejděte do adresáře, který obsahuje váš soubor projektu.
+1. Otevřete příkazový řádek a přejděte do adresáře, který obsahuje soubor projektu.
 
-2. Použijte následující příkaz k instalaci balíčku NuGet *balíčky* složky.
+2. K instalaci balíčku NuGet do složky Packages použijte následující příkaz  .
 
     ```cli
     nuget install <packageID> -OutputDirectory packages
     ```
 
-    K instalaci `Newtonsoft.json` balíček do *balíčky* složky, použijte následující příkaz:
+    Chcete-li `Newtonsoft.json` balíček nainstalovat do  složky Packages, použijte následující příkaz:
 
     ```cli
     nuget install Newtonsoft.Json -OutputDirectory packages
     ```
 
-Alternativně slouží následující příkaz k instalaci balíčku NuGet pomocí existující `packages.config` do souboru *balíčky* složky. Nedojde k přidání balíčku do závislostí vašeho projektu, ale nainstaluje místně.
+Případně můžete použít následující příkaz k instalaci balíčku NuGet pomocí existujícího `packages.config` souboru do složky *Packages* . Tím se balíček nepřidá do závislostí projektu, ale nainstaluje se místně.
 
 ```cli
 nuget install packages.config -OutputDirectory packages
@@ -56,67 +56,67 @@ nuget install packages.config -OutputDirectory packages
 
 ## <a name="install-a-specific-version-of-a-package"></a>Instalace konkrétní verze balíčku
 
-Pokud neurčíte verzi, při použití [nainstalovat](../tools/cli-ref-install.md) příkaz nainstaluje nejnovější verzi balíčku NuGet. Můžete také nainstalovat určitou verzi balíčku Nuget:
+Pokud při použití příkazu [install](../reference/cli-reference/cli-ref-install.md) není zadána verze, NuGet nainstaluje nejnovější verzi balíčku. Můžete také nainstalovat specifickou verzi balíčku NuGet:
 
 ```cli
 nuget install <packageID | configFilePath> -Version <version>
 ```
 
-Chcete-li například přidat verzi 12.0.1 `Newtonsoft.json` balíček, použijte tento příkaz:
+Pokud například chcete přidat 12.0.1 `Newtonsoft.json` verze balíčku, použijte tento příkaz:
 
 ```cli
 nuget install Newtonsoft.Json -Version 12.0.1
 ```
 
-Další informace o omezeních a chování `install`, naleznete v tématu [nainstalovat balíček](#install-a-package).
+Další informace o omezeních a chování `install`nástroje najdete v tématu [instalace balíčku](#install-a-package).
 
 ## <a name="remove-a-package"></a>Odebrat balíček
 
-Pokud chcete odstranit jeden nebo více balíčků, odstraňte balíčky, které chcete odebrat z *balíčky* složky.
+Chcete-li odstranit jeden nebo více balíčků, odstraňte balíčky, které chcete odebrat ze  složky Packages.
 
-Pokud chcete znovu nainstaluje balíčky, použijte `restore` nebo `install` příkazu.
+Pokud chcete balíčky znovu nainstalovat, použijte `restore` příkaz nebo. `install`
 
-## <a name="list-packages"></a>Seznam balíčků
+## <a name="list-packages"></a>Výpis balíčků
 
-Můžete zobrazit seznam balíčků z daného zdroje pomocí [seznamu](../tools/cli-ref-list.md) příkazu. Použití `-Source` pro omezení hledání.
+Seznam balíčků z daného zdroje můžete zobrazit pomocí příkazu [list](../reference/cli-reference/cli-ref-list.md) . K omezení vyhledávání použijte možnost.`-Source`
 
 ```cli
 nuget list -Source <source>
 ```
 
-Například balíčků v seznamu *balíčky* složky.
+Například vypíšete balíčky ve složce *Packages* .
 
 ```cli
 nuget list -Source C:\Users\username\source\repos\MyProject\packages
 ```
 
-Pokud používáte hledaný termín, hledání zahrnuje názvy balíčků, značky a Popis balíčku.
+Pokud používáte hledaný termín, hledání zahrnuje názvy balíčků, značek a popisů balíčků.
 
 ```cli
 nuget list <search term>
 ```
 
-## <a name="update-an-individual-package"></a>Jednotlivé aktualizace
+## <a name="update-an-individual-package"></a>Aktualizace jednotlivého balíčku
 
-NuGet nainstaluje nejnovější verzi balíčku, při použití `install` příkazu, pokud neurčíte verzi balíčku.
+NuGet nainstaluje nejnovější verzi balíčku, když použijete `install` příkaz, pokud nezadáte verzi balíčku.
 
 ## <a name="update-all-packages"></a>Aktualizovat všechny balíčky
 
-Použití [aktualizovat](../tools/cli-ref-update.md) příkaz k aktualizaci všech balíčků. Aktualizuje všechny balíčky v projektu (pomocí `packages.config`) jejich nejnovější dostupné verze. Doporučuje se spouštět `restore` dřív, než spustíte `update`.
+Pomocí příkazu [Update](../reference/cli-reference/cli-ref-update.md) aktualizujte všechny balíčky. Aktualizuje všechny balíčky v projektu (pomocí `packages.config`) na nejnovější dostupné verze. Doporučuje se spustit `restore` před spuštěním `update`.
 
 ```cli
 nuget update
 ```
 
-## <a name="restore-packages"></a>Obnovení balíčků
+## <a name="restore-packages"></a>Obnovit balíčky
 
-Použití [obnovení](../tools/cli-ref-restore.md) příkaz, který se stáhne a nainstaluje všechny balíčky, které chybí *balíčky* složky.
+Použijte příkaz [Restore](../reference/cli-reference/cli-ref-restore.md) , který stáhne a nainstaluje ze složky Packages chybějící  balíčky.
 
-`restore` pouze balíčky přidá na disk, ale nedojde ke změně závislosti projektu. Chcete-li obnovit závislosti projektu, upravte `packages.config`, pak použít `restore` příkaz.
+`restore`přidá pouze balíčky na disk, ale nemění závislosti projektu. Chcete-li obnovit závislosti projektu `packages.config`, upravte a pak `restore` použijte příkaz.
 
-Stejně jako u druhé `dotnet` příkazy rozhraní příkazového řádku, nejprve otevřete příkazový řádek a přejděte do adresáře, který obsahuje váš soubor projektu.
+Stejně jako u ostatních `nuget.exe` příkazů CLI otevřete příkazový řádek a přejděte do adresáře, který obsahuje soubor projektu.
 
-Chcete-li obnovit balíček pomocí `restore`:
+Postup obnovení balíčku pomocí `restore`:
 
 ```cli
 nuget restore MySolution.sln

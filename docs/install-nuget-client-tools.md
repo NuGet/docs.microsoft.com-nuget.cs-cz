@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/20/2019
 ms.topic: quickstart
-ms.openlocfilehash: 70dd640e34f917bcba99bea6b53652a949a5d00a
-ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
+ms.openlocfilehash: d7aa2e4bdb78dcc6747d9775cbdf0d6c41855b96
+ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68342472"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68419811"
 ---
 # <a name="install-nuget-client-tools"></a>Instalace klientských nástrojů NuGetu
 
@@ -21,7 +21,7 @@ Pro práci s NuGet, jako příjemce balíčku nebo autor, můžete použít nás
 | Štětec&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Popis | Stáhnout&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
 |:------------- |:-------------|:-----|
 | [dotnet.exe](#dotnetexe-cli) | Nástroj rozhraní příkazového řádku pro knihovny .NET Core a .NET Standard a pro libovolný [projekt ve stylu sady SDK](resources/check-project-format.md) , jako je například jeden, který cílí .NET Framework. Je součástí .NET Core SDK a poskytuje základní funkce NuGet na všech platformách. (Počínaje sadou Visual Studio 2017 se rozhraní příkazového řádku dotnet automaticky instaluje se všemi úlohami souvisejícími s .NET Core.)| [.NET Core SDK](https://www.microsoft.com/net/download/) |
-| [nuget.exe](#nugetexe-cli) | Nástroj rozhraní příkazového řádku pro .NET Framework knihovny a pro projekt, který [není ve stylu sady SDK](resources/check-project-format.md) , který cílí na .NET Standard knihovny. Poskytuje všechny funkce NuGet ve Windows a poskytuje většinu funkcí v systémech Mac a Linux, když běží v mono. | [nuget.exe](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe) |
+| [nuget.exe](#nugetexe-cli) | Nástroj rozhraní příkazového řádku pro knihovny .NET Framework a pro všechny projekty, které [nejsou ve stylu sady SDK](resources/check-project-format.md) , jako je například jeden, který cílí na .NET Standard knihovny. Poskytuje všechny funkce NuGet ve Windows a poskytuje většinu funkcí v systémech Mac a Linux, když běží v mono. | [nuget.exe](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe) |
 | [Visual Studio](#visual-studio) | Ve Windows poskytuje funkce NuGet přes uživatelské rozhraní Správce balíčků a konzolu Správce balíčků. je součástí. Úlohy týkající se netto. V systému Mac poskytuje určité funkce v uživatelském rozhraní. V Visual Studio Code jsou funkce NuGet poskytovány prostřednictvím rozšíření. | [Visual Studio 2017](https://www.visualstudio.com/downloads/) |
 
 Rozhraní příkazového [řádku MSBuild](reference/msbuild-targets.md) také poskytuje možnost obnovení a vytváření balíčků, které jsou primárně užitečné na serverech sestavení. Nástroj MSBuild není obecným nástrojem pro práci s NuGet.
@@ -30,8 +30,8 @@ Rozhraní příkazového [řádku MSBuild](reference/msbuild-targets.md) také p
 
 Existují `dotnet.exe` dva nástroje rozhraní příkazového řádku `nuget.exe`NuGet a. Porovnání najdete v tématu [dostupnost funkcí](#feature-availability) .
 
-* Chcete-li cílit na rozhraní .NET Core nebo .NET Standard, použijte rozhraní příkazového řádku dotnet. Rozhraní příkazového řádku dotnet je vyžadováno pro formát projektu ve stylu sady SDK, který používá [atribut SDK](/dotnet/core/tools/csproj#additions).
-* Chcete-li cílit na .NET Framework (pouze projekt ve stylu sady SDK), `nuget.exe CLI`použijte. Pokud je projekt migrován z `packages.config` aplikace do PackageReference, použijte rozhraní příkazového řádku dotnet.
+* Chcete-li cílit na rozhraní .NET Core nebo .NET Standard, použijte rozhraní příkazového řádku dotnet. Rozhraní `dotnet` příkazového řádku je vyžadováno pro formát projektu ve stylu sady SDK, který používá [atribut SDK](/dotnet/core/tools/csproj#additions).
+* Chcete-li cílit na .NET Framework (pouze projekt ve stylu sady SDK), `nuget.exe` použijte rozhraní příkazového řádku. Pokud je projekt migrován z `packages.config` aplikace do PackageReference, použijte rozhraní příkazového řádku dotnet.
 
 ### <a name="dotnetexe-cli"></a>dotnet.exe CLI
 

@@ -1,79 +1,79 @@
 ---
-title: Jak vytvořit balíček NuGet
-description: Podrobné pokyny k procesu návrhu a vytvoření balíčku NuGet, včetně klíčových rozhodovací body, jako jsou soubory a správy verzí.
+title: Vytvoření balíčku NuGet pomocí NuGet. exe CLI
+description: Podrobný průvodce procesem navrhování a vytváření balíčku NuGet, včetně klíčových bodů rozhodování, jako jsou soubory a správa verzí.
 author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1dce8556448131c36680167fdc3605e4378b9178
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 894a39e9e67508234295db128928b09da7f468f0
+ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842309"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68419814"
 ---
-# <a name="create-nuget-packages"></a>Vytvoření balíčků pro NuGet
+# <a name="create-a-package-using-the-nugetexe-cli"></a>Vytvoření balíčku pomocí rozhraní příkazového řádku NuGet. exe
 
-Bez ohledu na to co dělá váš balíček nebo co kódu obsahuje, použít jednu z nástroje rozhraní příkazového řádku, buď `nuget.exe` nebo `dotnet.exe`, do balíčku, které tuto funkci do komponenty, které můžete sdílet s a používat libovolný počet dalších vývojářů. Chcete-li instalovat nástroje rozhraní příkazového řádku NuGet, naleznete v tématu [klientských nástrojů Nugetu nainstalovat](../install-nuget-client-tools.md). Všimněte si, že Visual Studio automaticky nezahrnuje nástroj rozhraní příkazového řádku.
+Bez ohledu na to, co váš balíček používá, nebo jaký kód obsahuje, můžete použít jeden z nástrojů rozhraní `nuget.exe` příkazového řádku (nebo `dotnet.exe`) k zabalení této funkce do komponenty, kterou lze sdílet a používat v jakémkoli počtu jiných vývojářů. Pokud chcete nainstalovat nástroje NuGet CLI, přečtěte si téma [Instalace nástrojů klienta NuGet](../install-nuget-client-tools.md). Všimněte si, že Visual Studio nezahrnuje automaticky nástroj CLI.
 
-- Pro .NET Core a .NET Standard projekty, které používají [SDK – vizuální styl formátu](../resources/check-project-format.md), a všechny ostatní sady SDK – vizuální styl projekty, NuGet přímo k vytvoření balíčku používá informace v souboru projektu. Podrobné pokyny najdete v článku [vytvořit standardní balíčky .NET pomocí rozhraní příkazového řádku dotnet](../quickstart/create-and-publish-a-package-using-the-dotnet-cli.md), [vytvořit standardní balíčky .NET pomocí sady Visual Studio](../quickstart/create-and-publish-a-package-using-visual-studio.md) nebo [balíčku NuGet a obnovení jako MSBuild, zaměřuje](../reference/msbuild-targets.md).
+- Pro projekty, které nejsou ve stylu sady SDK, obvykle .NET Framework projekty, postupujte podle kroků popsaných v tomto článku a vytvořte balíček. Podrobné pokyny k používání sady Visual Studio a rozhraní `nuget.exe` příkazového řádku najdete v tématu [Vytvoření a publikování .NET Framework balíčku](../quickstart/create-and-publish-a-package-using-visual-studio-net-framework.md).
 
-- Pro projekty SDK styl obvykle projekty rozhraní .NET Framework, postupujte podle kroků popsaných v tomto článku vytvořte balíček. Můžete také postupovat podle kroků v [vytvoření a publikování balíčku .NET Framework](../quickstart/create-and-publish-a-package-using-visual-studio-net-framework.md) k vytvoření balíčku pomocí `nuget.exe` rozhraní příkazového řádku a sady Visual Studio.
+- Pro projekty .NET Core a .NET Standard, které používají [Formát ve stylu sady SDK](../resources/check-project-format.md), a všechny další projekty ve stylu sady SDK, přečtěte si téma [Vytvoření balíčku NuGet pomocí rozhraní příkazového řádku dotnet](creating-a-package-dotnet-cli.md).
 
-- Pro projekty migrované z `packages.config` k [PackageReference](../consume-packages/package-references-in-project-files.md), použijte [msbuild - t: pack](../reference/migrate-packages-config-to-package-reference.md#create-a-package-after-migration).
+- Pro projekty migrované z `packages.config` aplikace do [PackageReference](../consume-packages/package-references-in-project-files.md)použijte [MSBuild-t:Pack](../reference/migrate-packages-config-to-package-reference.md#create-a-package-after-migration).
 
-Technicky vzato balíček NuGet je jenom soubor ZIP, který je byl přejmenován s `.nupkg` rozšíření a jehož obsah odpovídat určité konvence. Toto téma popisuje podrobný postup vytvoření balíčku, který splňuje tyto konvence.
+Technicky řečeno, balíček NuGet je jenom soubor zip, který se přejmenoval s `.nupkg` příponou a jehož obsah se shoduje s některými úmluvami. Toto téma popisuje podrobný proces vytváření balíčku, který splňuje tyto konvence.
 
-Balení začíná zkompilovaného kódu (sestavení), symboly a/nebo jiné soubory, které má být dodána jako balíček (viz [přehled a pracovní postup](overview-and-workflow.md)). Tento proces je nezávislý na kompilace nebo jinak generování souborů, které patří do balíčku, i když můžete nakreslit z informací v souboru projektu pro synchronizaci kompilované sestavení a balíčky.
+Balení začíná kompilovaným kódem (sestavení), symboly a/nebo dalšími soubory, které chcete doručit jako balíček (viz [Přehled a pracovní postup](overview-and-workflow.md)). Tento proces je nezávislý na kompilování nebo jinak generují soubory, které se nacházejí v balíčku, i když můžete kreslit z informací v souboru projektu, aby se zkompilované sestavení a balíčky udržovaly synchronizované.
 
 > [!Important]
-> V tomto tématu se vztahují na projekty SDK styl, obvykle projekty jiné než .NET Core a .NET Standard projektů pomocí Visual Studio 2017 a vyšší verze a NuGet 4.0 +.
+> Toto téma se vztahuje na projekty nevyužívající sadu SDK, obvykle v jiných projektech než .NET Core a .NET Standard projekty pomocí sady Visual Studio 2017 a novějších verzí a NuGet 4.0 +.
 
-## <a name="decide-which-assemblies-to-package"></a>Rozhodněte, která sestavení do balíčku
+## <a name="decide-which-assemblies-to-package"></a>Rozhodněte, která sestavení se mají zabalit
 
-Většina pro obecné účely balíčky obsahují jeden nebo více sestavení, které ostatní vývojáři mohou použít ve své vlastní projekty.
+Většina balíčků pro obecné účely obsahuje jedno nebo více sestavení, která mohou používat jiní vývojáři ve svých vlastních projektech.
 
-- Obecně je vhodné mít jedno sestavení na balíček NuGet, za předpokladu, že každé sestavení je nezávisle na sobě užitečné. Například, pokud máte `Utilities.dll` , který závisí na `Parser.dll`, a `Parser.dll` je užitečné sama o sobě a pak vytvořte jeden balíček pro každého. To umožňuje vývojářům využít `Parser.dll` nezávisle na `Utilities.dll`.
+- Obecně je vhodné mít jedno sestavení pro každý balíček NuGet za předpokladu, že každé sestavení je nezávisle užitečné. Například pokud máte `Utilities.dll` a, který závisí na `Parser.dll`a `Parser.dll` je vhodný pro vlastní, vytvořte pro každou z nich jeden balíček. To umožňuje vývojářům používat `Parser.dll` `Utilities.dll`nezávisle na.
 
-- Pokud vaše knihovna se skládá z více sestavení, které nejsou nezávisle na sobě užitečné, pak je v pořádku je zkombinovat do jednoho balíčku. Použijeme předchozí příklad, pokud `Parser.dll` obsahuje kód, který je používán pouze `Utilities.dll`, pak můžete zachovat `Parser.dll` ve stejném balíku.
+- Pokud se knihovna skládá z více sestavení, která nejsou nezávislá na sobě, je vhodné je kombinovat do jednoho balíčku. Pokud použijete předchozí příklad, `Parser.dll` Pokud obsahuje kód, který používá `Utilities.dll`pouze, pak je vše v jednom balíčku `Parser.dll` zachováno.
 
-- Podobně pokud `Utilities.dll` závisí na `Utilities.resources.dll`, je-li znovu odkazující aktivita není užitečná sama o sobě, potom se spojí i ve stejném balíku.
+- Podobně, pokud `Utilities.dll` závisí na `Utilities.resources.dll`, kde je znovu neužitečné, a pak do stejného balíčku vložte obojí.
 
-Prostředky ve skutečnosti představují zvláštní případ. Při instalaci do projektu balíček NuGet automaticky přidá odkazy na sestavení knihovny DLL balíčku, *s výjimkou* ty, které jsou pojmenovány `.resources.dll` vzhledem k tomu, že se budou považovat za lokalizovaná satelitní sestavení (viz [ Vytvoření lokalizovaných balíčků](creating-localized-packages.md)). Z tohoto důvodu se vyhněte se použití `.resources.dll` pro soubory, které jinak obsahují základní balíček kódu.
+Prostředky jsou ve skutečnosti zvláštním případem. Když je balíček nainstalován do projektu, NuGet automaticky přidá odkazy na sestavení do knihoven DLL balíčku, *kromě* těch, které jsou pojmenovány `.resources.dll` , protože se předpokládá, že jsou lokalizovaná satelitní sestavení (viz téma [vytváření lokalizovaných balíčky](creating-localized-packages.md)). Z tohoto důvodu `.resources.dll` nepoužívejte pro soubory, které jinak obsahují základní kód balíčku.
 
-Pokud vaše knihovna obsahuje sestavení vzájemné spolupráce COM, postupujte podle dalších pokynů v [vytváření balíčků s sestavení vzájemné spolupráce COM](author-packages-with-com-interop-assemblies.md).
+Pokud vaše knihovna obsahuje sestavení zprostředkovatele komunikace s objekty COM, postupujte podle dalších pokynů v části [Vytvoření balíčků se sestaveními zprostředkovatele komunikace s objekty COM](author-packages-with-com-interop-assemblies.md).
 
-## <a name="the-role-and-structure-of-the-nuspec-file"></a>Role a struktura souboru .nuspec souboru
+## <a name="the-role-and-structure-of-the-nuspec-file"></a>Role a struktura souboru. nuspec
 
-Když víte, jaké soubory, které chcete balíček, dalším krokem je vytvoření manifestu balíčku v `.nuspec` souboru XML.
+Jakmile víte, které soubory chcete zabalit, další krok vytvoří manifest balíčku v `.nuspec` souboru XML.
 
 Manifest:
 
-1. Popisuje obsah balíčku a je součástí balíčku.
-1. Vytvoření balíčku a nastaví na tom, jak nainstalovat do projektu balíček NuGet. Například manifest identifikuje další závislosti balíčků tak, aby NuGet můžete nainstalovat také těchto závislostí při instalaci hlavního balíčku.
-1. Obsahuje vlastnosti požadované a volitelné, jak je popsáno níže. Naleznete v části najdete přesné informace, včetně dalších vlastností, zde nejsou uvedeny [souboru .nuspec odkaz](../reference/nuspec.md).
+1. Popisuje obsah balíčku a je sám součástí balíčku.
+1. Vydělí jak vytvoření balíčku, tak instruuje nástroj NuGet o tom, jak balíček nainstalovat do projektu. Například manifest identifikuje jiné závislosti balíčků, takže může NuGet nainstalovat i tyto závislosti při instalaci hlavního balíčku.
+1. Obsahuje požadované i volitelné vlastnosti, jak je popsáno níže. Přesné podrobnosti, včetně dalších vlastností, které zde nejsou uvedeny, naleznete v tématu [. nuspec reference](../reference/nuspec.md).
 
 Požadované vlastnosti:
 
-- Identifikátor balíčku musí být jedinečný ve galerii, který je hostitelem balíčku.
-- Konkrétní verzi číslo ve tvaru *Hlavníverze.podverze.oprava [-přípona]* kde *– přípona* identifikuje [předběžných verzí](prerelease-packages.md)
-- Název balíčku jak by se měla objevit na hostiteli (jako je nuget.org)
-- Informace o Autor a vlastník.
+- Identifikátor balíčku, který musí být jedinečný v rámci Galerie, která hostuje balíček.
+- Konkrétní číslo verze ve formátu *hlavní. podverze. Oprava [-přípona]* , kde *-přípona* identifikuje [předběžné verze verzí](prerelease-packages.md)
+- Název balíčku, jak by měl být zobrazen na hostiteli (například nuget.org)
+- Informace o autorovi a vlastníka.
 - Dlouhý popis balíčku.
 
-Společné vlastnosti volitelné:
+Běžné volitelné vlastnosti:
 
 - Zpráva k vydání verze
 - Informace o autorských právech
-- Krátký popis [uživatelského rozhraní Správce balíčků v sadě Visual Studio](../tools/package-manager-ui.md)
+- Krátký popis [uživatelského rozhraní Správce balíčků v aplikaci Visual Studio](../consume-packages/install-use-packages-visual-studio.md)
 - ID národního prostředí
 - Adresa URL projektu
-- Licence jako výraz nebo souboru (`licenseUrl` je zastaralé, použijte [ `license` prvek metadat souboru nuspec](../reference/nuspec.md#license))
+- Licence jako výraz nebo soubor (`licenseUrl` je zastaralá, [ `license` použijte element metadat nuspec](../reference/nuspec.md#license))
 - Adresa URL ikony
-- Seznam závislosti a odkazy
+- Seznam závislostí a odkazů
 - Značky, které pomáhají při hledání v galerii
 
-Tady je typické (ale fiktivní) `.nuspec` soubor s komentáři popisující vlastnosti:
+Následuje typický (ale fiktivní) `.nuspec` soubor s komentáři popisujícím vlastnosti:
 
 ```xml
 <?xml version="1.0"?>
@@ -138,142 +138,142 @@ Tady je typické (ale fiktivní) `.nuspec` soubor s komentáři popisující vla
 </package>
 ```
 
-Podrobnosti o deklarace závislostí a zadání čísla verzí, naleznete v tématu [Správa verzí balíčků](../reference/package-versioning.md). Je také možné na povrchu prostředky od závislostí přímo v balíčku pomocí `include` a `exclude` atributy na `dependency` elementu. Zobrazit [souboru .nuspec Reference - závislosti](../reference/nuspec.md#dependencies).
+Podrobnosti o deklarování závislostí a zadání čísel verzí najdete v tématu [Správa verzí balíčků](../reference/package-versioning.md). Je také možné Surface prostředků ze závislostí přímo v balíčku pomocí `include` atributů `dependency` a `exclude` elementu. Viz [referenční závislosti. nuspec](../reference/nuspec.md#dependencies).
 
-Protože manifest je součástí balíčku vytvořených z ní, najdete prozkoumáním existující balíčky libovolný počet dalších příkladů. Dobrým zdrojem je *global-packages* složky v počítači, umístění se vrátí následující příkaz:
+Vzhledem k tomu, že je manifest součástí balíčku, který byl vytvořen z něj, můžete najít libovolný počet dalších příkladů zkoumáním existujících balíčků. Dobrým zdrojem je složka *globálního balíčku* v počítači, umístění, které je vráceno následujícím příkazem:
 
 ```cli
 nuget locals -list global-packages
 ```
 
-Přejděte do libovolného *package\version* složka, Kopírovat `.nupkg` do souboru `.zip` souboru a pak otevřete, který `.zip` souboru a zkoumat `.nuspec` v něm.
+Přejít do libovolné *složky package\version* `.nupkg` , zkopírovat soubor do `.zip` souboru, otevřít tento `.zip` soubor a prošetřit `.nuspec` ho.
 
 > [!Note]
-> Při vytváření `.nuspec` z projektu sady Visual Studio obsahuje manifest tokeny, které jsou nahrazeny informacemi z projektu při vytváření balíčku. Zobrazit [vytváření souboru .nuspec z projektu sady Visual Studio](#from-a-visual-studio-project).
+> Při vytváření `.nuspec` z projektu sady Visual Studio obsahuje manifest tokeny, které jsou nahrazeny informacemi z projektu při sestavení balíčku. Viz [vytvoření. nuspec z projektu sady Visual Studio](#from-a-visual-studio-project).
 
-## <a name="create-the-nuspec-file"></a>Vytvoření souboru .nuspec souboru
+## <a name="create-the-nuspec-file"></a>Vytvoření souboru. nuspec
 
-Vytvoření kompletní manifestu obvykle začíná základní `.nuspec` soubor generovaný prostřednictvím jednoho z následujících metod:
+Vytvoření kompletního manifestu obvykle začíná základním `.nuspec` souborem generovaným pomocí jedné z následujících metod:
 
-- [Podle úmluvy pracovní adresář](#from-a-convention-based-working-directory)
-- [Sestavení knihovny DLL](#from-an-assembly-dll)
-- [A Visual Studio project](#from-a-visual-studio-project)    
-- [Nový soubor s výchozími hodnotami.](#new-file-with-default-values)
+- [Pracovní adresář na základě konvence](#from-a-convention-based-working-directory)
+- [Knihovna DLL sestavení](#from-an-assembly-dll)
+- [Projekt sady Visual Studio](#from-a-visual-studio-project)    
+- [Nový soubor s výchozími hodnotami](#new-file-with-default-values)
 
-Pak upravíte soubor ručně tak, aby popisuje přesný obsah, který chcete ve finálním balíčku.
+Soubor pak upravíte ručně, aby pomohly v konečném balíčku popsaný přesný obsah.
 
 > [!Important]
-> Vygeneruje `.nuspec` soubory obsahují zástupné symboly, které musí být upravena před vytvořením balíčku s `nuget pack` příkazu. Příkaz selže, pokud `.nuspec` obsahuje zástupné symboly.
+> Vygenerované `.nuspec` soubory obsahují zástupné symboly, které je třeba upravit před vytvořením balíčku `nuget pack` pomocí příkazu. Tento příkaz se `.nuspec` nezdařil, pokud obsahuje všechny zástupné symboly.
 
-### <a name="from-a-convention-based-working-directory"></a>Z pracovního adresáře podle úmluvy
+### <a name="from-a-convention-based-working-directory"></a>Z pracovního adresáře založeného na konvencích
 
-Vzhledem k tomu, že balíček NuGet je jenom soubor ZIP, který je byl přejmenován s `.nupkg` rozšíření, často je nejjednodušší vytvořit strukturu složky na vašem místním systému souborů a pak se vytvořit `.nuspec` souboru přímo z této struktury. `nuget pack` Příkaz automaticky přidá všechny soubory v danou strukturu složek (s výjimkou některou ze složek, které začínají `.`, díky tomu můžete zachovat soukromé soubory ve stejné struktuře).
+Vzhledem k tomu, že balíček NuGet je jenom soubor zip, který se přejmenoval s `.nupkg` příponou, často je nejjednodušší vytvořit v místním systému souborů strukturu složek, kterou chcete, a pak `.nuspec` vytvořit soubor přímo z této struktury. Příkaz pak automaticky přidá všechny soubory v této struktuře složek (kromě všech složek, které `.`začínají, což vám umožní zachovat soukromé soubory ve stejné struktuře). `nuget pack`
 
-Výhodou tohoto přístupu je, že nemusíte určit v manifestu soubory, které chcete zahrnout do balíčku (jak je popsáno dále v tomto tématu). Můžete jednoduše použít proces sestavení vytvořit strukturu přesně složka, která přejdou do balíčku a snadno můžete zahrnout další soubory, které nemusí být součástí projektu jinak:
+Výhodou tohoto přístupu je, že nemusíte určovat v manifestu, které soubory chcete zahrnout do balíčku (jak je popsáno dále v tomto tématu). Proces sestavení může jednoduše vytvořit přesnou strukturu složky, která je součástí balíčku, a můžete snadno zahrnout další soubory, které nemusí být součástí projektu, jinak:
 
-- Obsah a zdrojový kód, který by měl být vloženy do cílový projekt.
-- Skripty prostředí PowerShell
-- Transformací do existující konfigurace a soubory zdrojového kódu v projektu.
+- Obsah a zdrojový kód, které by měly být vloženy do cílového projektu.
+- PowerShellové skripty
+- Transformace na existující soubory konfigurace a zdrojového kódu v projektu.
 
-Vytváření složky jsou následující:
+Konvence složek jsou následující:
 
 | Folder | Popis | Akce při instalaci balíčku |
 | --- | --- | --- |
-| (uživatel root) | Umístění pro soubor readme.txt | Při instalaci balíčku sady Visual Studio zobrazí soubor readme.txt v kořenovém adresáři balíčku. |
-| lib/{tfm} | Sestavení (`.dll`), dokumentace ke službě (`.xml`) a symbol (`.pdb`) soubory pro dané cílové rozhraní Framework Moniker (TFM) | Sestavení jsou přidány jako odkazy pro kompilaci, jakož i modul runtime; `.xml` a `.pdb` zkopírovány do složky projektu. Zobrazit [podpora více cílových platforem](supporting-multiple-target-frameworks.md) pro vytvoření dílčí složky specifické pro cílové rozhraní framework. |
-| REF / {tfm} | Sestavení (`.dll`) a symbol (`.pdb`) soubory pro dané cílové rozhraní Framework Moniker (TFM) | Sestavení jsou přidány jako odkazy pouze pro kompilaci; Proto nic budou zkopírovány do složky bin projektu. |
-| Moduly runtime | Sestavení specifické pro architekturu (`.dll`), symbol (`.pdb`) a nativní prostředky (`.pri`) soubory | Sestavení jsou přidány jako odkazy pouze na modul runtime; Další soubory jsou zkopírovány do složky projektu. By měl vždy být odpovídající (TFM) `AnyCPU` konkrétní sestavení v rámci `/ref/{tfm}` složky zadejte odpovídající sestavení v době kompilace. Zobrazit [podpora více cílových platforem](supporting-multiple-target-frameworks.md). |
-| obsah | Různé soubory | Obsah je zkopírován do kořenového adresáře projektu. Představte si, že **obsah** složky jako kořen cílové aplikace, takže v konečném důsledku využívajícího balíček. Balíček v aplikaci prvku přidat obrázek */obrázky* složku, umístěte ho do balíčku *obsah nebo imagí* složky. |
-| sestavení | Nástroj MSBuild `.targets` a `.props` soubory | Automaticky vložit do souboru projektu nebo `project.lock.json` (NuGet 3.x+). |
-| nástroje | Skripty prostředí PowerShell a programy, které jsou přístupné z konzole Správce balíčků | `tools` Složka je přidána do `PATH` proměnné prostředí pro konzolu Správce balíčků (konkrétně *není* k `PATH` jako sada pro nástroje MSBuild při sestavování projektu). |
+| zobrazuje | Umístění souboru Readme. txt | Sada Visual Studio při instalaci balíčku zobrazí v kořenovém adresáři balíčku soubor Readme. txt. |
+| lib/{tfm} | Assembly (`.dll`), dokumentace (`.xml`) a soubory symbolů (`.pdb`) pro daný moniker cílového rozhraní (TFM) | Sestavení jsou přidána jako reference pro kompilaci a také za běhu; `.xml` a`.pdb` zkopírovány do složek projektu. Viz [Podpora více cílových rozhraní](supporting-multiple-target-frameworks.md) pro vytváření podadresářů specifických pro cíl rozhraní. |
+| ref/{TFM} | Sestavení (`.dll`) a symboly (`.pdb`) souborů pro daný moniker cílového rozhraní (TFM) | Sestavení jsou přidána jako odkazy pouze pro dobu kompilace; Takže se nic nezkopíruje do složky Bin projektu. |
+| moduly runtime | Soubory sestavení (`.dll`), symbolů (`.pdb`) a nativních prostředků (`.pri`) specifických pro architekturu | Sestavení jsou přidána jako odkazy pouze pro modul runtime; jiné soubory jsou zkopírovány do složek projektu. V rámci `AnyCPU` `/ref/{tfm}` složky by mělo být vždy odpovídající (TFM) specifické sestavení, které poskytuje odpovídající sestavení doby kompilace. Viz [Podpora více cílových rozhraní](supporting-multiple-target-frameworks.md). |
+| obsah | Libovolné soubory | Obsah je zkopírován do kořenového adresáře projektu. Složku **obsahu** si můžete představit jako kořen cílové aplikace, která nakonec balíček spotřebovává. Pokud chcete, aby balíček přidal obrázek do složky */images* aplikace, umístěte ho do složky *obsah/image* balíčku. |
+| sestavení | MSBuild `.targets` a `.props` soubory | Automaticky vložen do souboru projektu nebo `project.lock.json` (NuGet 3. x +). |
+| nástroje | Skripty a programy PowerShellu dostupné z konzoly Správce balíčků | Složka je přidána `PATH` do proměnné prostředí pouze pro konzolu Správce balíčků (  `PATH` konkrétně při sestavování sady MSBuild při sestavování projektu). `tools` |
 
-Protože vaše struktura složky může obsahovat libovolný počet sestavení pro libovolný počet cílových platforem, tato metoda je nezbytná, při vytváření balíčků, které podporují více platforem.
+Vzhledem k tomu, že struktura složky může obsahovat libovolný počet sestavení pro libovolný počet cílových rozhraní, tato metoda je nezbytná při vytváření balíčků, které podporují více rozhraní.
 
-V každém případě až budete mít struktuře požadované složky na místě, spusťte následující příkaz v této složce vytvořte `.nuspec` souboru:
+V každém případě, když máte zavedenou strukturu složky, spusťte v této složce následující příkaz pro vytvoření `.nuspec` souboru:
 
 ```cli
 nuget spec
 ```
 
-Znovu, vygenerované `.nuspec` neobsahuje žádné explicitní odkazy na soubory v této struktuře. NuGet automaticky obsahuje všechny soubory, když se balíček vytvoří. Nevyhnete se ale upravit zástupné hodnoty v ostatních částech v manifestu.
+Vygenerovaná `.nuspec` aplikace znovu neobsahuje žádné explicitní odkazy na soubory ve struktuře složek. NuGet automaticky zahrnuje všechny soubory při vytvoření balíčku. Je však stále nutné upravovat zástupné hodnoty v jiných částech manifestu.
 
-### <a name="from-an-assembly-dll"></a>Ze sestavení knihovny DLL
+### <a name="from-an-assembly-dll"></a>Z knihovny DLL sestavení
 
-V jednoduchém případě vytvoření balíčku ze sestavení, můžete vygenerovat `.nuspec` soubor z metadat sestavení pomocí následujícího příkazu:
+V jednoduchém případě vytvoření balíčku ze sestavení můžete vygenerovat `.nuspec` soubor z metadat v sestavení pomocí následujícího příkazu:
 
 ```cli
 nuget spec <assembly-name>.dll
 ```
 
-Použití této formy nahradí několik zástupných symbolů v manifestu konkrétní hodnoty ze sestavení. Například `<id>` je nastavena na název sestavení, a `<version>` je nastavené na verzi sestavení. Další vlastnosti v manifestu, ale nepoužíváte porovnání hodnot v sestavení a stále tedy obsahovaly zástupné symboly.
+Použití tohoto formuláře nahrazuje několik zástupných symbolů v manifestu s konkrétními hodnotami ze sestavení. Například `<id>` vlastnost je nastavena na název sestavení a `<version>` je nastavena na verzi sestavení. Jiné vlastnosti v manifestu však nemají v sestavení shodné hodnoty, takže stále obsahují zástupné symboly.
 
 ### <a name="from-a-visual-studio-project"></a>Z projektu sady Visual Studio
 
-Vytváření `.nuspec` z `.csproj` nebo `.vbproj` souboru je pohodlné, protože další balíčky, které byly nainstalovány do těchto projektu jsou automaticky odkazována jako závislosti. Jednoduše použijte následující příkaz ve stejné složce jako soubor projektu:
+Vytváření souborů `.nuspec` `.vbproj` ze souboru nebo je vhodné, protože další balíčky, které byly do těchto projektů nainstalovány, jsou automaticky odkazovány jako závislosti. `.csproj` Jednoduše použijte následující příkaz ve stejné složce jako soubor projektu:
 
 ```cli
 # Use in a folder containing a project file <project-name>.csproj or <project-name>.vbproj
 nuget spec
 ```
 
-Výsledná `<project-name>.nuspec` soubor obsahuje *tokeny* , která se nahradí v době vytváření balíčků hodnotami z projektu, včetně odkazů na další balíčky, které jsou již nainstalovány.
+Výsledný `<project-name>.nuspec` soubor obsahuje *tokeny* , které jsou nahrazeny v době balení s hodnotami z projektu, včetně odkazů na všechny ostatní balíčky, které již byly nainstalovány.
 
-Token je oddělen složenými `$` symboly na obou stranách vlastnosti projektu. Například `<id>` hodnota v manifestu generované v tomto stejně, jako obvykle se zobrazí takto:
+Token je oddělen `$` symbolem na obou stranách vlastnosti projektu. Například `<id>` hodnota v manifestu generované tímto způsobem obvykle vypadá takto:
 
 ```xml
 <id>$id$</id>
 ```
 
-Tento token nahrazen `AssemblyName` hodnotu ze souboru projektu v balení čas. Pro přesné mapování hodnot projektu k `.nuspec` tokeny, najdete v článku [odkazovat na náhradní tokeny](../reference/nuspec.md#replacement-tokens).
+Tento token je nahrazen `AssemblyName` hodnotou ze souboru projektu v době balení. Přesné mapování hodnot projektu na `.nuspec` tokeny najdete v referenčních informacích k náhradním [tokenům](../reference/nuspec.md#replacement-tokens).
 
-Tokeny můžete snížit z by bylo potřeba aktualizovat klíčové hodnoty jako číslo verze v `.nuspec` při aktualizaci projektu. (Můžete vždy nahradit tokeny literálových hodnot v případě potřeby). 
+Tokeny vám zbavují nutnost aktualizace důležitých hodnot, jako je číslo verze v `.nuspec` při aktualizaci projektu. (V případě potřeby můžete tokeny vždy nahradit hodnotami literálů). 
 
-Všimněte si, že existuje několik dalších balení možností k dispozici při práci v projektu sady Visual Studio, jak je popsáno v [spuštění balíčku nuget pro generování souboru .nupkg](#run-nuget-pack-to-generate-the-nupkg-file) později.
+Všimněte si, že při práci z projektu sady Visual Studio je k dispozici několik dalších možností balení, jak je popsáno v tématu [spuštění sady NuGet Pack pro vygenerování souboru. nupkg](#run-nuget-pack-to-generate-the-nupkg-file) později.
 
 #### <a name="solution-level-packages"></a>Balíčky na úrovni řešení
 
-*NuGet 2.x pouze. Ve Správci NuGet 3.0 není k dispozici.*
+*Pouze NuGet 2. x. Není k dispozici v NuGet 3.0 + +.*
 
-NuGet 2.x nepodporuje rozeznávání úrovni řešení balíček, který nainstaluje nástroje nebo další příkazy pro konzolu Správce balíčků (obsah `tools` složky), ale přidejte odkazy na obsah, nebo vlastní nastavení pro všechny projekty v sestavení řešení. Tyto balíčky obsahují žádné soubory v její přímé `lib`, `content`, nebo `build` složky a žádný z jejích závislostí mít soubory v jejich `lib`, `content`, nebo `build` složky.
+NuGet 2. x podporoval pojem balíčku na úrovni řešení, který nainstaluje nástroje nebo další příkazy pro konzolu Správce balíčků (obsah `tools` složky), ale nepřidá odkazy, obsah ani přizpůsobení sestavení pro žádné projekty v. řešení. Takové balíčky neobsahují žádné soubory v `lib`přímých `content`, nebo `build` složkách a žádná z jejích závislostí nemá soubory v příslušných `lib`složkách, `content`nebo `build` .
 
-Sleduje NuGet, nainstalované balíčky úrovni řešení v `packages.config` ve `.nuget` složky, nikoli projektu `packages.config` souboru.
+NuGet sleduje nainstalované balíčky na úrovni řešení v `packages.config` souboru `.nuget` ve složce, `packages.config` nikoli v souboru projektu.
 
-### <a name="new-file-with-default-values"></a>Nový soubor s výchozími hodnotami.
+### <a name="new-file-with-default-values"></a>Nový soubor s výchozími hodnotami
 
-Následující příkaz vytvoří výchozí manifest se zástupnými symboly, které zajistí, že začnete s správná struktura:
+Následující příkaz vytvoří výchozí manifest se zástupnými symboly, který vám zajistí začátek správné struktury souborů:
 
 ```cli
 nuget spec [<package-name>]
 ```
 
-Vynecháte-li \<název balíčku\>, je výsledný soubor `Package.nuspec`. Pokud je třeba zadat název `Contoso.Utility.UsefulStuff`, soubor je `Contoso.Utility.UsefulStuff.nuspec`.
+Vynecháte \<-li název\>balíčku `Package.nuspec`, bude výsledný soubor. Pokud zadáte název `Contoso.Utility.UsefulStuff`, například, soubor je `Contoso.Utility.UsefulStuff.nuspec`.
 
-Výsledná `.nuspec` obsahuje zástupné symboly pro hodnoty, jako jsou `projectUrl`. Ujistěte se, než je použijete k vytvoření poslední úpravy souboru `.nupkg` souboru.
+Výsledek `.nuspec` obsahuje zástupné symboly pro hodnoty, `projectUrl`jako je. Nezapomeňte soubor před jeho použitím upravit a vytvořit tak konečný `.nupkg` soubor.
 
-## <a name="choose-a-unique-package-identifier-and-setting-the-version-number"></a>Vyberte balíček jedinečný identifikátor a nastaví číslo verze
+## <a name="choose-a-unique-package-identifier-and-setting-the-version-number"></a>Vyberte jedinečný identifikátor balíčku a nastavte číslo verze.
 
-Identifikátor balíčku (`<id>` element) a číslo verze (`<version>` element) jsou dvě nejdůležitější hodnoty v manifestu, protože jednoznačně identifikují přesný kód, který je součástí balíčku.
+Identifikátor balíčku (`<id>` element) a číslo verze (`<version>` element) jsou dvě nejdůležitější hodnoty v manifestu, protože jednoznačně identifikují přesný kód, který je obsažen v balíčku.
 
 **Osvědčené postupy pro identifikátor balíčku:**
 
-- **Jedinečnost**: Identifikátor musí být jedinečný mezi nuget.org nebo libovolné galerii hostitelem balíčku. Než se rozhodnete u identifikátoru Prohledat galerii použít ke kontrole, zda název je již používán. Aby nedocházelo ke konfliktům, je použít název vaší společnosti jako první část identifikátoru, jako dobrý vzorek `Contoso.`.
-- **Namespace jako názvy**: Postupujte podle vzoru podobný obory názvů v rozhraní .NET, pomocí zápisu s tečkou místo pomlčky. Například použít `Contoso.Utility.UsefulStuff` spíše než `Contoso-Utility-UsefulStuff` nebo `Contoso_Utility_UsefulStuff`. Příjemci také užitečné, když identifikátor balíčku shoduje s obory názvů používané v kódu.
-- **Ukázkové balíčky**: Pokud možno vytvořit balíček ukázek kódu, který ukazuje, jak použít jiný balíček, připojit `.Sample` jako příponu k identifikátoru, jako v `Contoso.Utility.UsefulStuff.Sample`. (Ukázkového balíčku by samozřejmě mít závislost na jiný balíček.) Při vytváření balíčku vzorku, použijte podle úmluvy pracovní adresář metody popsané dříve. V `content` složky, uspořádat ukázkový kód do složky s názvem `\Samples\<identifier>` stejně jako v `\Samples\Contoso.Utility.UsefulStuff.Sample`.
+- **Jedinečnost**: Identifikátor musí být jedinečný v rámci nuget.org nebo bez ohledu na to, jakou galerii hostují balíček. Než se rozhodnete pro identifikátor, vyhledejte příslušnou galerii a ověřte, jestli se tento název už používá. Aby nedocházelo ke konfliktům, dobrým vzorem je použít název vaší společnosti jako první část identifikátoru, například `Contoso.`.
+- **Názvy podobných oborům názvů**: Sledujte vzor podobný oborům názvů v rozhraní .NET pomocí notace tečky namísto spojovníků. Použijte `Contoso.Utility.UsefulStuff` například `Contoso-Utility-UsefulStuff` místo nebo`Contoso_Utility_UsefulStuff`. Příjemci také naleznou užitečné, pokud se identifikátor balíčku shoduje s obory názvů použitými v kódu.
+- **Ukázkové balíčky**: Pokud vytváříte balíček ukázkového kódu, který ukazuje, jak použít jiný balíček, připojte `.Sample` se jako přípona k identifikátoru, jako `Contoso.Utility.UsefulStuff.Sample`v. (Vzorový balíček samozřejmě má závislost na druhém balíčku.) Při vytváření ukázkového balíčku použijte metodu pracovní adresáře založenou na konvenci, která je popsaná výše. Ve složce uspořádejte vzorový kód do složky s názvem `\Samples\<identifier>` jako v `\Samples\Contoso.Utility.UsefulStuff.Sample`. `content`
 
-**Osvědčené postupy pro verze balíčku:**
+**Osvědčené postupy pro verzi balíčku:**
 
-- Obecně platí nastavte verzi balíčku tak, aby odpovídaly knihovny, i když to není nezbytně nutné. Toto je jednoduché když omezíte balíčku do jednoho sestavení, jak je popsáno výše v [rozhodování o tom, která sestavení do balíčku](#decide-which-assemblies-to-package). Celkově nezapomeňte, že NuGet, samotné se zabývá verze balíčků při řešení závislostí, nikoli verze sestavení.
-- Při použití schématu nestandardní verze, být potřeba vzít v úvahu pravidla NuGet správy verzí, jak je vysvětleno v [Správa verzí balíčků](../reference/package-versioning.md).
+- Obecně platí, že nastavte verzi balíčku tak, aby odpovídala knihovně, i když to není nezbytně nutné. Toto je jednoduchá skutečnost při omezení balíčku na jedno sestavení, jak je popsáno výše v tématu [určení sestavení, která chcete](#decide-which-assemblies-to-package)zabalit. Celkově mějte na paměti, že aplikace NuGet pracuje s verzemi balíčku při řešení závislostí, nikoli ve verzích sestavení.
+- Při použití nestandardního schématu verzí nezapomeňte zvážit pravidla správy verzí NuGet, jak je vysvětleno v tématu [Správa verzí balíčků](../reference/package-versioning.md).
 
-> Následující řadu stručný blogové příspěvky jsou také užitečné k pochopení správy verzí:
+> Následující řada stručných příspěvků na blogu je také užitečná pro pochopení správy verzí:
 >
-> - [Část 1: S ohledem na knihoven DLL](http://blog.davidebbo.com/2011/01/nuget-versioning-part-1-taking-on-dll.html)
+> - [Část 1: Přijetí na Hell knihovny DLL](http://blog.davidebbo.com/2011/01/nuget-versioning-part-1-taking-on-dll.html)
 > - [Část 2: Základní algoritmus](http://blog.davidebbo.com/2011/01/nuget-versioning-part-2-core-algorithm.html)
-> - [3. část: Sjednocení prostřednictvím přesměrování vazeb](http://blog.davidebbo.com/2011/01/nuget-versioning-part-3-unification-via.html)
+> - [Část 3: Sjednocení pomocí přesměrování vazeb](http://blog.davidebbo.com/2011/01/nuget-versioning-part-3-unification-via.html)
 
-## <a name="add-a-readme-and-other-files"></a>Přidání souboru readme a další soubory
+## <a name="add-a-readme-and-other-files"></a>Přidání souboru Readme a dalších souborů
 
-Pokud chcete přímo zadat soubory, které chcete zahrnout do balíčku, použijte `<files>` uzlu v `.nuspec` souboru, který *následuje* `<metadata>` značky:
+Chcete-li přímo určit soubory, které mají být zahrnuty do `<files>` balíčku, použijte `.nuspec` uzel v `<metadata>` souboru, který *následuje* Značka:
 
 ```xml
 <?xml version="1.0"?>
@@ -292,20 +292,20 @@ Pokud chcete přímo zadat soubory, které chcete zahrnout do balíčku, použij
 ```
 
 > [!Tip]
-> Při použití přístup podle úmluvy pracovní adresář, můžete umístit readme.txt ve svém kořenu a další obsah `content` složky. Ne `<file>` prvky jsou nezbytné v manifestu.
+> Pokud používáte přístup k pracovnímu adresáři založenému na konvenci, můžete soubor Readme. txt umístit do kořenového adresáře balíčku a `content` dalšího obsahu ve složce. V `<file>` manifestu nejsou potřebné žádné prvky.
 
-Pokud zahrnete soubor s názvem `readme.txt` v kořenovém adresáři balíčku sady Visual Studio zobrazí obsah tohoto souboru jako prostý text okamžitě po instalaci balíčku přímo. (Soubory Readme nejsou zobrazeny pro balíčky nainstalované jako závislosti). Tady je například jak se zobrazí v souboru readme HtmlAgilityPack balíčku:
+Pokud zahrnete soubor s názvem `readme.txt` v kořenovém adresáři balíčku, sada Visual Studio zobrazí obsah tohoto souboru jako prostý text ihned po instalaci balíčku přímo. (Soubory Readme se nezobrazí pro balíčky nainstalované jako závislosti). Tady je příklad, jak se zobrazí soubor Readme pro balíček HtmlAgilityPack:
 
-![Zobrazit soubor readme pro balíček NuGet při instalaci](media/Create_01-ShowReadme.png)
+![Zobrazení souboru Readme pro balíček NuGet při instalaci](media/Create_01-ShowReadme.png)
 
 > [!Note]
-> Zadáte-li prázdné `<files>` uzlu `.nuspec` souboru NuGet neobsahuje žádný jiný obsah v balíčku, než co je v `lib` složky.
+> Pokud zahrnete `.nuspec` do souboru `<files>` prázdný uzel, NuGet neobsahuje žádný další obsah v balíčku, `lib` než co je ve složce.
 
-## <a name="include-msbuild-props-and-targets-in-a-package"></a>Zahrnout do balíčku cíle a vlastnosti nástroje MSBuild
+## <a name="include-msbuild-props-and-targets-in-a-package"></a>Zahrnutí vlastností MSBuild a cílů do balíčku
 
-V některých případech můžete chtít přidat vlastní sestavení cíle nebo vlastnosti v projektech, které využívají vašeho balíčku, například spuštěním vlastní nástroje nebo procesu během sestavování. To provedete tak, že soubory ve formě `<package_id>.targets` nebo `<package_id>.props` (například `Contoso.Utility.UsefulStuff.targets`) v rámci `\build` složky projektu.
+V některých případech můžete chtít přidat vlastní cíle sestavení nebo vlastnosti v projektech, které používají váš balíček, jako je například spuštění vlastního nástroje nebo procesu během sestavování. To provedete tak, že umístíte soubory `<package_id>.targets` ve `<package_id>.props` formuláři nebo ( `Contoso.Utility.UsefulStuff.targets` `\build` například) do složky projektu.
 
-Soubory v kořenové složce `\build` složky jsou považovány za vhodný pro všechny cílové architektury. Pro poskytování souborů specifické pro architekturu, nejprve umístíte do příslušné podsložky, jako je následující:
+Soubory v kořenové `\build` složce jsou považovány za vhodné pro všechny cílové platformy. Chcete-li poskytnout soubory specifické pro rozhraní, umístěte je nejprve do příslušných podsložek, například následující:
 
     \build
         \netstandard1.4
@@ -315,7 +315,7 @@ Soubory v kořenové složce `\build` složky jsou považovány za vhodný pro v
             \Contoso.Utility.UsefulStuff.props
             \Contoso.Utility.UsefulStuff.targets
 
-Potom v `.nuspec` souboru, je nutné k odkazování na tyto soubory `<files>` uzlu:
+Pak v `.nuspec` souboru nezapomeňte odkazovat na tyto soubory `<files>` v uzlu:
 
 ```xml
 <?xml version="1.0"?>
@@ -333,96 +333,96 @@ Potom v `.nuspec` souboru, je nutné k odkazování na tyto soubory `<files>` uz
 </package>
 ```
 
-Včetně cíle a vlastnosti nástroje MSBuild v balíčku byl [představeny s nástrojem NuGet 2.5](../release-notes/NuGet-2.5.md#automatic-import-of-msbuild-targets-and-props-files), proto se doporučuje přidat `minClientVersion="2.5"` atribut `metadata` element označující minimální verzi klienta NuGet potřeba využívat balíček.
+Zahrnutí a cíle nástroje MSBuild do balíčku bylo zavedeno [s NuGet 2,5](../release-notes/NuGet-2.5.md#automatic-import-of-msbuild-targets-and-props-files), proto je vhodné přidat `minClientVersion="2.5"` atribut k `metadata` elementu, aby označovala minimální verzi klienta NuGet nutnou ke spotřebování balíčku.
 
-Po instalaci balíček NuGet `\build` soubory, přidá MSBuild `<Import>` elementy v souboru projektu, přejdete `.targets` a `.props` soubory. (`.props` je přidán v horní části souboru projektu. `.targets` je přidán v dolní části.) Samostatné podmíněné MSBuild `<Import>` prvek přidán pro každou cílovou architekturu.
+Když NuGet nainstaluje `\build` balíček se soubory, přidá do souboru `.targets` projektu `<Import>` prvky MSBuild, které odkazují na soubory a `.props` . (`.props` je přidáno v horní části souboru projektu; `.targets` je přidáno v dolní části.) Pro každé cílové rozhraní `<Import>` se přidá samostatný podmíněný element MSBuild.
 
-Nástroj MSBuild `.props` a `.targets` soubory pro cílení na různé architektury je možné umístit `\buildMultiTargeting` složky. Během instalace balíčku NuGet přidá odpovídající `<Import>` prvků, které se soubor projektu s podmínkou, která Cílová architektura, která není nastavena (vlastnost MSBuild `$(TargetFramework)` musí být prázdný).
+Nástroj `.props` `.targets` MSBuild a soubory pro cílení na různé architektury lze umístit do složky. `\buildMultiTargeting` V průběhu instalace balíčku NuGet přidá odpovídající `<Import>` prvky do souboru projektu s podmínkou, že cílové rozhraní není nastavené (vlastnost `$(TargetFramework)` MSBuild musí být prázdná).
 
-Nuget 3.x cíle nebyly přidány do projektu, ale místo toho jsou k dispozici prostřednictvím `project.lock.json`.
+S NuGet 3. x nejsou cíle do projektu přidány, ale jsou místo toho k dispozici prostřednictvím `project.lock.json`.
 
-## <a name="run-nuget-pack-to-generate-the-nupkg-file"></a>Spusťte balíček nuget pro generování souboru .nupkg
+## <a name="run-nuget-pack-to-generate-the-nupkg-file"></a>Spustit balíček NuGet pro vygenerování souboru. nupkg
 
-Při použití sestavení nebo pracovního adresáře založené na konvenci, vytvořit balíček spuštěním `nuget pack` s vaší `.nuspec` souboru, nahradí `<project-name>` s vaší konkrétní název souboru:
+Při použití sestavení nebo pracovního adresáře založeného na konvenci vytvořte balíček spuštěním `nuget pack` souboru s vaším `.nuspec` souborem, který nahradíte `<project-name>` konkrétním názvem souboru:
 
 ```cli
 nuget pack <project-name>.nuspec
 ```
 
-Při použití projektu sady Visual Studio, spusťte `nuget pack` pomocí souboru projektu, který automaticky načte projektu `.nuspec` souboru a nahradí všechny tokeny pomocí hodnot v souboru projektu:
+Při použití projektu sady Visual Studio spusťte `nuget pack` se souborem projektu, který automaticky načte `.nuspec` soubor projektu a nahradí všechny tokeny v rámci něj pomocí hodnot v souboru projektu:
 
 ```cli
 nuget pack <project-name>.csproj
 ```
 
 > [!Note]
-> Přímo pomocí souboru projektu je nezbytné pro nahrazování tokenů, protože projekt je zdrojové hodnoty tokenu. Nahrazování tokenů neodehrává používáte `nuget pack` s `.nuspec` souboru.
+> Použití souboru projektu přímo je nezbytné pro nahrazení tokenu, protože projekt je zdrojem hodnot tokenu. Nahrazení tokenu se nestane, pokud `nuget pack` použijete `.nuspec` se souborem.
 
-Ve všech případech `nuget pack` vyloučí složek, které začínají tečkou, jako například `.git` nebo `.hg`.
+Ve všech případech `nuget pack` vyloučí složky, které začínají tečkou, `.git` například nebo `.hg`.
 
-NuGet uvádí, jestli jsou všechny chyby `.nuspec` soubor, který vyžadují opravu, jako je například zapomínání Chcete-li změnit hodnoty zástupných symbolů v manifestu.
+NuGet indikuje, jestli v `.nuspec` souboru nejsou nějaké chyby, které vyžadují opravení, například forgetting, aby se změnily zástupné hodnoty v manifestu.
 
-Jednou `nuget pack` proběhne úspěšně, je nutné `.nupkg` souborů, které můžete publikovat do vhodný galerie, jak je popsáno v [publikování balíčku](../nuget-org/publish-a-package.md).
+Po `nuget pack` úspěšném dokončení budete `.nupkg` mít soubor, který můžete publikovat do vhodné galerie, jak je popsáno v tématu [publikování balíčku](../nuget-org/publish-a-package.md).
 
 > [!Tip]
-> Užitečný způsob, jak prozkoumat balíčku po jeho vytvoření je otevřít v [Průzkumníku balíčků](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer) nástroj. To poskytuje grafické zobrazení obsahu balíčku a jeho manifestu. Můžete také přejmenovat, výsledná `.nupkg` do souboru `.zip` soubor a seznamte se s jeho obsahem přímo.
+> Užitečný způsob, jak prostudovat balíček po jeho vytvoření, je otevřít v nástroji [Průzkumník balíčků](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer) . Získáte tak grafické zobrazení obsahu balíčku a jeho manifestu. Výsledný `.nupkg` soubor můžete také přejmenovat `.zip` na soubor a prozkoumat jeho obsah přímo.
 
 ### <a name="additional-options"></a>Další možnosti
 
-Můžete použít různé přepínače příkazového řádku s `nuget pack` vyloučit soubory, přepíše číslo verze v manifestu a změňte výstupní složky, kromě jiných funkcí. Úplný seznam najdete [pack informace o příkazech](../tools/cli-ref-pack.md).
+Můžete použít různé přepínače příkazového řádku s nástrojem `nuget pack` k vyloučení souborů, přepište číslo verze v manifestu a změnit výstupní složku, a to mimo jiné funkce. Úplný seznam najdete v referenčních informacích k [příkazu Pack](../reference/cli-reference/cli-ref-pack.md).
 
-Několik, která jsou běžné u projektů sady Visual Studio jsou následující možnosti:
+Následující možnosti jsou běžné v projektech sady Visual Studio:
 
-- **Odkazované projekty**: Pokud projekt odkazuje na jiné projekty, můžete přidat odkazované projekty v rámci balíčku, nebo jako závislosti, s použitím `-IncludeReferencedProjects` možnost:
+- **Odkazované projekty**: Pokud projekt odkazuje na jiné projekty, můžete přidat odkazované projekty jako součást balíčku nebo jako závislosti pomocí `-IncludeReferencedProjects` možnosti:
 
     ```cli
     nuget pack MyProject.csproj -IncludeReferencedProjects
     ```
 
-    Tento proces zařazení je rekurzivní, pokud tedy `MyProject.csproj` odkazy na projekty B a C a projekty odkazovat D, E a F a soubory z B, C, D, E a F jsou součástí balíčku.
+    Tento proces zahrnutí je rekurzivní, takže pokud `MyProject.csproj` odkazy na projekty b a C a tyto projekty odkazují D, E a f, jsou do balíčku zahrnuty soubory z B, C, D, E a f.
 
-    Pokud obsahuje odkazovaný projekt `.nuspec` soubor sama, pak NuGet přidá tento Odkazovaný projekt jako závislost místo.  Budete muset balíček a publikujte tento projekt samostatně.
+    Pokud odkazovaný projekt obsahuje `.nuspec` vlastní soubor, pak NuGet místo toho přidá tento odkazovaný projekt jako závislost.  Tento projekt je nutné zabalit a publikovat samostatně.
 
-- **Konfigurace sestavení**: Standardně používá NuGet výchozí konfigurace sestavení, nastavte v souboru projektu, obvykle *ladění*. Aby zabalil soubory z jiné sestavení konfigurace, jako například *verze*, použijte `-properties` možnost s konfigurací:
+- **Konfigurace sestavení**: Ve výchozím nastavení používá NuGet výchozí konfigurační sadu sestavení v souboru projektu, obvykle *ladění*. Chcete-li zabalit soubory z jiné konfigurace sestavení , jako je například `-properties` verze, použijte možnost s konfigurací:
 
     ```cli
     nuget pack MyProject.csproj -properties Configuration=Release
     ```
 
-- **Symboly**: Chcete-li zahrnout symboly, které umožňují uživatelům procházet kódem balíčku v ladicím programu, použijte `-Symbols` možnost:
+- **Symboly**: Pokud chcete zahrnout symboly, které uživatelům umožňují procházet kód balíčku v ladicím programu, použijte `-Symbols` možnost:
 
     ```cli
     nuget pack MyProject.csproj -symbols
     ```
 
-### <a name="test-package-installation"></a>Otestujte instalaci balíčku
+### <a name="test-package-installation"></a>Instalace testovacího balíčku
 
-Před publikováním balíčku se obvykle chcete otestovat proces instalace balíčku do projektu. Testy, zkontrolujte, zda nutně soubory všechny ukládaly do jejich správné umístění v projektu.
+Před publikováním balíčku obvykle budete chtít otestovat proces instalace balíčku do projektu. Testy zajistí, že všechny soubory v projektu budou mít všechny na správném místě.
 
-Můžete testovat zařízení ručně v sadě Visual Studio nebo na příkazovém řádku pomocí běžných [balíček instalační postup, který](../consume-packages/overview-and-workflow.md#ways-to-install-a-nuget-package).
+Instalaci můžete v aplikaci Visual Studio nebo na příkazovém řádku otestovat ručně pomocí [kroků normální instalace balíčku](../consume-packages/overview-and-workflow.md#ways-to-install-a-nuget-package).
 
-Pro automatizované testování základní proces je následujícím způsobem:
+Pro automatizované testování je základní proces následující:
 
-1. Kopírovat `.nupkg` soubor do místní složky.
-1. Přidat složku do vašeho zdroje balíčků pomocí `nuget sources add -name <name> -source <path>` příkazu (naleznete v tématu [zdroje nuget](../tools/cli-ref-sources.md)). Všimněte si, že budete potřebovat pouze nastavit tento místní zdroj jednou na jakémkoli daném počítači.
-1. Nainstalovat balíček z tohoto zdroje pomocí `nuget install <packageID> -source <name>` kde `<name>` odpovídá názvu zdroje uvedeným `nuget sources`. Zadání zdrojové zajišťuje, že je balíček nainstalován z tohoto zdroje samostatně.
-1. Prozkoumání systému souborů ke kontrole, zda jsou správně nainstalovány soubory.
+1. `.nupkg` Zkopírujte soubor do místní složky.
+1. Přidejte složku do zdrojů balíčku pomocí `nuget sources add -name <name> -source <path>` příkazu (viz [zdroje NuGet](../reference/cli-reference/cli-ref-sources.md)). Všimněte si, že tento místní zdroj je potřeba nastavit jenom jednou na daném počítači.
+1. Nainstalujte balíček z tohoto zdroje pomocí `nuget install <packageID> -source <name>` , kde `<name>` se shoduje s názvem `nuget sources`vašeho zdroje, jak je uvedeno v. Zadání zdroje zajistí, že se balíček nainstaluje jenom z tohoto zdroje.
+1. Kontrolou systému souborů ověřte, zda jsou soubory správně nainstalovány.
 
 ## <a name="next-steps"></a>Další kroky
 
-Jakmile vytvoříte balíček, který je `.nupkg` souboru ji také publikovat podle vašeho výběru v galerii podle popisu v [publikování balíčku](../nuget-org/publish-a-package.md).
+Po vytvoření balíčku, který je `.nupkg` soubor, můžete ho publikovat do Galerie podle svého výběru, jak je popsáno v tématu [publikování balíčku](../nuget-org/publish-a-package.md).
 
-Můžete také chtít rozšířit možnosti vašeho balíčku nebo jinak podporovala jiné scénáře, jak je popsáno v následujících tématech:
+Můžete také chtít zvětšit možnosti vašeho balíčku nebo jinak podporovat jiné scénáře, jak je popsáno v následujících tématech:
 
 - [Správa verzí balíčků](../reference/package-versioning.md)
 - [Podpora více cílových architektur](../create-packages/supporting-multiple-target-frameworks.md)
-- [Transformace zdrojového a konfiguračních souborů](../create-packages/source-and-config-file-transformations.md)
+- [Transformace zdrojových a konfiguračních souborů](../create-packages/source-and-config-file-transformations.md)
 - [Lokalizace](../create-packages/creating-localized-packages.md)
-- [Předběžné verze](../create-packages/prerelease-packages.md)
-- [Typ balíčku sady](../create-packages/set-package-type.md)
-- [Vytváření balíčků s sestavení vzájemné spolupráce COM](../create-packages/author-packages-with-COM-interop-assemblies.md)
+- [Předběžné verze verzí](../create-packages/prerelease-packages.md)
+- [Nastavení typu balíčku](../create-packages/set-package-type.md)
+- [Vytváření balíčků pomocí sestavení zprostředkovatele komunikace s objekty COM](../create-packages/author-packages-with-COM-interop-assemblies.md)
 
-Dostupné jsou i další balíčky typů je potřeba vědět:
+Nakonec existují další typy balíčků, o kterých byste měli vědět:
 
 - [Nativní balíčky](../create-packages/native-packages.md)
 - [Balíčky symbolů](../create-packages/symbol-packages.md)

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: 71acc177e0f74f5dad3bd77fa1920af4619cbafb
-ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
+ms.openlocfilehash: 30a77b427fe0a33b41262c5784045e5a6b10852f
+ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68342538"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68419982"
 ---
 # <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>Rychlý start: Vytvoření a publikování balíčku (dotnet CLI)
 
@@ -101,7 +101,7 @@ Jakmile budete mít `.nupkg` soubor, publikujete ho do NuGet.org `dotnet nuget p
 
 [!INCLUDE [publish-manage](includes/publish-manage.md)]
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 Blahopřejeme k vytvoření prvního balíčku NuGet!
 
@@ -112,7 +112,7 @@ Pokud chcete prozkoumat další možnosti, které NuGet nabízí, vyberte odkazy
 
 - [Publikování balíčku](../nuget-org/publish-a-package.md)
 - [Předběžné verze balíčků](../create-packages/Prerelease-Packages.md)
-- [Podpora více cílových architektur](../create-packages/supporting-multiple-target-frameworks.md)
+- [Podpora více cílových architektur](../create-packages/multiple-target-frameworks-project-file.md)
 - [Správa verzí balíčků](../reference/package-versioning.md)
 - [Vytvoření lokalizovaných balíčků](../create-packages/creating-localized-packages.md)
 - [Vytváření balíčků symbolů](../create-packages/symbol-packages-snupkg.md)

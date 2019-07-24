@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: deedebfc6ac03b374c44e2c07a191da26a7dd68c
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 726f983c2522fdb538dfce858fdf2371ec0ce188
+ms.sourcegitcommit: f9e39ff9ca19ba4a26e52b8a5e01e18eb0de5387
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317663"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68433343"
 ---
 # <a name="building-pre-release-packages"></a>Sestavování balíčků předběžných verzí
 
@@ -81,10 +81,12 @@ Bez ohledu na přípony, které použijete, ale NuGet jim dáte přednost v obr�
     1.0.1-zzz
     1.0.1-rc
     1.0.1-open
-    1.0.1-beta12
-    1.0.1-beta05
+    1.0.1-beta.12
+    1.0.1-beta.5
     1.0.1-beta
-    1.0.1-alpha2
+    1.0.1-alpha.2
     1.0.1-alpha
 
-Jak je znázorněno, verze bez přípony vždy bude mít přednost před předběžnou verzí. Všimněte si také, že pokud používáte číselné přípony s předběžnými značkami, které by mohly používat čísla s dvojitou číslicí (nebo více), použijte úvodní nuly jako v beta01 a beta05, aby se zajistilo, že budou správně řazeny, když čísla získají větší hodnotu.
+Jak je znázorněno, verze bez přípony vždy bude mít přednost před předběžnou verzí.
+
+Úvodní 0s nejsou pro semver2 nutné, ale jsou ve starém schématu verze. Použijete-li číselné přípony s předběžnými značkami, které mohou používat čísla s dvojitými číslicemi (nebo více), použijte úvodní nuly jako ve verzích beta. 01 a beta. 05, aby se zajistilo, že budou správně řazeny, když čísla získají větší hodnotu. Toto doporučení platí pouze pro původní schéma verze.

@@ -10,14 +10,14 @@ f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager.general
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
-ms.openlocfilehash: db901d3bdfd5eb50f9f81eaf73ebe1efd69e8430
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 7e4ea59b9954e787e7ab060adc964f3097a8240b
+ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68328399"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68419969"
 ---
-# <a name="install-and-manage-packages-in-visual-studio"></a>Instalace a Správa balíčků v aplikaci Visual Studio
+# <a name="install-and-manage-packages-in-visual-studio-using-the-nuget-package-manager"></a>Instalace a Správa balíčků v aplikaci Visual Studio pomocí Správce balíčků NuGet
 
 Uživatelské rozhraní Správce balíčků NuGet v aplikaci Visual Studio ve Windows umožňuje snadno nainstalovat, odinstalovat a aktualizovat balíčky NuGet v projektech a řešeních. Informace o zkušenostech v Visual Studio pro Mac najdete v tématu [zahrnutí balíčku NuGet do projektu](/visualstudio/mac/nuget-walkthrough?toc=/nuget/toc.json). Uživatelské rozhraní Správce balíčků není součástí Visual Studio Code.
 

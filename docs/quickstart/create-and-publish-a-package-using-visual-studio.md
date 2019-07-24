@@ -1,16 +1,16 @@
 ---
-title: Vytvoření a publikování balíčku NuGet pomocí sady Visual Studio ve Windows
+title: Vytvoření a publikování .NET Standard balíčku NuGet pomocí sady Visual Studio ve Windows
 description: Návod k vytvoření a publikování .NET Standard balíčku NuGet pomocí sady Visual Studio ve Windows.
 author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: quickstart
-ms.openlocfilehash: 949c49d77ef088f802bdbd9c681f7df41d9a4c67
-ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
+ms.openlocfilehash: 86e71460094de9b799384db83456a68db57647af
+ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68342556"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68419918"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Rychlý start: Vytvoření a publikování balíčku NuGet pomocí sady Visual Studio (.NET Standard, pouze Windows)
 
@@ -21,9 +21,9 @@ Je to jednoduchý proces vytvoření balíčku NuGet z knihovny tříd .NET Stan
 
 ## <a name="prerequisites"></a>Požadavky
 
-1. Nainstalujte jakoukoli edici sady Visual Studio 2017 nebo novější z [VisualStudio.com](https://www.visualstudio.com/) s libovolným. Zatížení související s NET. Visual Studio 2017 a vyšší automaticky zahrnují funkce NuGet při instalaci úlohy .NET.
+1. Nainstalujte jakoukoli edici sady Visual Studio 2017 nebo vyšší z [VisualStudio.com](https://www.visualstudio.com/) s využitím úlohy související s .NET Core.
 
-1. Nainstalujte rozhraní `dotnet` příkazového řádku.
+1. Pokud ještě není nainstalovaný, nainstalujte rozhraní `dotnet` příkazového řádku.
 
    Pro rozhraní `dotnet` příkazového řádku, počínaje sadou Visual Studio 2017 `dotnet` , se rozhraní příkazového řádku automaticky nainstaluje se všemi úlohami souvisejícími s .NET Core. V opačném případě nainstalujte rozhraní příkazového `dotnet` řádku, abyste získali [.NET Core SDK](https://www.microsoft.com/net/download/). Rozhraní `dotnet` příkazového řádku je vyžadováno pro .NET Standard projekty, které používají [Formát sady SDK](../resources/check-project-format.md) (atribut sady SDK). Výchozí šablona knihovny tříd v sadě Visual Studio 2017 a vyšší, která se používá v tomto článku, používá atribut SDK.
    
@@ -185,7 +185,7 @@ Tato akce bude obsahovat soubor s `readme.txt` názvem v kořenovém adresáři 
 - [Vytvoření balíčku](../create-packages/creating-a-package.md)
 - [Publikování balíčku](../nuget-org/publish-a-package.md)
 - [Předběžné verze balíčků](../create-packages/Prerelease-Packages.md)
-- [Podpora více cílových architektur](../create-packages/supporting-multiple-target-frameworks.md)
+- [Podpora více cílových architektur](../create-packages/multiple-target-frameworks-project-file.md)
 - [Správa verzí balíčků](../reference/package-versioning.md)
 - [Vytvoření lokalizovaných balíčků](../create-packages/creating-localized-packages.md)
 - [Dokumentace ke knihovně .NET Standard](/dotnet/articles/standard/library)
