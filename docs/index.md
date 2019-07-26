@@ -4,247 +4,255 @@ description: NuGet je správce balíčků pro vývojářské platformy Microsoft
 author: karann-msft
 ms.author: karann
 ms.date: 02/12/2018
-ms.topic: overview
+ms.topic: hub-page
 layout: HubPage
 hide_bc: true
-ms.openlocfilehash: 399e4f80afb3e3d6278618055dde38a87184e3ff
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 5fd6556470f544b4f42512708be469bbf8bb72c0
+ms.sourcegitcommit: f9e39ff9ca19ba4a26e52b8a5e01e18eb0de5387
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426645"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68433322"
 ---
 <div id="main" class="v2">
-<div class="container">
-    <h1>Dokumentace pro NuGet</h1>
-    <ul class="pivots">
+    <div class="container">
+        <h1>Dokumentace pro NuGet</h1>
+        <p>NuGet je správce balíčků pro .NET. Vývojářům umožňuje vytvářet, sdílet a využívat užitečné knihovny .NET. Klientské nástroje NuGetu dávají možnost tyto knihovny vytvářet a využívat jako balíčky.</p> 
+
+<ul id="index1" class="cardsF panelContent singlePanelContent cols cols4" style="float: left; display: flex!important;">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="https://docs.microsoft.com/media/logos/logo_nuget.svg" alt="NuGet logo" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3><a href="what-is-nuget.md">Úvod do NuGetu</a></h3>
+                        <p>
+                            <a href="what-is-nuget.md">Co je NuGet?</a>
+                        </p>
+                        <p>
+                            <a href="install-nuget-client-tools.md">Instalace klientských nástrojů NuGetu</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="https://docs.microsoft.com/media/common/i_get-started.svg" alt="Get started icon" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3><a href="install-nuget-client-tools.md">Začínáme</a></h3>
+                        <p>
+                            <a href="quickstart/install-and-use-a-package-using-the-dotnet-cli.md">Instalace a použití balíčku (rozhraní příkazového řádku dotnet)</a>
+                        </p>
+                        <p>
+                            <a href="quickstart/install-and-use-a-package-in-visual-studio.md">Instalace a použití balíčku (Visual Studio)</a>
+                        </p>
+                        <p>
+                            <a href="quickstart/create-and-publish-a-package-using-the-dotnet-cli.md">Vytvoření balíčku (rozhraní příkazového řádku dotnet)</a>
+                        </p>
+                        <p>
+                            <a href="quickstart/create-and-publish-a-package-using-visual-studio.md">Vytvoření balíčku (Visual Studio)</a>
+                        </p>
+                        <p>
+                            <a href="quickstart/create-and-publish-a-package-using-visual-studio-net-framework.md">Vytvoření balíčku .NET Framework (Visual Studio)</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="https://docs.microsoft.com//media/common/i_download-install.svg" alt="Download and install icon" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3><a href="consume-packages/overview-and-workflow.md">Využívání balíčků</a></h3>
+                        <p>
+                            <a href="consume-packages/overview-and-workflow.md">Workflow (přehled)</a>
+                        </p>
+                        <p>
+                            <a href="consume-packages/finding-and-choosing-packages.md">Hledání a volba balíčků</a>
+                        </p>
+                        <p>
+                            <a href="consume-packages/install-use-packages-visual-studio.md">Použití sady Visual Studio</a>
+                        </p>
+                        <p>
+                            <a href="consume-packages/install-use-packages-dotnet-cli.md">Použití rozhraní příkazového řádku dotnet</a>
+                        </p>
+                        <p>
+                            <a href="consume-packages/install-use-packages-nuget-cli.md">Použití rozhraní příkazového řádku nuget.exe</a>
+                        </p>
+                        <p>
+                            <a href="consume-packages/install-use-packages-powershell.md">Použití konzoly Správce balíčků</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="https://docs.microsoft.com/media/common/i_build.svg" alt="Build icon" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3><a href="create-packages/overview-and-workflow.md">Vytváření balíčků</a></h3>
+                        <p>
+                            <a href="create-packages/overview-and-workflow.md">Workflow (přehled)</a>
+                        </p>
+                        <p>
+                            <a href="create-packages/creating-a-package-dotnet-cli.md">Vytvoření balíčku (rozhraní příkazového řádku dotnet)</a>
+                        </p>
+                        <p>
+                            <a href="create-packages/creating-a-package.md">Vytvoření balíčku (rozhraní příkazového řádku nuget.exe)</a>
+                        </p>
+                        <p>
+                            <a href="create-packages/multiple-target-frameworks-project-file.md">Podpora více cílových architektur</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
         <li>
-            <a href="#start">Začínáme</a>
-            <ul id="start">
-                <li>
-                    <a href="#start-all"></a>
-                    <ul id="start-all" class="cardsC">
-                        <li>
-                            <a href="what-is-nuget.md">
-                            <div class="cardSize">
-                                <div class="cardPadding">
-                                    <div class="card">
-                                        <div class="cardImageOuter">
-                                            <div class="cardImage  bgdAccent1">
-                                                <img src="media/hub/nuget-get-started-what-is-nuget.svg" alt="" /><br/>                                            </div>
-                                        </div>
-                                        <div class="cardText">
-                                            <h3>Co je NuGet?</h3>
-                                            <p>Přečtěte si, jak NuGet (správce balíčků pro platformu .NET) umožňuje vývojářům vytvářet, sdílet a využívat knihovny.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="quickstart/install-and-use-a-package-using-the-dotnet-cli.md">
-                            <div class="cardSize">
-                                <div class="cardPadding">
-                                    <div class="card">
-                                        <div class="cardImageOuter">
-                                            <div class="cardImage  bgdAccent1">
-                                                <img src="media/hub/nuget-get-started-quickstarts.svg" alt="" />
-                                            </div>
-                                        </div>
-                                        <div class="cardText">
-                                            <h3>Rychlý start: Použití balíčku</h3>
-                                            <p>Zjistěte, jak nainstalovat a používat balíčky NuGet v rámci projektů (k dispozici jsou návody jak pro rozhraní příkazového řádku dotnet, tak pro Visual Studio).</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="quickstart/create-and-publish-a-package-using-the-dotnet-cli.md">
-                            <div class="cardSize">
-                                <div class="cardPadding">
-                                    <div class="card">
-                                        <div class="cardImageOuter">
-                                            <div class="cardImage  bgdAccent1">
-                                                <img src="media/hub/nuget-get-started-guides.svg" alt="" />
-                                            </div>
-                                        </div>
-                                        <div class="cardText">
-                                            <h3>Rychlý start: Vytvoření balíčku</h3>
-                                            <p>Prozkoumejte nástroje a možnosti NuGetu pro vytváření balíčků (k dispozici jsou návody jak pro rozhraní příkazového řádku dotnet, tak pro Visual Studio).</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="create-packages/creating-a-package.md">
-                            <div class="cardSize">
-                                <div class="cardPadding">
-                                    <div class="card">
-                                        <div class="cardImageOuter">
-                                            <div class="cardImage  bgdAccent1">
-                                                <img src="media/hub/nuget-get-started-create-packages.svg" alt="" />
-                                            </div>
-                                        </div>
-                                        <div class="cardText">
-                                            <h3>Vytváření balíčků</h3>
-                                            <p>Vše, co potřebujete vědět o vytváření balíčků NuGet, od obecného pracovního postupu přes správu verzí, předběžné verze a další specializované balíčky</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="consume-packages/overview-and-workflow.md">
-                            <div class="cardSize">
-                                <div class="cardPadding">
-                                    <div class="card">
-                                        <div class="cardImageOuter">
-                                            <div class="cardImage  bgdAccent1">
-                                                <img src="media/hub/nuget-get-started-consume-packages.svg" alt="" />
-                                            </div>
-                                        </div>
-                                        <div class="cardText">
-                                            <h3>Využívání balíčků</h3>
-                                            <p>Vše, co potřebujete vědět o použití balíčků NuGet – vyhledávání a výběr správných balíčků, aktualizace pro obnovení a ukládání do mezipaměti</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="hosting-packages/overview.md">
-                            <div class="cardSize">
-                                <div class="cardPadding">
-                                    <div class="card">
-                                        <div class="cardImageOuter">
-                                            <div class="cardImage  bgdAccent1">
-                                                <img src="media/hub/nuget-get-started-host-packages.svg" alt="" />
-                                            </div>
-                                        </div>
-                                        <div class="cardText">
-                                            <h3>Hostování balíčků</h3>
-                                            <p>Přečtěte si, jak prostřednictvím hostování na vašich vlastních serverech nebo v galeriích zpřístupnit balíčky pouze určité cílové skupině.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="https://docs.microsoft.com/media/common/i_delivery.svg" alt="Delivery icon" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3><a href="nuget-org/publish-a-package.md">Publikování balíčků</a></h3>
+                        <p>
+                            <a href="nuget-org/publish-a-package.md">Publikování na NuGet.org</a>
+                        </p>
+                        <p>
+                            <a href="hosting-packages/overview.md">Publikování do soukromého kanálu</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="https://docs.microsoft.com/media/logos/logo_nuget.svg" alt="NuGet logo" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3><a href="nuget-org/overview-nuget-org.md">NuGet.org</a></h3>
+                        <p>
+                            <a href="nuget-org/overview-nuget-org.md">Přehled</a>
+                        </p>
+                        <p>
+                            <a href="nuget-org/individual-accounts.md">Individuální účty</a>
+                        </p>
+                        <p>
+                            <a href="nuget-org/organizations-on-nuget-org.md">Organizace</a>
+                        </p>
+                        <p>
+                            <a href="nuget-org/scoped-api-keys.md">Klíče rozhraní API</a>
+                        </p>
+                        <p>
+                            <a href="nuget-org/publish-a-package.md">Publikování balíčku</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
         <li>
-            <a href="#tools">Nástroje a referenční informace</a>
-            <ul id="tools">
-                <li>
-                    <a href="#tools-all"></a>
-                    <ul id="tools-all" class="cardsC">
-                        <li>
-                            <a href="install-nuget-client-tools.md">
-                            <div class="cardSize">
-                                <div class="cardPadding">
-                                    <div class="card">
-                                        <div class="cardImageOuter">
-                                            <div class="cardImage  bgdAccent1">
-                                                <img src="media/hub/nuget-tools-tools.svg" alt="" />
-                                            </div>
-                                        </div>
-                                        <div class="cardText">
-                                            <h3>Nástroje</h3>
-                                            <p>Informace o nástrojích, které můžete použít pro práci s NuGetem a o tom, jak je získat.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="reference/nuspec.md">
-                            <div class="cardSize">
-                                <div class="cardPadding">
-                                    <div class="card">
-                                        <div class="cardImageOuter">
-                                            <div class="cardImage  bgdAccent1">
-                                                <img src="media/hub/nuget-tools-reference.svg" alt="" />
-                                            </div>
-                                        </div>
-                                        <div class="cardText">
-                                            <h3>Odkaz</h3>
-                                            <p>Podrobnosti o artefaktech a formátech využívaných NuGetem, podporovaných rozhraních, chybách a upozorněních</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="api/overview.md">
-                            <div class="cardSize">
-                                <div class="cardPadding">
-                                    <div class="card">
-                                        <div class="cardImageOuter">
-                                            <div class="cardImage  bgdAccent1">
-                                                <img src="media/hub/nuget-tools-api.svg" alt="" />
-                                            </div>
-                                        </div>
-                                        <div class="cardText">
-                                            <h3>rozhraní API</h3>
-                                            <p>Podrobnosti o protokolu HTTP NuGetu a interakci se zdroji balíčků prostřednictvím kódu programu</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="visual-studio-extensibility/nuget-api-in-visual-studio.md">
-                            <div class="cardSize">
-                                <div class="cardPadding">
-                                    <div class="card">
-                                        <div class="cardImageOuter">
-                                            <div class="cardImage  bgdAccent1">
-                                                <img src="media/hub/nuget-tools-vs-extensibility.svg" alt="" />
-                                            </div>
-                                        </div>
-                                        <div class="cardText">
-                                            <h3>Rozšiřitelnost sady Visual Studio</h3>
-                                            <p>Podrobnosti o rozhraní API pro uživatelské rozhraní a konzolu Správce balíčků NuGet ve Visual Studiu, podpoře projektových systémů a integraci do šablon Visual Studia</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="policies/governance.md">
-                            <div class="cardSize">
-                                <div class="cardPadding">
-                                    <div class="card">
-                                        <div class="cardImageOuter">
-                                            <div class="cardImage  bgdAccent1">
-                                                <img src="media/hub/nuget-tools-policies.svg" alt="" />
-                                            </div>
-                                        </div>
-                                        <div class="cardText">
-                                            <h3>Zásady</h3>
-                                            <p>Informace o NuGetu jako open source projektu, zásadách správného řízení, ekosystému a řešení sporů</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-    </ul>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="https://docs.microsoft.com/media/common/i_reference.svg" alt="API icon" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3><a href="reference/nuspec.md">Referenční informace</a></h3>
+                        <p>
+                            <a href="reference/dotnet-commands.md">Rozhraní příkazového řádku dotnet</a>
+                        </p>
+                        <p>
+                            <a href="reference/nuget-exe-cli-reference.md">Rozhraní příkazového řádku nuget.exe</a>
+                        <p>
+                            <a href="consume-packages/package-references-in-project-files.md">Odkazy na balíčky</a>
+                        </p>
+                        </p>
+                        <p>
+                            <a href="reference/nuspec.md">Soubor .nuspec</a>
+                        </p>
+                        <p>
+                            <a href="reference/nuget-config-file.md">Soubor nuget.config</a>
+                        </p>
+                        <p>
+                            <a href="api/overview.md">Rozhraní NuGet API</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="https://docs.microsoft.com//media/common/i_multi-connect.svg" alt="Multi-connect icon" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3><a href="policies/governance.md">Prostředky</a></h3>
+                        <p>
+                            <a href="policies/governance.md">Zásady – NuGet</a>
+                        </p>
+                        <p>
+                            <a href="nuget-org/policies/data-requests.md">Zásady – NuGet.org</a>
+                        </p>
+                        <p>
+                            <a href="release-notes/">Zpráva k vydání verze</a>
+                        </p>
+                        <p>
+                            <a href="faqs/nuget-faq.md">Nejčastější dotazy – NuGet</a>
+                        </p>
+                        <p>
+                            <a href="nuget-org/nuget-org-faq.md">Nejčastější dotazy – NuGet.org</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
+    </div>
 </div>
