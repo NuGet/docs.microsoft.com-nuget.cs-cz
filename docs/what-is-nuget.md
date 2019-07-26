@@ -1,118 +1,118 @@
 ---
-title: Co je NuGet a co to dělá?
-description: Ucelený Úvod do jaké NuGet je a provede
+title: Co je NuGet a co dělá?
+description: Komplexní Úvod do toho, co je NuGet a dělá
 author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: overview
-ms.openlocfilehash: e11eed5c614a7634fa578ebc84c3ab2068522fe2
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: e8e806e0a893d62d9d3189396dc47250ae9c8cf3
+ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842204"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68420027"
 ---
-# <a name="an-introduction-to-nuget"></a>Úvod do NuGet
+# <a name="an-introduction-to-nuget"></a>Úvod do NuGetu
 
-Je to důležitý nástroj pro libovolnou platformu moderní vývojové mechanismus, pomocí kterého můžete vytvořit, sdílet a využívat užitečné kód vývojáře. Takový kód je často seskupeny do "packages", které obsahují zkompilovaného kódu (jako knihovny DLL) společně s další obsah, je potřeba v projektech, které využívají tyto balíčky.
+Důležitým nástrojem pro moderní vývojovou platformu je mechanismus, pomocí kterého můžou vývojáři vytvářet, sdílet a využívat užitečný kód. Tento kód je často obsažen do balíčku "Packages", které obsahují zkompilovaný kód (jako knihovny DLL), spolu s dalším obsahem potřebným v projektech, které využívají tyto balíčky.
 
-Pro platformu .NET (včetně .NET Core), je mechanismus podporovaný společností Microsoft ke sdílení kódu **NuGet**, která definuje, jak jsou vytvoření balíčků pro .NET, prostředí a spotřebované, a [poskytuje nástroje,](install-nuget-client-tools.md) pro každou z Tyto role.
+Pro .NET (včetně .NET Core) je mechanismus podporovaný společností Microsoft pro sdílení kódu **NuGet**, který definuje, jak se vytvářejí, hostují a spotřebovávají balíčky pro .NET, a [poskytuje nástroje](install-nuget-client-tools.md) pro každou z těchto rolí.
 
-Jednoduše řečeno, umístěte NuGet je balíček jednoho souboru ZIP s `.nupkg` rozšíření, které obsahuje zkompilovaný kód knihovny (DLL), další soubory související s tímto kódem a popisný manifestu, který obsahuje informace, jako číslo verze balíčku. Vývojářům kód sdílet vytvořit balíčky a publikujte do veřejných nebo privátních hostitele. Spotřebitele balíčku získat tyto balíčky z vhodné hostitele, je přidat do svých projektů a poté zavolejte funkci balíčku v jejich projektu kódu. NuGet samotné pak zpracovává všechny zprostředkující podrobnosti.
+Jednoduše řečeno, balíček NuGet je jeden soubor zip s `.nupkg` příponou, která obsahuje zkompilovaný kód (DLL), další soubory související s tímto kódem a popisný manifest, který obsahuje informace, jako je číslo verze balíčku. Vývojáři s kódem ke sdílení vytváření balíčků a jejich publikování na veřejném nebo privátním hostiteli. Příjemci balíčku získají tyto balíčky od vhodných hostitelů, přidají je do svých projektů a pak volají funkce balíčku ve svém kódu projektu. Samotný NuGet potom zpracuje všechny mezilehlé podrobnosti.
 
-Protože NuGet podporuje privátní hostitele spolu s nuget.org veřejné hostitele, můžete sdílet kód, který je určen výhradně pro organizace nebo pracovní skupině balíčky NuGet. Balíčky NuGet můžete použít také jako pohodlný způsob, jak vlastní kód pro použití v nic ale svoje vlastní projekty. Stručně řečeno, balíček NuGet je jednotka ke sdílení kódu, ale ne vyžadují ani neznamená žádné konkrétní způsob sdílení.
+Vzhledem k tomu, že NuGet podporuje privátní hostitele spolu s veřejným hostitelem nuget.org, můžete použít balíčky NuGet ke sdílení kódu, který je exkluzivní pro organizaci nebo pracovní skupinu. Balíčky NuGet můžete také použít jako pohodlný způsob, jak sami použít vlastní kód pro použití v žádném, ale ve svých vlastních projektech. V krátkém případě je balíčkem NuGet jednotka, která je sdílená, ale nevyžaduje ani neimplikuje jakýkoliv konkrétní způsob sdílení.
 
-## <a name="the-flow-of-packages-between-creators-hosts-and-consumers"></a>Tok balíčky mezi autory, hostitele a příjemců
+## <a name="the-flow-of-packages-between-creators-hosts-and-consumers"></a>Tok balíčků mezi tvůrci, hostiteli a příjemci
 
-V jeho role jako veřejný hostitel NuGet sama udržuje centrálním úložišti víc než 100 000 jedinečné balíčky v [nuget.org](https://www.nuget.org). Tyto balíčky jsou náhradník miliony vývojářů.NET/.NET Core každý den. NuGet také umožňuje hostování balíčků soukromě v cloudu (například na Azure DevOps), v privátní síti, nebo dokonce i na právě vašeho místního systému souborů. Díky tomu tyto balíčky jsou k dispozici pouze vývojáři, kteří mají přístup k hostiteli získáte tak schopnost zpřístupnit balíčky do konkrétní skupiny příjemců. Možnosti jsou vysvětlené v [hostování vlastní kanály NuGet](hosting-packages/overview.md). Pomocí možnosti konfigurace můžete také řídit přesně hostitele je přístupný daného počítače, a zajistí tak, že balíčky jsou získávány z konkrétního zdroje spíše než veřejné úložiště, jako je nuget.org.
+Ve své roli jako veřejný hostitel aplikace NuGet udržuje centrální úložiště více než 100 000 jedinečných balíčků na [NuGet.org](https://www.nuget.org). Tyto balíčky jsou zaměstnaní miliony vývojářů .NET/.NET Core každý den. NuGet taky umožňuje hostovat balíčky soukromě v cloudu (například na Azure DevOps), v privátní síti nebo dokonce jenom v místním systému souborů. Díky tomu jsou tyto balíčky k dispozici pouze vývojářům, kteří mají přístup k hostiteli, což vám umožní zpřístupnit balíčky pro konkrétní skupinu uživatelů. Tyto možnosti jsou vysvětleny na [hostování vlastních kanálů NuGet](hosting-packages/overview.md). Prostřednictvím možností konfigurace můžete také řídit přesně to, k jakým hostitelům je možné získat pøístup z určitého počítače, a zajistit tak, aby se balíčky získaly z konkrétních zdrojů, a ne jako veřejné úložiště, jako je nuget.org.
 
-Bez ohledu jejich povaze hostitele slouží jako bod připojení mezi balíček *creators* a balíček *příjemci*. Tvůrce sestavení užitečné balíčky NuGet a publikujte je na hostiteli. Příjemci vyhledejte balíčky užitečné a kompatibilní na hostitelích přístupné, stahování a včetně těchto balíčků ve svých projektech. Po instalaci v projektu, rozhraní API balíčky jsou k dispozici pro zbývající část kódu projektu.
+Bez ohledu na jeho charakter hostitel slouží jako bod propojení mezi *tvůrci* balíčků a uživateli *balíčku.* Tvůrci sestavují užitečné balíčky NuGet a publikují je na hostitele. Příjemci pak hledají užitečné a kompatibilní balíčky na dostupných hostitelích, stahují a zahrnují tyto balíčky v jejich projektech. Po instalaci v projektu jsou balíčky rozhraní API k dispozici pro zbytek kódu projektu.
 
-![Vztah mezi Tvůrce balíčku, balíčku hostitele a spotřebitele balíčku](media/nuget-roles.png)
+![Vztah mezi tvůrci balíčků, hostiteli balíčků a příjemci balíčku](media/nuget-roles.png)
 
-## <a name="package-targeting-compatibility"></a>Cílení na kompatibilitu balíčku
+## <a name="package-targeting-compatibility"></a>Kompatibilita cílení balíčku
 
-Balík "kompatibilní" znamená, že obsahuje sestavení vytvořené pro rozhraní .NET framework minimálně jeden cíl, který je kompatibilní s cílové rozhraní projektu náročné. Vývojáři můžou vytvořit balíčky, které jsou specifické pro jedno rozhraní, stejně jako u ovládacích prvků UPW, nebo zajistit podporu pro používání nástroje většímu počtu cílů. Pro zajištění maximální kompatibility daného balíčku, cíl vývojáři [.NET Standard](/dotnet/standard/net-standard), které můžete využívat projekty všech .NET a .NET Core. To je nejúčinnější způsob pro tvůrců a příjemců, protože jeden balíček (obvykle obsahuje jedno sestavení) se dá použít pro všechny projekty náročné.
+"Kompatibilní" balíček znamená, že obsahuje sestavení vytvořená pro alespoň jeden cílový rozhraní .NET Framework kompatibilní s cílovým rozhraním .NET Framework projektu. Vývojáři mohou vytvářet balíčky, které jsou specifické pro jedno rozhraní, stejně jako u ovládacích prvků UWP nebo mohou podporovat širší rozsah cílů. Pro maximalizaci kompatibility balíčku cílí vývojářům [.NET Standard](/dotnet/standard/net-standard), které mohou využívat všechny projekty .NET a .NET Core. Toto je nejúčinnější způsob pro tvůrce i spotřebitele, jako jeden balíček (obvykle obsahující jedno sestavení) funguje pro všechny náročné projekty.
 
-Balíček vývojáři, kteří vyžadují rozhraní API mimo .NET Standard, na druhé straně vytvořit samostatné sestavení pro jiné cílové architektury, které mají podporu a zahrnují všechny z těchto sestavení ve stejném balíčku (která se nazývá "cílení na více platforem"). Při instalaci těchto balíčků příjemce extrahuje NuGet pouze sestavení, které jsou potřeba v projektu. Tím se minimalizují nároky balíčku v konečné aplikace a/nebo sestavení vytvořené v daném projektu. Cílení na více platforem balíček je samozřejmě i pro její Autor udržovat obtížnější.
+Vývojáři balíčku, kteří potřebují rozhraní API mimo .NET Standard, vytvoří na druhé straně samostatné sestavení pro různé cílové architektury, které chtějí podporovat, a zahrnují všechna tato sestavení ve stejném balíčku (což se označuje jako "cílení na více verzí"). Když příjemce takový balíček nainstaluje, NuGet extrahuje pouze ta sestavení, která jsou potřebná pro projekt. Tím se minimalizují nároky balíčku do konečné aplikace nebo sestavení vytvořená tímto projektem. Balíček s vícenásobným cílením je samozřejmě obtížnější pro jeho správu.
 
 > [!Note]
-> Cílení na .NET Standard nahrazuje předchozí přístup používat různé cíle (PCL) knihovny přenosných tříd. Tato dokumentace se proto zaměřuje na vytváření balíčků pro .NET Standard.
+> Cílení na .NET Standard nahrazují předchozí přístup pomocí různých cílů přenosných knihoven tříd (PCL). Tato dokumentace se proto zaměřuje na vytváření balíčků pro .NET Standard.
 
 ## <a name="nuget-tools"></a>Nástroje NuGet
 
-Kromě hostování podpory NuGet také poskytuje celou řadu nástrojů, které používají tvůrců a příjemců. Zobrazit [instalace balíčků NuGet klientské nástroje](install-nuget-client-tools.md) pro získání konkrétních nástrojů.
+Kromě podpory hostování nabízí také NuGet celou řadu nástrojů používaných tvůrci i spotřebiteli. Informace o tom, jak získat konkrétní nástroje, najdete v tématu [Instalace nástrojů klienta NuGet](install-nuget-client-tools.md) .
 
-| Nástroj | Platformy | Použít scénáře | Popis |
+| Nástroj | Platformy | Příslušné scénáře | Popis |
 | --- | --- | --- | --- |
-| [dotnet CLI](consume-packages/install-use-packages-dotnet-cli.md) | Všechny | Vytvoření, spotřeby | Rozhraní příkazového řádku nástroje pro .NET Core a knihovny .NET Standard a pro [projekty založenými na sadě SDK](resources/check-project-format.md) projektů cílených na rozhraní .NET Framework. Poskytuje určité rozhraní příkazového řádku NuGet funkce přímo v rámci řetězce nástrojů .NET Core. Stejně jako u rozhraní příkazového řádku NuGet rozhraní příkazového řádku dotnet nekomunikuje s projekty aplikace Visual Studio. |
-| [nuget.exe CLI](consume-packages/install-use-packages-nuget-cli.md) | Všechny | Vytvoření, spotřeby | Nástroj příkazového řádku pro knihovny rozhraní .NET Framework a [SDK styl projekty](resources/check-project-format.md) , jejichž cílem knihovny .NET Standard. Nabízí všechny funkce NuGet, kdy některé příkazy použití speciálně pro tvůrce balíčku, použití pouze pro uživatele, a ostatní použitím obou. Například použití Tvůrce balíčku `nuget pack` příkaz pro vytvoření balíčku z různých sestavení a související soubory, balíček příjemci použití `nuget install` zahrnout balíčky do složky projektu a všichni používá `nuget config` nastavit konfiguraci NuGet proměnné. Jako nástroj pro více platforem rozhraní příkazového řádku NuGet nekomunikuje s projekty aplikace Visual Studio. |
-| [Konzola Správce balíčků](tools/package-manager-console.md) | Visual Studio na Windows | Využití | Poskytuje [příkazy prostředí PowerShell](tools/Powershell-Reference.md) pro instalaci a správu balíčků v projektech Visual Studio. |
-| [Uživatelské rozhraní Správce balíčků](tools/package-manager-ui.md) | Visual Studio na Windows | Využití | Poskytuje snadným ovládáním uživatelského rozhraní pro instalaci a správu balíčků v projektech Visual Studio. |
-| [Spravovat NuGet uživatelského rozhraní](/visualstudio/mac/nuget-walkthrough) | Visual Studio for Mac | Využití | Poskytují-použití uživatelského rozhraní pro instalaci a správu balíčků v sadě Visual Studio pro Mac projekty. |
-| [MSBuild](reference/msbuild-targets.md) | Windows | Vytvoření, spotřeby | Umožňuje vytvořit balíčky a obnovení balíčků se používá v projektu přímo prostřednictvím řetězec nástroje MSBuild. |
+| [dotnet CLI](consume-packages/install-use-packages-dotnet-cli.md) | Všechny | Vytváření, spotřeba | Nástroj rozhraní příkazového řádku pro knihovny .NET Core a .NET Standard a pro projekty ve stylu sady SDK, které cílí na .NET Framework (viz [atribut sady SDK](/dotnet/core/tools/csproj#additions)). Poskytuje určité funkce rozhraní příkazového řádku NuGet přímo v řetězu nástrojů .NET Core. Stejně jako v `nuget.exe` rozhraní příkazového řádku dotnet rozhraní příkazového řádku nekomunikuje s projekty sady Visual Studio. |
+| [nuget.exe CLI](consume-packages/install-use-packages-nuget-cli.md) | Všechny | Vytváření, spotřeba | Nástroj rozhraní příkazového řádku pro knihovny .NET Framework a projekty, které nejsou ve stylu sady SDK, které cílí na .NET Standard knihovny. Poskytuje všechny funkce NuGet a některé příkazy, které se konkrétně použijí pro tvůrce balíčků, některé se použijí jenom pro příjemce a jiné, jak se používají. Například tvůrci balíčků používají `nuget pack` příkaz k vytvoření balíčku z různých sestavení a souvisejících souborů, příjemci balíčku používají `nuget install` k zahrnutí balíčků do složky projektu a všichni používají `nuget config` k nastavení konfigurace NuGet. proměnné. Jako nástroj Platform-nezávislá, rozhraní příkazového řádku NuGet nekomunikuje s projekty sady Visual Studio. |
+| [Konzola Správce balíčků](consume-packages/install-use-packages-powershell.md) | Visual Studio ve Windows | Využití | Poskytuje [Příkazy prostředí PowerShell](reference/Powershell-Reference.md) pro instalaci a správu balíčků v projektech sady Visual Studio. |
+| [Uživatelské rozhraní Správce balíčků](consume-packages/install-use-packages-visual-studio.md) | Visual Studio ve Windows | Využití | Poskytuje snadno použitelné uživatelské rozhraní pro instalaci a správu balíčků v projektech sady Visual Studio. |
+| [Spravovat uživatelské rozhraní NuGet](/visualstudio/mac/nuget-walkthrough) | Visual Studio for Mac | Využití | Poskytněte snadno použitelné uživatelské rozhraní pro instalaci a správu balíčků v Visual Studio pro Macch projektech. |
+| [MSBuild](reference/msbuild-targets.md) | Windows | Vytváření, spotřeba | Poskytuje možnost vytvářet balíčky a balíčky pro obnovení používané v projektu přímo prostřednictvím řetězce nástroje MSBuild. |
 
-Jak je vidět, nástroje NuGet, které při práci s velmi lišit v závislosti na tom, jestli už vytváříte, využívání nebo publikování balíčků a platformy, na kterém pracujete. Tvůrce balíčku jsou obvykle také spotřebitelů, protože jsou postaveny funkce, která existuje v dalších balíčcích NuGet. A tyto balíčky, samozřejmě, může pak záviset na stále jiných.
+Jak vidíte, nástroje NuGet, se kterými pracujete, závisí na tom, jestli vytváříte, spotřebováváte nebo publikujete balíčky a platformu, na které pracujete. Tvůrci balíčků jsou obvykle také příjemci, protože se vytvářejí nad funkcemi, které existují v jiných balíčcích NuGet. A tyto balíčky samozřejmě můžou záviset na ostatních.
 
-Další informace, začněte s [pracovní postup vytvoření balíčku](create-packages/Overview-and-Workflow.md) a [zabalit pracovní postup využití](consume-packages/Overview-and-Workflow.md) článků.
+Další informace najdete v článcích pracovní postup [Vytvoření balíčku](create-packages/Overview-and-Workflow.md) a [pracovní postup spotřeby balíčku](consume-packages/Overview-and-Workflow.md) .
 
 ## <a name="managing-dependencies"></a>Správa závislostí
 
-Možnost snadno vytvářet na práci ostatních je jednou z nejúčinnějších funkcí systém správy balíčků. Většinu toho, co dělá NuGet je odpovídajícím způsobem, správou tento strom závislostí nebo "graf" jménem projektu. Jednoduše ale nutné dodat, budete potřebovat pouze se týkají sami s balíčky, které používáte přímo v projektu. Pokud žádný z těchto balíčků sami využívání dalších balíčků (které můžou zase využívat stále ostatní), postará o těchto nižší úrovně závislostí NuGet.
+Možnost snadného sestavování na práci s ostatními je jedním z nejvýkonnějších funkcí systém správy balíčků. Proto mnoho z toho, co NuGet, spravuje strom závislostí nebo "Graph" jménem projektu. Jednoduše řečeno, potřebujete se s balíčky, které přímo používáte v projektu, týkat pouze sebe. Pokud některý z těchto balíčků využívá jiné balíčky (které můžou zase využívat jiné), NuGet se stará o všechny závislosti nižší úrovně.
 
-Následující obrázek ukazuje projekt, který závisí na pět balíčky, které pak závisí na celé řadě dalších.
+Následující obrázek ukazuje projekt, který závisí na pěti balíčcích, což zase závisí na několika dalších.
 
-![Ukázka grafu závislostí NuGet pro projekt .NET](media/dependency-graph.png)
+![Příklad grafu závislosti NuGet pro projekt .NET](media/dependency-graph.png)
 
-Všimněte si, že některé balíčky se zobrazí v grafu závislostí více než jednou. Například existují tři různé spotřebitele balíčku B a každý příjemce může také určit jinou verzi pro tento balíček (nezobrazení). To je běžné výskyt, zejména pro nejběžněji používanými balíčky. NuGet naštěstí vykonává všechnu práci obtížné určit přesně kterou verzi balíčku B splňuje všichni příjemci. NuGet pak provede stejné pro všechny ostatní balíčky, bez ohledu na to, jak hluboko grafu závislostí.
+Všimněte si, že některé balíčky se v grafu závislostí zobrazují několikrát. Například existují tři různé uživatele balíčku B a každý příjemce může také určit jinou verzi pro daný balíček (nezobrazuje se). Jedná se o běžný výskyt, hlavně pro široce používané balíčky. NuGet Naštěstí má veškerou práci přesně určit, která verze balíčku B splňuje všechny uživatele. NuGet pak bude stejný pro všechny ostatní balíčky bez ohledu na to, jak hluboko mají graf závislosti.
 
-Další podrobnosti o jak NuGet provádí této služby najdete v tématu [řešení závislostí](consume-packages/dependency-resolution.md).
+Další podrobnosti o tom, jak NuGet provádí tuto službu, najdete v tématu věnovaném [řešení závislosti](consume-packages/dependency-resolution.md).
 
-## <a name="tracking-references-and-restoring-packages"></a>Sledovacích odkazů a obnovují se balíčky
+## <a name="tracking-references-and-restoring-packages"></a>Sledování odkazů a obnovování balíčků
 
-Protože projekty můžete snadno přesouvat mezi vývojových prostředích, úložišť správy zdrojového kódu, buildovací servery a atd., je vysoce nepraktické, aby binární sestavení přímo vázaný do projektu balíčky NuGet. Mohlo by každou kopii zbytečně opakovaném projektu (a tím odpad místo úložiště správy zdrojového kódu). Ji by také být velmi obtížné aktualizovat binární soubory balíčku na novější verze, protože aktualizace bude muset uplatnit na veškeré kopie tohoto projektu.
+Vzhledem k tomu, že se projekty mohou snadno přesouvat mezi vývojářskými počítači, úložišti správy zdrojového kódu, servery sestavení a tak dále, je vysoce praktické uchovávat binární sestavení balíčků NuGet přímo vázaných na projekt. To by vedlo k tomu, že každá kopie projektu zbytečně bloated (a tím se zaznamenalo volné místo v úložištích správy zdrojového kódu). V důsledku toho by bylo obtížné aktualizovat binární soubory balíčku na novější verze, protože by se aktualizace musely použít ve všech kopiích projektu.
 
-NuGet udržuje místo jednoduchých odkazů seznam balíčky, na které projekt závisí, včetně závislosti nejvyšší úrovně a nižší úrovně. To znamená, že pokaždé, když se instalace balíčku z některých hostitele do projektu NuGet zaznamenává identifikátor balíčku a číslo verze v seznamu referencí. (Odinstalovává se balíček, samozřejmě, odebere se ze seznamu.) NuGet pak umožňuje obnovit všechny odkazované balíčky na vyžádání, jak je popsáno na [obnovení balíčku](consume-packages/package-restore.md).
+NuGet místo toho udržuje jednoduchý seznam odkazů balíčků, na kterých závisí projekt, včetně závislostí na nejvyšší úrovni i na nižší úrovni. To znamená, že při každém instalaci balíčku z nějakého hostitele do projektu zaznamená NuGet identifikátor balíčku a číslo verze v seznamu odkazů. (Odinstalace balíčku je samozřejmě odebrána ze seznamu.) NuGet pak poskytuje způsob obnovení všech odkazovaných balíčků na vyžádání, jak je popsáno v tématu [obnovení balíčků](consume-packages/package-restore.md).
 
-![Seznam odkazů NuGet na instalace balíčku se vytvoří a slouží k obnovení balíčků jinde](media/nuget-restore.png)
+![Seznam odkazů NuGet se vytvoří při instalaci balíčku a dá se použít k obnovení balíčků jinde.](media/nuget-restore.png)
 
-S pouze seznam odkazů můžete opětovnou NuGet&mdash;tedy *obnovení*&mdash;všech těchto balíčků z veřejné nebo privátní hostitelů kdykoli později. Při potvrzování projekt do správy zdrojového kódu nebo sdílení jiným způsobem, pouze odkaz na seznamu pro zahrnutí a vyloučení žádné binární soubory balíčku (viz [balíčky a Správa zdrojového kódu](consume-packages/packages-and-source-control.md).)
+Produkt NuGet pak může znovu&mdash; *nainstalovat*&mdash;všechny tyto balíčky z veřejných i privátních hostitelů, a to jenom v seznamu odkazů. Když potvrdíte projekt do správy zdrojového kódu nebo ho nasdílíte jiným způsobem, zahrnete pouze seznam odkazů a vyloučíte všechny binární soubory balíčku (viz [balíčky a Správa zdrojového kódu](consume-packages/packages-and-source-control.md)).
 
-Počítač, který přijímá projektu, jako je získání kopie projektu jako součást automatizované nasazení systému, server sestavení jednoduše požádá pokaždé, když je budete potřebovat obnovit závislosti balíčků NuGet. Vytvořte systémy, jako je Azure DevOps popisují "Obnovení NuGet" pro tento účel přesné. Podobně, když vývojáři získejte kopii souboru projektu (stejně jako při klonování úložiště), se může vyvolat příkaz podobný `nuget restore` (NuGet rozhraní příkazového řádku), `dotnet restore` (rozhraní příkazového řádku dotnet), nebo `Install-Package` (konzola Správce balíčků) získat všechny potřebné balíčky. Při sestavování projektu sady Visual Studio, jeho části, automaticky obnoví balíčky (za předpokladu, že je povoleno automatické obnovení, jak je popsáno na [obnovení balíčku](consume-packages/package-restore.md)).
+Počítač, který obdrží projekt, jako je například server sestavení, získá kopii projektu jako součást systému automatizovaného nasazení, jednoduše požádá NuGet, aby obnovil závislosti, kdykoli je budete potřebovat. Systémy sestavení, jako je Azure DevOps, poskytují pro tento přesný účel kroky obnovení NuGet. Podobně když vývojáři získají kopii projektu (jako při klonování úložiště), mohou vyvolat příkaz jako `nuget restore` (NuGet CLI), `dotnet restore` (dotnet CLI) nebo `Install-Package` (konzola správce balíčků) a získat tak všechny potřebné balíčky. Sada Visual Studio pro svou součást automaticky obnoví balíčky při sestavování projektu (za předpokladu, že automatické obnovení je povoleno, jak je popsáno v tématu [obnovení balíčku](consume-packages/package-restore.md)).
 
-Je zřejmé pak Nugetu primární roli. Pokud máte obavy vývojáři udržuje tento odkaz seznam jménem vašeho projektu a poskytuje způsob, jak efektivně obnovení (a aktualizovat) odkazované balíčky. Tento seznam je zachován v jedné ze dvou *balíček správy formáty*, jako jsou volány:
+Jasně a pak primární role NuGet, kde se vývojáři týkají, udržují tento seznam odkazů jménem projektu a poskytují způsob, jak efektivně obnovit (a aktualizovat) tyto balíčky, na které se odkazuje. Tento seznam je udržován v jednom ze dvou *formátů správy balíčků*, jak se nazývají:
 
-- [PackageReference](consume-packages/package-references-in-project-files.md) (nebo "balíček odkazy v souborech projektu") | *(NuGet 4.0 +)* udržuje seznam nejvyšší úrovně závislosti projektu přímo v rámci souboru projektu, takže je potřeba žádný samostatný soubor. Přidružený soubor `obj/project.assets.json`, generuje dynamicky spravovat celkový graf závislosti balíčků, které projekt používá spolu se všemi závislostmi nižší úrovně. PackageReference vždy používá projekty .NET Core.
+- [PackageReference](consume-packages/package-references-in-project-files.md) (nebo "odkazy na balíčky v souborech projektu") | *(NuGet 4.0 +)* Udržuje seznam závislostí nejvyšší úrovně projektu přímo v rámci souboru projektu, takže není potřeba žádný samostatný soubor. Přidružený soubor, `obj/project.assets.json`, je dynamicky generován pro správu celkového grafu závislostí balíčků, které projekt používá společně se všemi závislostmi na nižší úrovni. PackageReference se vždy používají v projektech .NET Core.
 
-- [`packages.config`](reference/packages-config.md): *(NuGet 1.0 +)*  Soubor ve formátu XML, který udržuje seznam bez stromové struktury všechny závislosti v projektu, včetně závislostí jiných nainstalované balíčky. Balíčky nainstalované nebo obnovený jsou uložené v `packages` složky.
+- [`packages.config`](reference/packages-config.md): *(NuGet 1.0 +)* Soubor XML, který udržuje plochý seznam všech závislostí v projektu, včetně závislostí dalších instalovaných balíčků. Nainstalované nebo obnovené balíčky jsou uloženy ve `packages` složce.
 
-Které formát správy balíčků se použijí v každého projektu závisí na typu projektu a k dispozici verze NuGet (a/nebo Visual Studio). Chcete-li zjistit, jaký formát se používá, jednoduše vyhledejte `packages.config` v kořenové složce projektu po instalaci první balíčku. Pokud tento soubor nemáte, vyhledejte v souboru projektu přímo \<PackageReference\> elementu.
+Který formát správy balíčků je zaměstnán v libovolném daném projektu, závisí na typu projektu a dostupné verzi NuGetu (a/nebo Visual studia). Pokud chcete zkontrolovat, který formát se používá, stačí po `packages.config` instalaci prvního balíčku najít v kořenu projektu. Pokud tento soubor nemáte, hledejte v souboru projektu přímo pro \<element PackageReference.\>
 
-Pokud máte možnost volby, doporučujeme pomocí PackageReference. `packages.config` je zachován z důvodu starší verze účely a už se aktivně vyvíjí.
+Pokud máte možnost výběru, doporučujeme použít PackageReference. `packages.config`je udržováno pro starší účely a již není v aktivním vývoji.
 
 > [!Tip]
-> Různé `nuget.exe` příkazy rozhraní příkazového řádku, jako je třeba `nuget install`, balíček automaticky nepřidávejte do seznam odkazů. V seznamu je aktualizována při instalaci balíčku s Visual Studio Správce balíčků (uživatelského rozhraní nebo konzola) a s `dotnet.exe` rozhraní příkazového řádku.
+> Mezi `nuget.exe` různé příkazy rozhraní příkazového řádku `nuget install`, například, nepřidáte balíček do seznamu odkazů automaticky. Seznam se aktualizuje při instalaci balíčku pomocí Správce balíčků sady Visual Studio (UI nebo konzole) a pomocí `dotnet.exe` rozhraní příkazového řádku.
 
-## <a name="what-else-does-nuget-do"></a>Co dělá NuGet?
+## <a name="what-else-does-nuget-do"></a>Co další NuGet dělá?
 
-Zatím jste se naučili následující vlastnosti balíčku nuget:
+Zatím jste se seznámili s následujícími charakteristikami NuGet:
 
-- NuGet poskytuje centrální nuget.org úložiště s podporou pro privátní hostování.
-- NuGet poskytuje že nástroje, které vývojáři potřebují pro vytváření, publikování a využívání balíčků.
-- Co je nejdůležitější NuGet udržuje seznam odkazů v projektu a možnost použít k obnovení a aktualizovat tyto balíčky z tohoto seznamu balíčků.
+- NuGet poskytuje centrální úložiště nuget.org s podporou pro soukromé hostování.
+- NuGet poskytuje vývojářům nástroje potřebu vytvářet, publikovat a využívat balíčky.
+- V důsledku toho NuGet udržuje odkazový seznam balíčků použitých v projektu a možnost obnovit a aktualizovat tyto balíčky z tohoto seznamu.
 
-Chcete-li tyto procesy pracovat efektivně, nemá NuGet optimalizovali pozadí. Zejména NuGet spravuje mezipaměť balíčků a globálních balíčků složku pro místní instalace a přeinstalace. Mezipaměť se vyhnete stahování balíčku, který je už nainstalovaný na počítači. Složka globálních balíčků umožňuje více projektů sdílet stejnou nainstalovaný balíček, a tím snižuje celkový objem NuGet v počítači. Mezipaměť a globální složku balíčků jsou také velmi užitečné, pokud budete často obnovení větší počet balíčků, jak na serveru sestavení. Další podrobnosti o těchto mechanismů, naleznete v tématu [Správa globálních balíčků a složek mezipaměti](consume-packages/managing-the-global-packages-and-cache-folders.md).
+Aby tyto procesy byly efektivně fungovat, NuGet provede některé optimalizace na pozadí. Zejména NuGet spravuje mezipaměť balíčků a globální složku balíčků pro instalaci a přeinstalaci zástupce. Mezipaměť zabraňuje stažení balíčku, který již byl na počítači nainstalován. Složka globální balíčky umožňuje více projektům sdílet stejný nainstalovaný balíček, čímž se sníží celková nároky na počítač NuGet. Složka mezipaměti a globální balíčky jsou také velmi užitečné, pokud často obnovujete větší počet balíčků, jako na serveru sestavení. Další informace o těchto mechanismech najdete v tématu [Správa globálních balíčků a složek mezipaměti](consume-packages/managing-the-global-packages-and-cache-folders.md).
 
-V rámci jednotlivých projektů spravuje NuGet celkový graf závislostí, která znovu zahrnuje řešení více odkazů na různé verze stejného balíčku. Je celkem běžné, že projekt je závislá na jeden nebo více balíčků, že sami mají stejné závislosti. Některé nejužitečnější nástroj balíčků na nuget.org se použijí podle mnoha jiných balíčků. V grafu celý závislostí, může snadno máte deset různé odkazy na různé verze stejného balíčku. Chcete-li zabránit přináší více verzí tohoto balíčku do vlastní aplikace, NuGet seřadí si jedné verze mohou využívat všichni příjemci se ve. (Další informace najdete v tématu [řešení závislostí](consume-packages/dependency-resolution.md).)
+V rámci jednotlivého projektu NuGet spravuje celkový graf závislostí, který znovu zahrnuje překlad více odkazů na různé verze stejného balíčku. Je poměrně běžné, že projekt přebírá závislost na jednom nebo více balíčcích, které mají stejné závislosti. Některé z nejužitečnějších balíčků nástrojů na nuget.org jsou zaměstnané mnoha dalšími balíčky. V celém grafu závislostí můžete snadno mít deset různých odkazů na různé verze stejného balíčku. Aby se zabránilo zavedení více verzí tohoto balíčku do samotné aplikace, NuGet vyřadí jednotlivé verze, které mohou používat všichni uživatelé. (Další informace najdete v tématu věnovaném [řešení závislostí](consume-packages/dependency-resolution.md).)
 
-Kromě toho, NuGet uchovává všechny specifikace související se strukturou balíčky (včetně [lokalizace](create-packages/creating-localized-packages.md) a [symboly ladění](create-packages/symbol-packages.md)) a jak se na ně odkazuje (včetně [ rozsahů verzí](reference/package-versioning.md#version-ranges-and-wildcards) a [předběžných verzí](create-packages/prerelease-packages.md).) NuGet také nabízí různá rozhraní API pro práci se službami prostřednictvím kódu programu a poskytuje podporu pro vývojáře, kteří vytvářejí šablony projektů a rozšíření sady Visual Studio.
+Kromě toho NuGet udržuje všechny specifikace týkající se strukturování balíčků (včetně lokalizačních a [](create-packages/creating-localized-packages.md) ladicích [symbolů](create-packages/symbol-packages.md)) a způsobu jejich odkazování (včetně [rozsahů verzí](reference/package-versioning.md#version-ranges-and-wildcards) a [předběžných verzí](create-packages/prerelease-packages.md)). NuGet také poskytuje různá rozhraní API pro práci s jejími službami programově a poskytuje podporu pro vývojáře, kteří napisují rozšíření sady Visual Studio a šablony projektů.
 
-Za chvíli procházet obsah pro tuto dokumentaci a uvidíte všechny tyto funkce reprezentována, spolu s přejímá vlastnost Nugetu beginnings zpráva k vydání verze.
+Chvíli počkejte, než projdete obsah této dokumentace, a zobrazí se všechny tyto funkce, společně s poznámkami k verzi dating zpět na začátek NuGetu.
 
-## <a name="comments-contributions-and-issues"></a>Komentáře, příspěvky a problémů
+## <a name="comments-contributions-and-issues"></a>Komentáře, příspěvky a problémy
 
-Nakonec moc Vítáme komentáře a příspěvky v této dokumentaci&mdash;stačí vybrat **zpětnou vazbu** a **upravit** příkazy horní části libovolné stránky nebo navštivte [dokumentace úložiště](https://github.com/NuGet/docs.microsoft.com-nuget/) a [seznam problémů dokumentace](https://github.com/NuGet/docs.microsoft.com-nuget/issues) na Githubu.
+A konečně hodně úvodní komentáře a příspěvky k této&mdash;dokumentaci stačí vybrat v horní části libovolné stránky příkazy pro zpětnou **vazbu** a **Úpravy** nebo přejít na seznam [úložišť docs](https://github.com/NuGet/docs.microsoft.com-nuget/) a dokumentace k [dokumentaci](https://github.com/NuGet/docs.microsoft.com-nuget/issues) na GitHubu.
 
-Také Vítáme všechny příspěvky na NuGet, samotný prostřednictvím jeho [různých úložištích GitHub](https://github.com/NuGet/Home); Problémy s NuGet najdete na [ https://github.com/NuGet/home/issues ](https://github.com/NuGet/home/issues).
+Také jsme provedli příspěvky do NuGet samotné prostřednictvím [různých úložišť GitHubu](https://github.com/NuGet/Home). Problémy NuGet najdete na [https://github.com/NuGet/home/issues](https://github.com/NuGet/home/issues).
 
-Užijte si prostředí NuGet!
+Využijte své zkušenosti s NuGet!
