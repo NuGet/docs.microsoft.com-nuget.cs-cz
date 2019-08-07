@@ -5,25 +5,25 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8512b7b214db45fb2a4db742287270cb86054b7c
-ms.sourcegitcommit: 5aa49478dc466c67db5c3edda7c6ce8dcd8ae033
-ms.translationtype: HT
+ms.openlocfilehash: a0db6dc95ffa5ad73741ae53a6be9d6f937c1dbf
+ms.sourcegitcommit: ba8ad1bd13a4bba3df94374e34e20c425a05af2f
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818080"
+ms.locfileid: "68833226"
 ---
 # <a name="create-a-nuget-package-using-msbuild"></a>Vytvoření balíčku NuGet pomocí nástroje MSBuild
 
-Bez ohledu na to, co váš balíček obsahuje nebo jaký kód obsahuje, je nutné tuto funkci zabalit do komponenty, kterou můžete sdílet s a používat v jakémkoli počtu jiných vývojářů. Tento článek popisuje, jak vytvořit balíček pomocí nástroje MSBuild. Chcete-li použít nástroj MSBuild, `dotnet` nainstalujte rozhraní příkazového řádku nejprve a přečtěte si téma [Instalace nástrojů klienta NuGet](../install-nuget-client-tools.md). Počínaje sadou Visual Studio 2017 je rozhraní příkazového řádku dotnet součástí úloh .NET Core.
+Když vytvoříte balíček NuGet z kódu, zabalíte tuto funkci do komponenty, kterou můžete sdílet s a používat v jakémkoli počtu jiných vývojářů. Tento článek popisuje, jak vytvořit balíček pomocí nástroje MSBuild. Nástroj MSBuild přináší předinstalované všechny úlohy sady Visual Studio, které obsahují NuGet. Kromě toho můžete také použít MSBuild prostřednictvím rozhraní příkazového řádku dotnet pomocí příkazu [dotnet MSBuild](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-msbuild) .
 
-Pro projekty .NET Core a .NET Standard, které používají [Formát styly sady SDK](../resources/check-project-format.md)a všechny další projekty ve stylu sady SDK, nástroj NuGet používá informace v souboru projektu přímo k vytvoření balíčku.  Pro projekt bez sady SDK, který používá `<PackageReference>`, můžete také použít MSBuild (`msbuild /t:pack`).
+Pro projekty .NET Core a .NET Standard, které používají [Formát styly sady SDK](../resources/check-project-format.md)a všechny další projekty ve stylu sady SDK, nástroj NuGet používá informace v souboru projektu přímo k vytvoření balíčku.  Pro nepoužitý projekt ve stylu sady SDK, `<PackageReference>`který používá, nástroj NuGet používá k vytvoření balíčku také soubor projektu.
 
-Pro sestavení pomocí nástroje MSBuild je nutné přidat balíček NuGet. Build. Tasks. Pack do závislostí projektu. Podrobné informace o cílech sady MSBuild Pack naleznete v tématu [sada NuGet Pack a obnovení jako cíle MSBuild](../reference/msbuild-targets.md).
+Projekty ve stylu sady SDK mají ve výchozím nastavení dostupné funkce balíčku. Pro projekty PackageReference bez sady SDK je nutné přidat balíček NuGet. Build. Tasks. Pack do závislostí projektu. Podrobné informace o cílech sady MSBuild Pack naleznete v tématu [sada NuGet Pack a obnovení jako cíle MSBuild](../reference/msbuild-targets.md).
 
-`msbuild -t:pack`je obdobou `dotnet pack`funkcí. Podrobné kurzy k použití rozhraní `dotnet` příkazového řádku najdete v tématu [Vytvoření balíčků .NET Standard pomocí příkazu dotnet CLI](../quickstart/create-and-publish-a-package-using-the-dotnet-cli.md).
+Příkaz, který vytváří balíček, `msbuild -t:pack`, je funkce, která je `dotnet pack`ekvivalentní.
 
 > [!IMPORTANT]
-> Toto téma se vztahuje na projekty ve [stylu sady SDK](../resources/check-project-format.md) , obvykle v projektech .NET Core a .NET Standard.
+> Toto téma se vztahuje na projekty ve [stylu sady SDK](../resources/check-project-format.md) , obvykle v projektech .NET Core a .NET Standard a na projekty ve stylu jiné než SDK, které používají PackageReference.
 
 ## <a name="set-properties"></a>Nastavit vlastnosti
 
@@ -35,7 +35,7 @@ Pro vytvoření balíčku jsou vyžadovány následující vlastnosti.
 - `Authors`, informace o autorovi a vlastníka. Pokud není zadaný, použije se výchozí hodnota `AssemblyName`.
 - `Company`, název vaší společnosti. Pokud není zadaný, použije se výchozí hodnota `AssemblyName`.
 
-V sadě Visual Studio můžete nastavit tyto hodnoty ve vlastnostech projektu (klikněte pravým tlačítkem myši na projekt v Průzkumník řešení, zvolte **vlastnosti**a vyberte kartu **balíček** ). Tyto vlastnosti lze také nastavit přímo v souborech projektu (`.csproj`).
+V sadě Visual Studio můžete nastavit tyto hodnoty ve vlastnostech projektu (klikněte pravým tlačítkem myši na projekt v Průzkumník řešení, zvolte **vlastnosti**a vyberte kartu **balíček** ). Tyto vlastnosti lze také nastavit přímo v souborech projektu ( *. csproj*).
 
 ```xml
 <PropertyGroup>
@@ -68,7 +68,7 @@ Můžete také nastavit volitelné vlastnosti, například `Title` `PackageDescr
 > [!NOTE]
 > Pro balíčky sestavené pro veřejnou spotřebu věnujte zvláštní pozornost vlastnosti **PackageTags** , protože značky můžou ostatním uživatelům najít váš balíček a pochopit, co to dělá.
 
-Podrobnosti o deklarování závislostí a zadání čísel verzí najdete v tématu [Správa verzí balíčků](../reference/package-versioning.md). Je také možné Surface prostředků ze závislostí přímo v balíčku pomocí `<IncludeAssets>` atributů a. `<ExcludeAssets>` Další informace najdete v Seee [řízení prostředků závislostí](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets).
+Podrobnosti o deklarování závislostí a zadání čísel verzí naleznete v tématu [odkazy na balíčky v souborech projektu](../consume-packages/package-references-in-project-files.md) a [Správa verzí balíčků](../reference/package-versioning.md). Je také možné Surface prostředků ze závislostí přímo v balíčku pomocí `<IncludeAssets>` atributů a. `<ExcludeAssets>` Další informace najdete v Seee [řízení prostředků závislostí](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets).
 
 ## <a name="choose-a-unique-package-identifier-and-set-the-version-number"></a>Vyberte jedinečný identifikátor balíčku a nastavte číslo verze.
 
@@ -76,7 +76,7 @@ Podrobnosti o deklarování závislostí a zadání čísel verzí najdete v té
 
 ## <a name="add-the-nugetbuildtaskspack-package"></a>Přidat balíček NuGet. Build. Tasks. Pack
 
-Chcete-li použít nástroj MSBuild, přidejte do projektu balíček NuGet. Build. Tasks. Pack.
+Pokud používáte nástroj MSBuild s projektem a PackageReference, který není typu SDK, přidejte do projektu balíček NuGet. Build. Tasks. Pack.
 
 1. Otevřete soubor projektu a přidejte následující za `<PropertyGroup>` element:
 
@@ -90,6 +90,8 @@ Chcete-li použít nástroj MSBuild, přidejte do projektu balíček NuGet. Buil
 
 2. Otevřete příkazový řádek pro vývojáře (do **vyhledávacího** pole zadejte **příkaz Developer Command Prompt**).
 
+   Obvykle chcete spustit Developer Command Prompt pro Visual Studio z nabídky **Start** , jak bude nakonfigurován se všemi nezbytnými cestami pro MSBuild.
+
 3. Přepněte do složky obsahující soubor projektu a zadejte následující příkaz pro instalaci balíčku NuGet. Build. Tasks. Pack.
 
    ```cmd
@@ -97,7 +99,7 @@ Chcete-li použít nástroj MSBuild, přidejte do projektu balíček NuGet. Buil
    msbuild -t:restore
    ```
 
-   Ujistěte se, že výstup nástroje MSBuild indikuje, že sestavení bylo úspěšně dokončeno.
+   Ujistěte se, že výstup nástroje MSBuild označuje, že sestavení bylo úspěšně dokončeno.
 
 ## <a name="run-the-msbuild--tpack-command"></a>Spuštění příkazu MSBuild-t:Pack
 
@@ -132,7 +134,6 @@ GenerateNuspec:
   Successfully created package 'C:\Users\username\source\repos\ClassLib_DotNetStandard\bin\Debug\AppLogger.1.0.0.nupkg'.
 Done Building Project "C:\Users\username\source\repos\ClassLib_DotNetStandard\ClassLib_DotNetStandard.csproj" (pack target(s)).
 
-
 Build succeeded.
     0 Warning(s)
     0 Error(s)
@@ -148,7 +149,7 @@ Chcete-li `msbuild -t:pack` automaticky spustit při sestavování nebo obnovov�
 <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 ```
 
-Při spuštění `msbuild -t:pack` v řešení jsou všechny projekty v řešení, které lze zabalit ([<IsPackable>](/dotnet/core/tools/csproj#nuget-metadata-properties) vlastnost nastavena na `true`.
+Při spuštění `msbuild -t:pack` v řešení jsou všechny projekty v řešení, které lze zabalit ([<IsPackable>](/dotnet/core/tools/csproj#nuget-metadata-properties) vlastnost nastavena na `true`hodnotu).
 
 > [!NOTE]
 > Když balíček automaticky vygenerujete, čas k zabalení zvýší čas sestavení pro váš projekt.
