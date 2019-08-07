@@ -1,24 +1,26 @@
 ---
-title: Vytvoření balíčku NuGet pomocí rozhraní příkazového řádku dotnet
+title: Vytvoření balíčku NuGet pomocí nástroje MSBuild
 description: Podrobný průvodce procesem navrhování a vytváření balíčku NuGet, včetně klíčových bodů rozhodování, jako jsou soubory a správa verzí.
 author: karann-msft
 ms.author: karann
-ms.date: 07/09/2019
+ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 649536181570ecedc259d264cd2d61d8b4a1259e
+ms.openlocfilehash: 8512b7b214db45fb2a4db742287270cb86054b7c
 ms.sourcegitcommit: 5aa49478dc466c67db5c3edda7c6ce8dcd8ae033
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 08/06/2019
-ms.locfileid: "68817587"
+ms.locfileid: "68818080"
 ---
-# <a name="create-a-nuget-package-using-the-dotnet-cli"></a>Vytvoření balíčku NuGet pomocí rozhraní příkazového řádku dotnet
+# <a name="create-a-nuget-package-using-msbuild"></a>Vytvoření balíčku NuGet pomocí nástroje MSBuild
 
-Bez ohledu na to, co váš balíček používá, nebo jaký kód obsahuje, můžete použít jeden z nástrojů rozhraní `nuget.exe` příkazového řádku (nebo `dotnet.exe`) k zabalení této funkce do komponenty, kterou lze sdílet a používat v jakémkoli počtu jiných vývojářů. Tento článek popisuje, jak vytvořit balíček pomocí rozhraní příkazového řádku dotnet. Informace o instalaci `dotnet` rozhraní příkazového řádku najdete v tématu [Instalace nástrojů klienta NuGet](../install-nuget-client-tools.md). Počínaje sadou Visual Studio 2017 je rozhraní příkazového řádku dotnet součástí úloh .NET Core.
+Bez ohledu na to, co váš balíček obsahuje nebo jaký kód obsahuje, je nutné tuto funkci zabalit do komponenty, kterou můžete sdílet s a používat v jakémkoli počtu jiných vývojářů. Tento článek popisuje, jak vytvořit balíček pomocí nástroje MSBuild. Chcete-li použít nástroj MSBuild, `dotnet` nainstalujte rozhraní příkazového řádku nejprve a přečtěte si téma [Instalace nástrojů klienta NuGet](../install-nuget-client-tools.md). Počínaje sadou Visual Studio 2017 je rozhraní příkazového řádku dotnet součástí úloh .NET Core.
 
-Pro projekty .NET Core a .NET Standard, které používají [Formát styly sady SDK](../resources/check-project-format.md)a všechny další projekty ve stylu sady SDK, nástroj NuGet používá informace v souboru projektu přímo k vytvoření balíčku. Podrobné kurzy najdete v tématech [vytváření .NET Standard balíčků pomocí příkazu DOTNET CLI](../quickstart/create-and-publish-a-package-using-the-dotnet-cli.md) nebo [vytváření balíčků .NET Standard pomocí sady Visual Studio](../quickstart/create-and-publish-a-package-using-visual-studio.md).
+Pro projekty .NET Core a .NET Standard, které používají [Formát styly sady SDK](../resources/check-project-format.md)a všechny další projekty ve stylu sady SDK, nástroj NuGet používá informace v souboru projektu přímo k vytvoření balíčku.  Pro projekt bez sady SDK, který používá `<PackageReference>`, můžete také použít MSBuild (`msbuild /t:pack`).
 
-`msbuild -t:pack`je obdobou `dotnet pack`funkcí. Pro sestavení pomocí nástroje MSBuild si přečtěte téma [Vytvoření balíčku NuGet pomocí MSBuild](creating-a-package-msbuild.md).
+Pro sestavení pomocí nástroje MSBuild je nutné přidat balíček NuGet. Build. Tasks. Pack do závislostí projektu. Podrobné informace o cílech sady MSBuild Pack naleznete v tématu [sada NuGet Pack a obnovení jako cíle MSBuild](../reference/msbuild-targets.md).
+
+`msbuild -t:pack`je obdobou `dotnet pack`funkcí. Podrobné kurzy k použití rozhraní `dotnet` příkazového řádku najdete v tématu [Vytvoření balíčků .NET Standard pomocí příkazu dotnet CLI](../quickstart/create-and-publish-a-package-using-the-dotnet-cli.md).
 
 > [!IMPORTANT]
 > Toto téma se vztahuje na projekty ve [stylu sady SDK](../resources/check-project-format.md) , obvykle v projektech .NET Core a .NET Standard.
@@ -37,7 +39,7 @@ V sadě Visual Studio můžete nastavit tyto hodnoty ve vlastnostech projektu (k
 
 ```xml
 <PropertyGroup>
-  <PackageId>AppLogger</PackageId>
+  <PackageId>ClassLibDotNetStandard</PackageId>
   <Version>1.0.0</Version>
   <Authors>your_name</Authors>
   <Company>your_company</Company>
@@ -47,13 +49,13 @@ V sadě Visual Studio můžete nastavit tyto hodnoty ve vlastnostech projektu (k
 > [!Important]
 > Poskytněte balíčku identifikátor, který je jedinečný v rámci nuget.org nebo jakýkoli ze zdrojů balíčku, který používáte.
 
-Následující příklad ukazuje jednoduchý a kompletní soubor projektu s těmito vlastnostmi, které jsou k dispozici. (Pomocí `dotnet new classlib` příkazu můžete vytvořit nový výchozí projekt.)
+Následující příklad ukazuje jednoduchý a kompletní soubor projektu s těmito vlastnostmi, které jsou k dispozici.
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageId>AppLogger</PackageId>
+    <PackageId>ClassLibDotNetStandard</PackageId>
     <Version>1.0.0</Version>
     <Authors>your_name</Authors>
     <Company>your_company</Company>
@@ -72,35 +74,81 @@ Podrobnosti o deklarování závislostí a zadání čísel verzí najdete v té
 
 [!INCLUDE [choose-package-id](includes/choose-package-id.md)]
 
-## <a name="run-the-pack-command"></a>Spuštění příkazu Pack
+## <a name="add-the-nugetbuildtaskspack-package"></a>Přidat balíček NuGet. Build. Tasks. Pack
 
-Chcete-li vytvořit balíček NuGet ( `.nupkg` soubor) z projektu, `dotnet pack` spusťte příkaz, který také automaticky vytvoří projekt:
+Chcete-li použít nástroj MSBuild, přidejte do projektu balíček NuGet. Build. Tasks. Pack.
 
-```cli
+1. Otevřete soubor projektu a přidejte následující za `<PropertyGroup>` element:
+
+   ```xml
+   <ItemGroup>
+     <!-- ... -->
+     <PackageReference Include="NuGet.Build.Tasks.Pack" Version="5.2.0"/>
+     <!-- ... -->
+   </ItemGroup>
+   ```
+
+2. Otevřete příkazový řádek pro vývojáře (do **vyhledávacího** pole zadejte **příkaz Developer Command Prompt**).
+
+3. Přepněte do složky obsahující soubor projektu a zadejte následující příkaz pro instalaci balíčku NuGet. Build. Tasks. Pack.
+
+   ```cmd
+   # Uses the project file in the current folder by default
+   msbuild -t:restore
+   ```
+
+   Ujistěte se, že výstup nástroje MSBuild indikuje, že sestavení bylo úspěšně dokončeno.
+
+## <a name="run-the-msbuild--tpack-command"></a>Spuštění příkazu MSBuild-t:Pack
+
+Chcete-li vytvořit balíček NuGet ( `.nupkg` soubor) z projektu, `msbuild -t:pack` spusťte příkaz, který také automaticky vytvoří projekt:
+
+Do příkazového řádku pro vývojáře zadejte tento příkaz:
+
+```cmd
 # Uses the project file in the current folder by default
-dotnet pack
+msbuild -t:pack
 ```
 
 Výstup zobrazuje cestu k `.nupkg` souboru.
 
 ```output
-Microsoft (R) Build Engine version 15.5.180.51428 for .NET Core
+Microsoft (R) Build Engine version 16.1.76+g14b0a930a7 for .NET Framework
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-  Restore completed in 29.91 ms for D:\proj\AppLoggerNet\AppLogger\AppLogger.csproj.
-  AppLogger -> D:\proj\AppLoggerNet\AppLogger\bin\Debug\netstandard2.0\AppLogger.dll
-  Successfully created package 'D:\proj\AppLoggerNet\AppLogger\bin\Debug\AppLogger.1.0.0.nupkg'.
+Build started 8/5/2019 3:09:15 PM.
+Project "C:\Users\username\source\repos\ClassLib_DotNetStandard\ClassLib_DotNetStandard.csproj" on node 1 (pack target(s)).
+GenerateTargetFrameworkMonikerAttribute:
+Skipping target "GenerateTargetFrameworkMonikerAttribute" because all output files are up-to-date with respect to the input files.
+CoreCompile:
+  ...
+CopyFilesToOutputDirectory:
+  Copying file from "C:\Users\username\source\repos\ClassLib_DotNetStandard\obj\Debug\netstandard2.0\ClassLib_DotNetStandard.dll" to "C:\Use
+  rs\username\source\repos\ClassLib_DotNetStandard\bin\Debug\netstandard2.0\ClassLib_DotNetStandard.dll".
+  ClassLib_DotNetStandard -> C:\Users\username\source\repos\ClassLib_DotNetStandard\bin\Debug\netstandard2.0\ClassLib_DotNetStandard.dll
+  Copying file from "C:\Users\username\source\repos\ClassLib_DotNetStandard\obj\Debug\netstandard2.0\ClassLib_DotNetStandard.pdb" to "C:\Use
+  rs\username\source\repos\ClassLib_DotNetStandard\bin\Debug\netstandard2.0\ClassLib_DotNetStandard.pdb".
+GenerateNuspec:
+  Successfully created package 'C:\Users\username\source\repos\ClassLib_DotNetStandard\bin\Debug\AppLogger.1.0.0.nupkg'.
+Done Building Project "C:\Users\username\source\repos\ClassLib_DotNetStandard\ClassLib_DotNetStandard.csproj" (pack target(s)).
+
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:01.21
 ```
 
 ### <a name="automatically-generate-package-on-build"></a>Automaticky generovat balíček při sestavení
 
-Chcete-li `dotnet pack` automaticky spustit při `dotnet build`spuštění, přidejte následující řádek do souboru projektu v rámci `<PropertyGroup>`:
+Chcete-li `msbuild -t:pack` automaticky spustit při sestavování nebo obnovování projektu, přidejte následující řádek do souboru projektu `<PropertyGroup>`v:
 
 ```xml
 <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 ```
 
-Při spuštění `dotnet pack` v řešení jsou všechny projekty v řešení, které lze zabalit ([<IsPackable>](/dotnet/core/tools/csproj#nuget-metadata-properties) vlastnost nastavena na `true`.
+Při spuštění `msbuild -t:pack` v řešení jsou všechny projekty v řešení, které lze zabalit ([<IsPackable>](/dotnet/core/tools/csproj#nuget-metadata-properties) vlastnost nastavena na `true`.
 
 > [!NOTE]
 > Když balíček automaticky vygenerujete, čas k zabalení zvýší čas sestavení pro váš projekt.
@@ -120,6 +168,7 @@ Po vytvoření balíčku, který je `.nupkg` soubor, můžete ho publikovat do G
 
 Můžete také chtít zvětšit možnosti vašeho balíčku nebo jinak podporovat jiné scénáře, jak je popsáno v následujících tématech:
 
+- [Sada NuGet Pack a obnovení jako cíle MSBuild](../reference/msbuild-targets.md)
 - [Správa verzí balíčků](../reference/package-versioning.md)
 - [Podpora více cílových architektur](../create-packages/multiple-target-frameworks-project-file.md)
 - [Transformace zdrojových a konfiguračních souborů](../create-packages/source-and-config-file-transformations.md)

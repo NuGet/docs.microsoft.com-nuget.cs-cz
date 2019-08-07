@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.openlocfilehash: ee456fd49675db37fee78dc14502a897d84a2b99
-ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
+ms.openlocfilehash: 47593cc65ad707b8880d854dc43824b9234fd44a
+ms.sourcegitcommit: ba8ad1bd13a4bba3df94374e34e20c425a05af2f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68342468"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68833313"
 ---
 # <a name="quickstart-install-and-use-a-package-using-the-dotnet-cli"></a>Rychlý start: Instalace a použití balíčku pomocí rozhraní příkazového řádku dotnet
 
@@ -30,6 +30,8 @@ Po instalaci se podívejte na balíček v kódu `using <namespace>` , kde \<obor
 Balíčky NuGet se dají nainstalovat do projektu .NET nějakého druhu. Pro tento návod vytvořte jednoduchý projekt konzoly .NET Core následujícím způsobem:
 
 1. Vytvořte složku pro projekt.
+
+1. Otevřete příkazový řádek a přepněte do nové složky.
 
 1. Vytvořte projekt pomocí následujícího příkazu:
 
@@ -101,7 +103,7 @@ Balíčky NuGet se dají nainstalovat do projektu .NET nějakého druhu. Pro ten
     }
     ```
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 Blahopřejeme k instalaci a používání vašeho prvního balíčku NuGet!
 

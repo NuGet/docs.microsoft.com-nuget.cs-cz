@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8e662194fffc031d0cfc0aa129a5a15b555a4231
-ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
+ms.openlocfilehash: 8403ae38b5d2e907c6f06b162a18cdcd5425565b
+ms.sourcegitcommit: 5aa49478dc466c67db5c3edda7c6ce8dcd8ae033
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68420011"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68817531"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Sada NuGet Pack a obnovení jako cíle MSBuild
 
@@ -18,7 +18,7 @@ ms.locfileid: "68420011"
 
 Ve formátu [PackageReference](../consume-packages/package-references-in-project-files.md) NuGet 4.0 + může ukládat všechna metadata manifestu přímo do souboru projektu místo použití samostatného `.nuspec` souboru.
 
-Pomocí nástroje MSBuild 15.1 + nástroj NuGet je také první třídou občana MSBuild s `pack` cíli `restore` a, jak je popsáno níže. Tyto cíle vám umožňují pracovat s balíčky NuGet stejně jako s ostatními úlohami nebo cíli MSBuild. (Pro NuGet 3. x a starší použijte místo toho příkazy [Pack](../reference/cli-reference/cli-ref-pack.md) a [obnovení](../reference/cli-reference/cli-ref-restore.md) prostřednictvím rozhraní příkazového řádku NuGet.)
+Pomocí nástroje MSBuild 15.1 + nástroj NuGet je také první třídou občana MSBuild s `pack` cíli `restore` a, jak je popsáno níže. Tyto cíle vám umožňují pracovat s balíčky NuGet stejně jako s ostatními úlohami nebo cíli MSBuild. Pokyny k vytvoření balíčku NuGet pomocí nástroje MSBuild najdete v tématu [Vytvoření balíčku NuGet pomocí nástroje MSBuild](../create-packages/creating-a-package-msbuild.md). (Pro NuGet 3. x a starší použijte místo toho příkazy [Pack](../reference/cli-reference/cli-ref-pack.md) a [obnovení](../reference/cli-reference/cli-ref-restore.md) prostřednictvím rozhraní příkazového řádku NuGet.)
 
 ## <a name="target-build-order"></a>Pořadí cílového sestavení
 
@@ -54,14 +54,14 @@ Všimněte si, `Owners` že `Summary` nástroj MSBuild `.nuspec` nepodporuje vla
 | Název | Název | PackageId| |
 | Popis | Popis | Popis balíčku | |
 | Úprava | Úprava | empty | |
-| requireLicenseAcceptance | PackageRequireLicenseAcceptance | false | |
-| Průkaz | PackageLicenseExpression | empty | Odpovídá`<license type="expression">` |
-| Průkaz | PackageLicenseFile | empty | `<license type="file">`Odpovídá. Je možné, že bude nutné explicitně sbalit soubor s odkazem na licenci. |
+| RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false | |
+| průkaz | PackageLicenseExpression | empty | Odpovídá`<license type="expression">` |
+| průkaz | PackageLicenseFile | empty | `<license type="file">`Odpovídá. Je možné, že bude nutné explicitně sbalit soubor s odkazem na licenci. |
 | LicenseUrl | PackageLicenseUrl | empty | `licenseUrl`se už nepoužívá, použijte vlastnost PackageLicenseExpression nebo PackageLicenseFile. |
 | ProjectUrl | PackageProjectUrl | empty | |
 | IconUrl | PackageIconUrl | empty | |
 | Značky | PackageTags | empty | Značky jsou středníky odděleny středníkem. |
-| releaseNotes | PackageReleaseNotes | empty | |
+| ReleaseNotes | PackageReleaseNotes | empty | |
 | Úložiště/adresa URL | RepositoryUrl | empty | Adresa URL úložiště, která se používá k klonování nebo načtení zdrojového kódu. Případě *https://github.com/NuGet/NuGet.Client.git* |
 | Úložiště/typ | RepositoryType | empty | Typ úložiště Příklady: *Git*, *TFS*. |
 | Úložiště/větev | RepositoryBranch | empty | Volitelné informace o větvi úložiště Pro zahrnutí této vlastnosti je nutné zadat také *RepositoryUrl* . Příklad: *Master* (NuGet 4.7.0 +) |
@@ -79,7 +79,7 @@ Všimněte si, `Owners` že `Summary` nástroj MSBuild `.nuspec` nepodporuje vla
 - Popis
 - Úprava
 - PackageRequireLicenseAcceptance
-- developmentDependency
+- DevelopmentDependency
 - PackageLicenseExpression
 - PackageLicenseFile
 - PackageLicenseUrl
@@ -90,7 +90,7 @@ Všimněte si, `Owners` že `Summary` nástroj MSBuild `.nuspec` nepodporuje vla
 - PackageOutputPath
 - IncludeSymbols
 - IncludeSource
-- packageTypes
+- PackageTypes
 - Nástroj
 - RepositoryUrl
 - RepositoryType
@@ -329,7 +329,7 @@ Příklad:
 1. Stáhnout balíčky
 1. Zápis souboru prostředků, cílů a vlastností props
 
-Cíl funguje pouze pro projekty, které používají formát PackageReference.  `restore` Nefunguje **pro** projekty používající `packages.config` formát. místo toho použijte [obnovení NuGet](../reference/cli-reference/cli-ref-restore.md) .
+Cíl funguje pouze pro projekty, které používají formát PackageReference. `restore` Nefunguje pro projekty používající `packages.config` formát. místo toho použijte [obnovení NuGet](../reference/cli-reference/cli-ref-restore.md) .
 
 ### <a name="restore-properties"></a>Obnovit vlastnosti
 

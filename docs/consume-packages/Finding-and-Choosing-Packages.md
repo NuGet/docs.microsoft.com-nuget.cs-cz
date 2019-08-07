@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3af29e2f9b09ba5bd82779f9aacf314bd8933436
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: cbe6fd964e88b054b9e2c5c8ead71d1f9090d63c
+ms.sourcegitcommit: 5aa49478dc466c67db5c3edda7c6ce8dcd8ae033
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317029"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68817560"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Hledání a vyhodnocení balíčků NuGet pro váš projekt
 
@@ -82,6 +82,10 @@ Zároveň použití balíčku NuGet znamená, že se v něm nachází závislost
 
     ![Stáhnout statistiku na stránce se seznamem balíčku](media/Finding-03-Downloads.png)
 
+- *Použití GitHubu*: na stránce balíček obsahuje oddíl **použití GitHubu** hlavní úložiště GitHub, která závisí na tomto balíčku. Balíček, na kterém je mnoho oblíbených úložišť GitHubu, závisí obvykle na lepším výběru.
+
+    ![Použití GitHubu](media/GitHub-Usage.png)
+
 - *Historie verzí*: na stránce balíček vyhledejte v části **informace** datum poslední aktualizace a zkontrolujte **historii verzí**. Dobře uchovávaný balíček má nedávné aktualizace a bohatou historii verzí. Opomíjené balíčky mají několik aktualizací a v některých časových intervalech se často neaktualizovaly.
 
     ![Historie verzí na stránce se seznamem balíčku](media/Finding-04-VersionHistory.png)
@@ -90,7 +94,7 @@ Zároveň použití balíčku NuGet znamená, že se v něm nachází závislost
 
 - *Podpora*: na stránce balíček v části **informace**vyberte možnost **Web projektu** (Pokud je k dispozici) a zjistěte, jaké možnosti podpory Autor poskytuje. Projekt s vyhrazenou lokalitou je obecně lepší podporovat.
 
-- *Historie pro vývojáře*: na stránce balíček v části vlastníci vyberte vlastníka a podívejte se, jaké další balíčky se publikovaly. U zařízení s více balíčky je pravděpodobnější, že budou v budoucnu nadále podporovat svou práci.
+- *Historie pro vývojáře*: na stránce balíček včásti vlastníci vyberte vlastníka a podívejte se, jaké další balíčky se publikovaly. U zařízení s více balíčky je pravděpodobnější, že budou v budoucnu nadále podporovat svou práci.
 
 - *Příspěvky na Open Source*: mnoho balíčků se uchovává v úložištích open source, což umožňuje vývojářům v závislosti na tom, jak přímo přispívá k opravám chyb a vylepšení funkcí. Historie příspěvků každého daného balíčku je také dobrým ukazatelem toho, kolik vývojářů je aktivně zapojeno.
 
@@ -115,6 +119,7 @@ Tady je postup, jak si přečíst informace obsažené v souboru s licencí v ba
 1. Měla by obsahovat značku jako `<license type="file">license\license.txt</license>`. To znamená, že soubor s licencí `license.txt` má název a je uvnitř složky s `license` názvem, která by byla také v kořenu této složky.
 1. Přejděte do `license` složky a `license.txt` otevřete soubor.
 
+V případě `.nuspec`, že nástroj MSBuild odpovídá nastavení licence v nástroji, podívejte se na [balení licenčního výrazu nebo souboru s licencí](/nuget/reference/msbuild-targets#packing-a-license-expression-or-a-license-file).
 
 ## <a name="search-syntax"></a>Syntaxe hledání
 

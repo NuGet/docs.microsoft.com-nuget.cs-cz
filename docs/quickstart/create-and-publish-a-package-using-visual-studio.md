@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: quickstart
-ms.openlocfilehash: 86e71460094de9b799384db83456a68db57647af
-ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
+ms.openlocfilehash: 0fc3b15c6d5ffa93eb6e26660f71cea2286ba77d
+ms.sourcegitcommit: aed04cc04b0902403612de6736a900d41c265afd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68419918"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68821413"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Rychlý start: Vytvoření a publikování balíčku NuGet pomocí sady Visual Studio (.NET Standard, pouze Windows)
 
@@ -99,17 +99,24 @@ namespace AppLogger
     ========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
     ```
 
-### <a name="alternate-option-pack-with-msbuild"></a>Alternativní možnost: sada s MSBuild
+### <a name="optional-generate-package-on-build"></a>Volitelné Generovat balíček při sestavení
+
+Sadu Visual Studio můžete nakonfigurovat tak, aby automaticky generovala balíček NuGet při sestavování projektu.
+
+1. V Průzkumníku řešení klikněte pravým tlačítkem na projekt a zvolte **vlastnosti**.
+
+2. Na kartě **balíček** vyberte při sestavování **vytvořit balíček NuGet**.
+
+   ![Automaticky generovat balíček při sestavení](media/qs_create-vs-05-generate-on-build.png)
+
+> [!NOTE]
+> Když balíček automaticky vygenerujete, čas k zabalení zvýší čas sestavení pro váš projekt.
+
+### <a name="optional-pack-with-msbuild"></a>(Nepovinný) Pack s nástrojem MSBuild
 
 Jako alternativu k použití příkazu nabídky **Pack** , NuGet 4. x + a MSBuild 15.1 + podporuje `pack` cíl, když projekt obsahuje potřebná data balíčku. Otevřete příkazový řádek, přejděte do složky projektu a spusťte následující příkaz. (Obvykle chcete spustit "Developer Command Prompt pro Visual Studio" z nabídky Start, protože se nakonfiguruje se všemi nezbytnými cestami pro MSBuild.)
 
-```cli
-msbuild -t:pack -p:Configuration=Release
-```
-
-Balíček se pak dá najít ve `bin\Release` složce.
-
-Další možnosti s `msbuild -t:pack`najdete v tématu [sada NuGet Pack a obnovení jako cíle MSBuild](../reference/msbuild-targets.md#pack-target).
+Další informace najdete v tématu [Vytvoření balíčku pomocí nástroje MSBuild](../create-packages/creating-a-package-msbuild.md).
 
 ## <a name="publish-the-package"></a>Publikování balíčku
 
