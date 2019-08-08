@@ -7,12 +7,12 @@ ms.date: 02/12/2018
 ms.topic: hub-page
 layout: HubPage
 hide_bc: true
-ms.openlocfilehash: cdd032a5a7268a7ffddff5141229fd021ec275a5
-ms.sourcegitcommit: 5aa49478dc466c67db5c3edda7c6ce8dcd8ae033
+ms.openlocfilehash: 8f4fca447d61b6f435399a24ef4151604d43291d
+ms.sourcegitcommit: ba8ad1bd13a4bba3df94374e34e20c425a05af2f
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 08/06/2019
-ms.locfileid: "68817538"
+ms.locfileid: "68833358"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -122,13 +122,16 @@ ms.locfileid: "68817538"
                             <a href="create-packages/overview-and-workflow.md">Workflow (přehled)</a>
                         </p>
                         <p>
-                            <a href="create-packages/creating-a-package-dotnet-cli.md">Vytvoření balíčku (rozhraní příkazového řádku dotnet)</a>
+                            <a href="quickstart/create-and-publish-a-package-using-visual-studio.md">Použití sady Visual Studio</a>
                         </p>
                         <p>
-                            <a href="create-packages/creating-a-package.md">Vytvoření balíčku (rozhraní příkazového řádku nuget.exe)</a>
+                            <a href="create-packages/creating-a-package-dotnet-cli.md">Použití rozhraní příkazového řádku dotnet</a>
                         </p>
                         <p>
-                            <a href="create-packages/creating-a-package.md">Vytvoření balíčku – MSBuild</a>
+                            <a href="create-packages/creating-a-package.md">Použití rozhraní příkazového řádku nuget.exe</a>
+                        </p>
+                        <p>
+                            <a href="create-packages/creating-a-package.md">Použití nástroje MSBuild</a>
                         </p>
                         <p>
                             <a href="create-packages/multiple-target-frameworks-project-file.md">Podpora více cílových architektur</a>
@@ -210,6 +213,8 @@ ms.locfileid: "68817538"
                         <p>
                             <a href="consume-packages/package-references-in-project-files.md">Odkazy na balíčky</a>
                         </p>
+                        <p>
+                            <a href="reference/msbuild-targets.md">pack a restore jako cíle MSBuild</a>
                         </p>
                         <p>
                             <a href="reference/nuspec.md">Soubor .nuspec</a>

@@ -39,7 +39,6 @@
 ## [Vytvoření balíčku symbolů](create-packages/symbol-packages-snupkg.md)
 ## Pokročilé úlohy
 ### [Podpora více cílových architektur](create-packages/supporting-multiple-target-frameworks.md)
-### [Zadání balíčku MSBuild a obnovení cílů](reference/msbuild-targets.md)
 ### [Úprava zdrojového kódu a konfiguračních souborů](create-packages/source-and-config-file-transformations.md)
 ### [Výběr sestavení odkazovaných projekty](create-packages/select-assemblies-referenced-by-projects.md)
 ### [Nastavení typu balíčku](create-packages/set-package-type.md)
@@ -71,6 +70,7 @@
 ## [.nuspec](reference/nuspec.md)
 ## [Soubor nuget.config](reference/nuget-config-file.md)
 ## [Cílové architektury](reference/target-frameworks.md)
+## [pack a restore jako cíle MSBuild](reference/msbuild-targets.md)
 ## [dotnet CLI](reference/dotnet-Commands.md)
 ## [Referenční informace o rozhraní příkazového řádku nuget.exe](reference/nuget-exe-cli-reference.md)
 ### [add](reference/cli-reference/cli-ref-add.md)
