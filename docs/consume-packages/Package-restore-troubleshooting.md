@@ -1,85 +1,89 @@
 ---
-title: Řešení potíží s obnovení balíčků NuGet v sadě Visual Studio
-description: Popis běžné NuGet restore chyby v sadě Visual Studio a postupy jejich řešení.
+title: Řešení potíží s obnovením balíčku NuGet v aplikaci Visual Studio
+description: Popis běžných chyb obnovení NuGet v aplikaci Visual Studio a jejich řešení.
 author: karann-msft
 ms.author: karann
 ms.date: 05/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 287237cf4041870c562a6a7f48f233d8fdc8ef33
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: a1f9f1d03e9a6e58466fa92426bd655d5e8ed83d
+ms.sourcegitcommit: e763d9549cee3b6254ec2d6382baccb44433d42c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842387"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68860625"
 ---
-# <a name="troubleshooting-package-restore-errors"></a>Řešení potíží s chybami obnovení balíčku
+# <a name="troubleshooting-package-restore-errors"></a>Řešení potíží s chybami při obnovení balíčku
 
-Tento článek se zaměřuje na běžných chyb při obnovování balíčků a kroky k jejich řešení. Kompletní informace o obnovování balíčků, najdete v části [obnovení balíčku](../consume-packages/package-restore.md#enable-and-disable-package-restore-visual-studio).
+Tento článek se zaměřuje na běžné chyby při obnovení balíčků a postupu jejich řešení. 
 
-Pokud zde uvedených pokynů, nebudou fungovat, [založte prosím problém na Githubu](https://github.com/NuGet/docs.microsoft.com-nuget/issues) tak, aby nám více pečlivě prozkoumat váš scénář. Nepoužívejte "je tato stránka užitečná?" ovládací prvek, který může zobrazit na této stránce, protože se nám nedává možnost kontaktovat v souvislosti s další informace.
+Obnovení balíčku se pokusí nainstalovat všechny závislosti balíčků do správného stavu, který odpovídá odkazům na balíček v souboru projektu ( *. csproj*) nebo souboru *Packages. config* . (V aplikaci Visual Studio se odkazy zobrazí v Průzkumník řešení pod uzlem **závislosti \ NuGet** nebo **odkazy** .) Postup obnovení balíčků pomocí požadovaných kroků najdete v tématu [obnovení balíčků](../consume-packages/package-restore.md#restore-packages). Pokud balíček odkazuje v souboru projektu ( *. csproj*) nebo soubor Packages *. config* je nesprávný (neshoduje se s požadovaným stavem po obnovení balíčku), je třeba nainstalovat nebo aktualizovat balíčky namísto použití balíčku. Obnovil.
+
+Pokud vám pokyny pro vás nefungují, zajistěte [prosím problém na GitHubu](https://github.com/NuGet/docs.microsoft.com-nuget/issues) , abychom mohli podrobněji prošetřit svůj scénář. Nepoužívejte tuto stránku jako užitečnou? ovládací prvek, který se může zobrazit na této stránce, protože nám nedává možnost kontaktovat vám další informace
 
 ## <a name="quick-solution-for-visual-studio-users"></a>Rychlé řešení pro uživatele sady Visual Studio
 
-Pokud používáte Visual Studio, nejprve následujícím způsobem povolte obnovení balíčků. V opačném případě pokračujte následující části.
+Pokud používáte sadu Visual Studio, nejprve povolte obnovení balíčku následujícím způsobem. V opačném případě pokračujte v následujících oddílech.
 
-1. Vyberte **nástroje > Správce balíčků NuGet > Nastavení správce balíčků** příkazu nabídky.
-1. Obě možnosti v části Nastavení **obnovení balíčků**.
+1. Vyberte **nástroje > správce balíčků NuGet > nabídce Nastavení správce balíčků** .
+1. V části **obnovení balíčku**nastavte obě možnosti.
 1. Vyberte **OK**.
-1. Znovu sestavte projekt.
+1. Sestavte projekt znovu.
 
-![Povolit obnovení balíčků NuGet v dialogovém okně nástroje/Možnosti](../consume-packages/media/restore-01-autorestoreoptions.png)
+![Povolit obnovení balíčků NuGet v nástrojích/možnostech](../consume-packages/media/restore-01-autorestoreoptions.png)
 
-Tato nastavení lze také změnit v vaše `NuGet.config` souboru; najdete v článku [souhlas](#consent) oddílu. Pokud váš projekt je starší projekt, který používá obnovení balíčku integrované nástroje MSBuild, budete muset [migrovat](package-restore.md#migrate-to-automatic-package-restore-visual-studio) balíček automatické obnovení.
+Tato nastavení lze také změnit v `NuGet.config` souboru. informace najdete v části věnované [souhlasu](#consent) . Pokud je váš projekt starší projekt, který používá obnovení balíčku integrovaného MSBuild, může být nutné [migrovat](package-restore.md#migrate-to-automatic-package-restore-visual-studio) na automatické obnovení balíčku.
 
 <a name="missing"></a>
 
-## <a name="this-project-references-nuget-packages-that-are-missing-on-this-computer"></a>Tento projekt odkazuje na balíčky NuGet, které jsou na tomto počítači chybí
+## <a name="this-project-references-nuget-packages-that-are-missing-on-this-computer"></a>Tento projekt odkazuje na balíčky NuGet, které na tomto počítači chybí.
 
-Kompletní chybová zpráva:
+Úplná chybová zpráva:
 
 ```output
 This project references NuGet package(s) that are missing on this computer.
 Use NuGet Package Restore to download them. The missing file is {name}.
 ```
 
-K této chybě dochází při pokusu o vytvoření projektu, který obsahuje odkazy na jeden nebo více balíčků NuGet, ale tyto balíčky nejsou v současné době nainstalované v počítači nebo v projektu.
+K této chybě dochází, když se pokusíte sestavit projekt, který obsahuje odkazy na jeden nebo více balíčků NuGet, ale tyto balíčky se v počítači nebo v projektu aktuálně neinstalují.
 
-- Při použití formátu správy PackageReference chyba znamená, že balíček není nainstalována v *global-packages* složky, jak je popsáno na [Správa globálních balíčků a složek mezipaměti](managing-the-global-packages-and-cache-folders.md).
-- Při použití `packages.config`, chyba znamená, že balíček není nainstalována v `packages` složku v kořenovém adresáři řešení.
+- Při použití formátu správy [PackageReference](package-references-in-project-files.md) chyba znamená, že balíček není nainstalován ve složce *Global-Packages* , jak je popsáno v tématu [Správa globálních balíčků a složek mezipaměti](managing-the-global-packages-and-cache-folders.md).
+- Při použití [souboru Packages. config](../reference/packages-config.md)chyba znamená, že balíček není nainstalován ve `packages` složce v kořenu řešení.
 
-Této situaci dochází běžně, když získal zdrojový kód projektu ze správy zdrojového kódu nebo jiného stahování. Balíčky jsou obvykle vynechány ze správy zdrojového kódu nebo soubory ke stažení, protože je možné obnovit z informační kanály balíčků, jako je nuget.org (viz [balíčky a Správa zdrojového kódu](Packages-and-Source-Control.md)). Jejich zahrnování by jinak nafouknutí úložiště nebo vytvořit soubory .zip zbytečně velký.
+K této situaci obvykle dochází, když získáte zdrojový kód projektu ze správy zdrojového kódu nebo z jiného stahování. Balíčky jsou obvykle vynechány ze správy zdrojového kódu nebo ze souborů ke stažení, protože je lze obnovit z kanálů balíčků jako nuget.org (viz [balíčky a Správa zdrojového kódu](Packages-and-Source-Control.md)). Zahrnutí by jinak dispozici determinističtější úložiště nebo vytvářet zbytečně velké soubory. zip.
 
-Chyba může dojít, pokud váš soubor projektu obsahuje absolutní cesty k umístění balíčku, a přesunout projektu.
+K této chybě může dojít také v případě, že soubor projektu obsahuje absolutní cesty k umístěním balíčků a přesouváte projekt.
 
-Obnovení balíčků, použijte jednu z následujících metod:
+K obnovení balíčků použijte jednu z následujících metod:
 
-- Pokud po přesunutí souboru projektu, upravte soubor přímo aktualizovat odkazy na balíček.
-- (Visual Studio) Povolit obnovení balíčků tak, že vyberete **nástroje > Správce balíčků NuGet > Nastavení správce balíčků** příkazu nabídky nastavení obě možnosti v části **obnovení balíčků**a výběrem **OK** . Poté znovu sestavte řešení.
-- (rozhraní příkazového řádku dotnet) Na příkazovém řádku přejděte do složky, která obsahuje váš projekt a pak spusťte `dotnet restore` nebo `dotnet build` (který automaticky spustí obnovení).
-- (nuget.exe rozhraní příkazového řádku) Na příkazovém řádku přejděte do složky, která obsahuje váš projekt a pak spusťte `nuget restore` (s výjimkou projekty vytvořené pomocí `dotnet` rozhraní příkazového řádku, ve které případu použití `dotnet restore`).
-- (Projekty migrovat do PackageReference) Na příkazovém řádku spusťte `msbuild -t:restore`.
+- Pokud jste přesunuli soubor projektu, upravte soubor přímo a aktualizujte odkazy na balíčky.
+- [Visual Studio](package-restore.md#restore-using-visual-studio) ([Automatické obnovení](package-restore.md#restore-packages-automatically-using-visual-studio) nebo [Ruční obnovení](package-restore.md#restore-packages-manually-using-visual-studio))
+- [dotnet CLI](package-restore.md#restore-using-the-dotnet-cli)
+- [nuget.exe CLI](package-restore.md#restore-using-the-nugetexe-cli)
+- [MSBuild](package-restore.md#restore-using-msbuild)
+- [Azure Pipelines](package-restore.md#restore-using-azure-pipelines)
+- [Azure DevOps Server](package-restore.md#restore-using-azure-devops-server)
 
-Po úspěšné obnovení by měla být k dispozici v balíčku *global-packages* složky. Pro projekty pomocí PackageReference obnovení musí znovu vytvořit `obj/project.assets.json` soubor; pro projekty používající `packages.config`, balíček by se měla objevit v projektu `packages` složky. Projekt by měl nyní úspěšně sestavit. V opačném případě [založte problém na Githubu](https://github.com/NuGet/docs.microsoft.com-nuget/issues) tak jsme poradí s vámi.
+Po úspěšném obnovení by měl být balíček přítomen ve složce *Global-Packages* . Pro projekty, které používají PackageReference, by měl obnovení `obj/project.assets.json` soubor znovu vytvořit; pro projekty, které používají `packages.config`, by se měl balíček `packages` zobrazit ve složce projektu. Projekt by se teď měl úspěšně sestavit. Pokud ne, zapište [problém na GitHubu](https://github.com/NuGet/docs.microsoft.com-nuget/issues) , abychom mohli pokračovat s vámi.
 
 <a name="assets"></a>
 
-## <a name="assets-file-projectassetsjson-not-found"></a>Nebyl nalezen project.assets.json souboru prostředků
+## <a name="assets-file-projectassetsjson-not-found"></a>Soubor prostředků Project. assets. JSON se nenašel.
 
-Kompletní chybová zpráva:
+Úplná chybová zpráva:
 
 ```output
 Assets file '<path>\project.assets.json' not found. Run a NuGet package restore to generate this file.
 ```
 
-`project.assets.json` Souboru udržuje graf závislosti projektu při použití formátu správy PackageReference, který se používá k zajištění toho, že jsou v počítači nainstalovány všechny potřebné balíčky. Protože tento soubor se generuje dynamicky pomocí obnovení balíčků, není obvykle přidat do správy zdrojového kódu. V důsledku toho k této chybě dochází při sestavování projektu pomocí nástroje, jako `msbuild` , neobnoví automaticky balíčky.
+`project.assets.json` Soubor udržuje graf závislosti projektu při použití formátu správy PackageReference, který se používá k tomu, aby se zajistilo, že jsou v počítači nainstalovány všechny potřebné balíčky. Vzhledem k tomu, že tento soubor je generován dynamicky prostřednictvím obnovení balíčku, obvykle není přidán do správy zdrojového kódu. V důsledku toho k této chybě dochází při sestavování projektu s nástrojem `msbuild` , který neobnoví automaticky balíčky.
 
-V takovém případě spusťte `msbuild -t:restore` následovaný `msbuild`, nebo použijte `dotnet build` (což obnoví balíčky automaticky). Můžete také použít některou z metod obnovení balíčku v [předchozí části](#missing).
+V takovém případě spusťte `msbuild -t:restore` `msbuild`nebo použijte `dotnet build` (který automaticky obnoví balíčky). Můžete také použít kteroukoli z metod obnovení balíčků v [předchozí části](#missing).
 
 <a name="consent"></a>
 
-## <a name="one-or-more-nuget-packages-need-to-be-restored-but-couldnt-be-because-consent-has-not-been-granted"></a>Jeden nebo více balíčků NuGet je nutné obnovit, ale nepodařilo, protože nebyl udělen souhlas
+## <a name="one-or-more-nuget-packages-need-to-be-restored-but-couldnt-be-because-consent-has-not-been-granted"></a>Nejméně jeden balíček NuGet je potřeba obnovit, ale nedala se k němu udělit souhlas.
 
-Kompletní chybová zpráva:
+Úplná chybová zpráva:
 
 ```output
 One or more NuGet packages need to be restored but couldn't be because consent has
@@ -89,11 +93,11 @@ during build.' You can also give consent by setting the environment variable
 'EnableNuGetPackageRestore' to 'true'. Missing packages: {name}
 ```
 
-Tato chyba označuje, že obnovení balíčků je zakázáno v konfiguraci Nugetu.
+Tato chyba znamená, že obnovení balíčku je v konfiguraci NuGet zakázané.
 
-Použít nastavení v sadě Visual Studio můžete změnit, jak je popsáno výše v části [rychlé řešení pro uživatele sady Visual Studio](#quick-solution-for-visual-studio-users).
+V aplikaci Visual Studio můžete změnit příslušná nastavení, jak je popsáno výše v části [rychlé řešení pro uživatele sady Visual Studio](#quick-solution-for-visual-studio-users).
 
-Můžete také upravit tato nastavení přímo v příslušné `nuget.config` soubor (obvykle `%AppData%\NuGet\NuGet.Config` na Windows a `~/.nuget/NuGet/NuGet.Config` na Mac/Linux). Ujistěte se, že `enabled` a `automatic` klíče v části `packageRestore` jsou nastaveny na hodnotu True:
+Tato nastavení můžete také upravit přímo v příslušném `nuget.config` souboru (obvykle `%AppData%\NuGet\NuGet.Config` ve Windows a `~/.nuget/NuGet/NuGet.Config` v systému Mac/Linux). Ujistěte se `enabled` , že `automatic` klíče a `packageRestore` v části jsou nastaveny na hodnotu true:
 
 ```xml
 <!-- Package restore is enabled -->
@@ -106,14 +110,14 @@ Můžete také upravit tato nastavení přímo v příslušné `nuget.config` so
 ```
 
 > [!Important]
-> Pokud upravíte `packageRestore` přímo v nastavení `nuget.config`, restartujte aplikaci Visual Studio tak, aby se dialogové okno Možnosti zobrazuje aktuální hodnoty.
+> Pokud upravíte `packageRestore` nastavení přímo v `nuget.config`, restartujte Visual Studio tak, aby se v dialogovém okně Možnosti zobrazily aktuální hodnoty.
 
-## <a name="other-potential-conditions"></a>Další potenciální podmínky
+## <a name="other-potential-conditions"></a>Další možné podmínky
 
-- Chyby sestavení z důvodu chybějících souborů, kterým může dojít u zpráva, že si je stáhnout pomocí obnovení NuGet. Ale spuštění obnovení může být například "všechny balíčky jsou už nainstalované a neexistuje žádné položky k obnovení." V takovém případě odstranit `packages` složky (při použití `packages.config`) nebo `obj/project.assets.json` souboru (při použití PackageReference) a spusťte obnovení znovu. Pokud chyba stále přetrvává, použijte `nuget locals all -clear` nebo `dotnet locals all --clear` z příkazového řádku pro vymazání *global-packages* a jak je popsáno v mezipaměti složky [Správa globálních balíčků a složek mezipaměti](managing-the-global-packages-and-cache-folders.md).
+- Může dojít k chybám sestavení z důvodu chybějících souborů. zpráva říká použití obnovení NuGet ke stažení. Při spuštění obnovení ale může znamenat, že všechny balíčky jsou už nainstalované a neexistuje žádná obnova. " V takovém případě odstraňte `packages` složku (při použití `packages.config`) nebo `obj/project.assets.json` soubor (při použití PackageReference) a znovu spusťte obnovení. Pokud chyba stále `nuget locals all -clear` přetrvává, pomocí příkazu nebo `dotnet locals all --clear` z příkazového řádku zrušte zaškrtnutí popsaných složek *Global-Packages* a cache, jak je popsáno v tématu [Správa globálních balíčků a složek mezipaměti](managing-the-global-packages-and-cache-folders.md).
 
-- Při získávání projekt ze správy zdrojových kódů, složky projektu může být nastavená na jen pro čtení. Změňte oprávnění pro složky a zkuste to znovu obnovují se balíčky.
+- Při získávání projektu ze správy zdrojového kódu mohou být složky projektu nastaveny jen pro čtení. Změňte oprávnění složky a zkuste znovu obnovit balíčky.
 
-- Může používat stará verze balíčku nuget. Zkontrolujte [nuget.org/downloads](https://www.nuget.org/downloads) nejnovější doporučených verzí. Pro Visual Studio 2015 doporučujeme 3.6.0.
+- Je možné, že používáte starou verzi NuGet. Vyhledejte nejnovější Doporučené verze v [NuGet.org/downloads](https://www.nuget.org/downloads) . Pro Visual Studio 2015 doporučujeme 3.6.0.
 
-Pokud narazíte na jiné problémy [založte problém na Githubu](https://github.com/NuGet/docs.microsoft.com-nuget/issues) proto jsme od vás získali více podrobností.
+Pokud narazíte na jiné problémy, zapište [problém na GitHubu](https://github.com/NuGet/docs.microsoft.com-nuget/issues) , abychom vám mohli získat další podrobnosti.

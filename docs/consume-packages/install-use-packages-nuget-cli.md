@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/03/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9eefed6f2c1a362f27c4a5d33d07645d743379fa
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 9ef990c16cca62a1fbad25ff1582bfa543135fab
+ms.sourcegitcommit: e763d9549cee3b6254ec2d6382baccb44433d42c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317736"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68860563"
 ---
 # <a name="manage-packages-using-the-nugetexe-cli"></a>Správa balíčků pomocí rozhraní příkazového řádku NuGet. exe
 
@@ -36,13 +36,13 @@ Příkaz [install](../reference/cli-reference/cli-ref-install.md) stáhne a nain
 
 1. Otevřete příkazový řádek a přejděte do adresáře, který obsahuje soubor projektu.
 
-2. K instalaci balíčku NuGet do složky Packages použijte následující příkaz  .
+2. K instalaci balíčku NuGet do složky Packages použijte následující příkaz .
 
     ```cli
     nuget install <packageID> -OutputDirectory packages
     ```
 
-    Chcete-li `Newtonsoft.json` balíček nainstalovat do  složky Packages, použijte následující příkaz:
+    Chcete-li `Newtonsoft.json` balíček nainstalovat do složky Packages, použijte následující příkaz:
 
     ```cli
     nuget install Newtonsoft.Json -OutputDirectory packages
@@ -72,7 +72,7 @@ Další informace o omezeních a chování `install`nástroje najdete v tématu 
 
 ## <a name="remove-a-package"></a>Odebrat balíček
 
-Chcete-li odstranit jeden nebo více balíčků, odstraňte balíčky, které chcete odebrat ze  složky Packages.
+Chcete-li odstranit jeden nebo více balíčků, odstraňte balíčky, které chcete odebrat ze složky Packages.
 
 Pokud chcete balíčky znovu nainstalovat, použijte `restore` příkaz nebo. `install`
 
@@ -110,14 +110,4 @@ nuget update
 
 ## <a name="restore-packages"></a>Obnovit balíčky
 
-Použijte příkaz [Restore](../reference/cli-reference/cli-ref-restore.md) , který stáhne a nainstaluje ze složky Packages chybějící  balíčky.
-
-`restore`přidá pouze balíčky na disk, ale nemění závislosti projektu. Chcete-li obnovit závislosti projektu `packages.config`, upravte a pak `restore` použijte příkaz.
-
-Stejně jako u ostatních `nuget.exe` příkazů CLI otevřete příkazový řádek a přejděte do adresáře, který obsahuje soubor projektu.
-
-Postup obnovení balíčku pomocí `restore`:
-
-```cli
-nuget restore MySolution.sln
-```
+[!INCLUDE [restore-nuget-exe-cli](includes/restore-nuget-exe-cli.md)]

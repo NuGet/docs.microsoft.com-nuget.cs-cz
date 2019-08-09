@@ -3,16 +3,16 @@ title: Obnovení balíčku NuGet
 description: Přehled o tom, jak NuGet obnovuje balíčky, na kterých je projekt závislý, včetně toho, jak zakázat obnovení a omezit verze
 author: karann-msft
 ms.author: karann
-ms.date: 06/24/2019
+ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 0df2b0ebcf438fba99291558f1cf929dcb32618b
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 5bf75bb724846f652725bfcf636908c34adc174f
+ms.sourcegitcommit: e763d9549cee3b6254ec2d6382baccb44433d42c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68316991"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68860672"
 ---
-# <a name="package-restore-options"></a>Možnosti obnovení balíčků
+# <a name="restore-packages-using-package-restore"></a>Obnovení balíčků pomocí obnovení balíčku
 
 Pro zvýšení úrovně čisticího vývojového prostředí a snížení velikosti úložiště nainstaluje **obnovení balíčku** NuGet všechny závislosti projektu uvedené v souboru projektu nebo `packages.config`. Rozhraní .NET Core 2.0 + `dotnet build` a `dotnet run` provede automatické obnovení balíčku. Visual Studio může automaticky obnovovat balíčky při sestavení projektu a balíčky můžete kdykoli obnovit pomocí sady Visual Studio, `nuget restore`, `dotnet restore`a xbuild na mono.
 
@@ -29,27 +29,58 @@ Pokud balíček ještě není nainstalovaný, NuGet se nejdřív pokusí ho nač
 
 ## <a name="restore-packages"></a>Obnovit balíčky
 
-Obnovení balíčku můžete aktivovat některým z následujících způsobů:
+Obnovení balíčku se pokusí nainstalovat všechny závislosti balíčků do správného stavu, který odpovídá odkazům na balíček v souboru projektu ( *. csproj*) nebo souboru *Packages. config* . (V aplikaci Visual Studio se odkazy zobrazí v Průzkumník řešení pod uzlem **závislosti \ NuGet** nebo **odkazy** .)
 
-- **Visual Studio**: V aplikaci Visual Studio ve Windows použijte jednu z následujících metod.
+1. Pokud jsou odkazy na balíček v souboru projektu správné, použijte k obnovení balíčků preferovaný nástroj.
 
-    - Obnovte balíčky automaticky. K obnovení balíčku dojde automaticky při vytvoření projektu ze šablony nebo sestavení projektu v závislosti na možnostech v části [Povolit a zakázat obnovení balíčku](#enable-and-disable-package-restore-visual-studio). V NuGet 4.0 + dojde k obnovení také automaticky při provádění změn v projektu ve stylu sady SDK (obvykle se jedná o .NET Core nebo .NET Standard projekt).
+   - [Visual Studio](#restore-using-visual-studio) ([Automatické obnovení](#restore-packages-automatically-using-visual-studio) nebo [Ruční obnovení](#restore-packages-manually-using-visual-studio))
+   - [dotnet CLI](#restore-using-the-dotnet-cli)
+   - [nuget.exe CLI](#restore-using-the-nugetexe-cli)
+   - [MSBuild](#restore-using-msbuild)
+   - [Azure Pipelines](#restore-using-azure-pipelines)
+   - [Azure DevOps Server](#restore-using-azure-devops-server)
 
-    - Obnovte balíčky ručně. Ruční obnovení získáte tak, že kliknete pravým tlačítkem na řešení v **Průzkumník řešení** a vyberete **obnovit balíčky NuGet**. Pokud některé balíčky stále nejsou nainstalované správně, **Průzkumník řešení** zobrazí ikonu chyby. Klikněte pravým tlačítkem a vyberte **Spravovat balíčky NuGet**a pomocí **Správce balíčků** odinstalujte a znovu nainstalujte ovlivněné balíčky. Další informace najdete v tématu [Přeinstalace a aktualizace balíčků](../consume-packages/reinstalling-and-updating-packages.md) .
+   Pokud balíček odkazuje v souboru projektu ( *. csproj*) nebo soubor Packages *. config* není správný (neshoduje se s požadovaným stavem po obnovení balíčku), musíte místo toho nainstalovat nebo aktualizovat balíčky.
 
-    Pokud se zobrazí chyba "Tento projekt odkazuje na balíčky NuGet, které v tomto počítači chybí", "nebo" jeden nebo více balíčků NuGet je nutné obnovit, ale nedala se k udělení souhlasu " [Povolit automatické obnovení](#enable-and-disable-package-restore-visual-studio)". Přečtěte si také téma [migrace na automatické obnovení balíčků](#migrate-to-automatic-package-restore-visual-studio) a [řešení potíží s obnovením balíčků](Package-restore-troubleshooting.md).
+   Pro projekty používající PackageReference po úspěšném obnovení by měl být balíček přítomen ve složce *Global-Packages* a `obj/project.assets.json` soubor je znovu vytvořen. Pro projekty, `packages.config`které používají, by se měl balíček zobrazit ve `packages` složce projektu. Projekt by se teď měl úspěšně sestavit. 
 
-- **DOTNET CLI**: V příkazovém řádku přejděte do složky, která obsahuje váš projekt, a pak pomocí příkazu [dotnet Restore](/dotnet/core/tools/dotnet-restore?tabs=netcore2x) obnovte balíčky uvedené v souboru projektu pomocí [PackageReference](../consume-packages/package-references-in-project-files.md). Pomocí .NET Core 2,0 a novějšího se k obnovení dochází automaticky `dotnet build` pomocí `dotnet run` příkazů a.  
+2. Pokud stále dochází k chybějícím balíčkům nebo chybám souvisejícím s balíčkem (například Chybové ikony v Průzkumník řešení v aplikaci Visual Studio) po spuštění obnovení balíčku, možná budete muset [balíčky znovu nainstalovat a aktualizovat](../consume-packages/reinstalling-and-updating-packages.md).
 
-- rozhraní příkazového **řádku NuGet. exe**: V příkazovém řádku přejděte do složky, která obsahuje váš projekt, a pak pomocí příkazu [NuGet Restore](../reference/cli-reference/cli-ref-restore.md) obnovte balíčky uvedené v souboru projektu nebo řešení nebo v `packages.config`. 
+   V aplikaci Visual Studio konzola správce balíčků nabízí několik flexibilních možností pro přeinstalaci balíčků. Viz [použití balíčku – aktualizace](reinstalling-and-updating-packages.md#using-update-package).
 
-- **MSBuild**: Pomocí příkazu [MSBuild-t:Restore](../reference/msbuild-targets.md#restore-target) obnovte balíčky uvedené v souboru projektu pomocí PackageReference. Tento příkaz je k dispozici pouze v NuGet 4. x + a MSBuild 15.1 +, které jsou součástí sady Visual Studio 2017 a novějších verzí. `nuget restore` A`dotnet restore` použijte tento příkaz pro příslušné projekty.
+## <a name="restore-using-visual-studio"></a>Obnovení pomocí sady Visual Studio
 
-- **Azure Pipelines**: Při vytváření definice sestavení v Azure Pipelines zahrňte do definice úlohu [obnovení](/azure/devops/pipelines/tasks/package/nuget#restore-nuget-packages) NuGet nebo [obnovení](/azure/devops/pipelines/tasks/build/dotnet-core-cli?view=azure-devops) .NET Core před všemi úlohami sestavení. Některé šablony sestavení obsahují ve výchozím nastavení úlohu obnovit.
+V aplikaci Visual Studio ve Windows proveďte jednu z těchto akcí:
 
-- **Azure DevOps Server**: Azure DevOps Server a TFS 2013 a novější automaticky Obnovují balíčky během sestavování, pokud používáte šablonu týmu sestavení sady TFS 2013 nebo novější. Pro starší verze TFS můžete zahrnout krok sestavení pro spuštění možnosti obnovení z příkazového řádku nebo volitelně migrovat šablonu sestavení na novější verzi. Další informace najdete v tématu [nastavení obnovení balíčku pomocí Team Foundation Build](../consume-packages/team-foundation-build.md).
+- Obnovte balíčky automaticky nebo
 
-## <a name="enable-and-disable-package-restore-visual-studio"></a>Povolit a zakázat obnovení balíčku (Visual Studio)
+- Ruční obnovení balíčků
+
+### <a name="restore-packages-automatically-using-visual-studio"></a>Automaticky obnovovat balíčky pomocí sady Visual Studio
+
+K obnovení balíčku dojde automaticky při vytvoření projektu ze šablony nebo sestavení projektu v závislosti na možnostech v části [Povolit a zakázat obnovení balíčku](#enable-and-disable-package-restore-in-visual-studio). V NuGet 4.0 + dojde k obnovení také automaticky při provádění změn v projektu ve stylu sady SDK (obvykle se jedná o .NET Core nebo .NET Standard projekt).
+
+1. Povolte automatické obnovení balíčku tak, že vyberete**Možnosti** >  **nástrojů** > **Správce balíčků NuGet**a potom v části **sestavení v aplikaci Visual Studio vyberete možnost automaticky kontrolovat chybějící balíčky během sestavování** **. Obnovení balíčku**
+
+   Pro projekty, které nejsou ve stylu sady SDK, musíte nejprve vybrat **Povolit NuGet ke stažení chybějících balíčků** , aby bylo možné povolit možnost automatického obnovení.
+
+1. Sestavte projekt.
+
+   Pokud některé balíčky stále nejsou nainstalované správně, **Průzkumník řešení** zobrazí ikonu chyby. Klikněte pravým tlačítkem a vyberte **Spravovat balíčky NuGet**a pomocí **Správce balíčků** odinstalujte a znovu nainstalujte ovlivněné balíčky. Další informace najdete v tématu [Přeinstalace a aktualizace balíčků](../consume-packages/reinstalling-and-updating-packages.md) .
+
+   Pokud se zobrazí chyba "Tento projekt odkazuje na balíčky NuGet, které v tomto počítači chybí", "nebo" jeden nebo více balíčků NuGet je nutné obnovit, ale nedala se k udělení souhlasu " [Povolit automatické obnovení](#enable-and-disable-package-restore-in-visual-studio)". Pro starší projekty také viz [migrace na automatické obnovení balíčků](#migrate-to-automatic-package-restore-visual-studio). Viz také [řešení potíží s obnovením balíčku](Package-restore-troubleshooting.md).
+
+### <a name="restore-packages-manually-using-visual-studio"></a>Ruční obnovení balíčků pomocí sady Visual Studio
+
+1. Obnovení balíčku povolíte tak, že vyberete**Možnosti** >  **nástrojů** > **Správce balíčků NuGet**. V části možnosti **obnovení balíčku** vyberte možnost **povoluje, aby NuGet stahoval chybějící balíčky**.
+
+1. V **Průzkumník řešení**klikněte pravým tlačítkem na řešení a vyberte **obnovit balíčky NuGet**.
+
+   Pokud některé balíčky stále nejsou nainstalované správně, **Průzkumník řešení** zobrazí ikonu chyby. Klikněte pravým tlačítkem a vyberte **Spravovat balíčky NuGet**a pak pomocí **Správce balíčků** odinstalujte a znovu nainstalujte ovlivněné balíčky. Další informace najdete v tématu [Přeinstalace a aktualizace balíčků](../consume-packages/reinstalling-and-updating-packages.md) .
+
+   Pokud se zobrazí chyba "Tento projekt odkazuje na balíčky NuGet, které v tomto počítači chybí", "nebo" jeden nebo více balíčků NuGet je nutné obnovit, ale nedala se k udělení souhlasu " [Povolit automatické obnovení](#enable-and-disable-package-restore-in-visual-studio)". Pro starší projekty také viz [migrace na automatické obnovení balíčků](#migrate-to-automatic-package-restore-visual-studio). Viz také [řešení potíží s obnovením balíčku](Package-restore-troubleshooting.md).
+
+### <a name="enable-and-disable-package-restore-in-visual-studio"></a>Povolení a zakázání obnovení balíčku v aplikaci Visual Studio
 
 V aplikaci Visual Studio můžete řídit obnovení balíčků hlavně prostřednictvím **nástrojů** > **Možnosti** > **Správce balíčků NuGet**:
 
@@ -88,6 +119,51 @@ Pokud chcete povolit nebo zakázat obnovení balíčků pro všechny uživatele 
 
 > [!Important]
 > Pokud upravíte `packageRestore` nastavení přímo v `nuget.config`, restartujte Visual Studio, aby se v dialogovém okně **Možnosti** zobrazily aktuální hodnoty.
+
+## <a name="restore-using-the-dotnet-cli"></a>Obnovení pomocí rozhraní příkazového řádku dotnet
+
+[!INCLUDE [restore-dotnet-cli](includes/restore-dotnet-cli.md)]
+
+> [!IMPORTANT]
+> Chcete-li přidat chybějící odkaz na balíček do souboru projektu, použijte `restore` příkaz [dotnet Add Package](/dotnet/core/tools/dotnet-add-package?tabs=netcore2x), který také spustí příkaz.
+
+## <a name="restore-using-the-nugetexe-cli"></a>Obnovení pomocí rozhraní příkazového řádku NuGet. exe
+
+[!INCLUDE [restore-nuget-exe-cli](includes/restore-nuget-exe-cli.md)]
+
+> [!IMPORTANT]
+> Příkaz neupraví soubor projektu nebo Packages *. config.* `restore` Chcete-li přidat závislost, buď přidejte balíček prostřednictvím uživatelského rozhraní nebo konzoly Správce balíčků v aplikaci Visual Studio, nebo upravte soubor *Packages. config* a `install` potom `restore`spusťte nebo.
+
+## <a name="restore-using-msbuild"></a>Obnovení pomocí MSBuild
+
+Chcete-li obnovit balíčky uvedené v souboru projektu pomocí PackageReference, použijte příkaz [MSBuild-t:Restore](../reference/msbuild-targets.md#restore-target) . Tento příkaz je k dispozici pouze v NuGet 4. x + a MSBuild 15.1 +, které jsou součástí sady Visual Studio 2017 a novějších verzí. `nuget restore` A`dotnet restore` použijte tento příkaz pro příslušné projekty.
+
+1. Otevřete příkazový řádek pro vývojáře (do **vyhledávacího** pole zadejte **příkaz Developer Command Prompt**).
+
+   Obvykle chcete spustit Developer Command Prompt pro Visual Studio z nabídky **Start** , jak bude nakonfigurován se všemi nezbytnými cestami pro MSBuild.
+
+2. Přepněte do složky obsahující soubor projektu a zadejte následující příkaz.
+
+   ```cmd
+   # Uses the project file in the current folder by default
+   msbuild -t:restore
+   ```
+
+3. Zadáním následujícího příkazu znovu sestavte projekt.
+
+   ```cmd
+   msbuild
+   ```
+
+   Ujistěte se, že výstup nástroje MSBuild označuje, že sestavení bylo úspěšně dokončeno.
+
+## <a name="restore-using-azure-pipelines"></a>Obnovit pomocí Azure Pipelines
+
+Při vytváření definice sestavení v Azure Pipelines zahrňte do definice úlohu [obnovení](/azure/devops/pipelines/tasks/package/nuget#restore-nuget-packages) NuGet nebo [obnovení](/azure/devops/pipelines/tasks/build/dotnet-core-cli?view=azure-devops) .NET Core před všemi úlohami sestavení. Některé šablony sestavení obsahují ve výchozím nastavení úlohu obnovit.
+
+## <a name="restore-using-azure-devops-server"></a>Obnovit pomocí Azure DevOps Server
+
+Azure DevOps Server a TFS 2013 a novější automaticky Obnovují balíčky během sestavování, pokud používáte šablonu týmu sestavení sady TFS 2013 nebo novější. Pro starší verze TFS můžete zahrnout krok sestavení pro spuštění možnosti obnovení z příkazového řádku nebo volitelně migrovat šablonu sestavení na novější verzi. Další informace najdete v tématu [nastavení obnovení balíčku pomocí Team Foundation Build](../consume-packages/team-foundation-build.md).
 
 ## <a name="constrain-package-versions-with-restore"></a>Omezení verzí balíčku s obnovením
 

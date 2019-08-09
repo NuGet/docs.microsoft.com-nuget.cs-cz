@@ -5,16 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: conceptual
-ms.openlocfilehash: 32b01e6066cf60f7a0942508e640fdd5658b4444
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: bc077220e05b14180baac9611fda9234675ad640
+ms.sourcegitcommit: e763d9549cee3b6254ec2d6382baccb44433d42c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68316976"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68860531"
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>Postup přeinstalace a aktualizace balíčků
 
 Existuje několik situací, které jsou popsány níže v části [kdy se má přeinstalovat balíček](#when-to-reinstall-a-package), kde se odkazy na balíček mohou v projektu sady Visual Studio rozdělit. V těchto případech dojde k obnovení těchto odkazů na pracovní objednávku odinstalací a opětovnou instalací stejné verze balíčku. Aktualizace balíčku jednoduše znamená instalaci aktualizované verze, která často obnoví balíček do funkčního pořadí.
+
+V aplikaci Visual Studio poskytuje konzola správce balíčků mnoho flexibilních možností pro aktualizaci a přeinstalaci balíčků.
 
 Aktualizace a přeinstalace balíčků se provádí takto:
 
@@ -25,7 +27,7 @@ Aktualizace a přeinstalace balíčků se provádí takto:
 | rozhraní příkazového řádku NuGet. exe | `nuget update`systému | Pro všechny balíčky odstraňte složku balíčku a potom spusťte příkaz `nuget install`. V případě jednoho balíčku odstraňte složku balíčku a použijte `nuget install <id>` ji k přeinstalování stejného umístění. |
 
 > [!NOTE]
-> Pro rozhraní příkazového řádku dotnet není ekvivalentní postup povinný. V podobném scénáři můžete [balíčky obnovit pomocí rozhraní příkazového řádku dotnet](../consume-packages/install-use-packages-dotnet-cli.md#restore-packages).
+> Pro rozhraní příkazového řádku dotnet není ekvivalentní postup povinný. V podobném scénáři můžete [balíčky obnovit pomocí rozhraní příkazového řádku dotnet](package-restore.md#restore-using-the-dotnet-cli).
 
 V tomto článku:
 
@@ -61,7 +63,7 @@ Ve všech případech použijte zápis popsaný v tématu [Správa verzí balí�
 
 ## <a name="using-update-package"></a>Použití Update-Package
 
-Vědomi si níže uvedených [informací](#considerations) , můžete snadno přeinstalovat všechny balíčky pomocí [příkazu Update-Package](../reference/ps-reference/ps-ref-update-package.md) v konzole správce balíčků sady Visual Studio (**nástroje** > **správce** balíčkůNuGet >  **Konzola správce balíčků**):
+Vědomi si níže uvedených [informací](#considerations) , můžete snadno přeinstalovat všechny balíčky pomocí [příkazu Update-Package](../reference/ps-reference/ps-ref-update-package.md) v konzole správce balíčků sady Visual Studio (**nástroje** > **správce** balíčkůNuGet >  **Konzola správce balíčků**).
 
 ```ps
 Update-Package -Id <package_name> –reinstall
