@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 5b9be55b593890127d8fe0ad1a9357b89527a09a
-ms.sourcegitcommit: f9e39ff9ca19ba4a26e52b8a5e01e18eb0de5387
+ms.openlocfilehash: 9c608c5455bc83874b670b7f2b9a0ceeeafdc8e5
+ms.sourcegitcommit: dec3fa44547c6a00d0ae6cbb6c64cdc65660d808
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68433361"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912582"
 ---
 # <a name="nuspec-reference"></a>odkaz. nuspec
 
@@ -82,7 +82,7 @@ Dlouhý popis balíčku pro zobrazení uživatelského rozhraní.
 
 ### <a name="optional-metadata-elements"></a>Volitelné prvky metadat
 
-#### <a name="owners"></a>Vlastníka
+#### <a name="owners"></a>vlastníka
 Čárkami oddělený seznam tvůrců balíčků s použitím názvů profilů v nuget.org. Často se jedná o stejný seznam jako v `authors`a při nahrávání balíčku do NuGet.org se ignoruje. Viz [Správa vlastníků balíčků na NuGet.org](../nuget-org/publish-a-package.md#managing-package-owners-on-nugetorg). 
 
 #### <a name="projecturl"></a>projectUrl
@@ -94,7 +94,7 @@ Adresa URL domovské stránky balíčku, která se často zobrazuje v uživatels
 
 Adresa URL licence balíčku, která se často zobrazuje v uživatelská rozhraní jako nuget.org.
 
-#### <a name="license"></a>Průkaz
+#### <a name="license"></a>průkaz
 SPDX licenční výraz nebo cesta k souboru s licencí v balíčku, který se často zobrazuje v uživatelská rozhraní jako nuget.org. Pokud je balíček licencován v rámci společné licence, jako je například MIT nebo BSD-2, použijte přidružený [identifikátor licence SPDX](https://spdx.org/licenses/). Příklad:
 
 `<license type="expression">MIT</license>`
@@ -200,7 +200,7 @@ Kolekce nula nebo více `<dependency>` prvků, které určují závislosti pro b
 *(1,2 +)* Kolekce nula nebo více `<frameworkAssembly>` prvků, které identifikují .NET Framework odkazy na sestavení, které tento balíček vyžaduje, což zajistí přidání odkazů do projektů, které balíček spotřebovává. Každý frameworkAssembly má atributy *AssemblyName* a *targetFramework* . Viz [určení sestavení rozhraní odkazy v mezipaměti GAC](#specifying-framework-assembly-references-gac) níže. |
 #### <a name="references"></a>odkazy
 *(1,5 +)* Kolekce nula nebo více `<reference>` prvků pojmenování sestavení ve `lib` složce balíčku, které jsou přidány jako odkazy na projekt. Každý odkaz má atribut *File* . `<references>`může také obsahovat `<group>` element s atributem *targetFramework* , který pak obsahuje `<reference>` prvky. Pokud tento parametr vynecháte, `lib` jsou zahrnuty všechny odkazy v nástroji. Viz [zadání explicitních odkazů na sestavení](#specifying-explicit-assembly-references) níže.
-#### <a name="contentfiles"></a>ContentFiles
+#### <a name="contentfiles"></a>contentFiles
 *(3.3 +)* Kolekce `<files>` prvků, které identifikují soubory obsahu, které mají být zahrnuty do náročného projektu. Tyto soubory jsou zadány pomocí sady atributů, které popisují, jak by měly být použity v rámci systému projektu. Viz [Určení souborů, které se mají zahrnout do balíčku](#specifying-files-to-include-in-the-package) níže.
 #### <a name="files"></a>soubory 
 `<metadata>` `<contentFiles>` Uzel může `<files>` obsahovat uzel jako uzel na `<metadata>`stejné úrovni a podřízená položka v rámci, k určení sestavení a souborů obsahu, které mají být zahrnuty do balíčku. `<package>` Podrobnosti najdete v části [zahrnutí souborů sestavení](#including-assembly-files) a [zahrnutí souborů obsahu](#including-content-files) dále v tomto tématu.
@@ -267,7 +267,7 @@ Element v rámci `<metadata>` obsahuje libovolný počet `<dependency>` prvků, 
 
 | Značka include/Exclude | Ovlivněné složky v cíli |
 | --- | --- |
-| ContentFiles | Obsah |
+| contentFiles | Obsah |
 | modul runtime | Modul runtime, prostředky a FrameworkAssemblies |
 | sestavení | Knihovna |
 | sestavení | Build (MSBuild props and targets) |
@@ -293,7 +293,8 @@ Následující řádky označují závislosti pro stejné balíčky, `contentFil
 </dependencies>
 ```
 
-Poznámka: Při vytváření `.nuspec` z projektu pomocí `nuget spec`jsou závislosti, které existují v tomto projektu, automaticky zahrnuty ve výsledném `.nuspec` souboru.
+> [!Important]
+> Při vytváření `.nuspec` z projektu pomocí nástroje `nuget spec`nejsou závislosti, které existují v tomto projektu, automaticky zahrnuty ve výsledném `.nuspec` souboru. Místo toho použijte `nuget pack myproject.csproj`a získejte soubor *. nuspec* v rámci generovaného souboru *. nupkg* . This *. nuspec* obsahuje závislosti.
 
 ### <a name="dependency-groups"></a>Skupiny závislostí
 
