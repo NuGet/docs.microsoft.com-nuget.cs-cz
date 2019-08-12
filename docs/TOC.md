@@ -18,7 +18,7 @@
 ### [Konzola Správce balíčků (PowerShell)](consume-packages/install-use-packages-powershell.md)
 ## Konfigurace NuGetu
 ### Možnosti obnovení balíčku
-#### [Možnosti obnovení](consume-packages/package-restore.md)
+#### [Obnovení balíčků](consume-packages/package-restore.md)
 #### [Odstraňování potíží](consume-packages/package-restore-troubleshooting.md)
 ### [Opětovná instalace a aktualizace balíčků](consume-packages/reinstalling-and-updating-packages.md)
 ### [Správa globálních balíčků a složek mezipaměti](consume-packages/managing-the-global-packages-and-cache-folders.md)
