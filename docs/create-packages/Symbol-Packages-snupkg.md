@@ -1,39 +1,35 @@
 ---
-title: Publikování symbolů balíčky NuGet pomocí nového formátu balíčku symbol ".snupkg. | Dokumentace Microsoftu
-author:
-- cristinamanu
-- kraigb
-ms.author:
-- cristinamanu
-- kraigb
+title: Jak publikovat balíčky symbolů NuGet pomocí nového formátu balíčku symbolů '. snupkg ' | Microsoft Docs
+author: cristinamanu
+ms.author: cristinamanu
 manager: skofman
 ms.date: 10/30/2018
 ms.topic: reference
 ms.prod: nuget
 ms.technology: ''
-description: Postup vytvoření symbolu balíčky NuGet (snupkg).
-keywords: Symbol balíčky NuGet, balíček NuGet ladění, podpora, balíček symboly ladění, symbol vytváření balíčku NuGet
+description: Jak vytvořit balíčky symbolů NuGet (snupkg).
+keywords: Balíčky symbolů NuGet, ladění balíčku NuGet, podpora ladění NuGet, symboly balíčků, konvence balíčků symbolů
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 9f9cdd188cf2ec678bc9047604e618f1af9124ae
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: e62d1872497e0e5e703bf7c49a87249ce9a996c7
+ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842455"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959679"
 ---
-# <a name="creating-symbol-packages-snupkg"></a>Vytváření balíčků symbolů (.snupkg)
+# <a name="creating-symbol-packages-snupkg"></a>Vytváření balíčků symbolů (. snupkg)
 
-Balíčky symbolů umožňují ladění vylepšit vaše balíčky NuGet.
+Balíčky symbolů umožňují zlepšit možnosti ladění balíčků NuGet.
 
 ## <a name="prerequisites"></a>Požadavky
 
-[nuget.exe v4.9.0 nebo vyšší](https://www.nuget.org/downloads) nebo [dotnet.exe v2.2.0 nebo vyšší](https://www.microsoft.com/net/download/dotnet-core/2.2), které implementují požadované [NuGet protokoly](../api/nuget-protocols.md).
+[NuGet. exe v 4.9.0 nebo novější](https://www.nuget.org/downloads) nebo [dotnet. exe v 2.2.0 nebo vyšší](https://www.microsoft.com/net/download/dotnet-core/2.2), které implementují požadované [protokoly NuGet](../api/nuget-protocols.md).
 
-## <a name="creating-a-symbol-package"></a>Vytváří se balíček symbolů
+## <a name="creating-a-symbol-package"></a>Vytvoření balíčku symbolů
 
-Můžete vytvořit balíček symbolů snupkg pomocí dotnet.exe, NuGet.exe nebo MSBuild. Pokud používáte NuGet.exe, můžete použít následující příkazy k vytvoření souboru .snupkg kromě .nupkg souboru:
+Balíček snupkg symbol můžete vytvořit pomocí příkazu dotnet. exe, NuGet. exe nebo MSBuild. Pokud používáte NuGet. exe, můžete k vytvoření souboru. snupkg spolu s souborem. nupkg použít následující příkazy:
 
 ```
 nuget pack MyPackage.nuspec -Symbols -SymbolPackageFormat snupkg
@@ -41,9 +37,9 @@ nuget pack MyPackage.nuspec -Symbols -SymbolPackageFormat snupkg
 nuget pack MyPackage.csproj -Symbols -SymbolPackageFormat snupkg
 ```
 
-Pokud používáte dotnet.exe nebo MSBuild, použijte následující kroky k vytvoření souboru .snupkg kromě .nupkg souboru:
+Pokud používáte dotnet. exe nebo MSBuild, použijte následující postup k vytvoření souboru. snupkg společně se souborem. nupkg:
 
-1. Do souboru .csproj přidejte následující vlastnosti:
+1. Do souboru. csproj přidejte následující vlastnosti:
 
     ```xml
     <PropertyGroup>
@@ -52,74 +48,77 @@ Pokud používáte dotnet.exe nebo MSBuild, použijte následující kroky k vyt
     </PropertyGroup>
     ```
 
-1. Váš projekt s aktualizací Service Pack `dotnet pack MyPackage.csproj` nebo `msbuild -t:pack MyPackage.csproj`.
+1. Sbalení projektu pomocí `dotnet pack MyPackage.csproj` nebo `msbuild -t:pack MyPackage.csproj`.
 
-[ `SymbolPackageFormat` ](/dotnet/core/tools/csproj#symbolpackageformat) Vlastnost může mít jednu ze dvou hodnot: `symbols.nupkg` (výchozí) nebo `snupkg`. Pokud [ `SymbolPackageFormat` ](/dotnet/core/tools/csproj#symbolpackageformat) vlastnost nezadáte, bude vytvořen balíček symbolů starší verze.
+Vlastnost může mít jednu ze dvou hodnot: `symbols.nupkg` (výchozí) nebo `snupkg`. [`SymbolPackageFormat`](/dotnet/core/tools/csproj#symbolpackageformat) [`SymbolPackageFormat`](/dotnet/core/tools/csproj#symbolpackageformat) Pokud vlastnost není zadána, bude vytvořen starší balíček symbolů.
 
 > [!Note]
-> Starší verze formátu `.symbols.nupkg` je ale pouze z důvodů kompatibility stále podporována (viz [starších verzí balíčků symbolů](Symbol-Packages.md)). Server symbolů NuGet.org přijímá pouze nový formát balíček symbolů - `.snupkg`.
+> Starší verze formátu `.symbols.nupkg` jsou stále podporovány, ale pouze z důvodů kompatibility (viz [starší balíčky symbolů](Symbol-Packages.md)). Server symbolů NuGet. org přijímá pouze nový formát balíčku symbolů – `.snupkg`.
 
 ## <a name="publishing-a-symbol-package"></a>Publikování balíčku symbolů
 
-1. Pro usnadnění práce, uložte svůj klíč rozhraní API s NuGet (viz [publikování balíčku](../nuget-org/publish-a-package.md)).
+1. Pro usnadnění práce nejdřív uložte klíč rozhraní API pomocí NuGet (viz [publikování balíčku](../nuget-org/publish-a-package.md)).
 
     ```cli
     nuget SetApiKey Your-API-Key
     ```
 
-1. Po publikování vaší primární balíčků na nuget.org, push balíček symbolů následujícím způsobem.
+1. Po publikování primárního balíčku na nuget.org vložte balíček symbolů následujícím způsobem.
 
     ```cli
     nuget push MyPackage.snupkg
     ```
 
-1. Můžete také vložit obě primární a symbol balíčky na pomocí následující příkaz. .Nupkg a .snupkg soubory musí mít k dispozici v aktuální složce.
+1. Pomocí níže uvedeného příkazu můžete zároveň současně nabízet jak primární, tak i balíčky symbolů. V aktuální složce musí být přítomné soubory. nupkg a. snupkg.
 
     ```cli
     nuget push MyPackage.nupkg
     ```
 
-NuGet se publikovat oba balíčky nuget.org. `MyPackage.nupkg` se nejprve publikovat, za nímž následuje `MyPackage.snupkg`.
+NuGet bude publikovat oba balíčky do nuget.org. bude Publikováno jako první, `MyPackage.snupkg`následované. `MyPackage.nupkg`
 
 > [!Note]
-> Pokud balíček symbolů není publikována, zkontrolujte, že jste nakonfigurovali jako zdroj NuGet.org `https://api.nuget.org/v3/index.json`. Publikování balíčku symbolů je podporovaná jenom rozhraním [rozhraní API V3 NuGet](../api/overview.md#versioning).
+> Pokud se balíček symbolů nepublikuje, ověřte, že jste nakonfigurovali zdroj NuGet.org `https://api.nuget.org/v3/index.json`jako. Publikování balíčku symbolů je podporované jenom [rozhraním API NuGet V3](../api/overview.md#versioning).
 
 ## <a name="nugetorg-symbol-server"></a>NuGet.org symbol server
 
-NuGet.org podporuje své vlastní úložiště serveru symbolů a přijímá pouze nový formát balíček symbolů - `.snupkg`. Příjemci balíčku můžete použít symboly publikované na nuget.org symbol server tak, že přidáte `https://symbols.nuget.org/download/symbols` k jejich symbol zdroje v sadě Visual Studio, který umožňuje krokování s vnořením do kódu balíček v ladicím programu sady Visual Studio. Zobrazit [zadání symbolu (.pdb) a zdrojových souborů v ladicím programu sady Visual Studio](https://docs.microsoft.com/en-us/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger?view=vs-2017) podrobnosti o tomto procesu.
+NuGet.org podporuje vlastní úložiště symbolů serveru a přijímá pouze nový formát balíčku symbolů – `.snupkg`. Příjemci balíčku můžou použít symboly publikované do serveru symbolů NuGet.org přidáním `https://symbols.nuget.org/download/symbols` do jejich zdrojů symbolů v aplikaci Visual Studio, které umožňují krokování kódu balíčku v ladicím programu sady Visual Studio. Podrobnosti o tomto procesu najdete v tématu [určení symbolu (PDB) a zdrojových souborů v ladicím programu sady Visual Studio](https://docs.microsoft.com/en-us/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger?view=vs-2017) .
 
-### <a name="nugetorg-symbol-package-constraints"></a>Omezení balíček symbolů Nuget.org
+### <a name="nugetorg-symbol-package-constraints"></a>Omezení balíčku symbolů Nuget.org
 
-Balíčky symbolů, které jsou podporovány na nuget.org mají následující omezení
+Balíčky symbolů podporované v nuget.org mají následující contraints
 
-- Následující přípony souborů můžou přidat do balíčků symbolů. ```.pdb,.nuspec,.xml,.psmdcp,.rels,.p7s```
-- Pouze spravované [souborům Portable PDB](https://github.com/dotnet/corefx/blob/master/src/System.Reflection.Metadata/specs/PortablePdb-Metadata.md) jsou aktuálně podporovány na serveru symbolů nuget.
-- Soubory PDB a DLL přidružené nupkg musela být vytvořená s kompilátorem v sadě Visual Studio verzi 15.9 nebo vyšší (viz [kryptografické hodnoty hash souboru pdb](https://github.com/dotnet/roslyn/issues/24429))
+- Do balíčku symbolů smí být přidána pouze následující přípony souborů. ```.pdb,.nuspec,.xml,.psmdcp,.rels,.p7s```
+- Na serveru symbolů NuGet se aktuálně podporují jenom spravované [přenosné soubory PDB](https://github.com/dotnet/corefx/blob/master/src/System.Reflection.Metadata/specs/PortablePdb-Metadata.md) .
+- Soubory PDB a přidružené knihovny DLL nupkg musí být sestaveny s kompilátorem v aplikaci Visual Studio verze 15,9 nebo vyšší (viz soubor [PDB kryptografický otisk](https://github.com/dotnet/roslyn/issues/24429)).
 
-Publikovat balíček symbolů na nuget.org se nezdaří, pokud jiné typy souborů jsou součástí .snupkg.
+Pokud jsou všechny ostatní typy souborů zahrnuté v souboru. snupkg, nebude balíček symbolů Publish on nuget.org úspěšný.
 
-### <a name="symbol-package-validation-and-indexing"></a>Ověření balíčku symbolů a indexování
+### <a name="symbol-package-validation-and-indexing"></a>Ověřování a indexování balíčku symbolů
 
-Symbol balíčky, které jsou publikovány na [NuGet.org](https://www.nuget.org/) projít několik ověření, jako jsou antivirové kontroly.
+Balíčky symbolů publikované do [NuGet.org](https://www.nuget.org/) prošly několika ověřeními, jako jsou třeba kontroly virů.
 
-Když tento balíček prošel všechny ověřovací kontroly, může trvat nějakou dobu symboly pro indexování a být k dispozici pro použití ze serverů symbolů NuGet.org. Pokud balíček selhání kontroly ověřování, na stránce podrobností balíčku pro .nupkg se aktualizuje a zobrazí související chyby a také obdržíte e-mail s upozorněním můžete o něm.
+Když balíček úspěšně prošel všemi ověřovacími kontrolami, může chvíli trvat, než se symboly indexují a budou dostupné pro využití ze serverů symbolů NuGet.org. Pokud balíček neuspěje při ověřování, aktualizuje se stránka s podrobnostmi balíčku pro. nupkg, aby se zobrazila přidružená chyba, a obdržíte také e-mail s upozorněním.
 
-Ověření balíčku a indexování obvykle trvá méně než 15 minut. Pokud o publikování balíčku trvá déle, než se očekávalo, navštivte [status.nuget.org](https://status.nuget.org/) ke kontrole, pokud nuget.org dochází k žádné přerušení. Pokud jsou všechny systémy provozní a balíčku nebyla úspěšně publikována do jedné hodiny, přihlaste se prosím na nuget.org a kontaktujte nás přes odkaz na podporu se obraťte se na stránce s podrobnostmi balíčku.
+Ověření a indexování balíčku obvykle trvá 15 minut. Pokud publikování balíčku trvá déle, než se čekalo, navštivte [status.NuGet.org](https://status.nuget.org/) a ověřte, jestli NuGet.org má nějaké přerušení. Pokud jsou všechny systémy funkční a balíček ještě není po celou hodinu publikovaný, přihlaste se k nuget.org a na stránce s podrobnostmi balíčku kontaktujte nás pomocí odkazu podpora kontaktů.
 
 ## <a name="symbol-package-structure"></a>Struktura balíčku symbolů
 
-Soubor .nupkg budou naprosto stejné jako dnes je ale soubor .snupkg by mít následující vlastnosti:
+Soubor. nupkg by byl přesně stejný, jako v současné době, ale soubor. snupkg má následující vlastnosti:
 
-1) .snupkg, bude mít jako odpovídající .nupkg stejné id a verzi.
-2) .snupkg bude mít strukturu složek přesné jako soubor nupkg pro soubory DLL nebo EXE s rozlišovat, že namísto knihovny DLL/exe, jejich odpovídající soubory PDB budou zahrnuty ve stejné hierarchii složek. Mimo snupkg by zůstaly souborů a složek s příponou než PDB.
-3) Soubor souboru .nuspec v .snupkg zadejte také nové PackageType jak je uvedeno níže. To by měl pouze jeden PackageType zadán. 
-``` 
-<packageTypes>
-  <packageType name="SymbolsPackage"/>
-</packageTypes>
-```
-4) Pokud autor rozhodne použít vlastní soubor nuspec vytvářet jejich nupkg a snupkg, snupkg by měl mít stejné hierarchii složek a souborů, které jsou podrobně popsané v 2).
-5) ```authors``` a ```owners``` pole budou vyloučeny z snupkg nuspec.
+1) Přípona. snupkg bude mít stejné ID a verzi jako odpovídající. nupkg.
+2) Soubor. snupkg bude mít přesnou strukturu složek jako nupkg pro všechny soubory DLL nebo EXE s rozlišením, které místo knihoven DLL/exe, jejich odpovídající soubory PDB bude zahrnuta do stejné hierarchie složek. Soubory a složky s rozšířeními jinými než PDB budou ponechány mimo snupkg.
+3) Soubor. nuspec v souboru. snupkg také určí nové PackageType, jak je uvedeno níže. Mělo by se zadat jenom jeden PackageType.
+
+   ```xml
+   <packageTypes>
+      <packageType name="SymbolsPackage"/>
+   </packageTypes>
+   ```
+
+4) Pokud se autor rozhodne použít vlastní nuspec k sestavení nupkg a snupkg, měl by mít snupkg stejnou hierarchii složek a souborů, které jsou popsány v 2).
+5) ```authors```a ```owners``` pole bude vyloučeno z nuspecu snupkg.
+6) Nepoužívejte <license> element. A. snupkg se zabývá stejnou licencí jako odpovídající. nupk.
 
 ## <a name="see-also"></a>Viz také
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 076d7a480e2f07149e4ec7ac58c7ab37040e7a8f
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 81866172bfbf55c42ee96c213c0117f1f986235c
+ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68328303"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959715"
 ---
 # <a name="mirror-command-nuget-cli"></a>Příkaz mirror (NuGet CLI)
 
@@ -19,7 +19,7 @@ ms.locfileid: "68328303"
 Zrcadlí balíček a jeho závislosti ze zadaných zdrojových úložišť do cílového úložiště.
 
 > [!NOTE]
-> Pokud chcete tento příkaz pro verze NuGet povolit před 3,2, [https://nuget.codeplex.com/releases](https://nuget.codeplex.com/releases)vyberte nejnovější stabilní verzi, Stáhněte si `NuGet.ServerExtensions.dll` a `Nuget-Signed.exe` na místní disk a přejmenujte `Nuget-Signed.exe` na `nuget.exe`.
+> Soubory NuGet. ServerExtensions. dll a NuGet-Signed. exe, které dříve podporovaly tento příkaz v NuGet 2. x (přejmenováním NuGet-Signed. exe na NuGet. exe), už nejsou k dispozici ke stažení. Pokud chcete použít příkaz podobný tomuto, vyzkoušejte [NuGetMirror](https://www.nuget.org/packages/NuGetMirror/).
 
 ## <a name="usage"></a>Použití
 

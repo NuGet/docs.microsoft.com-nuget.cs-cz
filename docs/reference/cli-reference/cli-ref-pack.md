@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 0e12944bdd5d43b8b9e84908be480a5249dd924f
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: cab56cb87f46335f9fdebdbc1649fead16459877
+ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68328300"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959727"
 ---
 # <a name="pack-command-nuget-cli"></a>Příkaz Pack (NuGet CLI)
 
 **Platí pro:** vytváření &bullet; balíčků **podporuje verze:** 2.7+
 
-Vytvoří balíček NuGet založený na zadaném `.nuspec` nebo souboru projektu. Příkaz (viz [příkazy dotnet](../dotnet-Commands.md)) a `msbuild -t:pack` (viz [cíle nástroje MSBuild](../msbuild-targets.md)) lze použít jako alternativy. `dotnet pack`
+Vytvoří balíček NuGet založený na zadaném souboru [. nuspec](../nuspec.md) nebo projektu. Příkaz (viz [příkazy dotnet](../dotnet-Commands.md)) a `msbuild -t:pack` (viz [cíle nástroje MSBuild](../msbuild-targets.md)) lze použít jako alternativy. `dotnet pack`
 
 > [!Important]
 > V rámci mono není podporováno vytváření balíčku ze souboru projektu. Také je nutné upravit jiné než místní cesty v `.nuspec` souboru na cesty ve stylu systému UNIX, protože NuGet. exe nepřevádí samotné cesty systému Windows.
@@ -33,7 +33,7 @@ kde `<nuspecPath>` a `<projectPath>` Zadejte`.nuspec` soubor projektu, v uveden�
 
 | Možnost | Popis |
 | --- | --- |
-| BasePath | Nastaví základní cestu souborů definovaných v `.nuspec` souboru. |
+| BasePath | Nastaví základní cestu souborů definovaných v souboru [. nuspec](../nuspec.md) . |
 | Sestavení | Určuje, že projekt by měl být sestaven před sestavením balíčku. |
 | Slevy | Určuje jeden nebo více vzorových zástupných znaků, které se mají vyloučit při vytváření balíčku. Chcete-li zadat více než jeden vzor, opakujte příznak-Exclude. Viz následující příklad. |
 | ExcludeEmptyDirectories | Zabrání zahrnutí prázdných adresářů při sestavování balíčku. |
@@ -51,7 +51,7 @@ kde `<nuspecPath>` a `<projectPath>` Zadejte`.nuspec` soubor projektu, v uveden�
 | Auditování | *(3.4.4 +)* Připojí příponu k interně vygenerovanému číslu verze, které se obvykle používá pro připojení buildu nebo jiné identifikátory předběžného vydání. Například pomocí `-suffix nightly` vytvoříte balíček s číslem verze, jako `1.2.3-nightly`je. Přípony musí začínat písmenem, aby se předešlo varováním, chybám a potenciálním nekompatibilitám s různými verzemi NuGet a správcem balíčků NuGet. |
 | Symboly | Určuje, že balíček obsahuje zdroje a symboly. Při použití se `.nuspec` souborem se vytvoří pravidelný soubor balíčku NuGet a odpovídající balíček symbolů. Ve výchozím nastavení vytvoří [starší verzi balíčku symbolů](../../create-packages/Symbol-Packages.md). Nový doporučený formát pro balíčky symbolů je. snupkg. Viz [vytváření balíčků symbolů (. snupkg)](../../create-packages/Symbol-Packages-snupkg.md). |
 | Nástroj | Určuje, že výstupní soubory projektu by měly být umístěny do `tool` složky. |
-| Verbosity | Určuje množství podrobností zobrazených ve výstupu: *normální*, tiché a *podrobné*. |
+| Verbosity | Určuje množství podrobností zobrazených ve výstupu: *normální*, tichéa *podrobné*. |
 | Version | Přepíše číslo verze ze `.nuspec` souboru. |
 
 Podívejte se také na [proměnné prostředí](cli-ref-environment-variables.md) .

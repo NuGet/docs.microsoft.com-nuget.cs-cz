@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 82113d460f7f5ff467b0a0552cc49283de95de25
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 211f24ff67c06da00d6a014e679cc422d493d6d5
+ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68328294"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959746"
 ---
 # <a name="restore-command-nuget-cli"></a>příkaz Restore (NuGet CLI)
 
@@ -35,7 +35,7 @@ kde `<projectPath>` určuje umístění řešení `packages.config` nebo souboru
 | ConfigFile | Konfigurační soubor NuGet, který se má použít Pokud není zadaný, `%AppData%\NuGet\NuGet.Config` použije se (Windows `~/.nuget/NuGet/NuGet.Config` ) nebo (Mac/Linux).|
 | DirectDownload | *(4.0 +)* Stáhne balíčky přímo bez doplňování mezipamětí s libovolnými binárními soubory nebo metadaty. |
 | DisableParallelProcessing | Zakáže obnovení více balíčků paralelně. |
-| FallbackSource | *(3.2 +)* Seznam zdrojů balíčků, které se použijí jako záložní pro případ, že se balíček nenajde v primárním nebo výchozím zdroji. |
+| FallbackSource | *(3.2 +)* Seznam zdrojů balíčků, které se použijí jako záložní pro případ, že se balíček nenajde v primárním nebo výchozím zdroji. K oddělení položek seznamu použijte středník. |
 | ForceEnglishOutput | *(3.5 +)* Vynutí, aby soubor NuGet. exe běžel pomocí neutrální jazykové verze určené pro angličtinu. |
 | Help | Zobrazí informace o nápovědě k příkazu. |
 | MSBuildPath | *(4.0 +)* Určuje cestu nástroje MSBuild, který má být použit s příkazem, přičemž přednost `-MSBuildVersion`využije. |
@@ -49,8 +49,8 @@ kde `<projectPath>` určuje umístění řešení `packages.config` nebo souboru
 | rekurzivní | *(4.0 +)* Obnoví všechny odkazy na projekty UWP a .NET Core. Neplatí pro projekty používající `packages.config`. |
 | RequireConsent | Ověřuje, jestli je před stažením a instalací balíčků povolený obnovování balíčků. Podrobnosti najdete v tématu věnovaném [obnovení balíčků](../../consume-packages/package-restore.md). |
 | SolutionDirectory | Určuje složku řešení. Neplatný při obnovování balíčků pro řešení. Vyžaduje se při obnovení `packages.config` souboru se souborem, pokud `PackagesDirectory` se nepoužívá nebo `OutputDirectory` . |
-| Source | Určuje seznam zdrojů balíčků (jako adresy URL), které se mají použít pro obnovení. Pokud tento příkaz vynecháte, použije se zdroje zadané v konfiguračních souborech, viz téma [Konfigurace chování NuGet](../../consume-packages/configuring-nuget-behavior.md). |
-| Verbosity | Určuje množství podrobností zobrazených ve výstupu: *normální*, tiché a *podrobné*. |
+| Source | Určuje seznam zdrojů balíčků (jako adresy URL), které se mají použít pro obnovení. Pokud tento příkaz vynecháte, použije se zdroje zadané v konfiguračních souborech, viz téma [Konfigurace chování NuGet](../../consume-packages/configuring-nuget-behavior.md). K oddělení položek seznamu použijte středník. |
+| Verbosity | Určuje množství podrobností zobrazených ve výstupu: *normální*, tichéa *podrobné*. |
 
 Podívejte se také na [proměnné prostředí](cli-ref-environment-variables.md) .
 
