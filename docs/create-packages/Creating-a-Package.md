@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: a8d082b3c04ef4d45bef1ef91b3f06484cb8ff4f
-ms.sourcegitcommit: dec3fa44547c6a00d0ae6cbb6c64cdc65660d808
+ms.openlocfilehash: a9224ce4e515cf98893a7134077c90a47df1862a
+ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68912585"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69020076"
 ---
 # <a name="create-a-package-using-the-nugetexe-cli"></a>Vytvoření balíčku pomocí rozhraní příkazového řádku NuGet. exe
 
@@ -184,7 +184,9 @@ Konvence složek jsou následující:
 | ref/{TFM} | Sestavení (`.dll`) a symboly (`.pdb`) souborů pro daný moniker cílového rozhraní (TFM) | Sestavení jsou přidána jako odkazy pouze pro dobu kompilace; Takže se nic nezkopíruje do složky Bin projektu. |
 | moduly runtime | Soubory sestavení (`.dll`), symbolů (`.pdb`) a nativních prostředků (`.pri`) specifických pro architekturu | Sestavení jsou přidána jako odkazy pouze pro modul runtime; jiné soubory jsou zkopírovány do složek projektu. V rámci `AnyCPU` `/ref/{tfm}` složky by mělo být vždy odpovídající (TFM) specifické sestavení, které poskytuje odpovídající sestavení doby kompilace. Viz [Podpora více cílových rozhraní](supporting-multiple-target-frameworks.md). |
 | obsah | Libovolné soubory | Obsah je zkopírován do kořenového adresáře projektu. Složku **obsahu** si můžete představit jako kořen cílové aplikace, která nakonec balíček spotřebovává. Pokud chcete, aby balíček přidal obrázek do složky */images* aplikace, umístěte ho do složky *obsah/image* balíčku. |
-| sestavení | MSBuild `.targets` a `.props` soubory | Automaticky vložen do souboru projektu nebo `project.lock.json` (NuGet 3. x +). |
+| sestavení | MSBuild `.targets` a `.props` soubory | Automaticky vložen do projektu (NuGet 3. x +). |
+| buildMultiTargeting | MSBuild `.targets` a`.props` soubory pro cílení na různé architektury | Automaticky vložen do projektu. |
+| buildTransitive | *(5.0 +)* Nástroj `.targets` MSBuild `.props` a soubory, které přenášejí přenos do libovolného náročného projektu. Podívejte se na stránku [funkce](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior) . | Automaticky vložen do projektu. |
 | nástroje | Skripty a programy PowerShellu dostupné z konzoly Správce balíčků | Složka je přidána `PATH` do proměnné prostředí pouze pro konzolu Správce balíčků ( `PATH` konkrétně při sestavování sady MSBuild při sestavování projektu). `tools` |
 
 Vzhledem k tomu, že struktura složky může obsahovat libovolný počet sestavení pro libovolný počet cílových rozhraní, tato metoda je nezbytná při vytváření balíčků, které podporují více rozhraní.
@@ -347,7 +349,7 @@ Když NuGet nainstaluje `\build` balíček se soubory, přidá do souboru `.targ
 
 Nástroj `.props` `.targets` MSBuild a soubory pro cílení na různé architektury lze umístit do složky. `\buildMultiTargeting` V průběhu instalace balíčku NuGet přidá odpovídající `<Import>` prvky do souboru projektu s podmínkou, že cílové rozhraní není nastavené (vlastnost `$(TargetFramework)` MSBuild musí být prázdná).
 
-S NuGet 3. x nejsou cíle do projektu přidány, ale jsou místo toho k dispozici prostřednictvím `project.lock.json`.
+S NuGet 3. x nejsou cíle do projektu přidány, ale jsou místo toho k dispozici prostřednictvím `{projectName}.nuget.g.targets` a `{projectName}.nuget.g.props`.
 
 ## <a name="run-nuget-pack-to-generate-the-nupkg-file"></a>Spustit balíček NuGet pro vygenerování souboru. nupkg
 

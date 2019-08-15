@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: b7870bb6aac39f0865d88efc8c16751fdbecc3a8
-ms.sourcegitcommit: cae759ad8518c049575a30ad3bf04fe5d06244fb
+ms.openlocfilehash: 8c1d8a479747f6f7bce388c1555589543c8824a0
+ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68616773"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69020062"
 ---
 # <a name="support-multiple-net-framework-versions-in-your-project-file"></a>Podpora více verzí .NET Framework v souboru projektu
 
@@ -27,9 +27,13 @@ Pro projekty ve stylu sady SDK můžete v souboru projektu nakonfigurovat podpor
 
    Pro zajištění nejlepší kompatibility doporučujeme vytvořit knihovnu tříd .NET Standard.
 
-2. Upravte soubor *. csproj* pro podporu cílových rozhraní.
-
-   Například změňte `<TargetFramework>netstandard2.0</TargetFramework>` na `<TargetFrameworks>netstandard2.0;net45</TargetFrameworks>`.
+2. Upravte soubor *. csproj* pro podporu cílových rozhraní. Například změňte
+   
+   `<TargetFramework>netstandard2.0</TargetFramework>`
+   
+   na
+   
+   `<TargetFrameworks>netstandard2.0;net45</TargetFrameworks>`
 
    Ujistěte se, že změníte element XML změněn z čísla v množném čísle na plural (přidejte "s" do počátečních a uzavíracích značek).
 

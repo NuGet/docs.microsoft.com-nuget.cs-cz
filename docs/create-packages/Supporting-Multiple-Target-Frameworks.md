@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: d12b12c4670f5dcb4c1e7e475d77926bd5d3935b
-ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
+ms.openlocfilehash: 14483264030dd3bb32c7295886f2d37d52e735cc
+ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68342498"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69020037"
 ---
 # <a name="support-multiple-net-versions"></a>Podpora více verzí rozhraní .NET
 
@@ -120,6 +120,32 @@ Podporované profily jsou následující:
 - `full`: Úplný profil
 - `wp`: Windows Phone
 - `cf`: Kompaktní rozhraní
+
+## <a name="declaring-dependencies-advanced"></a>Deklarace závislostí (rozšířené)
+
+Při balení souboru projektu se NuGet pokusí automaticky generovat závislosti z projektu. Informace v této části o použití souboru *. nuspec* k deklaraci závislostí jsou obvykle nezbytné jenom pro pokročilé scénáře.
+
+*(Verze 2.0 +)* Můžete deklarovat závislosti balíčků v *. nuspec* odpovídající cílové architektuře cílového projektu pomocí `<group>` prvků v rámci `<dependencies>` elementu. Další informace naleznete v tématu [závislosti elementu](../reference/nuspec.md#dependencies-element).
+
+Každá skupina má atribut s názvem `targetFramework` a obsahuje nula nebo více `<dependency>` prvků. Tyto závislosti jsou nainstalovány společně, pokud je cílový rámec kompatibilní s profilem rozhraní projektu. Přesné identifikátory rozhraní naleznete v tématu [cílová rozhraní](../reference/target-frameworks.md) .
+
+Pro soubory v *lib/* a *ref/* Folders doporučujeme použít jednu skupinu na moniker (TFM).
+
+Následující příklad ukazuje různé varianty `<group>` elementu:
+
+```xml
+<dependencies>
+
+    <group targetFramework="net472">
+        <dependency id="jQuery" version="1.10.2" />
+        <dependency id="WebActivatorEx" version="2.2.0" />
+    </group>
+
+    <group targetFramework="net20">
+    </group>
+
+</dependencies>
+```
 
 ## <a name="determining-which-nuget-target-to-use"></a>Určení, který cíl NuGet použít
 

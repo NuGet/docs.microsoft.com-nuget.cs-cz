@@ -1,32 +1,32 @@
 ---
-title: Formát NuGet PackageReference (odkazy na balíček v souborech projektu)
-description: Podrobnosti na NuGet PackageReference v souborech projektu podporuje NuGet 4.0 + a VS2017 a .NET Core 2.0
+title: Formát NuGet PackageReference (odkazy na balíčky v souborech projektu)
+description: Podrobnosti o NuGet PackageReference v souborech projektu, které podporuje NuGet 4.0 + a VS2017 a .NET Core 2,0
 author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 16a14a72f8bb2e5d5a56f6c3c277f0988869273d
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 05ece5f36ff7ae5920960c42cfde8b271dc3e712
+ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426698"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69020014"
 ---
-# <a name="package-references-packagereference-in-project-files"></a>Odkazy na balíček (PackageReference) v souborech projektu
+# <a name="package-references-packagereference-in-project-files"></a>Odkazy na balíčky (PackageReference) v souborech projektu
 
-Balíček odkazů pomocí nástroje `PackageReference` uzlu, správě závislostí NuGet přímo v rámci projektových souborů (na rozdíl od samostatné `packages.config` souboru). Pomocí PackageReference, jako je volána, nemá vliv na ostatní aspekty NuGet; například nastavení v `NuGet.config` soubory (včetně zdroje balíčků) se uplatní, jak je vysvětleno v [konfigurace běžných NuGet](configuring-nuget-behavior.md).
+Odkazy na balíčky, použití `PackageReference` uzlu, Správa závislostí NuGet přímo v souborech projektu (na rozdíl od samostatného `packages.config` souboru). Použití PackageReference, jak je voláno, nemá vliv na jiné aspekty NuGet; například nastavení v `NuGet.config` souborech (včetně zdrojů balíčků) jsou stále aplikována, jak je vysvětleno v tématu [běžné konfigurace NuGet](configuring-nuget-behavior.md).
 
-S PackageReference můžete také použít podmínky nástroje MSBuild zvolit odkazy na balíček na cílovou architekturu, konfigurace, platformy nebo další seskupení. Umožňuje také pro detailní kontrolu nad závislostí a obsahu toku. (Další podrobnosti najdete v [NuGet aktualizací Service pack a obnovení jako cílů MSBuild](../reference/msbuild-targets.md).)
+Pomocí PackageReference můžete také použít podmínky nástroje MSBuild k výběru odkazů na balíčky v rámci cílové architektury, konfigurace, platformy nebo dalších seskupení. Umožňuje také jemně odstupňovanou kontrolu nad závislostmi a tokem obsahu. (Další podrobnosti najdete v tématu Další informace o [sadě NuGet Pack a obnovení jako cíle MSBuild](../reference/msbuild-targets.md).)
 
 ## <a name="project-type-support"></a>Podpora typu projektu
 
-Ve výchozím nastavení je použít PackageReference pro projekty .NET Core, .NET Standard projekty a projekty UPW cílení na Windows 10 sestavení 15063 (Creators Update) a novější, s výjimkou projekty C++ UWP. Projekty rozhraní .NET framework podporují PackageReference, ale nyní jako výchozí `packages.config`. Použití PackageReference, [migrovat](../reference/migrate-packages-config-to-package-reference.md) závislosti z `packages.config` do souboru projektu, odstraňte soubor packages.config.
+Ve výchozím nastavení se PackageReference používá pro projekty .NET Core, .NET Standard projekty a projekty UWP cílené na Windows 10 Build 15063 (Creators Update) a novější, s výjimkou C++ projektů UWP. Projekty .NET Framework podporují PackageReference, ale aktuálně mají `packages.config`výchozí hodnotu. Chcete-li použít [](../reference/migrate-packages-config-to-package-reference.md) PackageReference, migrujte `packages.config` závislosti z nástroje do souboru projektu a pak odeberte soubor Packages. config.
 
-Aplikace ASP.NET cílí na úplné rozhraní .NET Framework obsahují pouze [omezenou podporu](https://github.com/NuGet/Home/issues/5877) pro PackageReference. C++a typy projektů jazyka JavaScript se nepodporují.
+ASP.NET aplikace, které cílí na úplné .NET Framework, zahrnují jenom [omezené podpory](https://github.com/NuGet/Home/issues/5877) pro PackageReference. C++a typy projektů JavaScriptu nejsou podporovány.
 
-## <a name="adding-a-packagereference"></a>Přidávání PackageReference
+## <a name="adding-a-packagereference"></a>Přidání PackageReference
 
-Přidáte závislost v souboru projektu pomocí následující syntaxe:
+Přidejte závislost do souboru projektu pomocí následující syntaxe:
 
 ```xml
 <ItemGroup>
@@ -38,7 +38,7 @@ Přidáte závislost v souboru projektu pomocí následující syntaxe:
 
 ## <a name="controlling-dependency-version"></a>Řízení verze závislosti
 
-Konvence pro určení verze balíčku je stejný jako při použití `packages.config`:
+Konvence pro určení verze balíčku je stejná jako při použití `packages.config`:
 
 ```xml
 <ItemGroup>
@@ -48,10 +48,10 @@ Konvence pro určení verze balíčku je stejný jako při použití `packages.c
 </ItemGroup>
 ```
 
-V předchozím příkladu 3.6.0 znamená, že všechny verze, která je > = 3.6.0 s předností nejnižší verze, jak je popsáno na [Správa verzí balíčků](../reference/package-versioning.md#version-ranges-and-wildcards).
+V příkladu výše 3.6.0 označuje všechny verze, které jsou > = 3.6.0 s upřednostněním pro nejnižší verzi, jak je popsáno v tématu [Správa verzí balíčků](../reference/package-versioning.md#version-ranges-and-wildcards).
 
-## <a name="using-packagereference-for-a-project-with-no-packagereferences"></a>Pomocí projektu s PackageReferences žádné PackageReference
-Pokročilé: Pokud jste žádné balíčky nainstalované v projektu (žádné PackageReferences v souboru projektu) a žádný soubor packages.config, ale chcete projekt tak, aby se obnovit jako PackageReference styl, můžete nastavit vlastnost projektu RestoreProjectStyle na PackageReference v projektu soubor.
+## <a name="using-packagereference-for-a-project-with-no-packagereferences"></a>Použití PackageReference pro projekt bez PackageReferences
+Upřesnit Pokud nemáte v projektu nainstalované žádné balíčky (žádné PackageReferences v souboru projektu a žádný soubor Packages. config), ale chcete, aby se projekt obnovil jako PackageReferenceový styl, můžete nastavit vlastnost projektu RestoreProjectStyle na PackageReference v projektu. souborů.
 ```xml
 <PropertyGroup>
     <!--- ... -->
@@ -59,11 +59,11 @@ Pokročilé: Pokud jste žádné balíčky nainstalované v projektu (žádné P
     <!--- ... -->
 </PropertyGroup>    
 ```
-To může být užitečné, pokud se budete odkazovat na projekty, které jsou PackageReference ve stylu (existující csproj nebo projekty založenými na sadu SDK). Tato možnost povolí balíčky, které odkazují tyto projekty, do "přechodně" odkazuje váš projekt.
+To může být užitečné, pokud odkazujete na projekty, které jsou PackageReference styly (existující projekty csproj nebo sady SDK). Tím umožníte, aby balíčky, na které tyto projekty odkazují, byly "transitně" odkazovány vaším projektem.
 
 ## <a name="floating-versions"></a>Plovoucí verze
 
-[Plovoucí verze](../consume-packages/dependency-resolution.md#floating-versions) podporují `PackageReference`:
+[Plovoucí verze](../consume-packages/dependency-resolution.md#floating-versions) jsou podporované pomocí `PackageReference`:
 
 ```xml
 <ItemGroup>
@@ -74,9 +74,9 @@ To může být užitečné, pokud se budete odkazovat na projekty, které jsou P
 </ItemGroup>
 ```
 
-## <a name="controlling-dependency-assets"></a>Řízení závislosti prostředků
+## <a name="controlling-dependency-assets"></a>Řízení prostředků závislosti
 
-Může používat závislost čistě jako vývojové prostředí a nemusí chcete je zveřejnit, která do projektů, které budou využívat vašeho balíčku. V tomto scénáři můžete použít `PrivateAssets` metadat a řídit tak toto chování.
+Je možné, že použijete závislost čistě jako ve vývojovém prostředí a nechcete ji vystavit pro projekty, které budou spotřebovávat váš balíček. V tomto scénáři můžete k řízení tohoto chování `PrivateAssets` použít metadata.
 
 ```xml
 <ItemGroup>
@@ -90,28 +90,30 @@ Může používat závislost čistě jako vývojové prostředí a nemusí chcet
 </ItemGroup>
 ```
 
-Následující značky metadat určovat závislost prostředky:
+Následující Tagy metadat řídí prostředky závislostí:
 
 | Značka | Popis | Výchozí hodnota |
 | --- | --- | --- |
-| IncludeAssets | Tyto prostředky budou využívat. | všechny |
-| ExcludeAssets | Tyto prostředky nebude využívat. | žádná |
-| PrivateAssets | Tyto prostředky budou využívat, ale nebude směrovat do nadřazeného projektu | contentfiles; analyzátory; sestavení |
+| IncludeAssets | Tyto prostředky budou spotřebovány. | všechny |
+| ExcludeAssets | Tyto prostředky nebudou spotřebovány. | žádná |
+| PrivateAssets | Tyto prostředky budou spotřebovány, ale nebudou se přesměrovat do nadřazeného projektu. | contentFiles; analyzátory; sestavit |
 
-Povolené hodnoty pro tyto značky jsou následujícím způsobem s více hodnotami, které jsou odděleny středníkem s výjimkou s `all` a `none` který musí být uvedena samy o sobě:
+Přípustné hodnoty pro tyto značky jsou následující, s více hodnotami oddělenými středníkem s výjimkou `all` a, `none` které se musí objevit sami:
 
-| Hodnota | Popis |
+| Value | Popis |
 | --- | ---
-| Kompilace | Obsah `lib` složky a ovládací prvky, jestli můžete zkompilovat váš projekt proti sestavení ve složce |
-| modul runtime | Obsah `lib` a `runtimes` složky a ovládací prvky, jestli tato sestavení bude zkopírována do sestavení výstupního adresáře |
-| contentFiles | Obsah `contentfiles` složky |
-| sestavení | Vlastnosti a cíle ve `build` složky |
-| Analyzátory | Analyzátory .NET |
-| nativní | Obsah `native` složky |
-| žádná | Žádná z výše uvedených se používají. |
-| všechny | Všechny výš uvedené (s výjimkou `none`) |
+| sestavení | `lib` Obsah složky a určuje, zda je projekt kompilován proti sestavením v rámci složky |
+| modul runtime | Obsah složky `runtimes` a určuje, zda budou tato sestavení zkopírována do výstupního adresáře sestavení `lib` |
+| contentFiles | `contentfiles` Obsah složky |
+| sestavení | `.props``.targets` a`build` ve složce |
+| buildMultitargeting | `.props``.targets` a`buildMultitargeting` ve složce pro cílení na různé architektury |
+| buildTransitive | *(5.0 +)* `.props` a vesložce`buildTransitive` pro prostředky, jejichž přenos do libovolného náročného projektu se protéká. `.targets` Podívejte se na stránku [funkce](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior) . |
+| analyzátory | Analyzátory .NET |
+| nativní | `native` Obsah složky |
+| žádná | Žádná z výše uvedených verzí se nepoužívá. |
+| všechny | Všechny výše uvedené (kromě `none`) |
 
-V následujícím příkladu se všechno kromě soubory obsahu z balíčku by být využívány službou projektu a všechno, co s výjimkou souborů obsahu a analyzátory by tok na nadřazený projekt.
+V následujícím příkladu je vše kromě souborů obsahu z balíčku spotřebováno projektem a vše kromě souborů obsahu a analyzátory by vedlo k nadřazenému projektu.
 
 ```xml
 <ItemGroup>
@@ -127,13 +129,13 @@ V následujícím příkladu se všechno kromě soubory obsahu z balíčku by b�
 </ItemGroup>
 ```
 
-Upozorňujeme, že `build` není součástí `PrivateAssets`, zaměřuje a props *bude* tok, který nadřazeného projektu. Zvažte například, že výše uvedené odkaz se používá v projektu, který vytvoří balíček NuGet s názvem AppLogger. AppLogger může spotřebovat cíle a vlastnosti z `Contoso.Utility.UsefulStuff`, jak můžete projektech, které využívají AppLogger.
+Všimněte si, `build` že protože není `PrivateAssets`součástí, cíle a props *budou* tok do nadřazeného projektu. Vezměte v úvahu například, že odkaz výše se používá v projektu, který vytváří balíček NuGet s názvem AppLogger. AppLogger může využívat cíle a props z `Contoso.Utility.UsefulStuff`, jako mohou projekty, které využívají AppLogger.
 
 ## <a name="adding-a-packagereference-condition"></a>Přidání podmínky PackageReference
 
-Můžete použít podmínku pro ovládací prvek, jestli balíček je zahrnuta, pokud podmínky můžete použít jakoukoli proměnnou MSBuild nebo Proměnná definovaná v souboru cílů nebo vlastnosti. Ale v současnosti pouze `TargetFramework` proměnná je podporována.
+Podmínku můžete použít k určení, zda je balíček zahrnut, kde podmínky mohou používat jakoukoli proměnnou MSBuild nebo proměnnou definovanou v souboru TARGETS nebo props. V předsoučasném případě je však podporována pouze `TargetFramework` proměnná.
 
-Předpokládejme například, že vývoji cílíte `netstandard1.4` stejně jako `net452` , ale mají závislost, kterou lze použít pouze pro `net452`. V tomto případě nechcete `netstandard1.4` projekt, který se spotřebovává balíček pro přidání tohoto zbytečné závislosti. Chcete-li tomu zabránit, určíte podmínku na `PackageReference` následujícím způsobem:
+Řekněme například, že cílíte `netstandard1.4` `net452` i na, ale máte závislost, která je platná pouze pro `net452`. V takovém případě nechcete `netstandard1.4` , aby projekt, který váš balíček spotřebovává, přidal tuto nepotřebnou závislost. Tomu zabráníte tak, že zadáte podmínku `PackageReference` v následujícím příkladu:
 
 ```xml
 <ItemGroup>
@@ -143,11 +145,11 @@ Předpokládejme například, že vývoji cílíte `netstandard1.4` stejně jako
 </ItemGroup>
 ```
 
-Balíček vytvořené pomocí tohoto projektu se zobrazí, že je jako závislost pouze pro Newtonsoft.Json `net452` cíl:
+Balíček sestavený pomocí tohoto projektu zobrazí, že Newtonsoft. JSON je obsažen pouze jako závislost pro `net452` cíl:
 
-![Výsledek použití podmínku na PackageReference s VS2017](media/PackageReference-Condition.png)
+![Výsledek použití podmínky v PackageReference s VS2017](media/PackageReference-Condition.png)
 
-Podmínek je také možné použít na `ItemGroup` úrovně a má platit pro všechny podřízené objekty `PackageReference` prvky:
+Podmínky lze také použít `ItemGroup` na úrovni a budou platit pro všechny podřízené `PackageReference` prvky:
 
 ```xml
 <ItemGroup Condition = "'$(TargetFramework)' == 'net452'">
@@ -158,22 +160,22 @@ Podmínek je také možné použít na `ItemGroup` úrovně a má platit pro vš
 </ItemGroup>
 ```
 
-## <a name="locking-dependencies"></a>Uzamčení závislosti
-*Tato funkce je k dispozici s NuGet **4.9** nebo vyšší a sadou Visual Studio 2017 **15.9** nebo vyšší.*
+## <a name="locking-dependencies"></a>Uzamykání závislostí
+*Tato funkce je k dispozici pro NuGet **4,9** nebo vyšší a pro Visual Studio 2017 **15,9** nebo vyšší.*
 
-Vstup pro obnovení NuGet je sada odkazy na balíčky ze souboru projektu (závislosti nejvyšší úrovně a direct) a výstup je úplné uzavření všechny závislosti balíčků, včetně přechodné závislosti. NuGet se pokusí vždy vytvořila stejný úplný uzavření závislosti balíčků, pokud nedošlo ke změně vstupní seznam PackageReference. Existují však některé scénáře, kdy je to možné. Příklad:
+Vstup do obnovení NuGet je sada odkazů na balíčky ze souboru projektu (závislosti na nejvyšší úrovni nebo přímých závislostí) a výstup je plný uzávěr všech závislostí balíčku včetně přenosných závislostí. V případě, že se vstupní seznam PackageReference nezměnil, nástroj NuGet se pokusí vždy vydávat stejný plný uzávěr závislostí balíčku. Existují však situace, kdy to není možné. Příklad:
 
-* Při použití s plovoucí desetinnou čárkou, jako je verze `<PackageReference Include="My.Sample.Lib" Version="4.*"/>`. I když jsou záměr zde uvolnění na nejnovější verzi na každý obnovení balíčků, jsou scénáře, kdy uživatelé vyžadují graf tak, aby být pevně nastavené na určitého nejnovější verzi a plovoucí desetinnou čárkou na novější verzi, pokud je k dispozici na explicitní gest.
-* Je publikovaný novější verzi balíčku požadavky na odpovídající verzi PackageReference. Například 
+* Při použití plovoucích verzí, `<PackageReference Include="My.Sample.Lib" Version="4.*"/>`jako je. I když tady je tento záměr na nejnovější verzi v každé obnovy balíčků, existují situace, kdy uživatelé potřebují, aby byl graf uzamčený na určitou nejnovější verzi a aby byl na novější verzi, pokud je k dispozici, po explicitním gestu.
+* Je publikovaná novější verze balíčku, která odpovídá požadavkům verze PackageReference. Například 
 
-  * Dne 1: Pokud jste zadali `<PackageReference Include="My.Sample.Lib" Version="4.0.0"/>` ale byly k dispozici verze na úložiště NuGet 4.1.0, 4.2.0 a 4.3.0. V takovém případě by byly vyřešeny NuGet do 4.1.0 (nejbližší minimální verze)
+  * Den 1: Pokud jste zadali `<PackageReference Include="My.Sample.Lib" Version="4.0.0"/>` verze, které jsou k dispozici v úložištích NuGet, byly 4.1.0, 4.2.0 a 4.3.0. V tomto případě se NuGet přeložil na 4.1.0 (nejbližší minimální verzi).
 
-  * Dne 2: Získá publikované verze 4.0.0. NuGet teď najít přesnou shodu a začít překládat 4.0.0
+  * Den 2: Verze 4.0.0 se publikuje. NuGet teď najde přesnou shodu a začne řešit na 4.0.0
 
-* Verze daného balíčku bude odebrána z úložiště. Když nuget.org neumožňuje balíček odstranění, ne všechna úložiště balíčků nastavit toto omezení. Výsledkem je najít nejlepší shodu při nelze přeložit na odstraněné verze NuGet.
+* Daná verze balíčku se odebere z úložiště. I když nuget.org nepovoluje odstraňování balíčků, ne všechna úložiště balíčků mají tato omezení. Výsledkem je, že NuGet najde nejlepší shodu, když ho nelze vyřešit na odstraněnou verzi.
 
-### <a name="enabling-lock-file"></a>Povolení soubor zámku
-Aby bylo možné zachovat Úplné uzavření závislosti balíčků můžete můžete vyjádřit výslovný souhlas s funkcí soubor zámku nastavením vlastnosti MSBuild `RestorePackagesWithLockFile` pro váš projekt:
+### <a name="enabling-lock-file"></a>Povoluje se soubor zámku.
+Aby se zachoval úplný konec závislostí balíčku, můžete se přihlásit k funkci zámek souboru nastavením vlastnosti `RestorePackagesWithLockFile` MSBuild pro váš projekt:
 
 ```xml
 <PropertyGroup>
@@ -183,29 +185,29 @@ Aby bylo možné zachovat Úplné uzavření závislosti balíčků můžete mů
 </PropertyGroup>    
 ```
 
-Pokud je tato vlastnost nastavena, obnovení NuGet vygeneruje soubor zámku - `packages.lock.json` souboru v kořenovém adresáři projektu, který obsahuje seznam všech balíčků závislostí. 
+Pokud je tato vlastnost nastavená, obnovení NuGet vygeneruje soubor zámku File `packages.lock.json` v kořenovém adresáři projektu, který obsahuje seznam všech závislostí balíčku. 
 
 > [!Note]
-> Jakmile je projekt `packages.lock.json` soubor v kořenovém adresáři soubor zámku je vždy využít i v případě obnovení vlastnost `RestorePackagesWithLockFile` není nastaven. Dalším způsobem, jak vyjádřit výslovný souhlas s touto funkcí je vytvořte fiktivního prázdný `packages.lock.json` souboru v kořenovém adresáři projektu.
+> Jakmile projekt obsahuje `packages.lock.json` soubor ve svém kořenovém adresáři, soubor zámku se vždy používá s obnovením i v případě, `RestorePackagesWithLockFile` že vlastnost není nastavena. Další možností, jak se vyjádřit k této funkci, je vytvořit fiktivní prázdný `packages.lock.json` soubor v kořenovém adresáři projektu.
 
-### <a name="restore-behavior-with-lock-file"></a>`restore` chování s soubor zámku
-Pokud se nachází soubor zámku pro projekt, NuGet používá ke spuštění tohoto uzamknout souboru `restore`. NuGet nemá Rychlá kontrola, zda byly změny v závislosti balíčků, jak je uvedeno v souboru projektu (nebo soubory závislých projektů) a pokud nejsou žádné změny jenom obnoví balíčky uvedené v souboru zámku. Neexistuje žádné opakované vyhodnocení závislosti balíčků.
+### <a name="restore-behavior-with-lock-file"></a>`restore`chování se souborem zámku
+Pokud je soubor zámku k dispozici pro projekt, nástroj NuGet používá ke spuštění `restore`tento soubor zámku. NuGet provede rychlou kontrolu, jestli se v závislostech balíčku nezměnily žádné změny, jak je uvedeno v souboru projektu (nebo v souborech závislých projektů) a jestli nedošlo k žádným změnám, jenom obnoví balíčky uvedené v souboru zámku. Nedošlo k opakovanému vyhodnocení závislostí balíčku.
 
-NuGet zjistí změnu v definované závislostí, jak je uvedeno v souborech projektů, znovu vyhodnotí grafu balíčku a aktualizuje soubor zámku tak, aby odrážely nový balíček uzavření pro projekt.
+Pokud NuGet detekuje změnu v definovaných závislostech, jak je uvedeno v souborech projektu, znovu vyhodnotí graf balíčku a aktualizuje soubor zámku tak, aby odrážel nový uzavření balíčku pro daný projekt.
 
-Pro CI/CD a další scénáře, ve kterém by chcete změnit závislosti balíčků v reálném čase, můžete to provést nastavením `lockedmode` k `true`:
+V případě CI/CD a dalších scénářů, kde byste nechtěli změnit závislosti balíčku za běhu, můžete to provést nastavením `lockedmode` na: `true`
 
-Pro dotnet.exe spusťte:
+Pro příkaz dotnet. exe spusťte:
 ```
 > dotnet.exe restore --locked-mode
 ```
 
-Msbuild.exe spusťte tento příkaz:
+Pro MSBuild. exe spusťte:
 ```
 > msbuild.exe -t:restore -p:RestoreLockedMode=true
 ```
 
-Může také nastavit podmíněné vlastnost MSBuild v souboru projektu:
+Tuto vlastnost podmíněného MSBuild můžete nastavit také v souboru projektu:
 ```xml
 <PropertyGroup>
     <!--- ... -->
@@ -214,28 +216,28 @@ Může také nastavit podmíněné vlastnost MSBuild v souboru projektu:
 </PropertyGroup> 
 ```
 
-Pokud uzamčeném režimu `true`, obnovení bude obnovení přesné balíčků, jak je uvedeno v souboru zámku nebo selhat, pokud jste aktualizovali závislosti definované balíčků pro projekt, po vytvoření souboru zámku.
+Pokud je `true`uzamčený režim, obnovení obnoví buď přesné balíčky uvedené v souboru zámku, nebo selže, pokud jste aktualizovali definované závislosti balíčků pro projekt po vytvoření souboru zámku.
 
-### <a name="make-lock-file-part-of-your-source-repository"></a>Zařazení zamknout soubor zdrojového úložiště
-Pokud vytváříte aplikaci, spustitelný soubor a dotyčný projektu je na začátku řetězu závislostí zkontrolujte v souboru zámku na úložiště zdrojového kódu tak, aby NuGet můžete využít během obnovení.
+### <a name="make-lock-file-part-of-your-source-repository"></a>Nastavit zámek souboru jako součást zdrojového úložiště
+Pokud vytváříte aplikaci, spustitelný soubor a příslušný projekt jsou na začátku řetězu závislostí a pak proveďte vrácení souboru se zámkem do úložiště zdrojového kódu, aby jej mohla aplikace NuGet využít při obnovení.
 
-Ale pokud váš projekt je projekt knihovny, který jste Nedodávejte nebo běžné projekt kódu na další projekty se závisí na vás **by neměla** jako součást vašeho zdrojového kódu se změnami soubor zámku. Neexistuje nezpůsobily žádné potíže ochraně souboru zámku ale závislosti uzamčené balíčků pro běžné projekt kódu nesmí být použit, jak je uvedeno v souboru zámku během obnovení/sestavení projektu, který závisí na tomto společný kód projektu.
+Pokud je však projekt knihovnou projektu, který nedodáte nebo se jedná o běžný projekt kódu, na kterém jsou závislé další projekty, **neměli byste** soubory zámku vrátit se změnami jako součást zdrojového kódu. Neexistuje žádný škodný soubor zámku, ale nelze použít uzamčené závislosti balíčku pro běžný projekt kódu, jak je uvedeno v souboru zámku během obnovení nebo sestavení projektu, který je závislý na tomto projektu Common-Code.
 
-Např.
+EG.
 ```
 ProjectA
   |------> PackageX 2.0.0
   |------> ProjectB
              |------>PackageX 1.0.0
 ```
-Pokud `ProjectA` závislý na `PackageX` verze `2.0.0` a také odkazuje na `ProjectB` , který závisí na `PackageX` verze `1.0.0`, pak soubor zámku pro `ProjectB` zobrazí seznam závislost na `PackageX` verze `1.0.0`. Ale když `ProjectA` vytvořili, platnost zámku soubor bude obsahovat závislost na `PackageX` verze **`2.0.0`** a **není** `1.0.0` jak je uvedeno v souboru zámku pro `ProjectB`. Proto soubor zámku běžné kódového projektu má málo say přeložit pro projekty, které jsou na ní závislé balíčky.
+Pokud `ProjectA` má závislost `PackageX` na verzi `2.0.0` a také odkazy `ProjectB` , které závisejí na `PackageX` verzi `1.0.0`, pak soubor zámku pro `ProjectB` bude zobrazovat závislost na `PackageX` verze `1.0.0`. Když `ProjectA` `PackageX` je však sestaven, jeho soubor zámku bude obsahovat závislost na verzi **`2.0.0`** a **nikoli** `1.0.0` , jak je uvedeno v souboru zámku pro `ProjectB`. Proto soubor zámku pro běžný projekt kódu trochu říká, že balíčky byly vyřešeny pro projekty, které jsou na ní závislé.
 
-### <a name="lock-file-extensibility"></a>Rozšíření souboru zámku
-Jak je popsáno níže, můžete se soubor zámku ovládání různého chování obnovení:
+### <a name="lock-file-extensibility"></a>Zamknout rozšíření souboru
+Můžete řídit různá chování při obnovení pomocí souboru zámku, jak je popsáno níže:
 
-| Možnost | Ekvivalentní možnosti MSBuild | 
+| Možnost | Možnost ekvivalentu MSBuild | 
 |:---  |:--- |
-| `--use-lock-file` | Bootstraps použít soubor zámku pro projekt. Můžete také nastavit `RestorePackagesWithLockFile` vlastnost v souboru projektu | 
-| `--locked-mode` | Umožňuje uzamčeném režimu pro obnovení. To je užitečné ve scénářích CI/CD, kde byste chtěli získání opakovatelných sestavení. To může být také tak, že nastavíte `RestoreLockedMode` vlastnosti nástroje MSBuild `true` |  
-| `--force-evaluate` | Tato možnost je užitečná s balíčky verzí s plovoucí desetinnou čárkou definované v projektu. Ve výchozím nastavení, obnovení NuGet se neaktualizuje automaticky při každé obnovení verze balíčku není-li spustit obnovení s `--force-evaluate` možnost. |
-| `--lock-file-path` | Definuje vlastní zámek umístění souboru projektu. To můžete také dosáhnout nastavením vlastnosti MSBuild `NuGetLockFilePath`. Ve výchozím nastavení podporuje NuGet `packages.lock.json` v kořenovém adresáři. Pokud máte více projektů ve stejném adresáři, NuGet podporuje konkrétní zámek souboru projektu `packages.<project_name>.lock.json` |
+| `--use-lock-file` | Slouží k zavedení souboru zámku pro projekt. Můžete také nastavit `RestorePackagesWithLockFile` vlastnost v souboru projektu | 
+| `--locked-mode` | Zapne uzamčený režim pro obnovení. To je užitečné ve scénářích CI/CD, kde byste chtěli získat opakovaně vytvořená sestavení. To může být také nastavením `RestoreLockedMode` vlastnosti MSBuild na`true` |  
+| `--force-evaluate` | Tato možnost je užitečná pro balíčky s plovoucí verzí definovanou v projektu. Ve výchozím nastavení obnovení NuGet při každém obnovení automaticky neaktualizuje verzi balíčku, dokud nespustíte možnost obnovit `--force-evaluate` s možností. |
+| `--lock-file-path` | Definuje vlastní umístění souboru zámku pro projekt. To lze také dosáhnout nastavením vlastnosti `NuGetLockFilePath`MSBuild. Ve výchozím nastavení NuGet podporuje `packages.lock.json` v kořenovém adresáři. Pokud máte ve stejném adresáři více projektů, NuGet podporuje soubor zámku specifický pro projekt.`packages.<project_name>.lock.json` |

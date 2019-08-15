@@ -3,36 +3,20 @@ title: Odkaz na soubor NuGet. config
 description: Odkaz na soubor NuGet. config včetně oddílů config, bindingRedirects, packageRestore, Solution a packageSource
 author: karann-msft
 ms.author: karann
-ms.date: 10/25/2017
+ms.date: 08/13/2019
 ms.topic: reference
-ms.openlocfilehash: b03bb8da0191a679671e5898ac70fff2024d52f2
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: a2955617b899bfadab42d1ae98dd20c8fc6ddca9
+ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317222"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69020054"
 ---
 # <a name="nugetconfig-reference"></a>Referenční dokumentace NuGet. config
 
 Chování NuGet se řídí nastavením v různých `NuGet.Config` souborech, jak je popsáno v tématu [běžné konfigurace NuGet](../consume-packages/configuring-nuget-behavior.md).
 
 `nuget.config`je soubor XML obsahující uzel nejvyšší úrovně `<configuration>` , který pak obsahuje prvky oddílu popsané v tomto tématu. Každý oddíl obsahuje nula nebo více položek. Podívejte se na [příklady konfiguračního souboru](#example-config-file). U názvů nastavení se nerozlišují malá a velká písmena a hodnoty můžou používat [proměnné prostředí](#using-environment-variables).
-
-V tomto tématu:
-
-- [konfigurační oddíl](#config-section)
-- [oddíl bindingRedirects](#bindingredirects-section)
-- [oddíl packageRestore](#packagerestore-section)
-- [oddíl řešení](#solution-section)
-- [Zdrojové oddíly balíčku](#package-source-sections):
-  - [packageSources](#packagesources)
-  - [packageSourceCredentials](#packagesourcecredentials)
-  - [apikeys](#apikeys)
-  - [disabledPackageSources](#disabledpackagesources)
-  - [activePackageSource](#activepackagesource)
-- [oddíl trustedSigners](#trustedsigners-section)
-- [Použití proměnných prostředí](#using-environment-variables)
-- [Ukázkový konfigurační soubor](#example-config-file)
 
 <a name="dependencyVersion"></a>
 <a name="globalPackagesFolder"></a>
@@ -45,7 +29,7 @@ Obsahuje různá nastavení konfigurace, která lze nastavit pomocí [ `nuget co
 
 `dependencyVersion`a `repositoryPath` platí pouze pro projekty pomocí `packages.config`. `globalPackagesFolder`platí jenom pro projekty, které používají formát PackageReference.
 
-| Key | Hodnota |
+| Key | Value |
 | --- | --- |
 | dependencyVersion (`packages.config` pouze) | Výchozí `DependencyVersion` hodnota pro instalaci balíčku, obnovení a aktualizaci, `-DependencyVersion` když přepínač není zadán přímo Tuto hodnotu používá také uživatelské rozhraní Správce balíčků NuGet. Hodnoty jsou `Lowest`, `HighestPatch`, `HighestMinor`, .`Highest` |
 | globalPackagesFolder (projekty používající pouze PackageReference) | Umístění výchozí složky globálních balíčků. Výchozí hodnota je `%userprofile%\.nuget\packages` (Windows) nebo `~/.nuget/packages` (Mac/Linux). Relativní cestu lze použít v souborech specifických `nuget.config` pro projekt. Toto nastavení je přepsáno proměnnou prostředí NUGET_PACKAGES, která má přednost. |
@@ -104,7 +88,7 @@ Nakonfiguruje, jestli NuGet při instalaci balíčku automaticky přesměrováv�
 
 Určuje, zda `packages` je složka řešení obsažena ve správě zdrojového kódu. Tato část funguje pouze v `nuget.config` souborech ve složce řešení.
 
-| Key | Hodnota |
+| Key | Value |
 | --- | --- |
 | disableSourceControlIntegration | Logická hodnota označující, zda se má při práci se správou zdrojových kódů ignorovat složku balíčků. Výchozí hodnota je False. |
 
@@ -188,7 +172,7 @@ Při použití nezašifrovaných hesel:
 
 Ukládá klíče pro zdroje, které používají ověřování pomocí klíče rozhraní API, jak [ `nuget setapikey` ](../reference/cli-reference/cli-ref-setapikey.md)je nastaveno pomocí příkazu.
 
-| Key | Hodnota |
+| Key | Value |
 | --- | --- |
 | (zdrojová adresa URL) | Šifrovaný klíč rozhraní API. |
 
@@ -240,6 +224,7 @@ Identifikuje aktuálně aktivní zdroj nebo označuje agregaci všech zdrojů.
     <add key="All" value="(Aggregate source)" />
 </activePackageSource>
 ```
+
 ## <a name="trustedsigners-section"></a>oddíl trustedSigners
 
 Ukládá důvěryhodné podepisující osoby používané k povolení balíčku při instalaci nebo obnovení. Tento seznam nemůže být prázdný, pokud je uživatel `signatureValidationMode` nastaven `require`na. 
@@ -268,6 +253,50 @@ Pokud je jako`true`daný certifikát povoleno řetězení k nedůvěryhodnému k
         <owners>microsoft;aspnet;nuget</owners>
     </repository>
 </trustedSigners>
+```
+
+## <a name="fallbackpackagefolders-section"></a>oddíl fallbackPackageFolders
+
+*(3.5 +)* Poskytuje způsob, jak předinstalovat balíčky, aby nedošlo k tomu, že by se v případě nalezení balíčku v záložních složkách prováděla žádná práce. Záložní složky balíčku mají stejnou složku a strukturu souborů jako globální složka balíčku: *. nupkg* je k dispozici a jsou extrahovány všechny soubory.
+
+Logika vyhledávání pro tuto konfiguraci je:
+
+- Pokud chcete zjistit, jestli je balíček/verze už stažený, vyhledejte globální složku balíčku.
+
+- Vyhledejte shodu balíčku/verze v záložních složkách.
+
+Pokud je vyhledávání úspěšné, není nutné stahovat žádné soubory.
+
+Pokud se shoda nenajde, vyhledá NuGet zdroje souborů, potom zdroje http a pak stáhne balíčky.
+
+| Key | Value |
+| --- | --- |
+| (název záložní složky) | Cesta k záložní složce |
+
+**Příklad**:
+
+```xml
+<fallbackPackageFolders>
+   <add key="XYZ Offline Packages" value="C:\somePath\someFolder\"/>
+</fallbackPackageFolders>
+```
+
+## <a name="packagemanagement-section"></a>oddíl packageManagement
+
+Nastaví výchozí formát správy balíčků, buď *Packages. config* , nebo PackageReference. Projekty ve stylu sady SDK vždycky používají PackageReference.
+
+| Key | Value |
+| --- | --- |
+| formát | Logická hodnota označující výchozí formát správy balíčků. Pokud `1`je formát PackageReference. Pokud `0`má formát hodnotu *Packages. config*. |
+| zakázaný | Logická hodnota označující, zda se při první instalaci balíčku má zobrazit výzva k výběru výchozího formátu balíčku. `False`skryje výzvu. |
+
+**Příklad**:
+
+```xml
+<packageManagement>
+   <add key="format" value="1" />
+   <add key="disabled" value="False" />
+</packageManagement>
 ```
 
 ## <a name="using-environment-variables"></a>Použití proměnných prostředí

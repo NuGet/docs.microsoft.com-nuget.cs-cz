@@ -1,33 +1,33 @@
 ---
 title: Balíčky NuGet a Správa zdrojového kódu
-description: Důležité informace o tom, jak nakládat s balíčky NuGet v rámci systémy správy verzí ovládacího prvku a zdroje a jak chcete vynechat, nechte balíčky s git a TFVC.
+description: Informace o tom, jak zacházet s balíčky NuGet v rámci správy verzí a systémy správy zdrojového kódu a jak vynechat balíčky pomocí Gitu a TFVC.
 author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: ef4c45451cc52eb08dc627f8442c48e853d8ceaf
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: 9d9ea10ccd32bb65ad0d62b591f5e2cb58ea3427
+ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324731"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019983"
 ---
-# <a name="omitting-nuget-packages-in-source-control-systems"></a>Vynechání balíčky NuGet v systémy správy zdrojového kódu
+# <a name="omitting-nuget-packages-in-source-control-systems"></a>Vynechávání balíčků NuGet v systémech správy zdrojového kódu
 
-Vývojáři obvykle vynechat balíčků NuGet z jejich úložiště správy zdrojového kódu a místo toho spoléhají na [obnovení balíčků](package-restore.md) přeinstalovat závislosti projektu před během sestavení.
+Vývojáři obvykle vynechává balíčky NuGet ze svých úložišť správy zdrojového kódu a využívají se [](package-restore.md) místo toho, aby obnovily závislosti projektu před sestavením.
 
-Důvody pro spoléhání se na obnovení balíčků, patří:
+Důvody pro spoléhání na obnovení balíčku zahrnují následující:
 
-1. Systémy správy distribuovaných verzí, jako je Git, zahrnout úplné kopie každé verze každého souboru v rámci tohoto úložiště. Binární soubory, které se často aktualizují vést k výrazné determinističtější a prodlouží čas potřebný ke klonování úložiště.
-1. Při balíčky jsou zahrnuty v úložišti, mohou vývojáři přidat odkazy přímo na obsah balíčku na disku než odkazující balíčků prostřednictvím balíčku NuGet, což může vést k názvům pevně zakódované cesty v projektu.
-1. Bude obtížnější Vyčistit řešení složek nepoužívaných balíčků, jako je nutné se ujistit, že nechcete odstranit všechny složky balíčku stále používán.
-1. Vynecháním balíčky udržovat čisté hranice vlastnictví mezi kódu a balíčků od ostatních, které závisí na aplikaci. Mnoho balíčky NuGet jsou zachována ve své vlastní úložiště správy zdrojového kódu už.
+1. Distribuované systémy správy verzí, jako je git, obsahují úplné kopie každé verze každého souboru v úložišti. Binární soubory, které se často aktualizují, vedou k významným dispozici determinističtějšíům a prodlouží dobu potřebnou k naklonování úložiště.
+1. Když jsou balíčky zahrnuté do úložiště, můžou vývojáři přidat odkazy přímo na obsah balíčku na disku místo na odkazování na balíčky přes NuGet, což může vést k pevně zakódovaným názvům cest v projektu.
+1. Je obtížnější vyčistit řešení všech nepoužívaných složek balíčku, protože je potřeba zajistit, aby se neodstranily žádné složky balíčku, které se pořád používají.
+1. Vynecháním balíčků zachováte čisté hranice vlastnictví mezi kódem a balíčky od ostatních, na kterých jste závislí. Mnoho balíčků NuGet se už ve vlastních úložištích správy zdrojových kódů udržuje.
 
-Výchozí chování nuget sice obnovit balíček úkony ruční je nezbytné vynechejte balíčky&mdash;totiž, `packages` složku ve vašem projektu&mdash;ze správy zdrojového kódu, jak je popsáno v tomto článku.
+I když je obnovení balíčku výchozím chováním nástroje NuGet, některé ruční práce jsou nezbytné k vynechání&mdash;balíčků `packages` konkrétně, ze složky&mdash;v projektu ze správy zdrojového kódu, jak je popsáno v tomto článku.
 
-## <a name="omitting-packages-with-git"></a>Vynechání balíčky s Gitem
+## <a name="omitting-packages-with-git"></a>Vynechávání balíčků v Gitu
 
-Použití [soubor .gitignore](https://git-scm.com/docs/gitignore) ignorovat balíčky NuGet (`.nupkg`) `packages` složky, a `project.assets.json`, mimo jiné. Odkaz, najdete v článku [ukázka `.gitignore` pro projekty aplikace Visual Studio](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore):
+Pomocí [souboru. gitignore](https://git-scm.com/docs/gitignore) můžete ignorovat balíčky NuGet (`.nupkg`) `packages` složku, a `project.assets.json`mimo jiné. Referenční informace naleznete v [ukázce `.gitignore` pro projekty sady Visual Studio](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore):
 
 Důležité části `.gitignore` souboru jsou:
 
@@ -55,19 +55,19 @@ project.lock.json
 project.assets.json
 ```
 
-## <a name="omitting-packages-with-team-foundation-version-control"></a>Vynechání balíčky s Team Foundation – správa verzí
+## <a name="omitting-packages-with-team-foundation-version-control"></a>Vynechávání balíčků s Správa verzí Team Foundation
 
 > [!Note]
-> Pokud je to možné postupujte podle těchto pokynů *před* přidání projektu do správy zdrojového kódu. V opačném případě odstraňte ručně `packages` složku z vašeho úložiště a vrácení se změnami tuto změnu, než budete pokračovat.
+> Pokud je to možné, postupujte podle těchto pokynů, *než* přidáte projekt do správy zdrojových kódů. V opačném případě ručně `packages` odstraňte složku z úložiště a vraťte se změnami, než budete pokračovat.
 
-Chcete-li zakázat integrace správy zdrojového kódu s TFVC pro vybrané soubory:
+Chcete-li zakázat integraci správy zdrojového kódu s TFVC pro vybrané soubory:
 
-1. Vytvořte složku s názvem `.nuget` ve složce řešení (kde `.sln` soubor).
-    - Tip: na Windows, k vytvoření této složky v Průzkumníku Windows, použijte název `.nuget.` *s* koncovou tečku.
+1. Ve složce řešení vytvořte `.nuget` složku s názvem ( `.sln` kde je soubor).
+    - Tip: v systému Windows Chcete-li vytvořit tuto složku v Průzkumníku Windows, použijte `.nuget.` název *s* koncovou tečkou.
 
-1. V této složce vytvořte soubor s názvem `NuGet.Config` a otevřete pro úpravy.
+1. V této složce vytvořte soubor s názvem `NuGet.Config` a otevřete ho pro úpravy.
 
-1. Přidejte následující text jako minimum, kde [disableSourceControlIntegration](../reference/nuget-config-file.md#solution-section) nastavení dá pokyn Přeskočit vše v sadě Visual Studio `packages` složky:
+1. Přidejte následující text jako minimální, kde nastavení [disableSourceControlIntegration](../reference/nuget-config-file.md#solution-section) vydá aplikaci Visual Studio, aby přeskočila vše ve `packages` složce:
 
    ```xml
    <?xml version="1.0" encoding="utf-8"?>
@@ -78,9 +78,9 @@ Chcete-li zakázat integrace správy zdrojového kódu s TFVC pro vybrané soubo
    </configuration>
    ```
 
-1. Pokud používáte TFS 2010 nebo starší, skrytí `packages` složky v mapování pracovního prostoru.
+1. Pokud používáte TFS 2010 nebo starší, skryté `packages` složky v mapování pracovních prostorů.
 
-1. Na serveru TFS 2012 nebo novější, nebo službou Visual Studio Team Services, vytvořit `.tfignore` sdílené, jak je popsáno na [přidat soubory serveru](/vsts/tfvc/add-files-server?view=vsts#tfignore). V tomto souboru zahrnují následující explicitně Ignorovat změny obsah `\packages` složky na úrovni úložiště a několik dalších zprostředkujících souborů. (Tento soubor můžete vytvořit v Průzkumníku Windows pomocí názvu `.tfignore.` s koncovou tečku, ale může být nutné zakázat "Skrýt příponu souborů známých" možnost nejprve.):
+1. Na serveru TFS 2012 nebo novějším nebo pomocí Visual Studio Team Services vytvořte `.tfignore` soubor, jak je popsáno v tématu [Přidání souborů na server](/vsts/tfvc/add-files-server?view=vsts#tfignore). V tomto souboru zahrňte níže uvedený obsah, který explicitně ignoruje změny `\packages` složky na úrovni úložiště a několik dalších zprostředkujících souborů. (Soubor můžete vytvořit v Průzkumníkovi Windows pomocí názvu a `.tfignore.` s koncovou tečkou, ale možná budete muset nejdřív zakázat možnost "Skrýt známé přípony souborů".):
 
    ```cli
    # Ignore NuGet Packages
@@ -90,13 +90,10 @@ Chcete-li zakázat integrace správy zdrojového kódu s TFVC pro vybrané soubo
    # with additional folder names if it's not in the same folder as .tfignore.   
    packages
 
-   # Exclude package target files which may be required for MSBuild, again prefixing the folder name as needed.
-   !packages/*.targets
-
    # Omit temporary files
    project.lock.json
    project.assets.json
    *.nuget.props
    ```
 
-1. Přidat `NuGet.Config` a `.tfignore` do správy zdrojového kódu a vrácení zpět se změnami.
+1. Přidejte `NuGet.Config` a`.tfignore` do správy zdrojových kódů a vraťte se změnami.
