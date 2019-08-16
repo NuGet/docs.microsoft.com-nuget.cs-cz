@@ -1,0 +1,26 @@
+---
+title: Vytváření nativních balíčků NuGet
+description: Podrobnosti o vytváření nativních balíčků NuGet, C++ které obsahují kód namísto spravovaného kódu, pro C++ použití v projektech.
+author: karann-msft
+ms.author: karann
+ms.date: 01/09/2017
+ms.topic: conceptual
+ms.openlocfilehash: e0ec5323f7be53bef6637ad69540a66abbf22711
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69520597"
+---
+# <a name="creating-native-packages"></a><span data-ttu-id="3fd1e-103">Vytváření nativních balíčků</span><span class="sxs-lookup"><span data-stu-id="3fd1e-103">Creating native packages</span></span>
+
+<span data-ttu-id="3fd1e-104">Nativní balíček obsahuje nativní binární soubory namísto spravovaných sestavení, což umožňuje použití v rámci C++ (nebo podobných) projektech.</span><span class="sxs-lookup"><span data-stu-id="3fd1e-104">A native package contains native binaries instead of managed assemblies, allowing it to be used within C++ (or similar) projects.</span></span> <span data-ttu-id="3fd1e-105">(Podívejte se na téma [nativní C++ balíčky](../consume-packages/finding-and-choosing-packages.md#native-c-packages) v části spotřebovat.)</span><span class="sxs-lookup"><span data-stu-id="3fd1e-105">(See [Native C++ Packages](../consume-packages/finding-and-choosing-packages.md#native-c-packages) in the Consume section.)</span></span>
+
+<span data-ttu-id="3fd1e-106">Aby bylo možné v C++ projektu být spotřební, balíček musí cílit na `native` rozhraní.</span><span class="sxs-lookup"><span data-stu-id="3fd1e-106">To be consumable in a C++ project, a package must target the `native` framework.</span></span> <span data-ttu-id="3fd1e-107">V současné době nejsou k dispozici žádná čísla verzí přidružená k tomuto rozhraní, protože C++ NuGet považuje všechny projekty za stejné.</span><span class="sxs-lookup"><span data-stu-id="3fd1e-107">At present there are not any version numbers associated with this framework as NuGet treats all C++ projects the same.</span></span>
+
+> [!Note]
+> <span data-ttu-id="3fd1e-108">Ujistěte se, že do `<tags>` části vaší aplikace `.nuspec` zadáte nativní, abyste ostatním vývojářům pomohli najít balíček pomocí hledání této značky.</span><span class="sxs-lookup"><span data-stu-id="3fd1e-108">Be sure to include *native* in the `<tags>` section of your `.nuspec` to help other developers find your package by searching on that tag.</span></span>
+
+<span data-ttu-id="3fd1e-109">Nativní balíčky NuGet zaměřené `native` na potom poskytují soubory `\build`ve `\content`složkách, `\tools` a. se v tomto případě nepoužívá (NuGet nemůže přímo přidat odkazy na C++ projekt). `\lib`</span><span class="sxs-lookup"><span data-stu-id="3fd1e-109">Native NuGet packages targeting `native` then provide files in `\build`, `\content`, and `\tools` folders; `\lib` is not used in this case (NuGet cannot directly add references to a C++ project).</span></span> <span data-ttu-id="3fd1e-110">Balíček může také zahrnovat cíle a soubory props v `\build` této NuGet se automaticky naimportují do projektů, které daný balíček využívají.</span><span class="sxs-lookup"><span data-stu-id="3fd1e-110">A package may also include targets and props files in `\build` that NuGet will automatically import into projects that consume the package.</span></span> <span data-ttu-id="3fd1e-111">Tyto soubory musí být pojmenovány stejně jako ID balíčku s `.targets` příponami a/nebo. `.props`</span><span class="sxs-lookup"><span data-stu-id="3fd1e-111">Those files must be named the same as the package ID with the `.targets` and/or `.props` extensions.</span></span> <span data-ttu-id="3fd1e-112">Například balíček [cpprestsdk](https://nuget.org/packages/cpprestsdk/) zahrnuje `cpprestsdk.targets` soubor do své `\build` složky.</span><span class="sxs-lookup"><span data-stu-id="3fd1e-112">For example, the [cpprestsdk](https://nuget.org/packages/cpprestsdk/) package includes a `cpprestsdk.targets` file in its `\build` folder.</span></span>
+
+<span data-ttu-id="3fd1e-113">`\build` Složku lze použít pro všechny balíčky NuGet, nikoli jenom pro nativní balíčky.</span><span class="sxs-lookup"><span data-stu-id="3fd1e-113">The `\build` folder can be used for all NuGet packages and not just native packages.</span></span> <span data-ttu-id="3fd1e-114">Složka respektuje cílová rozhraní `\content`, stejně jako složky, `\lib`a `\tools`. `\build`</span><span class="sxs-lookup"><span data-stu-id="3fd1e-114">The `\build` folder respects target frameworks just like the `\content`, `\lib`, and `\tools` folders.</span></span> <span data-ttu-id="3fd1e-115">To znamená, že můžete vytvořit `\build\net40` složku `\build\net45` a složku a NuGet bude importovat příslušné soubory props a targets do projektu.</span><span class="sxs-lookup"><span data-stu-id="3fd1e-115">This means you can create a `\build\net40` folder and a `\build\net45` folder and NuGet will import the appropriate props and targets files into the project.</span></span> <span data-ttu-id="3fd1e-116">(Pro import cílů MSBuild není potřeba používat skripty PowerShellu.)</span><span class="sxs-lookup"><span data-stu-id="3fd1e-116">(Use of PowerShell scripts to import MSBuild targets is not needed.)</span></span>
