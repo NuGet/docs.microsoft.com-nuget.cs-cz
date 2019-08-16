@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: 726f983c2522fdb538dfce858fdf2371ec0ce188
-ms.sourcegitcommit: f9e39ff9ca19ba4a26e52b8a5e01e18eb0de5387
+ms.openlocfilehash: a7d07da30daf3f94db99476b88d9abaad1bb8a07
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68433343"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488854"
 ---
 # <a name="building-pre-release-packages"></a>Sestavování balíčků předběžných verzí
 
@@ -20,7 +20,7 @@ Kdykoliv vydáte aktualizovaný balíček s novým číslem verze, NuGet ho pova
 
 Stabilní verze je ta, která je dostatečně spolehlivá, aby se mohla používat v produkčním prostředí. Nejnovější stabilní verze je zároveň ta, která se nainstaluje jako aktualizace balíčku nebo během obnovování balíčku (v závislosti na tom, jak je popsáno v tématu [Přeinstalace a aktualizace balíčků](../consume-packages/reinstalling-and-updating-packages.md)).
 
-Aby bylo možné podporovat životní cyklus vydání softwaru, NuGet 1,6 a novější umožňuje distribuci předběžných balíčků, kde číslo verze zahrnuje příponu sémantické verze, například `-alpha`, `-beta`nebo `-rc`. Další informace najdete v tématu [Správa verzí balíčků](../reference/package-versioning.md#pre-release-versions).
+Aby bylo možné podporovat životní cyklus vydání softwaru, NuGet 1,6 a novější umožňuje distribuci předběžných balíčků, kde číslo verze zahrnuje příponu sémantické verze, například `-alpha`, `-beta`nebo `-rc`. Další informace najdete v tématu [Správa verzí balíčků](../concepts/package-versioning.md#pre-release-versions).
 
 Tyto verze můžete zadat jedním z následujících způsobů:
 
@@ -38,7 +38,7 @@ Tyto verze můžete zadat jedním z následujících způsobů:
     <version>1.0.1-alpha</version>
     ```
 
-Až budete připraveni uvolnit stabilní verzi, stačí odebrat příponu a balíček má přednost před všemi předběžnými verzemi. Přečtěte si další informace v tématu [Správa verzí balíčků](../reference/package-versioning.md#pre-release-versions).
+Až budete připraveni uvolnit stabilní verzi, stačí odebrat příponu a balíček má přednost před všemi předběžnými verzemi. Přečtěte si další informace v tématu [Správa verzí balíčků](../concepts/package-versioning.md#pre-release-versions).
 
 ## <a name="installing-and-updating-pre-release-packages"></a>Instalace a aktualizace balíčků předběžné verze
 

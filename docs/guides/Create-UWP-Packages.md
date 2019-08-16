@@ -1,64 +1,64 @@
 ---
-title: Vytváření balíčků NuGet pro Universal Windows Platform
-description: Začátku do konce postup vytváření balíčků NuGet pro univerzální platformu Windows pomocí komponenty Windows Runtime.
+title: Vytvoření balíčků NuGet pro Univerzální platforma Windows
+description: Kompletní návod k vytváření balíčků NuGet pomocí prostředí Windows Runtime komponenty pro Univerzální platforma Windows.
 author: karann-msft
 ms.author: karann
 ms.date: 03/21/2017
 ms.topic: tutorial
-ms.openlocfilehash: 344c8d764180d0f33c1bce77b721e3657297e74e
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 1683349faacdf5ad47baafeef3457bbb3bb1baa9
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842123"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488990"
 ---
 # <a name="create-uwp-packages"></a>Vytvoření balíčků UPW
 
-[Univerzální platformu Windows (UPW)](https://developer.microsoft.com/windows) poskytuje společnou platformu aplikace pro každé zařízení, na kterém běží Windows 10. V rámci tohoto modelu aplikací pro UWP můžete volat rozhraní API WinRT, která jsou společná pro všechna zařízení i také rozhraní API (včetně Win32 a .NET), které jsou specifické na řadě zařízení, na kterém je aplikace spuštěna.
+[Univerzální platforma Windows (UWP)](https://developer.microsoft.com/windows) poskytuje běžnou aplikační platformu pro každé zařízení s Windows 10. V rámci tohoto modelu můžou aplikace pro UWP volat rozhraní API WinRT, která jsou společná pro všechna zařízení, a taky rozhraní API (včetně Win32 a .NET), která jsou specifická pro řadu zařízení, ve které je aplikace spuštěná.
 
-V tomto návodu vytvoříte balíček NuGet s nativní UWP součásti (včetně ovládacího prvku XAML), který lze použít v spravovaný a nativní projekty.
+V tomto návodu vytvoříte balíček NuGet s nativní komponentou UWP (včetně ovládacího prvku XAML), který lze použít v spravovaných i nativních projektech.
 
 ## <a name="prerequisites"></a>Požadavky
 
-1. Visual Studio 2017 nebo Visual Studio 2015. Instalace edice Community 2017 zdarma z [visualstudio.com](https://www.visualstudio.com/); můžete použít také edice Professional a Enterprise.
+1. Visual Studio 2017 nebo Visual Studio 2015. Nainstalujte si bezplatnou edici 2017 Community Edition od [VisualStudio.com](https://www.visualstudio.com/); můžete použít i edice Professional a Enterprise.
 
-1. Rozhraní příkazového řádku NuGet. Stáhněte si nejnovější verzi `nuget.exe` z [nuget.org/downloads](https://nuget.org/downloads), ukládání do umístění podle vašeho výběru (soubor ke stažení je `.exe` přímo). Pak přidejte toto umístění do proměnné prostředí PATH, pokud ještě není.
+1. Rozhraní příkazového řádku NuGet Stáhněte si nejnovější verzi `nuget.exe` z [NuGet.org/downloads](https://nuget.org/downloads)a uložte ji do umístění dle vašeho výběru (stažení je `.exe` přímo). Pak přidejte toto umístění do proměnné prostředí PATH, pokud ještě není.
 
-## <a name="create-a-uwp-windows-runtime-component"></a>Vytvoření součásti UPW Windows Runtime
+## <a name="create-a-uwp-windows-runtime-component"></a>Vytvoření komponenty prostředí Windows Runtime UWP
 
-1. V sadě Visual Studio, zvolte **soubor > Nový > projekt**, rozbalte **Visual C++ > Windows > univerzální** uzlu, vyberte **součást prostředí Windows Runtime (Universal Windows)** šablony, změňte název na ImageEnhancer a klikněte na tlačítko OK. Přijměte výchozí hodnoty pro cílovou verzi a minimální verzi po zobrazení výzvy.
+1. V aplikaci Visual Studio zvolte **soubor > nový > projekt**, rozbalte položku **Visual C++ > Windows > univerzální** uzel, vyberte šablonu **prostředí Windows Runtime součásti (Universal Windows)** , změňte název na ImageEnhancer a klikněte na OK. Po zobrazení výzvy přijměte výchozí hodnoty pro cílovou verzi a minimální verzi.
 
-    ![Vytvoření nového projektu UPW součást prostředí Windows Runtime](media/UWP-NewProject.png)
+    ![Vytváření nového projektu součásti prostředí Windows Runtime pro UWP](media/UWP-NewProject.png)
 
-1. Klikněte pravým tlačítkem myši na projekt v Průzkumníku řešení, vyberte **Přidat > Nová položka**, klikněte na tlačítko **Visual C++ > XAML** uzlu, vyberte **prvku bez vizuálního vzhledu**, změňte název na AwesomeImageControl.cpp a klikněte na tlačítko **přidat**:
+1. Klikněte pravým tlačítkem na projekt v Průzkumník řešení, vyberte **přidat > novou položku**, klikněte na uzel **Visual C++ > XAML** , vyberte **ovládací prvek**s šablonou, změňte název na AwesomeImageControl. cpp a klikněte na tlačítko **Přidat**:
 
-    ![Přidání nové položky bez vizuálního vzhledu ovládacího prvku XAML do projektu](media/UWP-NewXAMLControl.png)
+    ![Přidání nové položky ovládacího prvku v šabloně XAML do projektu](media/UWP-NewXAMLControl.png)
 
-1. Klikněte pravým tlačítkem na projekt v Průzkumníku řešení a vyberte **vlastnosti.** Na stránce vlastností rozbalte **vlastnosti konfigurace > C/C++** a klikněte na tlačítko **výstupní soubory**. V podokně na pravé straně, změňte hodnotu **Generovat soubory dokumentace XML** na Ano:
+1. Klikněte pravým tlačítkem na projekt v Průzkumník řešení a vyberte **Vlastnosti.** Na stránce Vlastnosti rozbalte položku **Vlastnosti konfigurace > CC++ /** a klikněte na možnost **výstupní soubory**. V pravém podokně změňte hodnotu pro **Generovat soubory dokumentace XML** na Ano:
 
-    ![Nastavení Generovat soubory dokumentace XML na hodnotu Ano](media/UWP-GenerateXMLDocFiles.png)
+    ![Nastavení generovat soubory dokumentace XML na Ano](media/UWP-GenerateXMLDocFiles.png)
 
-1. Klikněte pravým tlačítkem myši *řešení* teď vyberte **dávkové sestavení**, zkontrolujte tři ladění pole v dialogovém okně, jak je znázorněno níže. Tím je zajištěno, že když použijete sestavení, vygenerujete kompletní sadu artefaktů pro každé cílové systémy, které podporuje Windows.
+1. Klikněte pravým tlačítkem na *řešení* , vyberte **dávkové sestavení**a zaškrtněte tři pole pro ladění v dialogovém okně, jak je znázorněno níže. Tím je zajištěno, že při sestavení vygenerujete úplnou sadu artefaktů pro každý cílový systém, který systém Windows podporuje.
 
     ![Dávkové sestavení](media/UWP-BatchBuild.png)
 
-1. V dávce sestavit dialogové okno a klikněte na tlačítko **sestavení** ověření projektu a vytvoření výstupních souborů, které potřebujete pro balíček NuGet.
+1. V dialogovém okně dávkové sestavení a kliknutím na **sestavení** ověřte projekt a vytvořte výstupní soubory, které potřebujete pro balíček NuGet.
 
 > [!Note]
-> V tomto názorném postupu použijete artefakty ladění pro balíček. Bez ladění balíčku zkontrolujte verzi možnosti v dialogovém okně dávkové sestavení místo toho a odkazovat na výsledný verzi složky v následujících kroků.
+> V tomto návodu použijete pro balíček artefakty ladění. V případě neladicího balíčku si místo toho v dialogovém okně dávkové sestavení vyhledejte možnosti vydání a podívejte se na výsledné složky verze v následujících krocích.
 
-## <a name="create-and-update-the-nuspec-file"></a>Vytvoření a aktualizaci souboru .nuspec souboru
+## <a name="create-and-update-the-nuspec-file"></a>Vytvoření a aktualizace souboru. nuspec
 
-Chcete-li vytvořit počáteční `.nuspec` soubor, proveďte následující tři kroky. Následující části pak vás provede další potřebné aktualizace.
+Chcete-li vytvořit `.nuspec` počáteční soubor, proveďte následující tři kroky. Následující části vás pak provede dalšími potřebnými aktualizacemi.
 
-1. Otevřete příkazový řádek a přejděte do složky obsahující `ImageEnhancer.vcxproj` (bude to podsložka níže kde je soubor řešení).
-1. Spuštění balíčku NuGet `spec` příkazu vygenerujte `ImageEnhancer.nuspec` (název souboru je převzat z názvu `.vcxproj` souboru):
+1. Otevřete příkazový řádek a přejděte do složky, která obsahuje `ImageEnhancer.vcxproj` (Toto je podsložka, ve které je soubor řešení).
+1. Spusťte příkaz NuGet `spec` , který se `ImageEnhancer.nuspec` má vygenerovat (název souboru se povede `.vcxproj` z názvu souboru):
 
     ```cli
     nuget spec
     ```
 
-1. Otevřít `ImageEnhancer.nuspec` v editoru a aktualizujte ji, aby se shodoval s následujícím, nahradíte vaše_jméno odpovídající hodnotu. `<id>` , Konkrétně musí být hodnota jedinečná napříč nuget.org (naleznete v tématu Zásady vytváření názvů je popsáno v [vytvoření balíčku](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number)). Všimněte si také, že budete muset taky aktualizovat Autor a popis značky nebo dojde k chybě během kroku balení.
+1. Otevřete `ImageEnhancer.nuspec` v editoru a aktualizujte ho, aby odpovídal následujícímu, a nahraďte YOUR_NAME příslušnou hodnotou. Hodnota konkrétně musí být jedinečná napříč NuGet.org (podívejte se na zásady vytváření názvů popsané v tématu [Vytvoření balíčku).](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number) `<id>` Všimněte si také, že je nutné také aktualizovat značky Autor a popis, jinak se zobrazí chyba v průběhu balení.
 
     ```xml
     <?xml version="1.0"?>
@@ -79,13 +79,13 @@ Chcete-li vytvořit počáteční `.nuspec` soubor, proveďte následující tř
     ```
 
 > [!Note]
-> Pro balíčky sestavené ke zveřejnění, věnujte zvláštní pozornost `<tags>` element, protože tyto značky pomoci ostatním najít váš balíček a pochopit jeho význam.
+> Pro balíčky sestavené pro veřejnou spotřebu věnujte zvláštní pozornost `<tags>` prvku, protože tyto značky můžou ostatním uživatelům najít váš balíček a pochopit, co to dělá.
 
-### <a name="adding-windows-metadata-to-the-package"></a>Přidání metadat Windows do balíčku
+### <a name="adding-windows-metadata-to-the-package"></a>Přidávají se metadata Windows do balíčku.
 
-Komponenta Windows Runtime vyžaduje metadata, která popisuje všechny veřejně dostupné typy, které umožňují další aplikace a knihovny, které chcete využívat komponentu. Tato metadata je obsažen v souboru winmd, který je vytvořen při kompilaci projektu a musí být součástí balíčku NuGet. Soubor XML s daty technologie IntelliSense je také integrované ve stejnou dobu a by měly být zahrnuty i.
+Komponenta prostředí Windows Runtime vyžaduje metadata, která popisují všechny veřejně dostupné typy, což umožňuje ostatním aplikacím a knihovnám využívat součást. Tato metadata jsou obsažena v souboru WinMD, který je vytvořen při kompilování projektu a musí být součástí balíčku NuGet. Soubor XML s daty technologie IntelliSense je také sestaven současně a měl by být zahrnut také.
 
-Přidejte následující `<files>` uzlu `.nuspec` souboru:
+`<files>` Přidejte`.nuspec` do souboru následující uzel:
 
 ```xml
 <package>
@@ -103,7 +103,7 @@ Přidejte následující `<files>` uzlu `.nuspec` souboru:
 
 ### <a name="adding-xaml-content"></a>Přidání obsahu XAML
 
-Zahrnout ovládacího prvku XAML pomocí vaší komponentě, budete muset přidat soubor XAML, který má výchozí šablony pro ovládací prvek (vygenerovaný pomocí šablony projektu). To také ukládá `<files>` části:
+Chcete-li zahrnout ovládací prvek XAML do komponenty, je nutné přidat soubor XAML, který má výchozí šablonu pro ovládací prvek (jak je vygenerována šablonou projektu). To se `<files>` taky doplní v části:
 
 ```xml
 <?xml version="1.0"?>
@@ -121,9 +121,9 @@ Zahrnout ovládacího prvku XAML pomocí vaší komponentě, budete muset přida
 </package>
 ```
 
-### <a name="adding-the-native-implementation-libraries"></a>Přidat nativní implementace knihovny
+### <a name="adding-the-native-implementation-libraries"></a>Přidání nativních implementačních knihoven
 
-V rámci vaší komponenty základní logiky ImageEnhancer typ je v nativním kódu, který je obsažen v různých `ImageEnhancer.dll` sestavení, které jsou generovány pro každý cílový modul runtime (x 86 a x64 ARM). Pokud chcete zahrnout do balíčku, na ně odkazovat v `<files>` části spolu s jejich soubory prostředků přidružené .pri:
+V rámci vaší komponenty je základní logika typu ImageEnhancer v nativním kódu, který je obsažen v různých `ImageEnhancer.dll` sestaveních, která jsou generována pro každý cílový modul runtime (ARM, x86 a x64). Pokud je chcete zahrnout do balíčku, odkázat je v `<files>` části spolu s jejich přidruženými zdrojovými soubory. pri:
 
 ```xml
 <?xml version="1.0"?>
@@ -151,9 +151,9 @@ V rámci vaší komponenty základní logiky ImageEnhancer typ je v nativním k�
 </package>
 ```
 
-### <a name="adding-targets"></a>Přidání .targets
+### <a name="adding-targets"></a>Přidávání cílů
 
-Projekty C++ a JavaScript, které může využívat svůj balíček NuGet dále, třeba souboru .targets pro identifikaci potřebné soubory sestavení a soubor winmd. (Projekty jazyka C# a Visual Basic udělat automaticky.) Tento soubor vytvořit zkopírováním níže uvedený text do `ImageEnhancer.targets` a uložte ho do stejné složky jako `.nuspec` souboru. _Poznámka:_ To `.targets` soubor musí být stejný název jako ID balíčku (například `<Id>` element v `.nupspec` souboru):
+V dalších C++ a v projektech JavaScriptu, které mohou spotřebovat váš balíček NuGet, potřebuje soubor. targets k identifikaci potřebných sestavení a souborů winmd. (C# a Visual Basic projekty automaticky.) Vytvořte tento soubor zkopírováním textu níže do `ImageEnhancer.targets` a uložte ho do stejné složky, ve které je `.nuspec` soubor. _Poznámka:_ Tento `.targets` soubor musí mít stejný název jako ID balíčku (např `<Id>` . element v `.nupspec` souboru):
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -171,7 +171,7 @@ Projekty C++ a JavaScript, které může využívat svůj balíček NuGet dále,
 </Project>
 ```
 
-Potom použijte `ImageEnhancer.targets` ve vašich `.nuspec` souboru:
+Pak se podívejte `ImageEnhancer.targets` na téma `.nuspec` v souboru:
 
 ```xml
 <?xml version="1.0"?>
@@ -189,9 +189,9 @@ Potom použijte `ImageEnhancer.targets` ve vašich `.nuspec` souboru:
 </package>
 ```
 
-### <a name="final-nuspec"></a>Poslední souboru .nuspec
+### <a name="final-nuspec"></a>Finální. nuspec
 
-Výsledná `.nuspec` soubor by teď měl vypadat jako následující, kde znovu vaše_jméno by měla být nahrazena odpovídající hodnotu:
+Konečný `.nuspec` soubor by teď měl vypadat nějak takto, kde znovu YOUR_NAME by mělo být nahrazeno příslušnou hodnotou:
 
 ```xml
 <?xml version="1.0"?>
@@ -233,28 +233,28 @@ Výsledná `.nuspec` soubor by teď měl vypadat jako následující, kde znovu 
 </package>
 ```
 
-## <a name="package-the-component"></a>Balíček komponenty
+## <a name="package-the-component"></a>Zabalení komponenty
 
-S dokončenou `.nuspec` odkazující na všechny soubory, které je potřeba zahrnout do balíčku, jste připraveni spustit `pack` příkaz:
+Po dokončení `.nuspec` odkazů na všechny soubory, které potřebujete zahrnout do balíčku, jste připraveni `pack` spustit příkaz:
 
 ```cli
 nuget pack ImageEnhancer.nuspec
 ```
 
-Tím se vygeneruje `ImageEnhancer.YOUR_NAME.1.0.0.nupkg`. Tento soubor otevřete v nástroje, jako je [NuGet – Průzkumník balíčků](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer) a rozšiřuje všechny uzly, viz následující obsah:
+Tím vygenerujete `ImageEnhancer.YOUR_NAME.1.0.0.nupkg`. Tento soubor otevřete v nástroji jako [Průzkumník balíčků NuGet](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer) a rozbalíte všechny uzly. zobrazí se následující obsah:
 
-![Zobrazuje ImageEnhancer balíčku NuGet – Průzkumník balíčků](media/UWP-PackageExplorer.png)
+![Průzkumník balíčků NuGet zobrazující balíček ImageEnhancer](media/UWP-PackageExplorer.png)
 
 > [!Tip]
-> A `.nupkg` soubor je jenom soubor ZIP s jinou příponou. Můžete také prozkoumat obsah balíčku, potom změnou `.nupkg` k `.zip`, ale nezapomeňte k obnovení rozšíření před nahráním balíčků na nuget.org.
+> `.nupkg` Soubor je pouze soubor zip s jinou příponou. Můžete také prošetřit obsah balíčku, potom změnou `.nupkg` na `.zip`, ale nezapomeňte obnovit rozšíření před nahráním balíčku do NuGet.org.
 
-Aby váš balíček k dispozici s ostatními vývojáři, postupujte podle pokynů [publikování balíčku](../nuget-org/publish-a-package.md).
+Pokud chcete balíček zpřístupnit ostatním vývojářům, postupujte podle pokynů v tématu [publikování balíčku](../nuget-org/publish-a-package.md).
 
 ## <a name="related-topics"></a>Související témata
 
-- [odkaz na souboru .nuspec](../reference/nuspec.md)
+- [Odkaz. nuspec](../reference/nuspec.md)
 - [Balíčky symbolů](../create-packages/symbol-packages.md)
-- [Správa verzí balíčků](../reference/package-versioning.md)
-- [Podpora více verzí rozhraní .NET Framework](../create-packages/supporting-multiple-target-frameworks.md)
-- [Zahrnout do balíčku cíle a vlastnosti nástroje MSBuild](../create-packages/creating-a-package.md#include-msbuild-props-and-targets-in-a-package)
+- [Správa verzí balíčků](../concepts/package-versioning.md)
+- [Podpora více verzí .NET Framework](../create-packages/supporting-multiple-target-frameworks.md)
+- [Zahrnutí vlastností MSBuild a cílů do balíčku](../create-packages/creating-a-package.md#include-msbuild-props-and-targets-in-a-package)
 - [Vytvoření lokalizovaných balíčků](../create-packages/creating-localized-packages.md)

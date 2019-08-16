@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8d732e87f01c55bde87da0a2e382fd6d509886a3
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 87116669c1e685ffd0dbe4142c2f7e357c413497
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317015"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488248"
 ---
 # <a name="projectjson-archive"></a>Archiv Project. JSON
 
@@ -54,19 +54,19 @@ Pracuje s `project.json`.
 
 ## <a name="dependency-resolution-with-packagereference"></a>Rozlišení závislosti s PackageReference
 
-*Původně v [řešení závislostí](../consume-packages/dependency-resolution.md#dependency-resolution-with-packagereference).*
+*Původně v [řešení závislostí](../concepts/dependency-resolution.md#dependency-resolution-with-packagereference).*
 
 Chování PackageReference se vztahuje také na `project.json`. NuGet Restore uloží graf závislosti do souboru s názvem `project.lock.json` společně `project.json`.
 
 ## <a name="managing-dependency-assets"></a>Správa prostředků závislosti
 
-*Původně v [řešení závislostí](../consume-packages/dependency-resolution.md#managing-dependency-assets).*
+*Původně v [řešení závislostí](../concepts/dependency-resolution.md#managing-dependency-assets).*
 
 Při použití `project.json` formátu můžete řídit, které prostředky se mají směrovat do projektu nejvyšší úrovně. Podrobnosti naleznete v tématu [Project. JSON](project-json.md).
 
 ## <a name="excluding-references"></a>Vyloučení odkazů
 
-*Původně v [řešení závislostí](../consume-packages/dependency-resolution.md#excluding-references).*
+*Původně v [řešení závislostí](../concepts/dependency-resolution.md#excluding-references).*
 
 - `project.json`: přidejte `"exclude" : "all"` v závislosti pro PackageC:
 
@@ -83,7 +83,7 @@ Při použití `project.json` formátu můžete řídit, které prostředky se m
 
 ## <a name="resolving-incompatible-package-errors"></a>Řešení chyb nekompatibilních balíčků
 
-*Původně v [řešení závislostí](../consume-packages/dependency-resolution.md#resolving-incompatible-package-errors).*
+*Původně v [řešení závislostí](../concepts/dependency-resolution.md#resolving-incompatible-package-errors).*
 
 Přidaný způsob řešení chyb:
 
@@ -124,7 +124,7 @@ Při použití `project.json`nejsou cíle přidány do projektu, ale jsou zpří
 
 ### <a name="package-versioning"></a>Správa verzí balíčků
 
-*Původně ve [verzi balíčku](../reference/package-versioning.md).*
+*Původně ve [verzi balíčku](../concepts/package-versioning.md).*
 
 Při použití `project.json` formátu NuGet podporuje také použití zástupných znaků \*, v případě částí čísla hlavní, dílčí, opravné a předběžné verze.
 

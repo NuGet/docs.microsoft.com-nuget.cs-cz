@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 92b42f0a6133565844d0b6df2cb50770793055ec
-ms.sourcegitcommit: e763d9549cee3b6254ec2d6382baccb44433d42c
+ms.openlocfilehash: a965a3049f46af59efcfad2ecf19e0923fda413b
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68860638"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488952"
 ---
 # <a name="create-a-nuget-package-using-msbuild"></a>Vytvoření balíčku NuGet pomocí nástroje MSBuild
 
@@ -68,7 +68,7 @@ Můžete také nastavit volitelné vlastnosti, například `Title` `PackageDescr
 > [!NOTE]
 > Pro balíčky sestavené pro veřejnou spotřebu věnujte zvláštní pozornost vlastnosti **PackageTags** , protože značky můžou ostatním uživatelům najít váš balíček a pochopit, co to dělá.
 
-Podrobnosti o deklarování závislostí a zadání čísel verzí naleznete v tématu [odkazy na balíčky v souborech projektu](../consume-packages/package-references-in-project-files.md) a [Správa verzí balíčků](../reference/package-versioning.md). Je také možné Surface prostředků ze závislostí přímo v balíčku pomocí `<IncludeAssets>` atributů a. `<ExcludeAssets>` Další informace najdete v Seee [řízení prostředků závislostí](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets).
+Podrobnosti o deklarování závislostí a zadání čísel verzí naleznete v tématu [odkazy na balíčky v souborech projektu](../consume-packages/package-references-in-project-files.md) a [Správa verzí balíčků](../concepts/package-versioning.md). Je také možné Surface prostředků ze závislostí přímo v balíčku pomocí `<IncludeAssets>` atributů a. `<ExcludeAssets>` Další informace najdete v Seee [řízení prostředků závislostí](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets).
 
 ## <a name="choose-a-unique-package-identifier-and-set-the-version-number"></a>Vyberte jedinečný identifikátor balíčku a nastavte číslo verze.
 
@@ -170,7 +170,7 @@ Po vytvoření balíčku, který je `.nupkg` soubor, můžete ho publikovat do G
 Můžete také chtít zvětšit možnosti vašeho balíčku nebo jinak podporovat jiné scénáře, jak je popsáno v následujících tématech:
 
 - [Sada NuGet Pack a obnovení jako cíle MSBuild](../reference/msbuild-targets.md)
-- [Správa verzí balíčků](../reference/package-versioning.md)
+- [Správa verzí balíčků](../concepts/package-versioning.md)
 - [Podpora více cílových architektur](../create-packages/multiple-target-frameworks-project-file.md)
 - [Transformace zdrojových a konfiguračních souborů](../create-packages/source-and-config-file-transformations.md)
 - [Lokalizace](../create-packages/creating-localized-packages.md)
@@ -180,5 +180,5 @@ Můžete také chtít zvětšit možnosti vašeho balíčku nebo jinak podporova
 
 Nakonec existují další typy balíčků, o kterých byste měli vědět:
 
-- [Nativní balíčky](../create-packages/native-packages.md)
+- [Nativní balíčky](../guides/native-packages.md)
 - [Balíčky symbolů](../create-packages/symbol-packages.md)

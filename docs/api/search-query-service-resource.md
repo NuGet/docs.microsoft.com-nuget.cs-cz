@@ -1,45 +1,45 @@
 ---
-title: Search, NuGet API
-description: Vyhledávací služba umožňuje klientům k vytvoření dotazu na balíčky pomocí klíčového slova a k filtrování výsledků na určitá pole balíčku.
+title: Hledání, rozhraní API NuGet
+description: Vyhledávací služba umožňuje klientům dotazovat se na balíčky podle klíčového slova a filtrovat výsledky u určitých polí balíčku.
 author: joelverhagen
 ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: d462b289c39c2dd1418304dabcad47d0d4217f82
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: b898b389ee6c962831ce789a7c304c75e6bd8774
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426735"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488211"
 ---
 # <a name="search"></a>Hledat
 
-Je možné vyhledat balíčky k dispozici ve zdroji balíčku pomocí rozhraní API V3. Je prostředek, který používá pro vyhledávání `SearchQueryService` prostředek se nenašel v [index služby](service-index.md).
+Je možné vyhledat balíčky dostupné ve zdroji balíčku pomocí rozhraní V3 API. Prostředek, který se používá pro hledání `SearchQueryService` , je prostředek, který se nachází v [indexu služby](service-index.md).
 
 ## <a name="versioning"></a>Správa verzí
 
-Následující `@type` hodnoty:
+Použijí se `@type` tyto hodnoty:
 
-@type Hodnota                   | Poznámky
+@typeosa                   | Poznámky
 ----------------------------- | -----
 SearchQueryService            | Počáteční verze
-SearchQueryService/3.0.0-beta | Alias of `SearchQueryService`
-SearchQueryService/3.0.0-rc   | Alias of `SearchQueryService`
+SearchQueryService/3.0.0-beta | Alias pro`SearchQueryService`
+SearchQueryService/3.0.0-rc   | Alias pro`SearchQueryService`
 
 ## <a name="base-url"></a>Základní adresa URL
 
-Základní adresa URL pro následující rozhraní API je hodnota `@id` vlastnost přiřazené k některému z výše uvedených prostředků `@type` hodnoty. V následujícím dokumentu, zástupný symbol základní adresa URL `{@id}` se použije.
+Základní adresa URL následujícího rozhraní API je hodnota `@id` vlastnosti přidružené k jedné z výše uvedených hodnot prostředků. `@type` V následujícím dokumentu se použije zástupná základní `{@id}` adresa URL.
 
 ## <a name="http-methods"></a>Metody HTTP
 
-Všechny adresy URL, které jsou součástí zdroje podpory registrace metody HTTP `GET` a `HEAD`.
+Všechny adresy URL nalezené v registračním prostředku podporují metody `GET` http `HEAD`a.
 
 ## <a name="search-for-packages"></a>Vyhledat balíčky
 
-Rozhraní API pro vyhledávání umožňuje klientovi do dotazu pro stránku balíčků odpovídající zadanému vyhledávacímu dotazu. Výklad vyhledávací dotaz (například Tokenizace hledané termíny) je určeno implementaci serveru ale obecné očekává se, že vyhledávací dotaz se použije k porovnání s ID balíčku, názvy, popisy a značky. Mohou také zvážit další pole metadat balíčku.
+Rozhraní API pro vyhledávání umožňuje klientovi dotaz na stránku balíčků, které odpovídají zadanému vyhledávacímu dotazu. Interpretace vyhledávacího dotazu (například tokenizace hledaného výrazu) je určena implementací serveru, ale obecným předpokladem je, že vyhledávací dotaz se používá pro odpovídající ID balíčku, názvy, popisy a značky. Je také možné zvážit další pole metadat balíčku.
 
-Neuvedené v seznamu balíčků by nikdy nezobrazí ve výsledcích hledání.
+Ve výsledcích hledání by se nikdy neměl zobrazovat neuvedený balíček.
 
     GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
 
@@ -47,67 +47,67 @@ Neuvedené v seznamu balíčků by nikdy nezobrazí ve výsledcích hledání.
 
 Name        | V     | type    | Požadováno | Poznámky
 ----------- | ------ | ------- | -------- | -----
-q           | Adresa URL    | odkazy řetězců  | Ne       | Hledané termíny a slouží k filtrování balíčky
-Přeskočit        | Adresa URL    | integer | Ne       | Počet výsledků, chcete-li přeskočit pro stránkování
-Take        | Adresa URL    | integer | Ne       | Počet výsledků, které má být vrácen pro stránkování
-platnost předběžné verze  | Adresa URL    | Logická hodnota | Ne       | `true` nebo `false` určující, jestli se mají zahrnout [balíčky v předběžné verzi](../create-packages/prerelease-packages.md)
+q           | Adresa URL    | odkazy řetězců  | Ne       | Hledané výrazy, které se mají použít k filtrování balíčků
+Přeskočit        | Adresa URL    | integer | Ne       | Počet výsledků, které se mají přeskočit, pro stránkování
+nezbytná        | Adresa URL    | integer | Ne       | Počet výsledků, které se mají vrátit, pro stránkování
+předběžné verze  | Adresa URL    | Logická hodnota | Ne       | `true`nebo `false` určete, jestli se mají zahrnout [předběžné verze balíčků](../create-packages/prerelease-packages.md)
 semVerLevel | Adresa URL    | odkazy řetězců  | Ne       | Řetězec verze SemVer 1.0.0 
 
-Vyhledávací dotaz `q` je analyzován způsobem, který je definován implementací serveru. nuget.org podporuje základní filtrování [různých polí](../consume-packages/finding-and-choosing-packages.md#search-syntax). Pokud ne `q` je k dispozici, má být vrácen všechny balíčky, v rámci hranice stanovené skip a take. To umožňuje na kartě "Procházení" v prostředí sady Visual Studio NuGet.
+Vyhledávací dotaz `q` je analyzován způsobem, který je definován implementací serveru. nuget.org podporuje základní filtrování na [nejrůznějších polích](../consume-packages/finding-and-choosing-packages.md#search-syntax). `q` Pokud není zadán, všechny balíčky by měly být vráceny v rámci hranic, které jsou zavedeny funkcí přeskočit a převzít. Tím povolíte kartu Procházet v prostředí sady NuGet sady Visual Studio.
 
 `skip` Parametr má výchozí hodnotu 0.
 
-`take` Parametr by měl být celé číslo větší než nula. Implementace serveru může uložit maximální hodnotu.
+`take` Parametr by měl být celé číslo větší než nula. Implementace serveru může poskytovat maximální hodnotu.
 
-Pokud `prerelease` není zadán, jsou vyloučeny balíčky v předběžné verzi.
+Pokud `prerelease` není zadaný, vyloučí se balíčky předběžných verzí.
 
-`semVerLevel` Parametr dotazu se používá k přihlášení k [SemVer 2.0.0 balíčky](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29#identifying-semver-v200-packages).
-Pokud tento parametr dotazu je vyloučený, vrátí se pouze balíčky s SemVer 1.0.0 kompatibilní verze (s [standardní správy verzí NuGet](../reference/package-versioning.md) upozornění, jako jsou třeba řetězce verze 4 dali celé číslo).
-Pokud `semVerLevel=2.0.0` je k dispozici, bude vrácen SemVer 1.0.0 a kompatibilní balíčky SemVer 2.0.0. Zobrazit [SemVer 2.0.0 podpora nuget.org](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29) Další informace.
+Parametr dotazu se používá pro výslovný souhlas s [SemVer balíčky 2.0.0.](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29#identifying-semver-v200-packages) `semVerLevel`
+Pokud je tento parametr dotazu vyloučený, vrátí se jenom balíčky s SemVer verzemi kompatibilními s 1.0.0 (se standardními upozorněními verzí [NuGet](../concepts/package-versioning.md) , jako jsou například řetězce verze se 4 celými čísly).
+Pokud `semVerLevel=2.0.0` je k dispozici, budou vráceny balíčky kompatibilní s SemVer 1.0.0 a SemVer 2.0.0. Další informace najdete v tématu [Podpora SemVer 2.0.0 pro NuGet.org](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29) .
 
 ### <a name="response"></a>Odpověď
 
-Odpověď je dokument JSON obsahující až `take` výsledky hledání. Výsledky hledání jsou seskupené podle ID balíčku.
+Odpověď je dokument JSON obsahující až do `take` výsledků hledání. Výsledky hledání jsou seskupeny podle ID balíčku.
 
 Kořenový objekt JSON má následující vlastnosti:
 
 Name      | type             | Požadováno | Poznámky
 --------- | ---------------- | -------- | -----
-totalHits | integer          | ano      | Celkový počet shod, bez ohledu na `skip` a `take`
-data      | Pole objektů | ano      | Výsledky hledání odpovídající požadavek
+totalHits | integer          | ano      | Celkový počet shod, nesouvisející `skip` a`take`
+data      | pole objektů | ano      | Výsledky hledání, které odpovídají žádosti
 
-### <a name="search-result"></a>Výsledek vyhledávání
+### <a name="search-result"></a>Výsledek hledání
 
-Každá položka v `data` pole je objekt JSON, které se skládá ze skupiny verze balíčku sdílení stejné ID balíčku.
+Každá položka v `data` poli je objekt JSON, který se skládá ze skupiny verzí balíčku sdílejících stejné ID balíčku.
 Objekt má následující vlastnosti:
 
 Name           | type                       | Požadováno | Poznámky
 -------------- | -------------------------- | -------- | -----
-id             | odkazy řetězců                     | ano      | ID odpovídající balíček
-verze        | odkazy řetězců                     | ano      | Úplný řetězec SemVer 2.0.0 verze balíčku (může obsahovat metadata sestavení)
+id             | odkazy řetězců                     | ano      | ID vyhovujícího balíčku
+verze        | odkazy řetězců                     | ano      | Úplný řetězec verze SemVer 2.0.0 balíčku (může obsahovat metadata sestavení)
 description    | odkazy řetězců                     | Ne       | 
-verze       | Pole objektů           | ano      | Všechny verze odpovídající balíček `prerelease` parametr
+verze       | pole objektů           | ano      | Všechny verze balíčku, které odpovídají `prerelease` parametru
 Autoři        | řetězec nebo pole řetězců | Ne       | 
 iconUrl        | odkazy řetězců                     | Ne       | 
 licenseUrl     | odkazy řetězců                     | Ne       | 
-Vlastníci         | řetězec nebo pole řetězců | Ne       | 
+vlastníka         | řetězec nebo pole řetězců | Ne       | 
 projectUrl     | odkazy řetězců                     | Ne       | 
-registrace   | odkazy řetězců                     | Ne       | Absolutní adresa URL s příslušnými [registrace indexu](registration-base-url-resource.md#registration-index)
+registrace   | odkazy řetězců                     | Ne       | Absolutní adresa URL k přidruženému [registračnímu indexu](registration-base-url-resource.md#registration-index)
 souhrn        | odkazy řetězců                     | Ne       | 
 značky           | řetězec nebo pole řetězců | Ne       | 
 název          | odkazy řetězců                     | Ne       | 
-totalDownloads | integer                    | Ne       | Vynásobí součtem soubory ke stažení v jde odvodit tuto hodnotu `versions` pole
-ověření       | Logická hodnota                    | Ne       | JSON logická hodnota označující, jestli tento balíček představuje [ověření](../nuget-org/id-prefix-reservation.md)
+totalDownloads | integer                    | Ne       | Tato hodnota se dá odvodit ze součtu souborů ke stažení v `versions` poli.
+ověřují       | Logická hodnota                    | Ne       | Logická hodnota JSON, která označuje, jestli je balíček [ověřený](../nuget-org/id-prefix-reservation.md)
 
-Ověřené balíček na nuget.org, je znak, který se má ID balíčku odpovídající vyhrazenou předponu ID a vlastní pomocí jedné z vlastníků vyhrazenou předponou. Další informace najdete v tématu [dokumentaci ke službě rezervace předpony ID](../reference/id-prefix-reservation.md).
+Na nuget.org je ověřený balíček jeden, který obsahuje ID balíčku, které odpovídá předponě rezervovaného ID a vlastněné jedním z vlastníků rezervované předpony. Další informace najdete v dokumentaci k [rezervaci předpony ID](../reference/id-prefix-reservation.md).
 
-Metadat obsažených v objektu výsledků hledání je převzata z nejnovější verze balíčku. Každá položka v `versions` pole je objekt JSON s následujícími vlastnostmi:
+Metadata obsažená v objektu výsledků hledání jsou pořízena z nejnovější verze balíčku. Každá položka v `versions` poli je objekt JSON s následujícími vlastnostmi:
 
 Name      | type    | Požadováno | Poznámky
 --------- | ------- | -------- | -----
-@id       | odkazy řetězců  | ano      | Absolutní adresa URL s příslušnými [registrace typu list](registration-base-url-resource.md#registration-leaf)
-verze   | odkazy řetězců  | ano      | Úplný řetězec SemVer 2.0.0 verze balíčku (může obsahovat metadata sestavení)
-Soubory ke stažení | integer | ano      | Počet souborů ke stažení pro tento konkrétní balíček verze
+@id       | odkazy řetězců  | ano      | Absolutní adresa URL k přidruženému [registračnímu listu](registration-base-url-resource.md#registration-leaf)
+verze   | odkazy řetězců  | ano      | Úplný řetězec verze SemVer 2.0.0 balíčku (může obsahovat metadata sestavení)
+soubory | integer | ano      | Počet souborů ke stažení pro tuto konkrétní verzi balíčku
 
 ### <a name="sample-request"></a>Ukázková žádost
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: conceptual
-ms.openlocfilehash: bc077220e05b14180baac9611fda9234675ad640
-ms.sourcegitcommit: e763d9549cee3b6254ec2d6382baccb44433d42c
+ms.openlocfilehash: c48980bc3f955a62962ca6e9619ce09f4a94a835
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68860531"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488081"
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>Postup přeinstalace a aktualizace balíčků
 
@@ -59,7 +59,7 @@ Chcete-li nastavit omezení, `packages.config` otevřete v textovém editoru, vy
 </packages>
 ```
 
-Ve všech případech použijte zápis popsaný v tématu [Správa verzí balíčku](../reference/package-versioning.md#version-ranges-and-wildcards).
+Ve všech případech použijte zápis popsaný v tématu [Správa verzí balíčku](../concepts/package-versioning.md#version-ranges-and-wildcards).
 
 ## <a name="using-update-package"></a>Použití Update-Package
 

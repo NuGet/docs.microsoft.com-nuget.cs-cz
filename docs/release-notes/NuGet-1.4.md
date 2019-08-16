@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: de76cf610e580a36014be9274b9c2c762b1015ac
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 5f1d3ed6a1b20fb07437f1718faafaac0a193773
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317165"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488698"
 ---
 # <a name="nuget-14-release-notes"></a>Zpráva k vydání verze NuGet 1,4
 
@@ -60,7 +60,7 @@ Další podrobnosti najdete v tématu [Správa balíčků pro řešení](../cons
 Ve výchozím nastavení se při spuštění `Update-Package` příkazu na balíček (nebo aktualizace balíčku pomocí dialogového okna) aktualizuje na nejnovější verzi v informačním kanálu. Díky nové podpoře aktualizace všech balíčků můžou nastat případy, kdy chcete balíček uzamknout do konkrétního rozsahu verzí. Můžete například předem určit, že aplikace bude fungovat pouze s verzí 2. * balíčku, ale ne 3,0 a vyšší. Aby nedocházelo k nechtěné aktualizaci balíčku na 3, NuGet 1,4 přidá podporu pro omezení rozsahu verzí, na které balíčky lze upgradovat, a to tak, že upravíte `packages.config` soubor pomocí nového `allowedVersions` atributu.
 
 Například následující příklad ukazuje, jak zamknout `SomePackage` balíček rozsah verze 2,0-3,0 (exkluzivní).
-Atribut přijímá hodnoty pomocí [formátu rozsahu verzí.](../reference/package-versioning.md#version-ranges-and-wildcards) `allowedVersions`
+Atribut přijímá hodnoty pomocí [formátu rozsahu verzí.](../concepts/package-versioning.md#version-ranges-and-wildcards) `allowedVersions`
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

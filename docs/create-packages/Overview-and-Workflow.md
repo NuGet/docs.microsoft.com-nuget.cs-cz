@@ -1,44 +1,44 @@
 ---
 title: Přehled a pracovní postup vytváření balíčků NuGet
-description: Přehled procesu vytváření a publikování balíčku NuGet, s odkazy na další konkrétní části procesu.
+description: Přehled procesu vytvoření a publikování balíčku NuGet s odkazy na jiné konkrétní části procesu.
 author: karann-msft
 ms.author: karann
 ms.date: 07/26/2017
 ms.topic: conceptual
-ms.openlocfilehash: 58ad05cb854c8f7233d90d03c1b320f8797ca2ab
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: e4b9f6dae3a4be69e523888cc9bd2f212b45829c
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842390"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488848"
 ---
 # <a name="package-creation-workflow"></a>Pracovní postup vytvoření balíčku
 
-Vytvoření balíčku začíná zkompilovaný kód (obvykle sestavení .NET), které chcete balíček a sdílet s ostatními, buď prostřednictvím Galerie nuget.org veřejné nebo privátní Galerie ve vaší organizaci. Balíček může zahrnovat také další soubory, jako je například soubor readme, který se zobrazí, když je balíček nainstalován a může obsahovat transformací pro některé soubory projektu.
+Vytvoření balíčku začíná zkompilovaným kódem (obvykle sestavení .NET), který chcete zabalit a sdílet s ostatními, a to prostřednictvím veřejné galerie nuget.org nebo privátní Galerie v rámci vaší organizace. Balíček může také obsahovat další soubory, například soubor Readme, který se zobrazí při instalaci balíčku, a může zahrnovat transformace na určité soubory projektu.
 
-Balíček může také sloužit k pouze o přijetí změn v jakémkoli počtu Další závislosti, bez nadřazeného libovolný kód. Takový balíček je pohodlný způsob, jak poskytovat sady SDK, která se skládá z více nezávislých balíčků. V ostatních případech balíček smí obsahovat pouze znak (`.pdb`) soubory pro usnadnění ladění.
+Balíček může také sloužit pouze k vyžádání jenom v jakémkoli počtu jiných závislostí, aniž by obsahoval vlastní kód. Takový balíček je pohodlný způsob, jak doručovat sadu SDK, která se skládá z několika nezávislých balíčků. V jiných případech může balíček obsahovat pouze soubory symbolů (`.pdb`) pro podporu ladění.
 
 > [!Note]
-> Při vytváření balíčku pro použití pro jiné vývojáře, je důležité pochopit, že se tak závislosti na svoji práci. V důsledku toho vytváření a publikování balíčku také znamená závazkem oprava chyb a provádění dalších aktualizací nebo na velmi nejméně provedete k dispozici jako balíček opensourcových ostatní mohli pomoct k její údržbě.
+> Když vytváříte balíček pro použití jinými vývojáři, je důležité pochopit, že se postará o práci. V takovém případě vytváření a publikování balíčku také implikuje závazek opravit chyby a provádět další aktualizace nebo při velmi minimálním zpřístupnění balíčku jako open source, aby ho ostatní mohli lépe udržovat.
 
-Bez ohledu případ, vytvoření balíčku začíná rozhodování identifikátoru, číslo verze, licence, informace o autorských právech a další nezbytné obsah. Až to bude hotové, můžete příkaz "balíček" sestavit vše, co do `.nupkg` souboru. Tento soubor můžete publikovat do informačního kanálu, jako je nuget.org NuGet.
+Bez ohledu na to, že vytvoření balíčku začíná tím, že se rozhodnete jeho identifikátor, číslo verze, licenci, informace o autorských právech a veškerý další požadovaný obsah. Až budete hotovi, můžete použít příkaz Pack, který do `.nupkg` souboru vloží všechno dohromady. Tento soubor se dá publikovat do informačního kanálu NuGet, jako je nuget.org.
 
 > [!Tip]
-> Balíček NuGet s `.nupkg` rozšíření je soubor ZIP. Chcete-li snadněji zkontrolovat všechny balíčky obsahu, změňte příponu na `.zip` a rozbalte svůj obsah jako obvykle. Jenom nezapomeňte změnit rozšíření zpět `.nupkg` před pokusem o jeho nahrání do hostitele.
+> Balíček NuGet s `.nupkg` příponou je prostě soubor zip. Chcete-li snadno kontrolovat obsah balíčku, změňte rozšíření na `.zip` a rozbalte jeho obsah obvyklým způsobem. Nezapomeňte změnit rozšíření zpátky na, `.nupkg` než se pokusíte o jeho nahrání na hostitele.
 
-Další informace a pochopení proces vytváření, začněte s [vytvoření balíčku](../create-packages/creating-a-package.md) který vás provede klíčové procesy, které jsou společné pro všechny balíčky.
+Pokud se chcete dozvědět a pochopit proces vytváření, začněte [vytvořením balíčku](../create-packages/creating-a-package.md) , který vás provede základními procesy společnými pro všechny balíčky.
 
-Odtud můžete zvážit řadu dalších možností pro svůj balíček:
+Odtud můžete zvážit řadu dalších možností pro váš balíček:
 
-- [Podpora více cílových platforem](../create-packages/supporting-multiple-target-frameworks.md) popisuje, jak vytvořit balíček s více variantami různá rozhraní .NET.
-- [Vytvoření lokalizovaných balíčků](../create-packages/creating-localized-packages.md) popisuje strukturu balíček s více prostředků jazyka a použití samostatné lokalizované satelitní balíčků.
-- [Předběžné verze balíčků](../create-packages/prerelease-packages.md) ukazuje, jak k uvolnění alpha, beta a rc balíčky pro zákazníky, kteří chtějí.
-- [Zdroj a transformace souboru Config](../create-packages/source-and-config-file-transformations.md) popisuje, jak obě jednosměrné token nahrazení v souborech, které jsou přidány do projektu a upravte `web.config` a `app.config` s nastaveními, která se také vztahuje si při odinstalaci balíčku .
-- [Symbol balíčky](../create-packages/symbol-packages-snupkg.md) nabízí pokyny k zadávání symboly pro knihovny, které umožňují uživatelům Krokovat s vnořením kód během ladění.
-- [Balíček správy verzí](../reference/package-versioning.md) popisuje, jak určit přesné verze, které umožňují závislostí (další balíčky, které využívají ze svého balíčku).
-- [Nativní balíčky](../create-packages/native-packages.md) popisuje proces pro vytvoření balíčku pro spotřebitele C++.
-- [Podepisují se balíčky](../create-packages/sign-a-package.md) popisuje proces pro přidávání digitálního podpisu balíčku.
+- [Podpora více cílových rozhraní](../create-packages/supporting-multiple-target-frameworks.md) popisuje, jak vytvořit balíček s více variantami pro různá rozhraní .NET Framework.
+- [Vytváření lokalizovaných balíčků](../create-packages/creating-localized-packages.md) popisuje, jak strukturovat balíček s více prostředky jazyka a jak používat samostatné lokalizované satelitní balíčky.
+- [Balíčky předběžného vydání](../create-packages/prerelease-packages.md) ukazují, jak uvolnit balíčky Alpha, beta a RC na zákazníky, kteří mají zájem.
+- [Transformace zdrojového a konfiguračního souboru](../create-packages/source-and-config-file-transformations.md) popisují, jak můžete provést jak jednosměrná nahrazení tokenů v souborech přidaných do projektu, tak upravit `web.config` a `app.config` s nastaveními, která jsou také zálohována při odinstalaci balíčku.
+- [Balíčky symbolů](../create-packages/symbol-packages-snupkg.md) nabízí pokyny pro poskytnutí symbolů pro vaši knihovnu, která umožňuje uživatelům krokovat kód při ladění.
+- [Správa verzí balíčků](../concepts/package-versioning.md) popisuje, jak identifikovat přesné verze, které pro vaše závislosti povolíte (ostatní balíčky, které využíváte z balíčku).
+- [Nativní balíčky](../guides/native-packages.md) popisují proces vytváření balíčku pro C++ příjemce.
+- [Podpisové balíčky](../create-packages/sign-a-package.md) popisují proces přidání digitálního podpisu do balíčku.
 
-Pokud pak budete připraveni publikovat balíček na nuget.org, postupujte podle jednoduchých kroků v [publikování balíčku](../nuget-org/publish-a-package.md).
+Až budete připraveni publikovat balíček na nuget.org, postupujte podle jednoduchého procesu v části [publikování balíčku](../nuget-org/publish-a-package.md).
 
-Pokud chcete použít privátní kanál namísto nuget.org, přečtěte si článek [přehled hostování balíčků](../hosting-packages/overview.md)
+Pokud chcete použít privátní kanál místo nuget.org, přečtěte si téma [Přehled hostujících balíčků](../hosting-packages/overview.md) .

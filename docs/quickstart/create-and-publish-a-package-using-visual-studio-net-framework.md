@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: 75160bf2b01f6d4707162e019a6263ddc64a6f5e
-ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
+ms.openlocfilehash: 7bfe041c01114ac61e811497ecc31ebfdad45029
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68342522"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488902"
 ---
 # <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>Rychlý start: Vytvoření a publikování balíčku pomocí sady Visual Studio (.NET Framework, Windows)
 
@@ -76,7 +76,7 @@ Balíček NuGet obsahuje manifest ( `.nuspec` soubor), který obsahuje relevantn
 
 1. Volitelné: Chcete-li zobrazit a upravit vlastnosti přímo, otevřete `Properties/AssemblyInfo.cs` soubor v projektu.
 
-1. Po nastavení vlastností nastavte konfiguraci projektu na vydaná a znovu  Sestavte projekt, aby se vygenerovala Aktualizovaná knihovna DLL.
+1. Po nastavení vlastností nastavte konfiguraci projektu na vydaná a znovu Sestavte projekt, aby se vygenerovala Aktualizovaná knihovna DLL.
 
 ## <a name="generate-the-initial-manifest"></a>Generování počátečního manifestu
 
@@ -184,5 +184,5 @@ Pokud chcete prozkoumat další možnosti, které NuGet nabízí, vyberte odkazy
 - [Publikování balíčku](../nuget-org/publish-a-package.md)
 - [Předběžné verze balíčků](../create-packages/Prerelease-Packages.md)
 - [Podpora více cílových architektur](../create-packages/supporting-multiple-target-frameworks.md)
-- [Správa verzí balíčků](../reference/package-versioning.md)
+- [Správa verzí balíčků](../concepts/package-versioning.md)
 - [Vytvoření lokalizovaných balíčků](../create-packages/creating-localized-packages.md)

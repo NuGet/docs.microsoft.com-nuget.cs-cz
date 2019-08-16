@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/03/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9ef990c16cca62a1fbad25ff1582bfa543135fab
-ms.sourcegitcommit: e763d9549cee3b6254ec2d6382baccb44433d42c
+ms.openlocfilehash: 7039dd27f2dddebc3c84e5ad35d5efec59547792
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68860563"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488821"
 ---
 # <a name="manage-packages-using-the-nugetexe-cli"></a>Správa balíčků pomocí rozhraní příkazového řádku NuGet. exe
 
@@ -19,7 +19,7 @@ Nástroj rozhraní příkazového řádku umožňuje snadno aktualizovat a obnov
 Rozhraní `nuget.exe` příkazového řádku je pro vaše .NET Framework projektů a projektů, které nejsou ve stylu sady SDK (například projekt bez sady SDK, který cílí na .NET Standard knihovny). Pokud používáte projekt, který není ve stylu sady SDK, který byl migrován do `PackageReference`, `dotnet` použijte místo toho příkaz CLI. Rozhraní `nuget.exe` příkazového řádku vyžaduje soubor [Packages. config](../reference/packages-config.md) pro odkazy na balíčky.
 
 > [!NOTE]
-> Ve většině scénářů doporučujeme [migrovat projekty, které nejsou ve stylu sady SDK](../reference/migrate-packages-config-to-package-reference.md) , `packages.config` které používají PackageReference, a pak můžete použít rozhraní `dotnet` příkazového řádku namísto `nuget.exe` rozhraní příkazového řádku. Migrace není aktuálně k dispozici C++ pro projekty a ASP.NET.
+> Ve většině scénářů doporučujeme [migrovat projekty, které nejsou ve stylu sady SDK](../consume-packages/migrate-packages-config-to-package-reference.md) , `packages.config` které používají PackageReference, a pak můžete použít rozhraní `dotnet` příkazového řádku namísto `nuget.exe` rozhraní příkazového řádku. Migrace není aktuálně k dispozici C++ pro projekty a ASP.NET.
 
 Tento článek popisuje základní použití pro několik nejběžnějších příkazů rozhraní `nuget.exe` příkazového řádku. Pro většinu těchto příkazů nástroj CLI vyhledá soubor projektu v aktuálním adresáři, pokud není v příkazu zadaný soubor projektu. Úplný seznam příkazů a argumenty, které můžete použít, najdete v referenčních informacích k [NuGet. exe CLI](../reference/nuget-exe-cli-reference.md).
 
@@ -111,3 +111,13 @@ nuget update
 ## <a name="restore-packages"></a>Obnovit balíčky
 
 [!INCLUDE [restore-nuget-exe-cli](includes/restore-nuget-exe-cli.md)]
+
+## <a name="get-the-cli-version"></a>Získat verzi rozhraní příkazového řádku
+
+Použijte tento příkaz:
+
+```cli
+nuget help
+```
+
+První řádek ve výstupu pro Help zobrazuje verzi. Chcete-li se vyhnout posunu nahoru, použijte `nuget help | more` místo toho.

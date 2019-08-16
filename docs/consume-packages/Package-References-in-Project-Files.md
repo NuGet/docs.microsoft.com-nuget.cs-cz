@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 05ece5f36ff7ae5920960c42cfde8b271dc3e712
-ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
+ms.openlocfilehash: 464bf52cabe64696270fc391b2c23de9c6ba24f7
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69020014"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488146"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Odkazy na balíčky (PackageReference) v souborech projektu
 
@@ -20,7 +20,7 @@ Pomocí PackageReference můžete také použít podmínky nástroje MSBuild k v
 
 ## <a name="project-type-support"></a>Podpora typu projektu
 
-Ve výchozím nastavení se PackageReference používá pro projekty .NET Core, .NET Standard projekty a projekty UWP cílené na Windows 10 Build 15063 (Creators Update) a novější, s výjimkou C++ projektů UWP. Projekty .NET Framework podporují PackageReference, ale aktuálně mají `packages.config`výchozí hodnotu. Chcete-li použít [](../reference/migrate-packages-config-to-package-reference.md) PackageReference, migrujte `packages.config` závislosti z nástroje do souboru projektu a pak odeberte soubor Packages. config.
+Ve výchozím nastavení se PackageReference používá pro projekty .NET Core, .NET Standard projekty a projekty UWP cílené na Windows 10 Build 15063 (Creators Update) a novější, s výjimkou C++ projektů UWP. Projekty .NET Framework podporují PackageReference, ale aktuálně mají `packages.config`výchozí hodnotu. Chcete-li použít [](../consume-packages/migrate-packages-config-to-package-reference.md) PackageReference, migrujte `packages.config` závislosti z nástroje do souboru projektu a pak odeberte soubor Packages. config.
 
 ASP.NET aplikace, které cílí na úplné .NET Framework, zahrnují jenom [omezené podpory](https://github.com/NuGet/Home/issues/5877) pro PackageReference. C++a typy projektů JavaScriptu nejsou podporovány.
 
@@ -48,7 +48,7 @@ Konvence pro určení verze balíčku je stejná jako při použití `packages.c
 </ItemGroup>
 ```
 
-V příkladu výše 3.6.0 označuje všechny verze, které jsou > = 3.6.0 s upřednostněním pro nejnižší verzi, jak je popsáno v tématu [Správa verzí balíčků](../reference/package-versioning.md#version-ranges-and-wildcards).
+V příkladu výše 3.6.0 označuje všechny verze, které jsou > = 3.6.0 s upřednostněním pro nejnižší verzi, jak je popsáno v tématu [Správa verzí balíčků](../concepts/package-versioning.md#version-ranges-and-wildcards).
 
 ## <a name="using-packagereference-for-a-project-with-no-packagereferences"></a>Použití PackageReference pro projekt bez PackageReferences
 Upřesnit Pokud nemáte v projektu nainstalované žádné balíčky (žádné PackageReferences v souboru projektu a žádný soubor Packages. config), ale chcete, aby se projekt obnovil jako PackageReferenceový styl, můžete nastavit vlastnost projektu RestoreProjectStyle na PackageReference v projektu. souborů.
@@ -63,7 +63,7 @@ To může být užitečné, pokud odkazujete na projekty, které jsou PackageRef
 
 ## <a name="floating-versions"></a>Plovoucí verze
 
-[Plovoucí verze](../consume-packages/dependency-resolution.md#floating-versions) jsou podporované pomocí `PackageReference`:
+[Plovoucí verze](../concepts/dependency-resolution.md#floating-versions) jsou podporované pomocí `PackageReference`:
 
 ```xml
 <ItemGroup>
@@ -130,6 +130,9 @@ V následujícím příkladu je vše kromě souborů obsahu z balíčku spotřeb
 ```
 
 Všimněte si, `build` že protože není `PrivateAssets`součástí, cíle a props *budou* tok do nadřazeného projektu. Vezměte v úvahu například, že odkaz výše se používá v projektu, který vytváří balíček NuGet s názvem AppLogger. AppLogger může využívat cíle a props z `Contoso.Utility.UsefulStuff`, jako mohou projekty, které využívají AppLogger.
+
+> [!NOTE]
+> Když `developmentDependency` je `true` v`.nuspec` souboru nastavená na, označí balíček jako součást jedinou pro vývoj, která zabrání zahrnutí balíčku jako závislosti v jiných balíčcích. Pomocí PackageReference *(NuGet 4,8 +)* tento příznak také znamená, že vyloučí prostředky při kompilaci z kompilace. Další informace najdete v tématu [Podpora DevelopmentDependency pro PackageReference](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference).
 
 ## <a name="adding-a-packagereference-condition"></a>Přidání podmínky PackageReference
 

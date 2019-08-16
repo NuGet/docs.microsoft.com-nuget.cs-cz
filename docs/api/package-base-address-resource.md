@@ -1,46 +1,46 @@
 ---
-title: Obsah balíčku NuGet rozhraní API
-description: Základní adresa balíček je jednoduché rozhraní pro načítání samotném balíčku.
+title: Obsah balíčku, rozhraní API NuGet
+description: Základní adresa balíčku je jednoduché rozhraní pro načtení samotného balíčku.
 author: joelverhagen
 ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 2f0f93e0cee78ea03cbd53194cdc2a10871fd7e1
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 5ec6c0e17a3e8b9a3f156a48685bcaafe42c744b
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426755"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488223"
 ---
-# <a name="package-content"></a>Balíček obsahu
+# <a name="package-content"></a>Obsah balíčku
 
-Je možné ke generování adresy URL načíst obsah libovolného balíčku (souboru .nupkg) pomocí rozhraní API V3. Prostředek, který používá pro načtení balíčku obsahu je `PackageBaseAddress` prostředek se nenašel v [index služby](service-index.md). Tento prostředek také umožňuje zjišťování všech verzí balíčku uvedené nebo neuvedené v seznamu.
+Je možné vygenerovat adresu URL pro načtení obsahu libovolného balíčku (soubor. nupkg) pomocí rozhraní V3 API. Prostředek, který se používá pro načítání obsahu balíčku, `PackageBaseAddress` je prostředek, který se našel v [indexu služby](service-index.md). Tento prostředek také umožňuje zjišťování všech verzí balíčku uvedených v seznamu nebo bez jeho uvedení na seznamu.
 
-Tento prostředek se obvykle označuje jako buď "balíček základní adresa" nebo "ploché kontejneru".
+Tento prostředek se běžně označuje jako základní adresa balíčku nebo jako "plochý kontejner".
 
 ## <a name="versioning"></a>Správa verzí
 
-Následující `@type` hodnota se používá:
+Použije se `@type` následující hodnota:
 
-@type Hodnota              | Poznámky
+@typeosa              | Poznámky
 ------------------------ | -----
 PackageBaseAddress/3.0.0 | Počáteční verze
 
 ## <a name="base-url"></a>Základní adresa URL
 
-Základní adresa URL pro následující rozhraní API je hodnota `@id` vlastnost přidružená k výše uvedených prostředků `@type` hodnotu. V následujícím dokumentu, zástupný symbol základní adresa URL `{@id}` se použije.
+Základní adresa URL následujících rozhraní API je hodnota `@id` vlastnosti přidružené k uvedené hodnotě prostředku. `@type` V následujícím dokumentu se použije zástupná základní `{@id}` adresa URL.
 
 ## <a name="http-methods"></a>Metody HTTP
 
-Všechny adresy URL, které jsou součástí zdroje podpory registrace metody HTTP `GET` a `HEAD`.
+Všechny adresy URL nalezené v registračním prostředku podporují metody `GET` http `HEAD`a.
 
-## <a name="enumerate-package-versions"></a>Výčet verzí balíčků
+## <a name="enumerate-package-versions"></a>Zobrazení výčtu verzí balíčků
 
-Pokud klient zná ID balíčku a chcete zjistit, které balíček verze balíčku zdroj nemá k dispozici, klient může vytvořit předvídatelné adresu URL se vytvořit výčet všech verzí balíčků. Tento seznam je určena být "výpis adresáře" pro balíček obsahu API, které jsou uvedené níže.
+Pokud klient zná ID balíčku a chce zjistit, které verze balíčků má zdroj balíčku k dispozici, může klient sestavit předvídatelné adresy URL pro zobrazení výčtu všech verzí balíčků. Tento seznam má být "výpis adresáře" pro rozhraní API obsahu balíčku, který je uveden níže.
 
 > [!Note]
-> Tento seznam obsahuje obě verze uvedené a neuvedené v seznamu balíčků.
+> Tento seznam obsahuje uvedené i neuvedené verze balíčků.
 
     GET {@id}/{LOWER_ID}/index.json
 
@@ -50,21 +50,21 @@ Name     | V     | type    | Požadováno | Poznámky
 -------- | ------ | ------- | -------- | -----
 LOWER_ID | Adresa URL    | odkazy řetězců  | ano      | ID balíčku, malá písmena
 
-`LOWER_ID` Hodnotu ID požadovaný balíček psané malými písmeny pomocí pravidel implementované. NET společnosti [ `System.String.ToLowerInvariant()` ](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) metody.
+`LOWER_ID` Hodnota je ID požadovaného balíčku s malými písmeny pomocí pravidel implementovaných pomocí. [`System.String.ToLowerInvariant()`](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) Metoda netto.
 
 ### <a name="response"></a>Odpověď
 
-Pokud zdroj balíčku má žádné verze ID zadaného balíčku, je vrácen stavový kód 404.
+Pokud zdroj balíčku nemá žádné verze zadaného ID balíčku, vrátí se stavový kód 404.
 
-Pokud zdroj balíčku má jednu nebo více verzí, vrátí se kód stavový kód 200. Text odpovědi je objekt JSON s následující vlastnost:
+Pokud má zdroj balíčku jednu nebo více verzí, vrátí se stavový kód 200. Tělo odpovědi je objekt JSON s následující vlastností:
 
 Name     | type             | Požadováno | Poznámky
 -------- | ---------------- | -------- | -----
-verze | pole řetězců | ano      | Balíček ID, které jsou k dispozici
+verze | pole řetězců | ano      | Dostupná ID balíčků
 
-Řetězce ve `versions` pole jsou všechny psané malými písmeny, [normalizovat řetězce verze NuGet](../reference/package-versioning.md#normalized-version-numbers). Řetězce verze neobsahuje žádné SemVer 2.0.0 metadat sestavení.
+Řetězce v `versions` poli jsou všechny s malými písmeny, [normalizované řetězce verze NuGet](../concepts/package-versioning.md#normalized-version-numbers). Řetězce verze neobsahují žádná metadata buildu SemVer 2.0.0.
 
-Cílem je, že verze řetězce nalezen v tomto poli je možné verbatim pro `LOWER_VERSION` tokenů najdete v následujících koncových bodů.
+Záměrem je, aby se pro `LOWER_VERSION` tokeny, které se nacházejí v následujících koncových bodech, používaly doslovné řetězce verze v tomto poli.
 
 ### <a name="sample-request"></a>Ukázková žádost
 
@@ -74,9 +74,9 @@ Cílem je, že verze řetězce nalezen v tomto poli je možné verbatim pro `LOW
 
 [!code-JSON [package-base-address-index.json](./_data/package-base-address-index.json)]
 
-## <a name="download-package-content-nupkg"></a>Stáhnout obsah balíčku (.nupkg)
+## <a name="download-package-content-nupkg"></a>Stáhnout obsah balíčku (. nupkg)
 
-Pokud klient zná ID balíčku a verzi a chce stáhnout obsah balíčku, potřebují jenom vytvořit následující adresu URL:
+Pokud klient zná ID a verzi balíčku a chce stáhnout obsah balíčku, stačí vytvořit následující adresu URL:
 
     GET {@id}/{LOWER_ID}/{LOWER_VERSION}/{LOWER_ID}.{LOWER_VERSION}.nupkg
 
@@ -85,18 +85,18 @@ Pokud klient zná ID balíčku a verzi a chce stáhnout obsah balíčku, potřeb
 Name          | V     | type   | Požadováno | Poznámky
 ------------- | ------ | ------ | -------- | -----
 LOWER_ID      | Adresa URL    | odkazy řetězců | ano      | ID balíčku, malá písmena
-LOWER_VERSION | Adresa URL    | odkazy řetězců | ano      | Verze balíčku, normalizovaná a psané malými písmeny
+LOWER_VERSION | Adresa URL    | odkazy řetězců | ano      | Verze balíčku, normalizovaná a malá
 
-Obě `LOWER_ID` a `LOWER_VERSION` jsou psané malými písmeny pomocí pravidel implementované. NET. [`System.String.ToLowerInvariant()`](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant)
+`LOWER_ID` A`LOWER_VERSION` jsou malá pomocí pravidel implementovaných pomocí. SÍŤ[`System.String.ToLowerInvariant()`](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant)
 Metoda.
 
-`LOWER_VERSION` Se verze balíčku požadovaného normalizuje pomocí verze Nugetu [normalizace pravidla](../reference/package-versioning.md#normalized-version-numbers). To znamená, že v tomto případě je třeba vyloučit tato sestavení metadata, která je povolena ve specifikaci SemVer 2.0.0.
+Je požadovaná verze balíčku normalizovaná pomocí pravidel normalizace verzí NuGet. [](../concepts/package-versioning.md#normalized-version-numbers) `LOWER_VERSION` To znamená, že v tomto případě musí být vyloučena metadata sestavení, která jsou povolena specifikací SemVer 2.0.0.
 
 ### <a name="response-body"></a>Text odpovědi
 
-Pokud balíček existuje ve zdroji balíčku, vrátí se kód stavový kód 200. Text odpovědi bude samotného obsahu balíčku.
+Pokud balíček existuje ve zdroji balíčku, vrátí se stavový kód 200. Tělo odpovědi bude samotný obsah balíčku.
 
-Pokud balíček na zdroj balíčku neexistuje, vrátí se stavový kód 404.
+Pokud balíček ve zdroji balíčku neexistuje, vrátí se stavový kód 404.
 
 ### <a name="sample-request"></a>Ukázková žádost
 
@@ -104,11 +104,11 @@ Pokud balíček na zdroj balíčku neexistuje, vrátí se stavový kód 404.
 
 ### <a name="sample-response"></a>Ukázková odpověď
 
-Binární datový proud, který je .nupkg pro Newtonsoft.Json 9.0.1.
+Binární datový proud, který je souborem. nupkg pro Newtonsoft. JSON 9.0.1.
 
-## <a name="download-package-manifest-nuspec"></a>Stáhnout manifest balíčku (souboru .nuspec)
+## <a name="download-package-manifest-nuspec"></a>Stáhnout manifest balíčku (. nuspec)
 
-Pokud klient zná ID balíčku a verzi a chce, aby se stáhnout manifest balíčku, potřebují jenom vytvořit následující adresu URL:
+Pokud klient zná ID a verzi balíčku a chce stáhnout manifest balíčku, stačí vytvořit následující adresu URL:
 
     GET {@id}/{LOWER_ID}/{LOWER_VERSION}/{LOWER_ID}.nuspec
 
@@ -117,17 +117,17 @@ Pokud klient zná ID balíčku a verzi a chce, aby se stáhnout manifest balíč
 Name          | V     | type   | Požadováno | Poznámky
 ------------- | ------ | ------ | -------- | -----
 LOWER_ID      | Adresa URL    | odkazy řetězců | ano      | ID balíčku, malá písmena
-LOWER_VERSION | Adresa URL    | odkazy řetězců | ano      | Verze balíčku, normalizovaná a psané malými písmeny
+LOWER_VERSION | Adresa URL    | odkazy řetězců | ano      | Verze balíčku, normalizovaná a malá
 
-Obě `LOWER_ID` a `LOWER_VERSION` jsou psané malými písmeny pomocí pravidel implementované. NET společnosti [ `System.String.ToLowerInvariant()` ](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) metody.
+`LOWER_ID` A`LOWER_VERSION` jsou malá pomocí pravidel implementovaných pomocí. [`System.String.ToLowerInvariant()`](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) Metoda netto.
 
-`LOWER_VERSION` Se verze balíčku požadovaného normalizuje pomocí verze Nugetu [normalizace pravidla](../reference/package-versioning.md#normalized-version-numbers). To znamená, že v tomto případě je třeba vyloučit tato sestavení metadata, která je povolena ve specifikaci SemVer 2.0.0.
+Je požadovaná verze balíčku normalizovaná pomocí pravidel normalizace verzí NuGet. [](../concepts/package-versioning.md#normalized-version-numbers) `LOWER_VERSION` To znamená, že v tomto případě musí být vyloučena metadata sestavení, která jsou povolena specifikací SemVer 2.0.0.
 
 ### <a name="response-body"></a>Text odpovědi
 
-Pokud balíček existuje ve zdroji balíčku, vrátí se kód stavový kód 200. Text odpovědi bude manifest balíčku, který je souboru .nuspec obsažené v odpovídající .nupkg. Souboru .nuspec je dokument XML.
+Pokud balíček existuje ve zdroji balíčku, vrátí se stavový kód 200. Tělo odpovědi bude manifest balíčku, který je soubor. nuspec obsažený v odpovídajícím nupkg. Soubor. nuspec je dokument XML.
 
-Pokud balíček na zdroj balíčku neexistuje, vrátí se stavový kód 404.
+Pokud balíček ve zdroji balíčku neexistuje, vrátí se stavový kód 404.
 
 ### <a name="sample-request"></a>Ukázková žádost
 

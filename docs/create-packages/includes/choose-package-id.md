@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: e8949e9964ed19d342df53f08f59bb0f89e5feb0
-ms.sourcegitcommit: 5aa49478dc466c67db5c3edda7c6ce8dcd8ae033
+ms.openlocfilehash: 7ebe3c0f75b8de158879119bce4df26217849251
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68817477"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488949"
 ---
 Identifikátor balíčku a číslo verze jsou dvě nejdůležitější hodnoty v projektu, protože jednoznačně identifikují přesný kód obsažený v balíčku.
 
@@ -17,9 +17,9 @@ Identifikátor balíčku a číslo verze jsou dvě nejdůležitější hodnoty v
 **Osvědčené postupy pro verzi balíčku:**
 
 - Obecně platí, že nastavte verzi balíčku tak, aby odpovídala projektu (nebo sestavení), i když to není bezpodmínečně nutné. Toto je jednoduchá skutečnost při omezení balíčku na jediné sestavení. Celkově mějte na paměti, že aplikace NuGet pracuje s verzemi balíčku při řešení závislostí, nikoli ve verzích sestavení.
-- Při použití nestandardního schématu verzí nezapomeňte zvážit pravidla správy verzí NuGet, jak je vysvětleno v tématu [Správa verzí balíčků](../../reference/package-versioning.md). NuGet je většinou [kompatibilní s semver 2](../../reference/package-versioning.md#semantic-versioning-200).
+- Při použití nestandardního schématu verzí nezapomeňte zvážit pravidla správy verzí NuGet, jak je vysvětleno v tématu [Správa verzí balíčků](../../concepts/package-versioning.md). NuGet je většinou [kompatibilní s semver 2](../../concepts/package-versioning.md#semantic-versioning-200).
 
-> Informace o řešení závislostí najdete v tématu věnovaném [řešení závislostí s PackageReference](../../consume-packages/dependency-resolution.md#dependency-resolution-with-packagereference). Starší informace, které mohou být užitečné také pro lepší pochopení správy verzí, najdete v této sérii příspěvků na blogu.
+> Informace o řešení závislostí najdete v tématu věnovaném [řešení závislostí s PackageReference](../../concepts/dependency-resolution.md#dependency-resolution-with-packagereference). Starší informace, které mohou být užitečné také pro lepší pochopení správy verzí, najdete v této sérii příspěvků na blogu.
 >
 > - [Část 1: Přijetí na Hell knihovny DLL](http://blog.davidebbo.com/2011/01/nuget-versioning-part-1-taking-on-dll.html)
 > - [Část 2: Základní algoritmus](http://blog.davidebbo.com/2011/01/nuget-versioning-part-2-core-algorithm.html)

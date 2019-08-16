@@ -1,61 +1,61 @@
 ---
-title: Sbalit podrobnosti o adresu URL šablony NuGet rozhraní API
-description: Šablona adresy URL podrobnosti balíčku umožňuje klientům zobrazovat v jejich uživatelského rozhraní webového odkaz na další podrobnosti o balíčku
+title: Šablona adresy URL s podrobnostmi balíčku, API NuGet
+description: Šablona adresa URL podrobností balíčku umožňuje klientům zobrazit v uživatelském rozhraní webový odkaz na další podrobnosti balíčku.
 author: joelverhagen
 ms.author: jver
 ms.date: 3/1/2019
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: c01fd35c5d96c44279c9d0254f89d8b1b9fe59d8
-ms.sourcegitcommit: 2af17c8bb452a538977794bf559cdd78d58f2790
+ms.openlocfilehash: 6657536ea6c699a834f57494c66b2a7d741dfcb7
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58638086"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488170"
 ---
-# <a name="package-details-url-template"></a>Šablona adresy URL podrobnosti balíčku
+# <a name="package-details-url-template"></a>Šablona adresy URL s podrobnostmi balíčku
 
-Je možné pro klienta sestavit adresu URL, která je možné uživatele zobrazíte další podrobnosti balíčku ve webovém prohlížeči. To je užitečné, pokud chce zobrazit další informace o balíčku, který se nemusí vejde v rámci oboru co klientská aplikace NuGet zobrazuje zdroje balíčku.
+Je možné, že klient vytvoří adresu URL, kterou může uživatel použít k zobrazení dalších podrobností o balíčku ve webovém prohlížeči. To je užitečné, když zdroj balíčku chce zobrazit další informace o balíčku, který se nemusí vejít do rozsahu, který se zobrazí v klientské aplikaci NuGet.
 
-Je použit k sestavení tuto adresu URL prostředku `PackageDetailsUriTemplate` prostředek se nenašel v [index služby](service-index.md).
+Prostředek použitý k vytvoření této adresy URL je prostředek `PackageDetailsUriTemplate` , který se našel v [indexu služby](service-index.md).
 
 ## <a name="versioning"></a>Správa verzí
 
-Následující `@type` hodnoty:
+Použijí se `@type` tyto hodnoty:
 
-@type Hodnota                     | Poznámky
+@typeosa                     | Poznámky
 ------------------------------- | -----
 PackageDetailsUriTemplate/5.1.0 | Počáteční verze
 
-## <a name="url-template"></a>Adresa URL šablony
+## <a name="url-template"></a>Šablona adresy URL
 
-Adresa URL pro následující rozhraní API je hodnota `@id` vlastnost přiřazené k některému z výše uvedených prostředků `@type` hodnoty.
+Adresa URL následujícího rozhraní API je hodnota `@id` vlastnosti přidružené k jedné z výše uvedených hodnot prostředků. `@type`
 
 ## <a name="http-methods"></a>Metody HTTP
 
-I když klient není určen tak, aby adresa URL balíčku podrobnosti žádosti jménem uživatele, by měly podporovat webové stránky `GET` metoda umožňující kliknutí na adresu URL snadno otevřít ve webovém prohlížeči.
+I když klient nemá v úmyslu vytvářet požadavky na adresu URL podrobností balíčku jménem uživatele, měla by tato webová stránka podporovat `GET` metodu, aby bylo možné snadno otevřít otevřenou webovou stránku ve webovém prohlížeči.
 
-## <a name="construct-the-url"></a>Vytvořit adresu URL
+## <a name="construct-the-url"></a>Vytvoření adresy URL
 
-Zadané ID známých balíčku a verzi, implementace klienta můžete vytvořit adresu URL pro přístup k webovým rozhraním. Implementace klienta pro uživatele, kterým otevřete webový prohlížeč na adresu URL a další informace o balíčku zobrazeno tento konstruovaný adresy URL (nebo prokliknutelný odkaz). Obsah stránky s podrobnostmi balíčku je určeno implementaci serveru.
+Vzhledem k známému ID a verzi balíčku může implementace klienta vytvořit adresu URL používanou pro přístup k webovému rozhraní. Implementace klienta by měla zobrazit tuto vytvořenou adresu URL (nebo odkaz na odkaz) pro uživatele, který jim umožní otevřít webový prohlížeč na adresu URL a získat další informace o balíčku. Obsah stránky s podrobnostmi balíčku je určený implementací serveru.
 
-Adresa URL musí být absolutní adresu URL a schéma (protokolu) musí být HTTPS.
+Adresa URL musí být absolutní adresa URL a schéma (protokol) musí být HTTPS.
 
-Hodnota `@id` ve službě index je řetězec adresy URL obsahující některý z následujících tokeny zástupný symbol:
+Hodnota `@id` v indexu služby je řetězec adresy URL obsahující kteroukoli z následujících zástupných tokenů:
 
-### <a name="url-placeholders"></a>Adresa URL zástupné symboly
+### <a name="url-placeholders"></a>Zástupné symboly adresy URL
 
-Název        | Type    | Požadováno | Poznámky
+Name        | type    | Požadováno | Poznámky
 ----------- | ------- | -------- | -----
-`{id}`      | odkazy řetězců  | Ne       | ID balíčku získat podrobnosti pro
-`{version}` | odkazy řetězců  | Ne       | Verze balíčku získat podrobnosti pro
+`{id}`      | odkazy řetězců  | Ne       | ID balíčku, pro který se mají získat podrobnosti
+`{version}` | odkazy řetězců  | Ne       | Verze balíčku, pro který se mají získat podrobnosti
 
-Server by měl přijmout `{id}` a `{version}` hodnoty všechny velká a malá písmena. Kromě toho by neměl být citlivé na tom, jestli je verze serveru [normalizované](https://docs.microsoft.com/en-us/nuget/reference/package-versioning#normalized-version-numbers). Jinými slovy, by měla přijímat server také přijímat nenormalizovaný verze.
+Server by měl přijmout `{id}` hodnoty `{version}` a s libovolnými velkými písmeny. Kromě toho by neměl být server citlivý na to, jestli je verze [normalizovaná](https://docs.microsoft.com/en-us/nuget/concepts/package-versioning#normalized-version-numbers). Jinými slovy, server by měl přijímat také nenormalizované verze.
 
-Například šablona podrobnosti balíčku nuget.org vypadá například takto:
+Například šablona s podrobnostmi balíčku NuGet. org vypadá takto:
 
     https://www.nuget.org/packages/{id}/{version}
 
-Pokud implementace klienta zobrazí odkaz na podrobné informace balíčku pro NuGet.Versioning 4.3.0, to by vytvořit následující adresu URL a poskytují uživateli:
+Pokud implementace klienta potřebuje zobrazit odkaz na podrobnosti balíčku pro NuGet. 4.3.0 správy verzí, vytvoří následující adresu URL a poskytne jí uživateli:
 
     https://www.nuget.org/packages/NuGet.Versioning/4.3.0

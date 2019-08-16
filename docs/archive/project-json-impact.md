@@ -1,74 +1,74 @@
 ---
-title: dopad Project.JSON autory balíčku NuGet
-description: Podrobnosti o jak provádění project.json v NuGet 3.x ovlivňuje balíček autoři, jako jsou nepodporované funkce, obsah a formát balíčků.
+title: dopad Project. JSON na autory balíčku NuGet
+description: Podrobnosti o tom, jak implementace Project. JSON v NuGet 3. x ovlivňuje autory balíčků, jako jsou nepodporované funkce, obsah a formát balíčku.
 author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8c85c1a89469c491c6be1f81961197450744349c
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 34b08f06f04efdcf7bf73efc2cbdb5a5494ae2d9
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545570"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488200"
 ---
-# <a name="impact-of-projectjson-when-creating-packages"></a>Dopad project.json při vytváření balíčků
+# <a name="impact-of-projectjson-when-creating-packages"></a>Dopad Project. JSON při vytváření balíčků
 
 > [!Important]
-> Tento obsah je zastaralý. Projekty by měl použít buď `packages.config` nebo PackageReference formátů.
+> Tento obsah je zastaralý. Projekty by měly používat buď `packages.config` formáty PackageReference nebo.
 
-`project.json` Systému NuGet 3 + ovlivňuje autory balíčku několika způsoby, jak je popsáno v následujících částech.
+`project.json` Systém použitý v NuGet 3 + má vliv na autory balíčku několika způsoby, jak je popsáno v následujících částech.
 
-## <a name="changes-affecting-existing-packages-usage"></a>Změny ovlivňující existující balíčky využití
+## <a name="changes-affecting-existing-packages-usage"></a>Změny ovlivňující existující využití balíčků
 
-Tradiční balíčky NuGet podporují sadu funkcí, které nejsou přeneseny do světa tranzitivní.
+Tradiční balíčky NuGet podporují sadu funkcí, které se nepřenášejí do přenosného světa.
 
-### <a name="install-and-uninstall-scripts-are-ignored"></a>Instalace a odinstalace skripty jsou ignorovány.
+### <a name="install-and-uninstall-scripts-are-ignored"></a>Skripty pro instalaci a odinstalaci se ignorují.
 
-Model tranzitivní obnovení, je popsáno v [řešení závislostí](../consume-packages/dependency-resolution.md#dependency-resolution-with-packagereference), nemá koncept "čas instalace balíčku". Balíček je k dispozici nebo není k dispozici, ale neexistuje žádný konzistentní proces, ke které dojde při instalaci balíčku.
+Model přenositelných obnovení, který je popsaný v tématu [řešení závislostí](../concepts/dependency-resolution.md#dependency-resolution-with-packagereference), nemá koncept "doba instalace balíčku". Balíček je buď přítomen, nebo není přítomen, ale při instalaci balíčku se nevyskytnou žádné konzistentní procesy.
 
-Také nainstalujte skripty byly podporovány pouze v sadě Visual Studio. Jiná Integrovaná vývojová prostředí museli napodobení rozšiřitelnost sady Visual Studio rozhraní API, pokusí se podporují tyto skripty a bez podpory nebyl k dispozici v běžných editorů a nástroje příkazového řádku.
+Také je možné nainstalovat skripty pouze v aplikaci Visual Studio. Jiné IDEs muselo napodobovat rozhraní API rozšiřitelnosti sady Visual Studio, aby se pokusilo tyto skripty podporovat, a v běžných editorech a nástrojích příkazového řádku nebyla žádná podpora k dispozici.
 
 ### <a name="content-transforms-are-not-supported"></a>Transformace obsahu nejsou podporovány.
 
-Podobně jako u skriptů instalace, transformace spustit na balíček nainstalovat a obvykle nejsou idempotentní. Protože neexistuje žádný čas instalace už, XDT transformaci a podobné funkce nejsou podporované a jsou ignorovány, pokud takové balíčku se používá v případě přechodné.
+Podobně jako při instalaci skriptů se transformace spouští při instalaci balíčku a obvykle se neidempotentní. Vzhledem k tomu, že už není k dispozici žádný čas instalace, transformace XDT a podobné funkce se nepodporují a budou se ignorovat, pokud se takový balíček používá v přenosném scénáři.
 
 ### <a name="content"></a>Obsah
 
-Tradiční balíčky NuGet dodávají soubory obsahu, jako je zdrojový kód a konfigurační soubory. Zde jsou obvykle nepoužívá ve dvou scénářích:
+Tradiční balíčky NuGet jsou soubory obsahu, jako je zdrojový kód a konfigurační soubory. Obvykle se používají ve dvou scénářích:
 
-1. Počáteční soubory přetáhnout do projektu, aby uživatel mohl upravit později. Běžným příkladem je výchozí konfigurační soubory.
+1. Počáteční soubory vynechané do projektu, aby ji uživatel mohl později upravit. Běžným příkladem jsou výchozí konfigurační soubory.
 
-1. Soubory obsahu použít jako companions pro sestavení nainstalovaná v projektu. Tento příklad by obrázek loga používané sestavení.
+1. Soubory obsahu používané jako doprovodné soubory pro sestavení nainstalovaná v projektu. Příkladem může být obrázek loga používaný sestavením.
 
-Podpora pro obsah je aktuálně zakázáno podobné z důvodů pro skripty a transformace, ale Připravujeme k navrhování podpory pro obsah.
+Podpora obsahu je v současné době zakázaná pro podobné důvody pro skripty a transformace, ale v procesu navrhování podpory obsahu.
 
-Obsah souborů stále se dá provést uvnitř balíčky a ignorují aktuálně, ale koncový uživatel může stále zkopírují se do správné místo.
+Soubory obsahu je stále možné přenášet uvnitř balíčků a jsou v současné době ignorovány, ale koncový uživatel je stále může zkopírovat do správného místa.
 
-Můžete sledovat některé návrhy přináší zpět soubory obsahu a postupujte podle jeho průběh, tady: [ https://github.com/NuGet/Home/issues/627 ](https://github.com/NuGet/Home/issues/627).
+Můžete si prohlédnout jeden z návrhů pro vracení souborů obsahu a postupovat podle jeho průběhu, tady: [https://github.com/NuGet/Home/issues/627](https://github.com/NuGet/Home/issues/627).
 
 ## <a name="impact-for-package-authors"></a>Dopad pro autory balíčku
 
-Balíčky pomocí výše uvedené funkce byste měli používat jiný mechanismus. Nejčastěji užitečné mechanismus by nástroj MSBuild cíle/vlastnosti, které nadále Získejte plnou podporu. Systém sestavení můžete ke sbírání jiné konvence v balíčku. To je, jak jsou cíle nástroje MSBuild podporované a také analyzátory Roslyn. Je možné sestavovat balíčky, které podporuje cíle a analyzátory pro `packages.config` a `project.json` scénáře.
+Balíčky používající výše uvedené funkce by musely použít jiný mechanismus. Nejefektivnějším užitečným mechanismem by byly cíle nebo props nástroje MSBuild, které budou nadále plně podporovány. Systém sestavení se může rozhodnout v balíčku vybrat jiné konvence. To je způsob, jakým jsou podporovány cíle nástroje MSBuild i analyzátory Roslyn. Je možné vytvářet balíčky, které podporují cíle a analyzátory pro `packages.config` scénáře a. `project.json`
 
-Balíčky, které se pokusí změnit projekt k usnadnění spuštění obvykle fungují v velmi omezená sada scénářů a by měl místo toho zadejte soubor readme nebo pokyny o tom, jak pomocí balíčku.
+Balíčky, které se pokoušejí změnit projekt tak, aby se při spuštění normálně pracovaly v velmi omezené sadě scénářů, a místo toho byste měli zadat soubor Readme nebo pokyny k použití balíčku.
 
-Většina stávajících balíčků by neměl muset použít balíček formátu popsaném níže.
+Většina existujících balíčků by neměla vyžadovat použití formátu balíčku popsaného níže.
 
-Formát umožňuje nativní obsah jako první třídy scénář. To znamená, že spravovaná sestavení závisí na blízko hardwaru implementace dodávat binární implementace spolu s spravovaná sestavení založené na cílové platformě. Třeba balíček System.IO.Compression využívá tuto technologii. [https://www.nuget.org/packages/System.IO.Compression](https://www.nuget.org/packages/System.IO.Compression)
+Formát umožňuje použití nativního obsahu jako první třídy. To znamená, že spravovaná sestavení jsou závislá na konečné implementaci hardwaru pro dodávání binárních implementací společně se spravovanými sestaveními na základě cílové platformy. Například System. IO. Compression balíček tuto technologii využívá. [https://www.nuget.org/packages/System.IO.Compression](https://www.nuget.org/packages/System.IO.Compression)
 
-V souhrnu Pokud výše uvedené funkce není nezbytně nutné, doporučujeme nastolit existující balíček formátu, formátu popsaném tady podporuje pouze NuGet 3.x+.
+V souhrnu Pokud výše uvedené funkce není nezbytně nutné, doporučujeme použít stávající formát balíčku, protože formát, který je zde popsán, je podporován pouze NuGet 3. x +.
 
-Je možné vytvořit balíčky pro obě `packages.config` a `project.json` scénáře prostřednictvím překrývá se, ale často je jednodušší právě strukturovat balíčky tradičním způsobem, bez zastaralých funkcí uvedených výše.
+Mohli byste sestavit balíčky, které budou fungovat jak pro `packages.config` `project.json` scénáře, tak i přes překrývá se, ale často je jednodušší jenom strukturovat balíčky tradičním způsobem, bez zastaralých funkcí uvedených výše.
 
-## <a name="3x-package-format"></a>Formát balíčku 3.x
+## <a name="3x-package-format"></a>3. x – formát balíčku
 
-Formát balíčku 3.x umožňuje některé další funkce nad rámec NuGet 2.x:
+Formát balíčku 3. x umožňuje několik dalších funkcí mimo NuGet 2. x:
 
-1. Definování referenční sestavení při kompilaci a sadu sestavení implementace používá pro modul runtime na různých platformách a zařízeních. Tomu můžete využít výhod platformy konkrétní rozhraní API poskytuje běžné plochy pro vaše zákazníky. Konkrétně to usnadňuje vytváření zprostředkující přenosné knihovny jednodušší.
+1. Definování referenčního sestavení používaného pro kompilaci a sady implementačních sestavení používaných pro modul runtime na různých platformách/zařízeních. Díky tomu můžete využít výhod rozhraní API specifických pro konkrétní platformu a zároveň zajistit pro svoje zákazníky společnou oblast Surface. Konkrétně to usnadňuje psaní zprostředkujících přenosných knihoven.
 
-1. Umožňuje balíčky zaměření na platformách, například operační systémy nebo architekturu procesoru.
+1. Umožňuje balíčkům vytvářet na platformách, například operační systémy nebo architektura procesoru.
 
-1. Umožňuje oddělit implementace pro konkrétní platformy doprovodná balíčků.
+1. Umožňuje oddělení implementace specifických pro platformu pro doprovodné balíčky.
 
-1. Nativní závislosti služeb podpory jako doma.
+1. Podpora nativních závislostí jako první občan třídy.

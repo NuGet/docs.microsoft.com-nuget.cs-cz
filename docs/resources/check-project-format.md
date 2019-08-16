@@ -1,33 +1,33 @@
 ---
-title: Určit formát projektu
-description: Popisuje, jak na identitu formát projektu
+title: Určení formátu projektu
+description: Popisuje způsob, jak identity formátovat projekt
 author: mikejo5000
 ms.author: mikejo
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 3d8745ea30115a2d7f3954d171d92b75a434a55b
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: b151547e40e567b38acc2b0b9ee84c50d85000c9
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67843518"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488482"
 ---
-# <a name="identify-the-project-format"></a>Určit formát projektu
+# <a name="identify-the-project-format"></a>Určení formátu projektu
 
-NuGet funguje s všechny projekty .NET. Formát projektu (sada SDK – vizuální styl nebo sady SDK styl) určuje však některé nástroje a metody, které je třeba použít využívat a vytvářet balíčky NuGet. Použít projekty založenými na sadu SDK [SDK atribut](/dotnet/core/tools/csproj#additions). Je důležité identifikovat typ projektu, protože metody a nástrojů, které používáte, využívat a vytvářet balíčky NuGet jsou závislé na formát projektu. Pro projekty SDK styl, metody a nástroje jsou také závislé na Určuje, jestli se migroval projekt do `PackageReference` formátu.
+NuGet funguje se všemi projekty .NET. Formát projektu (styl sady SDK nebo sada SDK bez sady SDK) však určuje některé z nástrojů a metod, které je třeba použít ke zpracování a vytváření balíčků NuGet. Projekty ve stylu sady SDK používají [atribut SDK](/dotnet/core/tools/csproj#additions). Je důležité identifikovat typ projektu, protože metody a nástroje, které používáte pro využívání a vytváření balíčků NuGet, jsou závislé na formátu projektu. Pro projekty, které nejsou v sadě SDK, jsou metody a nástroje závislé také na tom, zda byl projekt migrován do `PackageReference` formátu.
 
-Určuje, zda váš projekt je sada SDK – vizuální styl, nebo Ne, závisí na metodu použitou k vytvoření projektu. Následující tabulka uvádí výchozí formát projektu a související nástroje rozhraní příkazového řádku pro váš projekt, když vytvoříte pomocí sady Visual Studio 2017 a novějších verzích.
+Zda je projekt ve stylu sady SDK nebo není závislý na metodě použité k vytvoření projektu. Následující tabulka ukazuje výchozí formát projektu a přidružený nástroj rozhraní příkazového řádku pro váš projekt při jeho vytváření pomocí sady Visual Studio 2017 a novějších verzí.
 
-| Project&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Výchozí formát projektu | Nástroj příkazového řádku&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Poznámky |
+| Project&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Výchozí formát projektu | CLI – nástroj&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Poznámky |
 |:------------- |:-------------|:-----|:-----|
-| .NET Standard | SDK-style | [dotnet CLI](../install-nuget-client-tools.md#dotnetexe-cli) | Projekty vytvořené před Visual Studio 2017 jsou mimo SDK-style. Použití `nuget.exe` rozhraní příkazového řádku. |
-| .NET Core | SDK-style | [dotnet CLI](../install-nuget-client-tools.md#dotnetexe-cli) | Projekty vytvořené před Visual Studio 2017 jsou mimo SDK-style. Použití `nuget.exe` rozhraní příkazového řádku. |
-| .NET Framework | Non-SDK-style | [nuget.exe CLI](../install-nuget-client-tools.md#nugetexe-cli) | Rozhraní .NET framework projekty vytvořené pomocí jiných metod může být projekty založenými na sadě SDK. Pro ty, použijte [rozhraní příkazového řádku dotnet](../install-nuget-client-tools.md#dotnetexe-cli) místo. |
-| [Migrovat](../reference/migrate-packages-config-to-package-reference.md) projektu .NET | Non-SDK-style| Chcete-li vytvořit balíčky, použijte [msbuild - t: pack](../reference/migrate-packages-config-to-package-reference.md#create-a-package-after-migration) k vytváření balíčků. | Vytvořit balíčky, `msbuild -t:pack` se doporučuje. Jinak použijte [rozhraní příkazového řádku dotnet](../install-nuget-client-tools.md#dotnetexe-cli). Migrované projekty nejsou projekty založenými na sadě SDK. |
+| .NET Standard | Styl sady SDK | [dotnet CLI](../install-nuget-client-tools.md#dotnetexe-cli) | Projekty vytvořené před sadou Visual Studio 2017 jsou ve stylu bez sady SDK. Použijte `nuget.exe` rozhraní příkazového řádku. |
+| .NET Core | Styl sady SDK | [dotnet CLI](../install-nuget-client-tools.md#dotnetexe-cli) | Projekty vytvořené před sadou Visual Studio 2017 jsou ve stylu bez sady SDK. Použijte `nuget.exe` rozhraní příkazového řádku. |
+| .NET Framework | Styl jiný než SDK | [nuget.exe CLI](../install-nuget-client-tools.md#nugetexe-cli) | Projekty .NET Framework vytvořené pomocí jiných metod mohou být projekty ve stylu sady SDK. Pro ty použijte místo toho příkaz [DOTNET CLI](../install-nuget-client-tools.md#dotnetexe-cli) . |
+| [Migrovaný](../consume-packages/migrate-packages-config-to-package-reference.md) projekt .NET | Styl jiný než SDK| Pro vytváření balíčků použijte [MSBuild-t:Pack](../consume-packages/migrate-packages-config-to-package-reference.md#create-a-package-after-migration) k vytvoření balíčků. | Pro vytváření balíčků `msbuild -t:pack` se doporučuje. V opačném případě použijte rozhraní příkazového [řádku dotnet](../install-nuget-client-tools.md#dotnetexe-cli). Migrované projekty nejsou projekty ve stylu sady SDK. |
 
-## <a name="check-the-project-format"></a>Zkontrolujte formát projektu
+## <a name="check-the-project-format"></a>Ověřte formát projektu.
 
-Pokud si nejste jisti, zda projekt používá formát SDK – vizuální styl nebo Ne, vyhledejte atribut sady SDK v aplikaci `<Project>` element v souboru projektu (pro C#, jedná se o soubor *.csproj). Pokud je k dispozici, projekt je projekt SDK-style.
+Pokud si nejste jistí, jestli je projekt ve formátu sady SDK nebo ne, vyhledejte atribut SDK v `<Project>` elementu v souboru projektu (pro C#je to soubor *. csproj). Pokud je k dispozici, projekt je projekt ve stylu sady SDK.
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -42,29 +42,29 @@ Pokud si nejste jisti, zda projekt používá formát SDK – vizuální styl ne
 </Project>
 ```
 
-## <a name="check-the-project-format-in-visual-studio"></a>Zkontrolujte formát projektu v sadě Visual Studio
+## <a name="check-the-project-format-in-visual-studio"></a>Podívejte se na formát projektu v aplikaci Visual Studio.
 
-Pokud pracujete v sadě Visual Studio, můžete rychle zkontrolovat formát projektu pomocí jedné z následujících metod:
+Pokud pracujete v aplikaci Visual Studio, můžete rychle kontrolovat formát projektu pomocí jedné z následujících metod:
 
-- Klikněte pravým tlačítkem na projekt v Průzkumníku řešení a vyberte **upravit myprojectname.csproj**.
+- Klikněte pravým tlačítkem na projekt v Průzkumník řešení a vyberte **Upravit MyProjectName. csproj**.
 
-   Tato možnost je pouze k dispozici pro projekty, které používají atribut SDK – vizuální styl od v sadě Visual Studio 2017. Jinak použijte jinou metodu.
+   Tato možnost je k dispozici pouze od začátku v sadě Visual Studio 2017 pro projekty, které používají atribut Style sady SDK. V opačném případě použijte jinou metodu.
 
-   ![Úprava souboru projektu](media/edit-project-file.png)
+   ![Upravit soubor projektu](media/edit-project-file.png)
 
-   Ukazuje, projekt SDK-style [SDK atribut](/dotnet/core/tools/csproj#additions) v souboru projektu.
+   Projekt ve stylu sady SDK zobrazuje [atribut sady SDK](/dotnet/core/tools/csproj#additions) v souboru projektu.
    
-- Z **projektu** nabídce zvolte **uvolnit projekt** (nebo klikněte pravým tlačítkem na projekt a zvolte **uvolnit projekt**).
+- V nabídce **projekt** klikněte na příkaz **Uvolnit projekt** (nebo klikněte pravým tlačítkem myši na projekt a vyberte možnost **Uvolnit projekt**).
 
-   Tento projekt nebude obsahovat atribut sady SDK v souboru projektu. Není SDK styl projektu.
+   Tento projekt nebude obsahovat atribut sady SDK v souboru projektu. Nejedná se o projekt ve stylu sady SDK.
 
-   ![Uvolněte projekt](media/unload-project.png)
+   ![Uvolnit projekt](media/unload-project.png)
 
-   Potom klikněte pravým tlačítkem na projekt uvolněn a zvolte **upravit myprojectname.csproj**.
+   Pak klikněte pravým tlačítkem na uvolněný projekt a zvolte **Upravit MyProjectName. csproj**.
 
 ## <a name="see-also"></a>Viz také:
 
-- [Vytvoření standardních balíčků .NET pomocí rozhraní příkazového řádku dotnet](../quickstart/create-and-publish-a-package-using-the-dotnet-cli.md)
-- [Vytvořit standardní balíčky .NET pomocí sady Visual Studio](../quickstart/create-and-publish-a-package-using-visual-studio.md)
-- [Vytvoření a publikování balíčku .NET Framework (Visual Studio)](../quickstart/create-and-publish-a-package-using-visual-studio-net-framework.md)
-- [Balíček NuGet a obnovení jako cílů MSBuild](../reference/msbuild-targets.md)
+- [Vytváření balíčků .NET Standard pomocí rozhraní příkazového řádku dotnet](../quickstart/create-and-publish-a-package-using-the-dotnet-cli.md)
+- [Vytváření balíčků .NET Standard pomocí sady Visual Studio](../quickstart/create-and-publish-a-package-using-visual-studio.md)
+- [Vytvoření a publikování .NET Framework balíčku (Visual Studio)](../quickstart/create-and-publish-a-package-using-visual-studio-net-framework.md)
+- [Sada NuGet Pack a obnovení jako cíle MSBuild](../reference/msbuild-targets.md)

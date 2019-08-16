@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: overview
-ms.openlocfilehash: f16cc6f66bc12727a4ec8eb5da4ff44a9eeb1764
-ms.sourcegitcommit: ba8ad1bd13a4bba3df94374e34e20c425a05af2f
+ms.openlocfilehash: 435103b600f14b9bbf606c09f0c870115204d5c7
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68833327"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488500"
 ---
 # <a name="an-introduction-to-nuget"></a>Úvod do NuGetu
 
@@ -66,7 +66,7 @@ Následující obrázek ukazuje projekt, který závisí na pěti balíčcích, 
 
 Všimněte si, že některé balíčky se v grafu závislostí zobrazují několikrát. Například existují tři různé uživatele balíčku B a každý příjemce může také určit jinou verzi pro daný balíček (nezobrazuje se). Jedná se o běžný výskyt, hlavně pro široce používané balíčky. NuGet Naštěstí má veškerou práci přesně určit, která verze balíčku B splňuje všechny uživatele. NuGet pak bude stejný pro všechny ostatní balíčky bez ohledu na to, jak hluboko mají graf závislosti.
 
-Další podrobnosti o tom, jak NuGet provádí tuto službu, najdete v tématu věnovaném [řešení závislosti](consume-packages/dependency-resolution.md).
+Další podrobnosti o tom, jak NuGet provádí tuto službu, najdete v tématu věnovaném [řešení závislosti](concepts/dependency-resolution.md).
 
 ## <a name="tracking-references-and-restoring-packages"></a>Sledování odkazů a obnovování balíčků
 
@@ -103,9 +103,9 @@ Zatím jste se seznámili s následujícími charakteristikami NuGet:
 
 Aby tyto procesy byly efektivně fungovat, NuGet provede některé optimalizace na pozadí. Zejména NuGet spravuje mezipaměť balíčků a globální složku balíčků pro instalaci a přeinstalaci zástupce. Mezipaměť zabraňuje stažení balíčku, který již byl na počítači nainstalován. Složka globální balíčky umožňuje více projektům sdílet stejný nainstalovaný balíček, čímž se sníží celková nároky na počítač NuGet. Složka mezipaměti a globální balíčky jsou také velmi užitečné, pokud často obnovujete větší počet balíčků, jako na serveru sestavení. Další informace o těchto mechanismech najdete v tématu [Správa globálních balíčků a složek mezipaměti](consume-packages/managing-the-global-packages-and-cache-folders.md).
 
-V rámci jednotlivého projektu NuGet spravuje celkový graf závislostí, který znovu zahrnuje překlad více odkazů na různé verze stejného balíčku. Je poměrně běžné, že projekt přebírá závislost na jednom nebo více balíčcích, které mají stejné závislosti. Některé z nejužitečnějších balíčků nástrojů na nuget.org jsou zaměstnané mnoha dalšími balíčky. V celém grafu závislostí můžete snadno mít deset různých odkazů na různé verze stejného balíčku. Aby se zabránilo zavedení více verzí tohoto balíčku do samotné aplikace, NuGet vyřadí jednotlivé verze, které mohou používat všichni uživatelé. (Další informace najdete v tématu věnovaném [řešení závislostí](consume-packages/dependency-resolution.md).)
+V rámci jednotlivého projektu NuGet spravuje celkový graf závislostí, který znovu zahrnuje překlad více odkazů na různé verze stejného balíčku. Je poměrně běžné, že projekt přebírá závislost na jednom nebo více balíčcích, které mají stejné závislosti. Některé z nejužitečnějších balíčků nástrojů na nuget.org jsou zaměstnané mnoha dalšími balíčky. V celém grafu závislostí můžete snadno mít deset různých odkazů na různé verze stejného balíčku. Aby se zabránilo zavedení více verzí tohoto balíčku do samotné aplikace, NuGet vyřadí jednotlivé verze, které mohou používat všichni uživatelé. (Další informace najdete v tématu věnovaném [řešení závislostí](concepts/dependency-resolution.md).)
 
-Kromě toho NuGet udržuje všechny specifikace týkající se strukturování balíčků (včetně lokalizačních a [](create-packages/creating-localized-packages.md) ladicích [symbolů](create-packages/symbol-packages.md)) a způsobu jejich odkazování [](consume-packages/package-references-in-project-files.md) (včetně [rozsahů verzí](reference/package-versioning.md#version-ranges-and-wildcards) a [předběžných verzí). ](create-packages/prerelease-packages.md).) NuGet také poskytuje různá rozhraní API pro práci s jejími službami programově a poskytuje podporu pro vývojáře, kteří napisují rozšíření sady Visual Studio a šablony projektů.
+Kromě toho NuGet udržuje všechny specifikace týkající se strukturování balíčků (včetně lokalizačních a [](create-packages/creating-localized-packages.md) ladicích [symbolů](create-packages/symbol-packages.md)) a způsobu jejich odkazování [](consume-packages/package-references-in-project-files.md) (včetně [rozsahů verzí](concepts/package-versioning.md#version-ranges-and-wildcards) a [předběžných verzí). ](create-packages/prerelease-packages.md).) NuGet také poskytuje různá rozhraní API pro práci s jejími službami programově a poskytuje podporu pro vývojáře, kteří napisují rozšíření sady Visual Studio a šablony projektů.
 
 Chvíli počkejte, než projdete obsah této dokumentace, a zobrazí se všechny tyto funkce, společně s poznámkami k verzi dating zpět na začátek NuGetu.
 

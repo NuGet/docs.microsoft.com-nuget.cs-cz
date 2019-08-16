@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/22/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0b3ecb535c07459bff517102b3cf6f4e6dc42195
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: ddd1d163e18ed4ce1e7cbf41ed152acc40c1c423
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317048"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488785"
 ---
 # <a name="package-consumption-workflow"></a>Pracovní postup spotřeby balíčku
 
@@ -29,13 +29,13 @@ NuGet si pamatuje identitu a číslo verze každého nainstalovaného balíčku,
 
 Při instalaci balíčků NuGet obvykle kontroluje, jestli je balíček už dostupný z jeho mezipaměti. Tuto mezipaměť můžete ručně vymazat z příkazového řádku, jak je popsáno v tématu [Správa globálních balíčků a složek mezipaměti](../consume-packages/managing-the-global-packages-and-cache-folders.md).
 
-NuGet také zajišťuje, aby cílové architektury podporované balíčkem byly kompatibilní s vaším projektem. Pokud balíček neobsahuje kompatibilní sestavení, NuGet zobrazí chybu. Viz [řešení chyb nekompatibilních balíčků](dependency-resolution.md#resolving-incompatible-package-errors).
+NuGet také zajišťuje, aby cílové architektury podporované balíčkem byly kompatibilní s vaším projektem. Pokud balíček neobsahuje kompatibilní sestavení, NuGet zobrazí chybu. Viz [řešení chyb nekompatibilních balíčků](../concepts/dependency-resolution.md#resolving-incompatible-package-errors).
 
 Při přidávání kódu projektu do zdrojového úložiště obvykle nezahrnujete balíčky NuGet. Uživatelé, kteří později naklonují úložiště nebo jinak nastavili projekt, včetně agentů sestavení v systémech, jako je Visual Studio Team Services, musí před spuštěním sestavení obnovit potřebné balíčky:
 
 ![Tok obnovování balíčků NuGet klonováním úložiště a pomocí příkazu pro obnovení](media/Overview-02-RestoreFlow.png)
 
-[Obnovení balíčku](../consume-packages/package-restore.md) používá informace v souboru projektu nebo `packages.config` přeinstaluje všechny závislosti. Všimněte si, že v procesu je nějaký rozdíl, jak je popsáno v tématu [řešení závislosti](../consume-packages/dependency-resolution.md). Kromě toho diagram výše nezobrazuje příkaz Restore pro konzolu Správce balíčků, protože pokud jste s konzolou, kterou už máte v kontextu sady Visual Studio, která obvykle obnovuje balíčky automaticky a poskytuje příkaz na úrovni řešení jako objeví.
+[Obnovení balíčku](../consume-packages/package-restore.md) používá informace v souboru projektu nebo `packages.config` přeinstaluje všechny závislosti. Všimněte si, že v procesu je nějaký rozdíl, jak je popsáno v tématu [řešení závislosti](../concepts/dependency-resolution.md). Kromě toho diagram výše nezobrazuje příkaz Restore pro konzolu Správce balíčků, protože pokud jste s konzolou, kterou už máte v kontextu sady Visual Studio, která obvykle obnovuje balíčky automaticky a poskytuje příkaz na úrovni řešení jako objeví.
 
 V některých případech je potřeba přeinstalovat balíčky, které už jsou zahrnuté v projektu, což může přeinstalovat i závislosti. To je snadné pomocí `nuget reinstall` příkazu nebo konzoly Správce balíčků NuGet. Podrobnosti najdete v tématu [Přeinstalace a aktualizace balíčků](../consume-packages/reinstalling-and-updating-packages.md).
 

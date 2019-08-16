@@ -1,51 +1,51 @@
 ---
-title: Co se stane, když je nainstalován balíček?
+title: Co se stane, když se balíček nainstaluje?
 description: Podrobné informace o procesu instalace balíčku
 author: karann-msft
 ms.author: karann
 ms.date: 06/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5676239bedb7f8fbe9f74725864afd297405d5c1
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 69ef02e3c935287759b4012aadcfb1cb9811367c
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842331"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488448"
 ---
-# <a name="what-happens-when-a-nuget-package-is-installed"></a>Co se stane při instalaci balíčku NuGet?
+# <a name="what-happens-when-a-nuget-package-is-installed"></a>Co se stane, když se nainstaluje balíček NuGet?
 
-Jednoduše ale nutné dodat, jiné nástroje NuGet obvykle vytvořit odkaz na balíček v souboru projektu nebo `packages.config`, proveďte obnovení balíčků, což účinně nainstaluje balíček. Výjimkou je `nuget install`, který pouze rozbalí balíček do `packages` složky a nezmění žádné další soubory.
+Jednoduše řečeno, různé nástroje NuGet obvykle vytvoří odkaz na balíček v souboru projektu nebo `packages.config`a pak provede obnovení balíčku, které efektivně nainstaluje balíček. Výjimkou je `nuget install`, že balíček rozbalí pouze `packages` do složky a neupravuje žádné další soubory.
 
 Obecný postup je následující:
 
-1. (Všechny nástroje, s výjimkou `nuget.exe`) identifikátor balíčku a verzi si poznamenejte do souboru projektu nebo `packages.config`.
+1. (Všechny nástroje s `nuget.exe`výjimkou) zaznamenejte identifikátor a verzi balíčku do souboru projektu `packages.config`nebo.
 
-   Pokud je nástroj pro instalaci sady Visual Studio nebo rozhraní příkazového řádku dotnet, nástroj nejdřív pokusí nainstalovat balíček. Pokud se jedná o nekompatibilní, balíček není přidán do souboru projektu nebo `packages.config`.
+   Pokud je instalační nástroj sady Visual Studio nebo rozhraní příkazového řádku dotnet, nástroj se nejprve pokusí balíček nainstalovat. Pokud není kompatibilní, balíček se nepřidá do souboru projektu nebo `packages.config`.
 
-2. Získejte balíček:
-   - Zkontrolujte, jestli balíček (číslem přesný identifikátor a verzi) je už nainstalovaná v *global-packages* složky, jak je popsáno na [Správa globálních balíčků a složek mezipaměti](../consume-packages/managing-the-global-packages-and-cache-folders.md).
+2. Získání balíčku:
+   - Ověřte, zda je balíček (podle přesně identifikátorem a číslo verze) již nainstalován ve složce *Global-Packages* , jak je popsáno v tématu [Správa globálních balíčků a složek mezipaměti](../consume-packages/managing-the-global-packages-and-cache-folders.md).
 
-   - Pokud balíček není v *global-packages* složky, pokus o načtení z uvedené zdroje podle [konfigurační soubory](../consume-packages/Configuring-NuGet-Behavior.md). Pro online zdroje pokusí nejprve balíček načíst z mezipaměti HTTP, není-li `-NoCache` zadán s parametrem `nuget.exe` příkazy nebo `--no-cache` zadán s parametrem `dotnet restore`. (Visual Studio a `dotnet add package` vždy používat mezipaměť.) Pokud je balíček z mezipaměti, se zobrazí ve výstupu "Mezipaměti". Mezipaměť obsahuje dobu vypršení platnosti 30 minut.
+   - Pokud balíček není ve složce *Global-Packages* , pokuste se ho načíst ze zdrojů uvedených v [konfiguračních souborech](../consume-packages/Configuring-NuGet-Behavior.md). U online zdrojů se pokuste nejprve načíst balíček z mezipaměti `-NoCache` protokolu HTTP, pokud není zadaný pomocí `nuget.exe` příkazů nebo `--no-cache` je zadaný pomocí `dotnet restore`. (Visual Studio a `dotnet add package` vždy použít mezipaměť.) Pokud se balíček používá z mezipaměti, zobrazí se ve výstupu "mezipaměť". Doba vypršení platnosti mezipaměti je 30 minut.
 
-   - Pokud balíček není v mezipaměti protokolu HTTP, pokuste se ho stáhnout z uvedené v konfiguraci zdroje. Pokud se stáhne balíček ve výstupu se zobrazí "GET" a "OK". NuGet protokoly provozu http na normální podrobností.
+   - Pokud balíček není v mezipaměti protokolu HTTP, pokuste se ho stáhnout ze zdrojů uvedených v konfiguraci. Pokud se stáhne balíček, ve výstupu se zobrazí zpráva "GET" a "OK". NuGet protokoluje přenosy HTTP při normální podrobností.
 
-   - Pokud balíček nelze úspěšně získat ze všech zdrojů, instalace se nezdaří v tuto chvíli s chybou jako [NU1103](../reference/errors-and-warnings/NU1103.md). Poznámka: tuto chyby z `nuget.exe` zobrazit příkazy pouze poslední zdroje zaškrtnuto, ale znamená, že balíček nebyl dostupný z libovolného zdroje.
+   - Pokud balíček nejde úspěšně získat ze všech zdrojů, instalace v tuto chvíli neproběhne s chybou, jako je třeba [NU1103](../reference/errors-and-warnings/NU1103.md). Všimněte si, že `nuget.exe` chyby z příkazů zobrazují jenom poslední vybraný zdroj, ale to znamená, že balíček není dostupný z libovolného zdroje.
 
-   Při získávání balíčku, může použít zdroje v konfiguraci Nugetu pořadí:
+   Při získávání balíčku může platit pořadí zdrojů v konfiguraci NuGet:
 
-   - NuGet kontroluje zdroje místní složky a síťové sdílené složky, před vrácením zdrojů HTTP.
+   - Před kontrolou zdrojů HTTP kontroluje NuGet zdrojové složky a sdílené síťové složky.
 
-3. Uložit kopii balíčku a další informace *http-cache* složky, jak je popsáno na [Správa globálních balíčků a složek mezipaměti](../consume-packages/managing-the-global-packages-and-cache-folders.md).
+3. Uložte kopii balíčku a další informace do složky *mezipaměti HTTP* , jak je popsáno v tématu [Správa globálních balíčků a složek mezipaměti](../consume-packages/managing-the-global-packages-and-cache-folders.md).
 
-4. Pokud si stáhli, nainstalujte balíček do jednotlivé uživatele *global-packages* složky. NuGet vytvoří podsložky pro každý identifikátor balíčku a programu vytváří podsložky pro každou nainstalovanou verzi balíčku.
+4. Při stažení nainstalujte balíček do složky *globálních balíčků* pro jednotlivé uživatele. NuGet vytvoří pro každý identifikátor balíčku podsložku a pak vytvoří podsložky pro každou nainstalovanou verzi balíčku.
 
-5. Závislosti balíčků NuGet nainstaluje podle potřeby. Tento proces může aktualizovat verze balíčku v procesu, jak je popsáno v [řešení závislostí](../consume-packages/dependency-resolution.md).
+5. NuGet nainstaluje závislosti balíčků podle potřeby. Tento proces může aktualizovat verze balíčku v procesu, jak je popsáno v tématu [řešení závislosti](../concepts/dependency-resolution.md).
 
-6. Aktualizace dalších projektových souborů a složek:
+6. Aktualizovat další soubory a složky projektu:
 
-    - Pro projekty pomocí PackageReference, aktualizace uložených v grafu závislostí balíčku `obj/project.assets.json`. Balíček obsahu nejsou zkopírovány do libovolné složky projektu.
-    - Aktualizace `app.config` a/nebo `web.config` pokud používá balíček [zdrojových a konfiguračních souborů transformace](../create-packages/source-and-config-file-transformations.md).
+    - Pro projekty, které používají PackageReference, aktualizujte graf závislosti balíčku `obj/project.assets.json`uložený v. Samotný obsah balíčku se nekopíruje do žádné složky projektu.
+    - Aktualizujte `app.config` nebo, Pokudbalíčekpoužívátransformacezdrojovéhoakonfiguračníhosouboru.`web.config` [](../create-packages/source-and-config-file-transformations.md)
 
-7. (Pouze visual Studio) Zobrazte soubor readme balíčku, pokud je k dispozici v okně aplikace Visual Studio.
+7. (Pouze Visual Studio) Zobrazit soubor Readme balíčku, pokud je k dispozici v okně sady Visual Studio.
 
-Užijte si produktivní psaní kódu s balíčky NuGet.
+Využijte své produktivní kódování pomocí balíčků NuGet!

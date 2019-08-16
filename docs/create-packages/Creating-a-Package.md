@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: a9224ce4e515cf98893a7134077c90a47df1862a
-ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
+ms.openlocfilehash: 7d952fcbf5cb864e8adbc0b483f42949817e1efa
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69020076"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488876"
 ---
 # <a name="create-a-package-using-the-nugetexe-cli"></a>Vytvoření balíčku pomocí rozhraní příkazového řádku NuGet. exe
 
@@ -20,7 +20,7 @@ Bez ohledu na to, co váš balíček používá, nebo jaký kód obsahuje, můž
 
 - Pro projekty .NET Core a .NET Standard, které používají [Formát ve stylu sady SDK](../resources/check-project-format.md), a všechny další projekty ve stylu sady SDK, přečtěte si téma [Vytvoření balíčku NuGet pomocí rozhraní příkazového řádku dotnet](creating-a-package-dotnet-cli.md).
 
-- Pro projekty migrované z `packages.config` aplikace do [PackageReference](../consume-packages/package-references-in-project-files.md)použijte [MSBuild-t:Pack](../reference/migrate-packages-config-to-package-reference.md#create-a-package-after-migration).
+- Pro projekty migrované z `packages.config` aplikace do [PackageReference](../consume-packages/package-references-in-project-files.md)použijte [MSBuild-t:Pack](../consume-packages/migrate-packages-config-to-package-reference.md#create-a-package-after-migration).
 
 Technicky řečeno, balíček NuGet je jenom soubor zip, který se přejmenoval s `.nupkg` příponou a jehož obsah se shoduje s některými úmluvami. Toto téma popisuje podrobný proces vytváření balíčku, který splňuje tyto konvence.
 
@@ -138,7 +138,7 @@ Následuje typický (ale fiktivní) `.nuspec` soubor s komentáři popisujícím
 </package>
 ```
 
-Podrobnosti o deklarování závislostí a zadání čísel verzí najdete v tématu [Packages. config](../reference/packages-config.md) a [Správa verzí balíčků](../reference/package-versioning.md). Je také možné Surface prostředků ze závislostí přímo v balíčku pomocí `include` atributů `dependency` a `exclude` elementu. Viz [referenční závislosti. nuspec](../reference/nuspec.md#dependencies).
+Podrobnosti o deklarování závislostí a zadání čísel verzí najdete v tématu [Packages. config](../reference/packages-config.md) a [Správa verzí balíčků](../concepts/package-versioning.md). Je také možné Surface prostředků ze závislostí přímo v balíčku pomocí `include` atributů `dependency` a `exclude` elementu. Viz [referenční závislosti. nuspec](../reference/nuspec.md#dependencies).
 
 Vzhledem k tomu, že je manifest součástí balíčku, který byl vytvořen z něj, můžete najít libovolný počet dalších příkladů zkoumáním existujících balíčků. Dobrým zdrojem je složka *globálního balíčku* v počítači, umístění, které je vráceno následujícím příkazem:
 
@@ -184,8 +184,8 @@ Konvence složek jsou následující:
 | ref/{TFM} | Sestavení (`.dll`) a symboly (`.pdb`) souborů pro daný moniker cílového rozhraní (TFM) | Sestavení jsou přidána jako odkazy pouze pro dobu kompilace; Takže se nic nezkopíruje do složky Bin projektu. |
 | moduly runtime | Soubory sestavení (`.dll`), symbolů (`.pdb`) a nativních prostředků (`.pri`) specifických pro architekturu | Sestavení jsou přidána jako odkazy pouze pro modul runtime; jiné soubory jsou zkopírovány do složek projektu. V rámci `AnyCPU` `/ref/{tfm}` složky by mělo být vždy odpovídající (TFM) specifické sestavení, které poskytuje odpovídající sestavení doby kompilace. Viz [Podpora více cílových rozhraní](supporting-multiple-target-frameworks.md). |
 | obsah | Libovolné soubory | Obsah je zkopírován do kořenového adresáře projektu. Složku **obsahu** si můžete představit jako kořen cílové aplikace, která nakonec balíček spotřebovává. Pokud chcete, aby balíček přidal obrázek do složky */images* aplikace, umístěte ho do složky *obsah/image* balíčku. |
-| sestavení | MSBuild `.targets` a `.props` soubory | Automaticky vložen do projektu (NuGet 3. x +). |
-| buildMultiTargeting | MSBuild `.targets` a`.props` soubory pro cílení na různé architektury | Automaticky vložen do projektu. |
+| sestavení | MSBuild `.targets` a `.props` soubory | *(3. x +)* Automaticky vložen do projektu. |
+| buildMultiTargeting | *(3. x +)* MSBuild `.targets` a`.props` soubory pro cílení na různé architektury | Automaticky vložen do projektu. |
 | buildTransitive | *(5.0 +)* Nástroj `.targets` MSBuild `.props` a soubory, které přenášejí přenos do libovolného náročného projektu. Podívejte se na stránku [funkce](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior) . | Automaticky vložen do projektu. |
 | nástroje | Skripty a programy PowerShellu dostupné z konzoly Správce balíčků | Složka je přidána `PATH` do proměnné prostředí pouze pro konzolu Správce balíčků ( `PATH` konkrétně při sestavování sady MSBuild při sestavování projektu). `tools` |
 
@@ -226,9 +226,8 @@ Pokud máte závislosti balíčků, které mají být zahrnuty do souboru *. nus
 # Use in a folder containing a project file <project-name>.csproj or <project-name>.vbproj
 nuget pack myproject.csproj
 ```
-```
 
-A token is delimited by `$` symbols on both sides of the project property. For example, the `<id>` value in a manifest generated in this way typically appears as follows:
+Token je oddělen `$` symbolem na obou stranách vlastnosti projektu. Například `<id>` hodnota v manifestu generované tímto způsobem obvykle vypadá takto:
 
 ```xml
 <id>$id$</id>
@@ -273,7 +272,7 @@ Identifikátor balíčku (`<id>` element) a číslo verze (`<version>` element) 
 **Osvědčené postupy pro verzi balíčku:**
 
 - Obecně platí, že nastavte verzi balíčku tak, aby odpovídala knihovně, i když to není nezbytně nutné. Toto je jednoduchá skutečnost při omezení balíčku na jedno sestavení, jak je popsáno výše v tématu [určení sestavení, která chcete](#decide-which-assemblies-to-package)zabalit. Celkově mějte na paměti, že aplikace NuGet pracuje s verzemi balíčku při řešení závislostí, nikoli ve verzích sestavení.
-- Při použití nestandardního schématu verzí nezapomeňte zvážit pravidla správy verzí NuGet, jak je vysvětleno v tématu [Správa verzí balíčků](../reference/package-versioning.md).
+- Při použití nestandardního schématu verzí nezapomeňte zvážit pravidla správy verzí NuGet, jak je vysvětleno v tématu [Správa verzí balíčků](../concepts/package-versioning.md).
 
 > Následující řada stručných příspěvků na blogu je také užitečná pro pochopení správy verzí:
 >
@@ -424,7 +423,7 @@ Po vytvoření balíčku, který je `.nupkg` soubor, můžete ho publikovat do G
 
 Můžete také chtít zvětšit možnosti vašeho balíčku nebo jinak podporovat jiné scénáře, jak je popsáno v následujících tématech:
 
-- [Správa verzí balíčků](../reference/package-versioning.md)
+- [Správa verzí balíčků](../concepts/package-versioning.md)
 - [Podpora více cílových architektur](../create-packages/supporting-multiple-target-frameworks.md)
 - [Transformace zdrojových a konfiguračních souborů](../create-packages/source-and-config-file-transformations.md)
 - [Lokalizace](../create-packages/creating-localized-packages.md)
@@ -434,5 +433,5 @@ Můžete také chtít zvětšit možnosti vašeho balíčku nebo jinak podporova
 
 Nakonec existují další typy balíčků, o kterých byste měli vědět:
 
-- [Nativní balíčky](../create-packages/native-packages.md)
+- [Nativní balíčky](../guides/native-packages.md)
 - [Balíčky symbolů](../create-packages/symbol-packages.md)
