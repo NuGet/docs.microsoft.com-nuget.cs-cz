@@ -27,7 +27,7 @@
 ### [Běžné konfigurace NuGetu](consume-packages/configuring-nuget-behavior.md)
 ## Odkazování balíčků v projektu
 ### [Odkazy na balíčky v souborech projektů](consume-packages/package-references-in-project-files.md)
-### [Migrace souboru packages.config do PackageReference](reference/migrate-packages-config-to-package-reference.md)
+### [Migrace souboru packages.config do PackageReference](consume-packages/migrate-packages-config-to-package-reference.md)
 ### [packages.config](reference/packages-config.md)
 # Vytváření balíčků
 ## [Přehled a pracovní postup](create-packages/overview-and-workflow.md)
@@ -45,9 +45,9 @@
 ### [Vytvoření lokalizovaného balíčku](create-packages/creating-localized-packages.md)
 ## Příručky pro specifický obsah
 ### [Vytvoření balíčku UPW](guides/create-uwp-packages.md)
-### [Vytvoření nativního balíčku](create-packages/native-packages.md)
+### [Vytvoření nativního balíčku](guides/native-packages.md)
 ### [Vytvoření ovládacích prvků uživatelského rozhraní jako balíčku NuGet](guides/create-UI-controls.md)
-### [Vytvoření analyzátoru jako balíčku NuGet](reference/analyzers-conventions.md)
+### [Vytvoření analyzátoru jako balíčku NuGet](guides/analyzers-conventions.md)
 ### [Vytvoření balíčku pro Xamarin pomocí sady Visual Studio 2015](guides/create-packages-for-xamarin.md)
 ### [Vytvoření balíčku se sestaveními zprostředkovatele komunikace s objekty COM](create-packages/author-packages-with-COM-interop-assemblies.md)
 ## Podepisování balíčků
@@ -64,8 +64,8 @@
 ### [Místní informační kanály](hosting-packages/local-feeds.md)
 # Koncepty
 ## [Postup instalace balíčku](concepts/package-installation-process.md)
-## [Správa verzí balíčků](reference/package-versioning.md)
-## [Řešení závislostí](consume-packages/dependency-resolution.md)
+## [Správa verzí balíčků](concepts/package-versioning.md)
+## [Řešení závislostí](concepts/dependency-resolution.md)
 # Odkaz
 ## [.nuspec](reference/nuspec.md)
 ## [Soubor nuget.config](reference/nuget-config-file.md)
@@ -342,6 +342,6 @@
 #### [NuGet 1.3](release-notes/NuGet-1.3.md)
 #### [NuGet 1.2](release-notes/NuGet-1.2.md)
 #### [NuGet 1.1](release-notes/NuGet-1.1.md)
-## [Nejčastější dotazy](faqs/nuget-faq.md)
+## [Nejčastější dotazy](resources/nuget-faq.md)
 ## [Formát projektu](resources/check-project-format.md)
 # [NuGet.org](nuget-org/overview-nuget-org.md)
