@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 464bf52cabe64696270fc391b2c23de9c6ba24f7
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: ae80206117eed639140a0c7977043d8330bc37bb
+ms.sourcegitcommit: 80cf99f40759911324468be1ec815c96aebf376d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488146"
+ms.lasthandoff: 08/17/2019
+ms.locfileid: "69564563"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Odkazy na balíčky (PackageReference) v souborech projektu
 
@@ -106,7 +106,7 @@ Přípustné hodnoty pro tyto značky jsou následující, s více hodnotami odd
 | modul runtime | Obsah složky `runtimes` a určuje, zda budou tato sestavení zkopírována do výstupního adresáře sestavení `lib` |
 | contentFiles | `contentfiles` Obsah složky |
 | sestavení | `.props``.targets` a`build` ve složce |
-| buildMultitargeting | `.props``.targets` a`buildMultitargeting` ve složce pro cílení na různé architektury |
+| buildMultitargeting | *(4,0)* `.props` a `.targets` ve`buildMultitargeting` složce pro cílení na různé architektury |
 | buildTransitive | *(5.0 +)* `.props` a vesložce`buildTransitive` pro prostředky, jejichž přenos do libovolného náročného projektu se protéká. `.targets` Podívejte se na stránku [funkce](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior) . |
 | analyzátory | Analyzátory .NET |
 | nativní | `native` Obsah složky |

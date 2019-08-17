@@ -12,12 +12,12 @@ keywords: Balíčky symbolů NuGet, ladění balíčku NuGet, podpora ladění N
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: e62d1872497e0e5e703bf7c49a87249ce9a996c7
-ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
+ms.openlocfilehash: 992b3ddd04a1bb34e7aca25dfaa6f7df5485907b
+ms.sourcegitcommit: 80cf99f40759911324468be1ec815c96aebf376d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959679"
+ms.lasthandoff: 08/17/2019
+ms.locfileid: "69564542"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Vytváření balíčků symbolů (. snupkg)
 
@@ -118,7 +118,7 @@ Soubor. nupkg by byl přesně stejný, jako v současné době, ale soubor. snup
 
 4) Pokud se autor rozhodne použít vlastní nuspec k sestavení nupkg a snupkg, měl by mít snupkg stejnou hierarchii složek a souborů, které jsou popsány v 2).
 5) ```authors```a ```owners``` pole bude vyloučeno z nuspecu snupkg.
-6) Nepoužívejte <license> element. A. snupkg se zabývá stejnou licencí jako odpovídající. nupk.
+6) Nepoužívejte <license> element. A. snupkg se zabývá stejnou licencí jako odpovídající. nupkg.
 
 ## <a name="see-also"></a>Viz také
 
