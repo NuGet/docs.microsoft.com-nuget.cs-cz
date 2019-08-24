@@ -1,18 +1,18 @@
 ---
-title: Jednotlivé účty
+title: Jednotlivé účty – NuGet.org
 description: Pro publikování balíčků se vyžadují jednotlivé acccounts na NuGet.org.
 author: mikejo5000
 ms.author: mikejo
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: c88b88015bd6d5bae4789765126c0a3dec527e24
-ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
+ms.openlocfilehash: 63c6b5eb5ad635e436b4d53a5f833af35f72d76f
+ms.sourcegitcommit: 7c9f157ba02d9be543de34ab06813ab1ec10192a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68419848"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69999970"
 ---
-# <a name="individual-accounts"></a>Jednotlivé účty
+# <a name="individual-accounts-on-nugetorg"></a>Jednotlivé účty na NuGet.org
 
 Abyste mohli publikovat a spravovat balíčky na NuGet.org, musíte vytvořit jednotlivý účet.
 
@@ -38,7 +38,7 @@ Pokud chcete vytvořit účet NuGet.org, musíte mít osobní účet Microsoft (
 
 1. Budete přesměrováni na *NuGet.org*a požádáni, abyste zaregistrovali uživatelské jméno.
 
-1. Do vstupního pole zadejte uživatelské jméno. Všimněte si, **že uživatelské jméno** rozlišuje velká a malá písmena a nelze je změnit nebo přejmenovat později.
+1. Do vstupního pole zadejte uživatelské jméno. Všimněte si, že uživatelské jméno rozlišuje velká a malá písmena a nelze je změnit nebo přejmenovat později.
 
    ![Zadat uživatelské jméno na NuGet.org](media/nuget-org-register.png) 
 
@@ -69,3 +69,7 @@ Chcete-li lépe chránit svůj účet, povolte dvojúrovňové ověřování (do
    ![Povolit 2FA](media/nuget-org-enter-code-2fa.png)
 
 5. Dokončete dvojúrovňové ověřování podle všech dalších pokynů.
+
+## <a name="delete-a-nugetorg-account"></a>Odstranění účtu NuGet.org
+
+Nápovědu k dalším úlohám souvisejícím s účty, jako je odstranění účtu NuGet.org, najdete v tématu [Správa účtů NuGet.org](nuget-org-faq.md#nugetorg-account-management).

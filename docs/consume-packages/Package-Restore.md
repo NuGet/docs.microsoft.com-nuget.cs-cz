@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: dfe5f2ef4f0ababd81b91073938752aab2bdc01e
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: 93a94a5468b48179d27b89825cebf2447657c8f2
+ms.sourcegitcommit: 7c9f157ba02d9be543de34ab06813ab1ec10192a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488812"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69999987"
 ---
 # <a name="restore-packages-using-package-restore"></a>Obnovení balíčků pomocí obnovení balíčku
 
@@ -44,7 +44,7 @@ Obnovení balíčku se pokusí nainstalovat všechny závislosti balíčků do s
 
    Pro projekty používající PackageReference po úspěšném obnovení by měl být balíček přítomen ve složce *Global-Packages* a `obj/project.assets.json` soubor je znovu vytvořen. Pro projekty, `packages.config`které používají, by se měl balíček zobrazit ve `packages` složce projektu. Projekt by se teď měl úspěšně sestavit. 
 
-2. Pokud stále dochází k chybějícím balíčkům nebo chybám souvisejícím s balíčkem (například Chybové ikony v Průzkumník řešení v aplikaci Visual Studio) po spuštění obnovení balíčku, možná budete muset [balíčky znovu nainstalovat a aktualizovat](../consume-packages/reinstalling-and-updating-packages.md).
+2. Pokud stále dochází k chybějícím balíčkům nebo chybám souvisejícím s balíčkem (například Chybové ikony v Průzkumník řešení v aplikaci Visual Studio), bude po spuštění obnovení balíčku nutné postupovat podle pokynů uvedených v tématu [řešení potíží s chybami při obnovení balíčků](package-restore-troubleshooting.md) nebo, případně [přeinstalujte a aktualizujte balíčky](../consume-packages/reinstalling-and-updating-packages.md).
 
    V aplikaci Visual Studio konzola správce balíčků nabízí několik flexibilních možností pro přeinstalaci balíčků. Viz [použití balíčku – aktualizace](reinstalling-and-updating-packages.md#using-update-package).
 
