@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: f931ed297a6a1e9e24ce5eb30a8158f59925bb39
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: 29c52b6684dff252e9c45bf5365d83b6a3fe5201
+ms.sourcegitcommit: c65e7a889ddf64a8e2ff7bc59ec08edb308e16ca
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488673"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70060243"
 ---
 # <a name="nuspec-reference"></a>odkaz. nuspec
 
@@ -76,7 +76,7 @@ Identifikátor balíčku bez rozlišení velkých a malých písmen, který mus�
 #### <a name="version"></a>verze
 Verze balíčku, podle vzoru *hlavní_verze. podverze. Oprava* . Čísla verzí můžou obsahovat příponu předběžné verze, jak je popsáno v tématu [Správa verzí balíčků](../concepts/package-versioning.md#pre-release-versions). 
 #### <a name="description"></a>description
-Dlouhý popis balíčku pro zobrazení uživatelského rozhraní. 
+Popis balíčku pro zobrazení uživatelského rozhraní
 #### <a name="authors"></a>Autoři
 Čárkami oddělený seznam autorů balíčků, které odpovídají názvům profilů v nuget.org. Ty se zobrazí v galerii NuGet na nuget.org a používají se pro balíčky křížového odkazu stejnými autory. 
 
@@ -152,6 +152,9 @@ Logická hodnota určující, zda klient musí požádat spotřebitele o přijet
 *(2.8+)* Logická hodnota určující, jestli tento balíček představuje označit jako vývoj – jen závislost, což zabrání balíčku nebudou zahrnuty v závislosti na dalších balíčků. Pomocí PackageReference (NuGet 4,8 +) Tento příznak také znamená, že vyloučí prostředky při kompilaci z kompilace. Viz [Podpora DevelopmentDependency pro PackageReference](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference)
 
 #### <a name="summary"></a>souhrn
+> [!Important]
+> `summary`se již nepoužívá. Místo nich se používá `description`.
+
 Krátký popis balíčku pro zobrazení uživatelského rozhraní. `description` Je-li tento parametr vynechán, je použita zkrácená verze nástroje.
 
 #### <a name="releasenotes"></a>releaseNotes
