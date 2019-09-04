@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: b898b389ee6c962831ce789a7c304c75e6bd8774
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: be25e9bf72b9115de8ae55f6296195fed3152f10
+ms.sourcegitcommit: ac9a00ccaf90e539a381e92b650074910b21eb0d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488211"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70235122"
 ---
 # <a name="search"></a>Hledat
 
@@ -62,7 +62,7 @@ Vyhledávací dotaz `q` je analyzován způsobem, který je definován implement
 Pokud `prerelease` není zadaný, vyloučí se balíčky předběžných verzí.
 
 Parametr dotazu se používá pro výslovný souhlas s [SemVer balíčky 2.0.0.](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29#identifying-semver-v200-packages) `semVerLevel`
-Pokud je tento parametr dotazu vyloučený, vrátí se jenom balíčky s SemVer verzemi kompatibilními s 1.0.0 (se standardními upozorněními verzí [NuGet](../concepts/package-versioning.md) , jako jsou například řetězce verze se 4 celými čísly).
+Pokud je tento parametr dotazu vyloučený, vrátí se jenom balíčky s SemVer verzemi kompatibilními s 1.0.0 (se [standardními](../concepts/package-versioning.md) upozorněními verzí NuGet, jako jsou například řetězce verze se 4 celými čísly).
 Pokud `semVerLevel=2.0.0` je k dispozici, budou vráceny balíčky kompatibilní s SemVer 1.0.0 a SemVer 2.0.0. Další informace najdete v tématu [Podpora SemVer 2.0.0 pro NuGet.org](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29) .
 
 ### <a name="response"></a>Odpověď
@@ -111,7 +111,7 @@ soubory | integer | ano      | Počet souborů ke stažení pro tuto konkrétní
 
 ### <a name="sample-request"></a>Ukázková žádost
 
-    GET https://api-v2v3search-0.nuget.org/query?q=NuGet.Versioning&prerelease=false
+    GET https://azuresearch-usnc.nuget.org/query?q=NuGet.Versioning&prerelease=false&semVerLevel=2.0.0
 
 ### <a name="sample-response"></a>Ukázková odpověď
 
