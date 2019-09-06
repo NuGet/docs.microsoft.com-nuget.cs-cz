@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: d8d1b2ef0185381d16c1bb73035588fe90bcfd14
-ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
+ms.openlocfilehash: a9331ad2ea0482737d84f4ea9a9babf95da8d66f
+ms.sourcegitcommit: d5cc3f01a92c2d69b794343c09aff07ba9e912e5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959684"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70385895"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Sada NuGet Pack a obnovení jako cíle MSBuild
 
@@ -60,9 +60,10 @@ Všimněte si, `Owners` že `Summary` nástroj MSBuild `.nuspec` nepodporuje vla
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false | |
 | průkaz | PackageLicenseExpression | empty | Odpovídá`<license type="expression">` |
 | průkaz | PackageLicenseFile | empty | `<license type="file">`Odpovídá. Je možné, že bude nutné explicitně sbalit soubor s odkazem na licenci. |
-| LicenseUrl | PackageLicenseUrl | empty | `licenseUrl`se už nepoužívá, použijte vlastnost PackageLicenseExpression nebo PackageLicenseFile. |
+| LicenseUrl | PackageLicenseUrl | empty | `PackageLicenseUrl`je zastaralá, použijte vlastnost PackageLicenseExpression nebo PackageLicenseFile. |
 | ProjectUrl | PackageProjectUrl | empty | |
-| IconUrl | PackageIconUrl | empty | |
+| Ikona | PackageIcon | empty | Možná budete muset explicitně sbalit soubor obrázku odkazované ikony.|
+| IconUrl | PackageIconUrl | empty | `PackageIconUrl`je zastaralá, použijte vlastnost PackageIcon. |
 | Značky | PackageTags | empty | Značky jsou středníky odděleny středníkem. |
 | ReleaseNotes | PackageReleaseNotes | empty | |
 | Úložiště/adresa URL | RepositoryUrl | empty | Adresa URL úložiště, která se používá k klonování nebo načtení zdrojového kódu. Případě *https://github.com/NuGet/NuGet.Client.git* |
@@ -117,7 +118,32 @@ Chcete-li potlačit závislosti balíčků z vygenerovaného `true` balíčku Nu
 
 ### <a name="packageiconurl"></a>PackageIconUrl
 
-V rámci změny [problému NuGet 352](https://github.com/NuGet/Home/issues/352)se nakonec změní na `PackageIconUrl` `PackageIconUri` a může to být relativní cesta k souboru ikony, který bude zahrnutý v kořenu výsledného balíčku.
+> [!Important]
+> PackageIconUrl je zastaralá. Místo toho použijte [PackageIcon](#packing-an-icon-image-file) .
+
+### <a name="packing-an-icon-image-file"></a>Balení souboru obrázku ikony
+
+Při balení souboru obrázku ikony musíte použít vlastnost PackageIcon a zadat cestu k balíčku relativní ke kořenu balíčku. Kromě toho je nutné zajistit, aby byl soubor zahrnut do balíčku. Velikost souboru obrázku je omezená na 1 MB. Podporované formáty souborů zahrnují JPEG a PNG. Doporučujeme, abyste 64 × 64 rozlišení obrazu.
+
+Příklad:
+
+```xml
+<PropertyGroup>
+    ...
+    <PackageIcon>icon.png</PackageIcon>
+    ...
+</PropertyGroup>
+
+<ItemGroup>
+    ...
+    <None Include="images\icon.png" Pack="true" PackagePath="\"/>
+    ...
+</ItemGroup>
+```
+
+[Ukázka ikony balíčku](https://github.com/NuGet/Samples/tree/master/PackageIconExample)
+
+Pro ekvivalent nuspec se podívejte na [nuspec reference pro Icon](nuspec.md#icon).
 
 ### <a name="output-assemblies"></a>Výstupní sestavení
 
@@ -221,6 +247,7 @@ Při balení licenčního souboru musíte použít vlastnost PackageLicenseFile 
     <None Include="licenses\LICENSE.txt" Pack="true" PackagePath=""/>
 </ItemGroup>
 ```
+
 [Ukázka licenčního souboru](https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample).
 
 ### <a name="istool"></a>Nástroj
@@ -332,7 +359,7 @@ Příklad:
 1. Stáhnout balíčky
 1. Zápis souboru prostředků, cílů a vlastností props
 
-Cíl funguje pouze pro projekty, které používají formát PackageReference. `restore` Nefunguje pro projekty používající `packages.config` formát. místo toho použijte [obnovení NuGet](../reference/cli-reference/cli-ref-restore.md) .
+Cíl funguje pouze pro projekty, které používají formát PackageReference. `restore` Nefunguje **pro** projekty používající `packages.config` formát. místo toho použijte [obnovení NuGet](../reference/cli-reference/cli-ref-restore.md) .
 
 ### <a name="restore-properties"></a>Obnovit vlastnosti
 

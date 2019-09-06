@@ -5,23 +5,23 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: 7bfe041c01114ac61e811497ecc31ebfdad45029
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: 40e240478918d327fbea0013bbf271ea2ee1fc47
+ms.sourcegitcommit: a0807671386782021acb7588741390e6f07e94e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488902"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70384500"
 ---
 # <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>Rychlý start: Vytvoření a publikování balíčku pomocí sady Visual Studio (.NET Framework, Windows)
 
 Vytvoření balíčku NuGet z knihovny tříd .NET Framework zahrnuje vytvoření knihovny DLL v aplikaci Visual Studio ve Windows a následné vytvoření a publikování balíčku pomocí nástroje příkazového řádku NuGet. exe.
 
 > [!Note]
-> Tento rychlý Start se týká jenom sady Visual Studio 2017 pro Windows. Visual Studio pro Mac nezahrnuje funkce popsané tady. Místo toho použijte [nástroje DOTNET CLI](create-and-publish-a-package-using-the-dotnet-cli.md) .
+> Tento rychlý Start se týká jenom sady Visual Studio 2017 a vyšších verzí pro Windows. Visual Studio pro Mac nezahrnuje funkce popsané tady. Místo toho použijte [nástroje DOTNET CLI](create-and-publish-a-package-using-the-dotnet-cli.md) .
 
 ## <a name="prerequisites"></a>Požadavky
 
-1. Nainstalujte jakoukoli edici sady Visual Studio 2017 z [VisualStudio.com](https://www.visualstudio.com/) s libovolným. Zatížení související s NET. Pokud je nainstalovaná úloha .NET, Visual Studio 2017 automaticky zahrnuje funkce NuGet.
+1. Nainstalujte jakoukoli edici sady Visual Studio 2017 nebo novější z [VisualStudio.com](https://www.visualstudio.com/) s libovolným. Zatížení související s NET. Pokud je nainstalovaná úloha .NET, Visual Studio 2017 automaticky zahrnuje funkce NuGet.
 
 1. Nainstalujte rozhraní `nuget.exe` příkazového řádku stažením z [NuGet.org](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe), uložte tento `.exe` soubor do vhodné složky a přidejte tuto složku do proměnné prostředí PATH.
 
@@ -76,7 +76,7 @@ Balíček NuGet obsahuje manifest ( `.nuspec` soubor), který obsahuje relevantn
 
 1. Volitelné: Chcete-li zobrazit a upravit vlastnosti přímo, otevřete `Properties/AssemblyInfo.cs` soubor v projektu.
 
-1. Po nastavení vlastností nastavte konfiguraci projektu na vydaná a znovu Sestavte projekt, aby se vygenerovala Aktualizovaná knihovna DLL.
+1. Po nastavení vlastností nastavte konfiguraci projektu na **vydaná** a znovu sestavte projekt, aby se vygenerovala Aktualizovaná knihovna DLL.
 
 ## <a name="generate-the-initial-manifest"></a>Generování počátečního manifestu
 
@@ -131,7 +131,7 @@ Pro vygenerování počátečního manifestu se spustí `nuget spec` jenom jedno
 
 1. Z příkazového řádku ve složce, která obsahuje `.nuspec` váš soubor, spusťte příkaz `nuget pack`.
 
-1. NuGet vygeneruje `.nupkg` soubor ve formě identifikátoru *Version. nupkg*, který najdete v aktuální složce.
+1. NuGet vygeneruje `.nupkg` soubor ve formě *identifikátoru Version. nupkg*, který najdete v aktuální složce.
 
 ## <a name="publish-the-package"></a>Publikování balíčku
 

@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 29c52b6684dff252e9c45bf5365d83b6a3fe5201
-ms.sourcegitcommit: c65e7a889ddf64a8e2ff7bc59ec08edb308e16ca
+ms.openlocfilehash: ea40f80a482a290b7399e5a6abc69e0c6fe32b77
+ms.sourcegitcommit: a0807671386782021acb7588741390e6f07e94e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70060243"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70384457"
 ---
 # <a name="nuspec-reference"></a>odkaz. nuspec
 
@@ -90,7 +90,7 @@ Adresa URL domovské stránky balíčku, která se často zobrazuje v uživatels
 
 #### <a name="licenseurl"></a>licenseUrl
 > [!Important]
-> licenseUrl se už nepoužívá. Místo toho použijte licenci.
+> licenseUrl je zastaralá. Místo toho použijte licenci.
 
 Adresa URL licence balíčku, která se často zobrazuje v uživatelská rozhraní jako nuget.org.
 
@@ -143,7 +143,36 @@ license-expression =  1*1(simple-expression / compound-expression / UNLICENSED)
 ```
 
 #### <a name="iconurl"></a>iconUrl
+
+> [!Important]
+> iconUrl je zastaralá. Místo toho použijte ikonu.
+
 Adresa URL 64 × 64 obrázku s pozadím průhlednosti, která se má použít jako ikona balíčku v zobrazení uživatelského rozhraní. Ujistěte se, že tento prvek obsahuje *adresu URL přímého obrázku* , a ne adresu URL webové stránky, která obsahuje obrázek. Pokud například chcete použít image z GitHubu, použijte adresu URL nezpracovaného souboru <em>https://github.com/\<username\>/\<repository\>/raw/\<branch\>/\<logo.png\></em>jako. 
+   
+#### <a name="icon"></a>Ikona
+
+Jedná se o cestu k souboru obrázku v rámci balíčku, který se často zobrazuje v uživatelská rozhraní jako ikona balíčku jako nuget.org. Velikost souboru obrázku je omezená na 1 MB. Podporované formáty souborů zahrnují JPEG a PNG. Doporučujeme resoulution image 64 × 64.
+
+Například při vytváření balíčku pomocí nástroje NuGet. exe přidejte do své služby nuspec následující:
+
+```xml
+<package>
+  <metadata>
+    ...
+    <icon>images\icon.png</icon>
+    ...
+  </metadata>
+  <files>
+    ...
+    <file src="..\icon.png" target="images\" />
+    ...
+  </files>
+</package>
+```
+
+[Ikona balíčku nuspec vzorek](https://github.com/NuGet/Samples/tree/master/PackageIconNuspecExample)
+
+V případě ekvivalentu MSBuild se podíváme na [balení souboru obrázku ikony](msbuild-targets.md#packing-an-icon-image-file).
 
 #### <a name="requirelicenseacceptance"></a>requireLicenseAcceptance
 Logická hodnota určující, zda klient musí požádat spotřebitele o přijetí licence k balíčku před instalací balíčku.

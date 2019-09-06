@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/20/2019
 ms.topic: quickstart
-ms.openlocfilehash: d7aa2e4bdb78dcc6747d9775cbdf0d6c41855b96
-ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
+ms.openlocfilehash: 417388872a74b29a469d6a5c17c079a0d1a35dc3
+ms.sourcegitcommit: a0807671386782021acb7588741390e6f07e94e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68419811"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70384462"
 ---
 # <a name="install-nuget-client-tools"></a>Instalace klientských nástrojů NuGetu
 
@@ -22,7 +22,7 @@ Pro práci s NuGet, jako příjemce balíčku nebo autor, můžete použít nás
 |:------------- |:-------------|:-----|
 | [dotnet.exe](#dotnetexe-cli) | Nástroj rozhraní příkazového řádku pro knihovny .NET Core a .NET Standard a pro libovolný [projekt ve stylu sady SDK](resources/check-project-format.md) , jako je například jeden, který cílí .NET Framework. Je součástí .NET Core SDK a poskytuje základní funkce NuGet na všech platformách. (Počínaje sadou Visual Studio 2017 se rozhraní příkazového řádku dotnet automaticky instaluje se všemi úlohami souvisejícími s .NET Core.)| [.NET Core SDK](https://www.microsoft.com/net/download/) |
 | [nuget.exe](#nugetexe-cli) | Nástroj rozhraní příkazového řádku pro knihovny .NET Framework a pro všechny projekty, které [nejsou ve stylu sady SDK](resources/check-project-format.md) , jako je například jeden, který cílí na .NET Standard knihovny. Poskytuje všechny funkce NuGet ve Windows a poskytuje většinu funkcí v systémech Mac a Linux, když běží v mono. | [nuget.exe](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe) |
-| [Visual Studio](#visual-studio) | Ve Windows poskytuje funkce NuGet přes uživatelské rozhraní Správce balíčků a konzolu Správce balíčků. je součástí. Úlohy týkající se netto. V systému Mac poskytuje určité funkce v uživatelském rozhraní. V Visual Studio Code jsou funkce NuGet poskytovány prostřednictvím rozšíření. | [Visual Studio 2017](https://www.visualstudio.com/downloads/) |
+| [Visual Studio](#visual-studio) | Ve Windows poskytuje funkce NuGet přes uživatelské rozhraní Správce balíčků a konzolu Správce balíčků. je součástí. Úlohy týkající se netto. V systému Mac poskytuje určité funkce v uživatelském rozhraní. V Visual Studio Code jsou funkce NuGet poskytovány prostřednictvím rozšíření. | [Visual Studio](https://www.visualstudio.com/downloads/) |
 
 Rozhraní příkazového [řádku MSBuild](reference/msbuild-targets.md) také poskytuje možnost obnovení a vytváření balíčků, které jsou primárně užitečné na serverech sestavení. Nástroj MSBuild není obecným nástrojem pro práci s NuGet.
 
@@ -73,7 +73,7 @@ Zařízením
   - Příkazy konzoly Správce balíčků fungují jenom v sadě Visual Studio ve Windows a nefungují v jiných prostředích PowerShellu.
   - V případě sady Visual Studio 2010 a starší verze nainstalujte "rozšíření Správce balíčků NuGet pro Visual Studio".
   - Rozšíření NuGet pro Visual Studio 2013 a 2015 je taky možné stáhnout z [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html).
-  - Pokud chcete zobrazit náhled nadcházejících funkcí NuGet, nainstalujte sadu [Visual Studio 2017 Preview](https://www.visualstudio.com/vs/preview/), která funguje souběžně se stabilními verzemi sady Visual Studio. K nahlášení problémů nebo sdílení nápadů pro verze Preview otevřete problém v [úložišti GitHub NuGet](https://github.com/Nuget/Home/issues).
+  - Pokud chcete zobrazit náhled nadcházejících funkcí NuGet, nainstalujte [Visual Studio Preview](https://www.visualstudio.com/vs/preview/), které funguje souběžně se stabilními verzemi sady Visual Studio. K nahlášení problémů nebo sdílení nápadů pro verze Preview otevřete problém v [úložišti GitHub NuGet](https://github.com/Nuget/Home/issues).
 
 ## <a name="feature-availability"></a>Dostupnost funkcí
 
