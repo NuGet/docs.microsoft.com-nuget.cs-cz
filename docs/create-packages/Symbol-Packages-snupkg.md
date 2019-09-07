@@ -12,12 +12,12 @@ keywords: Balíčky symbolů NuGet, ladění balíčku NuGet, podpora ladění N
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 992b3ddd04a1bb34e7aca25dfaa6f7df5485907b
-ms.sourcegitcommit: 80cf99f40759911324468be1ec815c96aebf376d
+ms.openlocfilehash: 109df18bcfd3e6a3fbd3ef3da1707ffada585140
+ms.sourcegitcommit: f4bfdbf62302c95f1f39e81ccf998f8bbc6d56b0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/17/2019
-ms.locfileid: "69564542"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70749031"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Vytváření balíčků symbolů (. snupkg)
 
@@ -29,7 +29,30 @@ Balíčky symbolů umožňují zlepšit možnosti ladění balíčků NuGet.
 
 ## <a name="creating-a-symbol-package"></a>Vytvoření balíčku symbolů
 
-Balíček snupkg symbol můžete vytvořit pomocí příkazu dotnet. exe, NuGet. exe nebo MSBuild. Pokud používáte NuGet. exe, můžete k vytvoření souboru. snupkg spolu s souborem. nupkg použít následující příkazy:
+Pokud používáte dotnet. exe nebo MSBuild, je třeba nastavit `IncludeSymbols` vlastnosti a a `SymbolPackageFormat` vytvořit soubor. snupkg společně se souborem. nupkg.
+
+* Přidejte do souboru. csproj následující vlastnosti:
+
+   ```xml
+   <PropertyGroup>
+      <IncludeSymbols>true</IncludeSymbols> 
+      <SymbolPackageFormat>snupkg</SymbolPackageFormat> 
+   </PropertyGroup>
+   ```
+
+* Nebo zadejte tyto vlastnosti na příkazovém řádku:
+
+     ```cli
+     dotnet pack MyPackage.csproj -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
+     ```
+
+  or
+
+  ```cli
+  msbuild MyPackage.csproj /t:pack /p:IncludeSymbols=true /p:SymbolPackageFormat=snupkg
+  ```
+
+Pokud používáte NuGet. exe, můžete k vytvoření souboru. snupkg spolu s souborem. nupkg použít následující příkazy:
 
 ```
 nuget pack MyPackage.nuspec -Symbols -SymbolPackageFormat snupkg
@@ -37,20 +60,7 @@ nuget pack MyPackage.nuspec -Symbols -SymbolPackageFormat snupkg
 nuget pack MyPackage.csproj -Symbols -SymbolPackageFormat snupkg
 ```
 
-Pokud používáte dotnet. exe nebo MSBuild, použijte následující postup k vytvoření souboru. snupkg společně se souborem. nupkg:
-
-1. Do souboru. csproj přidejte následující vlastnosti:
-
-    ```xml
-    <PropertyGroup>
-      <IncludeSymbols>true</IncludeSymbols>
-      <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    </PropertyGroup>
-    ```
-
-1. Sbalení projektu pomocí `dotnet pack MyPackage.csproj` nebo `msbuild -t:pack MyPackage.csproj`.
-
-Vlastnost může mít jednu ze dvou hodnot: `symbols.nupkg` (výchozí) nebo `snupkg`. [`SymbolPackageFormat`](/dotnet/core/tools/csproj#symbolpackageformat) [`SymbolPackageFormat`](/dotnet/core/tools/csproj#symbolpackageformat) Pokud vlastnost není zadána, bude vytvořen starší balíček symbolů.
+Vlastnost může mít jednu ze dvou hodnot: `symbols.nupkg` (výchozí) nebo `snupkg`. [`SymbolPackageFormat`](/dotnet/core/tools/csproj#symbolpackageformat) Pokud tato vlastnost není zadána, bude vytvořen starší balíček symbolů.
 
 > [!Note]
 > Starší verze formátu `.symbols.nupkg` jsou stále podporovány, ale pouze z důvodů kompatibility (viz [starší balíčky symbolů](Symbol-Packages.md)). Server symbolů NuGet. org přijímá pouze nový formát balíčku symbolů – `.snupkg`.
@@ -118,8 +128,8 @@ Soubor. nupkg by byl přesně stejný, jako v současné době, ale soubor. snup
 
 4) Pokud se autor rozhodne použít vlastní nuspec k sestavení nupkg a snupkg, měl by mít snupkg stejnou hierarchii složek a souborů, které jsou popsány v 2).
 5) ```authors```a ```owners``` pole bude vyloučeno z nuspecu snupkg.
-6) Nepoužívejte <license> element. A. snupkg se zabývá stejnou licencí jako odpovídající. nupkg.
+6) Nepoužívejte ```<license>``` element. A. snupkg se zabývá stejnou licencí jako odpovídající. nupkg.
 
 ## <a name="see-also"></a>Viz také
 
-[NuGet-Package-Debugging-&-Symbols-Improvements](https://github.com/NuGet/Home/wiki/NuGet-Package-Debugging-&-Symbols-Improvements)
+[Vylepšení balíčku NuGet ladění & symboly](https://github.com/NuGet/Home/wiki/NuGet-Package-Debugging-&-Symbols-Improvements)
