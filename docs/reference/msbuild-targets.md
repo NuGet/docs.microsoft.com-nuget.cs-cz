@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: a9331ad2ea0482737d84f4ea9a9babf95da8d66f
-ms.sourcegitcommit: d5cc3f01a92c2d69b794343c09aff07ba9e912e5
+ms.openlocfilehash: 16b8ff532b87a3e3f96029e77dd166eb39294c0b
+ms.sourcegitcommit: 5a741f025e816b684ffe44a81ef7d3fbd2800039
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70385895"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70815342"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Sada NuGet Pack a obnovení jako cíle MSBuild
 
@@ -109,6 +109,7 @@ Všimněte si, `Owners` že `Summary` nástroj MSBuild `.nuspec` nepodporuje vla
 - NuspecFile
 - NuspecBasePath
 - NuspecProperties
+- Deterministický
 
 ## <a name="pack-scenarios"></a>scénáře sady Pack
 
@@ -172,6 +173,18 @@ Do odkazu na projekt můžete také přidat následující metadata:
 <IncludeAssets>
 <ExcludeAssets>
 <PrivateAssets>
+```
+
+### <a name="deterministic"></a>Deterministický
+
+Při použití `MSBuild -t:pack -p:Deterministic=true`nástroje vygeneruje více vyvolání cíle balíčku přesně stejný balíček.
+Výstup příkazu Pack není ovlivněn okolním stavem počítače. Konkrétně položky zip budou časové razítko jako 1980-01-01. Aby bylo možné dosáhnout úplných determinismem, sestavení by měla být sestavena s odpovídající možností kompilátoru [– deterministické](/dotnet/csharp/language-reference/compiler-options/deterministic-compiler-option).
+Doporučuje se zadat deterministické vlastnosti, jako je třeba následující, takže kompilátor i NuGet ho budou respektovat.
+
+```xml
+<PropertyGroup>
+  <Deterministic>true</Deterministic>
+</PropertyGroup>
 ```
 
 ### <a name="including-content-in-a-package"></a>Zahrnutí obsahu do balíčku

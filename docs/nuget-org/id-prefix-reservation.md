@@ -1,17 +1,17 @@
 ---
 title: Rezervace předpony ID
 description: Popis funkce rezervace předpony ID balíčku a průvodce vytvářením
-author: diverdan92
-ms.author: diverdan92
-ms.date: 10/09/2017
+author: karann-msft
+ms.author: karann
+ms.date: 09/07/2019
 ms.topic: reference
-ms.reviewer: ananguar
-ms.openlocfilehash: 650f570ec65a665e3d452af732ea22337835d8d9
-ms.sourcegitcommit: cae759ad8518c049575a30ad3bf04fe5d06244fb
+ms.reviewer: karann
+ms.openlocfilehash: 630c2b193500ec0b9aa5a7fe4af3ea95ae52aeec
+ms.sourcegitcommit: 5a741f025e816b684ffe44a81ef7d3fbd2800039
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68616799"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70815276"
 ---
 # <a name="package-id-prefix-reservation"></a>Rezervace předpony ID balíčku
 
@@ -33,7 +33,7 @@ Pokud je předpona vyhrazena pro [NuGet.org](https://www.nuget.org/), dojde k n�
 
 1. Každý balíček, který odpovídá předponě rezervovaného ID a pochází od vlastníků, které rezervovaly předponu ID, bude mít vizuální indikátor v aplikaci Visual Studio 2017 verze 15,4 nebo novější a na [NuGet.org](https://www.nuget.org/) , který označuje, že balíček je pod rezervovanou předponou ID. To platí pro nové odesílání balíčků i pro existující balíčky v rámci vlastníků. **Poznámka:** Indikátor v aplikaci Visual Studio se zobrazí pouze v případě, že je jako zdroj balíčku vybrán jeden informační kanál.
 
-1. Všechny dříve existující balíčky, které odpovídají předponě rezervovaného ID, ale *nejsou vlastněny* vlastníkem rezervované předpony, zůstanou beze změny (nebudou v seznamu uvedeny), ale nebudou mít indikátor vizuálu. Kromě toho budou moci vlastníci těchto balíčků i nadále odesílat nové verze do balíčku.
+1. Všechny dříve existující balíčky, které odpovídají předponě rezervovaného ID, ale *nejsou vlastněny vlastníkem rezervované* předpony, zůstanou beze změny (nebudou v seznamu uvedeny), ale nebudou mít indikátor vizuálu. Kromě toho budou moci vlastníci těchto balíčků i nadále odesílat nové verze do balíčku.
 
 Tyto změny jsou založeny na následujících podmínkách a ukládají několik dalších omezení:
 
@@ -83,15 +83,17 @@ Při kontrole libovolné aplikace pro rezervaci předpony ID tým [NuGet.org](ht
 
 1. Je prefix ID balíčku něco společného, který by neměl patřit žádnému individuálnímu vlastníkovi nebo organizaci?
 
-1. Nepovedlo se zachovávat předponu ID balíčku, která by způsobila nejednoznačnost a nejasnost pro komunitu?
+1. *Nepovedlo* se zachovávat předponu ID balíčku, která by způsobila nejednoznačnost a nejasnost pro komunitu?
 
 1. Jsou identifikující vlastnosti balíčků, které odpovídají předponě ID balíčku, jasné a konzistentní (zejména autor balíčku)?
 
 1. Mají balíčky licenci (pomocí elementu metadata [licence](../reference/nuspec.md#license) a licenseUrl, který se už nepoužívá)?
 
+1. Pokud mají balíčky ikonu (pomocí elementu metadat iconUrl), jsou také použity v prvku metadat [ikony](../reference/nuspec.md#icon) (není nutné odebrat iconUrl)?
+
 ## <a name="third-party-feed-provider-scenarios"></a>Scénáře poskytovatele kanálu třetích stran
 
-Pokud se poskytovatel kanálu třetí strany zajímá o implementaci vlastní služby pro poskytování rezervací předpon, můžete to udělat úpravou vyhledávací služby v poskytovatelích kanálu NuGet v3. Přidáním do služby vyhledávání informačních kanálů je přidání ověřené vlastnosti s příklady pro níže uvedené kanály v3. Klient NuGet nebude podporovat přidané vlastnosti v kanálu v2.
+Pokud se poskytovatel kanálu třetí strany zajímá o implementaci vlastní služby pro poskytování rezervací předpon, můžete to udělat úpravou vyhledávací služby v poskytovatelích kanálu NuGet v3. Přidáním do služby vyhledávání informačních kanálů je přidání *ověřené* vlastnosti s příklady pro níže uvedené kanály v3. Klient NuGet nebude podporovat přidané vlastnosti v kanálu v2.
 
 Další informace najdete v dokumentaci k [vyhledávací službě rozhraní API](../api/search-query-service-resource.md).
 

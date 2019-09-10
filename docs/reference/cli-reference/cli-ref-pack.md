@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: cab56cb87f46335f9fdebdbc1649fead16459877
-ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
+ms.openlocfilehash: 76829d45ea9821da3b7fdaa2f88d30dbb104fea1
+ms.sourcegitcommit: 5a741f025e816b684ffe44a81ef7d3fbd2800039
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959727"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70815358"
 ---
 # <a name="pack-command-nuget-cli"></a>Příkaz Pack (NuGet CLI)
 
@@ -35,6 +35,7 @@ kde `<nuspecPath>` a `<projectPath>` Zadejte`.nuspec` soubor projektu, v uveden�
 | --- | --- |
 | BasePath | Nastaví základní cestu souborů definovaných v souboru [. nuspec](../nuspec.md) . |
 | Sestavení | Určuje, že projekt by měl být sestaven před sestavením balíčku. |
+| Deterministický | Určete, zda má příkaz vytvořit deterministický balíček. Vícenásobné vyvolání příkazu Pack vygeneruje přesně stejný balíček Byte-to-Byte. Výstup příkazu Pack není ovlivněn okolním stavem počítače. Konkrétně položky zip budou časové razítko jako 1980-01-01. Aby bylo možné dosáhnout úplných determinismem, sestavení by měla být sestavena s odpovídající možností kompilátoru [– deterministické](/dotnet/csharp/language-reference/compiler-options/deterministic-compiler-option). |
 | Slevy | Určuje jeden nebo více vzorových zástupných znaků, které se mají vyloučit při vytváření balíčku. Chcete-li zadat více než jeden vzor, opakujte příznak-Exclude. Viz následující příklad. |
 | ExcludeEmptyDirectories | Zabrání zahrnutí prázdných adresářů při sestavování balíčku. |
 | ForceEnglishOutput | *(3.5 +)* Vynutí, aby soubor NuGet. exe běžel pomocí neutrální jazykové verze určené pro angličtinu. |
@@ -51,7 +52,7 @@ kde `<nuspecPath>` a `<projectPath>` Zadejte`.nuspec` soubor projektu, v uveden�
 | Auditování | *(3.4.4 +)* Připojí příponu k interně vygenerovanému číslu verze, které se obvykle používá pro připojení buildu nebo jiné identifikátory předběžného vydání. Například pomocí `-suffix nightly` vytvoříte balíček s číslem verze, jako `1.2.3-nightly`je. Přípony musí začínat písmenem, aby se předešlo varováním, chybám a potenciálním nekompatibilitám s různými verzemi NuGet a správcem balíčků NuGet. |
 | Symboly | Určuje, že balíček obsahuje zdroje a symboly. Při použití se `.nuspec` souborem se vytvoří pravidelný soubor balíčku NuGet a odpovídající balíček symbolů. Ve výchozím nastavení vytvoří [starší verzi balíčku symbolů](../../create-packages/Symbol-Packages.md). Nový doporučený formát pro balíčky symbolů je. snupkg. Viz [vytváření balíčků symbolů (. snupkg)](../../create-packages/Symbol-Packages-snupkg.md). |
 | Nástroj | Určuje, že výstupní soubory projektu by měly být umístěny do `tool` složky. |
-| Verbosity | Určuje množství podrobností zobrazených ve výstupu: *normální*, tichéa *podrobné*. |
+| Verbosity | Určuje množství podrobností zobrazených ve výstupu: *normální*, *tiché*a *podrobné*. |
 | Version | Přepíše číslo verze ze `.nuspec` souboru. |
 
 Podívejte se také na [proměnné prostředí](cli-ref-environment-variables.md) .
