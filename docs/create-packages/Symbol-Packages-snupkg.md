@@ -12,12 +12,12 @@ keywords: Balíčky symbolů NuGet, ladění balíčku NuGet, podpora ladění N
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 109df18bcfd3e6a3fbd3ef3da1707ffada585140
-ms.sourcegitcommit: f4bfdbf62302c95f1f39e81ccf998f8bbc6d56b0
+ms.openlocfilehash: 5546881dbf7577eb289a28b35bc2c0e7dc5cac40
+ms.sourcegitcommit: 1eda83ab537c86cc27316e7bc67f95a358766e63
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70749031"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71094113"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Vytváření balíčků symbolů (. snupkg)
 
@@ -92,23 +92,23 @@ NuGet bude publikovat oba balíčky do nuget.org. bude Publikováno jako první,
 
 ## <a name="nugetorg-symbol-server"></a>NuGet.org symbol server
 
-NuGet.org podporuje vlastní úložiště symbolů serveru a přijímá pouze nový formát balíčku symbolů – `.snupkg`. Příjemci balíčku můžou použít symboly publikované do serveru symbolů NuGet.org přidáním `https://symbols.nuget.org/download/symbols` do jejich zdrojů symbolů v aplikaci Visual Studio, které umožňují krokování kódu balíčku v ladicím programu sady Visual Studio. Podrobnosti o tomto procesu najdete v tématu [určení symbolu (PDB) a zdrojových souborů v ladicím programu sady Visual Studio](https://docs.microsoft.com/en-us/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger?view=vs-2017) .
+NuGet.org podporuje vlastní úložiště symbolů serveru a přijímá pouze nový formát balíčku symbolů – `.snupkg`. Příjemci balíčku můžou použít symboly publikované do serveru symbolů NuGet.org přidáním `https://symbols.nuget.org/download/symbols` do jejich zdrojů symbolů v aplikaci Visual Studio, které umožňují krokování kódu balíčku v ladicím programu sady Visual Studio. Podrobnosti o tomto procesu najdete v tématu [určení symbolu (PDB) a zdrojových souborů v ladicím programu sady Visual Studio](/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger.md) .
 
-### <a name="nugetorg-symbol-package-constraints"></a>Omezení balíčku symbolů Nuget.org
+### <a name="nugetorg-symbol-package-constraints"></a>Omezení balíčku symbolů NuGet.org
 
-Balíčky symbolů podporované v nuget.org mají následující contraints
+NuGet.org má následující omezení pro balíčky symbolů:
 
-- Do balíčku symbolů smí být přidána pouze následující přípony souborů. ```.pdb,.nuspec,.xml,.psmdcp,.rels,.p7s```
-- Na serveru symbolů NuGet se aktuálně podporují jenom spravované [přenosné soubory PDB](https://github.com/dotnet/corefx/blob/master/src/System.Reflection.Metadata/specs/PortablePdb-Metadata.md) .
-- Soubory PDB a přidružené knihovny DLL nupkg musí být sestaveny s kompilátorem v aplikaci Visual Studio verze 15,9 nebo vyšší (viz soubor [PDB kryptografický otisk](https://github.com/dotnet/roslyn/issues/24429)).
+- V balíčcích symbolů jsou povoleny pouze následující přípony souborů: `.pdb`, `.nuspec`, `.xml`, `.psmdcp`, `.rels`,`.p7s`
+- Na serveru se symbolem NuGet. org jsou podporované jenom spravované [přenosné soubory PDB](https://github.com/dotnet/corefx/blob/master/src/System.Reflection.Metadata/specs/PortablePdb-Metadata.md) .
+- Soubory PDB a jejich přidružené knihovny DLL nupkg musí být sestaveny s kompilátorem v aplikaci Visual Studio verze 15,9 nebo vyšší (viz [PDB kryptografický otisk](https://github.com/dotnet/roslyn/issues/24429)).
 
-Pokud jsou všechny ostatní typy souborů zahrnuté v souboru. snupkg, nebude balíček symbolů Publish on nuget.org úspěšný.
+Balíčky symbolů publikované do NuGet.org selžou, pokud tato omezení nebudou splněna. 
 
 ### <a name="symbol-package-validation-and-indexing"></a>Ověřování a indexování balíčku symbolů
 
-Balíčky symbolů publikované do [NuGet.org](https://www.nuget.org/) prošly několika ověřeními, jako jsou třeba kontroly virů.
+Balíčky symbolů publikované do [NuGet.org](https://www.nuget.org/) prošly několika ověřeními, včetně kontroly malwaru. Pokud balíček selže, zobrazí se na stránce Podrobnosti o jeho balíčku chybová zpráva. Kromě toho vlastníci balíčku obdrží e-mail s pokyny, jak opravit zjištěné problémy.
 
-Když balíček úspěšně prošel všemi ověřovacími kontrolami, může chvíli trvat, než se symboly indexují a budou dostupné pro využití ze serverů symbolů NuGet.org. Pokud balíček neuspěje při ověřování, aktualizuje se stránka s podrobnostmi balíčku pro. nupkg, aby se zobrazila přidružená chyba, a obdržíte také e-mail s upozorněním.
+Když balíček symbolů předává všechna ověření, symboly budou indexovány pomocí serverů se symboly NuGet. org. Po indexování bude symbol dostupný pro spotřebu ze serverů symbolů NuGet.org.
 
 Ověření a indexování balíčku obvykle trvá 15 minut. Pokud publikování balíčku trvá déle, než se čekalo, navštivte [status.NuGet.org](https://status.nuget.org/) a ověřte, jestli NuGet.org má nějaké přerušení. Pokud jsou všechny systémy funkční a balíček ještě není po celou hodinu publikovaný, přihlaste se k nuget.org a na stránce s podrobnostmi balíčku kontaktujte nás pomocí odkazu podpora kontaktů.
 
@@ -132,4 +132,6 @@ Soubor. nupkg by byl přesně stejný, jako v současné době, ale soubor. snup
 
 ## <a name="see-also"></a>Viz také
 
-[Vylepšení balíčku NuGet ladění & symboly](https://github.com/NuGet/Home/wiki/NuGet-Package-Debugging-&-Symbols-Improvements)
+Zvažte použití odkazu na zdroj pro povolení ladění zdrojového kódu v sestaveních .NET. Další informace najdete v [pokynech ke zdrojovému propojení](/dotnet/standard/library-guidance/sourcelink.md).
+
+Další informace o balíčcích symbolů najdete v tématu [Ladění balíčků NuGet &ch symbolů vylepšení](https://github.com/NuGet/Home/wiki/NuGet-Package-Debugging-&-Symbols-Improvements) návrhu.

@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 5ec6c0e17a3e8b9a3f156a48685bcaafe42c744b
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: 7aea28d6224a89149aa33be035c82a45db3058f0
+ms.sourcegitcommit: 1eda83ab537c86cc27316e7bc67f95a358766e63
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488223"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71094117"
 ---
 # <a name="package-content"></a>Obsah balíčku
 
@@ -48,7 +48,7 @@ Pokud klient zná ID balíčku a chce zjistit, které verze balíčků má zdroj
 
 Name     | V     | type    | Požadováno | Poznámky
 -------- | ------ | ------- | -------- | -----
-LOWER_ID | Adresa URL    | odkazy řetězců  | ano      | ID balíčku, malá písmena
+LOWER_ID | Adresa URL    | odkazy řetězců  | ano      | ID balíčku, malými písmeny
 
 `LOWER_ID` Hodnota je ID požadovaného balíčku s malými písmeny pomocí pravidel implementovaných pomocí. [`System.String.ToLowerInvariant()`](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) Metoda netto.
 
@@ -60,7 +60,7 @@ Pokud má zdroj balíčku jednu nebo více verzí, vrátí se stavový kód 200.
 
 Name     | type             | Požadováno | Poznámky
 -------- | ---------------- | -------- | -----
-verze | pole řetězců | ano      | Dostupná ID balíčků
+verze | pole řetězců | ano      | Dostupné verze
 
 Řetězce v `versions` poli jsou všechny s malými písmeny, [normalizované řetězce verze NuGet](../concepts/package-versioning.md#normalized-version-numbers). Řetězce verze neobsahují žádná metadata buildu SemVer 2.0.0.
 
@@ -90,7 +90,7 @@ LOWER_VERSION | Adresa URL    | odkazy řetězců | ano      | Verze balíčku, 
 `LOWER_ID` A`LOWER_VERSION` jsou malá pomocí pravidel implementovaných pomocí. SÍŤ[`System.String.ToLowerInvariant()`](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant)
 Metoda.
 
-Je požadovaná verze balíčku normalizovaná pomocí pravidel normalizace verzí NuGet. [](../concepts/package-versioning.md#normalized-version-numbers) `LOWER_VERSION` To znamená, že v tomto případě musí být vyloučena metadata sestavení, která jsou povolena specifikací SemVer 2.0.0.
+Je požadovaná verze balíčku normalizovaná pomocí [pravidel normalizace](../concepts/package-versioning.md#normalized-version-numbers)verzí NuGet. `LOWER_VERSION` To znamená, že v tomto případě musí být vyloučena metadata sestavení, která jsou povolena specifikací SemVer 2.0.0.
 
 ### <a name="response-body"></a>Text odpovědi
 
@@ -121,7 +121,7 @@ LOWER_VERSION | Adresa URL    | odkazy řetězců | ano      | Verze balíčku, 
 
 `LOWER_ID` A`LOWER_VERSION` jsou malá pomocí pravidel implementovaných pomocí. [`System.String.ToLowerInvariant()`](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) Metoda netto.
 
-Je požadovaná verze balíčku normalizovaná pomocí pravidel normalizace verzí NuGet. [](../concepts/package-versioning.md#normalized-version-numbers) `LOWER_VERSION` To znamená, že v tomto případě musí být vyloučena metadata sestavení, která jsou povolena specifikací SemVer 2.0.0.
+Je požadovaná verze balíčku normalizovaná pomocí [pravidel normalizace](../concepts/package-versioning.md#normalized-version-numbers)verzí NuGet. `LOWER_VERSION` To znamená, že v tomto případě musí být vyloučena metadata sestavení, která jsou povolena specifikací SemVer 2.0.0.
 
 ### <a name="response-body"></a>Text odpovědi
 

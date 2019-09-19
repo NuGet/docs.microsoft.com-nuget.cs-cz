@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: conceptual
-ms.openlocfilehash: 5309d94fafea9cdfc3699d443393be5d381dd145
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 89127203df0aa1eb24f36b8ec64c5bb4a4d59319
+ms.sourcegitcommit: 1eda83ab537c86cc27316e7bc67f95a358766e63
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317732"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71094070"
 ---
 # <a name="common-nuget-configurations"></a>Běžné konfigurace NuGet
 
@@ -25,7 +25,7 @@ Chování NuGet se řídí seshromážděným nastavením v jednom nebo několik
 | Computer | Windows: `%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux: `$XDG_DATA_HOME`. Pokud `$XDG_DATA_HOME` má hodnotu null nebo je `~/.local/share` prázdný `/usr/local/share` , nebo se použije (liší se podle distribuce operačního systému)  | Nastavení platí pro všechny operace v počítači, ale jsou přepsána všemi uživateli nebo nastavením na úrovni projektu. |
 
 Poznámky pro starší verze NuGet:
-- NuGet 3,3 a starší používaly `.nuget` složku pro nastavení pro všechna řešení. Tento soubor se nepoužívá v NuGet 3.4 +.
+- NuGet 3,3 a starší používaly `.nuget` složku pro nastavení pro všechna řešení. Tato složka se nepoužívá v NuGet 3.4 +.
 - Pro NuGet 2,6 až 3. x je konfigurační soubor na úrovni počítače ve Windows umístěný v%ProgramData%\NuGet\Config\\[{IDE} [\\{Version} [\\{SKU}]]] \NuGet.config, kde *{IDE}* může být *VisualStudio*, *{ Verze}* byla verze sady Visual Studio, jako je například *14,0*, a *{SKU}* je *komunita*, *pro*nebo *podnik*. Chcete-li migrovat nastavení do NuGet 4.0 +, stačí zkopírovat konfigurační soubor do% ProgramFiles (x86)% \ NuGet\Config. V systému Linux se toto předchozí umístění/etc/opt a na Macu/Library/Application Support podpora.
 
 ## <a name="changing-config-settings"></a>Mění se nastavení konfigurace.
