@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 09/06/2019
 ms.topic: conceptual
-ms.openlocfilehash: f16bfe5481009f7924a61f03233d288d25ac618f
-ms.sourcegitcommit: f4bfdbf62302c95f1f39e81ccf998f8bbc6d56b0
+ms.openlocfilehash: 96d176beaa6b2f0c4f53488390e585b70c9ba846
+ms.sourcegitcommit: 188ade66b7ac807ba1667c77cfb9325bf89a8a4a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70774099"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71248160"
 ---
 # <a name="nuget-53-release-notes"></a>Zpráva k vydání verze NuGet 5,3
 
@@ -18,11 +18,11 @@ Prostředky pro distribuci NuGet:
 
 | Verze NuGet | K dispozici ve verzi sady Visual Studio| K dispozici v sadě .NET SDK|
 |:---|:---|:---|
-| [**5.3.0 – preview3**](https://nuget.org/downloads) | [Visual Studio 2019 verze 16,3 Preview 3](https://visualstudio.microsoft.com/vs/preview/) | [3.0.100 – preview9](https://dotnet.microsoft.com/download/dotnet-core/3.0) <sup>1</sup> |
+| [**5.3.0**](https://nuget.org/downloads) | [Visual Studio 2019 verze 16,3](https://visualstudio.microsoft.com/downloads/) | [3.0.100](https://dotnet.microsoft.com/download/dotnet-core/3.0) <sup>1</sup> |
 
 <sup>1</sup> Nainstalováno se sadou Visual Studio 2019 s úlohou .NET Core
 
-## <a name="summary-whats-new-in-53-preview-3"></a>Shrnut Co je nového ve verzi 5,3 Preview 3
+## <a name="summary-whats-new-in-53"></a>Shrnut Co je nového v 5,3
 
 * [Ikona balíčku se dá vložit do balíčku](../reference/msbuild-targets.md#packing-an-icon-image-file), takže nemusíte potřebovat externí adresu URL. - [#352](https://github.com/NuGet/Home/issues/352)
 
@@ -32,6 +32,10 @@ Prostředky pro distribuci NuGet:
 
 **Štěnic**
 
+* Balíčky NuGet vytvořené pomocí sady 3.0.100-preview9 SDK nemůžou používat uživatelé sady SDK 2,2... v závislosti na časovém pásmu [#8603](https://github.com/NuGet/Home/issues/8603)
+
+* Uvozovky "znaky v cestě způsobují" nepovolené znaky v cestě `nuget restore` "při [#8168](https://github.com/NuGet/Home/issues/8168)
+
 * VS: sestavení jsou plně Ngen-Ed, ne částečně Ngen-Ed- [#8513](https://github.com/NuGet/Home/issues/8513)
 
 * Snižte využití paměti (odhlášení odběru událostí) – [#8471](https://github.com/NuGet/Home/issues/8471)
@@ -40,7 +44,7 @@ Prostředky pro distribuci NuGet:
 
 * Vylepšení NU1403 – ověřte všechny balíčky, včetně očekávaných nebo skutečných hodnot SHA- [#8424](https://github.com/NuGet/Home/issues/8424)
 
-* Vícenásobné výčty v NuGetPackageManager. PreviewUpdatePackagesAsync- [#8401](https://github.com/NuGet/Home/issues/8401)
+* Více výčtů `NuGetPackageManager.PreviewUpdatePackagesAsync`v  -  [#8401](https://github.com/NuGet/Home/issues/8401)
 
 * Vrácení "> interní" změny v PluginProcess- [#8390](https://github.com/NuGet/Home/issues/8390)
 
@@ -64,7 +68,7 @@ Prostředky pro distribuci NuGet:
 
 * Nastavit čtení nastavení v VS-opožděné [#8156](https://github.com/NuGet/Home/issues/8156)
 
-* Regrese v "zdrojů NuGet Add" způsobuje "znak", ":", šestnáctkovou hodnotu 0x3A, nelze zahrnout do názvu "Errors- [#7948](https://github.com/NuGet/Home/issues/7948)
+* Regrese `Nuget sources add` v důsledku toho, že znak ": ', šestnáctková hodnota 0x3A, nemůže být zahrnutá v názvu" Errors- [#7948](https://github.com/NuGet/Home/issues/7948)
 
 * Zprostředkovatelé přihlašovacích údajů plug-in NuGet – skrýt okno procesu – [#7511](https://github.com/NuGet/Home/issues/7511)
 
@@ -86,6 +90,4 @@ Prostředky pro distribuci NuGet:
 
 * Možnosti Add-SolutionDirectory a-PackageDirectory do NuGet. exe Pack- [#7163](https://github.com/NuGet/Home/issues/7163)
 
-* Povolit, aby balíček NuGet byl deterministický [#6229](https://github.com/NuGet/Home/issues/6229)
-
-**[Seznam všech problémů opravených v této verzi – 5,3 Preview 3](https://github.com/nuget/home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%225.3")**
+**[Seznam všech problémů opravených v této verzi – 5,3](https://github.com/nuget/home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%225.3")**

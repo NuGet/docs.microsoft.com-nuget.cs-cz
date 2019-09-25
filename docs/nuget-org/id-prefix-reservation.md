@@ -6,16 +6,16 @@ ms.author: karann
 ms.date: 09/07/2019
 ms.topic: reference
 ms.reviewer: karann
-ms.openlocfilehash: 630c2b193500ec0b9aa5a7fe4af3ea95ae52aeec
-ms.sourcegitcommit: 5a741f025e816b684ffe44a81ef7d3fbd2800039
+ms.openlocfilehash: f6c4a18366b4df20fb210f718d3779e85c08d550
+ms.sourcegitcommit: 188ade66b7ac807ba1667c77cfb9325bf89a8a4a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70815276"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71248126"
 ---
 # <a name="package-id-prefix-reservation"></a>Rezervace předpony ID balíčku
 
-Vlastníci balíčku si můžou vyhradit a chránit svoji identitu tím, že si zachovají předpony ID. Příjemci balíčku jsou k dispozici další informace při využívání balíčků, které daný balíček spotřebovává, nemají v rámci svých identifikačních vlastností žádné klamavé. 
+Vlastníci balíčku si můžou vyhradit a chránit svoji identitu tím, že si zachovají předpony ID. Příjemci balíčku jsou k dispozici další informace, pokud jsou nenáročné na balíčky, které jsou náročné, v jejich identifikačních vlastnostech. 
 
 [NuGet.org](https://www.nuget.org/) a visual Studio 2017 verze 15,4 nebo novější zobrazí vizuální indikátor pro balíčky, které jsou odesílány vlastníky s vyhrazenou předponou ID balíčku, pokud balíček odpovídá vzoru pro pojmenování předpony vyhrazeného ID. Níže uvedený odkaz vysvětluje, co znamená rezervace předpony ID a jak může vlastník použít pro předponu ID.
 
