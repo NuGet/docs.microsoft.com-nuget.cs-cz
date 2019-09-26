@@ -6,6 +6,7 @@
 # Správa balíčků na webu NuGet.org
 ## [Publikování balíčku](publish-a-package.md)
 ## [Rezervace předpony ID balíčku](id-prefix-reservation.md)
+## [Vyřazení balíčku](deprecate-packages.md)
 # Zásady
 ## [Žádosti o data](policies/Data-requests.md)
 ## [Řešení sporů](policies/dispute-resolution.md)
@@ -14,5 +15,5 @@
 # Odkaz
 ## [NuGet API](../api/overview.md)
 ## [licenses.nuget.org](licenses.nuget.org.md)
-# Zdroje a prostředky
+# Prostředky
 ## [Nejčastější dotazy](nuget-org-faq.md)
