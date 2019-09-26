@@ -12,12 +12,12 @@ keywords: Balíčky symbolů NuGet, ladění balíčku NuGet, podpora ladění N
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 5546881dbf7577eb289a28b35bc2c0e7dc5cac40
-ms.sourcegitcommit: 1eda83ab537c86cc27316e7bc67f95a358766e63
+ms.openlocfilehash: 0197902e4dbc18893d68833fbcfe4263f185a594
+ms.sourcegitcommit: e4b0ff4460865db6dc7bc9f20e9f644d98493011
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71094113"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71307188"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Vytváření balíčků symbolů (. snupkg)
 
@@ -92,7 +92,7 @@ NuGet bude publikovat oba balíčky do nuget.org. bude Publikováno jako první,
 
 ## <a name="nugetorg-symbol-server"></a>NuGet.org symbol server
 
-NuGet.org podporuje vlastní úložiště symbolů serveru a přijímá pouze nový formát balíčku symbolů – `.snupkg`. Příjemci balíčku můžou použít symboly publikované do serveru symbolů NuGet.org přidáním `https://symbols.nuget.org/download/symbols` do jejich zdrojů symbolů v aplikaci Visual Studio, které umožňují krokování kódu balíčku v ladicím programu sady Visual Studio. Podrobnosti o tomto procesu najdete v tématu [určení symbolu (PDB) a zdrojových souborů v ladicím programu sady Visual Studio](/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger.md) .
+NuGet.org podporuje vlastní úložiště symbolů serveru a přijímá pouze nový formát balíčku symbolů – `.snupkg`. Příjemci balíčku můžou použít symboly publikované do serveru symbolů NuGet.org přidáním `https://symbols.nuget.org/download/symbols` do jejich zdrojů symbolů v aplikaci Visual Studio, které umožňují krokování kódu balíčku v ladicím programu sady Visual Studio. Podrobnosti o tomto procesu najdete v tématu [určení symbolu (PDB) a zdrojových souborů v ladicím programu sady Visual Studio](/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger) .
 
 ### <a name="nugetorg-symbol-package-constraints"></a>Omezení balíčku symbolů NuGet.org
 
@@ -132,6 +132,6 @@ Soubor. nupkg by byl přesně stejný, jako v současné době, ale soubor. snup
 
 ## <a name="see-also"></a>Viz také
 
-Zvažte použití odkazu na zdroj pro povolení ladění zdrojového kódu v sestaveních .NET. Další informace najdete v [pokynech ke zdrojovému propojení](/dotnet/standard/library-guidance/sourcelink.md).
+Zvažte použití odkazu na zdroj pro povolení ladění zdrojového kódu v sestaveních .NET. Další informace najdete v [pokynech ke zdrojovému propojení](/dotnet/standard/library-guidance/sourcelink).
 
 Další informace o balíčcích symbolů najdete v tématu [Ladění balíčků NuGet &ch symbolů vylepšení](https://github.com/NuGet/Home/wiki/NuGet-Package-Debugging-&-Symbols-Improvements) návrhu.
