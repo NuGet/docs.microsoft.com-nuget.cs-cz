@@ -5,25 +5,25 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8c1d8a479747f6f7bce388c1555589543c8824a0
-ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
+ms.openlocfilehash: 1d23759433efb405fa5f0035049befced2c43d6b
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69020062"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380677"
 ---
 # <a name="support-multiple-net-framework-versions-in-your-project-file"></a>Podpora více verzí .NET Framework v souboru projektu
 
 Při prvním vytvoření projektu doporučujeme vytvořit knihovnu tříd .NET Standard, protože poskytuje kompatibilitu s nejširší škálou náročných projektů. Pomocí .NET Standard přidáte do knihovny .NET standardně [podporu více platforem](/dotnet/standard/library-guidance/cross-platform-targeting) . V některých scénářích však může být také nutné zahrnout kód, který cílí na konkrétní rozhraní. V tomto článku se dozvíte, jak to udělat pro projekty ve [stylu sady SDK](../resources/check-project-format.md) .
 
-Pro projekty ve stylu sady SDK můžete v souboru projektu nakonfigurovat podporu pro více cílů architektury ([TFM](/dotnet/standard/frameworks)) a potom pomocí `dotnet pack` nebo `msbuild /t:pack` vytvořit balíček.
+Pro projekty ve stylu sady SDK můžete v souboru projektu nakonfigurovat podporu pro více cílů architektury ([TFM](/dotnet/standard/frameworks)) a pak pomocí `dotnet pack` nebo `msbuild /t:pack` vytvořit balíček.
 
 > [!NOTE]
-> NuGet. exe CLI nepodporuje projekty ve stylu balíčku sady SDK, takže byste měli použít `dotnet pack` jenom nebo. `msbuild /t:pack` Doporučujeme, abyste místo toho [zahrnuli všechny vlastnosti](../reference/msbuild-targets.md#pack-target) , které jsou obvykle `.nuspec` v souboru v souboru projektu. Chcete-li cílit na více .NET Framework verzí v projektu ve stylu mimo sadu SDK, přečtěte si téma [Podpora více verzí .NET Framework](supporting-multiple-target-frameworks.md).
+> NuGet. exe CLI nepodporuje projekty ve stylu balíčku sady SDK, takže byste měli použít jenom `dotnet pack` nebo `msbuild /t:pack`. Doporučujeme, abyste místo toho [zahrnuli všechny vlastnosti](../reference/msbuild-targets.md#pack-target) , které jsou obvykle v souboru `.nuspec` v souboru projektu. Chcete-li cílit na více .NET Framework verzí v projektu ve stylu mimo sadu SDK, přečtěte si téma [Podpora více verzí .NET Framework](supporting-multiple-target-frameworks.md).
 
 ## <a name="create-a-project-that-supports-multiple-net-framework-versions"></a>Vytvořit projekt, který podporuje více verzí .NET Framework
 
-1. Vytvořte novou knihovnu tříd .NET Standard v aplikaci Visual Studio nebo ji použijte `dotnet new classlib`.
+1. Vytvořte novou knihovnu tříd .NET Standard v aplikaci Visual Studio nebo použijte `dotnet new classlib`.
 
    Pro zajištění nejlepší kompatibility doporučujeme vytvořit knihovnu tříd .NET Standard.
 
@@ -37,7 +37,7 @@ Pro projekty ve stylu sady SDK můžete v souboru projektu nakonfigurovat podpor
 
    Ujistěte se, že změníte element XML změněn z čísla v množném čísle na plural (přidejte "s" do počátečních a uzavíracích značek).
 
-3. Pokud máte nějaký kód, který funguje pouze v jednom TFM, můžete použít `#if NET45` nebo `#if NETSTANDARD20` k oddělení kódu závislého na TFM. (Další informace najdete v tématu [jak cílit na více cílů](/dotnet/core/tutorials/libraries#how-to-multitarget).) Například můžete použít následující kód:
+3. Pokud máte nějaký kód, který funguje pouze v jednom TFM, můžete použít `#if NET45` nebo `#if NETSTANDARD2_0` pro oddělení kódu závislého na TFM. (Další informace najdete v tématu [jak cílit na více cílů](/dotnet/core/tutorials/libraries#how-to-multitarget).) Například můžete použít následující kód:
 
    ```csharp
    public string Platform {
@@ -57,9 +57,9 @@ Pro projekty ve stylu sady SDK můžete v souboru projektu nakonfigurovat podpor
 
    Seznam dostupných metadat balíčku a názvů vlastností MSBuild naleznete v tématu [targeting pack](../reference/msbuild-targets.md#pack-target). Viz také [řízení prostředků závislosti](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets).
 
-   Pokud chcete oddělit vlastnosti týkající se sestavení z metadat NuGet, můžete použít jinou `PropertyGroup`vlastnost nebo umístit vlastnosti NuGet do jiného souboru a použít `Import` direktivu MSBuild k jejímu zahrnutí. `Directory.Build.Props`a `Directory.Build.Targets` jsou podporované i od MSBuild 15,0.
+   Pokud chcete oddělit vlastnosti týkající se sestavení z metadat NuGet, můžete použít jinou `PropertyGroup` nebo umístit vlastnosti NuGet do jiného souboru a použít direktivu `Import` nástroje MSBuild k jejímu zahrnutí. `Directory.Build.Props` a `Directory.Build.Targets` jsou také podporovány počínaje MSBuild 15,0.
 
-5. Nyní použijte `dotnet pack` a výsledný *nupkg* cílí na .NET Standard 2,0 i .NET Framework 4,5.
+5. Nyní použijte `dotnet pack` a výsledný *nupkg* cílí na .NET Standard 2,0 a .NET Framework 4,5.
 
 Zde je soubor *. csproj* , který je generován pomocí předchozích kroků a .NET Core SDK 2,2.
 

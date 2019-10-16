@@ -5,14 +5,14 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: 40e240478918d327fbea0013bbf271ea2ee1fc47
-ms.sourcegitcommit: a0807671386782021acb7588741390e6f07e94e1
+ms.openlocfilehash: e00aac83a710e2f745d5e4bb9aec741ee686e595
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70384500"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380648"
 ---
-# <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>Rychlý start: Vytvoření a publikování balíčku pomocí sady Visual Studio (.NET Framework, Windows)
+# <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>Rychlý Start: vytvoření a publikování balíčku pomocí sady Visual Studio (.NET Framework, Windows)
 
 Vytvoření balíčku NuGet z knihovny tříd .NET Framework zahrnuje vytvoření knihovny DLL v aplikaci Visual Studio ve Windows a následné vytvoření a publikování balíčku pomocí nástroje příkazového řádku NuGet. exe.
 
@@ -23,7 +23,7 @@ Vytvoření balíčku NuGet z knihovny tříd .NET Framework zahrnuje vytvořen�
 
 1. Nainstalujte jakoukoli edici sady Visual Studio 2017 nebo novější z [VisualStudio.com](https://www.visualstudio.com/) s libovolným. Zatížení související s NET. Pokud je nainstalovaná úloha .NET, Visual Studio 2017 automaticky zahrnuje funkce NuGet.
 
-1. Nainstalujte rozhraní `nuget.exe` příkazového řádku stažením z [NuGet.org](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe), uložte tento `.exe` soubor do vhodné složky a přidejte tuto složku do proměnné prostředí PATH.
+1. Nainstalujte rozhraní příkazového řádku `nuget.exe` stažením z [NuGet.org](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe)a uložením tohoto souboru `.exe` do vhodné složky a přidáním této složky do proměnné prostředí PATH.
 
 1. [Zaregistrujte si bezplatný účet na NuGet.org](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) , pokud ho ještě nemáte. Když se vytvoří nový účet, pošle se potvrzovací e-mail. Než budete moct nahrát balíček, musíte účet potvrdit.
 
@@ -59,7 +59,7 @@ namespace AppLogger
 
 ## <a name="configure-project-properties-for-the-package"></a>Konfigurovat vlastnosti projektu pro balíček
 
-Balíček NuGet obsahuje manifest ( `.nuspec` soubor), který obsahuje relevantní metadata, jako je například identifikátor balíčku, číslo verze, popis a další. Některé z nich lze vykreslit přímo z vlastností projektu a zabránit tak jejich samostatné aktualizaci v projektu i v manifestu. V této části se dozvíte, kde můžete nastavit příslušné vlastnosti.
+Balíček NuGet obsahuje manifest (soubor `.nuspec`), který obsahuje relevantní metadata, jako je například identifikátor balíčku, číslo verze, popis a další. Některé z nich lze vykreslit přímo z vlastností projektu a zabránit tak jejich samostatné aktualizaci v projektu i v manifestu. V této části se dozvíte, kde můžete nastavit příslušné vlastnosti.
 
 1. Vyberte příkaz nabídky **Vlastnosti projektu >** a pak vyberte kartu **aplikace** .
 
@@ -74,38 +74,37 @@ Balíček NuGet obsahuje manifest ( `.nuspec` soubor), který obsahuje relevantn
 
     ![Informace o sestavení v projektu .NET Framework v aplikaci Visual Studio](media/qs_create-vs-01b-project-properties.png)
 
-1. Volitelné: Chcete-li zobrazit a upravit vlastnosti přímo, otevřete `Properties/AssemblyInfo.cs` soubor v projektu.
+1. Volitelné: Chcete-li zobrazit a upravit vlastnosti přímo, otevřete soubor `Properties/AssemblyInfo.cs` v projektu.
 
 1. Po nastavení vlastností nastavte konfiguraci projektu na **vydaná** a znovu sestavte projekt, aby se vygenerovala Aktualizovaná knihovna DLL.
 
 ## <a name="generate-the-initial-manifest"></a>Generování počátečního manifestu
 
-Když je knihovna DLL v rukou a nastavené vlastnosti projektu, můžete nyní `nuget spec` použít příkaz k vygenerování `.nuspec` počátečního souboru z projektu. Tento krok zahrnuje relevantní náhradní tokeny k vykreslování informací ze souboru projektu.
+Když je knihovna DLL v rukou a nastavené vlastnosti projektu, nyní použijete příkaz `nuget spec` pro vygenerování počátečního souboru `.nuspec` z projektu. Tento krok zahrnuje relevantní náhradní tokeny k vykreslování informací ze souboru projektu.
 
-Pro vygenerování počátečního manifestu se spustí `nuget spec` jenom jednou. Při aktualizaci balíčku můžete buď změnit hodnoty v projektu, nebo přímo upravit manifest.
+Spustíte `nuget spec` pouze jednou pro vygenerování počátečního manifestu. Při aktualizaci balíčku můžete buď změnit hodnoty v projektu, nebo přímo upravit manifest.
 
 1. Otevřete příkazový řádek a přejděte do složky projektu obsahující `AppLogger.csproj` soubor.
 
-1. Spusťte následující příkaz: `nuget spec AppLogger.csproj`. Když zadáte projekt, NuGet vytvoří v tomto případě `AppLogger.nuspec`manifest, který se shoduje s názvem projektu. Obsahuje také náhradní tokeny v manifestu.
+1. Spusťte následující příkaz: `nuget spec AppLogger.csproj`. Když zadáte projekt, NuGet vytvoří manifest, který se shoduje s názvem projektu, v tomto případě `AppLogger.nuspec`. Obsahuje také náhradní tokeny v manifestu.
 
-1. Otevřete `AppLogger.nuspec` v textovém editoru, abyste prozkoumali jeho obsah, který by měl vypadat takto:
+1. V textovém editoru otevřete `AppLogger.nuspec` a prověřte jeho obsah, který by měl vypadat takto:
 
     ```xml
     <?xml version="1.0"?>
     <package >
       <metadata>
-        <id>$id$</id>
-        <version>$version$</version>
-        <title>$title$</title>
-        <authors>$author$</authors>
-        <owners>$author$</owners>
-        <licenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</licenseUrl>
+        <id>Package</id>
+        <version>1.0.0</version>
+        <authors>YourUsername</authors>
+        <owners>YourUsername</owners>
+        <license type="expression">MIT</license>
         <projectUrl>http://PROJECT_URL_HERE_OR_DELETE_THIS_LINE</projectUrl>
         <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>$description$</description>
+        <description>Package description</description>
         <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
-        <copyright>Copyright 2018</copyright>
+        <copyright>Copyright 2019</copyright>
         <tags>Tag1 Tag2</tags>
       </metadata>
     </package>
@@ -113,7 +112,7 @@ Pro vygenerování počátečního manifestu se spustí `nuget spec` jenom jedno
 
 ## <a name="edit-the-manifest"></a>Upravit manifest
 
-1. NuGet vyvolá chybu, pokud se pokusíte vytvořit balíček s výchozími hodnotami v `.nuspec` souboru, takže před pokračováním musíte upravit následující pole. Viz [odkaz na soubor. nuspec – volitelné prvky metadat](../reference/nuspec.md#optional-metadata-elements) pro popis způsobu jejich použití.
+1. NuGet vyvolá chybu, pokud se pokusíte vytvořit balíček s výchozími hodnotami v souboru `.nuspec`, takže před pokračováním musíte upravit následující pole. Viz [odkaz na soubor. nuspec – volitelné prvky metadat](../reference/nuspec.md#optional-metadata-elements) pro popis způsobu jejich použití.
 
     - licenseUrl
     - projectUrl
@@ -129,13 +128,13 @@ Pro vygenerování počátečního manifestu se spustí `nuget spec` jenom jedno
 
 ## <a name="run-the-pack-command"></a>Spuštění příkazu Pack
 
-1. Z příkazového řádku ve složce, která obsahuje `.nuspec` váš soubor, spusťte příkaz `nuget pack`.
+1. Z příkazového řádku ve složce, která obsahuje soubor `.nuspec`, spusťte příkaz `nuget pack`.
 
-1. NuGet vygeneruje `.nupkg` soubor ve formě *identifikátoru Version. nupkg*, který najdete v aktuální složce.
+1. NuGet vygeneruje soubor `.nupkg` ve formě *identifikátor-Version. nupkg*, který najdete v aktuální složce.
 
 ## <a name="publish-the-package"></a>Publikování balíčku
 
-Jakmile budete mít `.nupkg` soubor, publikujete ho pro NuGet.org pomocí `nuget.exe` klíče rozhraní API získaného z NuGet.org. Pro NuGet.org musíte použít `nuget.exe` 4.1.0 nebo vyšší.
+Až budete mít soubor `.nupkg`, publikujete ho do nuget.org pomocí `nuget.exe` s klíčem rozhraní API získaným z nuget.org. Pro nuget.org musíte použít `nuget.exe` 4.1.0 nebo vyšší.
 
 [!INCLUDE [publish-notes](includes/publish-notes.md)]
 
@@ -145,7 +144,7 @@ Jakmile budete mít `.nupkg` soubor, publikujete ho pro NuGet.org pomocí `nuget
 
 ### <a name="publish-with-nuget-push"></a>Publikování s nabízeným oznámením NuGet
 
-1. Otevřete příkazový řádek a přejděte do složky, která obsahuje `.nupkg` soubor.
+1. Otevřete příkazový řádek a přejděte do složky, která obsahuje soubor `.nupkg`.
 
 1. Spusťte následující příkaz, zadáním názvu balíčku a nahrazením hodnoty klíče vaším klíčem rozhraní API:
 

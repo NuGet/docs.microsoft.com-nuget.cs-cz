@@ -6,16 +6,16 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: ea40f80a482a290b7399e5a6abc69e0c6fe32b77
-ms.sourcegitcommit: a0807671386782021acb7588741390e6f07e94e1
+ms.openlocfilehash: 6bd730db16d8e8783f0d949bb04cf3b52c642cd0
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70384457"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380556"
 ---
 # <a name="nuspec-reference"></a>odkaz. nuspec
 
-`.nuspec` Soubor je manifest XML, který obsahuje metadata balíčku. Tento manifest slouží k sestavení balíčku a k poskytování informací pro uživatele. Manifest je vždy součástí balíčku.
+Soubor `.nuspec` je manifest XML, který obsahuje metadata balíčku. Tento manifest slouží k sestavení balíčku a k poskytování informací pro uživatele. Manifest je vždy součástí balíčku.
 
 V tomto tématu:
 
@@ -30,19 +30,19 @@ V tomto tématu:
 
 ## <a name="project-type-compatibility"></a>Kompatibilita typů projektu
 
-- Použijte `.nuspec` `packages.config`s `nuget.exe pack` pro projekty, které nejsou ve stylu sady SDK, které používají.
+- Pro projekty bez sady SDK, které používají `packages.config`, použijte `.nuspec` s `nuget.exe pack`.
 
-- Soubor není vyžadován k vytváření balíčků pro projekty ve [stylu sady SDK](../resources/check-project-format.md) (obvykle se jedná o projekty .NET Core a .NET Standard, které používají [atribut SDK](/dotnet/core/tools/csproj#additions)). `.nuspec` (Všimněte si, `.nuspec` že se generuje při vytváření balíčku.)
+- Soubor `.nuspec` není vyžadován k vytváření balíčků pro projekty ve [stylu sady SDK](../resources/check-project-format.md) (obvykle se jedná o projekty .NET Core a .NET Standard, které používají [atribut SDK](/dotnet/core/tools/csproj#additions)). (Všimněte si, že při vytváření balíčku se vygeneruje `.nuspec`.)
 
-   Pokud `dotnet.exe pack` vytváříte balíček pomocí nebo `msbuild pack target`, doporučujeme místo toho [Zahrnout všechny](../reference/msbuild-targets.md#pack-target) `.nuspec` vlastnosti, které jsou obvykle v souboru v souboru projektu. Místo toho se ale můžete rozhodnout [použít `.nuspec` soubor k `dotnet.exe` balení pomocí `msbuild pack target`nebo ](../reference/msbuild-targets.md#packing-using-a-nuspec).
+   Pokud vytváříte balíček pomocí `dotnet.exe pack` nebo `msbuild pack target`, doporučujeme, abyste místo toho [zahrnuli všechny vlastnosti](../reference/msbuild-targets.md#pack-target) , které jsou obvykle v souboru `.nuspec` v souboru projektu. Místo toho se ale můžete rozhodnout [použít soubor `.nuspec` k zabalení pomocí `dotnet.exe` nebo `msbuild pack target`](../reference/msbuild-targets.md#packing-using-a-nuspec).
 
-- Pro projekty migrované z `packages.config` aplikace do `.nuspec` [PackageReference](../consume-packages/package-references-in-project-files.md) není pro vytvoření balíčku vyžadován soubor. Místo toho použijte [MSBuild-t:Pack](../consume-packages/migrate-packages-config-to-package-reference.md#create-a-package-after-migration).
+- Pro projekty migrované z `packages.config` do [PackageReference](../consume-packages/package-references-in-project-files.md)není soubor `.nuspec` nutný k vytvoření balíčku. Místo toho použijte [MSBuild-t:Pack](../consume-packages/migrate-packages-config-to-package-reference.md#create-a-package-after-migration).
 
 ## <a name="general-form-and-schema"></a>Obecné formuláře a schéma
 
-Aktuální `nuspec.xsd` soubor schématu najdete v [úložišti GitHub NuGet](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Packaging/compiler/resources/nuspec.xsd).
+Aktuální soubor schématu `nuspec.xsd` najdete v [úložišti GitHub NuGet](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Packaging/compiler/resources/nuspec.xsd).
 
-V rámci tohoto schématu `.nuspec` má soubor následující obecný tvar:
+V tomto schématu má soubor `.nuspec` následující obecný tvar:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -69,7 +69,7 @@ V případě jasné vizuální reprezentace schématu otevřete soubor schématu
 
 I když následující prvky jsou minimální požadavky na balíček, měli byste zvážit přidání [volitelných prvků metadat](#optional-metadata-elements) pro zlepšení celkového prostředí, které vývojáři mají s vaším balíčkem. 
 
-Tyto prvky se musí objevit v `<metadata>` rámci elementu.
+Tyto prvky musí být uvedeny v rámci elementu `<metadata>`.
 
 #### <a name="id"></a>id 
 Identifikátor balíčku bez rozlišení velkých a malých písmen, který musí být jedinečný v rámci nuget.org nebo jakákoli galerie, v níž se balíček nachází. ID nesmí obsahovat mezery ani znaky, které nejsou platné pro adresu URL a obecně následují pravidla oboru názvů .NET. Pokyny najdete v tématu [Volba jedinečného identifikátoru balíčku](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number) .
@@ -83,7 +83,7 @@ Popis balíčku pro zobrazení uživatelského rozhraní
 ### <a name="optional-metadata-elements"></a>Volitelné prvky metadat
 
 #### <a name="owners"></a>vlastníka
-Čárkami oddělený seznam tvůrců balíčků s použitím názvů profilů v nuget.org. Často se jedná o stejný seznam jako v `authors`a při nahrávání balíčku do NuGet.org se ignoruje. Viz [Správa vlastníků balíčků na NuGet.org](../nuget-org/publish-a-package.md#managing-package-owners-on-nugetorg). 
+Čárkami oddělený seznam tvůrců balíčků s použitím názvů profilů v nuget.org. Často se jedná o stejný seznam jako v `authors` a při nahrávání balíčku do nuget.org se ignoruje. Viz [Správa vlastníků balíčků na NuGet.org](../nuget-org/publish-a-package.md#managing-package-owners-on-nugetorg). 
 
 #### <a name="projecturl"></a>projectUrl
 Adresa URL domovské stránky balíčku, která se často zobrazuje v uživatelském rozhraní, a také nuget.org. 
@@ -106,7 +106,7 @@ Pokud je váš balíček licencován více běžnými licencemi, můžete zadat 
 
 `<license type="expression">BSD-2-Clause OR MIT</license>`
 
-Pokud používáte vlastní licenci, která není podporovaná výrazy licence, můžete zabalit `.txt` soubor nebo `.md` soubor s textem licence. Příklad:
+Pokud používáte vlastní licenci, která není podporovaná výrazy pro licence, můžete zabalit soubor `.txt` nebo `.md` s textem licence. Příklad:
 
 ```xml
 <package>
@@ -147,7 +147,7 @@ license-expression =  1*1(simple-expression / compound-expression / UNLICENSED)
 > [!Important]
 > iconUrl je zastaralá. Místo toho použijte ikonu.
 
-Adresa URL 64 × 64 obrázku s pozadím průhlednosti, která se má použít jako ikona balíčku v zobrazení uživatelského rozhraní. Ujistěte se, že tento prvek obsahuje *adresu URL přímého obrázku* , a ne adresu URL webové stránky, která obsahuje obrázek. Pokud například chcete použít image z GitHubu, použijte adresu URL nezpracovaného souboru <em>https://github.com/\<username\>/\<repository\>/raw/\<branch\>/\<logo.png\></em>jako. 
+Adresa URL 64 × 64 obrázku s pozadím průhlednosti, která se má použít jako ikona balíčku v zobrazení uživatelského rozhraní. Ujistěte se, že tento prvek obsahuje *adresu URL přímého obrázku* , a ne adresu URL webové stránky, která obsahuje obrázek. Pokud například chcete použít image z GitHubu, použijte adresu URL nezpracovaného souboru, například <em>https://github.com/\<username\>/\<repository\>/raw/\<branch\>/\<logo.png\></em>. 
    
 #### <a name="icon"></a>Ikona
 
@@ -178,19 +178,19 @@ V případě ekvivalentu MSBuild se podíváme na [balení souboru obrázku ikon
 Logická hodnota určující, zda klient musí požádat spotřebitele o přijetí licence k balíčku před instalací balíčku.
 
 #### <a name="developmentdependency"></a>developmentDependency
-*(2.8+)* Logická hodnota určující, jestli tento balíček představuje označit jako vývoj – jen závislost, což zabrání balíčku nebudou zahrnuty v závislosti na dalších balíčků. Pomocí PackageReference (NuGet 4,8 +) Tento příznak také znamená, že vyloučí prostředky při kompilaci z kompilace. Viz [Podpora DevelopmentDependency pro PackageReference](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference)
+*(2.8 +)* Logická hodnota určující, zda je balíček označen pouze pro vývoj, což zabrání zahrnutí balíčku jako závislosti v jiných balíčcích. Pomocí PackageReference (NuGet 4,8 +) Tento příznak také znamená, že vyloučí prostředky při kompilaci z kompilace. Viz [Podpora DevelopmentDependency pro PackageReference](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference)
 
 #### <a name="summary"></a>souhrn
 > [!Important]
-> `summary`se již nepoužívá. Místo nich se používá `description`.
+> `summary` se už nepoužívá. Místo nich se používá `description`.
 
-Krátký popis balíčku pro zobrazení uživatelského rozhraní. `description` Je-li tento parametr vynechán, je použita zkrácená verze nástroje.
+Krátký popis balíčku pro zobrazení uživatelského rozhraní. Je-li tento parametr vynechán, je použita zkrácená verze `description`.
 
 #### <a name="releasenotes"></a>releaseNotes
-*(1.5+)* Popis změn provedených v této verzi balíčku, často používají v uživatelském rozhraní, jako **aktualizace** kartu z Visual Studio Správce balíčků namísto popisu balíčku.
+*(1,5 +)* Popis změn provedených v této verzi balíčku, který se často používá v uživatelském rozhraní jako karta **aktualizace** správce balíčků sady Visual Studio místo popisu balíčku.
 
 #### <a name="copyright"></a>Úprava
-*(1.5+)* Copyright podrobnosti balíčku.
+*(1,5 +)* Podrobnosti o autorských právech pro balíček.
 
 #### <a name="language"></a>jazyk
 ID národního prostředí balíčku. Viz [vytváření lokalizovaných balíčků](../create-packages/creating-localized-packages.md).
@@ -199,10 +199,10 @@ ID národního prostředí balíčku. Viz [vytváření lokalizovaných balíčk
 Mezerou oddělený seznam značek a klíčových slov, které popisují balíček a pomáhají zjistit balíčky pomocí vyhledávání a filtrování. 
 
 #### <a name="serviceable"></a>serviceable 
-*(3.3+)* Pouze pro interní NuGet použít.
+*(3.3 +)* Pouze pro interní použití NuGet.
 
 #### <a name="repository"></a>úložiště
-Metadata úložiště sestávající ze čtyř volitelných atributů: `type` a `url` *(4.0 +)* a `branch` a `commit` *(4.6 +)* . Tyto atributy umožňují mapování `.nupkg` na úložiště, které ho vytvořilo, s potenciálem, který se má považovat za název jednotlivé větve a/nebo na potvrzení hodnoty hash SHA-1, která balíček vytvořila. Měla by to být veřejně dostupná adresa URL, kterou lze vyvolat přímo pomocí softwaru pro správu verzí. Neměla by se jednat o stránku HTML, která je určena pro daný počítač. Pro odkazování na stránku projektu použijte `projectUrl` místo toho pole.
+Metadata úložiště sestávající ze čtyř volitelných atributů: `type` a `url` *(4.0 +)* a `branch` a `commit` *(4.6 +)* . Tyto atributy umožňují namapovat `.nupkg` do úložiště, které ho vytvořilo, s potenciálem, který se má zobrazit jako název jednotlivé větve a/nebo zapsat hodnotu hash SHA-1, která balíček vytvořila. Měla by to být veřejně dostupná adresa URL, kterou lze vyvolat přímo pomocí softwaru pro správu verzí. Neměla by se jednat o stránku HTML, která je určena pro daný počítač. Pro odkazování na stránku projektu použijte místo toho pole `projectUrl`.
 
 Příklad:
 ```xml
@@ -216,28 +216,28 @@ Příklad:
 </package>
 ```
 
-#### <a name="title"></a>název
+#### <a name="title"></a>hlava
 Popisný název balíčku, který se dá použít v některých zobrazeních uživatelského rozhraní. (nuget.org a správce balíčků v aplikaci Visual Studio nezobrazuje název)
 
 #### <a name="collection-elements"></a>Prvky kolekce
 
 #### <a name="packagetypes"></a>packageTypes
-*(3.5 +)* Kolekce nula nebo více `<packageType>` prvků určující typ balíčku, pokud je jiný než tradiční balíček závislostí. Každý packageType má atributy *názvu* a *verze*. Viz [Nastavení typu balíčku](../create-packages/set-package-type.md).
+*(3.5 +)* Kolekce nula nebo více prvků `<packageType>` určující typ balíčku, pokud je jiný než tradiční balíček závislostí. Každý packageType má atributy *názvu* a *verze*. Viz [Nastavení typu balíčku](../create-packages/set-package-type.md).
 #### <a name="dependencies"></a>závislosti
-Kolekce nula nebo více `<dependency>` prvků, které určují závislosti pro balíček. Každá závislost má atributy *ID*, *verze*, *include* (3. x +) a *Exclude* (3. x +). Viz [závislosti](#dependencies-element) níže.
+Kolekce nula nebo více elementů `<dependency>` určujících závislosti pro balíček. Každá závislost má atributy *ID*, *verze*, *include* (3. x +) a *Exclude* (3. x +). Viz [závislosti](#dependencies-element) níže.
 #### <a name="frameworkassemblies"></a>frameworkAssemblies
-*(1,2 +)* Kolekce nula nebo více `<frameworkAssembly>` prvků, které identifikují .NET Framework odkazy na sestavení, které tento balíček vyžaduje, což zajistí přidání odkazů do projektů, které balíček spotřebovává. Každý frameworkAssembly má atributy *AssemblyName* a *targetFramework* . Viz [určení sestavení rozhraní odkazy v mezipaměti GAC](#specifying-framework-assembly-references-gac) níže. |
+*(1,2 +)* Kolekce nula nebo více prvků `<frameworkAssembly>`, které identifikují .NET Framework odkaz na sestavení, které tento balíček vyžaduje, což zajišťuje, aby se odkazy přidaly do projektů, které balíček spotřebovává. Každý frameworkAssembly má atributy *AssemblyName* a *targetFramework* . Viz [určení sestavení rozhraní odkazy v mezipaměti GAC](#specifying-framework-assembly-references-gac) níže.
 #### <a name="references"></a>odkazy
-*(1,5 +)* Kolekce nula nebo více `<reference>` prvků pojmenování sestavení ve `lib` složce balíčku, které jsou přidány jako odkazy na projekt. Každý odkaz má atribut *File* . `<references>`může také obsahovat `<group>` element s atributem *targetFramework* , který pak obsahuje `<reference>` prvky. Pokud tento parametr vynecháte, `lib` jsou zahrnuty všechny odkazy v nástroji. Viz [zadání explicitních odkazů na sestavení](#specifying-explicit-assembly-references) níže.
+*(1,5 +)* Kolekce nula nebo více prvků `<reference>` pojmenování sestavení ve složce `lib` balíčku, které jsou přidány jako odkazy na projekt. Každý odkaz má atribut *File* . `<references>` může obsahovat také prvek `<group>` s atributem *targetFramework* , který pak obsahuje prvky `<reference>`. Pokud tento parametr vynecháte, jsou zahrnuty všechny odkazy v `lib`. Viz [zadání explicitních odkazů na sestavení](#specifying-explicit-assembly-references) níže.
 #### <a name="contentfiles"></a>contentFiles
-*(3.3 +)* Kolekce `<files>` prvků, které identifikují soubory obsahu, které mají být zahrnuty do náročného projektu. Tyto soubory jsou zadány pomocí sady atributů, které popisují, jak by měly být použity v rámci systému projektu. Viz [Určení souborů, které se mají zahrnout do balíčku](#specifying-files-to-include-in-the-package) níže.
+*(3.3 +)* Kolekce prvků `<files>`, které identifikují soubory obsahu, které mají být zahrnuty do náročného projektu. Tyto soubory jsou zadány pomocí sady atributů, které popisují, jak by měly být použity v rámci systému projektu. Viz [Určení souborů, které se mají zahrnout do balíčku](#specifying-files-to-include-in-the-package) níže.
 #### <a name="files"></a>soubory 
-`<metadata>` `<contentFiles>` Uzel může `<files>` obsahovat uzel jako uzel na `<metadata>`stejné úrovni a podřízená položka v rámci, k určení sestavení a souborů obsahu, které mají být zahrnuty do balíčku. `<package>` Podrobnosti najdete v části [zahrnutí souborů sestavení](#including-assembly-files) a [zahrnutí souborů obsahu](#including-content-files) dále v tomto tématu.
+Uzel `<package>` může obsahovat uzel `<files>` jako na stejné úrovni jako `<metadata>` a podřízený `<contentFiles>` v rámci `<metadata>`, chcete-li určit, které sestavení a soubory obsahu zahrnout do balíčku. Podrobnosti najdete v části [zahrnutí souborů sestavení](#including-assembly-files) a [zahrnutí souborů obsahu](#including-content-files) dále v tomto tématu.
 
 ### <a name="metadata-attributes"></a>atributy metadat
 
-#### <a name="minclientversion"></a>minClientVersion
-Určuje minimální verzi klienta NuGet, která může nainstalovat tento balíček, který vynutila NuGet. exe a správce balíčků sady Visual Studio. Tato funkce se používá vždy, když balíček závisí na konkrétních funkcích `.nuspec` souboru, které byly přidány v konkrétní verzi klienta NuGet. Například balíček, který používá `developmentDependency` atribut, by měl pro `minClientVersion`použít hodnotu "2,8". Podobně balíček, který používá `contentFiles` element (viz další oddíl), by měl být nastaven `minClientVersion` na "3,3". Všimněte si také, že vzhledem k tomu, že klienti NuGet starší než 2,5 nerozpoznávají tento příznak, *vždy* zamítnou instalaci balíčku bez `minClientVersion` ohledu na to, co obsahuje.
+#### <a name="minclientversion"></a>MinClientVersion
+Určuje minimální verzi klienta NuGet, která může nainstalovat tento balíček, který vynutila NuGet. exe a správce balíčků sady Visual Studio. Tato funkce se používá vždy, když balíček závisí na konkrétních funkcích souboru `.nuspec`, které byly přidány v konkrétní verzi klienta NuGet. Například balíček s použitím atributu `developmentDependency` by měl pro `minClientVersion` určovat hodnotu "2,8". Podobně balíček pomocí elementu `contentFiles` (viz další oddíl) by měl nastavit `minClientVersion` na "3,3". Všimněte si také, že vzhledem k tomu, že klienti NuGet starší než 2,5 nerozpoznávají tento příznak, *vždy* zamítnou instalaci balíčku bez ohledu na to, co `minClientVersion` obsahuje.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -259,38 +259,38 @@ Určuje minimální verzi klienta NuGet, která může nainstalovat tento balí�
 
 ## <a name="replacement-tokens"></a>Náhradní tokeny
 
-Při vytváření balíčku `-properties` `.nuspec` `pack` `<metadata>` [ `nuget pack` nahradí příkaz](../reference/cli-reference/cli-ref-pack.md) tokeny $-s oddělovači v uzlu souboru hodnotami, které pocházejí ze souboru projektu nebo přepínače příkazu.
+Při vytváření balíčku nahradí [příkaz `nuget pack`](../reference/cli-reference/cli-ref-pack.md) v uzlu `<metadata>` souboru `.nuspec` tokeny s oddělovači () s hodnotami, které pocházejí ze souboru projektu nebo přepínače `-properties` příkazu `pack`.
 
-Na příkazovém řádku určíte hodnoty tokenu pomocí `nuget pack -properties <name>=<value>;<name>=<value>`. Například můžete použít token `$owners$` jako a `$desc$` v `.nuspec` a a zadat hodnoty v době balení následujícím způsobem:
+Na příkazovém řádku určíte hodnoty tokenu pomocí `nuget pack -properties <name>=<value>;<name>=<value>`. Například můžete použít token, například `$owners$` a `$desc$` v `.nuspec` a zadat hodnoty v době balení následujícím způsobem:
 
 ```ps
 nuget pack MyProject.csproj -properties
     owners=janedoe,harikm,kimo,xiaop;desc="Awesome app logger utility"
 ```
 
-Pokud chcete použít hodnoty z projektu, zadejte tokeny popsané v následující tabulce (AssemblyInfo odkazuje na soubor v `Properties` `AssemblyInfo.cs` takovém případě nebo `AssemblyInfo.vb`).
+Chcete-li použít hodnoty z projektu, zadejte tokeny popsané v následující tabulce (AssemblyInfo odkazuje na soubor v `Properties`, například `AssemblyInfo.cs` nebo `AssemblyInfo.vb`).
 
-Chcete-li použít tyto tokeny, spusťte `nuget pack` se souborem projektu, a ne `.nuspec`pouze. Například při použití `$id$` následujícího příkazu jsou tokeny a `$version$` v `.nuspec` souboru nahrazeny hodnotami projektu `AssemblyName` a `AssemblyVersion` :
+Chcete-li použít tyto tokeny, spusťte `nuget pack` se souborem projektu, nikoli pouze `.nuspec`. Například při použití následujícího příkazu jsou tokeny `$id$` a `$version$` v souboru `.nuspec` nahrazeny hodnotami `AssemblyName` a `AssemblyVersion` projektu:
 
 ```ps
 nuget pack MyProject.csproj
 ```
 
-Obvykle, když máte projekt, vytvoříte `.nuspec` `nuget spec MyProject.csproj` počáteční, který automaticky obsahuje některé z těchto standardních tokenů. Pokud však projekt nemá hodnoty pro požadované `.nuspec` prvky, pak `nuget pack` dojde k chybě. Pokud navíc změníte hodnoty projektu, nezapomeňte před vytvořením balíčku znovu sestavit. To lze provést pohodlně pomocí `build` přepínače příkazu Pack.
+Když máte projekt, při počátečním vytváření `.nuspec` se použije `nuget spec MyProject.csproj`, který automaticky obsahuje některé z těchto standardních tokenů. Pokud ale v projektu chybí hodnoty pro požadované `.nuspec`, neproběhne `nuget pack`. Pokud navíc změníte hodnoty projektu, nezapomeňte před vytvořením balíčku znovu sestavit. To lze provést pohodlně pomocí přepínače `build` příkazu Pack.
 
-S výjimkou `$configuration$`jsou hodnoty v projektu použity v předvolbách pro všechny přiřazené ke stejnému tokenu na příkazovém řádku.
+S výjimkou `$configuration$` jsou hodnoty v projektu použity v předvolbách pro všechny přiřazené ke stejnému tokenu na příkazovém řádku.
 
-| Podpisový | Zdroj hodnoty | Value
+| Klíčové | Zdroj hodnoty | Hodnota
 | --- | --- | ---
 | **$id $** | Soubor projektu | AssemblyName (title) ze souboru projektu |
 | **$version $** | AssemblyInfo | AssemblyInformationalVersion, pokud je k dispozici, jinak AssemblyVersion |
 | **$author $** | AssemblyInfo | AssemblyCompany |
-| **$title$** | AssemblyInfo | AssemblyTitle |
+| **$title $** | AssemblyInfo | AssemblyTitle |
 | **$description $** | AssemblyInfo | AssemblyDescription |
-| **$copyright$** | AssemblyInfo | AssemblyCopyright |
-| **$configuration$** | Knihovna DLL sestavení | Konfigurace použitá pro sestavení sestavení, výchozí nastavení pro ladění. Všimněte si, že pokud chcete vytvořit balíček pomocí konfigurace vydané verze, vždy `-properties Configuration=Release` použijte příkaz na příkazovém řádku. |
+| **$copyright $** | AssemblyInfo | AssemblyCopyright |
+| **$configuration $** | Knihovna DLL sestavení | Konfigurace použitá pro sestavení sestavení, výchozí nastavení pro ladění. Všimněte si, že pokud chcete vytvořit balíček pomocí konfigurace vydané verze, vždy použijte `-properties Configuration=Release` na příkazovém řádku. |
 
-Tokeny lze také použít k překladu cest při zahrnutí [souborů sestavení](#including-assembly-files) a [souborů obsahu](#including-content-files). Tokeny mají stejné názvy jako vlastnosti MSBuild, což umožňuje vybrat soubory, které mají být zahrnuty v závislosti na aktuální konfiguraci sestavení. Například pokud v `.nuspec` souboru použijete následující tokeny:
+Tokeny lze také použít k překladu cest při zahrnutí [souborů sestavení](#including-assembly-files) a [souborů obsahu](#including-content-files). Tokeny mají stejné názvy jako vlastnosti MSBuild, což umožňuje vybrat soubory, které mají být zahrnuty v závislosti na aktuální konfiguraci sestavení. Například pokud v souboru `.nuspec` použijete následující tokeny:
 
 ```xml
 <files>
@@ -298,7 +298,7 @@ Tokeny lze také použít k překladu cest při zahrnutí [souborů sestavení](
 </files>
 ```
 
-A sestavíte sestavení, `AssemblyName` jehož `LoggingLibrary` je s `Release` konfigurací `.nuspec` v nástroji MSBuild, výsledné řádky v souboru v balíčku jsou následující:
+A sestavíte sestavení, jehož `AssemblyName` je `LoggingLibrary` s konfigurací `Release` v nástroji MSBuild, výsledné řádky v souboru `.nuspec` v balíčku jsou následující:
 
 ```xml
 <files>
@@ -308,26 +308,26 @@ A sestavíte sestavení, `AssemblyName` jehož `LoggingLibrary` je s `Release` k
 
 ## <a name="dependencies-element"></a>Element závislosti
 
-Element v rámci `<metadata>` obsahuje libovolný počet `<dependency>` prvků, které identifikují další balíčky, na kterých závisí balíček nejvyšší úrovně. `<dependencies>` Atributy pro každý `<dependency>` z nich jsou následující:
+Element `<dependencies>` v `<metadata>` obsahuje libovolný počet prvků `<dependency>`, které identifikují jiné balíčky, na kterých závisí balíček nejvyšší úrovně. Atributy pro každý `<dependency>` jsou následující:
 
 | Atribut | Popis |
 | --- | --- |
 | `id` | Požadovanou ID balíčku závislosti, například "EntityFramework" a "NUnit", což je název balíčku nuget.org zobrazený na stránce balíčku. |
 | `version` | Požadovanou Rozsah verzí, které jsou přijatelné jako závislost. Přesnou syntaxi najdete v tématu [Správa verzí balíčků](../concepts/package-versioning.md#version-ranges-and-wildcards) . Zástupné verze (plovoucí) nejsou podporovány. |
 | include | Seznam značek include/Exclude oddělených čárkami (viz níže) označující závislost, kterou chcete zahrnout do finálního balíčku. Výchozí hodnota je `all`. |
-| exclude | Seznam značek include/Exclude oddělených čárkami (viz níže) označující závislost, která se má vyloučit v konečném balíčku. Výchozí hodnota je `build,analyzers` , která může být přepsána. Ale `content/ ContentFiles` jsou také implicitně vyloučené v konečném balíčku, který nelze přepsat. Zadané značky s `exclude` prioritou mají přednost před hodnotami určenými pomocí. `include` Například `include="runtime, compile" exclude="compile"` je stejný jako `include="runtime"`. |
+| exclude | Seznam značek include/Exclude oddělených čárkami (viz níže) označující závislost, která se má vyloučit v konečném balíčku. Výchozí hodnota je `build,analyzers`, která může být přepsána. Ale `content/ ContentFiles` jsou také implicitně vyloučené v konečném balíčku, který nelze přepsat. Značky zadané pomocí `exclude` mají přednost před hodnotami zadanými v `include`. Například `include="runtime, compile" exclude="compile"` je stejný jako `include="runtime"`. |
 
 | Značka include/Exclude | Ovlivněné složky v cíli |
 | --- | --- |
 | contentFiles | Obsah |
 | modul runtime | Modul runtime, prostředky a FrameworkAssemblies |
-| sestavení | Knihovna |
+| Sestavení | Knihovna |
 | sestavení | Build (MSBuild props and targets) |
 | nativní | nativní |
 | žádná | Žádné složky |
 | všechny | Všechny složky |
 
-Například následující řádky označují závislosti `PackageA` verze 1.1.0 nebo vyšší a `PackageB` verze 1. x.
+Například následující řádky označují závislosti na `PackageA` verze 1.1.0 nebo vyšší a `PackageB` verze 1. x.
 
 ```xml
 <dependencies>
@@ -336,7 +336,7 @@ Například následující řádky označují závislosti `PackageA` verze 1.1.0
 </dependencies>
 ```
 
-Následující řádky označují závislosti pro stejné balíčky, `contentFiles` ale určují, že se mají zahrnout složky `build` `PackageA` a a všechno, ale `native` složky `PackageB`a `compile` .
+Následující řádky označují závislosti pro stejné balíčky, ale určují, že se mají zahrnout složky `contentFiles` a `build` `PackageA` a všechny, ale složky `native` a `compile` `PackageB`.
 
 ```xml
 <dependencies>
@@ -346,22 +346,22 @@ Následující řádky označují závislosti pro stejné balíčky, `contentFil
 ```
 
 > [!Important]
-> Při vytváření `.nuspec` z projektu pomocí nástroje `nuget spec`nejsou závislosti, které existují v tomto projektu, automaticky zahrnuty ve výsledném `.nuspec` souboru. Místo toho použijte `nuget pack myproject.csproj`a získejte soubor *. nuspec* v rámci generovaného souboru *. nupkg* . This *. nuspec* obsahuje závislosti.
+> Když vytváříte `.nuspec` z projektu pomocí `nuget spec`, závislosti, které existují v tomto projektu, nejsou automaticky zahrnuty ve výsledném souboru `.nuspec`. Místo toho použijte `nuget pack myproject.csproj` a získejte soubor *. nuspec* v rámci generovaného souboru *. nupkg* . This *. nuspec* obsahuje závislosti.
 
 ### <a name="dependency-groups"></a>Skupiny závislostí
 
 *Verze 2.0 +*
 
-Jako alternativu k jednomu nestrukturovanému seznamu lze závislosti zadat podle profilu rozhraní cílového projektu pomocí `<group>` elementů v rámci. `<dependencies>`
+Jako alternativu k jednomu nestrukturovanému seznamu lze závislosti zadat v rámci profilu rozhraní cílového projektu pomocí prvků `<group>` v rámci `<dependencies>`.
 
-Každá skupina má atribut s názvem `targetFramework` a obsahuje nula nebo více `<dependency>` prvků. Tyto závislosti jsou nainstalovány společně, pokud je cílový rámec kompatibilní s profilem rozhraní projektu.
+Každá skupina má atribut s názvem `targetFramework` a obsahuje nula nebo více prvků `<dependency>`. Tyto závislosti jsou nainstalovány společně, pokud je cílový rámec kompatibilní s profilem rozhraní projektu.
 
-`<group>` Prvek`targetFramework` bez atributu je použit jako výchozí nebo záložní seznam závislostí. Přesné identifikátory rozhraní naleznete v tématu [cílová rozhraní](../reference/target-frameworks.md) .
+Element `<group>` bez atributu `targetFramework` se používá jako výchozí nebo záložní seznam závislostí. Přesné identifikátory rozhraní naleznete v tématu [cílová rozhraní](../reference/target-frameworks.md) .
 
 > [!Important]
 > Formát skupiny nelze vzájemně kombinovat s nestrukturovaným seznamem.
 
-Následující příklad ukazuje různé varianty `<group>` elementu:
+Následující příklad ukazuje různé variace `<group>` elementu:
 
 ```xml
 <dependencies>
@@ -383,9 +383,9 @@ Následující příklad ukazuje různé varianty `<group>` elementu:
 
 ## <a name="explicit-assembly-references"></a>Explicitní odkazy na sestavení
 
-Element je používán projekty pomocí `packages.config` k explicitnímu určení sestavení, na které by měl cílový projekt odkazovat při použití balíčku. `<references>` Explicitní odkazy jsou obvykle používány pro sestavení pouze v době návrhu. Další informace naleznete na stránce věnované [výběru sestavení odkazovaných projekty](../create-packages/select-assemblies-referenced-by-projects.md) , kde najdete další informace.
+Prvky `<references>` jsou používány projekty, které používají `packages.config` k explicitnímu určení sestavení, na které by měl cílový projekt odkazovat při použití balíčku. Explicitní odkazy jsou obvykle používány pro sestavení pouze v době návrhu. Další informace naleznete na stránce věnované [výběru sestavení odkazovaných projekty](../create-packages/select-assemblies-referenced-by-projects.md) , kde najdete další informace.
 
-Například následující `<references>` element instruuje NuGet, aby přidal odkazy pouze `xunit.dll` a `xunit.extensions.dll` i v případě, že jsou v balíčku k dispozici další sestavení:
+Například následující prvek `<references>` instruuje NuGet, aby přidal odkazy pouze na `xunit.dll` a `xunit.extensions.dll` i v případě, že jsou v balíčku k dispozici další sestavení:
 
 ```xml
 <references>
@@ -396,16 +396,16 @@ Například následující `<references>` element instruuje NuGet, aby přidal o
 
 ### <a name="reference-groups"></a>Referenční skupiny
 
-Jako alternativu k jednomu nestrukturovanému seznamu lze odkazy zadat podle profilu rozhraní cílového projektu pomocí `<group>` elementů v rámci. `<references>`
+Jako alternativu k jednomu nestrukturovanému seznamu lze odkazy zadat v závislosti na profilu rozhraní cílového projektu pomocí prvků `<group>` v rámci `<references>`.
 
-Každá skupina má atribut s názvem `targetFramework` a obsahuje nula nebo více `<reference>` prvků. Tyto odkazy jsou přidány do projektu, pokud je cílová architektura kompatibilní s profilem rozhraní projektu.
+Každá skupina má atribut s názvem `targetFramework` a obsahuje nula nebo více prvků `<reference>`. Tyto odkazy jsou přidány do projektu, pokud je cílová architektura kompatibilní s profilem rozhraní projektu.
 
-`<group>` Prvek`targetFramework` bez atributu je použit jako výchozí nebo záložní seznam odkazů. Přesné identifikátory rozhraní naleznete v tématu [cílová rozhraní](../reference/target-frameworks.md) .
+Element `<group>` bez atributu `targetFramework` se používá jako výchozí nebo záložní seznam odkazů. Přesné identifikátory rozhraní naleznete v tématu [cílová rozhraní](../reference/target-frameworks.md) .
 
 > [!Important]
 > Formát skupiny nelze vzájemně kombinovat s nestrukturovaným seznamem.
 
-Následující příklad ukazuje různé varianty `<group>` elementu:
+Následující příklad ukazuje různé variace `<group>` elementu:
 
 ```xml
 <references>
@@ -427,16 +427,16 @@ Následující příklad ukazuje různé varianty `<group>` elementu:
 
 ## <a name="framework-assembly-references"></a>Odkazy na sestavení rozhraní .NET Framework
 
-Sestavení rozhraní jsou ta, která jsou součástí rozhraní .NET Framework a měla by již být v globální mezipaměti sestavení (GAC) pro libovolný daný počítač. Díky identifikaci těchto sestavení v rámci `<frameworkAssemblies>` elementu může balíček zajistit, aby byly do projektu přidány požadované odkazy v případě, že projekt nemá takové odkazy již. Taková sestavení samozřejmě nejsou součástí balíčku přímo.
+Sestavení rozhraní jsou ta, která jsou součástí rozhraní .NET Framework a měla by již být v globální mezipaměti sestavení (GAC) pro libovolný daný počítač. Určením těchto sestavení v rámci elementu `<frameworkAssemblies>` balíček může zajistit, aby byly do projektu přidány požadované odkazy v případě, že projekt nemá takové odkazy již. Taková sestavení samozřejmě nejsou součástí balíčku přímo.
 
-Element obsahuje nula nebo více `<frameworkAssembly>` elementů, z nichž každý určuje následující atributy: `<frameworkAssemblies>`
+Element `<frameworkAssemblies>` obsahuje nula nebo více prvků `<frameworkAssembly>`, z nichž každý určuje následující atributy:
 
 | Atribut | Popis |
 | --- | --- |
-| **assemblyName** | Požadovanou Plně kvalifikovaný název sestavení. |
+| **Doplňk** | Požadovanou Plně kvalifikovaný název sestavení. |
 | **targetFramework** | Volitelné Určuje cílovou architekturu, na kterou se vztahuje tento odkaz. Je-li tento parametr vynechán, znamená to, že odkaz se vztahuje na všechna rozhraní. Přesné identifikátory rozhraní naleznete v tématu [cílová rozhraní](../reference/target-frameworks.md) . |
 
-Následující příklad ukazuje odkaz na `System.Net` pro všechny cílové rozhraní a odkaz na `System.ServiceModel` pro .NET Framework 4,0:
+Následující příklad ukazuje odkaz na `System.Net` pro všechny cílové rozhraní a odkaz na `System.ServiceModel` pouze pro .NET Framework 4,0:
 
 ```xml
 <frameworkAssemblies>
@@ -450,12 +450,12 @@ Následující příklad ukazuje odkaz na `System.Net` pro všechny cílové roz
 
 ## <a name="including-assembly-files"></a>Zahrnutí souborů sestavení
 
-Pokud budete postupovat podle konvencí popsaných v [tématu Vytvoření balíčku](../create-packages/creating-a-package.md), nemusíte explicitně zadat seznam souborů v `.nuspec` souboru. `nuget pack` Příkaz automaticky vybere potřebné soubory.
+Pokud budete postupovat podle konvencí popsaných v [tématu Vytvoření balíčku](../create-packages/creating-a-package.md), nemusíte explicitně určovat seznam souborů v souboru `.nuspec`. Příkaz `nuget pack` automaticky převezme potřebné soubory.
 
 > [!Important]
-> Když je balíček nainstalován do projektu, NuGet automaticky přidá odkazy na sestavení do knihoven DLL balíčku, *kromě* těch, které jsou pojmenovány `.resources.dll` , protože se předpokládá, že jsou lokalizovaná satelitní sestavení. Z tohoto důvodu `.resources.dll` nepoužívejte pro soubory, které jinak obsahují základní kód balíčku.
+> Když je balíček nainstalován do projektu, NuGet automaticky přidá odkazy na sestavení do knihoven DLL balíčku, *kromě* těch, které jsou pojmenovány `.resources.dll`, protože se předpokládá, že jsou lokalizovaná satelitní sestavení. Z tohoto důvodu Vyhněte použití `.resources.dll` u souborů, které jinak obsahují základní kód balíčku.
 
-Chcete-li obejít toto automatické chování a explicitně řídit, které soubory jsou součástí balíčku, `<files>` umístěte prvek jako `<package>` podřízený objekt `<metadata>`(a na stejné místo) a Identifikujte každý soubor samostatným `<file>` prvkem. Příklad:
+Chcete-li obejít toto automatické chování a explicitně řídit, které soubory jsou součástí balíčku, umístěte prvek `<files>` jako podřízenou položku `<package>` (a na stejné úrovni `<metadata>`) a Identifikujte jednotlivé soubory samostatným elementem `<file>`. Příklad:
 
 ```xml
 <files>
@@ -465,17 +465,17 @@ Chcete-li obejít toto automatické chování a explicitně řídit, které soub
 </files>
 ```
 
-S NuGet 2. x a starším a projekty, `packages.config`které `<files>` používají, se element používá také k zahrnutí neměnných souborů obsahu při instalaci balíčku. S NuGet 3.3 + a projekty PackageReference `<contentFiles>` se místo toho použije element. Podrobnosti najdete v části [zahrnutí souborů obsahu](#including-content-files) níže.
+S NuGet 2. x a staršími a projekty, které používají `packages.config`, se prvek `<files>` používá také k zahrnutí neměnných souborů obsahu při instalaci balíčku. S NuGet 3.3 + a projekty PackageReference se místo toho použije prvek `<contentFiles>`. Podrobnosti najdete v části [zahrnutí souborů obsahu](#including-content-files) níže.
 
 ### <a name="file-element-attributes"></a>Atributy elementu souboru
 
-Každý `<file>` prvek určuje následující atributy:
+Každý prvek `<file>` určuje následující atributy:
 
 | Atribut | Popis |
 | --- | --- |
-| **src** | Umístění souboru nebo souborů, které mají být zahrnuty, v závislosti na vyloučení určených `exclude` atributem. Cesta je relativní vzhledem k `.nuspec` souboru, pokud není zadána absolutní cesta. Zástupný znak `*` je povolen a dvojitý zástupný `**` znak implikuje hledání rekurzivní složky. |
-| **cílové** | Relativní cesta ke složce v rámci balíčku, kde jsou umístěny zdrojové soubory, které `lib`musí začínat `build`na, `content`, nebo `tools`. Viz [vytvoření. nuspec z pracovního adresáře založeného na konvencích](../create-packages/creating-a-package.md#from-a-convention-based-working-directory). |
-| **slevy** | Seznam souborů nebo vzorů souborů, které mají být vyloučeny z umístění, `src` jsou odděleny středníkem. Zástupný znak `*` je povolen a dvojitý zástupný `**` znak implikuje hledání rekurzivní složky. |
+| **src** | Umístění souboru nebo souborů, které mají být zahrnuty, v závislosti na vyloučení určených atributem `exclude`. Cesta je relativní vzhledem k souboru `.nuspec`, pokud není zadána absolutní cesta. Zástupný znak `*` je povolen a dvojitý zástupný znak `**` implikuje hledání rekurzivní složky. |
+| **cílové** | Relativní cesta ke složce v rámci balíčku, kde jsou umístěny zdrojové soubory, které musí začínat `lib`, `content`, `build` nebo `tools`. Viz [vytvoření. nuspec z pracovního adresáře založeného na konvencích](../create-packages/creating-a-package.md#from-a-convention-based-working-directory). |
+| **slevy** | Seznam souborů nebo vzorů souborů, které mají být vyloučeny z umístění @no__t 0, jsou odděleny středníkem. Zástupný znak `*` je povolen a dvojitý zástupný znak `**` implikuje hledání rekurzivní složky. |
 
 ### <a name="examples"></a>Příklady
 
@@ -551,13 +551,13 @@ Soubory obsahu jsou neměnné soubory, které musí balíček zahrnout do projek
 - Skripty, které je potřeba zahrnout do výstupu sestavení projektu
 - Konfigurační soubory balíčku, které je potřeba zahrnout do projektu, ale nevyžadují žádné změny specifické pro projekt
 
-Soubory obsahu jsou zahrnuty v balíčku pomocí `<files>` elementu a `content` určení složky v `target` atributu. Nicméně tyto soubory jsou ignorovány při instalaci balíčku v projektu pomocí PackageReference, který místo toho používá `<contentFiles>` element.
+Soubory obsahu jsou zahrnuty v balíčku pomocí elementu `<files>`, který určuje složku `content` v atributu `target`. Nicméně tyto soubory jsou ignorovány při instalaci balíčku do projektu pomocí PackageReference, který místo toho používá prvek `<contentFiles>`.
 
 Pro maximální kompatibilitu s spotřebou projektů balíček v ideálním případě Určuje soubory obsahu v obou prvcích.
 
 ### <a name="using-the-files-element-for-content-files"></a>Použití elementu Files pro soubory obsahu
 
-Pro soubory obsahu stačí použít stejný formát jako u souborů sestavení, ale určete `content` jako základní složku `target` v atributu, jak je znázorněno v následujících příkladech.
+Pro soubory obsahu stačí použít stejný formát jako u souborů sestavení, ale zadejte `content` jako základní složku v atributu `target`, jak je znázorněno v následujících příkladech.
 
 **Základní soubory obsahu**
 
@@ -600,7 +600,7 @@ Pro soubory obsahu stačí použít stejný formát jako u souborů sestavení, 
 
 **Soubor obsahu byl zkopírován do složky s tečkou v názvu**
 
-V takovém případě NuGet zjistí, že rozšíření v `target` neodpovídá rozšíření v `src` nástroji, a proto zpracovává tuto `target` část názvu jako složku:
+V tomto případě NuGet zjistí, že rozšíření v `target` neodpovídá rozšíření v `src`, a proto zpracovává tuto část názvu v `target` jako složku:
 
     Source file:
         images\picture.png
@@ -613,7 +613,7 @@ V takovém případě NuGet zjistí, že rozšíření v `target` neodpovídá r
 
 **Soubory obsahu bez rozšíření**
 
-Chcete-li zahrnout soubory bez přípony, použijte `*` zástupné znaky nebo `**` :
+Chcete-li zahrnout soubory bez přípony, použijte zástupné znaky `*` nebo `**`:
 
     Source file:
         flags\installed
@@ -670,21 +670,21 @@ V tomto případě předpokládá, že vzhledem k příponám souborů ve zdrojo
 
 *NuGet 4.0 + s PackageReference*
 
-Ve výchozím nastavení balíček umístí obsah do `contentFiles` složky (viz níže) a `nuget pack` zahrne všechny soubory v této složce s použitím výchozích atributů. V takovém případě není nutné zahrnout `contentFiles` uzel `.nuspec` do.
+Ve výchozím nastavení balíček umístí obsah do složky `contentFiles` (viz níže) a `nuget pack` obsahuje všechny soubory v této složce s použitím výchozích atributů. V takovém případě není nutné do `.nuspec` vůbec zahrnout uzel `contentFiles`.
 
-Chcete-li určit, které soubory jsou `<contentFiles>` zahrnuty, prvek určuje `<files>` kolekci prvků, které identifikují přesné soubory.
+Chcete-li určit, které soubory jsou zahrnuty, prvek `<contentFiles>` určuje kolekci prvků `<files>`, které identifikují přesné soubory.
 
 Tyto soubory jsou zadány pomocí sady atributů, které popisují, jak by měly být použity v rámci systému projektu:
 
 | Atribut | Popis |
 | --- | --- |
-| **include** | Požadovanou Umístění souboru nebo souborů, které mají být zahrnuty, v závislosti na vyloučení určených `exclude` atributem. Cesta je relativní ke `contentFiles` složce, pokud není zadána absolutní cesta. Zástupný znak `*` je povolen a dvojitý zástupný `**` znak implikuje hledání rekurzivní složky. |
-| **slevy** | Seznam souborů nebo vzorů souborů, které mají být vyloučeny z umístění, `src` jsou odděleny středníkem. Zástupný znak `*` je povolen a dvojitý zástupný `**` znak implikuje hledání rekurzivní složky. |
-| **buildAction** | Akce sestavení, která má být přiřazena položce obsahu pro `Content`MSBuild, jako například `Embedded Resource`, `None` `Compile`,, atd. Výchozí hodnota je `Compile`. |
+| **include** | Požadovanou Umístění souboru nebo souborů, které mají být zahrnuty, v závislosti na vyloučení určených atributem `exclude`. Cesta je relativní vzhledem ke složce `contentFiles`, pokud není zadána absolutní cesta. Zástupný znak `*` je povolen a dvojitý zástupný znak `**` implikuje hledání rekurzivní složky. |
+| **slevy** | Seznam souborů nebo vzorů souborů, které mají být vyloučeny z umístění @no__t 0, jsou odděleny středníkem. Zástupný znak `*` je povolen a dvojitý zástupný znak `**` implikuje hledání rekurzivní složky. |
+| **buildAction** | Akce sestavení, která má být přiřazena položce obsahu pro MSBuild, například `Content`, `None`, `Embedded Resource`, `Compile` atd. Výchozí hodnota je `Compile`. |
 | **copyToOutput** | Logická hodnota označující, zda se mají kopírovat položky obsahu do výstupní složky Build (nebo Publishing). Výchozí hodnota je false. |
 | **Flatten** | Logická hodnota označující, zda se mají kopírovat položky obsahu do jediné složky ve výstupu sestavení (true), nebo pro zachování struktury složek v balíčku (false). Tento příznak funguje pouze v případě, že příznak copyToOutput je nastaven na hodnotu true. Výchozí hodnota je false. |
 
-Při instalaci balíčku NuGet aplikuje podřízené prvky `<contentFiles>` od shora dolů. Pokud se stejný soubor shoduje s více položkami, uplatní se všechny položky. Pokud dojde ke konfliktu pro stejný atribut, přepíše položka nejvyšší úrovně nižší položky.
+Při instalaci balíčku NuGet aplikuje podřízené prvky `<contentFiles>` shora dolů. Pokud se stejný soubor shoduje s více položkami, uplatní se všechny položky. Pokud dojde ke konfliktu pro stejný atribut, přepíše položka nejvyšší úrovně nižší položky.
 
 #### <a name="package-folder-structure"></a>Struktura složky balíčku
 
@@ -692,8 +692,8 @@ Projekt balíčku by měl strukturovat obsah pomocí následujícího vzoru:
 
     /contentFiles/{codeLanguage}/{TxM}/{any?}
 
-- `codeLanguages`může to `cs`být `vb`, `fs` ,`any`, nebo malý ekvivalent daného`$(ProjectLanguage)`
-- `TxM`je libovolný moniker platného cílového rozhraní, který podporuje NuGet (viz [cílové architektury](../reference/target-frameworks.md)).
+- `codeLanguages` může být `cs`, `vb`, `fs`, `any` nebo malý ekvivalent daného `$(ProjectLanguage)`.
+- `TxM` je libovolný moniker platného cílového rozhraní, který podporuje NuGet (viz [cílové architektury](../reference/target-frameworks.md)).
 - Ke konci této syntaxe může být připojena jakákoli struktura složky.
 
 Příklad:
@@ -707,7 +707,7 @@ Příklad:
     C#-specific content for net45 and up
         /contentFiles/cs/net45/sample.cs
 
-Prázdné složky se můžou `.` použít k odhlášení o poskytování obsahu pro určité kombinace jazyka a TxM, například:
+Prázdné složky můžou pomocí `.` odhlásit poskytnutí obsahu pro určité kombinace jazyka a TxM, například:
 
     /contentFiles/vb/any/code.vb
     /contentFiles/cs/any/.
@@ -742,7 +742,7 @@ Prázdné složky se můžou `.` použít k odhlášení o poskytování obsahu 
 
 ## <a name="example-nuspec-files"></a>Příklady souborů nuspec
 
-**Jednoduchá `.nuspec` , která neurčuje závislosti nebo soubory**
+**Jednoduchá `.nuspec`, která neurčuje závislosti nebo soubory**
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -759,7 +759,7 @@ Prázdné složky se můžou `.` použít k odhlášení o poskytování obsahu 
 </package>
 ```
 
-**A `.nuspec` se závislostmi**
+**@No__t-1 se závislostmi**
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -776,7 +776,7 @@ Prázdné složky se můžou `.` použít k odhlášení o poskytování obsahu 
 </package>
 ```
 
-**A `.nuspec` se soubory**
+**@No__t-1 se soubory**
 
 ```xml
 <?xml version="1.0"?>
@@ -794,7 +794,7 @@ Prázdné složky se můžou `.` použít k odhlášení o poskytování obsahu 
 </package>
 ```
 
-**A `.nuspec` se sestaveními architektury**
+**@No__t-1 se sestaveními rozhraní .NET Framework**
 
 ```xml
 <?xml version="1.0"?>
@@ -820,7 +820,7 @@ Prázdné složky se můžou `.` použít k odhlášení o poskytování obsahu 
 
 V tomto příkladu jsou nainstalovány následující pro konkrétní cíle projektu:
 
-- .NET4 -> `System.Web`, `System.Net`
-- . Profil klienta NET4 – >`System.Net`
-- Silverlight 3 – >`System.Json`
-- WindowsPhone -> `Microsoft.Devices.Sensors`
+- . NET4-> `System.Web`, `System.Net`
+- . Profil klienta NET4-> `System.Net`
+- Silverlight 3-> `System.Json`
+- WindowsPhone-> `Microsoft.Devices.Sensors`

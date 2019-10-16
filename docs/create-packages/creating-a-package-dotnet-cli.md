@@ -5,20 +5,20 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 40a42be91d3848db3e721a674e3fec4096fccd08
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: ec37057d40ddc9ed1826b0628aaa573c342b92b6
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69489010"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380743"
 ---
 # <a name="create-a-nuget-package-using-the-dotnet-cli"></a>Vytvoření balíčku NuGet pomocí rozhraní příkazového řádku dotnet
 
-Bez ohledu na to, co váš balíček používá, nebo jaký kód obsahuje, můžete použít jeden z nástrojů rozhraní `nuget.exe` příkazového řádku (nebo `dotnet.exe`) k zabalení této funkce do komponenty, kterou lze sdílet a používat v jakémkoli počtu jiných vývojářů. Tento článek popisuje, jak vytvořit balíček pomocí rozhraní příkazového řádku dotnet. Informace o instalaci `dotnet` rozhraní příkazového řádku najdete v tématu [Instalace nástrojů klienta NuGet](../install-nuget-client-tools.md). Počínaje sadou Visual Studio 2017 je rozhraní příkazového řádku dotnet součástí úloh .NET Core.
+Bez ohledu na to, co váš balíček obsahuje, nebo jaký kód obsahuje, použijte jeden z nástrojů rozhraní příkazového řádku `nuget.exe` nebo `dotnet.exe` a zabalit tuto funkci do komponenty, kterou lze sdílet s a používat v jakémkoli počtu jiných vývojářů. Tento článek popisuje, jak vytvořit balíček pomocí rozhraní příkazového řádku dotnet. Pokud chcete nainstalovat rozhraní příkazového řádku `dotnet`, přečtěte si téma [Instalace nástrojů klienta NuGet](../install-nuget-client-tools.md). Počínaje sadou Visual Studio 2017 je rozhraní příkazového řádku dotnet součástí úloh .NET Core.
 
 Pro projekty .NET Core a .NET Standard, které používají [Formát styly sady SDK](../resources/check-project-format.md)a všechny další projekty ve stylu sady SDK, nástroj NuGet používá informace v souboru projektu přímo k vytvoření balíčku. Podrobné kurzy najdete v tématech [vytváření .NET Standard balíčků pomocí příkazu DOTNET CLI](../quickstart/create-and-publish-a-package-using-the-dotnet-cli.md) nebo [vytváření balíčků .NET Standard pomocí sady Visual Studio](../quickstart/create-and-publish-a-package-using-visual-studio.md).
 
-`msbuild -t:pack`je obdobou `dotnet pack`funkcí. Pro sestavení pomocí nástroje MSBuild si přečtěte téma [Vytvoření balíčku NuGet pomocí MSBuild](creating-a-package-msbuild.md).
+`msbuild -t:pack` je funkce ekvivalentní `dotnet pack`. Pro sestavení pomocí nástroje MSBuild si přečtěte téma [Vytvoření balíčku NuGet pomocí MSBuild](creating-a-package-msbuild.md).
 
 > [!IMPORTANT]
 > Toto téma se vztahuje na projekty ve [stylu sady SDK](../resources/check-project-format.md) , obvykle v projektech .NET Core a .NET Standard.
@@ -27,11 +27,11 @@ Pro projekty .NET Core a .NET Standard, které používají [Formát styly sady 
 
 Pro vytvoření balíčku jsou vyžadovány následující vlastnosti.
 
-- `PackageId`, identifikátor balíčku, který musí být jedinečný v rámci Galerie, která hostuje balíček. Pokud není zadaný, použije se výchozí hodnota `AssemblyName`.
-- `Version`, konkrétní číslo verze ve formátu *hlavní. podverze. Oprava [-přípona]* , kde *-přípona* identifikuje [předběžné verze verzí](prerelease-packages.md). Pokud není zadaný, použije se výchozí hodnota 1.0.0.
+- `PackageId` identifikátor balíčku, který musí být jedinečný v rámci Galerie, která hostuje balíček. Pokud není zadán, výchozí hodnota je `AssemblyName`.
+- `Version`, číslo konkrétní verze ve formátu *hlavní. podverze. patch [-přípona]* , kde *-přípona* identifikuje [předběžné verze verzí](prerelease-packages.md). Pokud není zadaný, použije se výchozí hodnota 1.0.0.
 - Název balíčku, jak by měl být zobrazen na hostiteli (například nuget.org)
-- `Authors`, informace o autorovi a vlastníka. Pokud není zadaný, použije se výchozí hodnota `AssemblyName`.
-- `Company`, název vaší společnosti. Pokud není zadaný, použije se výchozí hodnota `AssemblyName`.
+- @no__t – 0, informace o autorovi a vlastníka. Pokud není zadán, výchozí hodnota je `AssemblyName`.
+- @no__t – 0, název vaší společnosti. Pokud není zadán, výchozí hodnota je `AssemblyName`.
 
 V sadě Visual Studio můžete nastavit tyto hodnoty ve vlastnostech projektu (klikněte pravým tlačítkem myši na projekt v Průzkumník řešení, zvolte **vlastnosti**a vyberte kartu **balíček** ). Tyto vlastnosti lze také nastavit přímo v souborech projektu (`.csproj`).
 
@@ -47,7 +47,7 @@ V sadě Visual Studio můžete nastavit tyto hodnoty ve vlastnostech projektu (k
 > [!Important]
 > Poskytněte balíčku identifikátor, který je jedinečný v rámci nuget.org nebo jakýkoli ze zdrojů balíčku, který používáte.
 
-Následující příklad ukazuje jednoduchý a kompletní soubor projektu s těmito vlastnostmi, které jsou k dispozici. (Pomocí `dotnet new classlib` příkazu můžete vytvořit nový výchozí projekt.)
+Následující příklad ukazuje jednoduchý a kompletní soubor projektu s těmito vlastnostmi, které jsou k dispozici. (Nový výchozí projekt můžete vytvořit pomocí příkazu `dotnet new classlib`.)
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -61,12 +61,12 @@ Následující příklad ukazuje jednoduchý a kompletní soubor projektu s těm
 </Project>
 ```
 
-Můžete také nastavit volitelné vlastnosti, například `Title` `PackageDescription`, `PackageTags`a, jak je popsáno v tématu [cíle sady MSBuild](../reference/msbuild-targets.md#pack-target), [řízení prostředků závislosti](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets)a [vlastnosti metadat NuGet](/dotnet/core/tools/csproj#nuget-metadata-properties).
+Můžete také nastavit volitelné vlastnosti, například `Title`, `PackageDescription` a `PackageTags`, jak je popsáno v tématu [cíle sady MSBuild](../reference/msbuild-targets.md#pack-target), [řízení prostředků závislosti](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets)a [vlastnosti metadat NuGet](/dotnet/core/tools/csproj#nuget-metadata-properties).
 
 > [!NOTE]
 > Pro balíčky sestavené pro veřejnou spotřebu věnujte zvláštní pozornost vlastnosti **PackageTags** , protože značky můžou ostatním uživatelům najít váš balíček a pochopit, co to dělá.
 
-Podrobnosti o deklarování závislostí a zadání čísel verzí naleznete v tématu [odkazy na balíčky v souborech projektu](../consume-packages/package-references-in-project-files.md) a [Správa verzí balíčků](../concepts/package-versioning.md). Je také možné Surface prostředků ze závislostí přímo v balíčku pomocí `<IncludeAssets>` atributů a. `<ExcludeAssets>` Další informace najdete v Seee [řízení prostředků závislostí](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets).
+Podrobnosti o deklarování závislostí a zadání čísel verzí naleznete v tématu [odkazy na balíčky v souborech projektu](../consume-packages/package-references-in-project-files.md) a [Správa verzí balíčků](../concepts/package-versioning.md). Je také možné Surface prostředků ze závislostí přímo v balíčku pomocí atributů `<IncludeAssets>` a `<ExcludeAssets>`. Další informace najdete v Seee [řízení prostředků závislostí](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets).
 
 ## <a name="choose-a-unique-package-identifier-and-set-the-version-number"></a>Vyberte jedinečný identifikátor balíčku a nastavte číslo verze.
 
@@ -74,14 +74,14 @@ Podrobnosti o deklarování závislostí a zadání čísel verzí naleznete v t
 
 ## <a name="run-the-pack-command"></a>Spuštění příkazu Pack
 
-Chcete-li vytvořit balíček NuGet ( `.nupkg` soubor) z projektu, `dotnet pack` spusťte příkaz, který také automaticky vytvoří projekt:
+Pokud chcete vytvořit balíček NuGet (soubor `.nupkg`) z projektu, spusťte příkaz `dotnet pack`, který také automaticky vytvoří projekt:
 
 ```cli
 # Uses the project file in the current folder by default
 dotnet pack
 ```
 
-Výstup zobrazuje cestu k `.nupkg` souboru.
+Výstup zobrazuje cestu k souboru `.nupkg`.
 
 ```output
 Microsoft (R) Build Engine version 15.5.180.51428 for .NET Core
@@ -94,13 +94,13 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 
 ### <a name="automatically-generate-package-on-build"></a>Automaticky generovat balíček při sestavení
 
-Chcete-li `dotnet pack` automaticky spustit při `dotnet build`spuštění, přidejte následující řádek do souboru projektu v rámci `<PropertyGroup>`:
+Chcete-li automaticky spustit `dotnet pack` při spuštění `dotnet build`, přidejte do souboru projektu následující řádek v rámci `<PropertyGroup>`:
 
 ```xml
 <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 ```
 
-Při spuštění `dotnet pack` v řešení jsou všechny projekty v řešení, které lze zabalit ([<IsPackable>](/dotnet/core/tools/csproj#nuget-metadata-properties) vlastnost nastavena na `true`hodnotu).
+Když na řešení spustíte `dotnet pack`, jsou všechny projekty v řešení, které jsou packné (vlastnost[<IsPackable>](/dotnet/core/tools/csproj#nuget-metadata-properties) ) nastavené na hodnotu `true`).
 
 > [!NOTE]
 > Když balíček automaticky vygenerujete, čas k zabalení zvýší čas sestavení pro váš projekt.
@@ -112,11 +112,11 @@ Před publikováním balíčku obvykle budete chtít otestovat proces instalace 
 Instalaci můžete v aplikaci Visual Studio nebo na příkazovém řádku otestovat ručně pomocí [kroků normální instalace balíčku](../consume-packages/overview-and-workflow.md#ways-to-install-a-nuget-package).
 
 > [!IMPORTANT]
-> Balíčky jsou neměnné. Pokud problém opravíte, znovu ho změňte a znovu spusťte. při opětovném testování bude stále použita stará verze balíčku, dokud nevymažete složku [globálních balíčků](../consume-packages/managing-the-global-packages-and-cache-folders.md#clearing-local-folders) . To je obzvláště důležité při testování balíčků, které nepoužívají jedinečný popisek předprodejní verze pro každé sestavení.
+> Balíčky jsou neměnné. Pokud problém opravíte, znovu ho změňte a znovu spusťte. při opětovném testování bude stále použita stará verze balíčku, dokud [nevymažete složku globálních balíčků](../consume-packages/managing-the-global-packages-and-cache-folders.md#clearing-local-folders) . To je obzvláště důležité při testování balíčků, které nepoužívají jedinečný popisek předprodejní verze pro každé sestavení.
 
 ## <a name="next-steps"></a>Další kroky
 
-Po vytvoření balíčku, který je `.nupkg` soubor, můžete ho publikovat do Galerie podle svého výběru, jak je popsáno v tématu [publikování balíčku](../nuget-org/publish-a-package.md).
+Po vytvoření balíčku, který je soubor `.nupkg`, ho můžete publikovat do Galerie podle svého výběru, jak je popsáno v tématu [publikování balíčku](../nuget-org/publish-a-package.md).
 
 Můžete také chtít zvětšit možnosti vašeho balíčku nebo jinak podporovat jiné scénáře, jak je popsáno v následujících tématech:
 
@@ -131,4 +131,4 @@ Můžete také chtít zvětšit možnosti vašeho balíčku nebo jinak podporova
 Nakonec existují další typy balíčků, o kterých byste měli vědět:
 
 - [Nativní balíčky](../guides/native-packages.md)
-- [Balíčky symbolů](../create-packages/symbol-packages.md)
+- [Balíčky symbolů](../create-packages/symbol-packages-snupkg.md)

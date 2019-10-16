@@ -5,12 +5,12 @@ author: nkolev92
 ms.author: nikolev
 ms.date: 07/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: 74b80b1791dcb403c90bb3032c009717c11ffe57
-ms.sourcegitcommit: 5a741f025e816b684ffe44a81ef7d3fbd2800039
+ms.openlocfilehash: 00410214500c7f5256be243dd6fca0907ba9b0c4
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70815303"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380503"
 ---
 # <a name="nuget-cross-platform-plugins"></a>Moduly plug-in NuGet pro různé platformy
 
@@ -27,7 +27,7 @@ Níže jsou popsány kombinace modulů plug-in a klientů/rozhraní.
 | Nástroj klienta  | Rozhraní .NET Framework |
 | ------------ | --------- |
 | Visual Studio | .NET Framework |
-| dotnet.exe | .NET Core |
+| dotnet. exe | .NET Core |
 | NuGet. exe | .NET Framework |
 | MSBuild. exe | .NET Framework |
 | NuGet. exe na mono | .NET Framework |
@@ -70,11 +70,11 @@ Komunikace mezi klientskými nástroji NuGet a modulem plug-in je obousměrná. 
 ## <a name="plugin-installation-and-discovery"></a>Instalace a zjišťování modulu plug-in
 
 Moduly plug-in budou zjištěny prostřednictvím struktury adresáře založené na konvencích.
-Scénáře CI/CD a skupiny Power Users můžou chování přepsat pomocí proměnných prostředí. Všimněte si `NUGET_NETFX_PLUGIN_PATHS` , `NUGET_NETCORE_PLUGIN_PATHS` že a jsou k dispozici pouze ve verzi 5.3 + verze nástrojů NuGet a novějších.
+Scénáře CI/CD a skupiny Power Users můžou chování přepsat pomocí proměnných prostředí. Při použití proměnných prostředí jsou povoleny pouze absolutní cesty. Všimněte si, že `NUGET_NETFX_PLUGIN_PATHS` a `NUGET_NETCORE_PLUGIN_PATHS` jsou k dispozici pouze ve verzi 5.3 + verze nástrojů NuGet a novějších.
 
-- `NUGET_NETFX_PLUGIN_PATHS`– definuje moduly plug-in, které budou použity pomocí nástrojů založených na .NET Framework (NuGet. exe/MSBuild. exe/Visual Studio). Má přednost před `NUGET_PLUGIN_PATHS`. (Jenom NuGet verze 5.3 +)
-- `NUGET_NETCORE_PLUGIN_PATHS`– definuje moduly plug-in, které budou použity nástroji založené na .NET Core (dotnet. exe). Má přednost před `NUGET_PLUGIN_PATHS`. (Jenom NuGet verze 5.3 +)
-- `NUGET_PLUGIN_PATHS`– definuje moduly plug-in, které se použijí pro tento proces NuGet, prioritní rezervované. Pokud je tato proměnná prostředí nastavena, přepíše zjišťování na základě konvence. Ignoruje se, pokud je zadána jedna z proměnných specifických pro rozhraní.
+- `NUGET_NETFX_PLUGIN_PATHS` – definuje moduly plug-in, které budou používány nástroji založenými na .NET Framework (NuGet. exe/MSBuild. exe/Visual Studio). Má přednost před `NUGET_PLUGIN_PATHS`. (Jenom NuGet verze 5.3 +)
+- `NUGET_NETCORE_PLUGIN_PATHS` – definuje moduly plug-in, které budou použity nástroji založené na .NET Core (dotnet. exe). Má přednost před `NUGET_PLUGIN_PATHS`. (Jenom NuGet verze 5.3 +)
+- `NUGET_PLUGIN_PATHS` – definuje moduly plug-in, které se budou používat pro tento proces NuGet, přičemž priorita zůstane zachovaná. Pokud je tato proměnná prostředí nastavena, přepíše zjišťování na základě konvence. Ignoruje se, pokud je zadána jedna z proměnných specifických pro rozhraní.
 -  User-Location, domovské umístění NuGet v `%UserProfile%/.nuget/plugins`. Toto umístění nelze přepsat. Pro moduly plug-in a .NET Framework se bude používat jiný kořenový adresář.
 
 | Rozhraní .NET Framework | Umístění kořenového zjišťování  |
@@ -123,20 +123,20 @@ Může dojít k potenciálnímu problému s moduly plug-in umístění uživatel
 Ověření zabezpečení a vytváření instancí modulů plug-in je nákladné. Operace stahování se provádí častěji než operace ověřování, ale průměrný uživatel NuGet má pravděpodobně pouze modul plug-in ověřování.
 Pro zlepšení prostředí NuGet uloží deklarace operací pro daný požadavek do mezipaměti. Tato mezipaměť je vázaná na jeden modul plug-in a klíč modulu plug-in je cestou k modulu plug-in a vypršení platnosti této mezipaměti schopností je 30 dní. 
 
-Mezipaměť je umístěna v `%LocalAppData%/NuGet/plugins-cache` a je přepsaná pomocí proměnné `NUGET_PLUGINS_CACHE_PATH`prostředí. Pokud chcete vymazat tuto [mezipaměť](../../consume-packages/managing-the-global-packages-and-cache-folders.md), jedna může spustit příkaz lokálních hodnot s `plugins-cache` možností.
-Možnost `all` místní hodnoty nyní také odstraní mezipaměť modulů plug-in. 
+Mezipaměť je umístěna v `%LocalAppData%/NuGet/plugins-cache` a bude přepsaná pomocí proměnné prostředí `NUGET_PLUGINS_CACHE_PATH`. Pokud chcete vymazat tuto [mezipaměť](../../consume-packages/managing-the-global-packages-and-cache-folders.md), jedna může spustit příkaz místní hodnoty s možností `plugins-cache`.
+Možnost lokálních hodnot `all` nyní také odstraní mezipaměť modulů plug-in. 
 
 ## <a name="protocol-messages-index"></a>Index zpráv protokolu
 
 Zprávy verze *1.0.0* protokolu:
 
 1.  Zavřít
-    * Směr požadavku:  NuGet – > modul plug-in
+    * Směr požadavku: NuGet-> modul plug-in
     * Požadavek nebude obsahovat žádnou datovou část.
     * Není očekávána žádná odpověď.  Správná odpověď je pro proces modulu plug-in k okamžitému ukončení.
 
 2.  Kopírovat soubory v balíčku
-    * Směr požadavku:  NuGet – > modul plug-in
+    * Směr požadavku: NuGet-> modul plug-in
     * Požadavek bude obsahovat:
         * ID a verze balíčku
         * umístění zdrojového úložiště balíčku
@@ -147,7 +147,7 @@ Zprávy verze *1.0.0* protokolu:
         * Vyčíslitelné úplných cest pro zkopírované soubory v cílovém adresáři, pokud byla operace úspěšná.
 
 3.  Kopírovat soubor balíčku (. nupkg)
-    * Směr požadavku:  NuGet – > modul plug-in
+    * Směr požadavku: NuGet-> modul plug-in
     * Požadavek bude obsahovat:
         * ID a verze balíčku
         * umístění zdrojového úložiště balíčku
@@ -166,7 +166,7 @@ Zprávy verze *1.0.0* protokolu:
         * heslo, pokud je k dispozici
 
 5.  Získat soubory v balíčku
-    * Směr požadavku:  NuGet – > modul plug-in
+    * Směr požadavku: NuGet-> modul plug-in
     * Požadavek bude obsahovat:
         * ID a verze balíčku
         * umístění zdrojového úložiště balíčku
@@ -175,7 +175,7 @@ Zprávy verze *1.0.0* protokolu:
         * výčty cest k souborům v balíčku, pokud byla operace úspěšná
 
 6.  Získat deklarace operací 
-    * Směr požadavku:  NuGet – > modul plug-in
+    * Směr požadavku: NuGet-> modul plug-in
     * Požadavek bude obsahovat:
         * index služby. JSON pro zdroj balíčku
         * umístění zdrojového úložiště balíčku
@@ -187,7 +187,7 @@ Zprávy verze *1.0.0* protokolu:
 > Tato zpráva se aktualizovala ve verzi *2.0.0*. Je na klientovi, aby byla zachována zpětná kompatibilita.
 
 7.  Získat hodnotu hash balíčku
-    * Směr požadavku:  NuGet – > modul plug-in
+    * Směr požadavku: NuGet-> modul plug-in
     * Požadavek bude obsahovat:
         * ID a verze balíčku
         * umístění zdrojového úložiště balíčku
@@ -197,7 +197,7 @@ Zprávy verze *1.0.0* protokolu:
         * hodnota hash souboru balíčku pomocí požadovaného algoritmu hash, pokud byla operace úspěšná
 
 8.  Získat verze balíčku
-    * Směr požadavku:  NuGet – > modul plug-in
+    * Směr požadavku: NuGet-> modul plug-in
     * Požadavek bude obsahovat:
         * ID balíčku
         * umístění zdrojového úložiště balíčku
@@ -214,7 +214,7 @@ Zprávy verze *1.0.0* protokolu:
         * index služby, pokud byla operace úspěšná
 
 10.  Metody handshake
-     * Směr požadavku:  Modul plug-in < NuGet >
+     * Směr požadavku: NuGet <-> modul plug-in
      * Požadavek bude obsahovat:
          * aktuální verze protokolu modulů plug-in
          * minimální podporovaná verze protokolu modulů plug-in
@@ -223,7 +223,7 @@ Zprávy verze *1.0.0* protokolu:
          * dohodnutá verze protokolu, pokud byla operace úspěšná.  V důsledku selhání dojde k ukončení modulu plug-in.
 
 11.  Initialize
-     * Směr požadavku:  NuGet – > modul plug-in
+     * Směr požadavku: NuGet-> modul plug-in
      * Požadavek bude obsahovat:
          * verze klientského nástroje NuGet
          * efektivní jazyk klientského nástroje NuGet.  Toto nastavení ForceEnglishOutput se bere v úvahu při použití.
@@ -231,7 +231,7 @@ Zprávy verze *1.0.0* protokolu:
      * Odpověď bude obsahovat:
          * kód odpovědi, který indikuje výsledek operace.  V důsledku selhání dojde k ukončení modulu plug-in.
 
-12.  protokol
+12.  protokolu
      * Směr požadavku: modul plug-in > NuGet
      * Požadavek bude obsahovat:
          * úroveň protokolu pro požadavek
@@ -240,14 +240,14 @@ Zprávy verze *1.0.0* protokolu:
          * kód odpovědi, který indikuje výsledek operace.
 
 13.  Ukončení procesu NuGetu monitorování
-     * Směr požadavku:  NuGet – > modul plug-in
+     * Směr požadavku: NuGet-> modul plug-in
      * Požadavek bude obsahovat:
          * ID procesu NuGet
      * Odpověď bude obsahovat:
          * kód odpovědi, který indikuje výsledek operace.
 
 14.  Předběžné načtení balíčku
-     * Směr požadavku:  NuGet – > modul plug-in
+     * Směr požadavku: NuGet-> modul plug-in
      * Požadavek bude obsahovat:
          * ID a verze balíčku
          * umístění zdrojového úložiště balíčku
@@ -255,7 +255,7 @@ Zprávy verze *1.0.0* protokolu:
          * kód odpovědi, který indikuje výsledek operace.
 
 15.  Nastavit přihlašovací údaje
-     * Směr požadavku:  NuGet – > modul plug-in
+     * Směr požadavku: NuGet-> modul plug-in
      * Požadavek bude obsahovat:
          * umístění zdrojového úložiště balíčku
          * poslední známé zdrojové uživatelské jméno balíčku, pokud je k dispozici
@@ -266,7 +266,7 @@ Zprávy verze *1.0.0* protokolu:
          * kód odpovědi, který indikuje výsledek operace.
 
 16.  Nastavit úroveň protokolu
-     * Směr požadavku:  NuGet – > modul plug-in
+     * Směr požadavku: NuGet-> modul plug-in
      * Požadavek bude obsahovat:
          * Výchozí úroveň protokolování
      * Odpověď bude obsahovat:
@@ -276,7 +276,7 @@ Zprávy verze protokolu *2.0.0*
 
 17. Získat deklarace operací
 
-* Směr požadavku:  NuGet – > modul plug-in
+* Směr požadavku: NuGet-> modul plug-in
     * Požadavek bude obsahovat:
         * index služby. JSON pro zdroj balíčku
         * umístění zdrojového úložiště balíčku
@@ -288,15 +288,15 @@ Zprávy verze protokolu *2.0.0*
 
 18. Získat přihlašovací údaje pro ověření
 
-* Směr požadavku: NuGet – > modul plug-in
+* Směr požadavku: NuGet-> modul plug-in
 * Požadavek bude obsahovat:
-    * Uri
+    * identifikátor URI
     * Opakování
-    * NonInteractive
+    * Neinteraktivní
     * CanShowDialog
 * Odpověď bude obsahovat
-    * Uživatelské jméno
+    * jmen
     * Heslo
-    * Message
+    * Zpráva
     * Seznam typů ověřování
     * MessageResponseCode
