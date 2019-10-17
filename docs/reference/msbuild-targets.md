@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3093761bda456ff5463f708c4d2d12f606dcecbd
-ms.sourcegitcommit: 7dba5be7b983ff508834c60caaa8b504f5fa1ae8
+ms.openlocfilehash: 6a49e410617c14e22f0d4a67d8bfe280f64f5505
+ms.sourcegitcommit: 8a424829b1f70cf7590e95db61997af6ae2d7a41
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 10/16/2019
-ms.locfileid: "72393016"
+ms.locfileid: "72510793"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Sada NuGet Pack a obnovení jako cíle MSBuild
 
@@ -382,6 +382,10 @@ Další nastavení obnovení může pocházet z vlastností MSBuild v souboru pr
 | RestoreUseSkipNonexistentTargets  | Když jsou projekty shromažďovány pomocí nástroje MSBuild, určuje, zda jsou shromažďovány pomocí optimalizace `SkipNonexistentTargets`. Pokud není nastaveno, výchozí hodnota je `true`. Příčinou je rychlé chování při selhání, když cíle projektu nelze importovat. |
 | MSBuildProjectExtensionsPath | Výstupní složka, výchozí nastavení `BaseIntermediateOutputPath` a složka `obj`. |
 | RestoreForce | V projektech založených na PackageReference vynutí vyřešení všech závislostí i v případě, že bylo poslední obnovení úspěšné. Zadání tohoto příznaku se podobá odstranění souboru `project.assets.json`. To neobejde mezipaměť HTTP-cache. |
+| RestorePackagesWithLockFile | Výslovný se na použití souboru zámku. |
+| RestoreLockedMode | Spustit obnovení v uzamčeném režimu. To znamená, že obnovení nebude přehodnocovat závislosti. |
+| NuGetLockFilePath | Vlastní umístění souboru zámku. Výchozí umístění je vedle projektu a je pojmenované `packages.lock.json`. |
+| RestoreForceEvaluate | Vynutí obnovení pro přepočítání závislostí a aktualizaci souboru zámku bez upozornění. | 
 
 #### <a name="examples"></a>Příklady
 
