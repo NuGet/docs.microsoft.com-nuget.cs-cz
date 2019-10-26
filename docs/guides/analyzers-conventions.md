@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: 0a8db9f6c55b7e79f9b338119e0b3ac6cb7a1e35
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: 4d337299f725b38981b0121069d5e6295b05e34e
+ms.sourcegitcommit: f9645fc5f49c18978e12a292a3f832e162e069d5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69520594"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72924629"
 ---
 # <a name="analyzer-nuget-formats"></a>Formáty NuGet analyzátoru
 
@@ -30,29 +30,29 @@ Dobrý příklad naleznete v balíčku [System. Runtime. analyzers](https://www.
 - tools\install.ps1
 - tools\uninstall.ps1
 
-Jak vidíte, umístěte knihovny DLL analyzátoru do `analyzers` složky v balíčku.
+Jak vidíte, umístěte knihovny DLL analyzátoru do složky `analyzers` v balíčku.
 
-Soubory props, které jsou zahrnuty pro zakázání starších pravidel FxCop ve prospěch implementace analyzátoru, jsou umístěny do `build` složky.
+Soubory props, které jsou zahrnuty pro zakázání starších pravidel FxCop ve prospěch implementace analyzátoru, jsou umístěny do složky `build`.
 
-Instalace a odinstalace skriptů podporujících projekty `packages.config` pomocí jsou umístěny `tools`v.
+Instalace a odinstalace skriptů podporujících projekty pomocí `packages.config` jsou umístěny v `tools`.
 
-Všimněte si také, že vzhledem k tomu, že tento balíček nemá žádné `platform` požadavky specifické pro platformu, je tato složka vynechána.
+Všimněte si také, že vzhledem k tomu, že tento balíček nemá žádné požadavky specifické pro platformu, je vynechána složka `platform`.
 
 
 ## <a name="analyzers-path-format"></a>Formát cesty analyzátorů
 
-Použití `analyzers` složky je podobné jako u [cílových rozhraní](../create-packages/supporting-multiple-target-frameworks.md), s výjimkou specifikátorů v cestě popisují závislosti vývojového hostitele namísto doby sestavení. Obecný formát je následující:
+Použití složky `analyzers` je podobné jako u [cílových rozhraní](../create-packages/supporting-multiple-target-frameworks.md), s výjimkou specifikátorů v cestě popisují závislosti vývojového hostitele namísto doby sestavení. Obecný formát je následující:
 
     $/analyzers/{framework_name}{version}/{supported_architecture}/{supported_language}/{analyzer_name}.dll
 
-- **framework_name**: *volitelná* oblast rozhraní API .NET Framework, kterou obsažené knihovny DLL potřebují spustit. `dotnet`je v současné době jediná platná hodnota, protože Roslyn je jediný hostitel, který může spustit analyzátory. Pokud není zadán žádný cíl, považují se knihovny DLL za použití na *všechny* cíle.
-- **supported_language**: jazyk, pro který se knihovna DLL používá, jedna `cs` zC#() `vb` `fs` a (Visual Basic) a (F#). Jazyk označuje, že analyzátor má být načten pouze pro projekt, který používá daný jazyk. Pokud není zadán žádný jazyk, předpokládá se, že se knihovna DLL použije pro *všechny* jazyky, které podporují analyzátory.
+- **framework_name** a **verze**: *volitelná* oblast rozhraní API .NET Framework, kterou obsažené knihovny DLL potřebují spustit. `dotnet` je v současné době jediná platná hodnota, protože Roslyn je jediný hostitel, který může spustit analyzátory. Pokud není zadán žádný cíl, považují se knihovny DLL za použití na *všechny* cíle.
+- **supported_language**: jazyk, pro který se knihovna DLL používá, jedna z `cs`C#() a`vb`(Visual Basic) a`fs`(F#). Jazyk označuje, že analyzátor má být načten pouze pro projekt, který používá daný jazyk. Pokud není zadán žádný jazyk, předpokládá se, že se knihovna DLL použije pro *všechny* jazyky, které podporují analyzátory.
 - **analyzer_name**: Určuje knihovny DLL analyzátoru. Pokud potřebujete další soubory kromě knihoven DLL, musí být zahrnuty prostřednictvím cílů nebo souborů vlastností.
 
 
 ## <a name="install-and-uninstall-scripts"></a>Instalace a odinstalace skriptů
 
-Pokud projekt `packages.config`uživatele používá, skript MSBuild, který vybírá analyzátor, nepřichází do hry, takže byste měli `uninstall.ps1` umístit `install.ps1` `tools` složku s obsahem, který je popsán níže.
+Pokud projekt uživatele používá `packages.config`, skript MSBuild, který vybírá analyzátor, nepřejde do hry, takže byste měli do `tools` složky umístit `install.ps1` a `uninstall.ps1` obsah, který je popsán níže.
 
 **nainstalovat soubor. ps1 – obsah**
 

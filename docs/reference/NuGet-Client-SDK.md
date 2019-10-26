@@ -1,42 +1,40 @@
 ---
-title: Sada SDK pro klienta NuGet
-description: Rozhraní API se rozvíjející a ještě zdokumentovaných, ale příklady jsou k dispozici na blogu Dave Glick.
+title: Sada SDK klienta NuGet
+description: Rozhraní API se vyvíjí a ještě není dokumentováno, ale příklady jsou k dispozici na blogu Dave Glick.
 author: karann-msft
 ms.author: karann
 ms.date: 01/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8f96bf289e8121fd25262fb95c2f36dfc89045c5
-ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
+ms.openlocfilehash: 873bde467a39653b818b49173d53bc983e99d1b9
+ms.sourcegitcommit: f9645fc5f49c18978e12a292a3f832e162e069d5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58911033"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72924608"
 ---
-# <a name="nuget-client-sdk"></a>Sada SDK pro klienta NuGet
+# <a name="nuget-client-sdk"></a>Sada SDK klienta NuGet
+
+*Sada SDK klienta NuGet* odkazuje na skupinu balíčků NuGet, které se nacentrují do [NuGet. Commands](https://www.nuget.org/packages/NuGet.Commands), [NuGet.](https://www.nuget.org/packages/NuGet.Packaging)Package a [NuGet. Protocol](https://www.nuget.org/packages/NuGet.Protocol). Tyto balíčky nahrazují předchozí knihovnu [NuGet. Core](https://www.nuget.org/packages/NuGet.Core/) .
 
 > [!Note]
-> Neměl by se zaměňovat s [NuGet *webové* rozhraní API](https://docs.microsoft.com/en-us/nuget/api/overview)
-
-*NuGet klientské sady SDK* odkazuje na skupinu soustředí na knihovny .NET [NuGet.Commands](https://www.nuget.org/packages/NuGet.Commands), [Nuget.Packaging](https://www.nuget.org/packages/NuGet.Packaging), a [NuGet.Protocol](https://www.nuget.org/packages/NuGet.Protocol). Tyto balíčky nahradit dříve [NuGet.Core](https://www.nuget.org/packages/NuGet.Core/) knihovny.
-
-Pracujeme na s stabilní plochy, která může dokumentujeme brzy.
+>  Dokumentaci k protokolu serveru NuGet najdete v tématu [rozhraní API serveru NuGet](~/api/overview.md).
 
 ## <a name="source-code"></a>Zdrojový kód
 
-Zdrojový kód se publikoval na Githubu v projektu [NuGet/NuGet.Client](https://github.com/NuGet/NuGet.Client).
+Zdrojový kód se zveřejňuje na GitHubu v projektu [NuGet/NuGet. Client](https://github.com/NuGet/NuGet.Client).
 
-## <a name="third-party-documentation"></a>Dokumentace ke službě třetí strany
+## <a name="third-party-documentation"></a>Dokumentace třetích stran
 
-Příklady a dokumentaci pro některé z rozhraní API najdete v následujících seriálech blogu podle Dave Glick, publikování 2016:
+Příklady a dokumentaci k některému z rozhraní API najdete v následujících řadách blogu: Dave Glick, Published 2016:
 
-- [Zkoumání v3 knihovny NuGet, část 1: Úvod a koncepty](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-1)
-- [Zkoumání v3 knihovny NuGet, část 2: Vyhledávání balíčků](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-2)
-- [Zkoumání v3 knihovny NuGet, část 3: Instalace balíčků](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-3)
+- [Zkoumání knihoven NuGet v3, část 1: Úvod a koncepty](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-1)
+- [Zkoumání knihoven NuGet v3, část 2: hledání balíčků](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-2)
+- [Zkoumání knihoven NuGet v3, část 3: Instalace balíčků](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-3)
 
 > [!Note]
-> Příspěvky na blogu byly napsány krátce po **3.4.3** verzi Nugetu, byly vydané balíčky sady SDK klienta.
-> Novější verze balíčků možná není kompatibilní s informacemi v blogových příspěvků.
+> Tyto blogové příspěvky byly vypsány krátce po vydání verze **3.4.3** balíčků klientské sady SDK NuGet.
+> Novější verze balíčků můžou být nekompatibilní s informacemi v blogových příspěvcích.
 
-Martin Björkström nebyla zpracování blogovém příspěvku k Dave Glick blogovou sérii, kde mu představuje jiný přístup na pomocí klientské sady SDK NuGet pro instalaci balíčků NuGet:
+Martin Björkström obsahoval následující příspěvek blogu do série blogu Dave Glick, kde zavádí jiný přístup k používání klientské sady SDK NuGet pro instalaci balíčků NuGet:
 
-- [Byste nepřešli znovu na v3 knihovny NuGet](https://martinbjorkstrom.com/posts/2018-09-19-revisiting-nuget-client-libraries)
+- [Přenávštěva knihoven NuGet V3](https://martinbjorkstrom.com/posts/2018-09-19-revisiting-nuget-client-libraries)

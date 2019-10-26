@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 09/06/2019
 ms.topic: conceptual
-ms.openlocfilehash: 683ee7d1bef30d0a7414ec1694a9735d79b2ab45
-ms.sourcegitcommit: c529f5944868a0692ca8550b716a73e05df0ccbf
+ms.openlocfilehash: 3418eb9b60123596eaa361a546e8ea1403396f14
+ms.sourcegitcommit: f9645fc5f49c18978e12a292a3f832e162e069d5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687887"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72924600"
 ---
 # <a name="nuget-53-release-notes"></a>Zpráva k vydání verze NuGet 5,3
 
@@ -18,17 +18,17 @@ Prostředky pro distribuci NuGet:
 
 | Verze NuGet | K dispozici ve verzi sady Visual Studio| K dispozici v sadě .NET SDK|
 |:---|:---|:---|
-| [**5.3.0**](https://nuget.org/downloads) | [Visual Studio 2019 verze 16,3](https://visualstudio.microsoft.com/downloads/) | [3.0.100](https://dotnet.microsoft.com/download/dotnet-core/3.0) <sup>1</sup> |
-
+| [**5.3.0**](https://nuget.org/downloads) | [Visual Studio 2019 verze 16,3](https://visualstudio.microsoft.com/downloads/) | [3.0.100](https://dotnet.microsoft.com/download/dotnet-core/3.0)<sup>1</sup> |
+| [**5.3.1**](https://nuget.org/downloads) | [Visual Studio 2019 verze 16.3.6](https://visualstudio.microsoft.com/downloads/) | [Budoucí verze: 3.0.101](https://dotnet.microsoft.com/download/dotnet-core/3.0) |
 <sup>1</sup> Nainstalováno se sadou Visual Studio 2019 s úlohou .NET Core
 
-## <a name="summary-whats-new-in-53"></a>Shrnut Co je nového v 5,3
+## <a name="summary-whats-new-in-53"></a>Shrnutí: Novinky v 5,3
 
 * [Ikona balíčku se dá vložit do balíčku](../reference/msbuild-targets.md#packing-an-icon-image-file), takže nemusíte potřebovat externí adresu URL. - [#352](https://github.com/NuGet/Home/issues/352)
 
 * Vylepšené zabezpečení pomocí SHA sledování a vynucení pro balíčky. config- [#7281](https://github.com/NuGet/Home/issues/7281)
 
-* Povolit vyřazení zastaralých a starších balíčků NuGet [#2867](https://github.com/NuGet/Home/issues/2867)[blogový příspěvek](https://devblogs.microsoft.com/nuget/deprecating-packages-on-nuget-org/) |   | [docs](https://docs.microsoft.com/en-us/nuget/nuget-org/deprecate-packages)
+* Povolit vyřazení zastaralých a starších balíčků NuGet [#2867](https://github.com/NuGet/Home/issues/2867) | [blogový příspěvek](https://devblogs.microsoft.com/nuget/deprecating-packages-on-nuget-org/) | [docs](https://docs.microsoft.com/en-us/nuget/nuget-org/deprecate-packages)
 
 ### <a name="issues-fixed-in-this-release"></a>Chyby opravené v této verzi
 
@@ -36,7 +36,7 @@ Prostředky pro distribuci NuGet:
 
 * Balíčky NuGet vytvořené pomocí sady 3.0.100-preview9 SDK nemůžou používat uživatelé sady SDK 2,2... v závislosti na časovém pásmu [#8603](https://github.com/NuGet/Home/issues/8603)
 
-* Uvozovky "znaky v cestě způsobují" nepovolené znaky v cestě `nuget restore` "při [#8168](https://github.com/NuGet/Home/issues/8168)
+* Uvozovky "znaky v cestě způsobují" nepovolené znaky v cestě "`nuget restore` [#8168](https://github.com/NuGet/Home/issues/8168)
 
 * VS: sestavení jsou plně Ngen-Ed, ne částečně Ngen-Ed- [#8513](https://github.com/NuGet/Home/issues/8513)
 
@@ -46,7 +46,7 @@ Prostředky pro distribuci NuGet:
 
 * Vylepšení NU1403 – ověřte všechny balíčky, včetně očekávaných nebo skutečných hodnot SHA- [#8424](https://github.com/NuGet/Home/issues/8424)
 
-* Více výčtů `NuGetPackageManager.PreviewUpdatePackagesAsync`v  -  [#8401](https://github.com/NuGet/Home/issues/8401)
+* Více výčtu ve `NuGetPackageManager.PreviewUpdatePackagesAsync` - [#8401](https://github.com/NuGet/Home/issues/8401)
 
 * Vrácení "> interní" změny v PluginProcess- [#8390](https://github.com/NuGet/Home/issues/8390)
 
@@ -70,7 +70,7 @@ Prostředky pro distribuci NuGet:
 
 * Nastavit čtení nastavení v VS-opožděné [#8156](https://github.com/NuGet/Home/issues/8156)
 
-* Regrese `Nuget sources add` v důsledku toho, že znak ": ', šestnáctková hodnota 0x3A, nemůže být zahrnutá v názvu" Errors- [#7948](https://github.com/NuGet/Home/issues/7948)
+* Regrese v `Nuget sources add` způsobí, že znak ":", šestnáctková hodnota 0x3A, nemůže být zahrnutá v názvu "Errors- [#7948](https://github.com/NuGet/Home/issues/7948)
 
 * Zprostředkovatelé přihlašovacích údajů plug-in NuGet – skrýt okno procesu – [#7511](https://github.com/NuGet/Home/issues/7511)
 
@@ -86,10 +86,16 @@ Prostředky pro distribuci NuGet:
 
 * Povolit obnovení souborů. proj – [#8212](https://github.com/NuGet/Home/issues/8212)
 
-* Zavedení `NUGET_NETFX_PLUGIN_PATHS` a`NUGET_NETCORE_PLUGIN_PATHS` podpora konfigurace současně [#8151](https://github.com/NuGet/Home/issues/8151)
+* Zavedení `NUGET_NETFX_PLUGIN_PATHS` a `NUGET_NETCORE_PLUGIN_PATHS` pro podporu konfigurace současně [#8151](https://github.com/NuGet/Home/issues/8151)
 
 * Povolit více verzí pro PackageDownload pomocí atributu Version- [#8074](https://github.com/NuGet/Home/issues/8074)
 
 * Možnosti Add-SolutionDirectory a-PackageDirectory do NuGet. exe Pack- [#7163](https://github.com/NuGet/Home/issues/7163)
 
 **[Seznam všech problémů opravených v této verzi – 5,3](https://github.com/nuget/home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%225.3")**
+
+## <a name="summary-whats-new-in-531"></a>Shrnutí: co je nového v 5.3.1.
+
+* Modul plug-in: úloha byla zrušena. zrušení vlivu na vytvoření instance modulu plug-in [#8648](https://github.com/NuGet/Home/issues/8648)
+
+* Úloha obnovení nemůže být bezpečně spuštěna dvakrát v jednom procesu (při použití zprostředkovatelů pověření) – [#8688](https://github.com/NuGet/Home/issues/8688)
