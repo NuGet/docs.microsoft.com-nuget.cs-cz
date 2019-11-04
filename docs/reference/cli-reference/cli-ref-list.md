@@ -36,9 +36,9 @@ kde volitelné hledané výrazy budou filtrovat zobrazený seznam. Hledané výr
 | Help | Zobrazí informace o nápovědě k příkazu. |
 | IncludeDelisted | *(3.2 +)* Zobrazí neuvedené balíčky. |
 | NonInteractive | Potlačí výzvy pro vstup uživatele nebo potvrzení. |
-| Předběžné verze | Obsahuje předběžné verze balíčků v seznamu. |
+| PreRelease | Obsahuje předběžné verze balíčků v seznamu. |
 | Source | Určuje seznam zdrojů balíčků, které se mají hledat. |
-| Verbosity | Určuje množství podrobností zobrazených ve výstupu: *normální*, tiché a *podrobné*. |
+| Verbosity | Určuje množství podrobností zobrazených ve výstupu: *normální*, tichéa *podrobné*. |
 
 Podívejte se také na [proměnné prostředí](cli-ref-environment-variables.md) .
 
