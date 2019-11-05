@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 24e35f4b2c047d5f337a1779e63846b11b0c1011
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.openlocfilehash: e2b6a64b8010f16d0fc33cca437b348d8f784fd7
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72380581"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610504"
 ---
 # <a name="nugetorg-frequently-asked-questions"></a>NuGet.org často kladené otázky
 
@@ -90,7 +90,7 @@ Nejdřív se ujistěte, že používáte nejnovější verze NuGetu. Pokud se ta
 
 *Pro zachycení Fiddler:*
 
-- Nainstalujte nejnovější verzi [Fiddler](http://www.telerik.com/download/fiddler).
+- Nainstalujte nejnovější verzi [Fiddler](https://www.telerik.com/download/fiddler).
 - Spusťte Fiddler a zakažte zachycení provozu pomocí nabídky **soubor > zachytit provoz** .
 - Odeberte všechny relace (vyberte všechny položky v seznamu a stiskněte klávesu **Delete** ).
 - Nakonfigurujte Fiddler pro zachycení provozu HTTPS tím, že zkontrolujete **dešifrování přenosů** https na kartě **https** v nabídce **Nástroje > Fiddler možnosti...** .
@@ -101,7 +101,7 @@ Nejdřív se ujistěte, že používáte nejnovější verze NuGetu. Pokud se ta
 
 Poznámka: může být potřeba nastavit proměnnou prostředí `HTTP_PROXY` na `http://127.0.0.1:8888` pro směrování provozu NuGet přes Fiddler.
 
-Pokud se to nepovede, zkuste [tipy zmíněné v tomto příspěvku StackOverflow](http://stackoverflow.com/questions/21049908/using-fiddler-to-sniff-visual-studio-2013-requests-proxy-firewall).
+Pokud se to nepovede, zkuste [tipy zmíněné v tomto příspěvku StackOverflow](https://stackoverflow.com/questions/21049908/using-fiddler-to-sniff-visual-studio-2013-requests-proxy-firewall).
 
 ## <a name="nugetorg-account-management"></a>Správa účtů NuGet.org
 
@@ -228,17 +228,17 @@ Pokud se během procesu přihlašování v doméně e-mailového účtu (@yourdo
 
 Zdá se, že váš účet se dřív zaregistroval jako osobní účet Microsoft a pracoval správně, ale zdá se, že váš účet byl zaregistrován jako "nespravovaný" tenant v Azure Active Directory (služba identity, kterou používáme k ověřování Účty Microsoft). 
 
-K tomuto problému může dojít, pokud jste vy nebo někdo z vaší organizace (s e-mailovou adresou @yourdomain.com) zaregistrovali jednu z integrovaných služeb AAD nebo [pro Azure Active Directory použili samoobslužnou registraci](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-self-service-signup), která pro službu vytvořila takového nespravovaného tenanta. v případě použití účet Microsoft domény (@yourdomain.com). 
+K tomuto problému může dojít, pokud jste vy nebo někdo z vaší organizace (s e-mailovou adresou @yourdomain.com) zaregistrovali jednu z integrovaných služeb AAD nebo [pro Azure Active Directory použili samoobslužnou registraci](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-self-service-signup), která pro službu vytvořila takového nespravovaného tenanta. v případě použití účet Microsoft domény (@yourdomain.com). 
 
 **Co můžu udělat k obnovení svého účtu?**
 
 V současné době neexistuje způsob, jak US (NuGet.org) ověřovat účty s takovými nespravovanými klientskými účty v Azure Active Directory. Těšíme se na lepší způsob, jak tyto účty ověřit.
 
-Pokud se chcete přihlásit k NuGet.org pomocí účet Microsoft (@yourdomain.com), budete vy (nebo správce vaší společnosti) muset vyžádat vlastnictví AAD tím, že provedete ověření DNS pro ověřování uživatelů pomocí e-mailové adresy @yourdomain.com. Postupujte prosím podle kroků pro [převzetí správce domén](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/domains-admin-takeover) zdokumentované službou Azure Active Directory. Až to uděláte, vaše normální přihlášení by mělo začít pracovat.
+Pokud se chcete přihlásit k NuGet.org pomocí účet Microsoft (@yourdomain.com), budete vy (nebo správce vaší společnosti) muset vyžádat vlastnictví AAD tím, že provedete ověření DNS pro ověřování uživatelů pomocí e-mailové adresy @yourdomain.com. Postupujte prosím podle kroků pro [převzetí správce domén](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover) zdokumentované službou Azure Active Directory. Až to uděláte, vaše normální přihlášení by mělo začít pracovat.
 
 **Nechci všechno udělat, jaký je druhý způsob, jak obnovit svůj účet?**
 
-Můžete [vytvořit](https://www.microsoft.com/en-us/account) nový účet Microsoft (s e-mailem, který **není** přidružený k @yourdomain.com). Postupujte podle kroků uvedených v části [obnovení účtu NuGet.org](#unable-to-use-microsoft-login-how-do-i-recover-my-nugetorg-account) .
+Můžete [vytvořit](https://www.microsoft.com/account) nový účet Microsoft (s e-mailem, který **není** přidružený k @yourdomain.com). Postupujte podle kroků uvedených v části [obnovení účtu NuGet.org](#unable-to-use-microsoft-login-how-do-i-recover-my-nugetorg-account) .
 
 ### <a name="how-do-i-change-my-nugetorg-account-username"></a>Návody změnit uživatelské jméno účtu NuGet.org?
 
@@ -250,7 +250,7 @@ Postupujte podle kroků uvedených v části [odstranění účtu NuGet.org](#ho
 
 ### <a name="how-to-delete-my-nugetorg-account"></a>Jak odstranit svůj účet NuGet.org?
 
-Pokud chcete odstranit svůj účet, doporučujeme, abyste přenesli vlastnictví všech balíčků, ve kterých jste jediným vlastníkem. Další informace o tom, jak to udělat, najdete v článku o [správě vlastníků balíčků](https://docs.microsoft.com/en-us/nuget/create-packages/publish-a-package#managing-package-owners-on-nugetorg) . Pomůže vám to také při urychlení vaší žádosti.
+Pokud chcete odstranit svůj účet, doporučujeme, abyste přenesli vlastnictví všech balíčků, ve kterých jste jediným vlastníkem. Další informace o tom, jak to udělat, najdete v článku o [správě vlastníků balíčků](https://docs.microsoft.com/nuget/create-packages/publish-a-package#managing-package-owners-on-nugetorg) . Pomůže vám to také při urychlení vaší žádosti.
 
 Pokud chcete účet transformovat na organizaci, postupujte podle kroků uvedených v části [transformace účtu NuGet.org na organizaci](#how-to-transform-my-nugetorg-account-to-an-organization).
 

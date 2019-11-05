@@ -1,68 +1,68 @@
 ---
-title: Tools.JSON pro zjišťování nuget.exe verze
+title: Tools. JSON pro zjišťování verzí NuGet. exe
 description: Koncový bod pro
 author: jver
 ms.author: jver
 ms.date: 08/16/2018
 ms.topic: conceptual
 ms.reviewer: kraigb
-ms.openlocfilehash: 003139abac7808dbdaef4aa66119e09772db2b4f
-ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
+ms.openlocfilehash: a186db9727bdfd1b55bf73a1f29283352555dede
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56852530"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73611020"
 ---
-# <a name="toolsjson-for-discovering-nugetexe-versions"></a>Tools.JSON pro zjišťování nuget.exe verze
+# <a name="toolsjson-for-discovering-nugetexe-versions"></a>Tools. JSON pro zjišťování verzí NuGet. exe
 
-V současné době existuje několik způsobů, jak získat nejnovější verzi programu nuget.exe na svém počítači skriptovatelný způsobem. Například můžete stáhnout a extrahovat [ `NuGet.CommandLine` ](https://www.nuget.org/packages/NuGet.CommandLine/) balíček z webu nuget.org. To má některé složitost, protože se buď vyžaduje, že už máte nuget.exe (pro `nuget.exe install`) nebo máte rozbalit .nupkg nástrojem základní unzip a vyhledejte binární vnitřní.
+V současné době existuje několik způsobů, jak na svém počítači získat nejnovější verzi nástroje NuGet. exe, která umožňuje skriptovat. Balíček [`NuGet.CommandLine`](https://www.nuget.org/packages/NuGet.CommandLine/) můžete například stáhnout a extrahovat z NuGet.org. To má složitost, protože buď vyžaduje, abyste už měli nástroj NuGet. exe (pro `nuget.exe install`), nebo musíte rozbalit soubor. nupkg pomocí základního nástroje pro rozbalení a vyhledat binární soubor uvnitř.
 
-Pokud už máte nuget.exe, můžete také použít `nuget.exe update -self`, ale tento proces také vyžaduje s existující kopie nuget.exe. Tento přístup můžete rovněž aktualizuje na nejnovější verzi. Neumožňuje použít konkrétní verzi.
+Pokud již máte NuGet. exe, můžete také použít `nuget.exe update -self`, ale to vyžaduje, abyste měli existující kopii NuGet. exe. Tento přístup také aktualizuje na nejnovější verzi. Neumožňuje použití konkrétní verze.
 
-`tools.json` Koncový bod je k dispozici pro obě samozaváděcí problém vyřešit a poskytnout kontrolu verze programu nuget.exe, který můžete stáhnout. To lze vyhledat a stáhnout všechny vydané verze programu nuget.exe použít v prostředích CI/CD nebo vlastní skripty.
+Koncový bod `tools.json` je k dispozici pro řešení potíží s zaváděním a pro řízení verze souboru NuGet. exe, který stáhnete. Tato možnost se dá použít v prostředích CI/CD nebo ve vlastních skriptech ke zjišťování a stažení všech vydaných verzí NuGet. exe.
 
-`tools.json` Koncového bodu můžete načíst pomocí neověřené žádosti protokolu HTTP (například `Invoke-WebRequest` v prostředí PowerShell nebo `wget`). Může být analyzován pomocí deserializátor JSON a následné nuget.exe pro stažení adresy URL můžete načíst taky pomocí neověřené požadavky HTTP.
+Koncový bod `tools.json` lze načíst pomocí neověřeného požadavku HTTP (např. `Invoke-WebRequest` v PowerShellu nebo `wget`). Dá se analyzovat pomocí deserializace JSON a následné adresy URL pro stahování NuGet. exe můžete také načíst pomocí neověřených požadavků HTTP.
 
-Koncový bod můžete načíst pomocí `GET` metody:
+Koncový bod se dá načíst pomocí metody `GET`:
 
     GET https://dist.nuget.org/tools.json
 
-[Schématu JSON](http://json-schema.org/) pro koncový bod je k dispozici zde:
+[Schéma JSON](https://json-schema.org/) pro koncový bod je k dispozici zde:
 
     GET https://dist.nuget.org/tools.schema.json
 
-## <a name="response"></a>Odpověď
+## <a name="response"></a>Základě
 
-Odpověď je dokument JSON obsahující všechny dostupné verze programu nuget.exe.
+Odpověď je dokument JSON obsahující všechny dostupné verze nástroje NuGet. exe.
 
 Kořenový objekt JSON má následující vlastnost:
 
-Název      | Typ             | Požadováno
+Name      | Typ             | Požadováno
 --------- | ---------------- | --------
-nuget.exe | Pole objektů | ano
+nuget.exe | pole objektů | Ano
 
-Každý objekt v `nuget.exe` pole má následující vlastnosti:
+Každý objekt v poli `nuget.exe` má následující vlastnosti:
 
-Název     | Typ   | Požadováno | Poznámky
+Name     | Typ   | Požadováno | Poznámky
 -------- | ------ | -------- | -----
-verze  | odkazy řetězců | ano      | Řetězec SemVer 2.0.0
-url      | odkazy řetězců | ano      | Absolutní adresa URL pro stahování tato verze programu nuget.exe
-fáze    | odkazy řetězců | ano      | Řetězec výčtu
-Nahrání | odkazy řetězců | ano      | Přibližné časové razítko ISO 8601 z verze kdy byl k dispozici
+verze  | odkazy řetězců | Ano      | Řetězec SemVer 2.0.0
+Adresa URL      | odkazy řetězců | Ano      | Absolutní adresa URL pro stažení této verze souboru NuGet. exe
+Skladiště    | odkazy řetězců | Ano      | Řetězec výčtu
+nahrávaný | odkazy řetězců | Ano      | Přibližné časové razítko ISO 8601, kdy byla verze zpřístupněna
 
-Položky v poli budou seřazeny v sestupném pořadí SemVer 2.0.0. Aby se snížila zátěž klienta, který je uvažujete o nejvyšší číslo verze je určená této záruky. Ale to znamená, že seznam není seřazen v chronologickém pořadí. Například pokud nižší hlavní verze se obsluhují na datum pozdější než vyšší hlavní verze, tuto upravenou verzí se nezobrazí v horní části seznamu. Pokud chcete na nejnovější verzi vydal *časové razítko*, jednoduše seřadit pole pomocí `uploaded` řetězec. Tento postup funguje, protože `uploaded` časové razítko není v [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) formát, který lze seřadit chronologicky pomocí lexicographical řazení (to znamená jednoduchým řetězcem řazení).
+Položky v poli budou seřazeny sestupně, SemVer 2.0.0 objednávka. Tato záruka má snížit zatížení klienta, který má zájem o nejvyšší číslo verze. To ale znamená, že seznam není seřazený v chronologickém pořadí. Pokud je například nižší hlavní verze zavedená v pozdější době než vyšší hlavní verze, tato služba se v horní části seznamu nezobrazí. Pokud chcete nejnovější verzi vydanou *časovým razítkem*, jednoduše seřaďte pole pomocí `uploaded`ho řetězce. To funguje, protože časové razítko `uploaded` je ve formátu [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) , který lze seřadit chronologicky pomocí lexicographical řazení (tj. jednoduché řazení řetězců).
 
-`stage` Vlastnost určuje, jak prověřené je tato verze nástroje. 
+Vlastnost `stage` určuje, jak prověřené Tato verze nástroje. 
 
-Fáze              | Význam
+Skladiště              | Význam
 ------------------ | ------
-EarlyAccessPreview | Nejsou ještě viditelné na [webové stránce pro stažení](https://www.nuget.org/downloads) a by měl být ověřen od partnerů
-Všeobecně dostupné           | K dispozici na webu Stažení ale ještě není doporučeno pro šíření celou spotřebu
-ReleasedAndBlessed | K dispozici na serveru pro stahování a je doporučena pro využití
+EarlyAccessPreview | Ještě není vidět na [webové stránce Stáhnout](https://www.nuget.org/downloads) a měly by je ověřit partneři.
+Vydáno           | K dispozici na webu pro stahování, ale ještě není doporučováno pro rozsáhlou spotřebu
+ReleasedAndBlessed | K dispozici na webu pro stahování a doporučuje se pro spotřebu
 
-Jeden jednoduchým přístupem k nutnosti na nejnovější verzi, doporučená verze je v seznamu, který se má provést první verze `stage` hodnotu `ReleasedAndBlessed`. Tento postup funguje, protože verze jsou seřazeny podle SemVer 2.0.0.
+Jedním jednoduchým přístupem k nejnovějším a doporučeným verzím je první verze v seznamu, která má `stage` hodnotu `ReleasedAndBlessed`. To funguje, protože verze jsou seřazené v SemVer 2.0.0 pořadí.
 
-`NuGet.CommandLine` Balíčků na nuget.org je obvykle pouze aktualizován `ReleasedAndBlessed` verze.
+Balíček `NuGet.CommandLine` v nuget.org se obvykle aktualizuje jenom pomocí `ReleasedAndBlessed` verzí.
 
 ### <a name="sample-request"></a>Ukázková žádost
 

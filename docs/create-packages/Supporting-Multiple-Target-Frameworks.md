@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4413779361dad3a650da36b3c69bbb55b62804ee
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.openlocfilehash: 69e12ce1c78f8d4d50cbad7a0237d767064193ab
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72380736"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610653"
 ---
 # <a name="support-multiple-net-versions"></a>Podpora více verzí rozhraní .NET
 
@@ -151,8 +151,8 @@ Následující příklad ukazuje různé variace `<group>` elementu:
 
 Při vytváření balíčků knihoven cílících na knihovnu přenosných tříd může být obtížné určit, který cíl NuGet byste měli použít ve svých názvech složek a souboru `.nuspec`, zejména pokud cílíte jenom na podmnožinu PCL. Následující externí prostředky vám pomůžou s tímto:
 
-- [Profily architektury v rozhraní .NET](http://blog.stephencleary.com/2012/05/framework-profiles-in-net.html) (stephencleary.com)
-- [Přenositelné profily knihovny tříd](http://embed.plnkr.co/03ck2dCtnJogBKHJ9EjY/preview) (plnkr.co): vytváření výčtu profilů PCL a jejich ekvivalentních cílů NuGet v tabulce
+- [Profily architektury v rozhraní .NET](https://blog.stephencleary.com/2012/05/framework-profiles-in-net.html) (stephencleary.com)
+- [Přenositelné profily knihovny tříd](https://embed.plnkr.co/03ck2dCtnJogBKHJ9EjY/preview) (plnkr.co): vytváření výčtu profilů PCL a jejich ekvivalentních cílů NuGet v tabulce
 - [Nástroj pro profily přenosných knihoven tříd](https://github.com/StephenCleary/PortableLibraryProfiles) (GitHub.com): nástroj příkazového řádku pro určení profilů PCL dostupných ve vašem systému
 
 ## <a name="content-files-and-powershell-scripts"></a>Soubory obsahu a skripty PowerShellu

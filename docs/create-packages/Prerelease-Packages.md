@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: a7d07da30daf3f94db99476b88d9abaad1bb8a07
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: 1c19f962dc9e42154c0f4374432548e867e9538a
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488854"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610717"
 ---
 # <a name="building-pre-release-packages"></a>Sestavování balíčků předběžných verzí
 
@@ -24,7 +24,7 @@ Aby bylo možné podporovat životní cyklus vydání softwaru, NuGet 1,6 a nov�
 
 Tyto verze můžete zadat jedním z následujících způsobů:
 
-- **Pokud projekt používá [`PackageReference`](../consume-packages/package-references-in-project-files.md)** : `.csproj` v [prvkusouboruuveďtepříponusémantickéverze:`PackageVersion`](/dotnet/core/tools/csproj.md#packageversion)
+- **Pokud projekt používá [`PackageReference`](../consume-packages/package-references-in-project-files.md)** : zahrňte příponu sémantické verze do [`PackageVersion`](/dotnet/core/tools/csproj.md#packageversion) elementu `.csproj` souboru:
 
     ```xml
     <PropertyGroup>
@@ -32,7 +32,7 @@ Tyto verze můžete zadat jedním z následujících způsobů:
     </PropertyGroup>
     ```
 
-- **Pokud projekt obsahuje [`packages.config`](../reference/packages-config.md) soubor**: v [`version`](../reference/nuspec.md#version) prvku [`.nuspec`](../reference/nuspec.md) souboru uveďte příponu sémantické verze:
+- **Pokud má váš projekt [`packages.config`](../reference/packages-config.md) soubor**: zahrňte příponu sémantické verze do [`version`](../reference/nuspec.md#version) elementu [`.nuspec`](../reference/nuspec.md) souboru:
 
     ```xml
     <version>1.0.1-alpha</version>
@@ -44,36 +44,36 @@ Až budete připraveni uvolnit stabilní verzi, stačí odebrat příponu a bal�
 
 Ve výchozím nastavení NuGet nezahrnuje předběžné verze verzí při práci s balíčky, ale toto chování můžete změnit následujícím způsobem:
 
-- **Uživatelské rozhraní Správce balíčků v aplikaci Visual Studio**: V uživatelském rozhraní pro **správu balíčků NuGet** zaškrtněte políčko **zahrnout předběžné verze** :
+- **Uživatelské rozhraní Správce balíčků v aplikaci Visual Studio**: v uživatelském rozhraní **Spravovat balíčky NuGet** zaškrtněte políčko **zahrnout předběžné verze** :
 
     ![Zaškrtávací políčko zahrnout předběžné verze v aplikaci Visual Studio](media/Prerelease_02-CheckPrerelease.png)
 
     Nastavením nebo zrušením zaškrtnutí tohoto políčka se obnoví uživatelské rozhraní Správce balíčků a seznam dostupných verzí, které můžete nainstalovat.
 
-- **Konzola správce balíčků**: `Get-Package`Použijte přepínač s příkazy ,,`Install-Package` ,`Sync-Package`a .`Update-Package` `Find-Package` `-IncludePrerelease` Podívejte se na [referenční informace k prostředí PowerShell](../reference/powershell-reference.md).
+- **Konzola správce balíčků**: použijte přepínač `-IncludePrerelease` s příkazy `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package`a `Update-Package`. Podívejte se na [referenční informace k prostředí PowerShell](../reference/powershell-reference.md).
 
-- Rozhraní příkazového **řádku NuGet**: `update`Použijte přepínač s příkazy`delete`,,a .`mirror` `install` `-prerelease` Přečtěte si [referenční informace k NUGET CLI](../reference/nuget-exe-cli-reference.md)
+- Rozhraní příkazového **řádku NuGet**: použijte přepínač `-prerelease` s příkazy `install`, `update`, `delete`a `mirror`. Přečtěte si [referenční informace k NUGET CLI](../reference/nuget-exe-cli-reference.md)
 
 ## <a name="semantic-versioning"></a>Sémantická verze
 
-[Sémantická verze nebo konvence SemVer](http://semver.org/spec/v1.0.0.html) popisuje, jak používat řetězce v číslech verzí k vyjádření významu základního kódu.
+[Sémantická verze nebo konvence SemVer](https://semver.org/spec/v1.0.0.html) popisuje, jak používat řetězce v číslech verzí k vyjádření významu základního kódu.
 
-Každá verze v této konvenci má tři části `Major.Minor.Patch`, a to s následujícím významem:
+Každá verze v této konvenci má tři části `Major.Minor.Patch`s následujícím významem:
 
-- `Major`: Změny způsobující chyby
-- `Minor`: Nové funkce, ale zpětně kompatibilní
-- `Patch`: Zpětně kompatibilní opravy chyb
+- `Major`: přerušující se změny
+- `Minor`: nové funkce, ale zpětně kompatibilní
+- `Patch`: jenom zpětně kompatibilní opravy chyb
 
 Předprodejní verze jsou potom označeny připojením pomlčky a řetězcem po čísle opravy. Technicky řečeno, můžete použít *libovolný* řetězec po spojovníku a NuGet bude balíček zakládat jako předběžnou verzi. NuGet pak zobrazí plné číslo verze v příslušném uživatelském rozhraní a ponechává spotřebitelům interpretovat význam pro sebe samé.
 
 V takovém případě je obecně vhodné postupovat podle rozpoznaných konvencí pojmenování, jako jsou následující:
 
-- `-alpha`: Verze alfa, obvykle se používá pro práci v průběhu a experimentování
-- `-beta`: Beta verze, obvykle ta, která je dokončena pro další plánované vydání, ale může obsahovat známé chyby.
-- `-rc`: Verze Release Candidate, obvykle verze, která je potenciálně finální (stabilní), pokud se neobjeví významné chyby.
+- `-alpha`: verze alfa, obvykle se používá pro práci v průběhu a experimentování
+- `-beta`: beta verze, obvykle ta, která je dokončena pro příští plánované vydání, ale může obsahovat známé chyby.
+- `-rc`: verze Release Candidate, obvykle verze, která je potenciálně finální (stabilní), pokud se objevují významné chyby.
 
 > [!Note]
-> NuGet 4.3.0 + podporuje [sémantickou správu verzí v 2.0.0](http://semver.org/spec/v2.0.0.html), která podporuje předběžné verze čísel s tečkami Notation, jako `1.0.1-build.23`v. Zápis tečky není u verzí NuGet před 4.3.0 podporován. V dřívějších verzích nástroje NuGet byste mohli použít tvar, jako `1.0.1-build23` by byl ale vždy považován za předběžnou verzi.
+> NuGet 4.3.0 + podporuje [sémantickou správu verzí v 2.0.0](https://semver.org/spec/v2.0.0.html), která podporuje předběžné verze čísel s zápisem tečky, jako v `1.0.1-build.23`. Zápis tečky není u verzí NuGet před 4.3.0 podporován. V dřívějších verzích NuGet jste mohli použít tvar, jako je `1.0.1-build23` ale to se vždycky považuje za předběžnou verzi.
 
 Bez ohledu na přípony, které použijete, ale NuGet jim dáte přednost v obráceném abecedním pořadí:
 

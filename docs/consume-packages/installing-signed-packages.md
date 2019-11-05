@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7b92d07d19a2e9073ecc38ed37b4ee2491080443
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 89b5fcbd76b85b77489ab36caa215c3a2fedf032
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317774"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610979"
 ---
 # <a name="manage-package-trust-boundaries"></a>Správa hranic vztahů důvěryhodnosti balíčku
 
@@ -24,7 +24,7 @@ Podepsané balíčky nevyžadují, aby se nainstalovala žádná konkrétní akc
 > [!Note]
 > Vyžaduje NuGet 4.9.0 + a Visual Studio verze 15,9 a novější ve Windows.
 
-Můžete `signatureValidationMode` nakonfigurovat, `require` jak klienti NuGet ověřují signatury balíčků, nastavením na v souboru [`nuget config`](../reference/cli-reference/cli-ref-config.md) [NuGet. config](../reference/nuget-config-file.md) pomocí příkazu.
+Můžete nakonfigurovat, jak klienti NuGet ověřují signatury balíčků, nastavením `signatureValidationMode` pro `require` v souboru [NuGet. config](../reference/nuget-config-file.md) pomocí příkazu [`nuget config`](../reference/cli-reference/cli-ref-config.md) .
 
 ```cmd
 nuget.exe config -set signatureValidationMode=require
@@ -36,11 +36,11 @@ nuget.exe config -set signatureValidationMode=require
   </config>
 ```
 
-V tomto režimu se ověří, jestli jsou všechny balíčky podepsané všemi certifikáty, které jsou v `nuget.config` souboru důvěryhodné. Tento soubor vám umožní určit, které autory nebo úložiště jsou důvěryhodné na základě otisku certifikátu.
+V tomto režimu se ověří, jestli jsou všechny balíčky podepsané jakýmkoli certifikátem důvěryhodným v souboru `nuget.config`. Tento soubor vám umožní určit, které autory nebo úložiště jsou důvěryhodné na základě otisku certifikátu.
 
 ### <a name="trust-package-author"></a>Autor balíčku důvěryhodnosti
 
-Pro důvěřování balíčkům na základě podpisu autora použijte [`trusted-signers`](../reference/cli-reference/cli-ref-trusted-signers.md) příkaz pro `author` nastavení vlastnosti v souboru NuGet. config.
+Pro důvěřování balíčkům na základě podpisu autora použijte příkaz [`trusted-signers`](../reference/cli-reference/cli-ref-trusted-signers.md) pro nastavení vlastnosti `author` v souboru NuGet. config.
 
 ```cmd
 nuget.exe  trusted-signers Add -Name MyCompanyCert -CertificateFingerprint CE40881FF5F0AD3E58965DA20A9F571EF1651A56933748E1BF1C99E537C4E039 -FingerprintAlgorithm SHA256
@@ -55,12 +55,12 @@ nuget.exe  trusted-signers Add -Name MyCompanyCert -CertificateFingerprint CE408
 ```
 
 >[!TIP]
->`nuget.exe` K získání`SHA256` hodnoty otisku certifikátu použijte [příkaz Verify](../reference/cli-reference/cli-ref-verify.md) .
+>K získání `SHA256` hodnoty otisku certifikátu použijte [příkaz `nuget.exe` Verify](../reference/cli-reference/cli-ref-verify.md) .
 
 
 ### <a name="trust-all-packages-from-a-repository"></a>Důvěřovat všem balíčkům z úložiště
 
-K důvěřování balíčkům na základě podpisu úložiště použijte `repository` element:
+K důvěřování balíčkům na základě podpisu úložiště použijte element `repository`:
 
 ```xml
 <trustedSigners>  
@@ -91,15 +91,15 @@ Pokud má balíček více vlastníků a některý z těchto vlastníků je v sez
 
 ### <a name="untrusted-root-certificates"></a>Nedůvěryhodné kořenové certifikáty
 
-V některých situacích možná budete chtít povolit ověřování pomocí certifikátů, které se neřetězí k důvěryhodnému kořenovému adresáři v místním počítači. K přizpůsobení tohoto chování `allowUntrustedRoot` můžete použít atribut.
+V některých situacích možná budete chtít povolit ověřování pomocí certifikátů, které se neřetězí k důvěryhodnému kořenovému adresáři v místním počítači. K přizpůsobení tohoto chování můžete použít atribut `allowUntrustedRoot`.
 
 ### <a name="sync-repository-certificates"></a>Synchronizovat certifikáty úložiště
 
-Úložiště balíčků by měla oznamovat certifikáty, které používají v [indexu služeb](../api/service-index.md). Úložiště pak tyto certifikáty aktualizuje, např. po vypršení platnosti certifikátu. V takovém případě budou klienti s konkrétními zásadami vyžadovat aktualizaci konfigurace, aby zahrnovala nově přidaný certifikát. Důvěryhodné podepsané přidružené k úložišti můžete snadno upgradovat pomocí `nuget.exe` [příkazu pro synchronizaci důvěryhodného přihlášení](../reference/cli-reference/cli-ref-trusted-signers.md#nuget-trusted-signers-sync--name-).
+Úložiště balíčků by měla oznamovat certifikáty, které používají v [indexu služeb](../api/service-index.md). Úložiště pak tyto certifikáty aktualizuje, např. po vypršení platnosti certifikátu. V takovém případě budou klienti s konkrétními zásadami vyžadovat aktualizaci konfigurace, aby zahrnovala nově přidaný certifikát. Důvěryhodné podepsané přidružené k úložišti můžete snadno upgradovat pomocí příkazu `nuget.exe` [synchronizační příkaz Trusted-Signer] (.. /Reference/CLI-reference/CLI-ref-Trusted-signers.MD # NuGet – důvěryhodné-podepisující osoby-Sync--name-Name
 
 ### <a name="schema-reference"></a>Odkaz na schéma
 
-Úplný odkaz na schéma pro zásady klienta najdete v referenčních informacích k [NuGet. config.](../reference/nuget-config-file.md#trustedsigners-section)
+Úplný odkaz na schéma pro zásady klienta najdete v [referenčních informacích k NuGet. config.](../reference/nuget-config-file.md#trustedsigners-section)
 
 ## <a name="related-articles"></a>Související články
 

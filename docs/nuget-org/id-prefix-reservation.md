@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 09/07/2019
 ms.topic: reference
 ms.reviewer: karann
-ms.openlocfilehash: f6c4a18366b4df20fb210f718d3779e85c08d550
-ms.sourcegitcommit: 188ade66b7ac807ba1667c77cfb9325bf89a8a4a
+ms.openlocfilehash: da464cc44d8c874e13c0cdfab871f31e643b577f
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71248126"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610498"
 ---
 # <a name="package-id-prefix-reservation"></a>Rezervace předpony ID balíčku
 
@@ -47,7 +47,7 @@ Tyto změny jsou založeny na následujících podmínkách a ukládají několi
 
 K dispozici je několik pokročilejších scénářů rezervace prefixů, včetně delegování s předponou a označení předpon jako veřejných. Níže jsou uvedeny pokročilejší rezervace předpon, které je možné provést. 
 
-- Během rezervace předpony může vlastník požádat o delegování podmnožiny předpon (nebo předpony) na jiné vlastníky. Například pokud "[Microsoft](https://www.nuget.org/profiles/microsoft)" vlastní Microsoft. , ale ASPNET chce rezervovat Microsoft. ASPNET.[](https://www.nuget.org/profiles/aspnet) \* ', Microsoft ' se může rozhodnout delegovat Microsoft. ASPNET.[](https://www.nuget.org/profiles/microsoft) \* ' na účet [ASPNET.](https://www.nuget.org/profiles/aspnet) \*
+- Během rezervace předpony může vlastník požádat o delegování podmnožiny předpon (nebo předpony) na jiné vlastníky. Například pokud "[Microsoft](https://www.nuget.org/profiles/microsoft)" vlastní Microsoft.\*, ale[ASPNET](https://www.nuget.org/profiles/aspnet)chce rezervovat Microsoft. ASPNET.\*","[Microsoft](https://www.nuget.org/profiles/microsoft)"se může rozhodnout delegovat" Microsoft. ASPNET.\*k účtu [ASPNET](https://www.nuget.org/profiles/aspnet) .
 
 - V rámci rezervované předpony se vlastník může rozhodnout, že má předponu veřejnou. Tím se jim budou zobrazovat indikátory, které ukazují, že balíček pochází z rezervované předpony, ale **neblokuje** budoucí odesílání balíčků na předponu pro libovolného vlastníka. To je užitečné pro open source projekty s mnoha přispěvateli – přispěvatelé Top nebo Core můžou mít vyhrazenou předponu, ale může být pořád otevřená pro všechny přispěvatele. 
 
@@ -55,11 +55,11 @@ K dispozici je několik pokročilejších scénářů rezervace prefixů, včetn
 
 Když balíček pochází z rezervované předpony, zobrazí se v galerii [NuGet.org](https://www.nuget.org/) a v aplikaci visual Studio 2017 verze 15,4 nebo novější následující vizuální indikátory:
 
-**galerie NuGet.org galerie NuGet.org**
-![](media/nuget-gallery-reserved-prefix.png)
+Galerie **nuget.org**
+![galerii NuGet.org](media/nuget-gallery-reserved-prefix.png)
 
-**Visual Studio**
-![Visual Studio](media/visual-studio-reserved-prefix.png)
+**Visual studio**
+![visual Studio](media/visual-studio-reserved-prefix.png)
 
 ## <a name="id-prefix-reservation-application-process"></a>Proces aplikace rezervace předpony ID
 
@@ -67,7 +67,7 @@ Když balíček pochází z rezervované předpony, zobrazí se v galerii [NuGet
 
 2. Určete předpony, které chcete vyhradit, kromě všech [pokročilých scénářů vyhrazených předpon](#advanced-prefix-reservation-scenarios) , které můžete potřebovat.
 
-3. Odešlete e-mail na [account@nuget.org](mailto:account@nuget.org) zobrazované jméno vlastníka na [NuGet.org](https://www.nuget.org/)a všechny rezervované předpony, které požadujete. Pokud delegujete podmnožiny předpon více vlastníkům, ujistěte se, že jste uváděli všechny zobrazované názvy a podmnožiny předpon všech vlastníků.
+3. Odešlete e-mailovou zprávu [account@nuget.org](mailto:account@nuget.org) se zobrazovaným jménem vlastníka na [NuGet.org](https://www.nuget.org/)a všemi rezervovanými předponami, které požadujete. Pokud delegujete podmnožiny předpon více vlastníkům, ujistěte se, že jste uváděli všechny zobrazované názvy a podmnožiny předpon všech vlastníků.
 
 Po odeslání aplikace se zobrazí oznámení o přijetí nebo zamítnutí (s kritérii, která způsobila zamítnutí). Pro potvrzení identity vlastníka možná budete muset požádat o další identifikační otázky.
 
@@ -93,10 +93,10 @@ Při kontrole libovolné aplikace pro rezervaci předpony ID tým [NuGet.org](ht
 
 ## <a name="third-party-feed-provider-scenarios"></a>Scénáře poskytovatele kanálu třetích stran
 
-Pokud se poskytovatel kanálu třetí strany zajímá o implementaci vlastní služby pro poskytování rezervací předpon, můžete to udělat úpravou vyhledávací služby v poskytovatelích kanálu NuGet v3. Přidáním do služby vyhledávání informačních kanálů je přidání *ověřené* vlastnosti s příklady pro níže uvedené kanály v3. Klient NuGet nebude podporovat přidané vlastnosti v kanálu v2.
+Pokud se poskytovatel kanálu třetí strany zajímá o implementaci vlastní služby pro poskytování rezervací předpon, může to udělat úpravou vyhledávací služby v poskytovatelích kanálu NuGet v3. Změnou ve službě vyhledávání informačních kanálů je přidání vlastnosti `verified`. Klient NuGet nebude podporovat přidané vlastnosti v kanálu v2.
 
 Další informace najdete v dokumentaci k [vyhledávací službě rozhraní API](../api/search-query-service-resource.md).
 
 ## <a name="package-id-prefix-reservation-dispute-policy"></a>Zásady sporu pro rezervaci předpony ID balíčku
-Pokud se domníváte, že vlastníkovi v [NuGet.org](https://www.nuget.org) byl přiřazená rezervace předpony ID balíčku, která se nachází oproti výše uvedeným kritériím, nebo porušuje jakékoli ochranné známky [support@nuget.org](mailto:support@nuget.org) nebo autorská práva, pošlete prosím e-mail s příslušnou předponou ID a vlastníkem ID. a důvod pro spor s přiřazenou rezervací předpony.
+Pokud se domníváte, že vlastníkovi v [NuGet.org](https://www.nuget.org) byl přiřazená rezervace předpony ID balíčku, která se nachází oproti výše uvedeným kritériím, nebo má za následek jakékoli ochranné známky nebo autorská práva, pošlete prosím e-mail [support@nuget.org](mailto:support@nuget.org) s otázkou ID, kterou vlastní ID. a důvod pro spor s přiřazenou rezervací předpony.
 

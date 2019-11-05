@@ -6,34 +6,34 @@ ms.author: jver
 ms.date: 3/1/2019
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: 6657536ea6c699a834f57494c66b2a7d741dfcb7
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: 3102cb9a20f354e92a0da8bba6457dc2ad0f0f2d
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488170"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610961"
 ---
 # <a name="package-details-url-template"></a>Šablona adresy URL s podrobnostmi balíčku
 
 Je možné, že klient vytvoří adresu URL, kterou může uživatel použít k zobrazení dalších podrobností o balíčku ve webovém prohlížeči. To je užitečné, když zdroj balíčku chce zobrazit další informace o balíčku, který se nemusí vejít do rozsahu, který se zobrazí v klientské aplikaci NuGet.
 
-Prostředek použitý k vytvoření této adresy URL je prostředek `PackageDetailsUriTemplate` , který se našel v [indexu služby](service-index.md).
+Prostředek použitý k vytvoření této adresy URL je prostředek `PackageDetailsUriTemplate`, který se našel v [indexu služby](service-index.md).
 
 ## <a name="versioning"></a>Správa verzí
 
-Použijí se `@type` tyto hodnoty:
+Použijí se následující hodnoty `@type`:
 
-@typeosa                     | Poznámky
+hodnota @type                     | Poznámky
 ------------------------------- | -----
 PackageDetailsUriTemplate/5.1.0 | Počáteční verze
 
 ## <a name="url-template"></a>Šablona adresy URL
 
-Adresa URL následujícího rozhraní API je hodnota `@id` vlastnosti přidružené k jedné z výše uvedených hodnot prostředků. `@type`
+Adresa URL následujícího rozhraní API je hodnota vlastnosti `@id` přidružená k jedné z výše uvedených `@type` hodnot prostředku.
 
 ## <a name="http-methods"></a>Metody HTTP
 
-I když klient nemá v úmyslu vytvářet požadavky na adresu URL podrobností balíčku jménem uživatele, měla by tato webová stránka podporovat `GET` metodu, aby bylo možné snadno otevřít otevřenou webovou stránku ve webovém prohlížeči.
+I když klient nemá v úmyslu vytvářet požadavky na adresu URL podrobností balíčku jménem uživatele, měla by webová stránka podporovat metodu `GET`, aby bylo možné snadno otevřít otevřenou adresu URL ve webovém prohlížeči.
 
 ## <a name="construct-the-url"></a>Vytvoření adresy URL
 
@@ -41,16 +41,16 @@ Vzhledem k známému ID a verzi balíčku může implementace klienta vytvořit 
 
 Adresa URL musí být absolutní adresa URL a schéma (protokol) musí být HTTPS.
 
-Hodnota `@id` v indexu služby je řetězec adresy URL obsahující kteroukoli z následujících zástupných tokenů:
+Hodnota `@id` v indexu služby je řetězec adresy URL obsahující následující zástupné tokeny:
 
 ### <a name="url-placeholders"></a>Zástupné symboly adresy URL
 
-Name        | type    | Požadováno | Poznámky
+Name        | Typ    | Požadováno | Poznámky
 ----------- | ------- | -------- | -----
 `{id}`      | odkazy řetězců  | Ne       | ID balíčku, pro který se mají získat podrobnosti
 `{version}` | odkazy řetězců  | Ne       | Verze balíčku, pro který se mají získat podrobnosti
 
-Server by měl přijmout `{id}` hodnoty `{version}` a s libovolnými velkými písmeny. Kromě toho by neměl být server citlivý na to, jestli je verze [normalizovaná](https://docs.microsoft.com/en-us/nuget/concepts/package-versioning#normalized-version-numbers). Jinými slovy, server by měl přijímat také nenormalizované verze.
+Server by měl přijmout `{id}` a `{version}` hodnoty s libovolným písmenem. Kromě toho by neměl být server citlivý na to, jestli je verze [normalizovaná](https://docs.microsoft.com/nuget/concepts/package-versioning#normalized-version-numbers). Jinými slovy, server by měl přijímat také nenormalizované verze.
 
 Například šablona s podrobnostmi balíčku NuGet. org vypadá takto:
 

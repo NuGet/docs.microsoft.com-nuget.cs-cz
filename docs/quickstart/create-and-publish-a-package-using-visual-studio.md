@@ -5,14 +5,14 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/16/2019
 ms.topic: quickstart
-ms.openlocfilehash: 9552f6c5291f950430bfb723cb713bf76a79ea66
-ms.sourcegitcommit: 80cf99f40759911324468be1ec815c96aebf376d
+ms.openlocfilehash: ef1bda19c5ca3c6b5a4bd9b9d4e3ef41d7dadb53
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/17/2019
-ms.locfileid: "69564585"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610639"
 ---
-# <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Rychlý start: Vytvoření a publikování balíčku NuGet pomocí sady Visual Studio (.NET Standard, pouze Windows)
+# <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Rychlý Start: vytvoření a publikování balíčku NuGet pomocí sady Visual Studio (.NET Standard, pouze Windows)
 
 Je to jednoduchý proces vytvoření balíčku NuGet z knihovny tříd .NET Standard v aplikaci Visual Studio ve Windows a jeho následné publikování na nuget.org pomocí nástroje CLI.
 
@@ -23,14 +23,14 @@ Je to jednoduchý proces vytvoření balíčku NuGet z knihovny tříd .NET Stan
 
 1. Nainstalujte jakoukoli edici sady Visual Studio 2019 z [VisualStudio.com](https://www.visualstudio.com/) s využitím úlohy související s .NET Core.
 
-1. Pokud ještě není nainstalovaný, nainstalujte rozhraní `dotnet` příkazového řádku.
+1. Pokud ještě není nainstalovaná, nainstalujte `dotnet` CLI.
 
-   Pro rozhraní `dotnet` příkazového řádku, počínaje sadou Visual Studio 2017 `dotnet` , se rozhraní příkazového řádku automaticky nainstaluje se všemi úlohami souvisejícími s .NET Core. V opačném případě nainstalujte rozhraní příkazového `dotnet` řádku, abyste získali [.NET Core SDK](https://www.microsoft.com/net/download/). Rozhraní `dotnet` příkazového řádku je vyžadováno pro .NET Standard projekty, které používají [Formát sady SDK](../resources/check-project-format.md) (atribut sady SDK). Výchozí .NET Standard šablona knihovny tříd v sadě Visual Studio 2017 a vyšší, která se používá v tomto článku, používá atribut SDK.
+   Pro `dotnet` CLI počínaje sadou Visual Studio 2017 se `dotnet` CLI automaticky nainstaluje se všemi úlohami souvisejícími s .NET Core. V opačném případě nainstalujte [.NET Core SDK](https://www.microsoft.com/net/download/) pro získání `dotnet` CLI. `dotnet` CLI je vyžadován pro .NET Standard projekty, které používají [Formát sady SDK](../resources/check-project-format.md) (atribut sady SDK). Výchozí .NET Standard šablona knihovny tříd v sadě Visual Studio 2017 a vyšší, která se používá v tomto článku, používá atribut SDK.
    
    > [!Important]
-   > Pokud pracujete s projektem, který není typu SDK, postupujte podle pokynů v části [Vytvoření a publikování .NET Frameworkho balíčku (Visual Studio)](create-and-publish-a-package-using-visual-studio-net-framework.md) pro vytvoření a publikování balíčku. V tomto článku se doporučuje `dotnet` používat rozhraní příkazového řádku. I když můžete publikovat libovolný balíček NuGet pomocí rozhraní `nuget.exe` příkazového řádku, některé kroky v tomto článku jsou specifické pro projekty ve stylu sady SDK a rozhraní příkazového řádku dotnet. Rozhraní příkazového řádku NuGet. exe se používá pro [projekty, které nejsou ve stylu sady SDK](../resources/check-project-format.md) (obvykle .NET Framework).
+   > Pokud pracujete s projektem, který není typu SDK, postupujte podle pokynů v části [Vytvoření a publikování .NET Frameworkho balíčku (Visual Studio)](create-and-publish-a-package-using-visual-studio-net-framework.md) pro vytvoření a publikování balíčku. V tomto článku se doporučuje `dotnet` CLI. I když můžete publikovat libovolný balíček NuGet pomocí `nuget.exe` CLI, některé kroky v tomto článku jsou specifické pro projekty ve stylu sady SDK a rozhraní příkazového řádku dotnet. Rozhraní příkazového řádku NuGet. exe se používá pro [projekty, které nejsou ve stylu sady SDK](../resources/check-project-format.md) (obvykle .NET Framework).
 
-1. [Zaregistrujte si bezplatný účet na NuGet.org](https://docs.microsoft.com/en-us/nuget/nuget-org/individual-accounts#add-a-new-individual-account) , pokud ho ještě nemáte. Když se vytvoří nový účet, pošle se potvrzovací e-mail. Než budete moct nahrát balíček, musíte účet potvrdit.
+1. [Zaregistrujte si bezplatný účet na NuGet.org](https://docs.microsoft.com/nuget/nuget-org/individual-accounts#add-a-new-individual-account) , pokud ho ještě nemáte. Když se vytvoří nový účet, pošle se potvrzovací e-mail. Než budete moct nahrát balíček, musíte účet potvrdit.
 
 ## <a name="create-a-class-library-project"></a>Vytvořit projekt knihovny tříd
 
@@ -88,9 +88,9 @@ namespace AppLogger
 
     ![Příkaz NuGet Pack v místní nabídce projektu sady Visual Studio](media/qs_create-vs-02-pack-command.png)
 
-    Pokud nevidíte příkaz **Pack** , projekt pravděpodobně není projekt ve stylu sady SDK a je nutné použít rozhraní `nuget.exe` příkazového řádku. Buď [migrujte projekt](../consume-packages/migrate-packages-config-to-package-reference.md) a použijte `dotnet` rozhraní příkazového řádku, nebo si přečtěte článek [Vytvoření a publikování .NET Framework balíčku](create-and-publish-a-package-using-visual-studio-net-framework.md) pro podrobné pokyny.
+    Pokud nevidíte příkaz **Pack** , projekt pravděpodobně není projekt ve stylu sady SDK a je nutné použít `nuget.exe` CLI. Buď [migrujte projekt](../consume-packages/migrate-packages-config-to-package-reference.md) a použijte `dotnet` CLI, nebo si přečtěte článek [vytvoření a publikování .NET Framework balíčku](create-and-publish-a-package-using-visual-studio-net-framework.md) pro podrobné pokyny.
 
-1. Visual Studio vytvoří projekt a vytvoří `.nupkg` soubor. Projděte si podrobnosti v okně **výstup** (podobně jako v následujícím příkladu), který obsahuje cestu k souboru balíčku. Všimněte si také, že sestavené sestavení `bin\Release\netstandard2.0` je v podobě befits na cíl .NET Standard 2,0.
+1. Visual Studio vytvoří projekt a vytvoří soubor `.nupkg`. Projděte si podrobnosti v okně **výstup** (podobně jako v následujícím příkladu), který obsahuje cestu k souboru balíčku. Všimněte si také, že sestavené sestavení je v `bin\Release\netstandard2.0` jako befits na cíl .NET Standard 2,0.
 
     ```output
     1>------ Build started: Project: AppLogger, Configuration: Release Any CPU ------
@@ -103,9 +103,9 @@ namespace AppLogger
 
 Sadu Visual Studio můžete nakonfigurovat tak, aby automaticky generovala balíček NuGet při sestavování projektu.
 
-1. V Průzkumníku řešení klikněte pravým tlačítkem na projekt a zvolte **vlastnosti**.
+1. V Průzkumník řešení klikněte pravým tlačítkem na projekt a vyberte **vlastnosti**.
 
-2. Na kartě **balíček** vyberte při sestavování **vytvořit balíček NuGet**.
+2. Na kartě **balíček** vyberte při **sestavování vytvořit balíček NuGet**.
 
    ![Automaticky generovat balíček při sestavení](media/qs_create-vs-05-generate-on-build.png)
 
@@ -114,13 +114,13 @@ Sadu Visual Studio můžete nakonfigurovat tak, aby automaticky generovala balí
 
 ### <a name="optional-pack-with-msbuild"></a>(Nepovinný) Pack s nástrojem MSBuild
 
-Jako alternativu k použití příkazu nabídky **Pack** , NuGet 4. x + a MSBuild 15.1 + podporuje `pack` cíl, když projekt obsahuje potřebná data balíčku. Otevřete příkazový řádek, přejděte do složky projektu a spusťte následující příkaz. (Obvykle chcete spustit "Developer Command Prompt pro Visual Studio" z nabídky Start, protože se nakonfiguruje se všemi nezbytnými cestami pro MSBuild.)
+Jako alternativu k použití příkazu nabídky **Pack** , NuGet 4. x + a MSBuild 15.1 + podporuje cíl `pack`, když projekt obsahuje potřebná data balíčku. Otevřete příkazový řádek, přejděte do složky projektu a spusťte následující příkaz. (Obvykle chcete spustit "Developer Command Prompt pro Visual Studio" z nabídky Start, protože se nakonfiguruje se všemi nezbytnými cestami pro MSBuild.)
 
 Další informace najdete v tématu [Vytvoření balíčku pomocí nástroje MSBuild](../create-packages/creating-a-package-msbuild.md).
 
 ## <a name="publish-the-package"></a>Publikování balíčku
 
-Jakmile budete mít `.nupkg` soubor, publikujete ho v NuGet.org pomocí rozhraní `nuget.exe` příkazového řádku nebo `dotnet.exe` rozhraní příkazového řádku spolu s klíčem rozhraní API získaným z NuGet.org.
+Jakmile budete mít soubor `.nupkg`, publikujete ho nuget.org pomocí `nuget.exe` CLI nebo rozhraní příkazového řádku `dotnet.exe` spolu s klíčem rozhraní API získaným z nuget.org.
 
 [!INCLUDE [publish-notes](includes/publish-notes.md)]
 
@@ -134,7 +134,7 @@ Vyberte kartu pro nástroj CLI, buď **.NET Core CLI** (dotnet CLI), nebo **NuGe
 
 # <a name="net-core-clitabnetcore-cli"></a>[Rozhraní příkazového řádku .NET Core](#tab/netcore-cli)
 
-Tento krok je doporučenou alternativou použití `nuget.exe`nástroje.
+Tento krok je doporučenou alternativou použití `nuget.exe`.
 
 Než budete moct balíček publikovat, musíte nejdřív otevřít příkazový řádek.
 
@@ -144,7 +144,7 @@ Než budete moct balíček publikovat, musíte nejdřív otevřít příkazový 
 
 Tento krok je alternativou k použití `dotnet.exe`.
 
-1. Otevřete příkazový řádek a přejděte do složky, která obsahuje `.nupkg` soubor.
+1. Otevřete příkazový řádek a přejděte do složky, která obsahuje soubor `.nupkg`.
 
 1. Spusťte následující příkaz, zadáním názvu balíčku (jedinečné ID balíčku) a nahrazením hodnoty klíče klíčem rozhraní API:
 
@@ -175,7 +175,7 @@ Viz [push NuGet](../reference/cli-reference/cli-ref-push.md).
 
 ## <a name="adding-a-readme-and-other-files"></a>Přidání souboru Readme a dalších souborů
 
-Chcete-li přímo určit soubory, které mají být zahrnuty do balíčku, upravte soubor projektu `content` a použijte vlastnost:
+Chcete-li přímo určit soubory, které mají být zahrnuty do balíčku, upravte soubor projektu a použijte vlastnost `content`:
 
 ```xml
 <ItemGroup>
@@ -186,7 +186,7 @@ Chcete-li přímo určit soubory, které mají být zahrnuty do balíčku, uprav
 </ItemGroup>
 ```
 
-Tato akce bude obsahovat soubor s `readme.txt` názvem v kořenovém adresáři balíčku. Sada Visual Studio zobrazí obsah tohoto souboru jako prostý text ihned po instalaci balíčku přímo. (Soubory Readme se nezobrazí pro balíčky nainstalované jako závislosti). Tady je příklad, jak se zobrazí soubor Readme pro balíček HtmlAgilityPack:
+Tato akce zahrne do kořenového adresáře balíčku soubor s názvem `readme.txt`. Sada Visual Studio zobrazí obsah tohoto souboru jako prostý text ihned po instalaci balíčku přímo. (Soubory Readme se nezobrazí pro balíčky nainstalované jako závislosti). Tady je příklad, jak se zobrazí soubor Readme pro balíček HtmlAgilityPack:
 
 ![Zobrazení souboru Readme pro balíček NuGet při instalaci](../create-packages/media/Create_01-ShowReadme.png)
 

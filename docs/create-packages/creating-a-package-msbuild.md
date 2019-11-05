@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9512899a4086d17d2584f16833aba33efb321eae
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.openlocfilehash: b45c25a92c0134228fb507ab321cb00ce156527f
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72380694"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610561"
 ---
 # <a name="create-a-nuget-package-using-msbuild"></a>Vytvoření balíčku NuGet pomocí nástroje MSBuild
 
-Když vytvoříte balíček NuGet z kódu, zabalíte tuto funkci do komponenty, kterou můžete sdílet s a používat v jakémkoli počtu jiných vývojářů. Tento článek popisuje, jak vytvořit balíček pomocí nástroje MSBuild. Nástroj MSBuild přináší předinstalované všechny úlohy sady Visual Studio, které obsahují NuGet. Kromě toho můžete také použít MSBuild prostřednictvím rozhraní příkazového řádku dotnet pomocí příkazu [dotnet MSBuild](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-msbuild) .
+Když vytvoříte balíček NuGet z kódu, zabalíte tuto funkci do komponenty, kterou můžete sdílet s a používat v jakémkoli počtu jiných vývojářů. Tento článek popisuje, jak vytvořit balíček pomocí nástroje MSBuild. Nástroj MSBuild přináší předinstalované všechny úlohy sady Visual Studio, které obsahují NuGet. Kromě toho můžete také použít MSBuild prostřednictvím rozhraní příkazového řádku dotnet s nástrojem [dotnet MSBuild](https://docs.microsoft.com/dotnet/core/tools/dotnet-msbuild).
 
 Pro projekty .NET Core a .NET Standard, které používají [Formát styly sady SDK](../resources/check-project-format.md)a všechny další projekty ve stylu sady SDK, nástroj NuGet používá informace v souboru projektu přímo k vytvoření balíčku.  Pro projekt bez sady SDK, který používá `<PackageReference>` používá nástroj NuGet také soubor projektu k vytvoření balíčku.
 
@@ -30,10 +30,10 @@ Příkaz, který vytváří balíček, `msbuild -t:pack`, je funkce ekvivalentn�
 Pro vytvoření balíčku jsou vyžadovány následující vlastnosti.
 
 - `PackageId` identifikátor balíčku, který musí být jedinečný v rámci Galerie, která hostuje balíček. Pokud není zadán, výchozí hodnota je `AssemblyName`.
-- `Version`, číslo konkrétní verze ve formátu *hlavní. podverze. patch [-přípona]* , kde *-přípona* identifikuje [předběžné verze verzí](prerelease-packages.md). Pokud není zadaný, použije se výchozí hodnota 1.0.0.
+- `Version`– konkrétní číslo verze ve formátu *hlavní. podverze. Oprava [-přípona]* , kde *-přípona* identifikuje [předběžné verze verzí](prerelease-packages.md). Pokud není zadaný, použije se výchozí hodnota 1.0.0.
 - Název balíčku, jak by měl být zobrazen na hostiteli (například nuget.org)
-- @no__t – 0, informace o autorovi a vlastníka. Pokud není zadán, výchozí hodnota je `AssemblyName`.
-- @no__t – 0, název vaší společnosti. Pokud není zadán, výchozí hodnota je `AssemblyName`.
+- `Authors`, informace o autorovi a vlastníkovi. Pokud není zadán, výchozí hodnota je `AssemblyName`.
+- `Company`název vaší společnosti. Pokud není zadán, výchozí hodnota je `AssemblyName`.
 
 V sadě Visual Studio můžete nastavit tyto hodnoty ve vlastnostech projektu (klikněte pravým tlačítkem myši na projekt v Průzkumník řešení, zvolte **vlastnosti**a vyberte kartu **balíček** ). Tyto vlastnosti lze také nastavit přímo v souborech projektu ( *. csproj*).
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 353654d12e137222ab24417f30fd22e9f027c324
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.openlocfilehash: 12ecfb8374c43a04d57d32575556adebc991d053
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72380713"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610693"
 ---
 # <a name="create-a-package-using-the-nugetexe-cli"></a>Vytvoření balíčku pomocí rozhraní příkazového řádku NuGet. exe
 
@@ -182,11 +182,11 @@ Konvence složek jsou následující:
 | zobrazuje | Umístění souboru Readme. txt | Sada Visual Studio při instalaci balíčku zobrazí v kořenovém adresáři balíčku soubor Readme. txt. |
 | lib/{TFM} | Assembly (`.dll`), dokumentace (`.xml`) a soubory symbolů (`.pdb`) pro daný moniker cílového rozhraní (TFM) | Sestavení jsou přidána jako reference pro kompilaci a také za běhu; `.xml` a `.pdb` zkopírovány do složek projektu. Viz [Podpora více cílových rozhraní](supporting-multiple-target-frameworks.md) pro vytváření podadresářů specifických pro cíl rozhraní. |
 | ref/{TFM} | Assembly (`.dll`) a symbol (`.pdb`) soubory pro daný moniker cílového rozhraní (TFM) | Sestavení jsou přidána jako odkazy pouze pro dobu kompilace; Takže se nic nezkopíruje do složky Bin projektu. |
-| moduly runtime | Sestavení pro konkrétní architekturu (`.dll`), symbol (`.pdb`) a soubory nativního prostředku (`.pri`) | Sestavení jsou přidána jako odkazy pouze pro modul runtime; jiné soubory jsou zkopírovány do složek projektu. V rámci složky `/ref/{tfm}` by měla být vždy k dispozici odpovídající (TFM) @no__t pro konkrétní sestavení pro čas kompilace. Viz [Podpora více cílových rozhraní](supporting-multiple-target-frameworks.md). |
+| moduly runtime | Sestavení pro konkrétní architekturu (`.dll`), symbol (`.pdb`) a soubory nativního prostředku (`.pri`) | Sestavení jsou přidána jako odkazy pouze pro modul runtime; jiné soubory jsou zkopírovány do složek projektu. V rámci `/ref/{tfm}` složky by mělo vždy být odpovídající (TFM) `AnyCPU` konkrétní sestavení, které poskytne odpovídající sestavení času kompilace. Viz [Podpora více cílových rozhraní](supporting-multiple-target-frameworks.md). |
 | obsah | Libovolné soubory | Obsah je zkopírován do kořenového adresáře projektu. Složku **obsahu** si můžete představit jako kořen cílové aplikace, která nakonec balíček spotřebovává. Pokud chcete, aby balíček přidal obrázek do složky */images* aplikace, umístěte ho do složky *obsah/image* balíčku. |
 | sestavení | *(3. x +)* Soubory MSBuild `.targets` a `.props` | Automaticky vložen do projektu. |
 | buildMultiTargeting | *(4.0 +)* Soubory MSBuild `.targets` a `.props` pro cílení na různé architektury | Automaticky vložen do projektu. |
-| buildTransitive | *(5.0 +)* MSBuild @no__t soubory-1 a `.props`, které přenášejí přenos do libovolného náročného projektu. Podívejte se na stránku [funkce](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior) . | Automaticky vložen do projektu. |
+| buildTransitive | *(5.0 +)* Nástroj MSBuild `.targets` a `.props` soubory, které přenášejí přenos do libovolného náročného projektu. Podívejte se na stránku [funkce](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior) . | Automaticky vložen do projektu. |
 | nástroje | Skripty a programy PowerShellu dostupné z konzoly Správce balíčků | Složka `tools` se přidá do proměnné prostředí `PATH` pouze pro konzolu Správce balíčků (konkrétně *ne* do `PATH` jako nastavená pro MSBuild při sestavování projektu). |
 
 Vzhledem k tomu, že struktura složky může obsahovat libovolný počet sestavení pro libovolný počet cílových rozhraní, tato metoda je nezbytná při vytváření balíčků, které podporují více rozhraní.
@@ -227,7 +227,7 @@ Pokud máte závislosti balíčků, které chcete zahrnout do souboru *. nuspec*
 nuget pack myproject.csproj
 ```
 
-Token je oddělený @no__tm symbolem-0 na obou stranách vlastnosti projektu. Například hodnota `<id>` v manifestu generované tímto způsobem obvykle vypadá takto:
+Token je oddělený `$` symboly na obou stranách vlastnosti projektu. Například hodnota `<id>` v manifestu generované tímto způsobem obvykle vypadá takto:
 
 ```xml
 <id>$id$</id>
@@ -245,7 +245,7 @@ Všimněte si, že při práci z projektu sady Visual Studio je k dispozici něk
 
 NuGet 2. x podporuje pojem balíčku na úrovni řešení, který nainstaluje nástroje nebo další příkazy pro konzolu Správce balíčků (obsah složky `tools`), ale nepřidá odkazy, obsah ani přizpůsobení sestavení do žádného projektu v řešení. Takové balíčky neobsahují ve svých přímých složkách `lib`, `content` nebo `build` žádné soubory a žádná z jejích závislostí nemá soubory v příslušných `lib`, `content` nebo `build` složkách.
 
-NuGet sleduje nainstalované balíčky na úrovni řešení v souboru `packages.config` ve složce `.nuget` namísto souboru @no__t projektu 2.
+NuGet sleduje nainstalované balíčky na úrovni řešení v souboru `packages.config` ve složce `.nuget`, nikoli v souboru `packages.config` projektu.
 
 ### <a name="new-file-with-default-values"></a>Nový soubor s výchozími hodnotami
 
@@ -255,7 +255,7 @@ Následující příkaz vytvoří výchozí manifest se zástupnými symboly, kt
 nuget spec [<package-name>]
 ```
 
-Pokud vynecháte \<package-Name @ no__t-1, bude výsledný soubor `Package.nuspec`. Pokud zadáte název, například `Contoso.Utility.UsefulStuff`, soubor je `Contoso.Utility.UsefulStuff.nuspec`.
+Pokud \<\>název balíčku vynecháte, je výsledný soubor `Package.nuspec`. Pokud zadáte název, například `Contoso.Utility.UsefulStuff`, soubor je `Contoso.Utility.UsefulStuff.nuspec`.
 
 Výsledný `.nuspec` obsahuje zástupné symboly pro hodnoty, jako je `projectUrl`. Nezapomeňte soubor před použitím upravit, aby se vytvořil finální soubor `.nupkg`.
 
@@ -276,9 +276,9 @@ Identifikátor balíčku (`<id>` element) a číslo verze (element `<version>`) 
 
 > Následující řada stručných příspěvků na blogu je také užitečná pro pochopení správy verzí:
 >
-> - [Část 1: pořízení Hell knihovny DLL](http://blog.davidebbo.com/2011/01/nuget-versioning-part-1-taking-on-dll.html)
-> - [Část 2: základní algoritmus](http://blog.davidebbo.com/2011/01/nuget-versioning-part-2-core-algorithm.html)
-> - [Část 3: sjednocení pomocí přesměrování vazeb](http://blog.davidebbo.com/2011/01/nuget-versioning-part-3-unification-via.html)
+> - [Část 1: pořízení Hell knihovny DLL](https://blog.davidebbo.com/2011/01/nuget-versioning-part-1-taking-on-dll.html)
+> - [Část 2: základní algoritmus](https://blog.davidebbo.com/2011/01/nuget-versioning-part-2-core-algorithm.html)
+> - [Část 3: sjednocení pomocí přesměrování vazeb](https://blog.davidebbo.com/2011/01/nuget-versioning-part-3-unification-via.html)
 
 ## <a name="add-a-readme-and-other-files"></a>Přidání souboru Readme a dalších souborů
 
@@ -312,7 +312,7 @@ Pokud zahrnete soubor s názvem `readme.txt` do kořenového adresáře balíčk
 
 ## <a name="include-msbuild-props-and-targets-in-a-package"></a>Zahrnutí vlastností MSBuild a cílů do balíčku
 
-V některých případech můžete chtít přidat vlastní cíle sestavení nebo vlastnosti v projektech, které používají váš balíček, jako je například spuštění vlastního nástroje nebo procesu během sestavování. To provedete tak, že umístíte soubory do formuláře `<package_id>.targets` nebo `<package_id>.props` (například `Contoso.Utility.UsefulStuff.targets`) do složky `\build` v projektu.
+V některých případech můžete chtít přidat vlastní cíle sestavení nebo vlastnosti v projektech, které používají váš balíček, jako je například spuštění vlastního nástroje nebo procesu během sestavování. To provedete tak, že umístíte soubory do formuláře `<package_id>.targets` nebo `<package_id>.props` (například `Contoso.Utility.UsefulStuff.targets`) do složky `\build` projektu.
 
 Soubory v kořenové složce `\build` jsou považovány za vhodné pro všechny cílové platformy. Chcete-li poskytnout soubory specifické pro rozhraní, umístěte je nejprve do příslušných podsložek, například následující:
 
