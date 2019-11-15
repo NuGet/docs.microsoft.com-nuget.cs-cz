@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6a49e410617c14e22f0d4a67d8bfe280f64f5505
-ms.sourcegitcommit: 8a424829b1f70cf7590e95db61997af6ae2d7a41
+ms.openlocfilehash: 1c2af0b42e88623fa7a1216c17aa269e9b0a58cf
+ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72510793"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74096912"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Sada NuGet Pack a obnovení jako cíle MSBuild
 
@@ -59,11 +59,11 @@ Všimněte si, že nástroj MSBuild nepodporuje vlastnosti `Owners` a `Summary` 
 | Úprava | Úprava | empty | |
 | requireLicenseAcceptance | PackageRequireLicenseAcceptance | false | |
 | průkaz | PackageLicenseExpression | empty | Odpovídá `<license type="expression">` |
-| průkaz | PackageLicenseFile | empty | Odpovídá `<license type="file">`. Je možné, že bude nutné explicitně sbalit soubor s odkazem na licenci. |
+| průkaz | PackageLicenseFile | empty | Odpovídá `<license type="file">`. Musíte explicitně sbalit soubor s odkazem na licenci. |
 | licenseUrl | PackageLicenseUrl | empty | `PackageLicenseUrl` je zastaralá, použijte vlastnost PackageLicenseExpression nebo PackageLicenseFile. |
 | projectUrl | PackageProjectUrl | empty | |
-| Ikona | PackageIcon | empty | Možná budete muset explicitně sbalit soubor obrázku odkazované ikony.|
-| iconUrl | PackageIconUrl | empty | `PackageIconUrl` je zastaralá, použijte vlastnost PackageIcon. |
+| Ikona | PackageIcon | empty | Musíte explicitně sbalit soubor obrázku odkazované ikony.|
+| iconUrl | PackageIconUrl | empty | Pro dosažení nejlepšího prostředí pro starší verze by měla být kromě `PackageIcon`určena `PackageIconUrl`. Už se `PackageIconUrl` zastaralá. |
 | Značky | PackageTags | empty | Značky jsou středníky odděleny středníkem. |
 | releaseNotes | PackageReleaseNotes | empty | |
 | Úložiště/adresa URL | RepositoryUrl | empty | Adresa URL úložiště, která se používá k klonování nebo načtení zdrojového kódu. Příklad: *https://github.com/NuGet/NuGet.Client.git* |
@@ -118,12 +118,18 @@ Chcete-li potlačit závislosti balíčků z generovaného balíčku NuGet, nast
 
 ### <a name="packageiconurl"></a>PackageIconUrl
 
-> [!Important]
-> PackageIconUrl je zastaralá s NuGet 5.3 a + & Visual Studio 2019 verze 16.3 +. Místo toho použijte [PackageIcon](#packing-an-icon-image-file) .
+místo nové vlastnosti [`PackageIcon`](#packageicon) `PackageIconUrl` bude zastaralá.
 
-### <a name="packing-an-icon-image-file"></a>Balení souboru obrázku ikony
+Počínaje verzí NuGet 5,3 & Visual Studio 2019 verze 16,3, `pack` vyvolá upozornění [NU5048](errors-and-warnings/nu5048) , pokud metadata balíčku určují jenom `PackageIconUrl`.
 
-Při balení souboru obrázku ikony musíte použít vlastnost PackageIcon a zadat cestu k balíčku relativní ke kořenu balíčku. Kromě toho je nutné zajistit, aby byl soubor zahrnut do balíčku. Velikost souboru obrázku je omezená na 1 MB. Podporované formáty souborů zahrnují JPEG a PNG. Doporučujeme, abyste 64 × 64 rozlišení obrazu.
+### <a name="packageicon"></a>PackageIcon
+
+> [!Tip]
+> Pro zajištění zpětné kompatibility se klienty a zdroji, které ještě nepodporují `PackageIcon`, byste měli zadat jak `PackageIcon`, tak `PackageIconUrl`. Visual Studio bude podporovat `PackageIcon` pro balíčky ze zdroje založeného na složce v budoucí verzi.
+
+#### <a name="packing-an-icon-image-file"></a>Balení souboru obrázku ikony
+
+Při balení souboru obrázku ikony je nutné použít vlastnost `PackageIcon` a zadat cestu k balíčku relativní ke kořenu balíčku. Kromě toho je nutné zajistit, aby byl soubor zahrnut do balíčku. Velikost souboru obrázku je omezená na 1 MB. Podporované formáty souborů zahrnují JPEG a PNG. Doporučujeme, abyste 64 × 64 rozlišení obrazu.
 
 Příklad:
 
@@ -184,7 +190,7 @@ Chcete-li zahrnout obsah, přidejte do existující položky `<Content>` další
 </Content>
  ```
 
-Ve výchozím nastavení se vše přidá do kořenové složky `content` a `contentFiles\any\<target_framework>` v rámci balíčku a zachová relativní strukturu složek, pokud nezadáte cestu k balíčku:
+Ve výchozím nastavení se vše přidá do kořenu `content` a `contentFiles\any\<target_framework>` složky v rámci balíčku a zachová relativní strukturu složek, pokud nezadáte cestu k balíčku:
 
 ```xml
 <Content Include="..\win7-x64\libuv.txt">
@@ -193,7 +199,7 @@ Ve výchozím nastavení se vše přidá do kořenové složky `content` a `cont
 </Content>
 ```
 
-Pokud chcete kopírovat veškerý obsah jenom na konkrétní kořenové složky (místo `content` a `contentFiles`), můžete použít vlastnost MSBuild `ContentTargetFolders`, která má výchozí hodnotu "Content; contentFiles", ale dá se nastavit na jiné názvy složek. Všimněte si, že stačí zadat "contentFiles" ve `ContentTargetFolders` vloží soubory do `contentFiles\any\<target_framework>` nebo `contentFiles\<language>\<target_framework>` založené na `buildAction`.
+Pokud chcete kopírovat veškerý obsah jenom na konkrétní kořenové složky (místo `content` a `contentFiles`), můžete použít vlastnost MSBuild `ContentTargetFolders`, která má výchozí hodnotu "Content; contentFiles", ale dá se nastavit na jiné názvy složek. Všimněte si, že pouze zadání "contentFiles" v `ContentTargetFolders` vloží soubory do `contentFiles\any\<target_framework>` nebo `contentFiles\<language>\<target_framework>` na základě `buildAction`.
 
 `PackagePath` může být sada cílových cest oddělená středníky. Zadáním prázdné cesty k balíčku by se soubor přidal do kořenového adresáře balíčku. Například následující příkaz přidá `libuv.txt` do `content\myfiles`, `content\samples` a kořen balíčku:
 

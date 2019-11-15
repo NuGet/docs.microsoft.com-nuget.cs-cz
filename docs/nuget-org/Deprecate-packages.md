@@ -6,12 +6,12 @@ ms.author: anangaur
 ms.date: 09/23/2019
 ms.topic: conceptual
 ms.reviewer: karann-msft
-ms.openlocfilehash: 120b463fda856fe9dd407b6eba32d60e0918f763
-ms.sourcegitcommit: 188ade66b7ac807ba1667c77cfb9325bf89a8a4a
+ms.openlocfilehash: 70666ddf9cd7bdc448d29d4235e57bc91e2c003e
+ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71248895"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74096887"
 ---
 # <a name="deprecating-packages"></a>Zastaralé balíčky
 
@@ -37,7 +37,7 @@ Jako vydavatel se můžete rozhodnout, jak odpisovat, tak i jako zastaralé bal�
     ![Vyberte důvody alternativního balíčku doporučení a vlastní zpráva.](media/deprecation-save.png)
 
 > [!Note]
-> Vlastní zpráva se zobrazuje jenom na nuget.org, ale ne z klientů. V současné době klienti `dotnet.exe` , jako je a správce balíčků NuGet, nezobrazují vlastní zprávu.
+> Vlastní zpráva se zobrazuje jenom na nuget.org, ale ne z klientů. V současné době klienti, jako je `dotnet.exe` a správce balíčků NuGet, nezobrazují vlastní zprávu.
 
 ## <a name="client-experience-for-deprecated-packages"></a>Prostředí klienta pro zastaralé balíčky
 Jakmile je balíček zastaralý, jeho příjemci se o tom dozví v následujících způsobech (v závislosti na použitém klientovi).
@@ -45,11 +45,11 @@ Jakmile je balíček zastaralý, jeho příjemci se o tom dozví v následujíc�
 ### <a name="visual-studio"></a>Visual Studio 
 *K dispozici počínaje verzí Visual Studio 2019 16,3*
 
-Sada Visual Studio upozorňuje na použití zastaralého balíčku na `Installed` kartě. Provede vás balíček a informace o jeho zastaralosti (včetně důvodu, že byl zastaralý a místo toho alternativního balíčku, pokud je k dispozici).
+Sada Visual Studio upozorňuje na použití zastaralého balíčku na kartě `Installed`. Zobrazí se upozornění pro balíček a informace o jeho zastaralosti (včetně důvodu, že byl zastaralý a místo toho alternativního balíčku, pokud je k dispozici).
 
    ![Zastaralé balíčky na kartě nainstalované sady Visual Studio Správce balíčků](media/deprecation-vs.png)
 
-### <a name="dotnetexe"></a>dotnet.exe
+### <a name="dotnetexe"></a>dotnet. exe
 *K dispozici od .NET SDK 3,0*
 
 Pokud používáte dotnet. exe, můžete spustit příkaz `dotnet list package --deprecated` ve složce řešení nebo projektu a získat tak seznam zastaralých balíčků spolu s informacemi o vyřazení:

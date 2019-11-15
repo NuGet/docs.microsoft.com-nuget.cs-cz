@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 6bd730db16d8e8783f0d949bb04cf3b52c642cd0
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.openlocfilehash: ff8f988a4d47e18d74945d274be5cca78d3ff8e5
+ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72380556"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74096923"
 ---
 # <a name="nuspec-reference"></a>odkaz. nuspec
 
@@ -149,7 +149,7 @@ license-expression =  1*1(simple-expression / compound-expression / UNLICENSED)
 
 Adresa URL 64 × 64 obrázku s pozadím průhlednosti, která se má použít jako ikona balíčku v zobrazení uživatelského rozhraní. Ujistěte se, že tento prvek obsahuje *adresu URL přímého obrázku* , a ne adresu URL webové stránky, která obsahuje obrázek. Pokud například chcete použít image z GitHubu, použijte adresu URL nezpracovaného souboru, například <em>https://github.com/\<username\>/\<repository\>/raw/\<branch\>/\<logo.png\></em>. 
    
-#### <a name="icon"></a>Ikona
+#### <a name="icon"></a>ikona
 
 Jedná se o cestu k souboru obrázku v rámci balíčku, který se často zobrazuje v uživatelská rozhraní jako ikona balíčku jako nuget.org. Velikost souboru obrázku je omezená na 1 MB. Podporované formáty souborů zahrnují JPEG a PNG. Doporučujeme resoulution image 64 × 64.
 
@@ -173,6 +173,9 @@ Například při vytváření balíčku pomocí nástroje NuGet. exe přidejte d
 [Ikona balíčku nuspec vzorek](https://github.com/NuGet/Samples/tree/master/PackageIconNuspecExample)
 
 V případě ekvivalentu MSBuild se podíváme na [balení souboru obrázku ikony](msbuild-targets.md#packing-an-icon-image-file).
+
+> [!Tip]
+> Pro zajištění zpětné kompatibility se zdroji, které nepodporují `icon`, můžete zadat jak `icon`, tak `iconUrl`. Visual Studio bude podporovat `icon` pro balíčky ze zdroje založeného na složce v budoucí verzi.
 
 #### <a name="requirelicenseacceptance"></a>requireLicenseAcceptance
 Logická hodnota určující, zda klient musí požádat spotřebitele o přijetí licence k balíčku před instalací balíčku.
@@ -236,7 +239,7 @@ Uzel `<package>` může obsahovat uzel `<files>` jako na stejné úrovni jako `<
 
 ### <a name="metadata-attributes"></a>atributy metadat
 
-#### <a name="minclientversion"></a>MinClientVersion
+#### <a name="minclientversion"></a>minClientVersion
 Určuje minimální verzi klienta NuGet, která může nainstalovat tento balíček, který vynutila NuGet. exe a správce balíčků sady Visual Studio. Tato funkce se používá vždy, když balíček závisí na konkrétních funkcích souboru `.nuspec`, které byly přidány v konkrétní verzi klienta NuGet. Například balíček s použitím atributu `developmentDependency` by měl pro `minClientVersion` určovat hodnotu "2,8". Podobně balíček pomocí elementu `contentFiles` (viz další oddíl) by měl nastavit `minClientVersion` na "3,3". Všimněte si také, že vzhledem k tomu, že klienti NuGet starší než 2,5 nerozpoznávají tento příznak, *vždy* zamítnou instalaci balíčku bez ohledu na to, co `minClientVersion` obsahuje.
 
 ```xml
@@ -475,7 +478,7 @@ Každý prvek `<file>` určuje následující atributy:
 | --- | --- |
 | **src** | Umístění souboru nebo souborů, které mají být zahrnuty, v závislosti na vyloučení určených atributem `exclude`. Cesta je relativní vzhledem k souboru `.nuspec`, pokud není zadána absolutní cesta. Zástupný znak `*` je povolen a dvojitý zástupný znak `**` implikuje hledání rekurzivní složky. |
 | **cílové** | Relativní cesta ke složce v rámci balíčku, kde jsou umístěny zdrojové soubory, které musí začínat `lib`, `content`, `build` nebo `tools`. Viz [vytvoření. nuspec z pracovního adresáře založeného na konvencích](../create-packages/creating-a-package.md#from-a-convention-based-working-directory). |
-| **slevy** | Seznam souborů nebo vzorů souborů, které mají být vyloučeny z umístění @no__t 0, jsou odděleny středníkem. Zástupný znak `*` je povolen a dvojitý zástupný znak `**` implikuje hledání rekurzivní složky. |
+| **slevy** | Seznam souborů nebo vzorů souborů, které mají být vyloučeny z umístění `src`, jsou odděleny středníkem. Zástupný znak `*` je povolen a dvojitý zástupný znak `**` implikuje hledání rekurzivní složky. |
 
 ### <a name="examples"></a>Příklady
 
@@ -679,7 +682,7 @@ Tyto soubory jsou zadány pomocí sady atributů, které popisují, jak by měly
 | Atribut | Popis |
 | --- | --- |
 | **include** | Požadovanou Umístění souboru nebo souborů, které mají být zahrnuty, v závislosti na vyloučení určených atributem `exclude`. Cesta je relativní vzhledem ke složce `contentFiles`, pokud není zadána absolutní cesta. Zástupný znak `*` je povolen a dvojitý zástupný znak `**` implikuje hledání rekurzivní složky. |
-| **slevy** | Seznam souborů nebo vzorů souborů, které mají být vyloučeny z umístění @no__t 0, jsou odděleny středníkem. Zástupný znak `*` je povolen a dvojitý zástupný znak `**` implikuje hledání rekurzivní složky. |
+| **slevy** | Seznam souborů nebo vzorů souborů, které mají být vyloučeny z umístění `src`, jsou odděleny středníkem. Zástupný znak `*` je povolen a dvojitý zástupný znak `**` implikuje hledání rekurzivní složky. |
 | **buildAction** | Akce sestavení, která má být přiřazena položce obsahu pro MSBuild, například `Content`, `None`, `Embedded Resource`, `Compile` atd. Výchozí hodnota je `Compile`. |
 | **copyToOutput** | Logická hodnota označující, zda se mají kopírovat položky obsahu do výstupní složky Build (nebo Publishing). Výchozí hodnota je false. |
 | **Flatten** | Logická hodnota označující, zda se mají kopírovat položky obsahu do jediné složky ve výstupu sestavení (true), nebo pro zachování struktury složek v balíčku (false). Tento příznak funguje pouze v případě, že příznak copyToOutput je nastaven na hodnotu true. Výchozí hodnota je false. |
@@ -759,7 +762,7 @@ Prázdné složky můžou pomocí `.` odhlásit poskytnutí obsahu pro určité 
 </package>
 ```
 
-**@No__t-1 se závislostmi**
+**`.nuspec` se závislostmi**
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -776,7 +779,7 @@ Prázdné složky můžou pomocí `.` odhlásit poskytnutí obsahu pro určité 
 </package>
 ```
 
-**@No__t-1 se soubory**
+**`.nuspec` se soubory**
 
 ```xml
 <?xml version="1.0"?>
@@ -794,7 +797,7 @@ Prázdné složky můžou pomocí `.` odhlásit poskytnutí obsahu pro určité 
 </package>
 ```
 
-**@No__t-1 se sestaveními rozhraní .NET Framework**
+**`.nuspec` se sestaveními architektury**
 
 ```xml
 <?xml version="1.0"?>

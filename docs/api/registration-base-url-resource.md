@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: e98e8d1258377818b3852762d317750a6b3e59ad
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: eb8d59e253f85fbbb8546a5f71856df842ce94d6
+ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73611038"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74096889"
 ---
 # <a name="package-metadata"></a>Metadata balíčků
 
@@ -70,7 +70,7 @@ Ačkoli není bezpodmínečně nutné, aby implementace serveru ukládala regist
 
 Uložení všech verzí balíčku (opustí) v registračním indexu šetří počet požadavků HTTP potřebných k načtení metadat balíčku, ale znamená, že je nutné stáhnout větší dokument a musí být přidělena více klientských paměti. Na druhé straně, pokud implementace serveru hned ukládá registraci v samostatných dokumentech stránky, klient musí provést další požadavky HTTP, aby získal informace, které potřebuje.
 
-Tato heuristická metoda, kterou používá nuget.org, je následující: Pokud jsou k dispozici 128 nebo více verzí balíčku, přerušte listy na velikost 64. Pokud jsou k dispozici méně než 128 verzí, všechny zůstanou vloženy do registračního indexu.
+Tato heuristická metoda, kterou používá nuget.org, je následující: Pokud jsou k dispozici 128 nebo více verzí balíčku, přerušte listy na velikost 64. Pokud jsou k dispozici méně než 128 verzí, všechny zůstanou vloženy do registračního indexu. To znamená, že balíčky s 65 až 127 verze budou mít dvě stránky v indexu, ale obě stránky budou vloženy.
 
     GET {@id}/{LOWER_ID}/index.json
 
@@ -102,7 +102,7 @@ Name   | Typ             | Požadováno | Poznámky
 @id    | odkazy řetězců           | Ano      | Adresa URL stránky pro registraci
 count  | integer          | Ano      | Počet ponechání registrace na stránce
 položek  | pole objektů | Ne       | Pole registrace opustí a jejich přidružená metadata
-Malým  | odkazy řetězců           | Ano      | Nejnižší verze SemVer 2.0.0 na stránce (včetně)
+malým  | odkazy řetězců           | Ano      | Nejnižší verze SemVer 2.0.0 na stránce (včetně)
 nadřazený | odkazy řetězců           | Ne       | Adresa URL indexu registrace
 umístit  | odkazy řetězců           | Ano      | Nejvyšší verze SemVer 2.0.0 na stránce (včetně)
 
@@ -135,7 +135,7 @@ Vlastnost `catalogEntry` v objektu registračního listu má následující vlas
 
 Name                     | Typ                       | Požadováno | Poznámky
 ------------------------ | -------------------------- | -------- | -----
-@id                      | odkazy řetězců                     | Ano      | Adresa URL dokumentu použitá k vyprodukování tohoto objektu
+@id                      | odkazy řetězců                     | Ano      | Adresa URL dokumentu použitého k vyprodukování tohoto objektu
 Autoři                  | řetězec nebo pole řetězců | Ne       | 
 dependencyGroups         | pole objektů           | Ne       | Závislosti balíčku seskupené podle cílové architektury
 vyřazení              | odkazy objektů                     | Ne       | Zastaralé přidružení k balíčku
@@ -145,7 +145,7 @@ id                       | odkazy řetězců                     | Ano      | ID
 licenseUrl               | odkazy řetězců                     | Ne       |
 licenseExpression        | odkazy řetězců                     | Ne       | 
 uvedené v seznamu                   | Logická hodnota                    | Ne       | By mělo být považováno za uvedené, pokud chybí
-MinClientVersion         | odkazy řetězců                     | Ne       | 
+minClientVersion         | odkazy řetězců                     | Ne       | 
 projectUrl               | odkazy řetězců                     | Ne       | 
 zveřejněna                | odkazy řetězců                     | Ne       | Řetězec obsahující časové razítko ISO 8601 při publikování balíčku
 requireLicenseAcceptance | Logická hodnota                    | Ne       | 
@@ -159,6 +159,9 @@ Vlastnost `version` balíčku je úplný řetězec verze po normalizaci. To znam
 Vlastnost `dependencyGroups` je pole objektů reprezentující závislosti balíčku seskupené podle cílové architektury. Pokud balíček nemá žádné závislosti, chybí vlastnost `dependencyGroups`, prázdné pole nebo vlastnost `dependencies` všech skupin je prázdná nebo chybí.
 
 Hodnota vlastnosti `licenseExpression` v souladu s [syntaxí multilicenčního výrazu NuGet](https://docs.microsoft.com/nuget/reference/nuspec#license).
+
+> [!Note]
+> V nuget.org je hodnota `published` nastavena na rok 1900, pokud je balíček neuvedený.
 
 #### <a name="package-dependency-group"></a>Skupina závislostí balíčku
 
@@ -183,7 +186,7 @@ id           | odkazy řetězců | Ano      | ID závislosti balíčku
 range        | odkazy objektů | Ne       | Povolený [rozsah verzí](../concepts/package-versioning.md#version-ranges-and-wildcards) závislosti
 registrace | odkazy řetězců | Ne       | Adresa URL indexu registrace pro tuto závislost
 
-Pokud je vlastnost `range` vyloučená nebo je to prázdný řetězec, měl by být ve výchozím nastavení `(, )`rozsahu verze. To znamená, že je povolená jakákoli verze závislosti.
+Pokud je vlastnost `range` vyloučená nebo je to prázdný řetězec, měl by být ve výchozím nastavení `(, )`rozsahu verze. To znamená, že je povolená jakákoli verze závislosti. Hodnota `*` není pro vlastnost `range` povolena.
 
 #### <a name="package-deprecation"></a>Zastaralé balíčky
 
@@ -193,7 +196,7 @@ Name             | Typ             | Požadováno | Poznámky
 ---------------- | ---------------- | -------- | -----
 hlediska          | Pole řetězců | Ano      | Důvody, proč byl balíček zastaralý
 – zpráva          | odkazy řetězců           | Ne       | Další podrobnosti o této zastaralosti
-alternatePackage | odkazy objektů           | Ne       | Závislost balíčku, která se má použít místo toho
+alternatePackage | odkazy objektů           | Ne       | Alternativní balíček, který se má použít místo toho
 
 Vlastnost `reasons` musí obsahovat alespoň jeden řetězec a měla by obsahovat pouze řetězce z následující tabulky:
 
@@ -204,6 +207,16 @@ CriticalBugs | Balíček obsahuje chyby, které nejsou vhodné pro použití.
 Ostatní        | Balíček je zastaralý z důvodu, že tento seznam není v tomto seznamu.
 
 Pokud vlastnost `reasons` obsahuje řetězce, které nejsou ze známé sady, měly by být ignorovány. V řetězcích nejsou rozlišována velká a malá písmena, proto by `legacy` měla být zpracována stejně jako `Legacy`. V poli není žádné omezení řazení, takže řetězce mohou být uspořádány do libovolného pořadí. Kromě toho, pokud vlastnost obsahuje pouze řetězce, které nejsou ze známé sady, měla by být zpracována, jako by obsahovala pouze řetězec "other".
+
+#### <a name="alternate-package"></a>Alternativní balíček
+
+Objekt alternativního balíčku má následující vlastnosti:
+
+Name         | Typ   | Požadováno | Poznámky
+------------ | ------ | -------- | -----
+id           | odkazy řetězců | Ano      | ID alternativního balíčku
+range        | odkazy objektů | Ne       | Povolený [rozsah verzí](../concepts/package-versioning.md#version-ranges-and-wildcards), nebo `*`, pokud je povolená nějaká verze
+registrace | odkazy řetězců | Ne       | Adresa URL indexu registrace pro tento alternativní balíček
 
 ### <a name="sample-request"></a>Ukázková žádost
 
@@ -217,7 +230,10 @@ V tomto konkrétním případě registrační index má registrační stránku v
 
 ## <a name="registration-page"></a>Registrační stránka
 
-Registrační stránka obsahuje ponechání registračních stránek. Adresa URL pro načtení registrační stránky je určena vlastností `@id` v [objektu registrační stránky](#registration-page-object) , který je uveden výše.
+Registrační stránka obsahuje ponechání registračních stránek. Adresa URL pro načtení registrační stránky je určena vlastností `@id` v [objektu registrační stránky](#registration-page-object) , který je uveden výše. Adresa URL nemá být předvídatelná a měla by být vždy zjištěna prostřednictvím dokumentu indexu.
+
+> [!Warning]
+> V nuget.org Adresa URL dokumentu registrační stránky obsahuje dolní a horní mez stránky. Tento předpoklad by však neměl být klientem nikdy proveden, protože implementace serveru jsou volné, aby bylo možné změnit tvar adresy URL, pokud má dokument indexu platný odkaz.
 
 Pokud pole `items` není v registračním indexu k dispozici, požadavek HTTP GET hodnoty `@id` vrátí dokument JSON, který má objekt jako svůj kořen. Objekt má následující vlastnosti:
 
@@ -226,7 +242,7 @@ Name   | Typ             | Požadováno | Poznámky
 @id    | odkazy řetězců           | Ano      | Adresa URL stránky pro registraci
 count  | integer          | Ano      | Počet ponechání registrace na stránce
 položek  | pole objektů | Ano      | Pole registrace opustí a jejich přidružená metadata
-Malým  | odkazy řetězců           | Ano      | Nejnižší verze SemVer 2.0.0 na stránce (včetně)
+malým  | odkazy řetězců           | Ano      | Nejnižší verze SemVer 2.0.0 na stránce (včetně)
 nadřazený | odkazy řetězců           | Ano      | Adresa URL indexu registrace
 umístit  | odkazy řetězců           | Ano      | Nejvyšší verze SemVer 2.0.0 na stránce (včetně)
 
@@ -244,7 +260,10 @@ Tvar listů registračních objektů je stejný jako v indexu registrace [výše
 
 Registrační list obsahuje informace o konkrétním ID a verzi balíčku. Metadata týkající se konkrétní verze nemusí být v tomto dokumentu k dispozici. Metadata balíčku by se měla načíst z registračního [indexu](#registration-index) nebo [registrační stránky](#registration-page) (která se zjistila pomocí registračního indexu).
 
-Adresa URL pro načtení registračního listu je získána z vlastnosti `@id` registračního objektu listu v registračním indexu nebo na registrační stránce.
+Adresa URL pro načtení registračního listu je získána z vlastnosti `@id` registračního objektu listu v registračním indexu nebo na registrační stránce. Stejně jako u dokumentu stránky. Adresa URL nemá být předvídatelná a měla by být vždy zjištěna prostřednictvím objektu registrační stránky.
+
+> [!Warning]
+> V nuget.org Adresa URL pro tento dokument registračního listu obsahuje verzi balíčku. Tento předpoklad by však neměl být klientem nikdy proveden, protože implementace serveru jsou volné, aby bylo možné změnit tvar adresy URL, pokud má nadřazený dokument platný odkaz. 
 
 Registrační list je dokument JSON s kořenovým objektem s následujícími vlastnostmi:
 

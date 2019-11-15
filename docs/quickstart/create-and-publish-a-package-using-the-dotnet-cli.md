@@ -5,20 +5,20 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: c0e6de2c3b9978538d504f4af6e744ece43b4a4d
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: 8727f67608593e6ae8b96daa81b7423782dfc219
+ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488935"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74096934"
 ---
-# <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>Rychlý start: Vytvoření a publikování balíčku (dotnet CLI)
+# <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>Rychlý Start: vytvoření a publikování balíčku (dotnet CLI)
 
-Je to jednoduchý proces vytvoření balíčku NuGet z knihovny tříd .NET a jeho publikování na NuGet.org pomocí `dotnet` rozhraní příkazového řádku (CLI).
+Je to jednoduchý proces vytvoření balíčku NuGet z knihovny tříd .NET a jeho publikování na nuget.org pomocí rozhraní příkazového řádku (CLI) `dotnet`.
 
 ## <a name="prerequisites"></a>Požadavky
 
-1. Nainstalujte [.NET Core SDK](https://www.microsoft.com/net/download/), která obsahuje rozhraní `dotnet` příkazového řádku. Počínaje sadou Visual Studio 2017 se rozhraní příkazového řádku dotnet automaticky nainstaluje se všemi úlohami souvisejícími s .NET Core.
+1. Nainstalujte [.NET Core SDK](https://www.microsoft.com/net/download/), která zahrnuje `dotnet` CLI. Počínaje sadou Visual Studio 2017 se rozhraní příkazového řádku dotnet automaticky nainstaluje se všemi úlohami souvisejícími s .NET Core.
 
 1. [Zaregistrujte si bezplatný účet na NuGet.org](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) , pokud ho ještě nemáte. Když se vytvoří nový účet, pošle se potvrzovací e-mail. Než budete moct nahrát balíček, musíte účet potvrdit.
 
@@ -28,19 +28,17 @@ Můžete použít existující projekt knihovny tříd .NET pro kód, který chc
 
 1. Vytvořte složku s názvem `AppLogger`.
 
-1. Otevřete příkazový řádek a přepněte do `AppLogger` složky.
+1. Otevřete příkazový řádek a přepněte do složky `AppLogger`.
 
-1. Typ `dotnet new classlib`, který používá název aktuální složky pro projekt.
+1. Zadejte `dotnet new classlib`, který používá název aktuální složky pro projekt.
 
    Tím se vytvoří nový projekt.
 
-1. Použijte `dotnet run` k otestování, jestli se aplikace správně vytvořila.
-
 ## <a name="add-package-metadata-to-the-project-file"></a>Přidat metadata balíčku do souboru projektu
 
-Každý balíček NuGet potřebuje manifest, který popisuje obsah balíčku a závislosti. V konečném balíčku manifest je `.nuspec` soubor, který je generován z vlastností metadat NuGet, které zahrnete do souboru projektu.
+Každý balíček NuGet potřebuje manifest, který popisuje obsah balíčku a závislosti. V konečném balíčku je manifest `.nuspec` soubor, který je vygenerován z vlastností metadat NuGet, které zahrnete do souboru projektu.
 
-1. Otevřete soubor projektu (`.csproj`) a do existující `<PropertyGroup>` značky přidejte následující minimální vlastnosti. Změňte hodnoty podle potřeby:
+1. Otevřete soubor projektu (`.csproj`) a do existující značky `<PropertyGroup>` přidejte následující minimální vlastnosti, podle potřeby změňte hodnoty:
 
     ```xml
     <PackageId>AppLogger</PackageId>
@@ -59,14 +57,14 @@ Každý balíček NuGet potřebuje manifest, který popisuje obsah balíčku a z
 
 ## <a name="run-the-pack-command"></a>Spuštění příkazu Pack
 
-Chcete-li vytvořit balíček NuGet ( `.nupkg` soubor) z projektu, `dotnet pack` spusťte příkaz, který také automaticky vytvoří projekt:
+Pokud chcete vytvořit balíček NuGet (soubor `.nupkg`) z projektu, spusťte příkaz `dotnet pack`, který také automaticky vytvoří projekt:
 
 ```cli
 # Uses the project file in the current folder by default
 dotnet pack
 ```
 
-Výstup zobrazuje cestu k `.nupkg` souboru:
+Výstup zobrazuje cestu k souboru `.nupkg`:
 
 ```output
 Microsoft (R) Build Engine version 15.5.180.51428 for .NET Core
@@ -79,7 +77,7 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 
 ### <a name="automatically-generate-package-on-build"></a>Automaticky generovat balíček při sestavení
 
-Chcete-li `dotnet pack` automaticky spustit při `dotnet build`spuštění, přidejte následující řádek do souboru projektu v rámci `<PropertyGroup>`:
+Chcete-li automaticky spustit `dotnet pack` při spuštění `dotnet build`, přidejte do souboru projektu následující řádek v rámci `<PropertyGroup>`:
 
 ```xml
 <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -87,7 +85,7 @@ Chcete-li `dotnet pack` automaticky spustit při `dotnet build`spuštění, při
 
 ## <a name="publish-the-package"></a>Publikování balíčku
 
-Jakmile budete mít `.nupkg` soubor, publikujete ho do NuGet.org `dotnet nuget push` pomocí příkazu společně s klíčem rozhraní API získaným z NuGet.org.
+Jakmile budete mít soubor `.nupkg`, publikujete ho na nuget.org pomocí příkazu `dotnet nuget push` společně s klíčem rozhraní API získaným z nuget.org.
 
 [!INCLUDE [publish-notes](includes/publish-notes.md)]
 
@@ -107,7 +105,7 @@ Jakmile budete mít `.nupkg` soubor, publikujete ho do NuGet.org `dotnet nuget p
 
 [!INCLUDE [publish-manage](includes/publish-manage.md)]
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 Blahopřejeme k vytvoření prvního balíčku NuGet!
 

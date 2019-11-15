@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 892483760a9f3568da7101663e93c69ce3d70b96
-ms.sourcegitcommit: 8a424829b1f70cf7590e95db61997af6ae2d7a41
+ms.openlocfilehash: 231947148295e0c06dcec5aa0e1f479d654a8803
+ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72510813"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74096862"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Odkazy na balíčky (PackageReference) v souborech projektu
 
 Odkazy na balíčky, pomocí uzlu `PackageReference`, spravují závislosti NuGet přímo v souborech projektu (na rozdíl od samostatného souboru `packages.config`). Použití PackageReference, jak je voláno, nemá vliv na jiné aspekty NuGet; například nastavení v souborech `NuGet.config` (včetně zdrojů balíčků) jsou stále aplikována, jak je vysvětleno v tématu [běžné konfigurace NuGet](configuring-nuget-behavior.md).
 
-Pomocí PackageReference můžete také použít podmínky nástroje MSBuild k výběru odkazů na balíčky v rámci cílové architektury, konfigurace, platformy nebo dalších seskupení. Umožňuje také jemně odstupňovanou kontrolu nad závislostmi a tokem obsahu. (Další podrobnosti najdete v tématu Další informace o [sadě NuGet Pack a obnovení jako cíle MSBuild](../reference/msbuild-targets.md).)
+Pomocí PackageReference můžete také použít podmínky nástroje MSBuild pro výběr odkazů na balíčky na cílové rozhraní nebo jiná seskupení. Umožňuje také jemně odstupňovanou kontrolu nad závislostmi a tokem obsahu. (Další podrobnosti najdete v tématu Další informace o [sadě NuGet Pack a obnovení jako cíle MSBuild](../reference/msbuild-targets.md).)
 
 ## <a name="project-type-support"></a>Podpora typu projektu
 
@@ -51,6 +51,7 @@ Konvence určení verze balíčku je stejná jako při použití `packages.confi
 V příkladu výše 3.6.0 označuje všechny verze, které jsou > = 3.6.0 s upřednostněním pro nejnižší verzi, jak je popsáno v tématu [Správa verzí balíčků](../concepts/package-versioning.md#version-ranges-and-wildcards).
 
 ## <a name="using-packagereference-for-a-project-with-no-packagereferences"></a>Použití PackageReference pro projekt bez PackageReferences
+
 Upřesnit: Pokud nemáte v projektu nainstalované žádné balíčky (žádné PackageReferences v souboru projektu a žádný soubor Packages. config), ale chcete, aby se projekt obnovil jako PackageReferenceový styl, můžete nastavit RestoreProjectStyle vlastností projektu na PackageReference. soubor projektu.
 ```xml
 <PropertyGroup>
@@ -60,6 +61,10 @@ Upřesnit: Pokud nemáte v projektu nainstalované žádné balíčky (žádné 
 </PropertyGroup>    
 ```
 To může být užitečné, pokud odkazujete na projekty, které jsou PackageReference styly (existující projekty csproj nebo sady SDK). Tím umožníte, aby balíčky, na které tyto projekty odkazují, byly "transitně" odkazovány vaším projektem.
+
+## <a name="packagereference-and-sources"></a>PackageReference a zdroje
+
+V projektech PackageReference se v době obnovení vyřeší verze přenosných závislostí. V takovém případě musí být v projektech PackageReference k dispozici všechny zdroje pro všechna obnovení. 
 
 ## <a name="floating-versions"></a>Plovoucí verze
 
@@ -233,7 +238,7 @@ ProjectA
   |------> ProjectB
              |------>PackageX 1.0.0
 ```
-Pokud má `ProjectA` závislost na verzi `PackageX` `2.0.0` a odkazuje na `ProjectB`, která závisí na `PackageX` verzi `1.0.0`, pak soubor zámku pro `ProjectB` vypíše závislost na @no__t 7 verze `1.0.0`. Pokud je však vytvořen `ProjectA`, jeho soubor zámku bude obsahovat závislost na `PackageX` verze **`2.0.0`** a **nesmí** `1.0.0`, jak je uvedeno v souboru zámku pro `ProjectB`. Proto soubor zámku pro běžný projekt kódu trochu říká, že balíčky byly vyřešeny pro projekty, které jsou na ní závislé.
+Pokud má `ProjectA` závislost na `PackageX` verzi `2.0.0` a také odkazuje `ProjectB`, které jsou závislé na `PackageX` verze `1.0.0`, pak soubor zámku pro `ProjectB` zobrazí závislost na `PackageX` verze `1.0.0`. Pokud je však vytvořen `ProjectA`, jeho soubor zámku bude obsahovat závislost na `PackageX` verze **`2.0.0`** a **nesmí** `1.0.0`, jak je uvedeno v souboru zámku pro `ProjectB`. Proto soubor zámku pro běžný projekt kódu trochu říká, že balíčky byly vyřešeny pro projekty, které jsou na ní závislé.
 
 ### <a name="lock-file-extensibility"></a>Zamknout rozšíření souboru
 
@@ -244,4 +249,4 @@ Můžete řídit různá chování při obnovení pomocí souboru zámku, jak je
 | `--use-lock-file` | RestorePackagesWithLockFile | Výslovný se na použití souboru zámku. | 
 | `--locked-mode` | RestoreLockedMode | Zapne uzamčený režim pro obnovení. To je užitečné ve scénářích CI/CD, kde chcete opakovat sestavení.|   
 | `--force-evaluate` | RestoreForceEvaluate | Tato možnost je užitečná pro balíčky s plovoucí verzí definovanou v projektu. Ve výchozím nastavení při obnovení NuGet nebude automaticky aktualizovat verzi balíčku pro každé obnovení, pokud u této možnosti nespustíte příkaz Restore. |
-| `--lock-file-path` | NuGetLockFilePath | Definuje vlastní umístění souboru zámku pro projekt. Ve výchozím nastavení NuGet podporuje `packages.lock.json` v kořenovém adresáři. Pokud máte ve stejném adresáři více projektů, NuGet podporuje soubor zámku specifický pro projekt `packages.<project_name>.lock.json` |
+| `--lock-file-path` | NuGetLockFilePath | Definuje vlastní umístění souboru zámku pro projekt. Ve výchozím nastavení NuGet podporuje `packages.lock.json` v kořenovém adresáři. Pokud máte ve stejném adresáři více projektů, NuGet podporuje soubor zámku určený pro projekt `packages.<project_name>.lock.json` |

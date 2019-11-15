@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 89b5fcbd76b85b77489ab36caa215c3a2fedf032
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 034b9dd9699af529e4d82d6ee5b1c42214673341
+ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610979"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74096853"
 ---
 # <a name="manage-package-trust-boundaries"></a>Správa hranic vztahů důvěryhodnosti balíčku
 
@@ -95,7 +95,7 @@ V některých situacích možná budete chtít povolit ověřování pomocí cer
 
 ### <a name="sync-repository-certificates"></a>Synchronizovat certifikáty úložiště
 
-Úložiště balíčků by měla oznamovat certifikáty, které používají v [indexu služeb](../api/service-index.md). Úložiště pak tyto certifikáty aktualizuje, např. po vypršení platnosti certifikátu. V takovém případě budou klienti s konkrétními zásadami vyžadovat aktualizaci konfigurace, aby zahrnovala nově přidaný certifikát. Důvěryhodné podepsané přidružené k úložišti můžete snadno upgradovat pomocí příkazu `nuget.exe` [synchronizační příkaz Trusted-Signer] (.. /Reference/CLI-reference/CLI-ref-Trusted-signers.MD # NuGet – důvěryhodné-podepisující osoby-Sync--name-Name
+Úložiště balíčků by měla oznamovat certifikáty, které používají v [indexu služeb](../api/service-index.md). Úložiště pak tyto certifikáty aktualizuje, např. po vypršení platnosti certifikátu. V takovém případě budou klienti s konkrétními zásadami vyžadovat aktualizaci konfigurace, aby zahrnovala nově přidaný certifikát. Důvěryhodné podepsané přidružené k úložišti můžete snadno upgradovat pomocí [příkazu `nuget.exe` důvěryhodných podepsaných synchronizací](../reference/cli-reference/cli-ref-trusted-signers.md#nuget-trusted-signers-sync--name-name).
 
 ### <a name="schema-reference"></a>Odkaz na schéma
 
