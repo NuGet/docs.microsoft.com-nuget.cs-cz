@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 63c6b5eb5ad635e436b4d53a5f833af35f72d76f
-ms.sourcegitcommit: 7c9f157ba02d9be543de34ab06813ab1ec10192a
+ms.openlocfilehash: 7951b3db0cdcaee0a1eb955a5bf6fedce24c79c9
+ms.sourcegitcommit: fc0f8c950829ee5c96e3f3f32184bc727714cfdb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69999970"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74253957"
 ---
 # <a name="individual-accounts-on-nugetorg"></a>Jednotlivé účty na NuGet.org
 
@@ -38,7 +38,7 @@ Pokud chcete vytvořit účet NuGet.org, musíte mít osobní účet Microsoft (
 
 1. Budete přesměrováni na *NuGet.org*a požádáni, abyste zaregistrovali uživatelské jméno.
 
-1. Do vstupního pole zadejte uživatelské jméno. Všimněte si, že uživatelské jméno rozlišuje velká a malá písmena a nelze je změnit nebo přejmenovat později.
+1. Do vstupního pole zadejte uživatelské jméno. Všimněte si, že uživatelské jméno rozlišuje velká a **malá písmena a** nelze je změnit nebo přejmenovat později.
 
    ![Zadat uživatelské jméno na NuGet.org](media/nuget-org-register.png) 
 
@@ -48,7 +48,7 @@ Teď máte účet NuGet.org. Správu účtů můžete provádět na stránce [Na
 
 ## <a name="enable-two-factor-authentication-2fa"></a>Povolit dvojúrovňové ověřování (2FA)
 
-Chcete-li lépe chránit svůj účet, povolte dvojúrovňové ověřování (doporučeno).
+Dvojúrovňové ověřování, neboli 2FA, je další vrstva zabezpečení, která se používá při přihlašování k webům nebo aplikacím. Pomocí 2FA se budete muset přihlásit pomocí účtu Microsoft (MSA) a poskytovat jinou formu ověřování, ke kterému jste měli přístup jenom vy. Chcete-li lépe chránit svůj účet, povolte dvojúrovňové ověřování (doporučeno).
 
 1. Když se přihlásíte k účtu, otevřete svůj profil a v části **přihlašovací účet**vyberte **Povolit** .
 
@@ -69,6 +69,9 @@ Chcete-li lépe chránit svůj účet, povolte dvojúrovňové ověřování (do
    ![Povolit 2FA](media/nuget-org-enter-code-2fa.png)
 
 5. Dokončete dvojúrovňové ověřování podle všech dalších pokynů.
+
+> [!Tip]
+> Povolení 2FA pro účet NuGet.org nemá vliv na nastavení ověřování pro jiné účty nebo služby, které mohou být propojeny s účet Microsoft, které používáte k přihlášení do NuGet.org.
 
 ## <a name="delete-a-nugetorg-account"></a>Odstranění účtu NuGet.org
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 9947a490e4373bb0b8b7fb0814828ff2a60615a8
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 0691660f20f9b5a1ff0dad110ee87c6e29c0a56e
+ms.sourcegitcommit: fc0f8c950829ee5c96e3f3f32184bc727714cfdb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73611076"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74253938"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Hledání a vyhodnocení balíčků NuGet pro váš projekt
 
@@ -82,9 +82,12 @@ Zároveň použití balíčku NuGet znamená, že se v něm nachází závislost
 
     ![Stáhnout statistiku na stránce se seznamem balíčku](media/Finding-03-Downloads.png)
 
-- *Použití GitHubu*: na stránce balíček obsahuje oddíl **použití GitHubu** hlavní úložiště GitHub, která závisí na tomto balíčku. Balíček, na kterém je mnoho oblíbených úložišť GitHubu, závisí obvykle na lepším výběru.
+- *Použití GitHubu*: na stránce balíček je v části **využití GitHubu** uvedena veřejná úložiště GitHub, která jsou závislá na tomto balíčku a mají velký počet hvězdiček na GitHubu. Počet hvězdiček v úložišti GitHubu obecně označuje, jak populární je úložiště s uživateli GitHubu (více hvězdiček obvykle znamená více oblíbených). Další informace o systému hodnocení Star a úložiště najdete na [stránce Začínáme GitHubu](https://help.github.com/en/github/getting-started-with-github/saving-repositories-with-stars#about-stars) .
 
     ![Použití GitHubu](media/GitHub-Usage.png)
+
+    > [!Note]
+    > Oddíl využití GitHubu balíčku se vygeneruje automaticky, pravidelně bez lidského přezkoumání individuálních úložišť a výhradně pro informativní účely, aby se zobrazila úložiště GitHubu, která jsou závislá na balíčku a která jsou oblíbená s GitHubem. mohou.
 
 - *Historie verzí*: na stránce balíček vyhledejte v části **informace** datum poslední aktualizace a zkontrolujte **historii verzí**. Dobře uchovávaný balíček má nedávné aktualizace a bohatou historii verzí. Opomíjené balíčky mají několik aktualizací a v některých časových intervalech se často neaktualizovaly.
 
@@ -127,7 +130,7 @@ Vyhledávání balíčků NuGet funguje stejně v nuget.org, z rozhraní NuGet C
 
 - **Klíčová slova**: hledání vyhledá relevantní balíčky, které obsahují některá z poskytnutých klíčových slov. Příklad: `modern UI`. Chcete-li vyhledat balíčky obsahující všechna zadaná klíčová slova, použijte mezi těmito podmínkami znak "+", například `modern+UI`.
 - **Fráze**: Zadání podmínek v rámci uvozovek vyhledá přesné shody velkých a malých písmen s těmito podmínkami. Příklad: `"modern UI" package`
-- **Filtrování**: můžete použít hledaný termín pro konkrétní vlastnost pomocí syntaxe `<property>:<term>`, kde `<property>` (bez rozlišení velkých a malých písmen) může být `id`, `packageid`, `version`, `title`, `tags`, `author`, `description`, `summary`a `owner`. V případě potřeby mohou být výrazy obsaženy v uvozovkách a můžete vyhledávat více vlastností současně. Také vyhledávání na vlastnosti `id` jsou shody podřetězců, zatímco `packageid` používá přesnou shodu. Příklady:
+- **Filtrování**: můžete použít hledaný termín na konkrétní vlastnost pomocí syntaxe `<property>:<term>`, kde `<property>` (bez rozlišení velkých a malých písmen) může být `id`, `packageid`, `version`, `title`, `tags`, `author`, `description`, `summary`a `owner`. V případě potřeby mohou být výrazy obsaženy v uvozovkách a můžete vyhledávat více vlastností současně. Také vyhledávání na vlastnosti `id` jsou shody podřetězců, zatímco `packageid` používá přesnou shodu. Příklady:
 
     ```
     id:NuGet.Core                # Match any part of the id property
