@@ -58,8 +58,8 @@ Když balíček pochází z rezervované předpony, zobrazí se v galerii [NuGet
 Galerie **nuget.org**
 ![galerii NuGet.org](media/nuget-gallery-reserved-prefix.png)
 
-**Visual studio**
-![visual Studio](media/visual-studio-reserved-prefix.png)
+**Visual Studio**
+![Visual Studio](media/visual-studio-reserved-prefix.png)
 
 ## <a name="id-prefix-reservation-application-process"></a>Proces aplikace rezervace předpony ID
 
@@ -98,5 +98,5 @@ Pokud se poskytovatel kanálu třetí strany zajímá o implementaci vlastní sl
 Další informace najdete v dokumentaci k [vyhledávací službě rozhraní API](../api/search-query-service-resource.md).
 
 ## <a name="package-id-prefix-reservation-dispute-policy"></a>Zásady sporu pro rezervaci předpony ID balíčku
-Pokud se domníváte, že vlastníkovi v [NuGet.org](https://www.nuget.org) byl přiřazená rezervace předpony ID balíčku, která se nachází oproti výše uvedeným kritériím, nebo má za následek jakékoli ochranné známky nebo autorská práva, pošlete prosím e-mail [support@nuget.org](mailto:support@nuget.org) s otázkou ID, kterou vlastní ID. a důvod pro spor s přiřazenou rezervací předpony.
+Pokud se domníváte, že vlastník na [NuGet.org](https://www.nuget.org) byl přiřazen k rezervaci předpony ID balíčku, která se nachází na výše uvedených kritériích, nebo v jakýchkoli ochranných známkách nebo copyrightech, e-mailové [support@nuget.org](mailto:support@nuget.org) se zadaným prefixem ID, vlastníkem předpony ID a důvodem pro spor přiřazené rezervace předpony.
 
