@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: f5d418fd5b6b9bb88958d6b7e9e3034f40485a7d
-ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
+ms.openlocfilehash: e2672aa0bf57242526364639f0df74f9d1adb934
+ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68419957"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74825204"
 ---
 # <a name="managing-the-global-packages-cache-and-temp-folders"></a>Správa globálních balíčků, mezipaměti a dočasných složek
 
@@ -18,17 +18,17 @@ Kdykoli nainstalujete, aktualizujete nebo obnovíte balíček, aplikace NuGet sp
 
 | Name | Popis a umístění (na uživatele)|
 | --- | --- |
-| globální&#8209;balíčky | Složka *Global-Packages* je místo, kde NuGet nainstaluje libovolný stažený balíček. Každý balíček je plně rozbalen do podsložky, která odpovídá identifikátoru a číslu verze balíčku. Projekty, které používají formát [PackageReference](package-references-in-project-files.md) , vždy používají balíčky přímo z této složky. Při použití [souboru Packages. config](../reference/packages-config.md)jsou balíčky nainstalovány do složky *Global-Packages* a následně zkopírovány do `packages` složky projektu.<br/><ul><li>Windows: `%userprofile%\.nuget\packages`</li><li>Mac/Linux: `~/.nuget/packages`</li><li>Popište pomocí proměnné prostředí `globalPackagesFolder` NUGET_PACKAGES, [nastavení konfigurace](../reference/nuget-config-file.md#config-section) `packages.config`nebo `repositoryPath` (při použití PackageReference `RestorePackagesPath` a, v uvedeném pořadí) nebo pomocí vlastnosti MSBuild (jenom MSBuild). Proměnná prostředí má přednost před nastavením konfigurace.</li></ul> |
-| http&#8209;cache | Správce balíčků sady Visual Studio (NuGet 3. x +) a `dotnet` nástroj ukládá kopie stažených balíčků v této mezipaměti (uložené jako `.dat` soubory), které jsou uspořádány do podsložek pro každý zdroj balíčku. Balíčky nejsou rozbalené a mezipaměť má čas vypršení platnosti 30 minut.<br/><ul><li>Windows: `%localappdata%\NuGet\v3-cache`</li><li>Mac/Linux: `~/.local/share/NuGet/v3-cache`</li><li>Popište pomocí proměnné prostředí NUGET_HTTP_CACHE_PATH.</li></ul> |
-| názvem | Složka, ve které NuGet ukládá dočasné soubory během různých operací.<br/><li>Windows: `%temp%\NuGetScratch`</li><li>Mac/Linux: `/tmp/NuGetScratch`</li></ul> |
-| moduly plug-in – mezipaměť **4,8 +** | Složka, ve které NuGet ukládá výsledky z požadavku na Operations identity<br/><ul><li>Windows: `%localappdata%\NuGet\plugins-cache`</li><li>Mac/Linux: `~/.local/share/NuGet/plugins-cache`</li><li>Popište pomocí proměnné prostředí NUGET_PLUGINS_CACHE_PATH.</li></ul> |
+| globální&#8209;balíčky | Složka *Global-Packages* je místo, kde NuGet nainstaluje libovolný stažený balíček. Každý balíček je plně rozbalen do podsložky, která odpovídá identifikátoru a číslu verze balíčku. Projekty, které používají formát [PackageReference](package-references-in-project-files.md) , vždy používají balíčky přímo z této složky. Při použití [souboru Packages. config](../reference/packages-config.md)se balíčky nainstalují do složky *Global-Packages* a pak se zkopírují do složky `packages` projektu.<br/><ul><li>Windows: `%userprofile%\.nuget\packages`</li><li>Mac/Linux: `~/.nuget/packages`</li><li>Popište pomocí proměnné prostředí NUGET_PACKAGES, [nastavení konfigurace](../reference/nuget-config-file.md#config-section) `globalPackagesFolder` nebo `repositoryPath` (při použití PackageReference a `packages.config`) nebo vlastnosti `RestorePackagesPath` MSBuild (jenom MSBuild). Proměnná prostředí má přednost před nastavením konfigurace.</li></ul> |
+| http&#8209;cache | Správce balíčků sady Visual Studio (NuGet 3. x +) a nástroj `dotnet` ukládá kopie stažených balíčků v této mezipaměti (uložené jako `.dat` soubory) uspořádané do podsložek pro každý zdroj balíčku. Balíčky nejsou rozbalené a mezipaměť má čas vypršení platnosti 30 minut.<br/><ul><li>Windows: `%localappdata%\NuGet\v3-cache`</li><li>Mac/Linux: `~/.local/share/NuGet/v3-cache`</li><li>Přepsat pomocí proměnné prostředí NUGET_HTTP_CACHE_PATH.</li></ul> |
+| temp | Složka, ve které NuGet ukládá dočasné soubory během různých operací.<br/><li>Windows: `%temp%\NuGetScratch`</li><li>Mac/Linux: `/tmp/NuGetScratch`</li></ul> |
+| moduly plug-in – mezipaměť **4,8 +** | Složka, ve které NuGet ukládá výsledky z požadavku na Operations identity<br/><ul><li>Windows: `%localappdata%\NuGet\plugins-cache`</li><li>Mac/Linux: `~/.local/share/NuGet/plugins-cache`</li><li>Přepsat pomocí proměnné prostředí NUGET_PLUGINS_CACHE_PATH.</li></ul> |
 
 > [!Note]
-> NuGet 3,5 a starší používá *mezipaměť balíčků* místo *HTTP-cache*, která je umístěna v `%localappdata%\NuGet\Cache`.
+> NuGet 3,5 a starší používá místo *mezipaměti HTTP-* cache, která je umístěná v `%localappdata%\NuGet\Cache`, *mezipaměť balíčků* .
 
 Pomocí složek cache a *Global-Packages* NuGet se obecně vyhne stahování balíčků, které již v počítači existují, což zlepšuje výkon operací instalace, aktualizace a obnovení. Při použití PackageReference se složka *Global-Packages* také vyhne zachovávání stažených balíčků ve složkách projektu, kde by mohly být neúmyslně přidány do správy zdrojových kódů, a snižuje celkový dopad na úložiště počítače.
 
-Když se zobrazí výzva k načtení balíčku, NuGet nejprve vyhledá složku *Global-Packages* . Pokud není k dispozici přesná verze balíčku, vyhledá NuGet všechny zdroje balíčků bez HTTP. Pokud se balíček ještě nenašel, NuGet vyhledá balíček v *mezipaměti HTTP-cache* , pokud `--no-cache` nezadáte příkazy s `dotnet.exe` příkazy nebo `-NoCache` s `nuget.exe` příkazy. Pokud balíček není v mezipaměti, nebo se mezipaměť nepoužívá, NuGet ho načte pomocí protokolu HTTP.
+Když se zobrazí výzva k načtení balíčku, NuGet nejprve vyhledá složku *Global-Packages* . Pokud není k dispozici přesná verze balíčku, vyhledá NuGet všechny zdroje balíčků bez HTTP. Pokud se balíček pořád nenašel, NuGet vyhledá balíček v *mezipaměti HTTP-cache* , pokud neurčíte `--no-cache` s příkazy `dotnet.exe` nebo `-NoCache` s `nuget.exe` příkazy. Pokud balíček není v mezipaměti, nebo se mezipaměť nepoužívá, NuGet ho načte pomocí protokolu HTTP.
 
 Další informace najdete v tématu [co se stane, když se balíček nainstaluje?](../concepts/package-installation-process.md).
 
@@ -50,11 +50,11 @@ temp: C:\Users\user1\AppData\Local\Temp\NuGetScratch
 plugins-cache: C:\Users\user1\AppData\Local\NuGet\plugins-cache
 ```
 
-(`package-cache` používá se v NuGet 2. x a zobrazí se NuGet 3,5 a starším.)
+(`package-cache` se používá v NuGet 2. x a zobrazí se s NuGet 3,5 a starším.)
 
 Umístění složek můžete zobrazit také pomocí [příkazu dotnet NuGet Locals](/dotnet/core/tools/dotnet-nuget-locals):
 
-```cli
+```dotnetcli
 dotnet nuget locals all --list
 ```
 
@@ -67,11 +67,11 @@ info : temp: /tmp/NuGetScratch
 info : plugins-cache: /home/user1/.local/share/NuGet/plugins-cache
 ```
 
-Chcete-li zobrazit umístění jedné složky, použijte `http-cache` `temp`, `global-packages`, nebo `plugins-cache` místo `all`.
+Chcete-li zobrazit umístění jedné složky, použijte `http-cache`, `global-packages`, `temp`nebo `plugins-cache` namísto `all`.
 
 ## <a name="clearing-local-folders"></a>Mazání místních složek
 
-Pokud narazíte na problémy s instalací balíčku nebo pokud chcete, aby se balíčky instalovaly ze vzdálené galerie, použijte `locals --clear` možnost (dotnet. exe) nebo `locals -clear` (NuGet. exe), určete složku, která se má vymazat `all` , nebo na vymazat všechny složky:
+Pokud narazíte na problémy s instalací balíčku nebo pokud chcete, aby se balíčky instalovaly ze vzdálené galerie, použijte možnost `locals --clear` (dotnet. exe) nebo `locals -clear` (NuGet. exe), zadejte složku, která se má vymazat, nebo `all` vymažte všechny složky:
 
 ```cli
 # Clear the 3.x+ cache (use either command)
@@ -106,13 +106,13 @@ V aplikaci Visual Studio 2017 použijte **Správce balíčků NuGet nástroje > 
 
 ## <a name="troubleshooting-errors"></a>Řešení chyb
 
-Při použití `nuget locals` nebo `dotnet nuget locals`se můžou objevit tyto chyby:
+Při použití `nuget locals` nebo `dotnet nuget locals`může dojít k následujícím chybám:
 
-- *Chyba: Proces nemůže získat přístup k souboru <package> , protože ho používá jiný proces* nebo *došlo k chybě při mazání místních prostředků: Nepovedlo se odstranit jeden nebo víc souborů.*
+- *Chyba: proces nemůže získat přístup k souboru, <package> protože ho používá jiný proces* nebo *se nepovedlo vymazat místní prostředky: nepovedlo se odstranit jeden nebo víc souborů.*
 
     Jeden nebo více souborů ve složce používá jiný proces. například projekt sady Visual Studio je otevřen, který odkazuje na balíčky ve složce *Global-Packages* . Zavřete tyto procesy a zkuste to znovu.
 
-- *Chyba: Přístup k cestě <path> byl odepřen* nebo adresář není *prázdný* .
+- *Chyba: přístup k cestě <path> byl odepřen* nebo *adresář není prázdný* .
 
     Nemáte oprávnění k odstranění souborů v mezipaměti. Pokud je to možné, změňte oprávnění složky a zkuste to znovu. V opačném případě se obraťte na správce systému.
 

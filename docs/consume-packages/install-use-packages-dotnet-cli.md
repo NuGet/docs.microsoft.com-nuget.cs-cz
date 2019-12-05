@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/03/2019
 ms.topic: conceptual
-ms.openlocfilehash: d9e9f0026e4c907351b4b0cd0adced28a4670575
-ms.sourcegitcommit: e763d9549cee3b6254ec2d6382baccb44433d42c
+ms.openlocfilehash: 67cca81c48970c7f2e2cf0a64ee5ba57704a31e2
+ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68860602"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74825154"
 ---
 # <a name="install-and-manage-packages-using-the-dotnet-cli"></a>Instalace a Správa balíčků pomocí rozhraní příkazového řádku dotnet
 
@@ -22,29 +22,29 @@ Tento článek popisuje základní použití pro několik nejběžnějších př
 
 ## <a name="prerequisites"></a>Požadavky
 
-- [.NET Core SDK](https://www.microsoft.com/net/download/), která poskytuje `dotnet` nástroj příkazového řádku. Počínaje sadou Visual Studio 2017 se rozhraní příkazového řádku dotnet automaticky nainstaluje se všemi úlohami souvisejícími s .NET Core.
+- [.NET Core SDK](https://www.microsoft.com/net/download/), který poskytuje nástroj příkazového řádku `dotnet`. Počínaje sadou Visual Studio 2017 se rozhraní příkazového řádku dotnet automaticky nainstaluje se všemi úlohami souvisejícími s .NET Core.
 
 ## <a name="install-a-package"></a>Instalace balíčku
 
-[dotnet Add Package](/dotnet/core/tools/dotnet-add-package?tabs=netcore2x) přidá odkaz na balíček do souboru projektu a potom spustí `dotnet restore` instalaci balíčku.
+[dotnet Add Package](/dotnet/core/tools/dotnet-add-package?tabs=netcore2x) přidá odkaz na balíček do souboru projektu a potom spustí `dotnet restore` pro instalaci balíčku.
 
 1. Otevřete příkazový řádek a přejděte do adresáře, který obsahuje soubor projektu.
 
 2. K instalaci balíčku NuGet použijte následující příkaz:
 
-    ```cli
+    ```dotnetcli
     dotnet add package <PACKAGE_NAME>
     ```
 
-    Pokud například chcete `Newtonsoft.Json` balíček nainstalovat, použijte následující příkaz.
+    Například pro instalaci balíčku `Newtonsoft.Json` použijte následující příkaz.
 
-    ```cli
+    ```dotnetcli
     dotnet add package Newtonsoft.Json
     ```
 
 3. Po dokončení příkazu si prohlédněte soubor projektu a ujistěte se, že byl balíček nainstalován.
 
-   Tento `.csproj` soubor můžete otevřít a zobrazit tak přidaný odkaz:
+   Pokud chcete zobrazit přidaný odkaz, můžete otevřít soubor `.csproj`:
 
     ```xml
    <ItemGroup>
@@ -56,13 +56,13 @@ Tento článek popisuje základní použití pro několik nejběžnějších př
 
 Pokud není zadaná verze, NuGet nainstaluje nejnovější verzi balíčku. K instalaci konkrétní verze balíčku NuGet můžete použít taky příkaz [dotnet Add Package](/dotnet/core/tools/dotnet-add-package?tabs=netcore2x) :
 
-```cli
+```dotnetcli
 dotnet add package <PACKAGE_NAME> -v <VERSION>
 ```
 
-Pokud například chcete přidat 12.0.1 `Newtonsoft.Json` verze balíčku, použijte tento příkaz:
+Pokud například chcete přidat 12.0.1 verze balíčku `Newtonsoft.Json`, použijte tento příkaz:
 
-```cli
+```dotnetcli
 dotnet add package Newtonsoft.Json -v 12.0.1
 ```
 
@@ -70,7 +70,7 @@ dotnet add package Newtonsoft.Json -v 12.0.1
 
 Odkazy na balíček pro svůj projekt můžete zobrazit pomocí příkazu pro [Výpis balíčku dotnet](/dotnet/core/tools/dotnet-list-package?tabs=netcore2x) .
 
-```cli
+```dotnetcli
 dotnet list package
 ```
 
@@ -78,19 +78,19 @@ dotnet list package
 
 Pomocí příkazu [dotnet Remove Package](/dotnet/core/tools/dotnet-remove-package?tabs=netcore2x) odeberte odkaz na balíček ze souboru projektu.
 
-```cli
+```dotnetcli
 dotnet remove package <PACKAGE_NAME>
 ```
 
-Chcete-li například odebrat `Newtonsoft.Json` balíček, použijte následující příkaz
+Chcete-li například odebrat balíček `Newtonsoft.Json`, použijte následující příkaz
 
-```cli
+```dotnetcli
 dotnet remove package Newtonsoft.Json
 ```
 
 ## <a name="update-a-package"></a>Aktualizace balíčku
 
-NuGet nainstaluje nejnovější verzi balíčku, když použijete `dotnet add package` příkaz, pokud nezadáte verzi balíčku (`-v` přepínač).
+Pokud nezadáte verzi balíčku (`-v` přepínač), nainstaluje balíček NuGet nejnovější verzi balíčku, když použijete příkaz `dotnet add package`.
 
 ## <a name="restore-packages"></a>Obnovit balíčky
 
