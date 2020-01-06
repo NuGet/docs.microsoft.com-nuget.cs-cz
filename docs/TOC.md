@@ -49,7 +49,7 @@
 ### [Vytvoření nativního balíčku](guides/native-packages.md)
 ### [Vytvoření ovládacích prvků uživatelského rozhraní jako balíčku NuGet](guides/create-UI-controls.md)
 ### [Vytvoření analyzátoru jako balíčku NuGet](guides/analyzers-conventions.md)
-### [Vytvoření balíčku pro Xamarin pomocí sady Visual Studio 2015](guides/create-packages-for-xamarin.md)
+### [Vytvoření balíčku pro Xamarin pomocí sady Visual Studio 2017 nebo 2019](guides/create-packages-for-xamarin.md)
 ### [Vytvoření balíčku se sestaveními zprostředkovatele komunikace s objekty COM](create-packages/author-packages-with-COM-interop-assemblies.md)
 ## Podepisování balíčků
 ### [Podepsání balíčku](create-packages/sign-a-package.md)
