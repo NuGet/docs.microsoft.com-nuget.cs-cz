@@ -1,37 +1,37 @@
 ---
-title: Poznámky k verzi 2.0 NuGet
-description: Zpráva k vydání verze NuGet 2.0, včetně známých problémů, opravy chyb, nové funkce a chcete.
+title: Zpráva k vydání verze NuGet 2,0
+description: Poznámky k verzi pro NuGet 2,0, včetně známých problémů, oprav chyb, přidaných funkcí a chcete odeslat obecnou.
 author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: f32eea9260ce7e307ff56b7f3e6b48c6d98e6c90
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 01fdbfafcaea009cf119dfa880b2b16539c9b088
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547572"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383064"
 ---
-# <a name="nuget-20-release-notes"></a>Poznámky k verzi 2.0 NuGet
+# <a name="nuget-20-release-notes"></a>Zpráva k vydání verze NuGet 2,0
 
-[Zpráva k vydání verze NuGet 1.8](../release-notes/nuget-1.8.md) | [zpráva k vydání verze NuGet 2.1](../release-notes/nuget-2.1.md)
+[Poznámky k verzi nuget 1,8](../release-notes/nuget-1.8.md) | zpráva k [vydání verze NuGet 2,1](../release-notes/nuget-2.1.md)
 
-NuGet 2.0 vydané 19. června 2012.
+NuGet 2,0 byl vydán 19. června 2012.
 
-## <a name="known-installation-issue"></a>Instalace známý problém
-Pokud spustíte VS 2010 SP1, můžete narazit na chybu instalace při pokusu o upgradu Nugetu, pokud máte nainstalovaný starší verze.
+## <a name="known-installation-issue"></a>Známý problém s instalací
+Pokud používáte VS 2010 SP1, můžete při pokusu o upgrade NuGetu v případě, že máte nainstalovanou starší verzi, spustit chybu instalace.
 
-Alternativním řešením je jednoduše odinstalovat NuGet a nainstalujte ho z Galerie rozšíření VS.  Zobrazit [ http://support.microsoft.com/kb/2581019 ](http://support.microsoft.com/kb/2581019) Další informace nebo [přejděte přímo na opravu hotfix VS](http://bit.ly/vsixcertfix).
+Alternativním řešením je jednoduše odinstalovat NuGet a pak ji nainstalovat z galerie rozšíření VS.  Další informace najdete v tématu <https://support.microsoft.com/kb/2581019>, nebo [přejděte přímo na opravu hotfix vs](http://bit.ly/vsixcertfix).
 
-Poznámka: Pokud Visual Studio neumožní odinstalovat rozšíření (tlačítko Odinstalovat je vypnutá), pak pravděpodobně nutné restartovat Visual Studio pomocí příkazu "Spustit jako správce."
+Poznámka: Pokud Visual Studio neumožní odinstalovat rozšíření (tlačítko Odinstalace je zakázané), pak budete pravděpodobně muset restartovat Visual Studio pomocí možnosti Spustit jako správce.
 
-## <a name="package-restore-consent-is-now-active"></a>Souhlas obnovení balíčku je teď aktivní
+## <a name="package-restore-consent-is-now-active"></a>Souhlasu balíčku pro obnovení je teď aktivní.
 
-Jak je popsáno v tomto [Zveřejněte na souhlas obnovení balíčku](http://blog.nuget.org/20120518/package-restore-and-consent.html), NuGet 2.0 bude nyní vyžadovat souhlasu povolit obnovení balíčků přejít online a stáhnout balíčky. Ujistěte se prosím, že jste zadali souhlasu prostřednictvím dialogu konfigurace Správce balíčků nebo proměnné prostředí EnableNuGetPackageRestore.
+Jak je popsáno v tomto [příspěvku o souhlasu s obnovením balíčku](http://blog.nuget.org/20120518/package-restore-and-consent.html), NuGet 2,0 nyní vyžaduje souhlas s povolením, aby obnovení balíčků mohlo přejít online a stáhnout balíčky. Ujistěte se prosím, že jste poskytli souhlas prostřednictvím dialogu konfigurace správce balíčků nebo proměnné prostředí EnableNuGetPackageRestore.
 
-## <a name="group-dependencies-by-target-frameworks"></a>Skupina závislostí podle cílových platforem
+## <a name="group-dependencies-by-target-frameworks"></a>Seskupení závislostí podle cílových rozhraní
 
-Od verze 2.0, balíček, který se může lišit v závislosti na základě v rámci profilu na cílový projekt. To lze provést pomocí aktualizovaného `.nuspec` schématu. `<dependencies>` Element teď může obsahovat sadu `<group>` elementy. Každá skupina obsahuje nula nebo více `<dependency>` elementy a `targetFramework` atribut. Pokud cílová architektura, která je kompatibilní s profil cílového rozhraní framework projektu, jsou všechny závislosti uvnitř skupiny nainstalovaných společně. Příklad:
+Počínaje verzí 2,0 se závislosti balíčků můžou lišit v závislosti na profilu rozhraní cílového projektu. To je provedeno pomocí aktualizovaného schématu `.nuspec`. Element `<dependencies>` může nyní obsahovat sadu `<group>` prvků. Každá skupina obsahuje nula nebo více `<dependency>` prvků a atribut `targetFramework`. Všechny závislosti v rámci skupiny jsou nainstalovány společně, pokud je cílový rámec kompatibilní s profilem cílového projektového architektury. Příklad:
 
 ```xml
 <dependencies>
@@ -49,11 +49,11 @@ Od verze 2.0, balíček, který se může lišit v závislosti na základě v r�
 </dependencies>
 ```
 
-Všimněte si, že skupina může obsahovat **nula** závislosti. V předchozím příkladu Pokud je balíček nainstalován do projektu, který cílí na technologii Silverlight 3.0 nebo novější, nemá žádné závislosti se nainstaluje. Pokud balíček je nainstalovaný do projektu, který cílí na rozhraní .NET 4.0 nebo novější, dvě závislosti, jQuery a WebActivator, se nainstalují.  Pokud je balíček nainstalován do projektu, který cílí na starší verzi aplikace tyto 2 architektury nebo libovolné jiné architektury, nainstaluje se RouteMagic 1.1.0. Neexistuje žádné dědičnosti mezi skupinami. Pokud cílové rozhraní projektu odpovídá `targetFramework` atribut skupiny, jenom závislosti v rámci této skupiny se nainstaluje.
+Všimněte si, že skupina může obsahovat **nulové** závislosti. Pokud se v předchozím příkladu nainstaluje balíček do projektu, který cílí na Silverlight 3,0 nebo novější, nebudou nainstalovány žádné závislosti. Pokud je balíček nainstalován do projektu cíleného na rozhraní .NET 4,0 nebo novější, budou nainstalovány dvě závislosti, jQuery a webactivator.  Pokud se balíček nainstaluje do projektu, který se zaměřuje na počáteční verzi těchto 2 platforem, nebo na jakékoli jiné rozhraní, nainstaluje se RouteMagic 1.1.0. Mezi skupinami neexistuje žádná dědičnost. Pokud cílové rozhraní projektu odpovídá atributu `targetFramework` skupiny, budou nainstalovány pouze závislosti v této skupině.
 
-Balíček můžete určit závislosti balíčků v některém z dva formáty: starý formát plochý seznam `<dependency>` elementy nebo skupiny. Pokud `<group>` formát se používá, balíček nejde nainstalovat do verze NuGet starší než 2.0.
+Balíček může určovat závislosti balíčků v jednom ze dvou formátů: ve starém formátu nestrukturovaného seznamu `<dependency>` prvků nebo skupin. Pokud se používá formát `<group>`, balíček nejde nainstalovat do verzí NuGet starších než 2,0.
 
-Všimněte si, že míchání dva formáty nejsou povolené. Například následující fragment kódu je **neplatný** a odmítne NuGet.
+Všimněte si, že kombinace těchto dvou formátů není povolená. Například následující fragment kódu je **neplatný** a bude NuGet odmítnut.
 
 ```xml
 <dependencies>
@@ -66,9 +66,9 @@ Všimněte si, že míchání dva formáty nejsou povolené. Například násled
 </dependencies>
 ```
 
-## <a name="grouping-content-files-and-powershell-scripts-by-target-framework"></a>Seskupení obsahu soubory a skripty prostředí PowerShell pomocí rozhraní .NET framework
+## <a name="grouping-content-files-and-powershell-scripts-by-target-framework"></a>Seskupení souborů obsahu a skriptů PowerShellu podle cílové architektury
 
-Kromě odkazů na sestavení soubory obsahu a skripty prostředí PowerShell můžete taky Seskupit podle cílovou architekturu. Součástí stejné struktury složek `lib` složku pro zadání cílové rozhraní se teď může používat stejně jako na `content` a `tools` složek. Příklad:
+Kromě odkazů na sestavení je také možné seskupit soubory obsahu a skripty prostředí PowerShell podle cílové architektury. Stejná struktura složek, která se nachází ve složce `lib` pro určení cílové architektury, se teď dá použít stejným způsobem jako složky `content` a `tools`. Příklad:
 
     \content
         \net11
@@ -88,13 +88,13 @@ Kromě odkazů na sestavení soubory obsahu a skripty prostředí PowerShell mů
             \install.ps1
             \uninstall.ps1
 
-**Poznámka:**: protože `init.ps1` provádí na úrovni řešení a není závislá na každý individuální projekt, se musí umístit přímo pod `tools` složky. Pokud umístěné ve složce pro konkrétní rozhraní, bude se ignorovat.
+**Poznámka**: vzhledem k tomu, že je `init.ps1` proveden na úrovni řešení a není závislé na žádném jednotlivém projektu, musí být umístěn přímo pod `tools` složky. Pokud je umístěn do složky specifické pro rozhraní, bude ignorováno.
 
-Nová funkce ve verzi NuGet 2.0 je také, že framework složka může představovat *prázdný*, v takovém případě nebude přidat odkazy na sestavení, přidání souborů obsahu nebo spouštění skriptů prostředí PowerShell pro konkrétní framework verze NuGet. V příkladu výše, složce `content\net40` je prázdný.
+Nová funkce v NuGet 2,0 je taky to, že složka rozhraní může být *prázdná*. v takovém případě NuGet nepřidá odkazy na sestavení, přidá soubory obsahu nebo spustí skripty PowerShellu pro konkrétní verzi Frameworku. Ve výše uvedeném příkladu je `content\net40` složky prázdná.
 
-## <a name="improved-tab-completion-performance"></a>Vylepšené kartu dokončení výkonu
-Aktualizovali jsme funkci doplňování kartu v konzole Správce balíčků NuGet k výraznému zlepšení výkonu. Bude mnohem menším zpoždění od okamžiku, kdy stisknutí klávesy tab, dokud se zobrazí rozevírací seznam návrhů.
+## <a name="improved-tab-completion-performance"></a>Vylepšený výkon dokončování karet
+Funkce dokončování karet v konzole správce balíčků NuGet se aktualizovala tak, aby významně zvýšila výkon. Čas stisknutí klávesy TAB bude mnohem kratší, dokud se nezobrazí rozevírací seznam návrh.
 
 ## <a name="bug-fixes"></a>Opravy chyb
-NuGet 2.0 obsahuje řadu oprav chyb s důrazem na souhlas obnovení balíčků a výkon.
-Úplný seznam pracovních položek opravených NuGet 2.0 prosím zobrazení [NuGet sledování problémů pro tuto verzi](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=NuGet%202.0&assignedTo=All&component=All&sortField=Votes&sortDirection=Descending&page=0).
+NuGet 2,0 obsahuje mnoho oprav chyb s důrazem na dodržování souhlasu a výkonu balíčku pro obnovení.
+Úplný seznam pracovních položek opravených v NuGet 2,0 najdete v [přehledu problémů NuGet pro tuto verzi](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=NuGet%202.0&assignedTo=All&component=All&sortField=Votes&sortDirection=Descending&page=0).

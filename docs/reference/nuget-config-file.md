@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/13/2019
 ms.topic: reference
-ms.openlocfilehash: 0b052bd03625172f1b941c365cbedf7629809d6f
-ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
+ms.openlocfilehash: d6cad228eb052563fe57ea635bff0ea548cedc1f
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74825199"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383561"
 ---
 # <a name="nugetconfig-reference"></a>Referenční dokumentace NuGet. config
 
@@ -305,7 +305,7 @@ Pomocí proměnných prostředí v `nuget.config`ch hodnotách (NuGet 3.4 +) mů
 
 Pokud je například proměnná prostředí `HOME` v systému Windows nastavena na hodnotu `c:\users\username`, hodnota `%HOME%\NuGetRepository` v konfiguračním souboru se přeloží na `c:\users\username\NuGetRepository`.
 
-Podobně, pokud je `HOME` v systému Mac/Linux nastaveno na `/home/myStuff`, `%HOME%/NuGetRepository` v konfiguračním souboru se přeloží na `/home/myStuff/NuGetRepository`.
+Podobně, pokud je `HOME` v systému Mac/Linux nastaveno na `/home/myStuff`, `$HOME/NuGetRepository` v konfiguračním souboru se přeloží na `/home/myStuff/NuGetRepository`.
 
 Pokud se proměnná prostředí nenajde, NuGet použije hodnotu literálu z konfiguračního souboru.
 

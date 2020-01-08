@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: ed3545454a811c311190a191c566d9e9192f3fcc
-ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
+ms.openlocfilehash: 2c2b5b21569e2644154670d502146f1e0f9c4c81
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74825064"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385011"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Sada NuGet Pack a obnovení jako cíle MSBuild
 
@@ -48,7 +48,7 @@ Všimněte si, že nástroj MSBuild nepodporuje vlastnosti `Owners` a `Summary` 
 
 | Hodnota atributu/NuSpec | Vlastnost MSBuild | Výchozí | Poznámky |
 |--------|--------|--------|--------|
-| Id | PackageId | AssemblyName | $ (AssemblyName) z MSBuild |
+| Id | PackageId | Doplňk | $ (AssemblyName) z MSBuild |
 | Version | PackageVersion | Version | To je semver kompatibilní, například "1.0.0", "1.0.0-beta" nebo "1.0.0-beta-00345" |
 | VersionPrefix | PackageVersionPrefix | empty | Nastavení PackageVersion přepsání PackageVersionPrefix |
 | VersionSuffix | PackageVersionSuffix | empty | $ (VersionSuffix) z MSBuild. Nastavení PackageVersion přepsání PackageVersionSuffix |
@@ -120,7 +120,7 @@ Chcete-li potlačit závislosti balíčků z generovaného balíčku NuGet, nast
 
 místo nové vlastnosti [`PackageIcon`](#packageicon) `PackageIconUrl` bude zastaralá.
 
-Počínaje verzí NuGet 5,3 & Visual Studio 2019 verze 16,3, `pack` vyvolá upozornění [NU5048](errors-and-warnings/nu5048) , pokud metadata balíčku určují jenom `PackageIconUrl`.
+Počínaje verzí NuGet 5,3 & Visual Studio 2019 verze 16,3, `pack` vyvolá upozornění [NU5048](./errors-and-warnings/nu5048.md) , pokud metadata balíčku určují jenom `PackageIconUrl`.
 
 ### <a name="packageicon"></a>PackageIcon
 

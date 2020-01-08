@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/02/2017
 ms.topic: reference
-ms.openlocfilehash: 142af9c4f7d25c3b0d986524313851cceb1e4c60
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 2a82b1977265a8f8a15247759bc3de80a5efe228
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68328381"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385340"
 ---
 # <a name="powershell-reference"></a>Referenční informace o prostředí PowerShell
 
@@ -24,14 +24,14 @@ Konzola správce balíčků poskytuje rozhraní PowerShellu v sadě Visual Studi
 
 | Běžné příkazy | Popis | Verze NuGet |
 | --- | --- | --- |
-| [Install-Package](ps-reference/ps-ref-install-package.md) | Nainstaluje balíček a jeho závislosti do projektu. | Všechny |
+| [Install-Package](ps-reference/ps-ref-install-package.md) | Nainstaluje do projektu balíček a jeho závislé součásti. | Všechny |
 | [Update-Package](ps-reference/ps-ref-update-package.md) | Aktualizuje balíček a jeho závislosti nebo všechny balíčky v projektu. | Všechny |
 | [Find-Package](ps-reference/ps-ref-find-package.md) | Vyhledá zdroj balíčku pomocí ID balíčku nebo klíčových slov. | 3.0+ |
 | [Get-Package](ps-reference/ps-ref-get-package.md) | Načte seznam balíčků nainstalovaných v místním úložišti nebo vypíše balíčky dostupné ze zdroje balíčku. | Všechny |
 
 | Sekundární příkazy | Popis | Verze NuGet |
 | --- | --- | --- |
-| [Add-BindingRedirect](ps-reference/ps-ref-add-bindingredirect.md) | Prověřuje všechna sestavení v rámci výstupní cesty pro projekt a přidá přesměrování vazby do nebo `app.config` `web.config` v případě potřeby. | Všechny |
+| [Add-BindingRedirect](ps-reference/ps-ref-add-bindingredirect.md) | Prověřuje všechna sestavení v rámci výstupní cesty pro projekt a přidá přesměrování vazby do `app.config` nebo `web.config` v případě potřeby. | Všechny |
 | [Get-Project](ps-reference/ps-ref-get-project.md) | Zobrazí informace o výchozím nebo zadaném projektu. | 3.0+ |
 | [Open-PackagePage](ps-reference/ps-ref-open-packagepage.md) | Spustí výchozí prohlížeč s adresou URL projektu, licence nebo sestavy pro zneužití zadaného balíčku. | Zastaralé v 3.0 + |
 | [Register-TabExpansion](ps-reference/ps-ref-register-tabexpansion.md) | Registruje rozšíření karet pro parametry příkazu, což vám umožní vytvořit přizpůsobené rozšíření pro běžně používané hodnoty parametrů. | Všechny |
@@ -44,10 +44,10 @@ Pro úplnou a podrobnou nápovědu k některým z těchto příkazů v konzole n
 Get-Help <command> -full
 ```
 
-Všechny příkazy konzoly Správce balíčků podporují tyto [běžné parametry PowerShellu](http://go.microsoft.com/fwlink/?LinkID=113216):
+Všechny příkazy konzoly Správce balíčků podporují tyto [běžné parametry PowerShellu](https://go.microsoft.com/fwlink/?LinkID=113216):
 
-- Ladění
-- errorAction
+- Ladit
+- ErrorAction
 - ErrorVariable
 - OutBuffer
 - OutVariable
@@ -56,4 +56,4 @@ Všechny příkazy konzoly Správce balíčků podporují tyto [běžné paramet
 - WarningAction
 - WarningVariable
 
-Podrobnosti najdete v dokumentaci k prostředí PowerShell v tématu [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216) .
+Podrobnosti najdete v dokumentaci k prostředí PowerShell v tématu [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216) .

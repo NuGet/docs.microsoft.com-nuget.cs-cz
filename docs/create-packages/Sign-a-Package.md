@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 1053a18926f63e02f0b1c100e7cc1cd293654ced
-ms.sourcegitcommit: e4b0ff4460865db6dc7bc9f20e9f644d98493011
+ms.openlocfilehash: 00fe1d5fa81132b5d6826203a0d26e56aa8d4755
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71307217"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383979"
 ---
 # <a name="signing-nuget-packages"></a>Podepisování balíčků NuGet
 
@@ -19,7 +19,7 @@ Podepsané balíčky umožňují kontrolu integrity obsahu, která zajišťuje o
 
 ## <a name="get-a-code-signing-certificate"></a>Získání certifikátu pro podpis kódu
 
-Platné certifikáty mohou být získány od veřejné certifikační autority, jako je [Symantec](https://trustcenter.websecurity.symantec.com/process/trust/productOptions?productType=SoftwareValidationClass3), [DigiCert](https://www.digicert.com/code-signing/), [Daddy](https://www.godaddy.com/web-security/code-signing-certificate), [Global Sign](https://www.globalsign.com/en/code-signing-certificate/), [Comodo](https://www.comodo.com/e-commerce/code-signing/code-signing-certificate.php), [Certum](https://www.certum.eu/certum/cert,offer_en_open_source_cs.xml)atd. Úplný seznam certifikačních autorit, které jsou pro Windows důvěryhodné, můžete získat z [http://aka.ms/trustcertpartners](http://aka.ms/trustcertpartners).
+Platné certifikáty mohou být získány od veřejné certifikační autority, jako je [Symantec](https://trustcenter.websecurity.symantec.com/process/trust/productOptions?productType=SoftwareValidationClass3), [DigiCert](https://www.digicert.com/code-signing/), [Daddy](https://www.godaddy.com/web-security/code-signing-certificate), [Global Sign](https://www.globalsign.com/en/code-signing-certificate/), [Comodo](https://www.comodo.com/e-commerce/code-signing/code-signing-certificate.php), [Certum](https://www.certum.eu/certum/cert,offer_en_open_source_cs.xml)atd. Úplný seznam certifikačních autorit, které jsou pro Windows důvěryhodné, můžete získat z [http://aka.ms/trustcertpartners](https://aka.ms/trustcertpartners).
 
 Pro účely testování můžete použít certifikáty vystavené svým držitelem. Balíčky podepsané pomocí certifikátů vydaných svým držitelem ale neakceptuje NuGet.org. Další informace o [Vytvoření testovacího certifikátu](#create-a-test-certificate)
 
@@ -59,7 +59,7 @@ K publikování podepsaného balíčku je třeba nejprve zaregistrovat certifik�
 1. Vyhledejte a vyberte soubor certifikát, který byl dříve exportován.
   ![registrovaných certifikátů](../reference/media/registered-certs.png)
 
-**Poznámka**
+**Poznámka:**
 * Jeden uživatel může odeslat více certifikátů a stejný certifikát může registrovat více uživatelů.
 * Jakmile má uživatel zaregistrován certifikát, všechna budoucí odeslání balíčku **musí** být podepsána jedním z certifikátů. Viz [Správa požadavků na podepisování pro váš balíček v NuGet.org](#manage-signing-requirements-for-your-package-on-nugetorg) .
 * Uživatelé taky můžou z účtu odebrat registrovaný certifikát. Po odebrání certifikátu se při odeslání nezdaří nové balíčky podepsané tímto certifikátem. Existující balíčky to neovlivní.

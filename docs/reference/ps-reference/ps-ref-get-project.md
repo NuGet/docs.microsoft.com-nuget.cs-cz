@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 830746f032bb4eb916508ef320c5b3d0486b89a4
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 3343952535c2d3c822f5cac24cb30c8f5bfa5be3
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68328210"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384617"
 ---
 # <a name="get-project-package-manager-console-in-visual-studio"></a>Get-Project (konzola Správce balíčků v sadě Visual Studio)
 
 *K dispozici pouze v rámci [konzoly Správce balíčků](../../consume-packages/install-use-packages-powershell.md) v sadě Visual Studio ve Windows.*
 
-Zobrazí informace o výchozím nebo zadaném projektu. `Get-Project`konkrétně vrátí referenční do objektu aplikace Visual Studio DTE (vývojové nástroje) pro projekt.
+Zobrazí informace o výchozím nebo zadaném projektu. `Get-Project` konkrétně vrátí referenční objektu aplikace Visual Studio DTE (vývojové nástroje) pro projekt.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -35,7 +35,7 @@ Get-Project [[-Name] <string>] [-All] [<CommonParameters>]
 
 ## <a name="common-parameters"></a>Společné parametry
 
-`Get-Project`podporuje následující [běžné parametry PowerShellu](http://go.microsoft.com/fwlink/?LinkID=113216): Ladit, Error Action, ErrorVariable, unbuffer, subvariable, PipelineVariable, verbose, WarningAction a WarningVariable.
+`Get-Project` podporuje následující [běžné parametry PowerShellu](https://go.microsoft.com/fwlink/?LinkID=113216): Debug, Error Action, ErrorVariable, inbuffer, subvariable, PipelineVariable, verbose, WarningAction a WarningVariable.
 
 ## <a name="examples"></a>Příklady
 

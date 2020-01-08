@@ -1,37 +1,37 @@
 ---
-title: Poznámky k verzi 1.5 NuGet
-description: Zpráva k vydání verze pro NuGet 1.5, včetně známých problémů, opravy chyb, nové funkce a chcete.
+title: Zpráva k vydání verze NuGet 1,5
+description: Poznámky k verzi pro NuGet 1,5, včetně známých problémů, oprav chyb, přidaných funkcí a chcete odeslat obecnou.
 author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: c2b549f65e675e5fde9ae1dfea3f44f7d691a86b
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 940a19cdc485d611d03b52ee3102bc95a78a36bb
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548722"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383346"
 ---
-# <a name="nuget-15-release-notes"></a>Poznámky k verzi 1.5 NuGet
+# <a name="nuget-15-release-notes"></a>Zpráva k vydání verze NuGet 1,5
 
-[Zpráva k vydání verze NuGet 1.4](../release-notes/nuget-1.4.md) | [zpráva k vydání verze NuGet 1.6](../release-notes/nuget-1.6.md)
+[Poznámky k verzi nuget 1,4](../release-notes/nuget-1.4.md) | zpráva k [vydání verze NuGet 1,6](../release-notes/nuget-1.6.md)
 
-NuGet 1.5 vydané 30. srpna 2011.
+NuGet 1,5 byl vydán 30. srpna 2011.
 
 ## <a name="features"></a>Funkce
 
-### <a name="project-templates-with-preinstalled-nuget-packages"></a>Šablony projektů s předinstalovanou NuGet balíčky
-Při vytváření nové šablony projektu ASP.NET MVC 3, knihovny skriptů jQuery zahrnutý v projektu jsou ve skutečnosti tam umístili instalace balíčků NuGet.
+### <a name="project-templates-with-preinstalled-nuget-packages"></a>Šablony projektů s předinstalovanými balíčky NuGet
+Při vytváření nové šablony projektu ASP.NET MVC 3 se ve vlastně umístění knihoven skriptů jQuery obsažených v projektu nainstalují balíčky NuGet.
 
-Šablona projektu ASP.NET MVC 3 zahrnuje sadu balíčků NuGet, které se nainstalují při vyvolání šablony projektu. Tato možnost zahrnout balíčky NuGet pomocí šablony projektu je teď součástí balíčku nuget, který _jakékoli_ šablony projektu můžete nově využít výhod.
+Šablona projektu ASP.NET MVC 3 obsahuje sadu balíčků NuGet, které se instalují při vyvolání šablony projektu. Tato možnost zahrnout balíčky NuGet se šablonou projektu je teď funkcí NuGet, kterou může mít _každá_ šablona projektu teď možnost využít.
 
-Další podrobnosti o této funkci najdete v tomto [příspěvek na blogu od vývojářů funkci](http://blogs.msdn.com/b/marcinon/archive/2011/07/08/project-templates-and-preinstalled-nuget-packages.aspx).
+Další podrobnosti o této funkci najdete [v tomto blogovém příspěvku vývojářem této funkce](https://blogs.msdn.com/b/marcinon/archive/2011/07/08/project-templates-and-preinstalled-nuget-packages.aspx).
 
-### <a name="explicit-assembly-references"></a>Odkazy na explicitní sestavení
+### <a name="explicit-assembly-references"></a>Explicitní odkazy na sestavení
 
-Přidat nový `<references />` použít k explicitnímu zadání sestavení, v rámci elementu balíček by se měla odkazovat.
+Přidání nového prvku `<references />`, který slouží k explicitnímu určení, která sestavení v rámci balíčku by měla být odkazována.
 
-Například přidejte následující:
+Například pokud přidáte následující:
 
 ```xml
 <references>
@@ -40,18 +40,18 @@ Například přidejte následující:
 </references>
 ```
 
-Pak jenom `xunit.dll` a `xunit.extensions.dll` bude odkazovat z příslušné [framework nebo profil podsložky](../reference/nuspec.md#explicit-assembly-references) z `lib` složky, i když existují jiné sestavení ve složce.
+Pak budou odkazy na `xunit.dll` a `xunit.extensions.dll` odkazovány z příslušné [podsložky Framework/profil](../reference/nuspec.md#explicit-assembly-references) složky `lib`, i když jsou ve složce jiná sestavení.
 
-Pokud tento prvek je vynechán, pak platí obvyklé chování, která má odkazovat na všechna sestavení v `lib` složky.
+Pokud je tento element vynechán, použije se obvyklé chování, které má odkazovat na každé sestavení ve složce `lib`.
 
-__Co tato funkce slouží?__
+__K čemu se tato funkce používá?__
 
-Tato funkce podporuje jenom sestavení doby návrhu. Například při použití kontrakty kódu, sestavení kontraktu musí být vedle sestavení modulu runtime, které se rozšiřují, aby sada Visual Studio můžete najít je, ale sestavení kontraktu nesmí odkazovat ve skutečnosti projekt a by neměl být zkopírována do `bin` složky.
+Tato funkce podporuje sestavení pouze pro dobu návrhu. Například při použití kontraktů kódu musí být sestavení kontraktu vedle sestavení modulu runtime, která se rozšiřují, aby je Visual Studio mohl najít, ale sestavení kontraktu by na ně neměla být odkazováno v projektu a neměla by být kopírována do složky `bin`.
 
-Podobně tato funkce umožňuje pro rozhraní pro testování částí jako jsou XUnit, které potřebují jeho nástroje pro sestavení vedle sestavení modulu runtime, ale vyloučit z projektových odkazů.
+Podobně lze funkci použít pro rozhraní testování částí, jako je například XUnit, které vyžadují, aby jejich nástroje byly umístěny vedle sestavení modulu runtime, ale vyloučeny z odkazů na projekt.
 
-### <a name="added-ability-to-exclude-files-in-the-nuspec"></a>Přidání možnosti vyloučit soubory souboru .nuspec
-`<file>` v elementu `.nuspec` souboru je možné zahrnout určitý soubor nebo sady souborů pomocí zástupného znaku. Při použití zástupného znaku, neexistuje žádný způsob, jak vyloučit určitou podmnožinu zahrnuté soubory. Předpokládejme například, že chcete všechny textové soubory ve složce s výjimkou konkrétní skupinu.
+### <a name="added-ability-to-exclude-files-in-the-nuspec"></a>Přidání možnosti pro vyloučení souborů v souboru. nuspec
+Element `<file>` v rámci `.nuspec` souboru lze použít k zahrnutí konkrétního souboru nebo sady souborů pomocí zástupného znaku. Pokud používáte zástupný znak, neexistuje žádný způsob, jak vyloučit určitou podmnožinu zahrnutých souborů. Předpokládejme například, že chcete všechny textové soubory ve složce s výjimkou konkrétního.
 
 ```xml
 <files>
@@ -59,7 +59,7 @@ Podobně tato funkce umožňuje pro rozhraní pro testování částí jako jsou
 </files>
 ```
 
-Chcete-li zadat více souborů použijte středníky.
+K určení více souborů použijte středníky.
 
 ```xml
 <files>
@@ -67,7 +67,7 @@ Chcete-li zadat více souborů použijte středníky.
 </files>
 ```
 
-Nebo použijte zástupný znak pro vyloučení sadu souborů, jako jsou všechny záložní soubory
+Případně můžete použít zástupnou kartu k vyloučení sady souborů, například všech záložních souborů.
 
 ```xml
 <files>
@@ -75,50 +75,50 @@ Nebo použijte zástupný znak pro vyloučení sadu souborů, jako jsou všechny
 </files>
 ```
 
-### <a name="removing-packages-using-the-dialog-prompts-to-remove-dependencies"></a>Odebrání balíčků v dialogovém okně zobrazí výzvu k odebrání závislostí
-Při odinstalaci balíčku se závislostmi, vyzve NuGet umožňuje odebrání závislosti balíčku společně s balíček.
+### <a name="removing-packages-using-the-dialog-prompts-to-remove-dependencies"></a>Odebrání balíčků pomocí dialogových oken pro odebrání závislostí
+Při odinstalaci balíčku se závislostmi se zobrazí výzva NuGet umožňující odebrání závislostí balíčku spolu s balíčkem.
 
-![Odebrání závislé balíčky](./media/remove-dependent-packages.png)
+![Odebírají se závislé balíčky.](./media/remove-dependent-packages.png)
 
 
-### <a name="get-package-command-improvement"></a>`Get-Package` zlepšení příkazu
-`Get-Package` Příkaz nyní podporuje `-ProjectName` parametru. Takže příkaz
+### <a name="get-package-command-improvement"></a>vylepšení příkazu `Get-Package`
+Příkaz `Get-Package` nyní podporuje parametr `-ProjectName`. Příkaz
 
     Get-Package –ProjectName A
 
-Zobrazí seznam všech balíčků nainstalovaných ve projekt A.
+Zobrazí seznam všech balíčků nainstalovaných v projektu A.
 
-### <a name="support-for-proxies-that-require-authentication"></a>Podpora pro proxy servery, které vyžadují ověřování
-Pokud používáte NuGet za proxy serverem, který vyžaduje ověření, NuGet teď zadání přihlašovacích údajů proxy serveru. Zadání přihlašovacích údajů umožňuje NuGet pro připojení k Vzdálené úložiště.
+### <a name="support-for-proxies-that-require-authentication"></a>Podpora proxy serverů, které vyžadují ověření
+Při používání NuGet za proxy serverem, který vyžaduje ověření, NuGet se teď vyzve k zadání přihlašovacích údajů proxy serveru. Zadání přihlašovacích údajů umožňuje NuGet připojit se ke vzdálenému úložišti.
 
-### <a name="support-for-repositories-that-require-authentication"></a>Podpora pro úložiště, které vyžadují ověřování
-NuGet teď podporuje připojení k [soukromých úložišť](../hosting-packages/local-feeds.md) , které vyžadují základní ověřování nebo ověřování NTLM.
+### <a name="support-for-repositories-that-require-authentication"></a>Podpora úložišť, která vyžadují ověření
+NuGet teď podporuje připojení k [soukromým úložištím](../hosting-packages/local-feeds.md) , která vyžadují základní ověřování nebo ověřování NTLM.
 
-Podpora pro ověřování algoritmem Digest bude přidána v budoucí verzi.
+V budoucí verzi se přidá podpora pro ověřování algoritmem Digest.
 
-### <a name="performance-improvements-to-the-nugetorg-repository"></a>Vylepšení výkonu pro úložiště nuget.org
-Provedli jsme několik vylepšení výkonu v galerii nuget.org na balíček výpis a rychlejší hledání.
+### <a name="performance-improvements-to-the-nugetorg-repository"></a>Vylepšení výkonu úložiště nuget.org
+V galerii nuget.org jsme provedli několik vylepšení výkonu, aby se vytvářely výpisy balíčků a hledání rychleji.
 
-### <a name="solution-dialog-project-filtering"></a>Filtrování řešení dialogové okno projektu
-V okně úrovni řešení při zobrazení výzvy ke jaké projekty k instalaci ukážeme pouze projekty, které jsou kompatibilní s vybraným balíčkem.
+### <a name="solution-dialog-project-filtering"></a>Filtrování projektu dialogu řešení
+V dialogovém okně na úrovni řešení se po zobrazení výzvy k instalaci projektů zobrazí pouze projekty, které jsou kompatibilní s vybraným balíčkem.
 
-### <a name="package-release-notes"></a>Zpráva k vydání verze balíčku
-Balíčky NuGet nyní zahrnují podporu pro zprávu k vydání verze. Poznámky k verzi zobrazit pouze až při zobrazení _aktualizace_ balíčku, proto nemá smysl přidat do vaší první verze.
+### <a name="package-release-notes"></a>Poznámky k verzi balíčku
+Balíčky NuGet teď zahrnují podporu pro poznámky k verzi. Poznámky k verzi se zobrazují jenom při prohlížení _aktualizací_ balíčku, takže nedávají smysl přidat ho do vaší první verze.
 
-![Zpráva k vydání verze v rámci kartu aktualizace](./media/manage-nuget-packages-release-notes.png)
+![Poznámky k verzi na kartě aktualizace](./media/manage-nuget-packages-release-notes.png)
 
-Chcete-li přidat poznámky k verzi balíčku, použijte nové `<releaseNotes />` prvek metadat v souboru NuSpec.
+Chcete-li přidat do balíčku poznámky k verzi, použijte nový prvek `<releaseNotes />` metadat v souboru NuSpec.
 
-### <a name="nuspec-ltfiles-gt-improvement"></a>souboru .nuspec & ltfiles /&gt; zlepšení
-`.nuspec` Souboru teď umožňuje prázdný `<files />` element, který informuje nuget.exe nechcete zahrnout všechny soubory v balíčku.
+### <a name="nuspec-ltfiles-gt-improvement"></a>nuspec & ltfiles/vylepšení&gt;
+Soubor `.nuspec` nyní umožňuje prázdný `<files />` prvek, který instruuje NuGet. exe, že neobsahuje žádný soubor v balíčku.
 
 ## <a name="bug-fixes"></a>Opravy chyb
-NuGet 1.5 bylo celkem 107 pracovní položky opraveno. 103 z nich byly označeny jako chyby.
+Aktualizace NuGet 1,5 obsahovala celkem 107 pracovních položek. 103 z nich bylo označeno jako chyby.
 
-Úplný seznam pracovních položek opravených NuGet 1.5 prosím zobrazení [NuGet sledování problémů pro tuto verzi](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=All&type=All&priority=All&release=NuGet%201.5&assignedTo=All&component=All&sortField=Summary&sortDirection=Descending&page=0).
+Úplný seznam pracovních položek opravených v NuGet 1,5 najdete v [přehledu problémů NuGet pro tuto verzi](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=All&type=All&priority=All&release=NuGet%201.5&assignedTo=All&component=All&sortField=Summary&sortDirection=Descending&page=0).
 
-## <a name="bug-fixes-worth-noting"></a>Opravy chyb za zmínku:
+## <a name="bug-fixes-worth-noting"></a>Opravy chyb zaznamenaly:
 
-* [Problém 1273](http://nuget.codeplex.com/workitem/1273): provedené `packages.config` více verzí popisný řazení balíčky podle abecedy a odebráním prázdné znaky.
-* [Problém 844](http://nuget.codeplex.com/workitem/844): čísla verzí se nyní normalizují tak, aby `Install-Package 1.0` funguje na balíček s verzí `1.0.0`.
-* [Problém 1060](http://nuget.codeplex.com/workitem/1060): při vytváření balíčku pomocí nuget.exe, `-Version` příznak přepsání `<version />` elementu.
+* [Problém 1273](http://nuget.codeplex.com/workitem/1273): provedli jsme `packages.config`ější správu verzí pomocí řazení balíčků abecedně a odebráním nadbytečného prázdného znaku.
+* [Problém 844](http://nuget.codeplex.com/workitem/844): čísla verzí jsou nyní normalizována, aby `Install-Package 1.0` fungovala na balíčku s verzí `1.0.0`.
+* [Problém 1060](http://nuget.codeplex.com/workitem/1060): při vytváření balíčku pomocí NuGet. exe příznak `-Version` Přepisuje `<version />` element.

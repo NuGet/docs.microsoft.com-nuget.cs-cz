@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 09/06/2019
 ms.topic: conceptual
-ms.openlocfilehash: 69f78ba5483fcc92887624584663e8c496cfc497
-ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
+ms.openlocfilehash: c7fb9c1e587b6603abe63581c662571abfd4506b
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74828406"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384108"
 ---
 # <a name="nuget-54-release-notes"></a>Zpráva k vydání verze NuGet 5,4
 
@@ -27,6 +27,8 @@ Prostředky pro distribuci NuGet:
 * Rychlejší načítání řešení – režie při spouštění kódu NuGet během prvního načtení řešení se snížila prostřednictvím částečného Ngen, aby se snížily náklady na JIT [#6007](https://github.com/NuGet/Home/issues/6007)
 
 * Nová pomocná funkce – seznam ID a verzí balíčků získáte tak, že získáte pravděpodobná balíčky nejvyšší úrovně. - [#8316](https://github.com/NuGet/Home/issues/8316)
+
+* Nová akce [`nuget/setup-nuget`](https://github.com/marketplace/actions/setup-nuget-exe-for-use-with-actions) pro instalaci a konfiguraci NuGet. exe na [akcích GitHubu](https://github.com/features/actions). - [#8818](https://github.com/NuGet/Home/issues/8818)
 
 ### <a name="issues-fixed-in-this-release"></a>Chyby opravené v této verzi
 

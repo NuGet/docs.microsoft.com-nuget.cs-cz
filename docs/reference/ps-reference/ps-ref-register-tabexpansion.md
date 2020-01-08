@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 14cda695677e1052c78169fda097b72b460a9d43
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 37aed96760e642b03c02bf31fe47a54f0e3cb74a
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68328192"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384451"
 ---
 # <a name="register-tabexpansion-package-manager-console-in-visual-studio"></a>Register-TabExpansion (konzola správce balíčků v aplikaci Visual Studio)
 
@@ -29,17 +29,17 @@ Register-TabExpansion [-Name] <String> [-Definition] <Object> [<CommonParameters
 | Parametr | Popis |
 | --- | --- |
 | Name | Požadovanou Příkaz, pro který mají být zaregistrována rozšíření. Samotný přepínač-Name je nepovinný. |
-| Definice | Požadovanou Objekt popisující argument v syntaxi `@{'<parameter>' = {'<value1>', '<value2>', ...}}` , kde `<parameter>` je název parametru, který má být upraven, a každý z `<value>` nich poskytuje konkrétní rozšíření. Jsou přijímány jednoduché i dvojité uvozovky. |
+| Definice | Požadovanou Objekt popisující argument v syntaxi `@{'<parameter>' = {'<value1>', '<value2>', ...}}`, kde `<parameter>` je název parametru, který má být upraven, a každý `<value>` poskytuje konkrétní rozšíření. Jsou přijímány jednoduché i dvojité uvozovky. |
 
 Žádný z těchto parametrů nepřijímají vstupní ani zástupné znaky kanálu.
 
 ## <a name="common-parameters"></a>Společné parametry
 
-`Register-TabExpansion`podporuje následující [běžné parametry PowerShellu](http://go.microsoft.com/fwlink/?LinkID=113216): Ladit, Error Action, ErrorVariable, unbuffer, subvariable, PipelineVariable, verbose, WarningAction a WarningVariable.
+`Register-TabExpansion` podporuje následující [běžné parametry PowerShellu](https://go.microsoft.com/fwlink/?LinkID=113216): Debug, Error Action, ErrorVariable, inbuffer, subvariable, PipelineVariable, verbose, WarningAction a WarningVariable.
 
 ## <a name="examples"></a>Příklady
 
-Vezměte v úvahu řešení, které obsahuje tři projekty s názvy EventManager, nástroje a SpecialParser. Vývojář často používá `Update-Package` příkaz v různých časech s každým z těchto projektů. Zjistí, že má `Update-Package` příkaz k dispozici rozšíření automatického dokončování `-ProjectName` pro argument, takže nemusí pokaždé zadávat název projektu. 
+Vezměte v úvahu řešení, které obsahuje tři projekty s názvy EventManager, nástroje a SpecialParser. Vývojář často používá příkaz `Update-Package` v různých časech u každého z těchto projektů. Zjistí, že má příkaz `Update-Package` pro `-ProjectName` argumentu zadat rozšíření automatického dokončování, takže nemusí pokaždé zadávat název projektu. 
 
 Následující příkaz zaregistruje tyto tři názvy projektů jako rozšíření pro `-ProjectName` parametr:
 

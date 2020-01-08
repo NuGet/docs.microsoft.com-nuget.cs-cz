@@ -1,24 +1,24 @@
 ---
-title: Vytváření balíčků NuGet pro Xamarin (pro iOS, Android a Windows) pomocí sady Visual Studio 2015
+title: Vytváření balíčků NuGet pro Xamarin (pro iOS, Android a Windows) pomocí sady Visual Studio 2017 nebo 2019
 description: Ucelený návod k vytváření balíčků NuGet pro Xamarin, který používá nativní rozhraní API pro iOS, Android a Windows.
 author: karann-msft
 ms.author: karann
-ms.date: 01/09/2017
+ms.date: 11/05/2019
 ms.topic: tutorial
-ms.openlocfilehash: 927991429d8d4ce54aa35be3e450475a38141b11
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: fce3c9a92dfee325f9e914bf3d6444601fb38b6c
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488916"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385671"
 ---
-# <a name="create-packages-for-xamarin-with-visual-studio-2015"></a>Vytváření balíčků pro Xamarin pomocí sady Visual Studio 2015
+# <a name="create-packages-for-xamarin-with-visual-studio-2017-or-2019"></a>Vytváření balíčků pro Xamarin pomocí sady Visual Studio 2017 nebo 2019
 
 Balíček pro Xamarin obsahuje kód, který používá nativní rozhraní API v systémech iOS, Android a Windows v závislosti na operačním systému za běhu. I když je to jednoduché, je vhodnější dát vývojářům využívání tohoto balíčku z knihovny PCL nebo .NET Standard pomocí běžné oblasti rozhraní API.
 
-V tomto návodu použijete Visual Studio 2015 vytvořit balíček NuGet pro různé platformy, který se dá použít v mobilních projektech pro iOS, Android a Windows.
+V tomto návodu použijete Visual Studio 2017 nebo 2019 k vytvoření balíčku NuGet pro různé platformy, který se dá použít v mobilních projektech pro iOS, Android a Windows.
 
-1. [Požadavky](#prerequisites)
+1. [Požadované součásti](#prerequisites)
 1. [Vytvoření struktury projektu a kódu abstrakce](#create-the-project-structure-and-abstraction-code)
 1. [Psaní kódu specifického pro platformu](#write-your-platform-specific-code)
 1. [Vytvoření a aktualizace souboru. nuspec](#create-and-update-the-nuspec-file)
@@ -27,7 +27,7 @@ V tomto návodu použijete Visual Studio 2015 vytvořit balíček NuGet pro růz
 
 ## <a name="prerequisites"></a>Požadavky
 
-1. Visual Studio 2015 with Univerzální platforma Windows (UWP) a Xamarin. Nainstalujte si od verze Community Edition zdarma od [VisualStudio.com](https://www.visualstudio.com/); Samozřejmě můžete používat i edice Professional a Enterprise. Chcete-li zahrnout nástroje UWP a Xamarin, vyberte vlastní instalaci a ověřte příslušné možnosti.
+1. Visual Studio 2017 nebo 2019 s Univerzální platforma Windows (UWP) a Xamarin. Nainstalujte si od verze Community Edition zdarma od [VisualStudio.com](https://www.visualstudio.com/); Samozřejmě můžete používat i edice Professional a Enterprise. Chcete-li zahrnout nástroje UWP a Xamarin, vyberte vlastní instalaci a ověřte příslušné možnosti.
 1. Rozhraní příkazového řádku NuGet Stáhněte si nejnovější verzi nástroje NuGet. exe z [NuGet.org/downloads](https://nuget.org/downloads)a uložte ji do umístění podle vašeho výběru. Pak přidejte toto umístění do proměnné prostředí PATH, pokud ještě není.
 
 > [!Note]
@@ -35,23 +35,33 @@ V tomto návodu použijete Visual Studio 2015 vytvořit balíček NuGet pro růz
 
 ## <a name="create-the-project-structure-and-abstraction-code"></a>Vytvoření struktury projektu a kódu abstrakce
 
-1. Stáhněte a spusťte [modul plug-in pro rozšíření šablon Xamarin](https://marketplace.visualstudio.com/items?itemName=vs-publisher-473885.PluginForXamarinTemplates) pro Visual Studio. Tyto šablony usnadňují vytváření potřebných struktur projektu pro tento návod.
-1. V aplikaci Visual Studio **soubor > Nový > projekt**, vyhledejte `Plugin`, vyberte **modul plug-in pro Xamarin** , změňte název na LoggingLibrary a klikněte na OK.
+1. Stáhněte a spusťte [rozšíření šablon modulu plug-in .NET Standard pro různé platformy](https://marketplace.visualstudio.com/items?itemName=vs-publisher-473885.PluginForXamarinTemplates) pro Visual Studio. Tyto šablony usnadňují vytváření potřebných struktur projektu pro tento návod.
+1. V aplikaci Visual Studio 2017, **soubor > nový > projektu**, vyhledejte `Plugin`, vyberte šablonu **modulu plug-in knihovny .NET Standard pro různé platformy** , změňte název na LoggingLibrary a klikněte na OK.
 
-    ![Nová prázdná aplikace (Xamarin. Forms Portable) projekt v aplikaci Visual Studio](media/CrossPlatform-NewProject.png)
+    ![Nový prázdný projekt aplikace (Xamarin. Forms Portable) v sadě VS 2017](media/CrossPlatform-NewProject.png)
 
-Výsledné řešení obsahuje dva projekty PCL společně s nejrůznějšími projekty pro konkrétní platformy:
+    V aplikaci Visual Studio 2019, **soubor > nový > projektu**, vyhledejte `Plugin`, vyberte šablonu **modulu plug-in knihovny .NET Standard pro různé platformy** a klikněte na další.
 
-- PCL s názvem `Plugin.LoggingLibrary.Abstractions (Portable)`definuje veřejné rozhraní (oblast rozhraní API) komponenty, v tomto `ILoggingLibrary` případě rozhraní obsažené v souboru ILoggingLibrary.cs. Toto je místo, kde definujete rozhraní do knihovny.
-- Ostatní PCL, `Plugin.LoggingLibrary (Portable)`obsahuje kód v CrossLoggingLibrary.cs, který v době běhu najde implementaci abstraktního rozhraní specifickou pro konkrétní platformu. Tento soubor obvykle nemusíte měnit.
-- Projekty specifické pro platformu, například `Plugin.LoggingLibrary.Android`, obsahují, obsahují nativní implementaci rozhraní v příslušných souborech LoggingLibraryImplementation.cs. Tady můžete sestavit kód vaší knihovny.
+    ![Nový prázdný projekt aplikace (Xamarin. Forms Portable) v sadě VS 2019](media/CrossPlatform-NewProject19-Part1.png)
 
-Ve výchozím nastavení soubor ILoggingLibrary.cs projektu abstrakce obsahuje definici rozhraní, ale žádné metody. Pro účely tohoto návodu přidejte `Log` metodu následujícím způsobem:
+    Změňte název na LoggingLibrary a klikněte na vytvořit.
+
+    ![Nová prázdná konfigurace aplikace (Xamarin. Forms Portable) ve VS 2019](media/CrossPlatform-NewProject19-Part2.png)
+
+Výsledné řešení obsahuje dva sdílené projekty společně s nejrůznějšími projekty pro konkrétní platformy:
+
+- `ILoggingLibrary` projekt, který je obsažen v souboru `ILoggingLibrary.shared.cs`, definuje veřejné rozhraní (oblast rozhraní API) komponenty. Toto je místo, kde definujete rozhraní do knihovny.
+- Druhý sdílený projekt obsahuje kód v `CrossLoggingLibrary.shared.cs`, který v době běhu najde implementaci abstraktního rozhraní specifickou pro konkrétní platformu. Tento soubor obvykle nemusíte měnit.
+- Projekty, které jsou specifické pro platformu, například `LoggingLibrary.android.cs`, obsahují nativní implementaci rozhraní v odpovídajících souborech `LoggingLibraryImplementation.cs` (VS 2017) nebo `LoggingLibrary.<PLATFORM>.cs` (VS 2019). Tady můžete sestavit kód vaší knihovny.
+
+Ve výchozím nastavení soubor ILoggingLibrary.shared.cs projektu `ILoggingLibrary` obsahuje definici rozhraní, ale žádné metody. Pro účely tohoto návodu přidejte `Log` metodu následujícím způsobem:
 
 ```cs
 using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace Plugin.LoggingLibrary.Abstractions
+namespace Plugin.LoggingLibrary
 {
     /// <summary>
     /// Interface for LoggingLibrary
@@ -68,13 +78,14 @@ namespace Plugin.LoggingLibrary.Abstractions
 
 ## <a name="write-your-platform-specific-code"></a>Psaní kódu specifického pro platformu
 
-Chcete-li implementovat implementaci `ILoggingLibrary` rozhraní a jeho metod specifickou pro konkrétní platformu, udělejte toto:
+Chcete-li implementovat implementaci rozhraní `ILoggingLibrary` specifického pro platformu a jeho metody, postupujte následovně:
 
-1. `LoggingLibraryImplementation.cs` Otevřete soubor pro každý projekt platformy a přidejte potřebný kód. Například (použití `Plugin.LoggingLibrary.Android` projektu):
+1. Otevřete soubor `LoggingLibraryImplementation.cs` (VS 2017) nebo `LoggingLibrary.<PLATFORM>.cs` (VS 2019) pro každý projekt platformy a přidejte potřebný kód. Například (použití projektu platformy `Android`):
 
     ```cs
-    using Plugin.LoggingLibrary.Abstractions;
     using System;
+    using System.Collections.Generic;
+    using System.Text;
 
     namespace Plugin.LoggingLibrary
     {
@@ -95,23 +106,24 @@ Chcete-li implementovat implementaci `ILoggingLibrary` rozhraní a jeho metod sp
     ```
 
 1. Tuto implementaci opakujte v projektech pro každou platformu, kterou chcete podporovat.
-1. Klikněte pravým tlačítkem na projekt pro iOS, vyberte **vlastnosti**, klikněte na kartu **sestavení** a odeberte "\iPhone" z **výstupní cesty** a nastavení **souboru dokumentace XML** . To je jenom pro pozdější pohodlí v tomto návodu. Po dokončení soubor uložte.
-1. Klikněte pravým tlačítkem na řešení, vyberte **Configuration Manager...** a zaškrtněte políčka **sestavení** pro PCLS a každou platformu, kterou podporujete.
 1. Klikněte pravým tlačítkem na řešení a vyberte **Sestavit řešení** , abyste zkontrolovali práci a vytvořili artefakty, které zabalíte jako další. Pokud se zobrazí chybové zprávy o chybějících odkazech, klikněte pravým tlačítkem na řešení, vyberte možnost **obnovit balíčky NuGet** a nainstalujte závislosti a znovu sestavte.
+
+> [!Note]
+> Pokud používáte sadu Visual Studio 2019, před výběrem možnosti **obnovit balíčky NuGet** a pokusem o opětovné sestavení je třeba změnit verzi `MSBuild.Sdk.Extras` na `2.0.54` v `LoggingLibrary.csproj`. K tomuto souboru se dá dostat jenom tak, že nejdřív kliknete pravým tlačítkem myši na projekt (pod řešením) a vyberete `Unload Project`, po kterém kliknete pravým tlačítkem na nenačtený projekt a vyberete `Edit LoggingLibrary.csproj`.
 
 > [!Note]
 > Pro sestavení pro iOS budete potřebovat síťovou adresu MAC připojenou k Visual Studiu, jak je popsáno v tématu [Úvod do Xamarin. iOS pro Visual Studio](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/introduction_to_xamarin_ios_for_visual_studio/). Pokud nemáte k dispozici počítač Mac, vymažte projekt iOS v nástroji Configuration Manager (krok 3 výše).
 
 ## <a name="create-and-update-the-nuspec-file"></a>Vytvoření a aktualizace souboru. nuspec
 
-1. Otevřete příkazový `LoggingLibrary` řádek, přejděte do složky, která je na jednu úroveň níže, `.sln` kde je soubor, a spuštěním příkazu NuGet `spec` vytvořte počáteční `Package.nuspec` soubor:
+1. Otevřete příkazový řádek, přejděte do složky `LoggingLibrary`, která představuje jednu úroveň níže, kde je `.sln` soubor, a spuštěním příkazu NuGet `spec` vytvořte počáteční soubor `Package.nuspec`:
 
     ```cli
     nuget spec
     ```
 
-1. Přejmenujte tento `LoggingLibrary.nuspec` soubor na a otevřete ho v editoru.
-1. Aktualizujte soubor tak, aby odpovídal následujícímu, nahraďte YOUR_NAME příslušnou hodnotou. Hodnota konkrétně musí být jedinečná napříč NuGet.org (podívejte se na zásady vytváření názvů popsané v tématu [Vytvoření balíčku).](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number) `<id>` Všimněte si také, že je nutné také aktualizovat značky Autor a popis, jinak se zobrazí chyba v průběhu balení.
+1. Přejmenujte tento soubor na `LoggingLibrary.nuspec` a otevřete ho v editoru.
+1. Aktualizujte soubor tak, aby odpovídal následujícímu, nahraďte YOUR_NAME příslušnou hodnotou. Hodnota `<id>`, konkrétně, musí být jedinečná napříč nuget.org (podívejte se na zásady vytváření názvů popsané v tématu [Vytvoření balíčku](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number)). Všimněte si také, že je nutné také aktualizovat značky Autor a popis, jinak se zobrazí chyba v průběhu balení.
 
     ```xml
     <?xml version="1.0"?>
@@ -125,18 +137,18 @@ Chcete-li implementovat implementaci `ILoggingLibrary` rozhraní a jeho metod sp
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Awesome application logging utility</description>
         <releaseNotes>First release</releaseNotes>
-        <copyright>Copyright 2016</copyright>
+        <copyright>Copyright 2018</copyright>
         <tags>logger logging logs</tags>
         </metadata>
     </package>
     ```
 
 > [!Tip]
-> Verzi `-alpha`balíčku můžete příponou, `-beta` nebo `-rc` Chcete-li označit balíček jako předběžnou verzi, Projděte si předběžné verze [verzí](../create-packages/prerelease-packages.md) , kde najdete další informace o předběžných verzích.
+> Verzi balíčku můžete příponou `-alpha`, `-beta` nebo `-rc` Pokud chcete balíček označit jako předběžnou verzi, Projděte si [předběžné verze verzí](../create-packages/prerelease-packages.md) , kde najdete další informace o předběžných verzích.
 
 ### <a name="add-reference-assemblies"></a>Přidat referenční sestavení
 
-Chcete-li zahrnout referenční sestavení specifická pro platformu, přidejte následující `<files>` `LoggingLibrary.nuspec` prvky, které jsou vhodné pro podporované platformy:
+Chcete-li zahrnout referenční sestavení specifická pro platformu, přidejte následující prvky do `<files>`ho prvku `LoggingLibrary.nuspec` podle potřeby pro podporované platformy:
 
 ```xml
 <!-- Insert below <metadata> element -->
@@ -166,7 +178,7 @@ Chcete-li zahrnout referenční sestavení specifická pro platformu, přidejte 
 
 ### <a name="add-dependencies"></a>Přidat závislosti
 
-Máte-li specifické závislosti pro nativní implementace, použijte `<dependencies>` element s `<group>` prvky pro jejich určení, například:
+Máte-li specifické závislosti pro nativní implementace, použijte prvek `<dependencies>` s `<group>` prvky pro jejich určení, například:
 
 ```xml
 <!-- Insert within the <metadata> element -->
@@ -195,7 +207,7 @@ Následující příklad by nastavil iTextSharp jako závislost pro cíl UAP:
 
 ### <a name="final-nuspec"></a>Finální. nuspec
 
-Konečný `.nuspec` soubor by teď měl vypadat nějak takto, kde znovu YOUR_NAME by mělo být nahrazeno příslušnou hodnotou:
+Konečný `.nuspec` soubor by teď měl vypadat nějak takto, kde se znovu YOUR_NAME by se měla nahradit příslušnou hodnotou:
 
 ```xml
 <?xml version="1.0"?>
@@ -209,7 +221,7 @@ Konečný `.nuspec` soubor by teď měl vypadat nějak takto, kde znovu YOUR_NAM
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Awesome application logging utility</description>
     <releaseNotes>First release</releaseNotes>
-    <copyright>Copyright 2016</copyright>
+    <copyright>Copyright 2018</copyright>
     <tags>logger logging logs</tags>
         <dependencies>
         <group targetFramework="MonoAndroid">
@@ -247,7 +259,7 @@ Konečný `.nuspec` soubor by teď měl vypadat nějak takto, kde znovu YOUR_NAM
 
 ## <a name="package-the-component"></a>Zabalení komponenty
 
-Po dokončení `.nuspec` odkazů na všechny soubory, které potřebujete zahrnout do balíčku, jste připraveni `pack` spustit příkaz:
+Po dokončení `.nuspec` odkazování na všechny soubory, které potřebujete zahrnout do balíčku, jste připraveni ke spuštění příkazu `pack`:
 
 ```cli
 nuget pack LoggingLibrary.nuspec
@@ -258,11 +270,11 @@ Tím se vygeneruje `LoggingLibrary.YOUR_NAME.1.0.0.nupkg`. Tento soubor otevřet
 ![Průzkumník balíčků NuGet zobrazující balíček LoggingLibrary](media/Cross-Platform-PackageExplorer.png)
 
 > [!Tip]
-> `.nupkg` Soubor je pouze soubor zip s jinou příponou. Můžete také prošetřit obsah balíčku, potom změnou `.nupkg` na `.zip`, ale nezapomeňte obnovit rozšíření před nahráním balíčku do NuGet.org.
+> Soubor `.nupkg` je pouze soubor ZIP s jinou příponou. Můžete také prošetřit obsah balíčku, potom změnou `.nupkg` na `.zip`, ale nezapomeňte obnovit rozšíření před nahráním balíčku do nuget.org.
 
 Pokud chcete balíček zpřístupnit ostatním vývojářům, postupujte podle pokynů v tématu [publikování balíčku](../nuget-org/publish-a-package.md).
 
-## <a name="related-topics"></a>Související témata
+## <a name="related-topics"></a>Příbuzná témata
 
 - [Odkaz na nuspec](../reference/nuspec.md)
 - [Balíčky symbolů](../create-packages/symbol-packages.md)

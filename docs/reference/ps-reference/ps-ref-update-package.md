@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 57e50ed805496b3511bc3b808f89da6f7ad413fc
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: e1bff9d4b7391d8be87afa4b8f2fbd51ae922140
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68328183"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384853"
 ---
 # <a name="update-package-package-manager-console-in-visual-studio"></a>Update-Package (konzola Správce balíčků v sadě Visual Studio)
 
@@ -26,7 +26,7 @@ Update-Package [-Id] <string> [-IgnoreDependencies] [-ProjectName <string>] [-Ve
     [-DependencyVersion] [-ToHighestPatch] [-ToHighestMinor] [-WhatIf] [<CommonParameters>]
 ```
 
-V NuGet 2.8 + `Update-Package` lze použít k downgradování existujícího balíčku v projektu. Například pokud máte nainstalovanou aplikaci Microsoft. AspNet. MVC 5.1.0-RC1, následující příkaz by ho měl downgradovat na 5.0.0:
+V NuGet 2.8 + můžete `Update-Package` použít k downgradování existujícího balíčku v projektu. Například pokud máte nainstalovanou aplikaci Microsoft. AspNet. MVC 5.1.0-RC1, následující příkaz by ho měl downgradovat na 5.0.0:
 
 ```ps
 Update-Package Microsoft.AspNet.MVC -Version 5.0.0.
@@ -41,11 +41,11 @@ Update-Package Microsoft.AspNet.MVC -Version 5.0.0.
 | ProjectName | Název projektu obsahujícího balíčky, které se mají aktualizovat – výchozí nastavení pro všechny projekty |
 | Version | Verze, která se má použít pro upgrade, ve výchozím nastavení na nejnovější verzi. V NuGet 3.0 + musí být hodnota verze jedna z *nejnižší, nejvyšší, HighestMinor*nebo *HighestPatch* (ekvivalentní k bezpečnému). |
 | Odvod | Omezuje upgrady jenom na verze se stejnou hlavní a dílčí verzí jako aktuálně nainstalovaný balíček. |
-| Source | Adresa URL nebo cesta ke složce pro zdroj balíčku, který má být prohledán. Cesty k místní složce můžou být absolutní nebo relativní vzhledem k aktuální složce. Pokud tento parametr vynecháte, `Update-Package` vyhledá aktuálně vybraný zdroj balíčku. |
+| Zdroj | Adresa URL nebo cesta ke složce pro zdroj balíčku, který má být prohledán. Cesty k místní složce můžou být absolutní nebo relativní vzhledem k aktuální složce. Pokud tento parametr vynecháte, `Update-Package` prohledá aktuálně vybraný zdroj balíčku. |
 | IncludePrerelease | Zahrnuje předběžné verze balíčků pro aktualizace. |
-| Instaluje | Resintalls balíčky pomocí jejich aktuálně nainstalovaných verzí. Viz [Přeinstalace a aktualizace balíčků](../../consume-packages/reinstalling-and-updating-packages.md). |
+| Přeinstalace | Resintalls balíčky pomocí jejich aktuálně nainstalovaných verzí. Viz [Přeinstalace a aktualizace balíčků](../../consume-packages/reinstalling-and-updating-packages.md). |
 | FileConflictAction | Akce, která se má provést, když se zobrazí výzva k přepsání nebo ignorování existujících souborů, na které se odkazuje v projektu Možné hodnoty jsou *overwrite, ignore, None, OverwriteAll*a *IgnoreAll* (3.0 +). |
-| DependencyVersion | Verze balíčků závislostí, které se mají použít, což může být jedna z následujících:<br/><ul><li>*Nejnižší* (výchozí): nejnižší verze</li><li>*HighestPatch*: verze, která má nejnižší hlavní, nejnižší podverzi, nejvyšší opravu</li><li>*HighestMinor*: verze s nejnižší hlavní, nejvyšší podverze a nejvyšší opravou</li><li>*Nejvyšší úroveň* (výchozí pro balíček Update-Package bez parametrů): nejvyšší verze</li></ul>Výchozí hodnotu můžete nastavit pomocí [`dependencyVersion`](../nuget-config-file.md#config-section) nastavení `Nuget.Config` v souboru. |
+| DependencyVersion | Verze balíčků závislostí, které se mají použít, což může být jedna z následujících:<br/><ul><li>*Nejnižší* (výchozí): nejnižší verze</li><li>*HighestPatch*: verze, která má nejnižší hlavní, nejnižší podverzi, nejvyšší opravu</li><li>*HighestMinor*: verze s nejnižší hlavní, nejvyšší podverze a nejvyšší opravou</li><li>*Nejvyšší* (výchozí pro balíček Update-Package bez parametrů): nejvyšší verze</li></ul>Výchozí hodnotu můžete nastavit pomocí nastavení [`dependencyVersion`](../nuget-config-file.md#config-section) v souboru `Nuget.Config`. |
 | ToHighestPatch | ekvivalent – Safe. |
 | ToHighestMinor | Omezuje upgrady jenom na verze se stejnou hlavní verzí jako aktuálně nainstalovaný balíček. |
 | WhatIf | Ukazuje, co se stane při spuštění příkazu bez toho, aby se aktualizace skutečně prováděla. |
@@ -54,7 +54,7 @@ Update-Package Microsoft.AspNet.MVC -Version 5.0.0.
 
 ### <a name="common-parameters"></a>Společné parametry
 
-`Update-Package`podporuje následující [běžné parametry PowerShellu](http://go.microsoft.com/fwlink/?LinkID=113216): Ladit, Error Action, ErrorVariable, unbuffer, subvariable, PipelineVariable, verbose, WarningAction a WarningVariable.
+`Update-Package` podporuje následující [běžné parametry PowerShellu](https://go.microsoft.com/fwlink/?LinkID=113216): Debug, Error Action, ErrorVariable, inbuffer, subvariable, PipelineVariable, verbose, WarningAction a WarningVariable.
 
 ### <a name="examples"></a>Příklady
 
