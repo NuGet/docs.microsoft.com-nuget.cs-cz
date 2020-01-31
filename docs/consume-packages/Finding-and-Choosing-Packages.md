@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0691660f20f9b5a1ff0dad110ee87c6e29c0a56e
-ms.sourcegitcommit: fc0f8c950829ee5c96e3f3f32184bc727714cfdb
+ms.openlocfilehash: 9f427005251bc2bf7a8a79285e39b4bd49062dbf
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74253938"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813348"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Hledání a vyhodnocení balíčků NuGet pro váš projekt
 
@@ -122,25 +122,25 @@ Tady je postup, jak si přečíst informace obsažené v souboru s licencí v ba
 1. Měla by obsahovat značku jako `<license type="file">license\license.txt</license>`. To znamená, že soubor s licencí má název `license.txt` a je uvnitř složky s názvem `license`, která by byla také v kořenu této složky.
 1. Přejděte do složky `license` a otevřete soubor `license.txt`.
 
-V případě, že nástroj MSBuild odpovídá nastavení licence v `.nuspec`, podívejte se na [balení licenčního výrazu nebo souboru s licencí](/nuget/reference/msbuild-targets#packing-a-license-expression-or-a-license-file).
+V případě, že nástroj MSBuild odpovídá nastavení licence v `.nuspec`, podívejte se na [balení licenčního výrazu nebo souboru s licencí](../reference/msbuild-targets.md#packing-a-license-expression-or-a-license-file).
 
 ## <a name="search-syntax"></a>Syntaxe hledání
 
 Vyhledávání balíčků NuGet funguje stejně v nuget.org, z rozhraní NuGet CLI a v rámci rozšíření Správce balíčků NuGet v sadě Visual Studio. Obecně platí, že vyhledávání je použito pro klíčová slova a popisy balíčků.
 
-- **Klíčová slova**: hledání vyhledá relevantní balíčky, které obsahují některá z poskytnutých klíčových slov. Příklad: `modern UI`. Chcete-li vyhledat balíčky obsahující všechna zadaná klíčová slova, použijte mezi těmito podmínkami znak "+", například `modern+UI`.
-- **Fráze**: Zadání podmínek v rámci uvozovek vyhledá přesné shody velkých a malých písmen s těmito podmínkami. Příklad: `"modern UI" package`
-- **Filtrování**: můžete použít hledaný termín na konkrétní vlastnost pomocí syntaxe `<property>:<term>`, kde `<property>` (bez rozlišení velkých a malých písmen) může být `id`, `packageid`, `version`, `title`, `tags`, `author`, `description`, `summary`a `owner`. V případě potřeby mohou být výrazy obsaženy v uvozovkách a můžete vyhledávat více vlastností současně. Také vyhledávání na vlastnosti `id` jsou shody podřetězců, zatímco `packageid` používá přesnou shodu. Příklady:
+- **Filtrování**: můžete použít hledaný termín na konkrétní vlastnost pomocí syntaxe `<property>:<term>`, kde `<property>` (bez rozlišení velkých a malých písmen) může být `id`, `packageid`, `version`, `title`, `tags`, `author`, `description`, `summary`a `owner`. Můžete hledat více vlastností současně. Hledání v vlastnosti `id` jsou shody podřetězců, zatímco `packageid` a `owner` používá přesné porovnávání bez rozlišení velkých a malých písmen. Příklady:
 
-    ```
-    id:NuGet.Core                # Match any part of the id property
-    Id:"Nuget.Core"
-    ID:jQuery
-    title:jquery                 # Searches title as shown on the package listing
-    PackageId:jquery             # Match the package id exactly
-    id:jquery id:ui              # Search for multiple terms in the id
-    id:jquery tags:validation    # Search multiple properties
-    id:"jquery.ui"               # Phrase search
-    invalid:jquery ui            # Unsupported properties are ignored, so this
-                                 # is the same as searching on jquery ui
-    ```
+```
+PackageId:jquery             # Match the package ID in an exact, case-insensitive manner
+
+owner:microsoft              # Match the owner in an exact, case-insensitive manner
+
+id:NuGet.Core                # Match any part of the ID property
+Id:"Nuget.Core"
+ID:jQuery
+id:jquery id:ui              # Search for multiple terms in the ID
+id:jquery tags:validation    # Search multiple properties
+
+invalid:jquery ui            # Unsupported properties are ignored, so this
+                             # is the same as searching on ui
+```

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: d2294ef0acb9053e74543204ae6f68b9fbc6fb0a
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: c6f50e6eb21826afebcdcd4045c7ab8b6e6489e3
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73611059"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813322"
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>Jak NuGet řeší závislosti balíčků
 
@@ -24,7 +24,7 @@ Pokud má více balíčků stejnou závislost, pak se stejné ID balíčku můž
 
 Při instalaci balíčků do projektů pomocí formátu PackageReference přidá NuGet v příslušném souboru odkazy na graf plochých balíčků a vyřeší konflikty před časem. Tento proces se označuje jako *přechodné obnovení*. Přeinstalace nebo obnovení balíčků je proces stahování balíčků uvedených v grafu, což vede k rychlejšímu a více předvídatelným sestavením. Můžete také využít výhod zástupných znaků (plovoucí), například 2,8.\*, což umožňuje vyhnout se nákladným a náchylným chybám a voláním `nuget update` na klientských počítačích a serverech sestavení.
 
-Když se proces obnovení NuGet spustí před sestavením, vyřeší nejprve závislosti v paměti a pak zapíše výsledný graf do souboru s názvem `project.assets.json`. Zapisuje také vyřešené závislosti do souboru zámku s názvem `packages.lock.json`, pokud [je povolena funkce zámku souboru](https://docs.microsoft.com/nuget/consume-packages/package-references-in-project-files#locking-dependencies).
+Když se proces obnovení NuGet spustí před sestavením, vyřeší nejprve závislosti v paměti a pak zapíše výsledný graf do souboru s názvem `project.assets.json`. Zapisuje také vyřešené závislosti do souboru zámku s názvem `packages.lock.json`, pokud [je povolena funkce zámku souboru](../consume-packages/package-references-in-project-files.md#locking-dependencies).
 Soubor prostředků je umístěn na `MSBuildProjectExtensionsPath`, který je ve výchozím nastavení složkou "obj" projektu. Nástroj MSBuild pak přečte tento soubor a převede ho do sady složek, kde mohou být nalezeny možné odkazy, a poté je přidá do stromu projektu v paměti.
 
 Soubor `project.assets.json` je dočasný a neměl by být přidán do správy zdrojových kódů. Je uvedený ve výchozím nastavení v `.gitignore` i `.tfignore`. Viz [balíčky a Správa zdrojového kódu](../consume-packages/packages-and-source-control.md).
@@ -100,7 +100,7 @@ V těchto situacích by měl uživatel nejvyšší úrovně (aplikace nebo balí
 
 Při `packages.config`jsou závislosti projektu zapisovány do `packages.config` jako nestrukturovaný seznam. Všechny závislosti těchto balíčků jsou také zapsány ve stejném seznamu. Po instalaci balíčků může NuGet změnit také soubor `.csproj`, `app.config`, `web.config`a další jednotlivé soubory.
 
-Při `packages.config`se NuGet pokusí vyřešit konflikty závislostí při instalaci každého jednotlivého balíčku. To znamená, že pokud je balíček A nainstalován a závisí na balíčku B, a balíček B je již uveden v `packages.config` jako závislost nějakého jiného, NuGet porovná požadované verze balíčku B a pokusí se najít verzi, která bude vyhovovat této verzi. jednotlivým. Konkrétně vybere nižší *hlavní verzi.* podverze, která splňuje závislosti.
+Při `packages.config`se NuGet pokusí vyřešit konflikty závislostí při instalaci každého jednotlivého balíčku. To znamená, že pokud je balíček A nainstalován a závisí na balíčku B, a balíček B je již uveden v `packages.config` jako závislost nějakého jiného, NuGet porovná požadované verze balíčku B a pokusí se najít verzi, která splňuje všechna omezení verzí. Konkrétně vybere nižší *hlavní verzi.* podverze, která splňuje závislosti.
 
 Ve výchozím nastavení vyhledá NuGet 2,8 nejnižší verzi opravy (viz zpráva k [vydání verze NuGet 2,8](../release-notes/nuget-2.8.md#patch-resolution-for-dependencies)). Toto nastavení můžete řídit pomocí atributu `DependencyVersion` v `Nuget.Config` a přepínače `-DependencyVersion` na příkazovém řádku.  
 
@@ -156,4 +156,3 @@ Chcete-li vyřešit nekompatibilitu, proveďte jednu z následujících akcí:
 
 - Svůj projekt můžete změnit na rámec, který podporují balíčky, které chcete použít.
 - Kontaktujte autora balíčků a pracujte s nimi a přidejte podporu pro zvolenou architekturu. Každá stránka se seznamem balíčků na [NuGet.org](https://www.nuget.org/) má pro tento účel odkaz pro **vlastníky kontaktů** .
-

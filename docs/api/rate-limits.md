@@ -1,6 +1,6 @@
 ---
-title: Omezení rozhraní API Nugetu přenosové rychlosti
-description: Rozhraní API pro NuGet se vynucovat omezení přenosové rychlosti, aby se zabránilo zneužití.
+title: Omezení přenosové rychlosti, rozhraní API NuGet
+description: Rozhraní API NuGet budou vyžadovat omezení přenosové rychlosti, aby se zabránilo zneužití.
 author: cmanu
 ms.author: cmanu
 ms.date: 03/20/2018
@@ -9,16 +9,16 @@ ms.reviewer:
 - skofman
 - anangaur
 - kraigb
-ms.openlocfilehash: 70b478ae17cd10b17f9d6ecb0f5776c1effcea58
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 9e60c0236bd4e6f1374b50a236447faf80dddb38
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548674"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813192"
 ---
 # <a name="rate-limits"></a>Omezení přenosové rychlosti
 
-Rozhraní API NuGet.org vynucuje omezení rychlosti, aby se zabránilo zneužití. Požadavky, které překračují omezení četnosti se vrátí následující chybu: 
+Rozhraní NuGet.org API vynutilo omezení četnosti, aby se zabránilo zneužití. Žádosti, které překračují limit přenosové rychlosti, vrátí následující chybu: 
 
   ~~~
     {
@@ -27,7 +27,7 @@ Rozhraní API NuGet.org vynucuje omezení rychlosti, aby se zabránilo zneužit�
     }
   ~~~
 
-Kromě omezení pomocí omezení přenosové rychlosti požadavků některá rozhraní API taky vynutit kvóty. Žádosti, které překročí kvótu vrátí následující chybu:
+Kromě omezení požadavků pomocí omezení přenosové rychlosti některá rozhraní API také vynutila kvótu. Žádosti, které překračují kvótu, vrátí následující chybu:
 
   ~~~
     {
@@ -36,24 +36,23 @@ Kromě omezení pomocí omezení přenosové rychlosti požadavků některá roz
     }
   ~~~
 
-Omezení přenosové rychlosti pro rozhraní API NuGet.org v následujících tabulkách.
+V následujících tabulkách jsou uvedeny omezení přenosové rychlosti pro rozhraní NuGet.org API.
 
-## <a name="package-search"></a>Vyhledávání balíčků
+## <a name="package-search"></a>Hledání balíčku
 
 > [!Note]
-> Doporučujeme používat NuGet.org [rozhraní API V3](https://docs.microsoft.com/nuget/api/search-query-service-resource) aktuálně pro hledání, které jsou výkonné a nemá žádné omezení. V1 a V2 vyhledejte rozhraní API, followins omezení platí:
+> Doporučujeme používat [rozhraní API pro vyhledávání](search-query-service-resource.md) NuGet. org, protože neodpovídá aktuálně omezené rychlosti. Pro rozhraní API pro vyhledávání V1 a v2 platí následující omezení:
 
-
-| rozhraní API | Typ limitu | Mezní hodnota | Rozhraní API usecase |
+| API | Typ limitu | Hodnota limitu | UseCase API |
 |:---|:---|:---|:---|
-**GET** `/api/v1/Packages` | IP | 1 000 / min | Dotazu na metadata balíčku NuGet přes v1 OData `Packages` kolekce |
-**GET** `/api/v1/Search()` | IP | 3000 / min | Hledat balíčky NuGet prostřednictvím koncového bodu v1 vyhledávání | 
-**GET** `/api/v2/Packages` | IP | 20000 / min | Dotazu na metadata balíčku NuGet přes v2 OData `Packages` kolekce | 
-**GET** `/api/v2/Packages/$count` | IP | 100 / min | Počet balíčků NuGet přes v2 OData dotazů `Packages` kolekce | 
+**GET** `/api/v1/Packages` | adresu klienta | 1000 minut | Dotazování metadat balíčku NuGet přes v1 OData `Packages` Collection |
+**GET** `/api/v1/Search()` | adresu klienta | 3000 minut | Hledání balíčků NuGet prostřednictvím koncového bodu pro vyhledávání v1 | 
+**GET** `/api/v2/Packages` | adresu klienta | 20000 minut | Dotazování metadat balíčku NuGet přes v2 OData `Packages` Collection | 
+**GET** `/api/v2/Packages/$count` | adresu klienta | 100 minut | Dotazování na počet balíčků NuGet prostřednictvím kolekce `Packages` v2 OData | 
 
-## <a name="package-push-and-unlist"></a>Balíček se službami Push a vyjmutí ze seznamu
+## <a name="package-push-and-unlist"></a>Vložení a odbalení balíčku
 
-| rozhraní API | Typ limitu | Mezní hodnota | Rozhraní API usecase | 
+| API | Typ limitu | Hodnota limitu | UseCase API | 
 |:---|:---|:---|:--- |
-**PUT** `/api/v2/package` | Klíč rozhraní API | 250 / hodina | Nahrání nového balíčku NuGet (verze) prostřednictvím koncového bodu v2 nabízených oznámení 
-**ODSTRANIT** `/api/v2/package/{id}/{version}` | Klíč rozhraní API | 250 / hodina | Vyjmutí ze seznamu balíčku NuGet (verze) prostřednictvím koncového bodu v2 
+**Umístit** `/api/v2/package` | Klíč rozhraní API | 350 za hodinu | Nahrání nového balíčku NuGet (verze) prostřednictvím nabízeného koncového bodu v2 
+**Odstranit** `/api/v2/package/{id}/{version}` | Klíč rozhraní API | 250 za hodinu | Odpisovat balíček NuGet (verze) prostřednictvím koncového bodu v2 

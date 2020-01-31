@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 5/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0c3c0380fe6efb3c58124ca5ba8bc1306a433340
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 2290025d42dcd5704b6b019c17346201fe6a990d
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73611353"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813790"
 ---
 # <a name="nuget-47-release-notes"></a>Zpráva k vydání verze NuGet 4,7
 
@@ -20,7 +20,7 @@ ms.locfileid: "73611353"
 
 * Pro povolení [balíčků podepsaných úložištěm](https://github.com/NuGet/Home/wiki/Repository-Signatures) jsme vylepšili rozšíření balíčku.
 
-* V rámci sady Visual Studio verze 15,7 jsme zavedli možnost [migrovat existující projekty, které používají formát Packages. config, aby místo toho používaly PackageReference](https://docs.microsoft.com/nuget/consume-packages/migrate-packages-config-to-package-reference) .
+* V rámci sady Visual Studio verze 15,7 jsme zavedli možnost [migrovat existující projekty, které používají formát Packages. config, aby místo toho používaly PackageReference](../consume-packages/migrate-packages-config-to-package-reference.md) .
 
 ## <a name="summary-whats-new-in-472"></a>Shrnutí: co je nového v 4.7.2
 

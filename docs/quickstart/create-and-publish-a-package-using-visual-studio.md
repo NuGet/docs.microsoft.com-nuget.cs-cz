@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/16/2019
 ms.topic: quickstart
-ms.openlocfilehash: ef1bda19c5ca3c6b5a4bd9b9d4e3ef41d7dadb53
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: fe551dfa7f2322e6677c9c0b972c79c9df2e7695
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610639"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813556"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Rychlý Start: vytvoření a publikování balíčku NuGet pomocí sady Visual Studio (.NET Standard, pouze Windows)
 
@@ -25,12 +25,12 @@ Je to jednoduchý proces vytvoření balíčku NuGet z knihovny tříd .NET Stan
 
 1. Pokud ještě není nainstalovaná, nainstalujte `dotnet` CLI.
 
-   Pro `dotnet` CLI počínaje sadou Visual Studio 2017 se `dotnet` CLI automaticky nainstaluje se všemi úlohami souvisejícími s .NET Core. V opačném případě nainstalujte [.NET Core SDK](https://www.microsoft.com/net/download/) pro získání `dotnet` CLI. `dotnet` CLI je vyžadován pro .NET Standard projekty, které používají [Formát sady SDK](../resources/check-project-format.md) (atribut sady SDK). Výchozí .NET Standard šablona knihovny tříd v sadě Visual Studio 2017 a vyšší, která se používá v tomto článku, používá atribut SDK.
+   Pro `dotnet` CLI počínaje sadou Visual Studio 2017 se `dotnet` CLI automaticky nainstaluje se všemi úlohami souvisejícími s .NET Core. V opačném případě nainstalujte rozhraní příkazového `dotnet` řádku, abyste získali [.NET Core SDK](https://www.microsoft.com/net/download/). `dotnet` CLI je vyžadován pro .NET Standard projekty, které používají [Formát sady SDK](../resources/check-project-format.md) (atribut sady SDK). Výchozí .NET Standard šablona knihovny tříd v sadě Visual Studio 2017 a vyšší, která se používá v tomto článku, používá atribut SDK.
    
    > [!Important]
    > Pokud pracujete s projektem, který není typu SDK, postupujte podle pokynů v části [Vytvoření a publikování .NET Frameworkho balíčku (Visual Studio)](create-and-publish-a-package-using-visual-studio-net-framework.md) pro vytvoření a publikování balíčku. V tomto článku se doporučuje `dotnet` CLI. I když můžete publikovat libovolný balíček NuGet pomocí `nuget.exe` CLI, některé kroky v tomto článku jsou specifické pro projekty ve stylu sady SDK a rozhraní příkazového řádku dotnet. Rozhraní příkazového řádku NuGet. exe se používá pro [projekty, které nejsou ve stylu sady SDK](../resources/check-project-format.md) (obvykle .NET Framework).
 
-1. [Zaregistrujte si bezplatný účet na NuGet.org](https://docs.microsoft.com/nuget/nuget-org/individual-accounts#add-a-new-individual-account) , pokud ho ještě nemáte. Když se vytvoří nový účet, pošle se potvrzovací e-mail. Než budete moct nahrát balíček, musíte účet potvrdit.
+1. [Zaregistrujte si bezplatný účet na NuGet.org](../nuget-org/individual-accounts.md#add-a-new-individual-account) , pokud ho ještě nemáte. Když se vytvoří nový účet, pošle se potvrzovací e-mail. Než budete moct nahrát balíček, musíte účet potvrdit.
 
 ## <a name="create-a-class-library-project"></a>Vytvořit projekt knihovny tříd
 
@@ -103,7 +103,7 @@ namespace AppLogger
 
 Sadu Visual Studio můžete nakonfigurovat tak, aby automaticky generovala balíček NuGet při sestavování projektu.
 
-1. V Průzkumník řešení klikněte pravým tlačítkem na projekt a vyberte **vlastnosti**.
+1. V Průzkumníku řešení klikněte pravým tlačítkem na projekt a zvolte **vlastnosti**.
 
 2. Na kartě **balíček** vyberte při **sestavování vytvořit balíček NuGet**.
 
@@ -193,7 +193,7 @@ Tato akce zahrne do kořenového adresáře balíčku soubor s názvem `readme.t
 > [!Note]
 > Pouze přidání souboru Readme. txt v kořenu projektu nebude mít za následek zahrnutí do výsledného balíčku.
 
-## <a name="related-topics"></a>Související témata
+## <a name="related-topics"></a>Příbuzná témata
 
 - [Vytvoření balíčku](../create-packages/creating-a-package-dotnet-cli.md)
 - [Publikování balíčku](../nuget-org/publish-a-package.md)

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 5/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6e352fef9fc36646f6feedbc390f847119cb00bf
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: e6f6d9f703dd4761236d166f3772618c100aca09
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73611356"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813764"
 ---
 # <a name="nuget-48-release-notes"></a>Zpráva k vydání verze NuGet 4,8
 
@@ -36,7 +36,7 @@ K dispozici jsou také verze příkazového řádku stejných funkcí:
 ### <a name="installing-signed-packages-on-a-ci-machine-or-in-an-offline-environment-takes-longer-than-usual"></a>Instalace podepsaných balíčků na počítači CI nebo v offline prostředí trvá déle než obvykle.
 
 #### <a name="issue"></a>Problém
-Pokud počítač omezil přístup k Internetu (například počítač sestavení ve scénáři CI/CD), zobrazí se při instalaci nebo obnovení podepsaného balíčku NuGet upozornění ([NU3028](https://docs.microsoft.com/nuget/reference/errors-and-warnings/nu3028)), protože servery pro odvolání nejsou dostupné. To je očekávané chování. V některých případech ale může mít neúmyslná concequences, jako je například instalace nebo obnovení balíčku trvá déle než obvykle.
+Pokud počítač omezil přístup k Internetu (například počítač sestavení ve scénáři CI/CD), zobrazí se při instalaci nebo obnovení podepsaného balíčku NuGet upozornění ([NU3028](../reference/errors-and-warnings/nu3028.md)), protože servery pro odvolání nejsou dostupné. To je očekávané chování. V některých případech ale může mít neúmyslná concequences, jako je například instalace nebo obnovení balíčku trvá déle než obvykle.
 
 #### <a name="workaround"></a>Alternativní řešení
 Aktualizujte na Visual Studio 15.8.4 a NuGet. exe 4.8.1, kde jsme zavedli proměnnou prostředí pro přepnutí do režimu kontroly odvolání.
@@ -79,7 +79,7 @@ Poznámka: Tento problém byl opraven ve VS 2017 15,9 Preview 3
 * Podepisování: SignedPackageVerifierSettings. VSClientDefaultPolicy je nepoužitelné – [#6601](https://github.com/NuGet/Home/issues/6601)
 
 
-#### <a name="pack"></a>Jazykové
+#### <a name="pack"></a>Komprimovat
 * Při použití příkazu dotnet. exe k balení nuspec- [#6866](https://github.com/NuGet/Home/issues/6866) by nemělo být nutné obnovení a sestavení.
 * Povolení prázdných náhradních tokenů v NuspecProperties- [#6722](https://github.com/NuGet/Home/issues/6722)
 * PackTask vyvolá NullReferenceException při zadání NuspecProperties- [#4649](https://github.com/NuGet/Home/issues/4649)

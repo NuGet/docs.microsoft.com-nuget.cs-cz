@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 3/1/2019
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: 3102cb9a20f354e92a0da8bba6457dc2ad0f0f2d
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 1b84c6e88a56216e5747d5bc602219af6695c305
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610961"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76812932"
 ---
 # <a name="package-details-url-template"></a>Šablona adresy URL s podrobnostmi balíčku
 
@@ -45,12 +45,12 @@ Hodnota `@id` v indexu služby je řetězec adresy URL obsahující následujíc
 
 ### <a name="url-placeholders"></a>Zástupné symboly adresy URL
 
-Name        | Typ    | Požadováno | Poznámky
+Name        | Type    | Požadováno | Poznámky
 ----------- | ------- | -------- | -----
 `{id}`      | odkazy řetězců  | Ne       | ID balíčku, pro který se mají získat podrobnosti
 `{version}` | odkazy řetězců  | Ne       | Verze balíčku, pro který se mají získat podrobnosti
 
-Server by měl přijmout `{id}` a `{version}` hodnoty s libovolným písmenem. Kromě toho by neměl být server citlivý na to, jestli je verze [normalizovaná](https://docs.microsoft.com/nuget/concepts/package-versioning#normalized-version-numbers). Jinými slovy, server by měl přijímat také nenormalizované verze.
+Server by měl přijmout `{id}` a `{version}` hodnoty s libovolným písmenem. Kromě toho by neměl být server citlivý na to, jestli je verze [normalizovaná](../concepts/package-versioning.md#normalized-version-numbers). Jinými slovy, server by měl přijímat také nenormalizované verze.
 
 Například šablona s podrobnostmi balíčku NuGet. org vypadá takto:
 
