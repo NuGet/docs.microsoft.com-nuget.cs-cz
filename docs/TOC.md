@@ -1,4 +1,4 @@
-# [První pohled na dokumentaci](index.md)
+# [První pohled na dokumentaci](index.yml)
 # [Co je NuGet?](what-is-nuget.md)
 # Začínáme
 ## [Instalace klientských nástrojů NuGetu](install-nuget-client-tools.md)
