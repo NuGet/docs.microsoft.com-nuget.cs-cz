@@ -12,24 +12,24 @@ keywords: Balíčky symbolů NuGet, ladění balíčku NuGet, podpora ladění N
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 0109aea95ec255b3e0abcdff4cf51b4bfeafbb8c
-ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
+ms.openlocfilehash: 839c38ec165372bab9b93dec25e5c8e8e9439bfa
+ms.sourcegitcommit: 415c70d7014545c1f65271a2debf8c3c1c5eb688
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76813478"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77036887"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Vytváření balíčků symbolů (. snupkg)
 
-Balíčky symbolů umožňují zlepšit možnosti ladění balíčků NuGet.
+Dobré prostředí ladění spoléhá na přítomnost symbolů ladění, protože poskytují kritické informace, jako je například přidružení mezi zkompilovaným a zdrojovým kódem, názvy místních proměnných, trasování zásobníku a další. Balíčky symbolů (. snupkg) můžete použít k distribuci těchto symbolů a zlepšení možností ladění balíčků NuGet.
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
-[NuGet. exe v 4.9.0 nebo novější](https://www.nuget.org/downloads) nebo [dotnet. exe v 2.2.0 nebo vyšší](https://www.microsoft.com/net/download/dotnet-core/2.2), které implementují požadované [protokoly NuGet](../api/nuget-protocols.md).
+[NuGet. exe v 4.9.0 nebo vyšší](https://www.nuget.org/downloads) nebo [dotnet CLI v 2.2.0 nebo vyšší](https://www.microsoft.com/net/download/dotnet-core/2.2), které implementují požadované [protokoly NuGet](../api/nuget-protocols.md).
 
 ## <a name="creating-a-symbol-package"></a>Vytvoření balíčku symbolů
 
-Používáte-li nástroj dotnet. exe nebo MSBuild, je třeba nastavit `IncludeSymbols` a vlastnosti `SymbolPackageFormat` k vytvoření souboru. snupkg společně se souborem. nupkg.
+Pokud používáte dotnet CLI nebo MSBuild, musíte nastavit `IncludeSymbols` a vlastnosti `SymbolPackageFormat` a vytvořit soubor. snupkg společně s souborem. nupkg.
 
 * Přidejte do souboru. csproj následující vlastnosti:
 
@@ -108,17 +108,17 @@ Balíčky symbolů publikované do NuGet.org selžou, pokud tato omezení nebudo
 
 Balíčky symbolů publikované do [NuGet.org](https://www.nuget.org/) prošly několika ověřeními, včetně kontroly malwaru. Pokud balíček selže, zobrazí se na stránce Podrobnosti o jeho balíčku chybová zpráva. Kromě toho vlastníci balíčku obdrží e-mail s pokyny, jak opravit zjištěné problémy.
 
-Když balíček symbolů předává všechna ověření, symboly budou indexovány pomocí serverů se symboly NuGet. org. Po indexování bude symbol dostupný pro spotřebu ze serverů symbolů NuGet.org.
+Když balíček symbolů předává všechna ověření, symboly budou indexovány na servery se symboly NuGet. org a budou k dispozici pro spotřebu.
 
-Ověření a indexování balíčku obvykle trvá 15 minut. Pokud publikování balíčku trvá déle, než se čekalo, navštivte [status.NuGet.org](https://status.nuget.org/) a ověřte, jestli NuGet.org má nějaké přerušení. Pokud jsou všechny systémy funkční a balíček ještě není po celou hodinu publikovaný, přihlaste se k nuget.org a na stránce s podrobnostmi balíčku kontaktujte nás pomocí odkazu podpora kontaktů.
+Ověření a indexování balíčku obvykle trvá 15 minut. Pokud bude publikování balíčku trvat déle, než se čekalo, navštivte [status.NuGet.org](https://status.nuget.org/) a ověřte, jestli NuGet.org má nějaké přerušení. Pokud jsou všechny systémy funkční a balíček ještě není po celou hodinu publikovaný, přihlaste se k nuget.org a na stránce s podrobnostmi balíčku kontaktujte nás pomocí odkazu podpora kontaktů.
 
 ## <a name="symbol-package-structure"></a>Struktura balíčku symbolů
 
-Soubor. nupkg by byl přesně stejný, jako v současné době, ale soubor. snupkg má následující vlastnosti:
+Balíček symbolů (. snupkg) má následující vlastnosti:
 
-1) Přípona. snupkg bude mít stejné ID a verzi jako odpovídající. nupkg.
-2) Soubor. snupkg bude mít přesnou strukturu složek jako nupkg pro všechny soubory DLL nebo EXE s rozlišením, které místo knihoven DLL/exe, jejich odpovídající soubory PDB bude zahrnuta do stejné hierarchie složek. Soubory a složky s rozšířeními jinými než PDB budou ponechány mimo snupkg.
-3) Soubor. nuspec v souboru. snupkg také určí nové PackageType, jak je uvedeno níže. Mělo by se zadat jenom jeden PackageType.
+1) Soubor. snupkg má stejné ID a verzi jako odpovídající balíček NuGet (. nupkg).
+2) Přípona. snupkg má stejnou strukturu složek jako odpovídající. nupkg pro jakékoli soubory DLL nebo EXE s rozlišením, které místo knihoven DLL/exe, jejich odpovídající soubory PDB bude zahrnuta do stejné hierarchie složek. Soubory a složky s rozšířeními jinými než PDB budou ponechány mimo snupkg.
+3) Soubor. nuspec balíčku symbolů má typ balíčku `SymbolsPackage`:
 
    ```xml
    <packageTypes>
@@ -130,7 +130,7 @@ Soubor. nupkg by byl přesně stejný, jako v současné době, ale soubor. snup
 5) Následující pole se vyloučí z nuspec snupkg: ```authors```, ```owners```, ```requireLicenseAcceptance```, ```license type```, ```licenseUrl```a ```icon```.
 6) Nepoužívejte element ```<license>```. A. snupkg se zabývá stejnou licencí jako odpovídající. nupkg.
 
-## <a name="see-also"></a>Viz také:
+## <a name="see-also"></a>Viz také
 
 Zvažte použití odkazu na zdroj pro povolení ladění zdrojového kódu v sestaveních .NET. Další informace najdete v [pokynech ke zdrojovému propojení](/dotnet/standard/library-guidance/sourcelink).
 

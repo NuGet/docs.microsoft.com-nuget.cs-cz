@@ -1,30 +1,32 @@
 ---
-title: Nastavit typ balíčku NuGet
-description: Popisuje typy balíčků k označení zamýšlené použití souboru balíčku.
+title: Nastavení typu balíčku NuGet
+description: Popisuje typy balíčků k označení zamýšleného použití balíčku.
 author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8a3ba6af19125b75af17cab8c093e89485e20324
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 22e8ac2e9e2086a1280c5b0c3be8a032b7998b36
+ms.sourcegitcommit: 415c70d7014545c1f65271a2debf8c3c1c5eb688
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67843533"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77036913"
 ---
-# <a name="set-a-nuget-package-type"></a>Nastavit typ balíčku NuGet
+# <a name="set-a-nuget-package-type"></a>Nastavení typu balíčku NuGet
 
-Nuget 3.5 +, může být označený balíčky s konkrétním *typ balíčku* označující jeho zamýšlené použití. Balíčky není označena jako s typem, včetně všech balíčků, které jsou vytvořené pomocí starší verze balíčku nuget, ve výchozím nastavení `Dependency` typu.
+S NuGet 3.5 + můžete balíčky označit pomocí konkrétního *typu balíčku* , aby označovali zamýšlené použití. Balíčky, které nejsou označeny typem, včetně všech balíčků vytvořených v dřívějších verzích NuGet, jsou ve výchozím nastavení typu `Dependency`.
 
-- `Dependency` balíčky typ sestavení nebo runtime prostředky přidat do knihovny a aplikace a může být nainstalován v libovolným typem projektu (za předpokladu, že jsou kompatibilní).
+- balíčky typů `Dependency` přidávají do knihoven a aplikací prostředky run-time a můžou být nainstalované v jakémkoli typu projektu (za předpokladu, že jsou kompatibilní).
 
-- `DotnetCliTool` Typ balíčky jsou rozšíření [rozhraní příkazového řádku dotnet](/dotnet/articles/core/tools/index) a jsou vyvolány z příkazového řádku. Tyto balíčky můžete nainstalovat jenom v projektech .NET Core a nemají žádný vliv na operace obnovení. Další podrobnosti o těchto rozšířeních jednotlivých projektů jsou dostupné v [rozšiřitelnost .NET Core](/dotnet/articles/core/tools/extensibility#per-project-based-extensibility) dokumentaci.
+- balíčky typů `DotnetTool` jsou rozšířením rozhraní příkazového řádku [dotnet](/dotnet/articles/core/tools/index) a jsou vyvolána z příkazového řádku. Takové balíčky lze nainstalovat pouze v projektech .NET Core a nemají žádný vliv na operace obnovení. Další podrobnosti o těchto rozšířeních pro jednotlivé projekty jsou k dispozici v dokumentaci [rozšiřitelnosti .NET Core](/dotnet/articles/core/tools/extensibility#per-project-based-extensibility) .
 
-- Vlastní typ balíčky pomocí libovolného typu identifikátor, který odpovídá stejná pravidla formát jako ID balíčku. Jakýkoli typ jiný než `Dependency` a `DotnetCliTool`, ale nejsou rozpoznány v aplikaci Správce balíčků NuGet v sadě Visual Studio.
+- balíčky typů `Template` poskytují [vlastní šablony](/dotnet/core/tools/custom-templates) , které lze použít k vytvoření souborů nebo projektů, jako je aplikace, služby, nástroje nebo knihovna tříd.
 
-Typy balíčků jsou nastaveny `.nuspec` souboru. Je nejvhodnější pro zpětnou kompatibilitu s *není* explicitně nastaveno `Dependency` zadejte a místo toho přináší setrvávání u NuGet tohoto typu, pokud žádný typ za předpokladu, že je zadán.
+- Balíčky vlastních typů používají libovolný identifikátor typu, který odpovídá stejným pravidlům formátu jako ID balíčků. Správce balíčků NuGet v aplikaci Visual Studio však nerozpoznal jiný typ než `Dependency` a `DotnetTool`.
 
-- `.nuspec`: Označuje typ balíčku v rámci `packageTypes\packageType` pod uzlem `<metadata>` element:
+Typy balíčků jsou nastaveny v souboru `.nuspec`. Je nejvhodnější pro zpětnou *kompatibilitu, aby neexplicitně* nastavila typ `Dependency` a místo toho se spoléhá na NuGet za předpokladu, že není zadán žádný typ.
+
+- `.nuspec`: Určete typ balíčku v rámci uzlu `packageTypes\packageType` pod prvkem `<metadata>`:
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -32,7 +34,7 @@ Typy balíčků jsou nastaveny `.nuspec` souboru. Je nejvhodnější pro zpětno
         <metadata>
         <!-- ... -->
         <packageTypes>
-            <packageType name="DotnetCliTool" />
+            <packageType name="DotnetTool" />
         </packageTypes>
         </metadata>
     </package>
