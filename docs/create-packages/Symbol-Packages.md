@@ -1,34 +1,34 @@
 ---
-title: Jak vytvářet balíčky symbolů NuGet
+title: Vytváření starších balíčků symbolů (. Symbols. nupkg)
 description: Vytvoření balíčků NuGet, které obsahují pouze symboly pro podporu ladění dalších balíčků NuGet v aplikaci Visual Studio.
 author: karann-msft
 ms.author: karann
 ms.date: 09/12/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 97a533171d698792d66a78550dacfe8eaf29a440
-ms.sourcegitcommit: fc0f8c950829ee5c96e3f3f32184bc727714cfdb
+ms.openlocfilehash: 374e9ccfc01cd06508e76529765db3f849342222
+ms.sourcegitcommit: 1799d4ac23c8aacee7498fdc72c40dd1646d267b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74253910"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77476266"
 ---
-# <a name="creating-symbol-packages-legacy"></a>Vytváření balíčků symbolů (starší verze)
+# <a name="creating-legacy-symbol-packages-symbolsnupkg"></a>Vytváření starších balíčků symbolů (. Symbols. nupkg)
 
 > [!Important]
 > Nový doporučený formát pro balíčky symbolů je. snupkg. Viz [vytváření balíčků symbolů (. snupkg)](Symbol-Packages-snupkg.md). </br>
 > . Symbols. nupkg je stále podporován, ale pouze z důvodu kompatibility.
 
-Kromě vytváření balíčků pro nuget.org nebo jiných zdrojů NuGet podporuje také vytváření přidružených balíčků symbolů a jejich publikování do úložiště SymbolSource.
+Kromě vytváření balíčků pro nuget.org nebo jiných zdrojů NuGet podporuje také vytváření přidružených balíčků symbolů, které mohou být publikovány na servery symbolů. Formát balíčku symbolů starší verze,. Symbols. nupkg, lze vložit do úložiště SymbolSource.
 
 Příjemci balíčku pak mohou přidat `https://nuget.smbsrc.net` do svých zdrojů symbolů v aplikaci Visual Studio, které umožňují krokování kódu balíčku v ladicím programu sady Visual Studio. Podrobnosti o tomto procesu najdete v tématu [určení symbolu (PDB) a zdrojových souborů v ladicím programu sady Visual Studio](/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger) .
 
-## <a name="creating-a-symbol-package"></a>Vytvoření balíčku symbolů
+## <a name="creating-a-legacy-symbol-package"></a>Vytváření starší verze balíčku symbolů
 
-Chcete-li vytvořit balíček symbolů, postupujte podle těchto konvencí:
+Chcete-li vytvořit starší verzi balíčku symbolů, postupujte podle těchto konvencí:
 
 - Pojmenujte primární balíček (s kódem) `{identifier}.nupkg` a zahrňte všechny soubory s výjimkou souborů `.pdb`.
-- Pojmenujte balíček symbolů `{identifier}.symbols.nupkg` a zahrňte do souboru DLL sestavení, soubory `.pdb`, soubory XMLDOC a zdrojové soubory (viz následující části).
+- Zadejte název starší verze balíčku symbolů `{identifier}.symbols.nupkg` a do souboru DLL sestavení, soubory `.pdb`, soubory XMLDOC a zdrojové soubory (viz následující části).
 
 Oba balíčky lze vytvořit pomocí možnosti `-Symbols`, buď ze souboru `.nuspec` nebo souboru projektu:
 
@@ -40,11 +40,11 @@ nuget pack MyProject.csproj -Symbols
 
 Všimněte si, že `pack` vyžaduje mono 4.4.2 v Mac OS X a nefunguje v systémech Linux. V počítači Mac je nutné také převést cesty systému Windows v souboru `.nuspec` na cesty ve stylu systému UNIX.
 
-## <a name="symbol-package-structure"></a>Struktura balíčku symbolů
+## <a name="legacy-symbol-package-structure"></a>Struktura balíčku symbolů starší verze
 
-Balíček symbolů může cílit na více cílových rozhraní stejným způsobem jako balíček knihovny, takže struktura `lib` složky by měla být přesně stejná jako primární balíček, včetně `.pdb` souborů společně s knihovnou DLL.
+Balíček starší verze se může zaměřit na více cílových rozhraní stejným způsobem jako balíček knihovny, takže struktura `lib` složky by měla být přesně stejná jako primární balíček, včetně souborů `.pdb` společně s knihovnou DLL.
 
-Například balíček symbolů, který cílí na rozhraní .NET 4,0 a Silverlight 4, by měl toto rozložení:
+Například starší balíček symbolů, který cílí na rozhraní .NET 4,0 a Silverlight 4, by měl toto rozložení:
 
     \lib
         \net40
@@ -70,7 +70,7 @@ Zdrojové soubory se pak umístí do samostatné speciální složky s názvem `
                 \MySilverlightExtensions.cs
                 \MyAssembly.csproj (producing \lib\sl4\MyAssembly.dll)
 
-Kromě `lib` složky by balíček symbolů musel obsahovat toto rozložení:
+Kromě `lib` složky by měl starší balíček symbolů obsahovat toto rozložení:
 
     \src
         \Common
@@ -85,7 +85,7 @@ Kromě `lib` složky by balíček symbolů musel obsahovat toto rozložení:
 
 ## <a name="referring-to-files-in-the-nuspec"></a>Odkazy na soubory v nuspec
 
-Balíček symbolů lze vytvořit podle konvencí, ze struktury složek, jak je popsáno v předchozí části, nebo zadáním jeho obsahu v části `files` manifestu. Chcete-li například sestavit balíček uvedený v předchozí části, použijte následující příkaz v souboru `.nuspec`:
+Starší verze balíčku symbolů lze vytvořit podle konvencí, ze struktury složek, jak je popsáno v předchozí části, nebo zadáním jejího obsahu v části `files` manifestu. Chcete-li například sestavit balíček uvedený v předchozí části, použijte následující příkaz v souboru `.nuspec`:
 
 ```xml
 <files>
@@ -97,7 +97,7 @@ Balíček symbolů lze vytvořit podle konvencí, ze struktury složek, jak je p
 </files>
 ```
 
-## <a name="publishing-a-symbol-package"></a>Publikování balíčku symbolů
+## <a name="publishing-a-legacy-symbol-package"></a>Publikování staršího balíčku symbolů
 
 > [!Important]
 > Pokud chcete nabízet balíčky do nuget.org, musíte použít [NuGet. exe v 4.9.1 nebo vyšší](https://www.nuget.org/downloads), který implementuje požadované [protokoly NuGet](../api/nuget-protocols.md).
@@ -108,13 +108,13 @@ Balíček symbolů lze vytvořit podle konvencí, ze struktury složek, jak je p
     nuget SetApiKey Your-API-Key
     ```
 
-2. Po publikování primárního balíčku do nuget.orgu nahrajte balíček symbolů následujícím způsobem, který automaticky použije symbolsource.org jako cíl z důvodu `.symbols` v názvu souboru:
+2. Po publikování primárního balíčku do nuget.org nahrajte starší verzi balíčku symbolů následujícím způsobem, který automaticky použije symbolsource.org jako cíl z důvodu `.symbols` v názvu souboru:
 
     ```cli
     nuget push MyPackage.symbols.nupkg
     ```
 
-3. Pro publikování do jiného úložiště symbolů nebo pro vložení balíčku symbolů, který nedodržuje konvence pojmenování, použijte `-Source` možnost:
+3. Chcete-li publikovat do jiného úložiště symbolů nebo odeslat starší balíček symbolů, který nedodržuje zásady vytváření názvů, použijte možnost `-Source`:
 
     ```cli
     nuget push MyPackage.symbols.nupkg -source https://nuget.smbsrc.net/
@@ -131,6 +131,7 @@ Balíček symbolů lze vytvořit podle konvencí, ze struktury složek, jak je p
    
 V tomto případě bude NuGet publikovat `MyPackage.symbols.nupkg`, pokud je k dispozici, aby https://nuget.smbsrc.net/ (adresa URL pro nabízení oznámení pro symbolsource.org) po publikování primárního balíčku do nuget.org.
 
-## <a name="see-also"></a>Viz také:
+## <a name="see-also"></a>Viz také
 
-[Přechod na nový modul SymbolSource](https://tripleemcoder.com/2015/10/04/moving-to-the-new-symbolsource-engine/) (symbolsource.org)
+* [Vytváření balíčků symbolů (. snupkg)](Symbol-Packages-snupkg.md) – nový doporučený formát pro balíčky symbolů
+* [Přechod na nový modul SymbolSource](https://tripleemcoder.com/2015/10/04/moving-to-the-new-symbolsource-engine/) (symbolsource.org)
