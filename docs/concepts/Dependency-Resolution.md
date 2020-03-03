@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: c6f50e6eb21826afebcdcd4045c7ab8b6e6489e3
-ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
+ms.openlocfilehash: 4b95251e4b055523a9533b4125589b2650be932d
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76813322"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231081"
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>Jak NuGet řeší závislosti balíčků
 
@@ -22,7 +22,7 @@ Pokud má více balíčků stejnou závislost, pak se stejné ID balíčku můž
 
 ## <a name="dependency-resolution-with-packagereference"></a>Rozlišení závislosti s PackageReference
 
-Při instalaci balíčků do projektů pomocí formátu PackageReference přidá NuGet v příslušném souboru odkazy na graf plochých balíčků a vyřeší konflikty před časem. Tento proces se označuje jako *přechodné obnovení*. Přeinstalace nebo obnovení balíčků je proces stahování balíčků uvedených v grafu, což vede k rychlejšímu a více předvídatelným sestavením. Můžete také využít výhod zástupných znaků (plovoucí), například 2,8.\*, což umožňuje vyhnout se nákladným a náchylným chybám a voláním `nuget update` na klientských počítačích a serverech sestavení.
+Při instalaci balíčků do projektů pomocí formátu PackageReference přidá NuGet v příslušném souboru odkazy na graf plochých balíčků a vyřeší konflikty před časem. Tento proces se označuje jako *přechodné obnovení*. Přeinstalace nebo obnovení balíčků je proces stahování balíčků uvedených v grafu, což vede k rychlejšímu a více předvídatelným sestavením. Můžete také využít výhod plovoucí verze, například 2,8.\*, aby nedošlo k úpravě projektu, aby používal nejnovější verzi balíčku.
 
 Když se proces obnovení NuGet spustí před sestavením, vyřeší nejprve závislosti v paměti a pak zapíše výsledný graf do souboru s názvem `project.assets.json`. Zapisuje také vyřešené závislosti do souboru zámku s názvem `packages.lock.json`, pokud [je povolena funkce zámku souboru](../consume-packages/package-references-in-project-files.md#locking-dependencies).
 Soubor prostředků je umístěn na `MSBuildProjectExtensionsPath`, který je ve výchozím nastavení složkou "obj" projektu. Nástroj MSBuild pak přečte tento soubor a převede ho do sady složek, kde mohou být nalezeny možné odkazy, a poté je přidá do stromu projektu v paměti.
@@ -53,16 +53,16 @@ Když aplikace určí přesné číslo verze, například 1,2, které není v in
 
 <a name="floating-versions"></a>
 
-#### <a name="floating-wildcard-versions"></a>Plovoucí verze (zástupné znaky)
+#### <a name="floating-versions"></a>Plovoucí verze
 
-V případě, že je zadána verze s plovoucí nebo zástupné znaky, je \* zástupný znak, jako je 6,0.\*. Tato specifikace verze říká "použít nejnovější verzi 6.0. x"; 4.\* znamená "použít nejnovější verzi 4. x." Použití zástupného znaku umožňuje, aby balíček závislostí pokračoval ve vývoji bez nutnosti změny náročné aplikace (nebo balíčku).
+U \*ho znaku je uvedena plovoucí verze závislosti. například `6.0.*`. Tato specifikace verze říká "použít nejnovější verzi 6.0. x"; `4.*` znamená "použít nejnovější verzi 4. x." Použití plovoucí verze redukuje změny v souboru projektu a udržuje aktuální verzi závislosti.
 
-Při použití zástupného znaku NuGet vyřeší nejvyšší verzi balíčku, který odpovídá vzoru verze, například 6,0.\* získá nejvyšší verzi balíčku, který začíná 6,0:
+Při použití plovoucí verze NuGet vyřeší nejvyšší verzi balíčku, který odpovídá vzoru verze, například `6.0.*` získá nejvyšší verzi balíčku, který začíná 6,0:
 
 ![Výběr verze 6.0.1, když se požaduje plovoucí verze 6,0. *](media/projectJson-dependency-4.png)
 
 > [!Note]
-> Informace o chování zástupných znaků a předběžných verzích najdete v tématu [Správa verzí balíčků](package-versioning.md#version-ranges-and-wildcards).
+> Informace o chování plovoucí verze a předběžně vydaných verzí najdete v tématu [Správa verzí balíčků](package-versioning.md#version-ranges).
 
 
 <a name="nearest-wins"></a>

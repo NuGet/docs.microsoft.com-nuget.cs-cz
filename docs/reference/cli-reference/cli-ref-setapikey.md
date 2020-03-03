@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 0e2119953e6d07cd3571f156fa0b2665de49f963
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: e06cfb5b355dfae8104090db7babdecdf9e9fec1
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75383966"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231224"
 ---
 # <a name="setapikey-command-nuget-cli"></a>setapikey – příkaz (NuGet CLI)
 
@@ -18,16 +18,17 @@ ms.locfileid: "75383966"
 
 Uloží klíč rozhraní API pro danou adresu URL serveru do `NuGet.Config`, aby se nemusel zadat pro následné příkazy.
 
-## <a name="usage"></a>Použití
+## <a name="usage"></a>Využití
 
 ```cli
 nuget setapikey <key> -Source <url> [options]
 ```
 
-kde `<source>` identifikuje server a `<key>` je klíč nebo heslo, které se má uložit. Pokud je hodnota `<source>` vynechána, předpokládá se nuget.org.
+kde `<source>` identifikuje server a `<key>` je klíč, který se má uložit. Pokud je hodnota `<source>` vynechána, předpokládá se nuget.org. 
 
 > [!NOTE]
 > Klíč rozhraní API se nepoužívá pro ověřování pomocí privátního informačního kanálu. Pokud chcete spravovat přihlašovací údaje pro ověřování ve zdroji, přečtěte si [`nuget sources` příkaz](../cli-reference/cli-ref-sources.md) .
+> Klíče rozhraní API lze získat z jednotlivých serverů NuGet. Pokud chcete vytvořit a spravovat APIKeys pro nuget.org, přečtěte si téma [Publishing-API-Key](../../quickstart/includes/publish-api-key.md) .
 
 ## <a name="options"></a>Možnosti
 
@@ -37,7 +38,7 @@ kde `<source>` identifikuje server a `<key>` je klíč nebo heslo, které se má
 | ForceEnglishOutput | *(3.5 +)* Vynutí, aby soubor NuGet. exe běžel pomocí neutrální jazykové verze určené pro angličtinu. |
 | Nápověda | Zobrazí informace o nápovědě k příkazu. |
 | NonInteractive | Potlačí výzvy pro vstup uživatele nebo potvrzení. |
-| Podrobnosti | Určuje množství podrobností zobrazených ve výstupu: *normální*, *tiché*a *podrobné*. |
+| Verbosity | Určuje množství podrobností zobrazených ve výstupu: *normální*, *tiché*a *podrobné*. |
 
 Podívejte se také na [proměnné prostředí](cli-ref-environment-variables.md) .
 

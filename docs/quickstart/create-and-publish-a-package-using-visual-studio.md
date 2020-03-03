@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/16/2019
 ms.topic: quickstart
-ms.openlocfilehash: fe551dfa7f2322e6677c9c0b972c79c9df2e7695
-ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
+ms.openlocfilehash: 32dcc1d233154463e2950b1ce46554b1cb89956e
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76813556"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231289"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Rychlý Start: vytvoření a publikování balíčku NuGet pomocí sady Visual Studio (.NET Standard, pouze Windows)
 
@@ -25,7 +25,7 @@ Je to jednoduchý proces vytvoření balíčku NuGet z knihovny tříd .NET Stan
 
 1. Pokud ještě není nainstalovaná, nainstalujte `dotnet` CLI.
 
-   Pro `dotnet` CLI počínaje sadou Visual Studio 2017 se `dotnet` CLI automaticky nainstaluje se všemi úlohami souvisejícími s .NET Core. V opačném případě nainstalujte rozhraní příkazového `dotnet` řádku, abyste získali [.NET Core SDK](https://www.microsoft.com/net/download/). `dotnet` CLI je vyžadován pro .NET Standard projekty, které používají [Formát sady SDK](../resources/check-project-format.md) (atribut sady SDK). Výchozí .NET Standard šablona knihovny tříd v sadě Visual Studio 2017 a vyšší, která se používá v tomto článku, používá atribut SDK.
+   Pro `dotnet` CLI počínaje sadou Visual Studio 2017 se `dotnet` CLI automaticky nainstaluje se všemi úlohami souvisejícími s .NET Core. V opačném případě nainstalujte [.NET Core SDK](https://www.microsoft.com/net/download/) pro získání `dotnet` CLI. `dotnet` CLI je vyžadován pro .NET Standard projekty, které používají [Formát sady SDK](../resources/check-project-format.md) (atribut sady SDK). Výchozí .NET Standard šablona knihovny tříd v sadě Visual Studio 2017 a vyšší, která se používá v tomto článku, používá atribut SDK.
    
    > [!Important]
    > Pokud pracujete s projektem, který není typu SDK, postupujte podle pokynů v části [Vytvoření a publikování .NET Frameworkho balíčku (Visual Studio)](create-and-publish-a-package-using-visual-studio-net-framework.md) pro vytvoření a publikování balíčku. V tomto článku se doporučuje `dotnet` CLI. I když můžete publikovat libovolný balíček NuGet pomocí `nuget.exe` CLI, některé kroky v tomto článku jsou specifické pro projekty ve stylu sady SDK a rozhraní příkazového řádku dotnet. Rozhraní příkazového řádku NuGet. exe se používá pro [projekty, které nejsou ve stylu sady SDK](../resources/check-project-format.md) (obvykle .NET Framework).
@@ -103,7 +103,7 @@ namespace AppLogger
 
 Sadu Visual Studio můžete nakonfigurovat tak, aby automaticky generovala balíček NuGet při sestavování projektu.
 
-1. V Průzkumníku řešení klikněte pravým tlačítkem na projekt a zvolte **vlastnosti**.
+1. V Průzkumník řešení klikněte pravým tlačítkem na projekt a vyberte **vlastnosti**.
 
 2. Na kartě **balíček** vyberte při **sestavování vytvořit balíček NuGet**.
 
@@ -132,7 +132,7 @@ Jakmile budete mít soubor `.nupkg`, publikujete ho nuget.org pomocí `nuget.exe
 
 Vyberte kartu pro nástroj CLI, buď **.NET Core CLI** (dotnet CLI), nebo **NuGet** (NuGet. exe CLI).
 
-# <a name="net-core-clitabnetcore-cli"></a>[Rozhraní příkazového řádku .NET Core](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[Rozhraní příkazového řádku .NET Core](#tab/netcore-cli)
 
 Tento krok je doporučenou alternativou použití `nuget.exe`.
 
@@ -140,7 +140,7 @@ Než budete moct balíček publikovat, musíte nejdřív otevřít příkazový 
 
 [!INCLUDE [publish-dotnet](includes/publish-dotnet.md)]
 
-# <a name="nugettabnuget"></a>[NuGet](#tab/nuget)
+# <a name="nuget"></a>[NuGet](#tab/nuget)
 
 Tento krok je alternativou k použití `dotnet.exe`.
 
@@ -192,6 +192,12 @@ Tato akce zahrne do kořenového adresáře balíčku soubor s názvem `readme.t
 
 > [!Note]
 > Pouze přidání souboru Readme. txt v kořenu projektu nebude mít za následek zahrnutí do výsledného balíčku.
+
+## <a name="related-video"></a>Související video
+
+> [!Video https://channel9.msdn.com/Series/NuGet-101/Create-and-Publish-a-NuGet-Package-with-Visual-Studio-4-of-5/player]
+
+Další videa k NuGetu najdete na webu [Channel 9](https://channel9.msdn.com/Series/NuGet-101) a [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_).
 
 ## <a name="related-topics"></a>Příbuzná témata
 

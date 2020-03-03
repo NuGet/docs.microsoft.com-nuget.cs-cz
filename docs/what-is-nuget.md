@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: overview
-ms.openlocfilehash: a08ac24ce6b1d64496c9fc1b20604850e9711dd6
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.openlocfilehash: c326cf184ff20fb798a5770f0a4cf9bf42bed3f5
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72380664"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78230691"
 ---
 # <a name="an-introduction-to-nuget"></a>Úvod do NuGetu
 
@@ -105,9 +105,15 @@ Aby tyto procesy byly efektivně fungovat, NuGet provede některé optimalizace 
 
 V rámci jednotlivého projektu NuGet spravuje celkový graf závislostí, který znovu zahrnuje překlad více odkazů na různé verze stejného balíčku. Je poměrně běžné, že projekt přebírá závislost na jednom nebo více balíčcích, které mají stejné závislosti. Některé z nejužitečnějších balíčků nástrojů na nuget.org jsou zaměstnané mnoha dalšími balíčky. V celém grafu závislostí můžete snadno mít deset různých odkazů na různé verze stejného balíčku. Aby se zabránilo zavedení více verzí tohoto balíčku do samotné aplikace, NuGet vyřadí jednotlivé verze, které mohou používat všichni uživatelé. (Další informace najdete v tématu věnovaném [řešení závislostí](concepts/dependency-resolution.md).)
 
-Kromě toho NuGet udržuje všechny specifikace týkající se strukturování balíčků (včetně [lokalizačních](create-packages/creating-localized-packages.md) a [ladicích symbolů](create-packages/symbol-packages-snupkg.md)) a způsobu jejich [odkazování](consume-packages/package-references-in-project-files.md) (včetně [rozsahů verzí](concepts/package-versioning.md#version-ranges-and-wildcards) a [předběžných verzí](create-packages/prerelease-packages.md)). NuGet také poskytuje různá rozhraní API pro práci s jejími službami programově a poskytuje podporu pro vývojáře, kteří napisují rozšíření sady Visual Studio a šablony projektů.
+Kromě toho NuGet udržuje všechny specifikace týkající se strukturování balíčků (včetně [lokalizačních](create-packages/creating-localized-packages.md) a [ladicích symbolů](create-packages/symbol-packages-snupkg.md)) a způsobu jejich [odkazování](consume-packages/package-references-in-project-files.md) (včetně [rozsahů verzí](concepts/package-versioning.md#version-ranges) a [předběžných verzí](create-packages/prerelease-packages.md)). NuGet také poskytuje různá rozhraní API pro práci s jejími službami programově a poskytuje podporu pro vývojáře, kteří napisují rozšíření sady Visual Studio a šablony projektů.
 
 Chvíli počkejte, než projdete obsah této dokumentace, a zobrazí se všechny tyto funkce, společně s poznámkami k verzi dating zpět na začátek NuGetu.
+
+## <a name="related-video"></a>Související video
+
+> [!Video https://channel9.msdn.com/Series/NuGet-101/What-is-NuGet-1-of-5/player]
+
+Další videa k NuGetu najdete na webu [Channel 9](https://channel9.msdn.com/Series/NuGet-101) a [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_).
 
 ## <a name="comments-contributions-and-issues"></a>Komentáře, příspěvky a problémy
 

@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 937d051ff6dc49e3204f7d0cb22c4f29b99a2a7d
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 02c6c8f3018bfd063c2d16a10381f88b54cac840
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610604"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231341"
 ---
 # <a name="publishing-packages"></a>Publikování balíčků
 
@@ -65,6 +65,10 @@ Pokud chcete nabízet balíčky do nuget.org, musíte použít [NuGet. exe v 4.1
     ```
 
     Tento příkaz uloží klíč rozhraní API do konfigurace NuGet, takže tento krok nebudete muset opakovat na stejném počítači.
+
+    > [!NOTE]
+    > Klíč rozhraní API se nepoužívá pro ověřování pomocí privátního informačního kanálu. Pokud chcete spravovat přihlašovací údaje pro ověřování ve zdroji, přečtěte si [`nuget sources` příkaz](../reference/cli-reference/cli-ref-sources.md) .
+    > Klíče rozhraní API lze získat z jednotlivých serverů NuGet. Informace o vytvoření a manange APIKeys pro nuget.org najdete v tématu [Publishing-API-Key](../quickstart/includes/publish-api-key.md) .
 
 1. Nahrajte balíček do galerie NuGet pomocí následujícího příkazu:
 

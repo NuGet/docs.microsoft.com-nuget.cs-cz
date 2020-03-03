@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 05/18/2018
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: e02b2a241008b1b7096f20b351173fd3df7ed172
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 7384e8b30cb2ec5fe53ea0fe485858bc1f7b3c43
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317518"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231250"
 ---
 # <a name="signed-packages"></a>Podepsané balíčky
 
@@ -26,15 +26,15 @@ Podepsané balíčky poskytují nejsilnější kompletní ověřování. Existuj
 Podrobnosti o vytvoření balíčku podepsaného autorem najdete v tématu [podepisování balíčků](../create-packages/Sign-a-package.md) a [příkaz NuGet Sign](../reference/cli-reference/cli-ref-sign.md).
 
 > [!Important]
-> Podepisování balíčků se v současné době podporuje jenom při použití NuGet. exe ve Windows. Ověřování podepsaných balíčků se v současné době podporuje jenom při použití NuGet. exe nebo sady Visual Studio ve Windows.
+> Podepisování balíčků se v současné době podporuje jenom při použití NuGet. exe ve Windows. [Ověřování podepsaných balíčků se v současné době podporuje jenom při použití NuGet. exe](../reference/cli-reference/cli-ref-verify.md) nebo sady Visual Studio ve Windows.
 
 ## <a name="certificate-requirements"></a>Požadavky na certifikát
 
-Podepisování balíčků vyžaduje certifikát pro podpis kódu, což je zvláštní typ certifikátu, který je platný pro `id-kp-codeSigning` účely [[RFC 5280 Section 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)]. Certifikát navíc musí mít délku veřejného klíče RSA 2048 bitů nebo vyšší.
+Podepisování balíčků vyžaduje certifikát pro podpis kódu, což je speciální typ certifikátu, který je platný pro `id-kp-codeSigning` účel [[RFC 5280 Section 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)]. Certifikát navíc musí mít délku veřejného klíče RSA 2048 bitů nebo vyšší.
 
 ## <a name="timestamp-requirements"></a>Požadavky na časové razítko
 
-Podepsané balíčky by měly zahrnovat časové razítko RFC 3161 k zajištění platnosti podpisu mimo období platnosti podpisového certifikátu balíčku. Certifikát použitý k podepsání časového razítka musí být platný pro `id-kp-timeStamping` účely [[RFC 5280 Section 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)]. Certifikát navíc musí mít délku veřejného klíče RSA 2048 bitů nebo vyšší.
+Podepsané balíčky by měly zahrnovat časové razítko RFC 3161 k zajištění platnosti podpisu mimo období platnosti podpisového certifikátu balíčku. Certifikát použitý k podepsání časového razítka musí být platný pro `id-kp-timeStamping` účel [[RFC 5280 Section 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)]. Certifikát navíc musí mít délku veřejného klíče RSA 2048 bitů nebo vyšší.
 
 Další technické podrobnosti najdete v [technické specifikaci signatury balíčku](https://github.com/NuGet/Home/wiki/Package-Signatures-Technical-Details) (GitHub).
 

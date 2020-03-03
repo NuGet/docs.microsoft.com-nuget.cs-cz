@@ -5,21 +5,21 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/24/2018
 ms.topic: quickstart
-ms.openlocfilehash: 92fc78a88733d0308dc26e10c5b0bafb86b78045
-ms.sourcegitcommit: e4b0ff4460865db6dc7bc9f20e9f644d98493011
+ms.openlocfilehash: 96e138561390984d9def495ba5e091c43023cc92
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71307219"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231328"
 ---
-# <a name="quickstart-install-and-use-a-package-in-visual-studio-windows-only"></a>Rychlý start: Instalace a použití balíčku v aplikaci Visual Studio (pouze Windows)
+# <a name="quickstart-install-and-use-a-package-in-visual-studio-windows-only"></a>Rychlý Start: instalace a použití balíčku v aplikaci Visual Studio (pouze Windows)
 
 Balíčky NuGet obsahují opakovaně použitelný kód, který vám pro použití v projektech zpřístupní jiní vývojáři. Podívejte [se, co je NuGet?](../What-is-NuGet.md) pro pozadí. Balíčky se nainstalují do projektu sady Visual Studio pomocí Správce balíčků NuGet nebo konzoly Správce balíčků. Tento článek popisuje proces použití oblíbeného balíčku [Newtonsoft. JSON](https://www.nuget.org/packages/Newtonsoft.Json/) a projektu Windows Presentation Foundation (WPF). Stejný postup platí pro všechny ostatní projekty .NET nebo .NET Core.
 
-Po instalaci se podívejte na balíček v kódu `using <namespace>` , kde \<obor názvů\> je specifický pro balíček, který používáte. Po provedení odkazu můžete balíček volat prostřednictvím jeho rozhraní API.
+Po instalaci se podívejte na balíček v kódu s `using <namespace>`, kde \<oboru názvů\> je specifické pro balíček, který používáte. Po provedení odkazu můžete balíček volat prostřednictvím jeho rozhraní API.
 
 > [!Tip]
-> **Začínáme s NuGet.org**: Procházení *NuGet.org* je způsob, jakým vývojáři rozhraní .NET obvykle hledají komponenty, které mohou znovu použít ve svých vlastních aplikacích. Můžete vyhledat *NuGet.org* přímo nebo vyhledat a nainstalovat balíčky v sadě Visual Studio, jak je znázorněno v tomto článku. Obecné informace najdete v tématu [vyhledání a vyhodnocení balíčků NuGet](../consume-packages/finding-and-choosing-packages.md).
+> **Začínáme s NuGet.org**: prohlížení *NuGet.org* je způsob, jakým vývojáři rozhraní .NET obvykle hledají komponenty, které mohou znovu použít ve svých vlastních aplikacích. Můžete vyhledat *NuGet.org* přímo nebo vyhledat a nainstalovat balíčky v sadě Visual Studio, jak je znázorněno v tomto článku. Obecné informace najdete v tématu [vyhledání a vyhodnocení balíčků NuGet](../consume-packages/finding-and-choosing-packages.md).
 
 ## <a name="prerequisites"></a>Požadavky
 
@@ -33,13 +33,13 @@ Pokud používáte Visual Studio pro Mac, přečtěte si téma [instalace a pou�
 
 Balíčky NuGet se dají nainstalovat do libovolného projektu .NET, za předpokladu, že balíček podporuje stejnou cílovou architekturu jako projekt.
 
-Pro tento návod použijte jednoduchou aplikaci WPF. V aplikaci Visual Studio vytvořte projekt pomocí **souboru** > **Nový projekt**, zadejte do vyhledávacího pole **.NET** a pak vyberte **aplikaci WPF (.NET Framework)** . Klikněte na **Další**. Po zobrazení výzvy přijměte výchozí hodnoty pro **rozhraní** .
+Pro tento návod použijte jednoduchou aplikaci WPF. V aplikaci Visual Studio vytvořte projekt pomocí **souboru** > **Nový projekt**, zadejte do vyhledávacího pole **.NET** a pak vyberte **aplikaci WPF (.NET Framework)**. Klikněte na **Další**. Po zobrazení výzvy přijměte výchozí hodnoty pro **rozhraní** .
 
 Visual Studio vytvoří projekt, který se otevře v Průzkumník řešení.
 
 ## <a name="add-the-newtonsoftjson-nuget-package"></a>Přidejte balíček NuGet Newtonsoft. JSON.
 
-Chcete-li nainstalovat balíček, můžete použít buď správce balíčků NuGet, nebo konzolu Správce balíčků. Při instalaci balíčku zaznamená NuGet závislost v souboru projektu nebo `packages.config` v souboru (v závislosti na formátu projektu). Další informace najdete v tématu [Přehled spotřeby balíčků a pracovní postup](../consume-packages/Overview-and-Workflow.md).
+Chcete-li nainstalovat balíček, můžete použít buď správce balíčků NuGet, nebo konzolu Správce balíčků. Při instalaci balíčku zaznamená NuGet závislost v souboru projektu nebo souboru `packages.config` (v závislosti na formátu projektu). Další informace najdete v tématu [Přehled spotřeby balíčků a pracovní postup](../consume-packages/Overview-and-Workflow.md).
 
 ### <a name="nuget-package-manager"></a>Správce balíčků NuGet
 
@@ -61,9 +61,9 @@ Chcete-li nainstalovat balíček, můžete použít buď správce balíčků NuG
 
 1. Pokud se zobrazí výzva ke kontrole změn, vyberte **OK**.
 
-### <a name="package-manager-console"></a>Konzola Správce balíčků
+### <a name="package-manager-console"></a>Konzola správce balíčků
 
-1. Vyberte **nástroje** > **správce** balíčků NuGet konzola správce balíčků příkaz menu. > 
+1. Vyberte **nástroje** > **správce balíčků NuGet** > nabídce **konzoly Správce balíčků** .
 
 1. Po otevření konzoly ověřte, zda je v rozevíracím seznamu **výchozí projekt** uveden projekt, do kterého chcete balíček nainstalovat. Pokud máte v řešení jeden projekt, je již vybrán.
 
@@ -75,9 +75,9 @@ Chcete-li nainstalovat balíček, můžete použít buď správce balíčků NuG
 
 ## <a name="use-the-newtonsoftjson-api-in-the-app"></a>Použití rozhraní API Newtonsoft. JSON v aplikaci
 
-Pomocí balíčku Newtonsoft. JSON v projektu můžete zavolat jeho `JsonConvert.SerializeObject` metodu pro převod objektu na řetězec čitelný z lidského.
+Pomocí balíčku Newtonsoft. JSON v projektu můžete zavolat jeho metodu `JsonConvert.SerializeObject` pro převod objektu na uživatelsky čitelný řetězec.
 
-1. `MainWindow.xaml` Existující`Grid` prvek otevřete a nahraďte následujícím:
+1. Otevřete `MainWindow.xaml` a nahraďte existující prvek `Grid` následujícím způsobem:
 
     ```xaml
     <Grid Background="White">
@@ -88,7 +88,7 @@ Pomocí balíčku Newtonsoft. JSON v projektu můžete zavolat jeho `JsonConvert
     </Grid>
     ```
 
-1. Otevřete soubor (umístěný v Průzkumník řešení `MainWindow.xaml` pod uzlem) a vložte následující kód do `MainWindow` třídy: `MainWindow.xaml.cs`
+1. Otevřete soubor `MainWindow.xaml.cs` (umístěný v Průzkumník řešení pod uzlem `MainWindow.xaml`) a vložte následující kód do třídy `MainWindow`:
 
     ```cs
     public class Account
@@ -111,19 +111,25 @@ Pomocí balíčku Newtonsoft. JSON v projektu můžete zavolat jeho `JsonConvert
     }
     ```
 
-1. I když jste do projektu přidali balíček Newtonsoft. JSON, červené vlnovky se zobrazí v části `JsonConvert` , protože `using` potřebujete příkaz v horní části souboru kódu:
+1. I když jste do projektu přidali balíček Newtonsoft. JSON, zobrazí se v části `JsonConvert` červené vlnovky, protože v horní části souboru kódu potřebujete příkaz `using`:
 
     ```cs
     using Newtonsoft.Json;
     ```
 
-1. Sestavte a spusťte aplikaci stisknutím klávesy F5 nebo výběrem **ladění** > **Spustit ladění**:
+1. Sestavte a spusťte aplikaci stisknutím klávesy F5 nebo výběrem možnosti **ladění** > **Spustit ladění**:
 
     ![Počáteční výstup aplikace WPF](media/QS_Use-06-AppStart.png)
 
 1. Výběrem tlačítka na tomto tlačítku zobrazíte obsah TextBlock nahrazený nějakým textem JSON:
 
     ![Výstup aplikace WPF po výběru tlačítka](media/QS_Use-07-AppEnd.png)
+
+## <a name="related-video"></a>Související video
+
+> [!Video https://channel9.msdn.com/Series/NuGet-101/Install-and-Use-a-NuGet-Package-with-Visual-Studio-2-of-5/player]
+
+Další videa k NuGetu najdete na webu [Channel 9](https://channel9.msdn.com/Series/NuGet-101) a [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_).
 
 ## <a name="next-steps"></a>Další kroky
 

@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: c62e5b7b53d30a1b362e87dbbea26355a36b1274
-ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
+ms.openlocfilehash: 852dca8c70b09d941e844b1f7cd03b38e2192481
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76813270"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78230877"
 ---
 # <a name="package-metadata"></a>Metadata balíčků
 
@@ -23,7 +23,7 @@ Kolekce dokumentů nalezených v rámci `RegistrationsBaseUrl` se často nazýva
 
 Použijí se následující hodnoty `@type`:
 
-hodnota @type                     | Poznámky
+hodnota @type                     | Poznámky:
 ------------------------------- | -----
 RegistrationsBaseUrl            | Počáteční verze
 RegistrationsBaseUrl/3.0.0 – beta | Alias `RegistrationsBaseUrl`
@@ -76,9 +76,9 @@ Tato heuristická metoda, kterou používá nuget.org, je následující: Pokud 
 
 ### <a name="request-parameters"></a>Parametry žádosti
 
-Name     | V     | Type    | Požadováno | Poznámky
+Název     | V     | Typ    | Požadováno | Poznámky:
 -------- | ------ | ------- | -------- | -----
-LOWER_ID | URL    | odkazy řetězců  | ano      | ID balíčku, malými písmeny
+LOWER_ID | URL    | string  | ano      | ID balíčku, malými písmeny
 
 Hodnota `LOWER_ID` je ID požadovaného balíčku s malými písmeny pomocí pravidel implementovaných nástrojem. Metoda [`System.String.ToLowerInvariant()`](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) sítě
 
@@ -86,10 +86,10 @@ Hodnota `LOWER_ID` je ID požadovaného balíčku s malými písmeny pomocí pra
 
 Odpověď je dokument JSON, který má kořenový objekt s následujícími vlastnostmi:
 
-Name  | Type             | Požadováno | Poznámky
+Název  | Typ             | Požadováno | Poznámky:
 ----- | ---------------- | -------- | -----
-počet | integer          | ano      | Počet registračních stránek v indexu
-položky | Pole objektů | ano      | Pole registračních stránek
+count | celé číslo          | ano      | Počet registračních stránek v indexu
+položky | pole objektů | ano      | Pole registračních stránek
 
 Každá položka v `items` poli objektu index je objekt JSON, který představuje registrační stránku.
 
@@ -97,14 +97,14 @@ Každá položka v `items` poli objektu index je objekt JSON, který představuj
 
 Registrační objekt stránky, který se našel v registračním indexu, má tyto vlastnosti:
 
-Name   | Type             | Požadováno | Poznámky
+Název   | Typ             | Požadováno | Poznámky:
 ------ | ---------------- | -------- | -----
-@id    | odkazy řetězců           | ano      | Adresa URL stránky pro registraci
-počet  | integer          | ano      | Počet ponechání registrace na stránce
-položky  | Pole objektů | Ne       | Pole registrace opustí a jejich přidružená metadata
-malým  | odkazy řetězců           | ano      | Nejnižší verze SemVer 2.0.0 na stránce (včetně)
-nadřazený | odkazy řetězců           | Ne       | Adresa URL indexu registrace
-umístit  | odkazy řetězců           | ano      | Nejvyšší verze SemVer 2.0.0 na stránce (včetně)
+@id    | string           | ano      | Adresa URL stránky pro registraci
+count  | celé číslo          | ano      | Počet ponechání registrace na stránce
+položky  | pole objektů | ne       | Pole registrace opustí a jejich přidružená metadata
+Malým  | string           | ano      | Nejnižší verze SemVer 2.0.0 na stránce (včetně)
+nadřazený | string           | ne       | Adresa URL indexu registrace
+umístit  | string           | ano      | Nejvyšší verze SemVer 2.0.0 na stránce (včetně)
 
 Hranice `lower` a `upper` objektu Page jsou užitečné v případě, že jsou požadována metadata pro konkrétní verzi stránky.
 Tyto hranice lze použít k načtení jediné registrační stránky, kterou potřebujete. Řetězce verze vyhovují [pravidlům verzí NuGet](../concepts/package-versioning.md). Řetězce verze jsou normalizovány a neobsahují metadata sestavení. Stejně jako u všech verzí v ekosystému NuGet se porovnání řetězců verzí implementuje pomocí [pravidel priority verze SemVer 2.0.0](https://semver.org/spec/v2.0.0.html#spec-item-11).
@@ -121,11 +121,11 @@ Každá položka v poli `items` objektu stránky je objekt JSON, který předsta
 
 Registrační objekt na listu, který se našel na registrační stránce, má tyto vlastnosti:
 
-Name           | Type   | Požadováno | Poznámky
+Název           | Typ   | Požadováno | Poznámky:
 -------------- | ------ | -------- | -----
-@id            | odkazy řetězců | ano      | Adresa URL listu registrace
-catalogEntry   | Objekt nástroje | ano      | Záznam katalogu obsahující metadata balíčku
-packageContent | odkazy řetězců | ano      | Adresa URL obsahu balíčku (. nupkg)
+@id            | string | ano      | Adresa URL listu registrace
+catalogEntry   | objekt | ano      | Záznam katalogu obsahující metadata balíčku
+packageContent | string | ano      | Adresa URL obsahu balíčku (. nupkg)
 
 Každý registrační listový objekt představuje data přidružená k jedné verzi balíčku.
 
@@ -133,26 +133,26 @@ Každý registrační listový objekt představuje data přidružená k jedné v
 
 Vlastnost `catalogEntry` v objektu registračního listu má následující vlastnosti:
 
-Name                     | Type                       | Požadováno | Poznámky
+Název                     | Typ                       | Požadováno | Poznámky:
 ------------------------ | -------------------------- | -------- | -----
-@id                      | odkazy řetězců                     | ano      | Adresa URL dokumentu použitého k vyprodukování tohoto objektu
-Autoři                  | řetězec nebo pole řetězců | Ne       | 
-dependencyGroups         | Pole objektů           | Ne       | Závislosti balíčku seskupené podle cílové architektury
-vyřazení              | Objekt nástroje                     | Ne       | Zastaralé přidružení k balíčku
-description              | odkazy řetězců                     | Ne       | 
-iconUrl                  | odkazy řetězců                     | Ne       | 
-id                       | odkazy řetězců                     | ano      | ID balíčku
-licenseUrl               | odkazy řetězců                     | Ne       |
-licenseExpression        | odkazy řetězců                     | Ne       | 
-uvedené v seznamu                   | Logická hodnota                    | Ne       | By mělo být považováno za uvedené, pokud chybí
-minClientVersion         | odkazy řetězců                     | Ne       | 
-projectUrl               | odkazy řetězců                     | Ne       | 
-zveřejněna                | odkazy řetězců                     | Ne       | Řetězec obsahující časové razítko ISO 8601 při publikování balíčku
-RequireLicenseAcceptance | Logická hodnota                    | Ne       | 
-souhrn                  | odkazy řetězců                     | Ne       | 
-značky                     | řetězec nebo pole řetězce  | Ne       | 
-název                    | odkazy řetězců                     | Ne       | 
-Verze nástroje                  | odkazy řetězců                     | ano      | Úplný řetězec verze po normalizaci
+@id                      | string                     | ano      | Adresa URL dokumentu použitého k vyprodukování tohoto objektu
+Autoři                  | řetězec nebo pole řetězců | ne       | 
+dependencyGroups         | pole objektů           | ne       | Závislosti balíčku seskupené podle cílové architektury
+vyřazení              | objekt                     | ne       | Zastaralé přidružení k balíčku
+description              | string                     | ne       | 
+iconUrl                  | string                     | ne       | 
+id                       | string                     | ano      | ID balíčku
+licenseUrl               | string                     | ne       |
+licenseExpression        | string                     | ne       | 
+uvedené v seznamu                   | Boolean                    | ne       | By mělo být považováno za uvedené, pokud chybí
+minClientVersion         | string                     | ne       | 
+projectUrl               | string                     | ne       | 
+zveřejněna                | string                     | ne       | Řetězec obsahující časové razítko ISO 8601 při publikování balíčku
+requireLicenseAcceptance | Boolean                    | ne       | 
+summary                  | string                     | ne       | 
+značek                     | řetězec nebo pole řetězce  | ne       | 
+Název                    | string                     | ne       | 
+Verze nástroje                   | string                     | ano      | Úplný řetězec verze po normalizaci
 
 Vlastnost `version` balíčku je úplný řetězec verze po normalizaci. To znamená, že sem můžete zahrnout data sestavení SemVer 2.0.0.
 
@@ -167,10 +167,10 @@ Hodnota vlastnosti `licenseExpression` v souladu s [syntaxí multilicenčního v
 
 Každý objekt skupiny závislostí má následující vlastnosti:
 
-Name            | Type             | Požadováno | Poznámky
+Název            | Typ             | Požadováno | Poznámky:
 --------------- | ---------------- | -------- | -----
-targetFramework | odkazy řetězců           | Ne       | Cílové rozhraní .NET Framework, na které se tyto závislosti vztahují
-dependencies    | Pole objektů | Ne       |
+targetFramework | string           | ne       | Cílové rozhraní .NET Framework, na které se tyto závislosti vztahují
+dependencies    | pole objektů | ne       |
 
 Řetězec `targetFramework` používá formát implementovaný rozhraním NuGet knihovny .NET pro NuGet. [architektury](https://www.nuget.org/packages/NuGet.Frameworks/). Pokud není zadán žádný `targetFramework`, vztahuje se skupina závislostí na všechny cílové architektury.
 
@@ -180,11 +180,11 @@ Vlastnost `dependencies` je pole objektů, z nichž každý představuje závisl
 
 Jednotlivé závislosti balíčků mají následující vlastnosti:
 
-Name         | Type   | Požadováno | Poznámky
+Název         | Typ   | Požadováno | Poznámky:
 ------------ | ------ | -------- | -----
-id           | odkazy řetězců | ano      | ID závislosti balíčku
-range        | Objekt nástroje | Ne       | Povolený [rozsah verzí](../concepts/package-versioning.md#version-ranges-and-wildcards) závislosti
-registrace | odkazy řetězců | Ne       | Adresa URL indexu registrace pro tuto závislost
+id           | string | ano      | ID závislosti balíčku
+range        | objekt | ne       | Povolený [rozsah verzí](../concepts/package-versioning.md#version-ranges) závislosti
+registrace | string | ne       | Adresa URL indexu registrace pro tuto závislost
 
 Pokud je vlastnost `range` vyloučená nebo je to prázdný řetězec, měl by být ve výchozím nastavení `(, )`rozsahu verze. To znamená, že je povolená jakákoli verze závislosti. Hodnota `*` není pro vlastnost `range` povolena.
 
@@ -192,11 +192,11 @@ Pokud je vlastnost `range` vyloučená nebo je to prázdný řetězec, měl by b
 
 Každý zastaralý balíček má následující vlastnosti:
 
-Name             | Type             | Požadováno | Poznámky
+Název             | Typ             | Požadováno | Poznámky:
 ---------------- | ---------------- | -------- | -----
 hlediska          | pole řetězců | ano      | Důvody, proč byl balíček zastaralý
-– zpráva          | odkazy řetězců           | Ne       | Další podrobnosti o této zastaralosti
-alternatePackage | Objekt nástroje           | Ne       | Alternativní balíček, který se má použít místo toho
+zpráva          | string           | ne       | Další podrobnosti o této zastaralosti
+alternatePackage | objekt           | ne       | Alternativní balíček, který se má použít místo toho
 
 Vlastnost `reasons` musí obsahovat alespoň jeden řetězec a měla by obsahovat pouze řetězce z následující tabulky:
 
@@ -212,11 +212,10 @@ Pokud vlastnost `reasons` obsahuje řetězce, které nejsou ze známé sady, mě
 
 Objekt alternativního balíčku má následující vlastnosti:
 
-Name         | Type   | Požadováno | Poznámky
+Název         | Typ   | Požadováno | Poznámky:
 ------------ | ------ | -------- | -----
-id           | odkazy řetězců | ano      | ID alternativního balíčku
-range        | Objekt nástroje | Ne       | Povolený [rozsah verzí](../concepts/package-versioning.md#version-ranges-and-wildcards), nebo `*`, pokud je povolená nějaká verze
-registrace | odkazy řetězců | Ne       | Adresa URL indexu registrace pro tento alternativní balíček
+id           | string | ano      | ID alternativního balíčku
+range        | objekt | ne       | Povolený [rozsah verzí](../concepts/package-versioning.md#version-ranges), nebo `*`, pokud je povolená nějaká verze
 
 ### <a name="sample-request"></a>Ukázková žádost
 
@@ -237,14 +236,14 @@ Registrační stránka obsahuje ponechání registračních stránek. Adresa URL
 
 Pokud pole `items` není v registračním indexu k dispozici, požadavek HTTP GET hodnoty `@id` vrátí dokument JSON, který má objekt jako svůj kořen. Objekt má následující vlastnosti:
 
-Name   | Type             | Požadováno | Poznámky
+Název   | Typ             | Požadováno | Poznámky:
 ------ | ---------------- | -------- | -----
-@id    | odkazy řetězců           | ano      | Adresa URL stránky pro registraci
-počet  | integer          | ano      | Počet ponechání registrace na stránce
-položky  | Pole objektů | ano      | Pole registrace opustí a jejich přidružená metadata
-malým  | odkazy řetězců           | ano      | Nejnižší verze SemVer 2.0.0 na stránce (včetně)
-nadřazený | odkazy řetězců           | ano      | Adresa URL indexu registrace
-umístit  | odkazy řetězců           | ano      | Nejvyšší verze SemVer 2.0.0 na stránce (včetně)
+@id    | string           | ano      | Adresa URL stránky pro registraci
+count  | celé číslo          | ano      | Počet ponechání registrace na stránce
+položky  | pole objektů | ano      | Pole registrace opustí a jejich přidružená metadata
+Malým  | string           | ano      | Nejnižší verze SemVer 2.0.0 na stránce (včetně)
+nadřazený | string           | ano      | Adresa URL indexu registrace
+umístit  | string           | ano      | Nejvyšší verze SemVer 2.0.0 na stránce (včetně)
 
 Tvar listů registračních objektů je stejný jako v indexu registrace [výše](#registration-leaf-object-in-a-page).
 
@@ -267,14 +266,14 @@ Adresa URL pro načtení registračního listu je získána z vlastnosti `@id` r
 
 Registrační list je dokument JSON s kořenovým objektem s následujícími vlastnostmi:
 
-Name           | Type    | Požadováno | Poznámky
+Název           | Typ    | Požadováno | Poznámky:
 -------------- | ------- | -------- | -----
-@id            | odkazy řetězců  | ano      | Adresa URL listu registrace
-catalogEntry   | odkazy řetězců  | Ne       | Adresa URL položky katalogu, která vytvořila tento list
-uvedené v seznamu         | Logická hodnota | Ne       | By mělo být považováno za uvedené, pokud chybí
-packageContent | odkazy řetězců  | Ne       | Adresa URL obsahu balíčku (. nupkg)
-zveřejněna      | odkazy řetězců  | Ne       | Řetězec obsahující časové razítko ISO 8601 při publikování balíčku
-registrace   | odkazy řetězců  | Ne       | Adresa URL indexu registrace
+@id            | string  | ano      | Adresa URL listu registrace
+catalogEntry   | string  | ne       | Adresa URL položky katalogu, která vytvořila tento list
+uvedené v seznamu         | Boolean | ne       | By mělo být považováno za uvedené, pokud chybí
+packageContent | string  | ne       | Adresa URL obsahu balíčku (. nupkg)
+zveřejněna      | string  | ne       | Řetězec obsahující časové razítko ISO 8601 při publikování balíčku
+registrace   | string  | ne       | Adresa URL indexu registrace
 
 > [!Note]
 > V nuget.org je hodnota `published` nastavena na rok 1900, pokud je balíček neuvedený.

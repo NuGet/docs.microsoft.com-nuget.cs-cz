@@ -1,93 +1,89 @@
 ---
-title: Poskytovatelé přihlašovacích údajů nuget.exe
-description: poskytovatelé přihlašovacích údajů nuget.exe ověřoval informační kanál a jsou implementovány jako spustitelné soubory příkazového řádku, které odpovídají konvencím konkrétní.
+title: Poskytovatelé přihlašovacích údajů NuGet. exe
+description: Zprostředkovatelé pověření NuGet. exe ověřují pomocí informačního kanálu a jsou implementováni jako spustitelné soubory příkazového řádku, které následují konkrétní konvence.
 author: karann-msft
 ms.author: karann
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: 97a44c6d561f426fa50fa068a9bbf793f77a3111
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 41e3e63138351bafd5e3a56080268faef10d85a3
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43550186"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78230782"
 ---
-# <a name="authenticating-feeds-with-nugetexe-credential-providers"></a>Ověřování informačních kanálů prostřednictvím nuget.exe poskytovatelé přihlašovacích údajů
+# <a name="authenticating-feeds-with-nugetexe-credential-providers"></a>Ověřování informačních kanálů pomocí zprostředkovatelů pověření NuGet. exe
 
-*NuGet 3.3 +*
+Ve verzi `3.3` byla přidána podpora pro `nuget.exe` zprostředkovatelům přihlašovacích údajů. Od té doby se v nástroji verze `4.8` [Podpora zprostředkovatelů přihlašovacích údajů](NuGet-Cross-Platform-Authentication-Plugin.md) , které fungují ve všech scénářích příkazového řádku (`nuget.exe`, `dotnet.exe`, `msbuild.exe`).
 
-Když `nuget.exe` potřebuje přihlašovací údaje pro ověření pomocí informační kanál, pro ně vypadá takto:
+Další podrobnosti o všech přístupech k ověřování pro `nuget.exe` najdete v tématu [využívání balíčků ze ověřených informačních kanálů](../../consume-packages/consuming-packages-authenticated-feeds.md#nugetexe) .
 
-1. NuGet nejprve hledá přihlašovací údaje v `Nuget.Config` soubory.
-1. NuGet použije poskytovatelé modul plugin přihlašovacích údajů, v souladu s níže uvedeném pořadí. (A je příklad [Visual Studio Team Services Credential Provider](https://www.visualstudio.com/docs/package/get-started/nuget/auth#vsts-credential-provider).)
-1. NuGet potom zobrazí výzvu pro přihlašovací údaje na příkazovém řádku.
+## <a name="nugetexe-credential-provider-discovery"></a>zjišťování poskytovatele přihlašovacích údajů NuGet. exe
 
-Všimněte si, že poskytovatelé přihlašovacích údajů je zde popsáno, fungovat pouze v `nuget.exe` a ne v "dotnet restore" nebo Visual Studio. Poskytovatelé přihlašovacích údajů pomocí sady Visual Studio, naleznete v tématu [nuget.exe poskytovatelé přihlašovacích údajů pro Visual Studio](nuget-credential-providers-for-visual-studio.md)
+poskytovatelé přihlašovacích údajů NuGet. exe se dají použít třemi způsoby:
 
-poskytovatelé přihlašovacích údajů nuget.exe dá 3 způsoby:
+- **Globálně**: Pokud chcete poskytovatele přihlašovacích údajů zpřístupnit všem instancím `nuget.exe` běžet pod profilem aktuálního uživatele, přidejte ho do `%LocalAppData%\NuGet\CredentialProviders`. Možná budete muset vytvořit složku `CredentialProviders`. Poskytovatelé přihlašovacích údajů se dají nainstalovat do kořenového adresáře `CredentialProviders` složky nebo do podsložky. Pokud má poskytovatel přihlašovacích údajů více souborů nebo sestavení, můžete použít podsložky a zachovat tak jejich poskytovatele.
 
-- **Globálně**: zpřístupnění poskytovatele přihlašovacích údajů pro všechny výskyty `nuget.exe` běžet pod aktuální uživatelského profilu, přidejte ji do `%LocalAppData%\NuGet\CredentialProviders`. Je potřeba vytvořit `CredentialProviders` složky. Poskytovatelé přihlašovacích údajů se dá nainstalovat na kořenovém adresáři `CredentialProviders` složku nebo podsložku. Pokud poskytovatel přihlašovacích údajů má více souborů nebo sestavení, můžete zachovat poskytovatelé uspořádané podsložky.
+- **Z proměnné prostředí**: poskytovatelé přihlašovacích údajů můžou být uložené kdekoli a zpřístupnit pro `nuget.exe` nastavením proměnné prostředí `%NUGET_CREDENTIALPROVIDERS_PATH%` na umístění poskytovatele. Tato proměnná může být seznam oddělený středníkem (například `path1;path2`), pokud máte více umístění.
 
-- **Z proměnné prostředí**: poskytovatelé přihlašovacích údajů mohou být uložena kdekoli a tak ho zpřístupnit `nuget.exe` nastavením `%NUGET_CREDENTIALPROVIDERS_PATH%` proměnnou prostředí pro umístění poskytovatele. Tato proměnná může být seznam oddělený středníkem (například `path1;path2`) Pokud máte víc umístění.
+- **Společně se NuGet. exe**: poskytovatelé přihlašovacích údajů NuGet. exe se dají umístit do stejné složky jako `nuget.exe`.
 
-- **Vedle nuget.exe**: nuget.exe poskytovatelé přihlašovacích údajů mohou být umístěny ve stejné složce jako `nuget.exe`.
+Při načítání zprostředkovatelů přihlašovacích údajů `nuget.exe` vyhledá v případě libovolného souboru s názvem `credentialprovider*.exe`tato umístění v pořadí, ve kterém se budou soubory nacházet. Pokud ve stejné složce existuje více zprostředkovatelů přihlašovacích údajů, načtou se v abecedním pořadí.
 
-Při načítání poskytovatelé přihlašovacích údajů `nuget.exe` hledá výše uvedené umístění v pořadí, pro všechny soubory s názvem `credentialprovider*.exe`, pak načte těchto souborů v pořadí, se nenašel. Pokud ve stejné složce existuje více poskytovatelé přihlašovacích údajů, jsou načteny v abecedním pořadí.
+## <a name="creating-a-nugetexe-credential-provider"></a>Vytvoření poskytovatele pověření NuGet. exe
 
-## <a name="creating-a-nugetexe-credential-provider"></a>Vytvoření poskytovatele přihlašovacích údajů nuget.exe
+Poskytovatel pověření je spustitelný soubor příkazového řádku s názvem ve formě `CredentialProvider*.exe`, který shromáždí vstupy, získá pověření podle potřeby a vrátí odpovídající stavový kód ukončení a standardní výstup.
 
-Poskytovatel přihlašovacích údajů je spustitelného souboru příkazového řádku s názvem ve formě `CredentialProvider*.exe`, který shromažďuje vstupů, získá přihlašovací údaje podle potřeby a vrátí odpovídající ukončovací kód stavu a standardní výstup.
+Poskytovatel musí provádět tyto akce:
 
-Zprostředkovatel musíte udělat toto:
-
-- Určení, zda může poskytnout přihlašovací údaje pro cílový identifikátor URI před zahájením získání přihlašovacích údajů. Pokud ne, měla by vrátit stavový kód 1 bez pověření.
-- Nelze změnit `Nuget.Config` (například nastavení přihlašovacích údajů existuje).
-- Popisovač HTTP konfiguraci proxy serveru na svůj vlastní jako NuGet neposkytuje informace o proxy serveru pro modul plug-in.
-- Vrátí přihlašovací údaje nebo podrobnosti o chybě `nuget.exe` zápisem objektu odpovědi JSON (viz níže) do stdout, pomocí kódování UTF-8.
-- Volitelně vysílat protokolování další trasování do stderr. Žádné tajných kódů mají být někdy zapisovány do stderr, protože úrovni podrobností "normální" nebo "podrobné" Tato trasování opakována balíčkem NuGet do konzoly.
-- Neočekávané parametry by měl být ignorovány, poskytuje kompatibilitu s budoucí verze balíčku nuget.
+- Před zahájením získání přihlašovacích údajů určete, jestli může poskytnout přihlašovací údaje pro cílový identifikátor URI. V takovém případě by měl vrátit stavový kód 1 bez přihlašovacích údajů.
+- Neupravujte `Nuget.Config` (například nastavení přihlašovacích údajů).
+- Vlastní zpracování konfigurace proxy HTTP, protože NuGet neposkytuje informace o proxy serveru modulu plug-in.
+- Vraťte přihlašovací údaje nebo podrobnosti chyby k `nuget.exe` zápisem objektu odpovědi JSON (viz níže) do STDOUT pomocí kódování UTF-8.
+- Volitelně můžete vygenerovat další protokolování trasování do stderr. Do stderr by se nikdy neměly zapisovat žádná tajná klíčová slova, protože u úrovní podrobností "normální" nebo "podrobná" jsou trasování v rámci nástroje NuGet pro konzolu odezva.
+- Neočekávané parametry by měly být ignorovány, čímž je zajištěna dopředná kompatibilita s budoucími verzemi NuGet.
 
 ### <a name="input-parameters"></a>Vstupní parametry
 
-| Parametr/přepínače |Popis|
+| Parametr/Switch |Popis|
 |----------------|-----------|
-| Identifikátor URI {value} | Identifikátor URI vyžadující přihlašovací údaje ke zdroji balíčku.|
-| Neinteraktivní | Pokud jsou k dispozici, nevyvolá poskytovatele interaktivní výzvy. |
-| isRetry | Pokud jsou k dispozici, určuje, že je tento pokus opakování dříve neúspěšném pokusu. Poskytovatelé obvykle používají tento příznak zajistíte, že všechny stávající mezipaměti obejít a výzvu pro nové přihlašovací údaje, pokud je to možné.|
-| Úroveň podrobností {value} | Pokud jsou k dispozici, použijte některou z následujících hodnot: "normální", "quiet" nebo "podrobné". Pokud není zadána žádná hodnota, výchozí hodnota je "normální". Poskytovatelé by měl použít jako údaj o úroveň protokolování volitelné vygenerovat standardní chybový proud. |
+| Identifikátor URI {Value} | Identifikátor URI zdroje balíčku vyžaduje přihlašovací údaje.|
+| NonInteractive | Pokud je přítomen, zprostředkovatel nevydá interaktivní výzvy. |
+| Opakování | Pokud je k dispozici, znamená to, že se tento pokus pokusí o opakování dříve neúspěšného pokusu. Poskytovatelé obvykle používají tento příznak k zajištění toho, aby využívali jakoukoli existující mezipaměť a zobrazila výzvu k zadání nových přihlašovacích údajů|
+| Podrobnosti {Value} | Pokud je k dispozici jedna z následujících hodnot: "normální", "tichá" nebo "podrobná". Pokud není zadaná žádná hodnota, použije se výchozí hodnota "Normal". Poskytovatelé by ho měli používat jako indikaci úrovně volitelného protokolování, které se má vygenerovat do standardního chybového proudu. |
 
-### <a name="exit-codes"></a>Kódy ukončení
+### <a name="exit-codes"></a>Ukončovací kódy
 
 | Kód |Výsledek | Popis |
 |----------------|-----------|-----------|
-| 0 | Úspěch | Přihlašovací údaje byly úspěšně získány a byl zapsán do stdout.|
+| 0 | Úspěch | Přihlašovací údaje byly úspěšně získány a zapsány do STDOUT.|
 | 1 | ProviderNotApplicable | Aktuální zprostředkovatel neposkytuje přihlašovací údaje pro daný identifikátor URI.|
-| 2 | selhání | Zprostředkovatel je správný zprostředkovatele pro daný identifikátor URI, ale nemůže poskytnout přihlašovací údaje. V takovém případě nuget.exe nebude opakovat pokus o ověření a se nezdaří. Typickým příkladem je, když uživatel zruší interaktivního přihlášení. |
+| 2 | Nezdařilo se | Zprostředkovatel je správného poskytovatele pro daný identifikátor URI, ale nemůže poskytnout přihlašovací údaje. V takovém případě NuGet. exe nebude opakovat ověřování a selže. Typickým příkladem je, že uživatel zruší interaktivní přihlášení. |
 
 ### <a name="standard-output"></a>Standardní výstup
 
-| Vlastnost |Poznámky|
+| Vlastnost |Poznámky:|
 |----------------|-----------|
-| uživatelské jméno | Uživatelské jméno u ověřených požadavků.|
-| Heslo | Heslo pro ověření žádosti.|
-| Zpráva | Volitelné podrobnosti o odpověď, slouží pouze k zobrazení dalších podrobností v případy selhání. |
+| Uživatelské jméno | Uživatelské jméno pro ověřené požadavky.|
+| Heslo | Heslo pro ověřené požadavky.|
+| Zpráva | Volitelné podrobnosti o odpovědi, které se používají jenom k zobrazení dalších podrobností v případech selhání. |
 
-Příklad výstupu stdout:
+Příklad stdout:
 
     { "Username" : "freddy@example.com",
       "Password" : "bwm3bcx6txhprzmxhl2x63mdsul6grctazoomtdb6kfbof7m3a3z",
       "Message"  : "" }
 
-## <a name="troubleshooting-a-credential-provider"></a>Řešení potíží s poskytovatele přihlašovacích údajů
+## <a name="troubleshooting-a-credential-provider"></a>Řešení potíží s poskytovatelem přihlašovacích údajů
 
-V současné době nenabízí NuGet mnohem přímou podporu pro ladění poskytovatelé přihlašovacích údajů vlastní; [vydat 4598](https://github.com/NuGet/Home/issues/4598) sleduje tuto práci.
+V současné době NuGet neposkytuje mnohem přímou podporu pro ladění vlastních poskytovatelů přihlašovacích údajů; Tato práce sleduje [problém 4598](https://github.com/NuGet/Home/issues/4598) .
 
-Můžete také provést následující:
+Můžete také provést následující akce:
 
-- Spusťte nuget.exe s `-verbosity` přepínače ke kontrole podrobný výstup.
-- Přidat zprávy ladění k `stdout` příslušných místech.
-- Ujistěte se, že používáte nuget.exe 3.3 nebo novější.
-- Připojte ladicí program při spuštění s tímto fragmentem kódu:
+- Spuštěním nástroje NuGet. exe s přepínačem `-verbosity` zkontrolujte podrobný výstup.
+- Přidejte zprávy pro ladění `stdout` na vhodných místech.
+- Ujistěte se, že používáte NuGet. exe 3,3 nebo vyšší.
+- Připojit ladicí program při spuštění pomocí tohoto fragmentu kódu:
 
     ```cs
     while (!Debugger.IsAttached)
@@ -96,5 +92,3 @@ Můžete také provést následující:
     }
     Debugger.Break();
     ```
-
-O další pomoc [odeslat žádost o podporu nuget.org](https://www.nuget.org/policies/Contact).

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/05/2019
 ms.topic: tutorial
-ms.openlocfilehash: fce3c9a92dfee325f9e914bf3d6444601fb38b6c
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: 0cb653bad9e853d908039b3f7a94e1dd7eefdde5
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75385671"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78230899"
 ---
 # <a name="create-packages-for-xamarin-with-visual-studio-2017-or-2019"></a>Vytváření balíčků pro Xamarin pomocí sady Visual Studio 2017 nebo 2019
 
@@ -18,7 +18,7 @@ Balíček pro Xamarin obsahuje kód, který používá nativní rozhraní API v 
 
 V tomto návodu použijete Visual Studio 2017 nebo 2019 k vytvoření balíčku NuGet pro různé platformy, který se dá použít v mobilních projektech pro iOS, Android a Windows.
 
-1. [Požadované součásti](#prerequisites)
+1. [Požadavky](#prerequisites)
 1. [Vytvoření struktury projektu a kódu abstrakce](#create-the-project-structure-and-abstraction-code)
 1. [Psaní kódu specifického pro platformu](#write-your-platform-specific-code)
 1. [Vytvoření a aktualizace souboru. nuspec](#create-and-update-the-nuspec-file)
@@ -52,7 +52,7 @@ Výsledné řešení obsahuje dva sdílené projekty společně s nejrůznějš�
 
 - `ILoggingLibrary` projekt, který je obsažen v souboru `ILoggingLibrary.shared.cs`, definuje veřejné rozhraní (oblast rozhraní API) komponenty. Toto je místo, kde definujete rozhraní do knihovny.
 - Druhý sdílený projekt obsahuje kód v `CrossLoggingLibrary.shared.cs`, který v době běhu najde implementaci abstraktního rozhraní specifickou pro konkrétní platformu. Tento soubor obvykle nemusíte měnit.
-- Projekty, které jsou specifické pro platformu, například `LoggingLibrary.android.cs`, obsahují nativní implementaci rozhraní v odpovídajících souborech `LoggingLibraryImplementation.cs` (VS 2017) nebo `LoggingLibrary.<PLATFORM>.cs` (VS 2019). Tady můžete sestavit kód vaší knihovny.
+- Projekty specifické pro platformu, například `LoggingLibrary.android.cs`, obsahují nativní implementaci rozhraní v příslušných `LoggingLibraryImplementation.cs` (VS 2017) nebo `LoggingLibrary.<PLATFORM>.cs` (VS 2019) soubory. Tady můžete sestavit kód vaší knihovny.
 
 Ve výchozím nastavení soubor ILoggingLibrary.shared.cs projektu `ILoggingLibrary` obsahuje definici rozhraní, ale žádné metody. Pro účely tohoto návodu přidejte `Log` metodu následujícím způsobem:
 

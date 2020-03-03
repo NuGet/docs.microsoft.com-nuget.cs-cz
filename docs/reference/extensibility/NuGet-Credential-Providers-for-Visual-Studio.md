@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: 906d07eb22599eb423b00300954ff2601dd33369
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: 13b6f5abe93a17c809564265990f86f6780aa67e
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75383548"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78230808"
 ---
 # <a name="authenticating-feeds-in-visual-studio-with-nuget-credential-providers"></a>Ověřování informačních kanálů v aplikaci Visual Studio s poskytovateli přihlašovacích údajů NuGet
 
@@ -19,6 +19,8 @@ Po instalaci poskytovatele pověření NuGet pro Visual Studio rozšíření NuG
 
 Ukázkovou implementaci najdete v [ukázce VsCredentialProvider](https://github.com/NuGet/Samples/tree/master/VsCredentialProvider).
 
+V sadě Visual Studio používá NuGet interní `VsCredentialProviderImporter`, který také hledá poskytovatele přihlašovacích údajů modulu plug-in. Tito zprostředkovatelé přihlašovacích údajů modulu plug-in musí být zjistitelní jako export MEF typu `IVsCredentialProvider`.
+
 Počínaje verzí 4,8 + NuGet v aplikaci Visual Studio je také podporováno nové moduly plug-in pro ověřování různých platforem, ale nejedná se o doporučený postup z hlediska výkonu.
 
 > [!Note]
@@ -26,16 +28,6 @@ Počínaje verzí 4,8 + NuGet v aplikaci Visual Studio je také podporováno nov
 >
 > Zprostředkovatelé pověření NuGet pro Visual Studio fungují jenom v aplikaci Visual Studio (ne v dotnet restore nebo NuGet. exe). Zprostředkovatele přihlašovacích údajů pomocí NuGet. exe najdete v tématu [poskytovatelé přihlašovacích údajů NuGet. exe](nuget-exe-Credential-providers.md).
 > Pro poskytovatele přihlašovacích údajů v dotnet a MSBuild si přečtěte modul [Plug-in pro různé platformy](nuget-cross-platform-authentication-plugin.md)
-
-## <a name="available-nuget-credential-providers-for-visual-studio"></a>K dispozici poskytovatelé pověření NuGet pro Visual Studio
-
-K dispozici je zprostředkovatel přihlašovacích údajů, který je součástí rozšíření NuGet sady Visual Studio pro podporu Visual Studio Team Services.
-
-Rozšíření NuGet pro Visual Studio používá interní `VsCredentialProviderImporter`, který také hledá poskytovatele přihlašovacích údajů modulu plug-in. Tito zprostředkovatelé přihlašovacích údajů modulu plug-in musí být zjistitelní jako export MEF typu `IVsCredentialProvider`.
-
-K dispozici jsou poskytovatelé přihlašovacích údajů pro modul plug-in:
-
-- [Poskytovatel pověření MyGet pro Visual Studio](http://docs.myget.org/docs/reference/credential-provider-for-visual-studio)
 
 ## <a name="creating-a-nuget-credential-provider-for-visual-studio"></a>Vytvoření poskytovatele pověření NuGet pro Visual Studio
 
