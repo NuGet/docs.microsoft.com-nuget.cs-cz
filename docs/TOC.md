@@ -24,6 +24,7 @@
 ### [Opětovná instalace a aktualizace balíčků](consume-packages/reinstalling-and-updating-packages.md)
 ### [Správa globálních balíčků a složek mezipaměti](consume-packages/managing-the-global-packages-and-cache-folders.md)
 ### [Správa rozsahu důvěryhodnosti balíčků](consume-packages/installing-signed-packages.md)
+### [Práce s ověřenými informačními kanály](consume-packages/consuming-packages-authenticated-feeds.md)
 ### [Práce se systémy správy zdrojového kódu](consume-packages/packages-and-source-control.md)
 ### [Běžné konfigurace NuGetu](consume-packages/configuring-nuget-behavior.md)
 ## Odkazování balíčků v projektu
@@ -45,7 +46,8 @@
 ### [Nastavení typu balíčku](create-packages/set-package-type.md)
 ### [Vytvoření lokalizovaného balíčku](create-packages/creating-localized-packages.md)
 ## Příručky pro specifický obsah
-### [Vytvoření balíčku UPW](guides/create-uwp-packages.md)
+### [Vytvoření balíčku pro UPW (C++)](guides/create-uwp-packages.md)
+### [Vytvoření balíčku pro UPW (C#)](guides/create-uwp-packages-CS.md)
 ### [Vytvoření nativního balíčku](guides/native-packages.md)
 ### [Vytvoření ovládacích prvků uživatelského rozhraní jako balíčku NuGet](guides/create-UI-controls.md)
 ### [Vytvoření analyzátoru jako balíčku NuGet](guides/analyzers-conventions.md)
