@@ -7,11 +7,11 @@ ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
 ms.openlocfilehash: 19e7934e2f249056c532369fa5e8ee6e35cc8086
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78230600"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79429099"
 ---
 # <a name="nuspec-reference"></a>odkaz. nuspec
 
@@ -73,7 +73,7 @@ Tyto prvky musí být uvedeny v prvku `<metadata>`.
 
 #### <a name="id"></a>id 
 Identifikátor balíčku bez rozlišení velkých a malých písmen, který musí být jedinečný v rámci nuget.org nebo jakákoli galerie, v níž se balíček nachází. ID nesmí obsahovat mezery ani znaky, které nejsou platné pro adresu URL a obecně následují pravidla oboru názvů .NET. Pokyny najdete v tématu [Volba jedinečného identifikátoru balíčku](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number) .
-#### <a name="version"></a>Verze nástroje 
+#### <a name="version"></a>version
 Verze balíčku, podle vzoru *hlavní_verze. podverze. Oprava* . Čísla verzí můžou obsahovat příponu předběžné verze, jak je popsáno v tématu [Správa verzí balíčků](../concepts/package-versioning.md#pre-release-versions). 
 #### <a name="description"></a>description
 Popis balíčku pro zobrazení uživatelského rozhraní
@@ -195,7 +195,7 @@ Krátký popis balíčku pro zobrazení uživatelského rozhraní. Je-li tento p
 #### <a name="copyright"></a>Úprava
 *(1,5 +)* Podrobnosti o autorských právech pro balíček.
 
-#### <a name="language"></a>jazyk
+#### <a name="language"></a>language
 ID národního prostředí balíčku. Viz [vytváření lokalizovaných balíčků](../create-packages/creating-localized-packages.md).
 
 #### <a name="tags"></a>značek
@@ -205,7 +205,7 @@ Mezerou oddělený seznam značek a klíčových slov, které popisují balíče
 *(3.3 +)* Pouze pro interní použití NuGet.
 
 #### <a name="repository"></a>úložiště
-Metadata úložiště sestávající ze čtyř volitelných atributů: `type` a `url` *(4.0 +)* a `branch` a `commit` *(4.6 +)*. Tyto atributy vám umožní namapovat `.nupkg` do úložiště, které ho vytvořilo, s potenciálem, který se má zobrazit jako název jednotlivé větve a/nebo zapsat hodnotu hash SHA-1, která balíček vytvořila. Měla by to být veřejně dostupná adresa URL, kterou lze vyvolat přímo pomocí softwaru pro správu verzí. Neměla by se jednat o stránku HTML, která je určena pro daný počítač. Pro odkazování na stránku projektu použijte místo toho pole `projectUrl`.
+Metadata úložiště sestávající ze čtyř volitelných atributů: `type` a `url` *(4.0 +)* a `branch` a `commit` *(4.6 +)* . Tyto atributy vám umožní namapovat `.nupkg` do úložiště, které ho vytvořilo, s potenciálem, který se má zobrazit jako název jednotlivé větve a/nebo zapsat hodnotu hash SHA-1, která balíček vytvořila. Měla by to být veřejně dostupná adresa URL, kterou lze vyvolat přímo pomocí softwaru pro správu verzí. Neměla by se jednat o stránku HTML, která je určena pro daný počítač. Pro odkazování na stránku projektu použijte místo toho pole `projectUrl`.
 
 Příklad:
 ```xml
@@ -226,7 +226,7 @@ Popisný název balíčku, který se dá použít v některých zobrazeních už
 
 #### <a name="packagetypes"></a>packageTypes
 *(3.5 +)* Kolekce nula nebo více `<packageType>` prvků určující typ balíčku, pokud je jiný než tradiční balíček závislostí. Každý packageType má atributy *názvu* a *verze*. Viz [Nastavení typu balíčku](../create-packages/set-package-type.md).
-#### <a name="dependencies"></a>dependencies
+#### <a name="dependencies"></a>závislosti
 Kolekce nula nebo více `<dependency>` prvků určujících závislosti pro balíček. Každá závislost má atributy *ID*, *verze*, *include* (3. x +) a *Exclude* (3. x +). Viz [závislosti](#dependencies-element) níže.
 #### <a name="frameworkassemblies"></a>frameworkAssemblies
 *(1,2 +)* Kolekce nula nebo více `<frameworkAssembly>` prvků, které identifikují .NET Framework odkaz na sestavení, které tento balíček vyžaduje, což zajišťuje, aby byly odkazy přidány do projektů, které balíček spotřebovává. Každý frameworkAssembly má atributy *AssemblyName* a *targetFramework* . Viz [určení sestavení rozhraní odkazy v mezipaměti GAC](#specifying-framework-assembly-references-gac) níže.
@@ -325,10 +325,10 @@ Element `<dependencies>` v rámci `<metadata>` obsahuje libovolný počet `<depe
 | contentFiles | Obsah |
 | modul runtime | Modul runtime, prostředky a FrameworkAssemblies |
 | sestavení | Knihovna |
-| Sestavení | Build (MSBuild props and targets) |
+| sestavení | Build (MSBuild props and targets) |
 | nativní | nativní |
 | Žádná | Žádné složky |
-| vše | Všechny složky |
+| all | Všechny složky |
 
 Například následující řádky označují závislosti na `PackageA` verze 1.1.0 nebo vyšší a `PackageB` verze 1. x.
 
@@ -687,8 +687,8 @@ Tyto soubory jsou zadány pomocí sady atributů, které popisují, jak by měly
 | **include** | Požadovanou Umístění souboru nebo souborů, které mají být zahrnuty, v závislosti na vyloučení určených atributem `exclude`. Cesta je relativní vzhledem ke složce `contentFiles`, pokud není zadána absolutní cesta. Zástupný znak `*` je povolen a `**` se dvěma zástupnými znaky implikuje hledání rekurzivní složky. |
 | **slevy** | Seznam souborů nebo vzorů souborů, které mají být vyloučeny z umístění `src`, jsou odděleny středníkem. Zástupný znak `*` je povolen a `**` se dvěma zástupnými znaky implikuje hledání rekurzivní složky. |
 | **buildAction** | Akce sestavení, která má být přiřazena položce obsahu pro MSBuild, například `Content`, `None`, `Embedded Resource`, `Compile`atd. Výchozí hodnota je `Compile`. |
-| **copyToOutput** | Logická hodnota označující, zda se mají kopírovat položky obsahu do výstupní složky Build (nebo Publishing). Výchozí hodnota je false. |
-| **Flatten** | Logická hodnota označující, zda se mají kopírovat položky obsahu do jediné složky ve výstupu sestavení (true), nebo pro zachování struktury složek v balíčku (false). Tento příznak funguje pouze v případě, že příznak copyToOutput je nastaven na hodnotu true. Výchozí hodnota je false. |
+| **copyToOutput** | Logická hodnota označující, zda se mají kopírovat položky obsahu do výstupní složky Build (nebo Publishing). Výchozí hodnotou je hodnota false. |
+| **Flatten** | Logická hodnota označující, zda se mají kopírovat položky obsahu do jediné složky ve výstupu sestavení (true), nebo pro zachování struktury složek v balíčku (false). Tento příznak funguje pouze v případě, že příznak copyToOutput je nastaven na hodnotu true. Výchozí hodnotou je hodnota false. |
 
 Při instalaci balíčku NuGet aplikuje podřízené prvky `<contentFiles>` shora dolů. Pokud se stejný soubor shoduje s více položkami, uplatní se všechny položky. Pokud dojde ke konfliktu pro stejný atribut, přepíše položka nejvyšší úrovně nižší položky.
 

@@ -7,11 +7,11 @@ ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
 ms.openlocfilehash: 912c0d015e2f499bc7386483bc6c35ecd765d3d4
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78230860"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428833"
 ---
 # <a name="package-versioning"></a>Správa verzí balíčků
 
@@ -27,7 +27,7 @@ V tomto tématu:
 
 ## <a name="version-basics"></a>Základy verzí
 
-Konkrétní číslo verze je ve formátu *hlavní. podverze. Oprava [-přípona]*, kde tyto komponenty mají následující význam:
+Konkrétní číslo verze je ve formátu *hlavní. podverze. Oprava [-přípona]* , kde tyto komponenty mají následující význam:
 
 - *Hlavní*: přerušující se změny
 - *Vedlejší*: nové funkce, ale zpětně kompatibilní
@@ -68,7 +68,7 @@ Při překládání odkazů na balíčky a více verzí balíčku se liší pouz
     1.0.1-alpha
     1.0.1-aaa
 
-## <a name="semantic-versioning-200"></a>2.0.0 sémantických verzí
+## <a name="semantic-versioning-200"></a>2\.0.0 sémantických verzí
 
 Pomocí NuGet 4.3.0 + a sady Visual Studio 2017 verze 15.3 + NuGet podporuje [sémantickou správu verzí 2.0.0](https://semver.org/spec/v2.0.0.html).
 
@@ -80,14 +80,14 @@ Některé sémantiky SemVer v 2.0.0 se ve starších klientech nepodporují. NuG
 V případě nuget.org je balíček definován jako balíček SemVer v 2.0.0, pokud je splněn některý z následujících příkazů:
 
 - Vlastní verze balíčku je kompatibilní s SemVer v 2.0.0, ale ne SemVer v 1.0.0, jak je definováno výše.
-- Všechny rozsahy verzí závislostí balíčku mají minimální nebo maximální verzi, která je kompatibilní s SemVer v 2.0.0, ale ne SemVer v 1.0.0 kompatibilní, definovaná výše; například *[1.0.0-Alpha. 1,)*.
+- Všechny rozsahy verzí závislostí balíčku mají minimální nebo maximální verzi, která je kompatibilní s SemVer v 2.0.0, ale ne SemVer v 1.0.0 kompatibilní, definovaná výše; například *[1.0.0-Alpha. 1,)* .
 
 Pokud nahrajete balíček SemVer v 2.0.0 pro nuget.org, balíček je neviditelná pro starší klienty a je k dispozici pouze pro následující klienty NuGet:
 
-- 4.3.0 NuGet +
+- 4\.3.0 NuGet +
 - Visual Studio 2017 verze 15.3 +
 - Visual Studio 2015 s [NUGET VSIX v 3.6.0](https://dist.nuget.org/visualstudio-2015-vsix/latest/NuGet.Tools.vsix)
-- DotNet
+- dotnet
   - dotnetcore. exe (sada .NET SDK 2.0.0 +)
 
 Klienti třetích stran:

@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 08/16/2019
 ms.topic: quickstart
 ms.openlocfilehash: 32dcc1d233154463e2950b1ce46554b1cb89956e
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78231289"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79429029"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Rychlý Start: vytvoření a publikování balíčku NuGet pomocí sady Visual Studio (.NET Standard, pouze Windows)
 
@@ -19,7 +19,7 @@ Je to jednoduchý proces vytvoření balíčku NuGet z knihovny tříd .NET Stan
 > [!Note]
 > Pokud používáte Visual Studio pro Mac, přečtěte si [tyto informace](/xamarin/cross-platform/app-fundamentals/nuget-multiplatform-libraries/existing-library) o vytvoření balíčku NuGet nebo použijte [nástroje dotnet CLI](create-and-publish-a-package-using-the-dotnet-cli.md).
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 1. Nainstalujte jakoukoli edici sady Visual Studio 2019 z [VisualStudio.com](https://www.visualstudio.com/) s využitím úlohy související s .NET Core.
 
@@ -199,7 +199,7 @@ Tato akce zahrne do kořenového adresáře balíčku soubor s názvem `readme.t
 
 Další videa k NuGetu najdete na webu [Channel 9](https://channel9.msdn.com/Series/NuGet-101) a [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_).
 
-## <a name="related-topics"></a>Příbuzná témata
+## <a name="related-topics"></a>Související témata
 
 - [Vytvoření balíčku](../create-packages/creating-a-package-dotnet-cli.md)
 - [Publikování balíčku](../nuget-org/publish-a-package.md)

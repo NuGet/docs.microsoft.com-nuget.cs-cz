@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: conceptual
 ms.openlocfilehash: 8e825410d621ff2946e23e80173292f24f9d21f2
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78231264"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428889"
 ---
 # <a name="migrate-from-packagesconfig-to-packagereference"></a>Migrace ze souboru Packages. config na PackageReference
 
@@ -57,7 +57,7 @@ Nyní byste měli být schopni zobrazit možnost migrace. Všimněte si, že tat
 
 1. Otevřete řešení obsahující projekt pomocí `packages.config`.
 
-1. V **Průzkumník řešení**klikněte pravým tlačítkem myši na uzel **odkazy** nebo na `packages.config` soubor a vyberte **migrovat Packages. config na PackageReference...**.
+1. V **Průzkumník řešení**klikněte pravým tlačítkem myši na uzel **odkazy** nebo na `packages.config` soubor a vyberte **migrovat Packages. config na PackageReference...** .
 
 1. Migrace analyzuje odkazy na balíček NuGet projektu a pokusy o jejich kategorizaci do **závislostí na nejvyšší úrovni** (balíčky NuGet, které jste nainstalovali přímo), a **přenosných závislostí** (balíčky, které byly nainstalovány jako závislosti balíčků nejvyšší úrovně).
 

@@ -11,11 +11,11 @@ f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
 ms.openlocfilehash: 3adceac8c725d9ea1610aea090753c9c1d8bc818
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78231004"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428693"
 ---
 # <a name="install-and-manage-packages-in-visual-studio-using-the-nuget-package-manager"></a>Instalace a Správa balíčků v aplikaci Visual Studio pomocí Správce balíčků NuGet
 
@@ -28,7 +28,7 @@ Uživatelské rozhraní Správce balíčků NuGet v aplikaci Visual Studio ve Wi
 
 ## <a name="find-and-install-a-package"></a>Vyhledání a instalace balíčku
 
-1. V **Průzkumník řešení**klikněte pravým tlačítkem myši buď na **odkaz** , nebo na projekt a vyberte **Spravovat balíčky NuGet...**.
+1. V **Průzkumník řešení**klikněte pravým tlačítkem myši buď na **odkaz** , nebo na projekt a vyberte **Spravovat balíčky NuGet...** .
 
     ![Možnost spravovat balíčky NuGet – možnost nabídky](media/ManagePackagesUICommand.png)
 
@@ -48,7 +48,7 @@ Uživatelské rozhraní Správce balíčků NuGet v aplikaci Visual Studio ve Wi
 
 ## <a name="uninstall-a-package"></a>Odinstalace balíčku
 
-1. V **Průzkumník řešení**klikněte pravým tlačítkem myši buď na **odkaz** , nebo na požadovaný projekt a vyberte **Spravovat balíčky NuGet...**.
+1. V **Průzkumník řešení**klikněte pravým tlačítkem myši buď na **odkaz** , nebo na požadovaný projekt a vyberte **Spravovat balíčky NuGet...** .
 1. Vyberte kartu **Nainstalováno**.
 1. Vyberte balíček, který chcete odinstalovat (Pokud je to nutné, pomocí hledání vyfiltrujte seznam) a vyberte **odinstalovat**.
 
@@ -58,7 +58,7 @@ Uživatelské rozhraní Správce balíčků NuGet v aplikaci Visual Studio ve Wi
 
 ## <a name="update-a-package"></a>Aktualizace balíčku
 
-1. V **Průzkumník řešení**klikněte pravým tlačítkem myši buď na **odkaz** , nebo na požadovaný projekt a vyberte **Spravovat balíčky NuGet...**. (V projektech webu klikněte pravým tlačítkem myši na složku **bin** .)
+1. V **Průzkumník řešení**klikněte pravým tlačítkem myši buď na **odkaz** , nebo na požadovaný projekt a vyberte **Spravovat balíčky NuGet...** . (V projektech webu klikněte pravým tlačítkem myši na složku **bin** .)
 1. Kliknutím na kartu **aktualizace** zobrazíte balíčky, které mají dostupné aktualizace z vybraných zdrojů balíčků. V seznamu aktualizace zvolte **Zahrnout předprodejní** verze pro zahrnutí předprodejních balíčků.
 1. Vyberte balíček, který chcete aktualizovat, vyberte požadovanou verzi v rozevíracím seznamu napravo a vyberte **aktualizovat**.
 
@@ -79,7 +79,7 @@ Uživatelské rozhraní Správce balíčků NuGet v aplikaci Visual Studio ve Wi
 
 Správa balíčků pro řešení je pohodlný způsob práce s více projekty současně.
 
-1. Vyberte **nástroje > správce balíčků nuget > spravovat balíčky NuGet pro řešení...** příkaz nabídky nebo klikněte pravým tlačítkem na řešení a vyberte **Spravovat balíčky NuGet...**:
+1. Vyberte **nástroje > správce balíčků nuget > spravovat balíčky NuGet pro řešení...** příkaz nabídky nebo klikněte pravým tlačítkem na řešení a vyberte **Spravovat balíčky NuGet...** :
 
     ![Spravovat balíčky NuGet pro řešení](media/ManagePackagesSolutionUICommand.png)
 
@@ -117,7 +117,7 @@ Správa zdrojů balíčků:
 
     ![Možnosti zdrojů balíčků](media/options.png)
 
-1. Chcete-li přidat zdroj, vyberte **+**, upravte název, zadejte adresu URL nebo cestu ve správě **zdrojového kódu** a vyberte **aktualizovat**. Zdroj se nyní zobrazí v rozevíracím seznamu selektoru.
+1. Chcete-li přidat zdroj, vyberte **+** , upravte název, zadejte adresu URL nebo cestu ve správě **zdrojového kódu** a vyberte **aktualizovat**. Zdroj se nyní zobrazí v rozevíracím seznamu selektoru.
 1. Chcete-li změnit zdroj balíčku, vyberte jej, proveďte úpravy v polích **název** a **zdroj** a vyberte možnost **aktualizovat**.
 1. Chcete-li zakázat zdroj balíčku, zrušte zaškrtnutí políčka nalevo od názvu v seznamu.
 1. Pokud chcete odebrat zdroj balíčku, vyberte ho a pak klikněte na tlačítko **X** .

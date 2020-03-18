@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
 ms.openlocfilehash: b3e6f0efc9e2e12de186ffd4ce29d496d07d5fc4
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78230951"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428945"
 ---
 # <a name="create-a-package-using-the-nugetexe-cli"></a>Vytvoření balíčku pomocí rozhraní příkazového řádku NuGet. exe
 
@@ -184,7 +184,7 @@ Konvence složek jsou následující:
 | ref/{TFM} | Assembly (`.dll`) a symbol (`.pdb`) soubory pro daný moniker cílového rozhraní (TFM) | Sestavení jsou přidána jako odkazy pouze pro dobu kompilace; Takže se nic nezkopíruje do složky Bin projektu. |
 | moduly runtime | Sestavení pro konkrétní architekturu (`.dll`), symbol (`.pdb`) a soubory nativního prostředku (`.pri`) | Sestavení jsou přidána jako odkazy pouze pro modul runtime; jiné soubory jsou zkopírovány do složek projektu. V rámci `/ref/{tfm}` složky by mělo vždy být odpovídající (TFM) `AnyCPU` konkrétní sestavení, které poskytne odpovídající sestavení času kompilace. Viz [Podpora více cílových rozhraní](supporting-multiple-target-frameworks.md). |
 | content | Libovolné soubory | Obsah je zkopírován do kořenového adresáře projektu. Složku **obsahu** si můžete představit jako kořen cílové aplikace, která nakonec balíček spotřebovává. Pokud chcete, aby balíček přidal obrázek do složky */images* aplikace, umístěte ho do složky *obsah/image* balíčku. |
-| Sestavení | *(3. x +)* Soubory `.targets` a `.props` nástroje MSBuild | Automaticky vložen do projektu. |
+| sestavení | *(3. x +)* Soubory `.targets` a `.props` nástroje MSBuild | Automaticky vložen do projektu. |
 | buildMultiTargeting | *(4.0 +)* Soubory `.targets` a `.props` nástroje MSBuild pro cílení na různé architektury | Automaticky vložen do projektu. |
 | buildTransitive | *(5.0 +)* Nástroj MSBuild `.targets` a `.props` soubory, které přenášejí přenos do libovolného náročného projektu. Podívejte se na stránku [funkce](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior) . | Automaticky vložen do projektu. |
 | nástroje | Skripty a programy PowerShellu dostupné z konzoly Správce balíčků | Složka `tools` se přidá do proměnné prostředí `PATH` jenom pro konzolu Správce balíčků (konkrétně *ne* do `PATH` jako nastavená pro MSBuild při sestavování projektu). |

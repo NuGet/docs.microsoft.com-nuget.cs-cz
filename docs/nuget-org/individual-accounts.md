@@ -6,11 +6,11 @@ ms.author: mikejo
 ms.date: 06/05/2019
 ms.topic: conceptual
 ms.openlocfilehash: 7951b3db0cdcaee0a1eb955a5bf6fedce24c79c9
-ms.sourcegitcommit: fc0f8c950829ee5c96e3f3f32184bc727714cfdb
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74253957"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79429015"
 ---
 # <a name="individual-accounts-on-nugetorg"></a>Jednotlivé účty na NuGet.org
 

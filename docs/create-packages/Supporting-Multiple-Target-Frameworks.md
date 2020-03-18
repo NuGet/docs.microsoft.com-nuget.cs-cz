@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 07/15/2019
 ms.topic: conceptual
 ms.openlocfilehash: 34f7c6132ba6050e20114642932ccf29a5ec088d
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75385093"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79429008"
 ---
 # <a name="support-multiple-net-versions"></a>Podpora více verzí rozhraní .NET
 

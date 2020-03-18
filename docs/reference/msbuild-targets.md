@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
 ms.openlocfilehash: 922fc0b25664dede59e33c6cd012dfeedcad0397
-ms.sourcegitcommit: 415c70d7014545c1f65271a2debf8c3c1c5eb688
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77036926"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428798"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Sada NuGet Pack a obnovení jako cíle MSBuild
 
@@ -20,7 +20,7 @@ Ve formátu [PackageReference](../consume-packages/package-references-in-project
 
 Pomocí nástroje MSBuild 15.1 + nástroj NuGet je také první třídou občana MSBuild s `pack` a cíli `restore`, jak je popsáno níže. Tyto cíle vám umožňují pracovat s balíčky NuGet stejně jako s ostatními úlohami nebo cíli MSBuild. Pokyny k vytvoření balíčku NuGet pomocí nástroje MSBuild najdete v tématu [Vytvoření balíčku NuGet pomocí nástroje MSBuild](../create-packages/creating-a-package-msbuild.md). (Pro NuGet 3. x a starší použijte místo toho příkazy [Pack](../reference/cli-reference/cli-ref-pack.md) a [obnovení](../reference/cli-reference/cli-ref-restore.md) prostřednictvím rozhraní příkazového řádku NuGet.)
 
-## <a name="target-build-order"></a>Pořadí cílového sestavení
+## <a name="target-build-order"></a>Pořadí sestavení cílů
 
 Vzhledem k tomu, že `pack` a `restore` jsou cíle nástroje MSBuild, můžete k nim přistupovat, abyste mohli vylepšit pracovní postup. Řekněme například, že chcete po sbalení balíčku zkopírovat do sdílené síťové složky. To lze provést přidáním následujícího do souboru projektu:
 
@@ -49,15 +49,15 @@ Všimněte si, že nástroj MSBuild nepodporuje vlastnosti `Owners` a `Summary` 
 | Hodnota atributu/NuSpec | Vlastnost MSBuild | Výchozí | Poznámky: |
 |--------|--------|--------|--------|
 | ID | PackageId | Doplňk | $ (AssemblyName) z MSBuild |
-| Version | PackageVersion | Version | To je semver kompatibilní, například "1.0.0", "1.0.0-beta" nebo "1.0.0-beta-00345" |
+| Verze | PackageVersion | Verze | To je semver kompatibilní, například "1.0.0", "1.0.0-beta" nebo "1.0.0-beta-00345" |
 | VersionPrefix | PackageVersionPrefix | empty | Nastavení PackageVersion přepsání PackageVersionPrefix |
 | VersionSuffix | PackageVersionSuffix | empty | $ (VersionSuffix) z MSBuild. Nastavení PackageVersion přepsání PackageVersionSuffix |
 | Autoři | Autoři | Uživatelské jméno aktuálního uživatele | |
-| Vlastníci | Není k dispozici | Nepřítomno v NuSpec | |
+| Vlastníci | neuvedeno | Nepřítomno v NuSpec | |
 | Název | Název | PackageId| |
 | Popis | Popis | Popis balíčku | |
 | Copyright | Copyright | empty | |
-| RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false (nepravda) | |
+| requireLicenseAcceptance | PackageRequireLicenseAcceptance | false (nepravda) | |
 | průkaz | PackageLicenseExpression | empty | Odpovídá `<license type="expression">` |
 | průkaz | PackageLicenseFile | empty | Odpovídá `<license type="file">`. Musíte explicitně sbalit soubor s odkazem na licenci. |
 | LicenseUrl | PackageLicenseUrl | empty | `PackageLicenseUrl` je zastaralá, použijte vlastnost PackageLicenseExpression nebo PackageLicenseFile. |
@@ -65,7 +65,7 @@ Všimněte si, že nástroj MSBuild nepodporuje vlastnosti `Owners` a `Summary` 
 | Ikona | PackageIcon | empty | Musíte explicitně sbalit soubor obrázku odkazované ikony.|
 | IconUrl | PackageIconUrl | empty | Pro dosažení nejlepšího prostředí pro starší verze by měla být kromě `PackageIcon`určena `PackageIconUrl`. Už se `PackageIconUrl` zastaralá. |
 | Značky | PackageTags | empty | Značky jsou středníky odděleny středníkem. |
-| ReleaseNotes | PackageReleaseNotes | empty | |
+| releaseNotes | PackageReleaseNotes | empty | |
 | Úložiště/adresa URL | RepositoryUrl | empty | Adresa URL úložiště, která se používá k klonování nebo načtení zdrojového kódu. Příklad: *https://github.com/NuGet/NuGet.Client.git* |
 | Úložiště/typ | RepositoryType | empty | Typ úložiště Příklady: *Git*, *TFS*. |
 | Úložiště/větev | RepositoryBranch | empty | Volitelné informace o větvi úložiště Pro zahrnutí této vlastnosti je nutné zadat také *RepositoryUrl* . Příklad: *Master* (NuGet 4.7.0 +) |
@@ -94,7 +94,7 @@ Všimněte si, že nástroj MSBuild nepodporuje vlastnosti `Owners` a `Summary` 
 - PackageOutputPath
 - IncludeSymbols
 - IncludeSource
-- PackageTypes
+- packageTypes
 - Nástroj
 - RepositoryUrl
 - RepositoryType
@@ -131,7 +131,7 @@ Počínaje verzí NuGet 5,3 & Visual Studio 2019 verze 16,3, `pack` vyvolá upoz
 
 Při balení souboru obrázku ikony je nutné použít vlastnost `PackageIcon` a zadat cestu k balíčku relativní ke kořenu balíčku. Kromě toho je nutné zajistit, aby byl soubor zahrnut do balíčku. Velikost souboru obrázku je omezená na 1 MB. Podporované formáty souborů zahrnují JPEG a PNG. Doporučujeme, abyste 128 × 128 rozlišení obrazu.
 
-Například:
+Příklad:
 
 ```xml
 <PropertyGroup>
@@ -242,7 +242,7 @@ Při použití licenčního výrazu by se měla použít vlastnost PackageLicens
 
 [Přečtěte si další informace o výrazech licencí a licencích, které jsou přijaty nástrojem NuGet.org](nuspec.md#license).
 
-Při balení licenčního souboru musíte použít vlastnost PackageLicenseFile a zadat cestu k balíčku relativní ke kořenu balíčku. Kromě toho je nutné zajistit, aby byl soubor zahrnut do balíčku. Například:
+Při balení licenčního souboru musíte použít vlastnost PackageLicenseFile a zadat cestu k balíčku relativní ke kořenu balíčku. Kromě toho je nutné zajistit, aby byl soubor zahrnut do balíčku. Příklad:
 
 ```xml
 <PropertyGroup>

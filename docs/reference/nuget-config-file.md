@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 08/13/2019
 ms.topic: reference
 ms.openlocfilehash: cd321084c46709e3d1d22872c37485edacd33afa
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78230523"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79429127"
 ---
 # <a name="nugetconfig-reference"></a>Referenční dokumentace NuGet. config
 
@@ -56,7 +56,7 @@ Nakonfiguruje, jestli NuGet při instalaci balíčku automaticky přesměrováv�
 
 | Klíč | Hodnota |
 | --- | --- |
-| Přeskočit | Logická hodnota označující, zda se má přeskočit automatický přesměrování vazby Výchozí hodnota je false. |
+| Přeskočit | Logická hodnota označující, zda se má přeskočit automatický přesměrování vazby Výchozí hodnotou je hodnota false. |
 
 **Příklad**:
 
@@ -72,7 +72,7 @@ Nakonfiguruje, jestli NuGet při instalaci balíčku automaticky přesměrováv�
 
 | Klíč | Hodnota |
 | --- | --- |
-| povolené | Logická hodnota označující, zda může NuGet provádět automatické obnovení. Můžete také nastavit proměnnou prostředí `EnableNuGetPackageRestore` s hodnotou `True` namísto nastavení tohoto klíče v konfiguračním souboru. |
+| enabled | Logická hodnota označující, zda může NuGet provádět automatické obnovení. Můžete také nastavit proměnnou prostředí `EnableNuGetPackageRestore` s hodnotou `True` namísto nastavení tohoto klíče v konfiguračním souboru. |
 | automatická | Logická hodnota označující, zda má NuGet při sestavení kontrolovat chybějící balíčky. |
 
 **Příklad**:
@@ -90,7 +90,7 @@ Určuje, zda je `packages` složka řešení zahrnutá ve správě zdrojového k
 
 | Klíč | Hodnota |
 | --- | --- |
-| disableSourceControlIntegration | Logická hodnota označující, zda se má při práci se správou zdrojových kódů ignorovat složku balíčků. Výchozí hodnota je false. |
+| disableSourceControlIntegration | Logická hodnota označující, zda se má při práci se správou zdrojových kódů ignorovat složku balíčků. Výchozí hodnota je False. |
 
 **Příklad**:
 
@@ -290,7 +290,7 @@ Nastaví výchozí formát správy balíčků, buď *Packages. config* , nebo Pa
 
 | Klíč | Hodnota |
 | --- | --- |
-| format | Logická hodnota označující výchozí formát správy balíčků. Pokud je `1`, formát PackageReference. Pokud `0`, formát je *Packages. config*. |
+| formát | Logická hodnota označující výchozí formát správy balíčků. Pokud je `1`, formát PackageReference. Pokud `0`, formát je *Packages. config*. |
 | zakázaný | Logická hodnota označující, zda se při první instalaci balíčku má zobrazit výzva k výběru výchozího formátu balíčku. `False` skryje výzvu. |
 
 **Příklad**:

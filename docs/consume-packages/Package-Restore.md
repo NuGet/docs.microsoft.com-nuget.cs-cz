@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 08/05/2019
 ms.topic: conceptual
 ms.openlocfilehash: c1f1957c58839ac763238938b476eb0882c56a59
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78231202"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428742"
 ---
 # <a name="restore-packages-using-package-restore"></a>Obnovení balíčků pomocí obnovení balíčku
 
@@ -29,7 +29,7 @@ Pokud balíček ještě není nainstalovaný, NuGet se nejdřív pokusí ho nač
 
 ## <a name="restore-packages"></a>Obnovit balíčky
 
-Obnovení balíčku se pokusí nainstalovat všechny závislosti balíčků do správného stavu, který odpovídá odkazům na balíček v souboru projektu (*. csproj*) nebo souboru *Packages. config* . (V aplikaci Visual Studio se odkazy zobrazí v Průzkumník řešení pod uzlem **závislosti \ NuGet** nebo **odkazy** .)
+Obnovení balíčku se pokusí nainstalovat všechny závislosti balíčků do správného stavu, který odpovídá odkazům na balíček v souboru projektu ( *. csproj*) nebo souboru *Packages. config* . (V aplikaci Visual Studio se odkazy zobrazí v Průzkumník řešení pod uzlem **závislosti \ NuGet** nebo **odkazy** .)
 
 1. Pokud jsou odkazy na balíček v souboru projektu správné, použijte k obnovení balíčků preferovaný nástroj.
 
@@ -40,7 +40,7 @@ Obnovení balíčku se pokusí nainstalovat všechny závislosti balíčků do s
    - [Azure Pipelines](#restore-using-azure-pipelines)
    - [Azure DevOps Server](#restore-using-azure-devops-server)
 
-   Pokud balíček odkazuje v souboru projektu (*. csproj*) nebo soubor *Packages. config* není správný (neshoduje se s požadovaným stavem po obnovení balíčku), musíte místo toho nainstalovat nebo aktualizovat balíčky.
+   Pokud balíček odkazuje v souboru projektu ( *. csproj*) nebo soubor *Packages. config* není správný (neshoduje se s požadovaným stavem po obnovení balíčku), musíte místo toho nainstalovat nebo aktualizovat balíčky.
 
    Pro projekty používající PackageReference po úspěšném obnovení by měl být balíček přítomen ve složce *Global-Packages* a soubor `obj/project.assets.json` se znovu vytvoří. Pro projekty, které používají `packages.config`, by se měl balíček zobrazit ve `packages` složce projektu. Projekt by se teď měl úspěšně sestavit. 
 
@@ -231,6 +231,6 @@ Test automatického obnovení balíčků:
 
    Automatické obnovení balíčků by mělo stáhnout a nainstalovat všechny balíčky závislostí, aniž byste je museli přidávat do správy zdrojového kódu.
 
-## <a name="troubleshooting"></a>Odstraňování potíží
+## <a name="troubleshooting"></a>Řešení potíží
 
 Podívejte se na téma [řešení potíží s obnovením balíčku](package-restore-troubleshooting.md).

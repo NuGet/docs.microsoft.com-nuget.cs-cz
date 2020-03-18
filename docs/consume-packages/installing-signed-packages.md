@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 11/29/2018
 ms.topic: conceptual
 ms.openlocfilehash: 034b9dd9699af529e4d82d6ee5b1c42214673341
-ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74096853"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428980"
 ---
 # <a name="manage-package-trust-boundaries"></a>Správa hranic vztahů důvěryhodnosti balíčku
 

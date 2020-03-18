@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 06/20/2019
 ms.topic: quickstart
 ms.openlocfilehash: 2769f0ef0373b26eedb4bac6242fee0e814310c5
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78230536"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428819"
 ---
 # <a name="install-nuget-client-tools"></a>Instalace klientských nástrojů NuGetu
 
@@ -102,7 +102,7 @@ Instalace:
 ## <a name="upcoming-features"></a>Nadcházející funkce
 Pokud chcete zobrazit náhled nadcházejících funkcí NuGet, nainstalujte [Visual Studio Preview](https://www.visualstudio.com/vs/preview/), které funguje souběžně se stabilními verzemi sady Visual Studio. K nahlášení problémů nebo sdílení nápadů pro verze Preview otevřete problém v [úložišti GitHub NuGet](https://github.com/Nuget/Home/issues).
 
-### <a name="related-topics"></a>Příbuzná témata
+### <a name="related-topics"></a>Související témata
 
 - [Instalace a Správa balíčků pomocí sady Visual Studio](consume-packages/install-use-packages-visual-studio.md)
 - [Instalace a Správa balíčků pomocí PowerShellu](consume-packages/install-use-packages-powershell.md)

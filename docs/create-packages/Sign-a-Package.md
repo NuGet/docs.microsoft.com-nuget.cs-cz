@@ -7,11 +7,11 @@ ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
 ms.openlocfilehash: 00fe1d5fa81132b5d6826203a0d26e56aa8d4755
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75383979"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79429001"
 ---
 # <a name="signing-nuget-packages"></a>Podepisování balíčků NuGet
 
@@ -59,7 +59,7 @@ K publikování podepsaného balíčku je třeba nejprve zaregistrovat certifik�
 1. Vyhledejte a vyberte soubor certifikát, který byl dříve exportován.
   ![registrovaných certifikátů](../reference/media/registered-certs.png)
 
-**Poznámka:**
+**Poznámka**
 * Jeden uživatel může odeslat více certifikátů a stejný certifikát může registrovat více uživatelů.
 * Jakmile má uživatel zaregistrován certifikát, všechna budoucí odeslání balíčku **musí** být podepsána jedním z certifikátů. Viz [Správa požadavků na podepisování pro váš balíček v NuGet.org](#manage-signing-requirements-for-your-package-on-nugetorg) .
 * Uživatelé taky můžou z účtu odebrat registrovaný certifikát. Po odebrání certifikátu se při odeslání nezdaří nové balíčky podepsané tímto certifikátem. Existující balíčky to neovlivní.

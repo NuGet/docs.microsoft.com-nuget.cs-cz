@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
 ms.openlocfilehash: 940582d5173f5a53dcd04cf1258fc02a2439af4e
-ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74825281"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428714"
 ---
 # <a name="nuget-25-release-notes"></a>Zpráva k vydání verze NuGet 2,5
 
@@ -18,7 +18,7 @@ ms.locfileid: "74825281"
 
 NuGet 2,5 byl vydán 25. dubna 2013. Tato verze byla tak velká, budeme nuceni proto přeskočit verze 2,3 a 2,4! To je největší vydání, které jsme měli pro NuGet, s více než [160 pracovními položkami](https://nuget.codeplex.com/workitem/list/advanced?release=NuGet%202.5&status=all) v této verzi.
 
-## <a name="acknowledgements"></a>Poděkování
+## <a name="acknowledgements"></a>Potvrzení
 
 Rádi bychom pro své významné příspěvky k NuGet 2,5 měli Děkujeme za tyto externí přispěvatele:
 

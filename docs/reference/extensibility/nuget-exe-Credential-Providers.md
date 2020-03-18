@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 12/12/2017
 ms.topic: conceptual
 ms.openlocfilehash: 41e3e63138351bafd5e3a56080268faef10d85a3
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78230782"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428721"
 ---
 # <a name="authenticating-feeds-with-nugetexe-credential-providers"></a>Ověřování informačních kanálů pomocí zprostředkovatelů pověření NuGet. exe
 
@@ -58,7 +58,7 @@ Poskytovatel musí provádět tyto akce:
 |----------------|-----------|-----------|
 | 0 | Úspěch | Přihlašovací údaje byly úspěšně získány a zapsány do STDOUT.|
 | 1 | ProviderNotApplicable | Aktuální zprostředkovatel neposkytuje přihlašovací údaje pro daný identifikátor URI.|
-| 2 | Nezdařilo se | Zprostředkovatel je správného poskytovatele pro daný identifikátor URI, ale nemůže poskytnout přihlašovací údaje. V takovém případě NuGet. exe nebude opakovat ověřování a selže. Typickým příkladem je, že uživatel zruší interaktivní přihlášení. |
+| 2 | Selhání | Zprostředkovatel je správného poskytovatele pro daný identifikátor URI, ale nemůže poskytnout přihlašovací údaje. V takovém případě NuGet. exe nebude opakovat ověřování a selže. Typickým příkladem je, že uživatel zruší interaktivní přihlášení. |
 
 ### <a name="standard-output"></a>Standardní výstup
 

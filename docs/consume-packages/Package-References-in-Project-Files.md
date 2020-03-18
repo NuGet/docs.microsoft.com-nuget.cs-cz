@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: a5833df60c5f7905359f421141347b1237f45d86
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78230613"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428868"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Odkazy na balíčky (PackageReference) v souborech projektu
 
@@ -101,7 +101,7 @@ Následující Tagy metadat řídí prostředky závislostí:
 
 | Značka | Popis | Výchozí hodnota |
 | --- | --- | --- |
-| IncludeAssets | Tyto prostředky budou spotřebovány. | vše |
+| IncludeAssets | Tyto prostředky budou spotřebovány. | all |
 | ExcludeAssets | Tyto prostředky nebudou spotřebovány. | Žádná |
 | PrivateAssets | Tyto prostředky budou spotřebovány, ale nebudou se přesměrovat do nadřazeného projektu. | contentFiles; analyzátory; sestavit |
 
@@ -112,13 +112,13 @@ Přípustné hodnoty pro tyto značky jsou následující, s více hodnotami odd
 | sestavení | Obsah složky `lib` a určuje, zda je projekt kompilován proti sestavením v rámci složky |
 | modul runtime | Obsah `lib` a `runtimes` složky a určuje, zda budou tato sestavení zkopírována do výstupního adresáře sestavení |
 | contentFiles | Obsah složky `contentfiles` |
-| Sestavení | `.props` a `.targets` ve složce `build` |
+| sestavení | `.props` a `.targets` ve složce `build` |
 | buildMultitargeting | *(4,0)* `.props` a `.targets` ve složce `buildMultitargeting` pro cílení na různé architektury |
 | buildTransitive | *(5.0 +)* `.props` a `.targets` ve složce `buildTransitive` pro prostředky, jejichž přenos do libovolného náročného projektu probíhá. Podívejte se na stránku [funkce](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior) . |
 | analyzátory | Analyzátory .NET |
 | nativní | Obsah složky `native` |
 | Žádná | Žádná z výše uvedených verzí se nepoužívá. |
-| vše | Všechny výše uvedené (kromě `none`) |
+| all | Všechny výše uvedené (kromě `none`) |
 
 V následujícím příkladu je vše kromě souborů obsahu z balíčku spotřebováno projektem a vše kromě souborů obsahu a analyzátory by vedlo k nadřazenému projektu.
 
@@ -179,7 +179,7 @@ V projektech založených na `packages.config` jsou balíčky nainstalovány ve 
 
 Za účelem přemostění NuGet představila vlastnost, která odkazuje na umístění, ze kterého se balíček spotřebuje.
 
-Příklad: 
+Příklad:
 
 ```xml
   <ItemGroup>
