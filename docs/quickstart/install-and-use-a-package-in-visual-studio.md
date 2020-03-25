@@ -5,23 +5,23 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/24/2018
 ms.topic: quickstart
-ms.openlocfilehash: 96e138561390984d9def495ba5e091c43023cc92
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.openlocfilehash: 10bc34653d294cf70b5c91ce79a79cf6532fba1b
+ms.sourcegitcommit: 1a63a84da2719c8141823ac89a20bf507fd22b00
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78231328"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80147484"
 ---
 # <a name="quickstart-install-and-use-a-package-in-visual-studio-windows-only"></a>Rychlý Start: instalace a použití balíčku v aplikaci Visual Studio (pouze Windows)
 
-Balíčky NuGet obsahují opakovaně použitelný kód, který vám pro použití v projektech zpřístupní jiní vývojáři. Podívejte [se, co je NuGet?](../What-is-NuGet.md) pro pozadí. Balíčky se nainstalují do projektu sady Visual Studio pomocí Správce balíčků NuGet nebo konzoly Správce balíčků. Tento článek popisuje proces použití oblíbeného balíčku [Newtonsoft. JSON](https://www.nuget.org/packages/Newtonsoft.Json/) a projektu Windows Presentation Foundation (WPF). Stejný postup platí pro všechny ostatní projekty .NET nebo .NET Core.
+Balíčky NuGet obsahují opakovaně použitelný kód, který vám pro použití v projektech zpřístupní jiní vývojáři. Podívejte [se, co je NuGet?](../What-is-NuGet.md) pro pozadí. Balíčky se nainstalují do projektu sady Visual Studio pomocí Správce balíčků NuGet, [konzoly Správce balíčků](../consume-packages/install-use-packages-powershell)nebo příkazového [řádku dotnet](install-and-use-a-package-using-the-dotnet-cli.md). Tento článek popisuje proces použití oblíbeného balíčku [Newtonsoft. JSON](https://www.nuget.org/packages/Newtonsoft.Json/) a projektu Windows Presentation Foundation (WPF). Stejný postup platí pro všechny ostatní projekty .NET nebo .NET Core.
 
 Po instalaci se podívejte na balíček v kódu s `using <namespace>`, kde \<oboru názvů\> je specifické pro balíček, který používáte. Po provedení odkazu můžete balíček volat prostřednictvím jeho rozhraní API.
 
 > [!Tip]
 > **Začínáme s NuGet.org**: prohlížení *NuGet.org* je způsob, jakým vývojáři rozhraní .NET obvykle hledají komponenty, které mohou znovu použít ve svých vlastních aplikacích. Můžete vyhledat *NuGet.org* přímo nebo vyhledat a nainstalovat balíčky v sadě Visual Studio, jak je znázorněno v tomto článku. Obecné informace najdete v tématu [vyhledání a vyhodnocení balíčků NuGet](../consume-packages/finding-and-choosing-packages.md).
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 - Visual Studio 2019 s úlohou vývoj desktopových aplikací .NET.
 
@@ -33,7 +33,7 @@ Pokud používáte Visual Studio pro Mac, přečtěte si téma [instalace a pou�
 
 Balíčky NuGet se dají nainstalovat do libovolného projektu .NET, za předpokladu, že balíček podporuje stejnou cílovou architekturu jako projekt.
 
-Pro tento návod použijte jednoduchou aplikaci WPF. V aplikaci Visual Studio vytvořte projekt pomocí **souboru** > **Nový projekt**, zadejte do vyhledávacího pole **.NET** a pak vyberte **aplikaci WPF (.NET Framework)**. Klikněte na **Další**. Po zobrazení výzvy přijměte výchozí hodnoty pro **rozhraní** .
+Pro tento návod použijte jednoduchou aplikaci WPF. V aplikaci Visual Studio vytvořte projekt pomocí **souboru** > **Nový projekt**, zadejte do vyhledávacího pole **.NET** a pak vyberte **aplikaci WPF (.NET Framework)** . Klikněte na **Další**. Po zobrazení výzvy přijměte výchozí hodnoty pro **rozhraní** .
 
 Visual Studio vytvoří projekt, který se otevře v Průzkumník řešení.
 
@@ -61,7 +61,7 @@ Chcete-li nainstalovat balíček, můžete použít buď správce balíčků NuG
 
 1. Pokud se zobrazí výzva ke kontrole změn, vyberte **OK**.
 
-### <a name="package-manager-console"></a>Konzola správce balíčků
+### <a name="package-manager-console"></a>Konzola Správce balíčků
 
 1. Vyberte **nástroje** > **správce balíčků NuGet** > nabídce **konzoly Správce balíčků** .
 

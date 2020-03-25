@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 912c0d015e2f499bc7386483bc6c35ecd765d3d4
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.openlocfilehash: c79976c2f4ded2fba3796fb847d3c90807d7b86c
+ms.sourcegitcommit: 1a63a84da2719c8141823ac89a20bf507fd22b00
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/16/2020
-ms.locfileid: "79428833"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80147445"
 ---
 # <a name="package-versioning"></a>Správa verzí balíčků
 
@@ -87,7 +87,7 @@ Pokud nahrajete balíček SemVer v 2.0.0 pro nuget.org, balíček je neviditeln�
 - 4\.3.0 NuGet +
 - Visual Studio 2017 verze 15.3 +
 - Visual Studio 2015 s [NUGET VSIX v 3.6.0](https://dist.nuget.org/visualstudio-2015-vsix/latest/NuGet.Tools.vsix)
-- dotnet
+- DotNet
   - dotnetcore. exe (sada .NET SDK 2.0.0 +)
 
 Klienti třetích stran:
@@ -221,6 +221,10 @@ Při získávání balíčků z úložiště během instalace, přeinstalace neb
 
         1.0.0.0 is treated as 1.0.0
         1.0.01.0 is treated as 1.0.1
+        
+- Metadata buildu SemVer 2.0.0 se odebrala.
+
+        1.0.7+r3456 is treated as 1.0.7
 
 operace `pack` a `restore` normalizují verze, kdykoli je to možné. U balíčků už je tato normalizace neovlivněna čísly verzí v samotných balíčcích. má vliv jenom na to, jak NuGet odpovídá verzím při řešení závislostí.
 
