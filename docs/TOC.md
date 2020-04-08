@@ -20,7 +20,7 @@
 ## Konfigurace NuGetu
 ### Možnosti obnovení balíčku
 #### [Obnovení balíčků](consume-packages/package-restore.md)
-#### [Odstraňování potíží](consume-packages/package-restore-troubleshooting.md)
+#### [Řešení potíží](consume-packages/package-restore-troubleshooting.md)
 ### [Opětovná instalace a aktualizace balíčků](consume-packages/reinstalling-and-updating-packages.md)
 ### [Správa globálních balíčků a složek mezipaměti](consume-packages/managing-the-global-packages-and-cache-folders.md)
 ### [Správa rozsahu důvěryhodnosti balíčků](consume-packages/installing-signed-packages.md)
@@ -69,7 +69,7 @@
 ## [Postup instalace balíčku](concepts/package-installation-process.md)
 ## [Správa verzí balíčků](concepts/package-versioning.md)
 ## [Řešení závislostí](concepts/dependency-resolution.md)
-# Odkaz
+# Referenční informace
 ## [.nuspec](reference/nuspec.md)
 ## [Soubor nuget.config](reference/nuget-config-file.md)
 ## [Cílové architektury](reference/target-frameworks.md)
@@ -78,7 +78,7 @@
 ## [Referenční informace o rozhraní příkazového řádku nuget.exe](reference/nuget-exe-cli-reference.md)
 ### [add](reference/cli-reference/cli-ref-add.md)
 ### [config](reference/cli-reference/cli-ref-config.md)
-### [delete](reference/cli-reference/cli-ref-delete.md)
+### [odstranění](reference/cli-reference/cli-ref-delete.md)
 ### [help or ?](reference/cli-reference/cli-ref-help.md)
 ### [init](reference/cli-reference/cli-ref-init.md)
 ### [install](reference/cli-reference/cli-ref-install.md)
@@ -97,7 +97,7 @@
 ### [podepisující důvěryhodné osoby](reference/cli-reference/cli-ref-trusted-signers.md)
 ### [Proměnné prostředí](reference/cli-reference/cli-ref-environment-variables.md)
 ### [Podpora dlouhých cest](reference/cli-reference/cli-ref-long-path.md)
-## [Referenční informace o prostředí PowerShell](reference/powershell-reference.md)
+## [Referenční informace k PowerShellu](reference/powershell-reference.md)
 ### [Add-BindingRedirect](reference/ps-reference/ps-ref-add-bindingredirect.md)
 ### [Find-Package](reference/ps-reference/ps-ref-find-package.md)
 ### [Get-Package](reference/ps-reference/ps-ref-get-package.md)
@@ -109,7 +109,7 @@
 ### [Update-Package](reference/ps-reference/ps-ref-update-package.md)
 ## Serverové rozhraní API pro NuGet
 ### [Přehled](api/overview.md)
-### Prostředky
+### Zdroje
 #### [Automatické dokončování](api/search-autocomplete-service-resource.md)
 #### [Katalog](api/catalog-resource.md)
 #### [Obsah balíčků](api/package-base-address-resource.md)
@@ -119,7 +119,7 @@
 #### [Doručení balíčků symbolů](api/symbol-package-publish-resource.md)
 #### [Adresa URL pro ohlášení zneužití](api/report-abuse-resource.md)
 #### [Podpisy úložiště](api/repository-signatures-resource.md)
-#### [Hledání](api/search-query-service-resource.md)
+#### [Search](api/search-query-service-resource.md)
 #### [Index služby](api/service-index.md)
 ### [Postup: Vytvoření dotazu na všechny balíčky pomocí rozhraní API](guides/api/query-for-all-published-packages.md)
 ### [Limity počtů požadavků](api/rate-limits.md)
@@ -281,12 +281,12 @@
 ### [Rozhraní API NuGetu ve Visual Studiu](visual-studio-extensibility/nuget-api-in-visual-studio.md)
 ### [Podpora projektových systémů](visual-studio-extensibility/project-system-support.md)
 ### [Šablony sady Visual Studio](visual-studio-extensibility/visual-studio-templates.md)
-# Prostředky
+# Zdroje
 ## Zásady
 ### [Zásady správného řízení](policies/governance.md)
 ### [Ekosystém](policies/ecosystem.md)
 ### [Zásady NuGet.org](nuget-org/policies/data-requests.md)
-## Zpráva k vydání verze
+## Poznámky k verzi
 ### [Známé problémy](release-notes/known-issues.md)
 ### NuGet 5.x
 #### [NuGet 5.5](release-notes/NuGet-5.5.md)

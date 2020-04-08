@@ -12,8 +12,8 @@
 ## [Řešení sporů](policies/dispute-resolution.md)
 ## [Odstranění balíčků](policies/deleting-packages.md)
 ## [Ovládací prvky exportu](policies/export-control.md)
-# Odkaz
+# Referenční informace
 ## [NuGet API](../api/overview.md)
 ## [licenses.nuget.org](licenses.nuget.org.md)
-# Prostředky
+# Zdroje
 ## [Nejčastější dotazy](nuget-org-faq.md)
