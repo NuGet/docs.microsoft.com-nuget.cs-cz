@@ -15,16 +15,16 @@
         - name: Vytváření balíčků
           tocHref: /nuget/create-packages/
           topicHref: /nuget/create-packages/overview-and-workflow
-        - name: Příručky
+        - name: Průvodci
           tocHref: /nuget/guides/
           topicHref: /nuget/guides/create-net-standard-packages-vs2017
         - name: Koncepty
           tocHref: /nuget/concepts/
           topicHref: /nuget/concepts/package-installation-process
-        - name: Odkaz
+        - name: Referenční informace
           tocHref: /nuget/reference/
           topicHref: /nuget/reference/nuspec
-        - name: rozhraní API
+        - name: Rozhraní API
           tocHref: /nuget/api/
           topicHref: /nuget/api/overview
         - name: Rozšiřitelnost
@@ -39,10 +39,10 @@
         - name: Zásady
           tocHref: /nuget/policies/
           topicHref: /nuget/policies/governance
-        - name: Zpráva k vydání verze
+        - name: "Poznámky k\_verzi"
           tocHref: /nuget/release-notes/
           topicHref: /nuget/release-notes/known-issues
-        - name: Prostředky
+        - name: Zdroje
           tocHref: /nuget/resources/
           topicHref: /nuget/resources/nuget-faq
         - name: NuGet.org
