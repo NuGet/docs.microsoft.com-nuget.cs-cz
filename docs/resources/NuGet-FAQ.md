@@ -1,155 +1,155 @@
 ---
-title: Nejčastější dotazy k NuGet
-description: Běžné otázky a odpovědi pro používání NuGetu na příkazovém řádku a v aplikaci Visual Studio
+title: NuGet často kladené otázky
+description: Běžné otázky a odpovědi pro použití NuGet na příkazovém řádku a v sadě Visual Studio
 author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
 ms.openlocfilehash: 8cc990e0c9eed07c59c8dffb04d104be47051736
-ms.sourcegitcommit: 7c9f157ba02d9be543de34ab06813ab1ec10192a
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/23/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "69999942"
 ---
-# <a name="nuget-frequently-asked-questions"></a>Nejčastější dotazy k NuGet
+# <a name="nuget-frequently-asked-questions"></a>NuGet nejčastější dotazy
 
-Nejčastější dotazy týkající se NuGet.org, například otázky k účtu NuGet.org, najdete v článku [NuGet.org Nejčastější dotazy](../nuget-org/nuget-org-faq.md).
+Nejčastější dotazy týkající se NuGet.org, například NuGet.org otázky k účtu, naleznete [v NuGet.org často kladených otázkách](../nuget-org/nuget-org-faq.md).
 
-**Co je potřeba ke spuštění NuGet?**
+**Co je nutné ke spuštění NuGet?**
 
-Všechny informace o uživatelském rozhraní a nástrojích příkazového řádku jsou k dispozici v [instalační příručce](../install-nuget-client-tools.md).
+Všechny informace o nástroji ui i příkazového řádku jsou k dispozici v [průvodci instalací](../install-nuget-client-tools.md).
 
-**Podporuje NuGet mono?**
+**Podporuje NuGet Mono?**
 
-Nástroj příkazového řádku, `nuget.exe`, vytvoří a spustí v mono 3.2 + a může vytvářet balíčky v mono.
+Nástroj příkazového řádku `nuget.exe`, , sestaví a spustí pod Mono 3.2+ a můžete vytvořit balíčky v Mono.
 
-I `nuget.exe` když funguje plně ve Windows, jsou známé problémy v systémech Linux a OS X. Projděte si informace o [problémech mono](https://github.com/NuGet/Home/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+mono) na GitHubu.
+Ačkoli `nuget.exe` funguje plně na Windows, existují známé problémy na Linuxu a OS X. Viz [Problémy Mono](https://github.com/NuGet/Home/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+mono) na GitHubu.
 
 [Grafický klient](https://github.com/mrward/monodevelop-nuget-addin) je k dispozici jako doplněk pro MonoDevelop.
 
-**Jak zjistím, co balíček obsahuje a jestli je pro moji aplikaci stabilní a užitečný?**
+**Jak zjistím, co balíček obsahuje a zda je stabilní a užitečný pro mou aplikaci?**
 
-Primární zdroj pro učení o balíčku je jeho stránka se seznamem na nuget.org (nebo jiném privátním informačním kanálu). Každá stránka balíčku v nuget.org obsahuje popis balíčku, jeho historii verzí a statistiku využití. Část **informace** na stránce balíček obsahuje také odkaz na web projektu, kde obvykle najdete mnoho příkladů a další dokumentaci, která vám pomůžou zjistit, jak se balíček používá.
+Primárním zdrojem pro učení o balíčku je jeho výpis stránky na nuget.org (nebo jiný soukromý zdroj). Každá stránka balíčku na nuget.org obsahuje popis balíčku, jeho historii verzí a statistiky využití. Část **Informace** na stránce balíčku také obsahuje odkaz na web projektu, kde obvykle najdete mnoho příkladů a další dokumentaci, která vám pomůže zjistit, jak se balíček používá.
 
-Další informace najdete v tématu [vyhledání a výběr balíčků](../consume-packages/finding-and-choosing-packages.md).
+Další informace naleznete v [tématu Hledání a výběr balíčků](../consume-packages/finding-and-choosing-packages.md).
 
-## <a name="nuget-in-visual-studio"></a>NuGet v aplikaci Visual Studio
+## <a name="nuget-in-visual-studio"></a>NuGet v sadě Visual Studio
 
-**Jak se podporuje NuGet v různých produktech sady Visual Studio?**
+**Jak je NuGet podporován v různých produktech sady Visual Studio?**
 
-- Sada Visual Studio ve Windows podporuje [uživatelské rozhraní Správce balíčků](../consume-packages/install-use-packages-visual-studio.md) a [konzolu Správce balíčků](../consume-packages/install-use-packages-powershell.md).
-- Visual Studio pro Mac obsahuje integrované funkce NuGet, jak je popsáno v tématu [zahrnutí balíčku NuGet do projektu](/visualstudio/mac/nuget-walkthrough).
-- Visual Studio Code (všechny platformy) nemá žádnou přímou integraci NuGet. Použijte rozhraní příkazového [řádku NuGet](../reference/nuget-exe-cli-reference.md) nebo rozhraní příkazového [řádku dotnet](../reference/dotnet-commands.md).
-- Azure DevOps poskytuje [krok sestavení pro obnovení balíčků NuGet](/vsts/build-release/tasks/package/nuget). [V Azure DevOps můžete také hostovat kanály privátního balíčku NuGet](https://docs.microsoft.com/azure/devops/artifacts/nuget/publish).
+- Visual Studio v systému Windows podporuje [ui Správce balíčků](../consume-packages/install-use-packages-visual-studio.md) a [konzolu Správce balíčků](../consume-packages/install-use-packages-powershell.md).
+- Visual Studio pro Mac má integrované funkce NuGet, jak je popsáno na [včetně balíčku NuGet v projektu](/visualstudio/mac/nuget-walkthrough).
+- Visual Studio Code (všechny platformy) nemá žádné přímé NuGet integrace. Použijte [rozhraní se konstituce NuGet](../reference/nuget-exe-cli-reference.md) nebo [rozhraní se kontinu pro dotnet](../reference/dotnet-commands.md).
+- Azure DevOps poskytuje [krok sestavení k obnovení balíčků NuGet](/vsts/build-release/tasks/package/nuget). Můžete také [hostovat privátní nugetové kanály balíčků v Azure DevOps](https://docs.microsoft.com/azure/devops/artifacts/nuget/publish).
 
-**Návody ověřit přesnou verzi nástrojů NuGet, které jsou nainstalované?**
+**Jak lze zkontrolovat přesnou verzi nástrojů NuGet, které jsou nainstalovány?**
 
-V aplikaci Visual Studio použijte **nápovědu > o Microsoft Visual Studio** příkaz a podívejte se na verzi zobrazenou vedle **Správce balíčků NuGet**.
+V sadě Visual Studio použijte příkaz **Nápověda > o aplikaci Microsoft Visual Studio** a podívejte se na verzi zobrazenou vedle **správce balíčků NuGet**.
 
-Případně můžete spustit konzolu Správce balíčků (**Nástroje > Správce balíčků NuGet > konzolu Správce balíčků**) a `$host` zadáním zobrazíte informace o NuGet včetně verze.
+Případně spusťte konzolu Správce balíčků **(Nástroje > NuGet Správce balíčků > konzoli správce balíčků)** a zadejte `$host` informace o NuGet včetně verze.
 
-**Jaké programovací jazyky podporuje NuGet?**
+**Jaké programovací jazyky jsou podporovány NuGet?**
 
-NuGet je obecně funkční pro jazyky .NET a je navržena k převedení knihoven .NET do projektu. Protože podporuje také automatizaci nástroje MSBuild a sady Visual Studio v některých typech projektů, podporuje také jiné projekty a jazyky do různých stupňů.
+NuGet obecně funguje pro jazyky .NET a je navržen tak, aby knihovny .NET do projektu. Vzhledem k tomu, že také podporuje automatizaci MSBuild a Visual Studio v některých typech projektů, podporuje také jiné projekty a jazyky v různých stupních.
 
-Nejnovější verze NuGet podporuje C#, Visual Basic, F#, WIX a. C++
+Nejnovější verze NuGet podporuje C#, Visual Basic, F#, WiX a C++.
 
-**Jaké šablony projektů podporuje NuGet?**
+**Jaké šablony projektů jsou podporovány nugetem?**
 
-NuGet má plnou podporu pro celou řadu šablon projektů, jako jsou Windows, web, Cloud, SharePoint, WIX a tak dále.
+NuGet má plnou podporu pro různé šablony projektů, jako jsou Windows, Web, Cloud, SharePoint, Wix a tak dále.
 
-**Návody balíčky aktualizací, které jsou součástí šablon sady Visual Studio?**
+**Jak lze aktualizovat balíčky, které jsou součástí šablon sady Visual Studio?**
 
-V uživatelském rozhraní Správce balíčků otevřete kartu **aktualizace** a vyberte **Aktualizovat vše** [ `Update-Package` ](../reference/ps-reference/ps-ref-update-package.md) nebo použijte příkaz z konzoly Správce balíčků.
+Přejděte na kartu **Aktualizace** v uzdu Správce balíčků a vyberte **Aktualizovat vše**nebo použijte [ `Update-Package` příkaz](../reference/ps-reference/ps-ref-update-package.md) z konzoly Správce balíčků.
 
-Chcete-li aktualizovat vlastní šablonu, je nutné ručně aktualizovat úložiště šablon. Podívejte se na [blog Xavier](http://www.xavierdecoster.com/update-project-template-to-latest-nuget-packages) pro denákle na tomto předmětu. Všimněte si, že se jedná o vlastní riziko, protože ruční aktualizace mohou poškodit šablonu, pokud není nejnovější verze všech závislostí vzájemně kompatibilní.
+Chcete-li aktualizovat samotnou šablonu, musíte ručně aktualizovat úložiště šablon. Viz [Xavier Decoster blog](http://www.xavierdecoster.com/update-project-template-to-latest-nuget-packages) na toto téma. Všimněte si, že se to provádí na vlastní nebezpečí, protože ruční aktualizace může poškodit šablonu, pokud nejnovější verze všech závislostí nejsou vzájemně kompatibilní.
 
-**Můžu použít NuGet mimo Visual Studio?**
+**Je možné použít NuGet mimo Visual Studio?**
 
-Ano, NuGet funguje přímo z příkazového řádku. Přečtěte si příručku k [instalaci](../install-nuget-client-tools.md) a [odkaz CLI](../reference/nuget-exe-cli-reference.md).
+Ano, NuGet funguje přímo z příkazového řádku. Viz [průvodce instalací](../install-nuget-client-tools.md) a [odkaz na vzpona v nařízení o vyřizování mu sekacího systému](../reference/nuget-exe-cli-reference.md).
 
 ## <a name="nuget-command-line"></a>Příkazový řádek NuGet
 
-**Návody získat nejnovější verzi nástroje příkazového řádku NuGet?**
+**Jak získám nejnovější verzi nástroje příkazového řádku NuGet?**
 
-Projděte si [příručku Instalace](../install-nuget-client-tools.md). Chcete-li zjistit aktuální nainstalovanou verzi nástroje, použijte `nuget help`.
+Viz [průvodce instalací](../install-nuget-client-tools.md). Chcete-li zkontrolovat aktuální nainstalovanou `nuget help`verzi nástroje, použijte .
 
-**Jaká je licence pro NuGet. exe?**
+**Jaká je licence pro nuget.exe?**
 
-Je možné znovu distribuovat NuGet. exe za podmínek licence MIT. Zodpovídáte za aktualizaci a obsluhu všech kopií nástroje NuGet. exe, který se rozhodnete znovu distribuovat.
+Můžete distribuovat nuget.exe podle podmínek licence MIT. Jste zodpovědní za aktualizaci a údržbu všech kopií nuget.exe, které se rozhodnete redistribuovat.
 
-**Je možné nástroj příkazového řádku NuGet zvětšit?**
+**Je možné rozšířit nástroj příkazového řádku NuGet?**
 
-Ano, do `nuget.exe`je možné přidat vlastní příkazy, jak je popsáno v [příspěvku na Rob Reynold](http://geekswithblogs.net/robz/archive/2011/07/15/extend-nuget-command-line.aspx).
+Ano, je možné přidat vlastní příkazy , `nuget.exe`jak je popsáno v [příspěvku Roba Reynolda](http://geekswithblogs.net/robz/archive/2011/07/15/extend-nuget-command-line.aspx).
 
-## <a name="nuget-package-manager-console-visual-studio-on-windows"></a>Konzola správce balíčků NuGet (Visual Studio ve Windows)
+## <a name="nuget-package-manager-console-visual-studio-on-windows"></a>Konzola Správce balíčků NuGet (Visual Studio v systému Windows)
 
-**Návody získat přístup k objektu DTE v konzole správce balíčků?**
+**Jak získám přístup k objektu DTE v konzole Správce balíčků?**
 
-Objekt nejvyšší úrovně v objektovém modelu automatizace sady Visual Studio se nazývá objekt DTE (vývojové nástroje prostředí). Konzola poskytuje tuto proměnnou prostřednictvím proměnné s názvem `$DTE`. Další informace najdete v tématu [Přehled modelu automatizace](/visualstudio/extensibility/internals/automation-model-overview) v dokumentaci rozšiřitelnosti sady Visual Studio.
+Objekt nejvyšší úrovně v objektovém modelu automatizace sady Visual Studio se nazývá objekt DTE (Development Tools Environment). Konzola poskytuje prostřednictvím `$DTE`proměnné s názvem . Další informace naleznete v [tématu Přehled modelu automatizace](/visualstudio/extensibility/internals/automation-model-overview) v dokumentaci k rozšiřitelnosti sady Visual Studio.
 
-**Snažím se přetypovat $DTE proměnnou na typ DTE2, ale zobrazí se chyba: Hodnotu "EnvDTE. DTEClass" typu "EnvDTE. DTEClass" nelze převést na typ "EnvDTE80. DTE2". Co je?**
+**Snažím se přetypovat proměnnou $DTE na typ DTE2, ale zobrazí se chyba: Nelze převést hodnotu "EnvDTE.DTEClass" typu "EnvDTE.DTEClass" na typ "EnvDTE80.DTE2". Co je?**
 
-Jedná se o známý problém s tím, jak prostředí PowerShell spolupracuje s objektem COM. Vyzkoušejte následující:
+Toto je známý problém s tím, jak prostředí PowerShell spolupracuje s objektem COM. Vyzkoušejte následující kroky:
 
 ```ps
 `$dte2 = Get-Interface $dte ([EnvDTE80.DTE2])`
 ```
 
-`Get-Interface`je pomocná funkce, kterou přidal hostitel PowerShellu NuGet.
+`Get-Interface`je pomocná funkce přidaná hostitelem prostředí NuGet PowerShell.
 
 ## <a name="creating-and-publishing-packages"></a>Vytváření a publikování balíčků
 
-**Návody seznam můj balíček v informačním kanálu?**
+**Jak mohu uvést svůj balíček v informačním kanálu?**
 
 Viz [Vytvoření a publikování balíčku](../quickstart/create-and-publish-a-package.md).
 
-**Mám více verzí knihovny, která cílí na různé verze .NET Framework. Návody sestavit jeden balíček, který tuto podporu podporuje?**
+**Mám více verzí knihovny, které cílí na různé verze rozhraní .NET Framework. Jak vytvořím jeden balíček, který to podporuje?**
 
-Viz [Podpora více .NET Framework verzí a profilů](../create-packages/supporting-multiple-target-frameworks.md).
+Viz [Podpora více verzí a profilů rozhraní .NET Framework](../create-packages/supporting-multiple-target-frameworks.md).
 
-**Návody nastavit vlastní úložiště nebo informační kanál?**
+**Jak si nastavím vlastní úložiště nebo informační kanál?**
 
-Podívejte se na téma [Přehled hostujících balíčků](../hosting-packages/overview.md).
+Podívejte se na [přehled hostingových balíčků](../hosting-packages/overview.md).
 
-**Jak mohu hromadně nahrávat balíčky do svého informačního kanálu NuGet?**
+**Jak mohu nahrát balíčky do mého NuGet feed hromadně?**
 
-Viz [hromadné publikování balíčků NuGet](http://jeffhandley.com/archive/2012/12/13/Bulk-Publishing-NuGet-Packages.aspx) (jeffhandly.com).
+Viz [Hromadné publikování balíčků NuGet](http://jeffhandley.com/archive/2012/12/13/Bulk-Publishing-NuGet-Packages.aspx) (jeffhandly.com).
 
 ## <a name="working-with-packages"></a>Práce s balíčky
 
 **Jaký je rozdíl mezi balíčkem na úrovni projektu a balíčkem na úrovni řešení?**
 
-Balíček na úrovni řešení (NuGet 3. x +) je v řešení nainstalovaný jenom jednou a pak je k dispozici pro všechny projekty v řešení. Balíček na úrovni projektu je nainstalován v každém projektu, který ho používá. Balíček na úrovni řešení může také nainstalovat nové příkazy, které lze volat v konzole správce balíčků.
+Balíček na úrovni řešení (NuGet 3.x+) je nainstalován pouze jednou v řešení a je pak k dispozici pro všechny projekty v řešení. Balíček na úrovni projektu je nainstalován v každém projektu, který jej používá. Balíček na úrovni řešení může také nainstalovat nové příkazy, které lze volat z konzoly Správce balíčků.
 
-**Je možné balíčky NuGet nainstalovat bez připojení k Internetu?**
+**Je možné nainstalovat balíčky NuGet bez připojení k Internetu?**
 
-Ano, další informace [o tom, jak získat přístup k nugetu v případě nedostatku NuGet.org (nebo jste na rovině)](http://www.hanselman.com/blog/HowToAccessNuGetWhenNuGetorgIsDownOrYoureOnAPlane.aspx) (Hanselman.com), najdete v blogovém příspěvku Scott Hanselman.
+Ano, viz příspěvek blogu Scotta Hanselmana [Jak získat přístup k NuGetu, když je nuget.org vypnutý (nebo jste v letadle)](http://www.hanselman.com/blog/HowToAccessNuGetWhenNuGetorgIsDownOrYoureOnAPlane.aspx) (hanselman.com).
 
-**Návody instalovat balíčky v jiném umístění než výchozí složka balíčků?**
+**Jak nainstaluji balíčky do jiného umístění než výchozí složka balíčků?**
 
-[`repositoryPath`](../reference/nuget-config-file.md#config-section) Nastavte nastavení`Nuget.Config` pomocí .`nuget config -set repositoryPath=<path>`
+Nastavte [`repositoryPath`](../reference/nuget-config-file.md#config-section) nastavení `Nuget.Config` v `nuget config -set repositoryPath=<path>`použití .
 
-**Návody se vyhnout přidání složky balíčků NuGet do správy zdrojového kódu?**
+**Jak se vyhnout přidání složky balíčky NuGet do správy zdrojového kódu?**
 
-Nastavte na [`disableSourceControlIntegration`.](../reference/nuget-config-file.md#solution-section) `Nuget.Config` `true` Tento klíč funguje na úrovni řešení, a proto musí být do `$(Solutiondir)\.nuget\Nuget.Config` souboru přidán. Povolením obnovení balíčku ze sady Visual Studio se tento soubor automaticky vytvoří.
+Nastavte [`disableSourceControlIntegration`](../reference/nuget-config-file.md#solution-section) in `Nuget.Config` `true`na . Tento klíč funguje na úrovni řešení, a `$(Solutiondir)\.nuget\Nuget.Config` proto je třeba přidat do souboru. Povolení obnovení balíčku z aplikace Visual Studio vytvoří tento soubor automaticky.
 
-**Návody vypnout obnovení balíčků?**
+**Jak vypnu obnovení balíčku?**
 
-Viz [povolení a zakázání obnovení balíčku](../consume-packages/package-restore.md#enable-and-disable-package-restore-in-visual-studio).
+Viz [Povolení a zakázání obnovení balíčku](../consume-packages/package-restore.md#enable-and-disable-package-restore-in-visual-studio).
 
-**Proč se při instalaci místního balíčku se vzdálenými závislostmi zobrazí chybová zpráva "nelze vyřešit chybu závislostí?"**
+**Proč se při instalaci místního balíčku se vzdálenými závislostmi zobrazuje chyba "Nelze vyřešit chybu závislostí"?**
 
-Při instalaci místního balíčku do projektu je nutné vybrat možnost **všechny** zdroje. Tato část agreguje všechny informační kanály namísto použití jediného. Důvodem této chyby je, že uživatelé místního úložiště často chtějí vyhnout nechtěné instalaci vzdáleného balíčku kvůli podnikovým zásadám.
+Při instalaci místního balíčku do projektu je třeba vybrat zdroj **Vše.** Tím se agreguje všechny kanály namísto použití pouze jednoho. Důvodem, proč se tato chyba zobrazuje, je to, že uživatelé místního úložiště se často chtějí vyhnout náhodné instalaci vzdáleného balíčku kvůli firemním vazbám.
 
-**Ve stejné složce mám více projektů, jak můžu použít samostatné soubory Packages. config pro každý projekt?**
+**Mám více projektů ve stejné složce, jak mohu použít samostatné packages.config soubory pro každý projekt?**
 
-Ve většině projektů, kde samostatné projekty jsou v samostatných složkách živé, to není problém, protože NuGet identifikuje `packages.config` soubory v jednotlivých projektech. Pomocí NuGet 3.3 + a více projektů ve stejné složce můžete vložit název projektu do `packages.config` názvů souborů pomocí vzoru `packages.{project-name}.config`a nástroj NuGet tento soubor použije.
+Ve většině projektů, kde samostatné projekty žijí v samostatných složkách, to není problém jako NuGet identifikuje `packages.config` soubory v každém projektu. S NuGet 3.3+ a více projektů ve stejné složce, můžete `packages.config` vložit název `packages.{project-name}.config`projektu do názvy souborů použít vzor a NuGet používá tento soubor.
 
-Nejedná se o problém při použití PackageReference, protože každý soubor projektu obsahuje vlastní seznam závislostí.
+To to není problém při použití PackageReference, jako každý soubor projektu obsahuje vlastní seznam závislostí.
 
-**V seznamu úložišť nevidím nuget.org, jak se dá získat zpátky?**
+**V seznamu úložišť nevidím nuget.org, jak je získám zpět?**
 
 - Přidejte `https://api.nuget.org/v3/index.json` do seznamu zdrojů nebo
-- Odstraňte `%appdata%\.nuget\NuGet.Config` (Windows) nebo `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) a umožněte novému vytvoření NuGet.
+- Odstranit `%appdata%\.nuget\NuGet.Config` (Windows) `~/.nuget/NuGet/NuGet.Config` nebo (Mac/Linux) a nechat NuGet znovu vytvořit.

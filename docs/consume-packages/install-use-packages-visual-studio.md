@@ -1,6 +1,6 @@
 ---
-title: Instalace a Správa balíčků NuGet v aplikaci Visual Studio
-description: Pokyny k používání uživatelského rozhraní Správce balíčků NuGet v aplikaci Visual Studio pro práci s balíčky NuGet.
+title: Instalace a správa balíčků NuGet v sadě Visual Studio
+description: Pokyny pro použití nuget správce balíčků ui v sadě Visual Studio pro práci s balíčky NuGet.
 author: karann-msft
 ms.author: karann
 ms.date: 07/08/2019
@@ -11,134 +11,134 @@ f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
 ms.openlocfilehash: 3adceac8c725d9ea1610aea090753c9c1d8bc818
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/16/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "79428693"
 ---
-# <a name="install-and-manage-packages-in-visual-studio-using-the-nuget-package-manager"></a>Instalace a Správa balíčků v aplikaci Visual Studio pomocí Správce balíčků NuGet
+# <a name="install-and-manage-packages-in-visual-studio-using-the-nuget-package-manager"></a>Instalace a správa balíčků v sadě Visual Studio pomocí Správce balíčků NuGet
 
-Uživatelské rozhraní Správce balíčků NuGet v aplikaci Visual Studio ve Windows umožňuje snadno nainstalovat, odinstalovat a aktualizovat balíčky NuGet v projektech a řešeních. Informace o zkušenostech v Visual Studio pro Mac najdete v tématu [zahrnutí balíčku NuGet do projektu](/visualstudio/mac/nuget-walkthrough?toc=/nuget/toc.json). Uživatelské rozhraní Správce balíčků není součástí Visual Studio Code.
+NuGet Package Manager UI v sadě Visual Studio v systému Windows umožňuje snadno nainstalovat, odinstalovat a aktualizovat balíčky NuGet v projektech a řešeních. Zkušenosti v Visual Studiu pro Mac najdete [v tématu zahrnutí balíčku NuGet v projektu](/visualstudio/mac/nuget-walkthrough?toc=/nuget/toc.json). Ui Správce balíčků není součástí kódu sady Visual Studio.
 
 > [!NOTE]
-> Pokud ve Visual Studiu 2015 chybí správce balíčků NuGet, podívejte se na **nástroje > rozšíření a aktualizace...** a vyhledejte rozšíření *Správce balíčků NuGet* . Pokud nemůžete použít instalační program rozšíření v aplikaci Visual Studio, stáhněte rozšíření přímo z [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html).
+> Pokud vám chybí Správce balíčků NuGet ve Visual Studiu 2015, zkontrolujte **nástroje > rozšíření a aktualizace...** a vyhledejte rozšíření *NuGet Package Manager.* Pokud se vám nedaří použít instalační program rozšíření v sadě [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html)Visual Studio, stáhněte si rozšíření přímo z aplikace .
 >
-> Od sady Visual Studio 2017 se NuGet a správce balíčků NuGet automaticky nainstalují se všemi. Úlohy týkající se netto. Nainstalujte ji jednotlivě, a to tak, že vyberete **jednotlivé komponenty > nástrojů kódu >** v instalačním programu sady Visual Studio možnost Správce balíčků NuGet.
+> Počínaje Visual Studio 2017, NuGet a NuGet Správce balíčků jsou automaticky nainstalovány s libovolným . NET související s úlohami. Nainstalujte ji jednotlivě výběrem **jednotlivých součástí > nástroje Code >** možnost i správce balíčků NuGet v instalačním programu sady Visual Studio.
 
 ## <a name="find-and-install-a-package"></a>Vyhledání a instalace balíčku
 
-1. V **Průzkumník řešení**klikněte pravým tlačítkem myši buď na **odkaz** , nebo na projekt a vyberte **Spravovat balíčky NuGet...** .
+1. V **Průzkumníku řešení**klepněte pravým tlačítkem myši na **odkazy** nebo na projekt a vyberte **spravovat balíčky NuGet...**.
 
-    ![Možnost spravovat balíčky NuGet – možnost nabídky](media/ManagePackagesUICommand.png)
+    ![Možnost nabídky Spravovat balíčky NuGet](media/ManagePackagesUICommand.png)
 
-1. Karta **Procházet** zobrazuje balíčky podle oblíbenosti z aktuálně vybraného zdroje (viz [zdroje balíčků](#package-sources)). Vyhledejte konkrétní balíček pomocí vyhledávacího pole v levém horním rohu. Výběrem balíčku ze seznamu zobrazíte jeho informace, což také umožňuje **nainstalovat tlačítko instalovat** společně s rozevíracím seznamem výběru verze.
+1. Na kartě **Procházet** se zobrazí balíčky podle oblíbenosti z aktuálně vybraného zdroje (viz [zdroje balíčků](#package-sources)). Vyhledejte konkrétní balíček pomocí vyhledávacího pole v levém horním rohu. Vyberte balíček ze seznamu, chcete-li zobrazit jeho informace, což také umožňuje **tlačítko Instalovat** spolu s rozevíracím seznamem výběr verze.
 
-    ![Dialogové okno Spravovat balíčky NuGet – karta Procházet](media/Search.png)
+    ![Karta Procházet dialogové okno Spravovat balíčky nugetů](media/Search.png)
 
-1. V rozevíracím seznamu vyberte požadovanou verzi a vyberte **nainstalovat**. Visual Studio nainstaluje balíček a jeho závislosti do projektu. Může se zobrazit výzva, abyste přijali Licenční podmínky. Po dokončení instalace se přidané balíčky zobrazí na kartě **nainstalované** . balíčky jsou také uvedeny v uzlu **odkazy** Průzkumník řešení, který označuje, že se na ně můžete odkazovat v projektu pomocí příkazů `using`.
+1. V rozevíracím souboru vyberte požadovanou verzi a vyberte **Instalovat**. Visual Studio nainstaluje balíček a jeho závislosti do projektu. Můžete být požádáni o přijetí licenčních podmínek. Po dokončení instalace se přidané balíčky zobrazí na kartě **Nainstalováno.** Balíčky jsou také **uvedeny** v uzlu Reference `using` průzkumníka řešení, což znamená, že na ně můžete odkazovat v projektu s příkazy.
 
-    ![Odkazy v Průzkumník řešení](media/References.png)
+    ![Odkazy v Průzkumníku řešení](media/References.png)
 
 > [!Tip]
-> Chcete-li do hledání zahrnout předběžné verze předprodejní verze a v rozevíracím seznamu verze zpřístupnit předprodejní verze, vyberte možnost **Zahrnout předběžnou** verzi.
+> Chcete-li do hledání zahrnout předběžné verze a zpřístupnit předběžné verze v rozevíracím souboru verze, vyberte možnost **Zahrnout předběžnou verzi.**
 
 > [!Note]
-> NuGet má dva formáty, ve kterých může projekt používat balíčky: [`PackageReference`](package-references-in-project-files.md) a [`packages.config`](../reference/packages-config.md). [Výchozí nastavení lze nastavit v okně Možnosti aplikace Visual Studio](Package-Restore.md#choose-default-package-management-format).
+> NuGet má dva formáty, ve kterých může projekt používat balíčky: [`PackageReference`](package-references-in-project-files.md) a [`packages.config`](../reference/packages-config.md). [Výchozí nastavení lze nastavit v okně možností sady Visual Studio](Package-Restore.md#choose-default-package-management-format).
 
 ## <a name="uninstall-a-package"></a>Odinstalace balíčku
 
-1. V **Průzkumník řešení**klikněte pravým tlačítkem myši buď na **odkaz** , nebo na požadovaný projekt a vyberte **Spravovat balíčky NuGet...** .
+1. V **Průzkumníku řešení**klepněte pravým tlačítkem myši na **odkazy** nebo na požadovaný projekt a vyberte **spravovat balíčky NuGet...**.
 1. Vyberte kartu **Nainstalováno**.
-1. Vyberte balíček, který chcete odinstalovat (Pokud je to nutné, pomocí hledání vyfiltrujte seznam) a vyberte **odinstalovat**.
+1. Vyberte balíček, který chcete odinstalovat (v případě potřeby pomocí hledání seznam vyfiltrujte) a vyberte **Odinstalovat**.
 
     ![Odinstalace balíčku](media/UninstallPackage.png)
 
-1. Všimněte si, že **zahrnuté předběžné verze** a zdrojové ovládací prvky **balíčku** nemají žádný vliv na odinstalaci balíčků.
+1. Všimněte si, že **zahrnout předběžné verze** a **balíček zdrojové** ovládací prvky nemají žádný vliv při odinstalaci balíčků.
 
 ## <a name="update-a-package"></a>Aktualizace balíčku
 
-1. V **Průzkumník řešení**klikněte pravým tlačítkem myši buď na **odkaz** , nebo na požadovaný projekt a vyberte **Spravovat balíčky NuGet...** . (V projektech webu klikněte pravým tlačítkem myši na složku **bin** .)
-1. Kliknutím na kartu **aktualizace** zobrazíte balíčky, které mají dostupné aktualizace z vybraných zdrojů balíčků. V seznamu aktualizace zvolte **Zahrnout předprodejní** verze pro zahrnutí předprodejních balíčků.
-1. Vyberte balíček, který chcete aktualizovat, vyberte požadovanou verzi v rozevíracím seznamu napravo a vyberte **aktualizovat**.
+1. V **Průzkumníku řešení**klepněte pravým tlačítkem myši na **odkazy** nebo na požadovaný projekt a vyberte **spravovat balíčky NuGet...**. (V projektech webu klikněte pravým tlačítkem myši na složku **Bin.)**
+1. Výběrem karty **Aktualizace** zobrazíte balíčky, které mají k dispozici aktualizace z vybraných zdrojů balíčků. Vyberte **Zahrnout předběžnou verzi,** chcete-li do seznamu aktualizací zahrnout předběžné balíčky.
+1. Vyberte balíček, který chcete aktualizovat, vyberte požadovanou verzi z rozevíracího balíčku vpravo a vyberte **Aktualizovat**.
 
     ![Aktualizace balíčku](media/UpdatePackages.png)
 
-1. <a name="implicit_reference"></a>U některých balíčků je tlačítko **aktualizovat** zakázané a zobrazí se zpráva s oznámením, že se jedná o "implicitně odkazované sadu SDK" (nebo "autoreferenced"). Tato zpráva znamená, že balíček je součástí větší architektury nebo sady SDK a neměli byste ho aktualizovat nezávisle. (Tyto balíčky jsou interně označené `<IsImplicitlyDefined>True</IsImplicitlyDefined>`.) Například `Microsoft.NETCore.App` je součástí .NET Core SDK a verze balíčku není stejná jako verze rozhraní modulu runtime používaného aplikací. Musíte [aktualizovat instalaci .NET Core](https://aka.ms/dotnet-download) a získat nové verze ASP.NET Core a modulu runtime .NET Core. [Další podrobnosti o .NET Core metabalíčky a verzích najdete v tomto dokumentu](/dotnet/core/packages). To platí pro následující běžně používané balíčky:
+1. <a name="implicit_reference"></a>U některých balíčků je zakázáno tlačítko **Aktualizovat** a zobrazí se zpráva, že je "Implicitně odkazováno sadou SDK" (nebo "AutoReferenced"). Tato zpráva označuje, že balíček je součástí větší rozhraní nebo sady SDK a by neměly být aktualizovány nezávisle. (Tyto balíčky jsou `<IsImplicitlyDefined>True</IsImplicitlyDefined>`vnitřně označeny .) Například `Microsoft.NETCore.App` je součástí sady .NET Core SDK a verze balíčku není stejná jako verze rozhraní runtime, kterou používá aplikace. Chcete-li získat nové verze ASP.NET core a .NET Core runtime, musíte [aktualizovat instalaci jádra .NET.](https://aka.ms/dotnet-download) [Další podrobnosti o metabalíčcích .NET Core a správě verzí](/dotnet/core/packages)naleznete v tomto dokumentu. To platí pro následující běžně používané balíčky:
     * Microsoft.AspNetCore.All
     * Microsoft.AspNetCore.App
-    * Microsoft.NETCore.App
-    * NETStandard. Library
+    * Aplikace Microsoft.NETCore.App
+    * NETStandard.Knihovna
 
-    ![Ukázkový balíček označený jako implicitně odkazující nebo automaticky odkazovaný](media/PackageManagerUIAutoReferenced.png)
+    ![Ukázkový balíček označený jako implicitně odkazy nebo AutoReferenced](media/PackageManagerUIAutoReferenced.png)
 
-1. Pokud chcete aktualizovat více balíčků na nejnovější verze, vyberte je v seznamu a klikněte na tlačítko **aktualizovat** nad seznamem.
-1. Jednotlivé balíčky můžete také aktualizovat na kartě **nainstalované** . V takovém případě podrobnosti balíčku zahrnují selektor verze (podléhající možnosti **předprodejní zahrnutí** ) a tlačítko **aktualizovat** .
+1. Chcete-li aktualizovat více balíčků na jejich nejnovější verze, vyberte je v seznamu a vyberte tlačítko **Aktualizovat** nad seznamem.
+1. Jednotlivé balíčky můžete také aktualizovat na kartě **Nainstalováno.** V tomto případě podrobnosti o balíčku zahrnují volič verze (s výhradou **include předběžné verze** možnost) a tlačítko **Aktualizovat.**
 
-## <a name="manage-packages-for-the-solution"></a>Spravovat balíčky pro řešení
+## <a name="manage-packages-for-the-solution"></a>Správa balíčků pro řešení
 
-Správa balíčků pro řešení je pohodlný způsob práce s více projekty současně.
+Správa balíčků pro řešení je pohodlným prostředkem pro práci s více projekty současně.
 
-1. Vyberte **nástroje > správce balíčků nuget > spravovat balíčky NuGet pro řešení...** příkaz nabídky nebo klikněte pravým tlačítkem na řešení a vyberte **Spravovat balíčky NuGet...** :
+1. Vyberte **příkaz nabídky Nástroje > NuGet > Spravovat balíčky NuGet pro řešení...** nebo klepněte pravým tlačítkem myši na řešení a vyberte spravovat **balíčky NuGet...**:
 
-    ![Spravovat balíčky NuGet pro řešení](media/ManagePackagesSolutionUICommand.png)
+    ![Správa balíčků NuGet pro řešení](media/ManagePackagesSolutionUICommand.png)
 
-1. Při správě balíčků pro řešení vám uživatelské rozhraní umožní vybrat projekty, které jsou ovlivněné operacemi:
+1. Při správě balíčků pro řešení umožňuje unové oi vybrat projekty, které jsou ovlivněny operacemi:
 
-    ![Selektor projektu při správě balíčků pro řešení](media/SolutionPackagesUI.png)
+    ![Výběr projektu při správě balíčků pro řešení](media/SolutionPackagesUI.png)
 
-### <a name="consolidate-tab"></a>Karta konsolidovat
+### <a name="consolidate-tab"></a>Karta Konsolidovat
 
-Vývojáři obvykle považují za chybné postupy použití různých verzí stejného balíčku NuGet v různých projektech ve stejném řešení. Pokud se rozhodnete spravovat balíčky pro řešení, uživatelské rozhraní Správce balíčků poskytuje kartu **konsolidace** , na které můžete snadno zjistit, kde jsou balíčky s různými čísly verzí používány různými projekty v řešení:
+Vývojáři obvykle považují za špatné praxe používat různé verze stejného balíčku NuGet napříč různými projekty ve stejném řešení. Pokud se rozhodnete spravovat balíčky pro řešení, ui Správce balíčků poskytuje **kartu Konsolidovat,** na které můžete snadno zjistit, kde balíčky s odlišnými čísly verzí jsou používány různými projekty v řešení:
 
-![Karta konsolidace uživatelského rozhraní Správce balíčků](media/ConsolidateTab.png)
+![Karta Konsolidovat ui správce balíčků](media/ConsolidateTab.png)
 
-V tomto příkladu projekt ClassLibrary1 používá EntityFramework 6.2.0, zatímco ConsoleApp1 používá EntityFramework 6.1.0. Chcete-li konsolidovat verze balíčků, postupujte následovně:
+V tomto příkladu classlibrary1 projekt používá EntityFramework 6.2.0, vzhledem k tomu, ConsoleApp1 používá EntityFramework 6.1.0. Chcete-li konsolidovat verze balíčku, postupujte takto:
 
-- Vyberte projekty, které chcete aktualizovat v seznamu projektu.
-- Vyberte verzi, která má být použita ve všech projektech v rámci správy **verzí** , například EntityFramework 6.2.0.
-- Vyberte tlačítko **instalovat** .
+- Vyberte projekty, které chcete aktualizovat v seznamu projektů.
+- Vyberte verzi, která se má použít ve všech těchto projektech v ovládacím **prvku verze,** například EntityFramework 6.2.0.
+- Vyberte tlačítko **Instalovat.**
 
-Správce balíčků nainstaluje vybranou verzi balíčku do všech vybraných projektů, po kterém se balíček už nebude zobrazovat na kartě **konsolidace** .
+Správce balíčků nainstaluje vybranou verzi balíčku do všech vybraných projektů, po kterých se balíček již nezobrazí na kartě **Konsolidovat.**
 
 ## <a name="package-sources"></a>Zdroje balíčků
 
-Chcete-li změnit zdroj, ze kterého aplikace Visual Studio získává balíčky, vyberte jeden z voliče zdroje:
+Chcete-li změnit zdroj, ze kterého Visual Studio získává balíčky, vyberte jeden z voliče zdroje:
 
-![Selektor zdrojů balíčku v uživatelském rozhraní Správce balíčků](media/PackageSourceDropDown.png)
+![Výběr zdroje balíčků v uzdu správce balíčků](media/PackageSourceDropDown.png)
 
 Správa zdrojů balíčků:
 
-1. V uživatelském rozhraní Správce balíčků vyberte ikonu **Nastavení** , která je níže uvedená níže, nebo použijte příkaz **Nástroje > Možnosti** a přejděte na **Správce balíčků NuGet**:
+1. Vyberte ikonu **Nastavení** v hlavním uživateli Správce balíčků uvedenéníže nebo použijte příkaz **Nástroje > možnosti** a přejděte na **NuGet Package Manager**:
 
-    ![Ikona nastavení uživatelského rozhraní Správce balíčků](media/PackageSourceSettings.png)
+    ![Ikona nastavení ui správce balíčků](media/PackageSourceSettings.png)
 
-1. Vyberte uzel **zdroje balíčků** :
+1. Vyberte uzel **Zdroje balíčků:**
 
     ![Možnosti zdrojů balíčků](media/options.png)
 
-1. Chcete-li přidat zdroj, vyberte **+** , upravte název, zadejte adresu URL nebo cestu ve správě **zdrojového kódu** a vyberte **aktualizovat**. Zdroj se nyní zobrazí v rozevíracím seznamu selektoru.
-1. Chcete-li změnit zdroj balíčku, vyberte jej, proveďte úpravy v polích **název** a **zdroj** a vyberte možnost **aktualizovat**.
+1. Chcete-li přidat **+** zdroj, vyberte , upravte název, zadejte adresu URL nebo cestu **do ovládacího prvku Zdroj** a vyberte **Aktualizovat**. Zdroj se nyní zobrazí v rozevíracím okně voliče.
+1. Chcete-li změnit zdroj balíčku, vyberte jej, proveďte úpravy v polích **Název** a **Zdroj** a vyberte **Aktualizovat**.
 1. Chcete-li zakázat zdroj balíčku, zrušte zaškrtnutí políčka nalevo od názvu v seznamu.
-1. Pokud chcete odebrat zdroj balíčku, vyberte ho a pak klikněte na tlačítko **X** .
-1. Pomocí tlačítek se šipkami nahoru a dolů se nezmění pořadí priorit zdrojů balíčku. Sada Visual Studio ignoruje pořadí zdrojů balíčku. při použití balíčku z libovolného zdroje je nejprve nutné reagovat na požadavky. Další informace najdete v tématu věnovaném [obnovení balíčků](../consume-packages/package-restore.md).
+1. Chcete-li odebrat zdroj balíčku, vyberte jej a pak vyberte tlačítko **X.**
+1. Použití tlačítek se šipkami nahoru a dolů nezmění pořadí priorit zdrojů balíčků. Visual Studio ignoruje pořadí zdrojů balíčků, pomocí balíčku z toho, který zdroj je první reagovat na požadavky. Další informace naleznete v [tématu Obnovení balíčku](../consume-packages/package-restore.md).
 
 > [!Tip]
-> Pokud se po odstranění zobrazí zdroj balíčku, může být uveden v souborech `NuGet.Config` na úrovni počítače nebo na úrovni uživatele. V tématu [běžné konfigurace NuGet](../consume-packages/configuring-nuget-behavior.md) pro umístění těchto souborů odstraňte zdroj úpravou souborů ručně nebo pomocí [příkazu NuGet sources](../reference/nuget-exe-CLI-reference.md).
+> Pokud se zdroj balíčku po jeho odstranění znovu zobrazí, může být uveden `NuGet.Config` v souborech na úrovni počítače nebo na úrovni uživatele. Viz [Běžné Konfigurace NuGet](../consume-packages/configuring-nuget-behavior.md) pro umístění těchto souborů, potom odebrat zdroj úpravou souborů ručně nebo pomocí [nuget zdroje příkazu](../reference/nuget-exe-CLI-reference.md).
 
-## <a name="package-manager-options-control"></a>Řízení možností Správce balíčků
+## <a name="package-manager-options-control"></a>Ovládací prvek Možnosti správce balíčků
 
-Když je vybraný balíček, v uživatelském rozhraní Správce balíčků se pod selektorem verzí zobrazí malý ovládací prvek **možností s možností** rozšíření (tady se zobrazí sbalená i rozbalená). Všimněte si, že u některých typů projektů je k dispozici pouze možnost **Zobrazit okno náhledu** .
+Když je vybrán balíček, ui Správce balíčků zobrazí malý, rozbalitelný ovládací prvek **Možnosti** pod voličem verze (zobrazeno zde sbalené i rozšířené). Všimněte si, že pro některé typy projektů je k dispozici pouze možnost **Zobrazit okno náhledu.**
 
-![Možnosti Správce balíčků](media/PackageManagerUIOptions.png)
+![Možnosti správce balíčků](media/PackageManagerUIOptions.png)
 
-Tyto možnosti jsou vysvětleny v následujících částech.
+Následující části vysvětlují tyto možnosti.
 
 ### <a name="show-preview-window"></a>Zobrazit okno náhledu
 
-Když se tato možnost vybere, otevře se modální okno, které obsahuje závislosti vybraného balíčku před instalací balíčku:
+Je-li tato možnost vybrána, zobrazí se modální okno, které jsou závislosti vybraného balíčku před instalací balíčku:
 
-![Ukázka náhledu – dialogové okno](media/InstallPreviewDialog.png)
+![Dialogové okno Náhled na příklad](media/InstallPreviewDialog.png)
 
 <!-- This is here because the link in the UI needs this anchor. See https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Clients/PackageManagement.UI/Xamls/OptionsControl.xaml -->
 <a name="install-options"></a>
@@ -147,19 +147,19 @@ Když se tato možnost vybere, otevře se modální okno, které obsahuje závis
 
 (Není k dispozici pro všechny typy projektů.)
 
-**Chování závislostí** konfiguruje, jak NuGet určuje, které verze závislých balíčků nainstalovat:
+**Chování závislostí** konfiguruje způsob, jakým nuget rozhoduje o tom, které verze závislých balíčků mají být nainstalovány:
 
-- *Ignorovat závislosti* přeskočí instalaci všech závislostí, což obvykle přeruší instalaci balíčku.
-- *Nejnižší* [výchozí] nainstaluje závislost s minimálním číslem verze, který splňuje požadavky primárního vybraného balíčku.
-- *Nejvyšší oprava* nainstaluje verzi se stejnými čísly hlavní verze a podverze, ale nejvyšší číslo opravy. Pokud je například zadána verze 1.2.2, bude nainstalována nejvyšší verze, která začíná 1,2.
-- *Nejvyšší* verze nainstaluje verzi se stejným číslem hlavní verze, ale s nejvyšším podčíslem a číslem opravy. Je-li zadána verze 1.2.2, bude nainstalována nejvyšší verze, která začíná 1.
-- *Nejvyšší* verze nainstaluje nejvyšší dostupnou verzi balíčku.
+- *Ignorovat závislosti přeskočí* instalaci všech závislostí, které obvykle přeruší balíček, který je nainstalován.
+- *Nejnižší* [Výchozí] nainstaluje závislost s minimálním číslem verze, které splňuje požadavky primárního vybraného balíčku.
+- *Nejvyšší oprava* nainstaluje verzi se stejnými hlavními a dílčími čísly verzí, ale s nejvyšším číslem opravy. Pokud je například zadána verze 1.2.2, bude nainstalována nejvyšší verze začínající verzí 1.2.
+- *Nejvyšší vedlejší* nainstaluje verzi se stejným číslem hlavní verze, ale nejvyšší dílčí číslo a číslo opravy. Pokud je zadána verze 1.2.2, bude nainstalována nejvyšší verze začínající na 1.
+- *Nejvyšší* nainstaluje nejvyšší dostupnou verzi balíčku.
 
-**Akce konfliktu souborů** určuje, jak má NuGet zpracovat balíčky, které už existují v projektu nebo na místním počítači:
+**Akce konfliktu souborů** určuje, jak by měl NuGet zpracovávat balíčky, které již existují v projektu nebo místním počítači:
 
-- *Prompt* vydá pokyn pro dotaz, jestli chcete zachovat nebo přepsat stávající balíčky.
-- *Ignorovat všechny* pokyny NuGet pro přeskočení přepsání existujících balíčků
-- Příkaz *přepsat vše* instruuje balíček NuGet, aby přepsal všechny existující balíčky.
+- *Výzva* pokyn NuGet se zeptat, zda zachovat nebo přepsat existující balíčky.
+- *Ignorovat všechny* pokyny NuGet přeskočit přepsání všechny existující balíčky.
+- *Přepsat všechny* pokyny NuGet přepsat všechny existující balíčky.
 
 <!-- This is here because the link in the UI needs this anchor. See https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Clients/PackageManagement.UI/Xamls/OptionsControl.xaml -->
 <a name="uninstall-options"></a>
@@ -168,6 +168,6 @@ Když se tato možnost vybere, otevře se modální okno, které obsahuje závis
 
 (Není k dispozici pro všechny typy projektů.)
 
-**Odebrat závislosti**: Pokud je vybraná, odebere všechny závislé balíčky, pokud se na ně neodkazují jinde v projektu.
+**Odebrat závislosti**: Pokud je tato možnost vybrána, odebere všechny závislé balíčky, pokud nejsou odkazovány jinde v projektu.
 
-**Vynutit odinstalaci i v případě, že jsou k dispozici závislosti**: Pokud je vybrána, odinstaluje balíček i v případě, že je stále odkazován v projektu. Obvykle se používá v kombinaci s **odebráním závislostí** pro odebrání balíčku a libovolné závislosti, které nainstaloval. Použití této možnosti může však vést k nefunkčním odkazům v projektu. V takových případech bude pravděpodobně nutné [přeinstalovat tyto balíčky](../consume-packages/reinstalling-and-updating-packages.md).
+**Vynutit odinstalaci i v případě, že jsou na něm závislosti**: pokud je vybrána, odinstaluje balíček, i když je stále odkazován v projektu. To se obvykle používá v kombinaci s **Remove závislosti** odebrat balíček a bez ohledu na závislosti, které nainstalován. Použití této možnosti však může vést k přerušené odkazy v projektu. V takových případech může být nutné [přeinstalovat tyto další balíčky](../consume-packages/reinstalling-and-updating-packages.md).

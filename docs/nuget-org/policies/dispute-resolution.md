@@ -1,29 +1,29 @@
 ---
-title: Řešení sporů název balíčku NuGet
-description: Proces pro řešení sporů mezi související s brandingem, ochranných známek a jiných situacích konflikt Vydavatel balíčku NuGet.
+title: Řešení sporů názvů balíčků NuGet
+description: Proces řešení sporů mezi vydavateli balíčků NuGet týkající se brandingu, ochranných známek a dalších konfliktních situací.
 author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
 ms.openlocfilehash: a2f1fed578f1635296892ab925219f0f27883c02
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/28/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "67427497"
 ---
-# <a name="resolving-disputes-over-nuget-package-names"></a>Řešení sporů názvy balíčků NuGet
+# <a name="resolving-disputes-over-nuget-package-names"></a>Řešení sporů ohledně názvů balíčků NuGet
 
-Tento článek obsahuje proces doporučené řešení pro členy komunity řešení sporů s jinými vydavateli NuGet.
+Tento článek poskytuje doporučený proces řešení pro členy komunity k řešení sporů s jinými vydavateli NuGet.
 
-Předpokládejme například, že Northwind Traders vytvoří systému CRM, pro které poskytují ovladače klienta jako ke stažení MSI z jejich webu. Nancy nezávislý vývojář chce usnadnit použít klientskou knihovnu pro společnosti Northwind a převede ji na balíček NuGet s názvem `NorthwindTraders.Client`. Později Northwind chce vytvořit oficiální balíček NuGet s vlastními, jejich klientské knihovny a proto chcete spor Nancyin vlastnictví názvu balíčku.
+Předpokládejme například, že Northwind Traders vytvoří CRM systém, pro který poskytují ovladače klienta jako ke stažení MSI z jejich webových stránek. Nancy, nezávislý vývojář, chce usnadnit použití northwind klientské knihovny a změní ji `NorthwindTraders.Client`na balíček NuGet s názvem . Později Northwind chce vytvořit oficiální Balíček NuGet pro jejich vlastní pro jejich klientské knihovny, a proto by chtěli zpochybnit Nancy vlastnictví názvu balíčku.
 
-V tomto scénáři Nancy nezobrazí funguje s chybný záměry, ale je spíše podpůrných nástrojů a zákazníků společnosti Northwind přispěje vlastní čas a kódu. Ve stejnou dobu je Northwind legitimním vlastníkem názvem Northwind.
+V tomto scénáři Nancy nezdá se, že jedná se špatnými úmysly, ale spíše podporuje nástroje a zákazníky společnosti Northwind tím, že přispívá svým vlastním časem a kódem. Ve stejné době, Northwind je legitimní vlastník northwind jméno.
 
-Pomocí následujícího postupu níže, Northwind a Nancy vzájemně spolupracují na vhodné řešení, protože obě mají zájem obsluhující komunity vývojářů. Obvykle není nutné pro tým NuGet se; spolupráce obvykle funguje nejlépe. Ve skutečnosti má byl každý sporu oznámena NuGet týmu k datu dobře fungoval bez týmu by bylo potřeba předat rozhodnutí.
+Podle níže uvedeného procesu mohou společnosti Northwind a Nancy spolupracovat na vhodném řešení, protože oba mají zájem sloužit komunitě vývojářů. Obvykle není nutné, aby se tým NuGet zapojil; spolupráce obvykle funguje nejlépe. Ve skutečnosti každý spor, který byl do týmu NuGet dosud upozorněn, byl vypracován bez nutnosti vynášet rozsudky.
 
 ## <a name="process"></a>Proces
 
-1. Obraťte se na vlastníky balíčku máte sporu s použitím **kontakt vlastníky** odkazu na stránce s podrobnostmi balíčku. Popisují váš problém druhu a přímé způsobem.
-2. Odeslat kopie zprávy [ support@nuget.org ](mailto:support@nuget.org) tak, aby NuGet a .NET Foundation spor vědět.
-3. Počkejte 30 dnů, vyřešení tohoto problému, a upozorní [ support@nuget.org ](mailto:support@nuget.org) znovu. Na tým podpory nuget.org zapojení, který se pokusí pracovat obě strany sporu.
+1. Obraťte se na vlastníky balíčku máte spor s pomocí **kontaktu vlastníci** odkaz na stránce podrobnosti o balíčku. Vysvětlete svůj problém laskavým a přímým způsobem.
+2. Odešlete kopii [support@nuget.org](mailto:support@nuget.org) zprávy tak, aby NuGet a .NET Foundation jsou si vědomi vašeho sporu.
+3. Počkejte maximálně 30 dní na [support@nuget.org](mailto:support@nuget.org) řešení a poté jej znovu oznamte. Tým nuget.org podpory se zapojí a pokusí se vyřešit spor s oběma stranami.

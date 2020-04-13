@@ -1,46 +1,46 @@
 ---
-title: Rozhraní API Nugetu ve Visual Studio
-description: Reference k rozhraní API, který exportuje NuGet prostřednictvím rozhraní Managed Extensibility Framework v sadě Visual Studio
+title: Rozhraní API NuGetu v sadě Visual Studio
+description: Odkaz rozhraní pro rozhraní API, které nuget exportuje prostřednictvím rozhraní spravované rozšiřitelnosti v sadě Visual Studio
 author: karann-msft
 ms.author: karann
 ms.date: 01/09/2017
 ms.topic: reference
 ms.openlocfilehash: f1a11eb63c07a5d737a9474870f5653f6f7d850a
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50980973"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64495915"
 ---
-# <a name="nuget-api-in-visual-studio"></a>Rozhraní API Nugetu ve Visual Studio
+# <a name="nuget-api-in-visual-studio"></a>Rozhraní API NuGetu v sadě Visual Studio
 
-Kromě uživatelské rozhraní Správce balíčků a konzole v sadě Visual Studio, exportuje NuGet také některé užitečné služby prostřednictvím [Managed Extensibility Framework (MEF)](/dotnet/framework/mef/index). Toto rozhraní podporuje jiné komponenty v sadě Visual Studio pro interakci s NuGet, který můžete použít k instalaci a odinstalaci balíčků a k získání informací o nainstalovaných balíčků.
+Kromě rozhraní Správce balíčků a konzoly v sadě Visual Studio, NuGet také exportuje některé užitečné služby prostřednictvím [rozhraní MEF spravované rozšiřitelnosti (MEF).](/dotnet/framework/mef/index) Toto rozhraní umožňuje ostatním součástem v sadě Visual Studio komunikovat s NuGet, který lze použít k instalaci a odinstalaci balíčků a získat informace o nainstalovaných balíčcích.
 
-Od verze NuGet 3.3 + NuGet exportuje následující služby, které se nacházejí v `NuGet.VisualStudio` obor názvů v `NuGet.VisualStudio.dll` sestavení:
+Od NuGet 3.3+, NuGet exportuje následující služby, které jsou umístěny v oboru `NuGet.VisualStudio` názvů v `NuGet.VisualStudio.dll` sestavení:
 
-- [`IRegistryKey`](#iregistrykey-interface): Metody k získání hodnoty z podklíč registru.
+- [`IRegistryKey`](#iregistrykey-interface): Metoda načtení hodnoty z podklíče registru.
 - [`IVsPackageInstaller`](#ivspackageinstaller-interface): Metody instalace balíčků NuGet do projektů.
 - [`IVsPackageInstallerEvents`](#ivspackageinstallerevents-interface): Události pro instalaci/odinstalaci balíčku.
-- [`IVsPackageInstallerProjectEvents`](#ivspackageinstallerprojectevents-interface): Události dávkové pro instalaci/odinstalaci balíčku.
-- [`IVsPackageInstallerServices`](#ivspackageinstallerservices-interface): Metody k načtení nainstalované balíčky v aktuálním řešení a zkontrolujte, zda je daný balíček nainstalovat v projektu.
-- [`IVsPackageManagerProvider`](#ivspackagemanagerprovider-interface): Metody, které poskytují alternativní návrhy Správce balíčků pro balíček NuGet.
-- [`IVsPackageMetadata`](#ivspackagemetadata-interface): Metody k načtení informací o nainstalovaným balíčkem.
-- [`IVsPackageProjectMetadata`](#ivspackageprojectmetadata-interface): Metody k načtení informací o projektu, ve kterém se spouští akcí NuGet.
-- [`IVsPackageRestorer`](#ivspackagerestorer-interface): Metody obnovit balíčky nainstalované v projektu.
-- [`IVsPackageSourceProvider`](#ivspackagesourceprovider-interface): Metody k načtení seznamu NuGet balíček zdroje.
-- [`IVsPackageUninstaller`](#ivspackageuninstaller-interface): Metody k odinstalaci balíčků NuGet z projektů.
-- [`IVsTemplateWizard`](#ivstemplatewizard-interface): Určená pro šablony projektu/položky zahrnout předem nainstalované balíčky Toto rozhraní je *není* by se volat z kódu a nemá žádné veřejné metody.
+- [`IVsPackageInstallerProjectEvents`](#ivspackageinstallerprojectevents-interface): Dávkové události pro instalaci/odinstalaci balíčku.
+- [`IVsPackageInstallerServices`](#ivspackageinstallerservices-interface): Metody načtení nainstalovaných balíčků v aktuálním řešení a kontrola, zda je daný balíček nainstalován v projektu.
+- [`IVsPackageManagerProvider`](#ivspackagemanagerprovider-interface): Metody pro poskytování alternativnínávrhy Správce balíčků pro balíček NuGet.
+- [`IVsPackageMetadata`](#ivspackagemetadata-interface): Metody pro načtení informací o nainstalovaném balíčku.
+- [`IVsPackageProjectMetadata`](#ivspackageprojectmetadata-interface): Metody pro načtení informací o projektu, kde jsou prováděny akce NuGet.
+- [`IVsPackageRestorer`](#ivspackagerestorer-interface): Metody obnovení balíčků nainstalovaných v projektu.
+- [`IVsPackageSourceProvider`](#ivspackagesourceprovider-interface): Metody pro načtení seznamu zdrojů balíčku NuGet.
+- [`IVsPackageUninstaller`](#ivspackageuninstaller-interface): Metody odinstalace balíčků NuGet z projektů.
+- [`IVsTemplateWizard`](#ivstemplatewizard-interface): Navrženo pro šablony projektů/položek tak, aby obsahovaly předinstalované balíčky; toto rozhraní *není* určen pro vyvolání z kódu a nemá žádné veřejné metody.
 
-## <a name="using-nuget-services"></a>Pomocí služeb NuGet
+## <a name="using-nuget-services"></a>Použití služeb NuGet
 
-1. Nainstalujte [ `NuGet.VisualStudio` ](https://www.nuget.org/packages/NuGet.VisualStudio) balíčku do vašeho projektu, který obsahuje `NuGet.VisualStudio.dll` sestavení.
+1. Nainstalujte [`NuGet.VisualStudio`](https://www.nuget.org/packages/NuGet.VisualStudio) balíček do projektu, `NuGet.VisualStudio.dll` který obsahuje sestavení.
 
-    Při instalaci balíčku automaticky nastaví **Embed Interop Types** vlastnost odkaz na sestavení **True**. Díky tomu váš kód odolné proti změny verze při uživatelé aktualizovat na novější verze balíčku nuget.
+    Při instalaci balíček automaticky nastaví vlastnost **Embed Interop Types** odkazu na **true**. Díky kódu odolné proti změny verze při uživatelům aktualizovat na novější verze NuGet.
 
 > [!Warning]
-> Nepoužívejte u jiných typů kromě veřejné rozhraní ve vašem kódu a neodkazují na žádné jiné NuGet sestavení, včetně `NuGet.Core.dll`.
+> Nepoužívejte žádné jiné typy kromě veřejných rozhraní v kódu a neodkazují na `NuGet.Core.dll`žádné jiné Sestavení NuGet, včetně .
 
-1. Využívat službu, importujte ho pomocí [MEF Import atribut](/dotnet/framework/mef/index#imports-and-exports-with-attributes), nebo prostřednictvím [IComponentModel služby](/dotnet/api/microsoft.visualstudio.componentmodelhost.icomponentmodel?redirectedfrom=MSDN&view=visualstudiosdk-2017).
+1. Chcete-li službu použít, importujte ji prostřednictvím [atributu IMPORT MEF](/dotnet/framework/mef/index#imports-and-exports-with-attributes)nebo prostřednictvím [služby IComponentModel](/dotnet/api/microsoft.visualstudio.componentmodelhost.icomponentmodel?redirectedfrom=MSDN&view=visualstudiosdk-2017).
 
     ```cs
     //Using the Import attribute
@@ -57,9 +57,9 @@ Od verze NuGet 3.3 + NuGet exportuje následující služby, které se nacházej
     var installedPackages = installerServices.GetInstalledPackages();
     ```
 
-Pro srovnání je součástí zdrojový kód pro NuGet.VisualStudio [NuGet.Clients úložiště](https://github.com/NuGet/NuGet.Client/tree/dev/src/NuGet.Clients/NuGet.VisualStudio).
+Pro referenci zdrojový kód pro NuGet.VisualStudio je obsažen v [úložišti NuGet.Clients](https://github.com/NuGet/NuGet.Client/tree/dev/src/NuGet.Clients/NuGet.VisualStudio).
 
-## <a name="iregistrykey-interface"></a>IRegistryKey rozhraní
+## <a name="iregistrykey-interface"></a>Rozhraní IRegistryKey
 
 ```cs
 /// <summary>
@@ -90,7 +90,7 @@ public interface IRegistryKey
 }
 ```
 
-## <a name="ivspackageinstaller-interface"></a>IVsPackageInstaller rozhraní
+## <a name="ivspackageinstaller-interface"></a>Rozhraní IVsPackageInstaller
 
 ```cs
 public interface IVsPackageInstaller
@@ -263,7 +263,7 @@ public interface IVsPackageInstaller
 }
 ```
 
-## <a name="ivspackageinstallerevents-interface"></a>IVsPackageInstallerEvents rozhraní
+## <a name="ivspackageinstallerevents-interface"></a>Rozhraní IVsPackageInstallerEvents
 
 ```cs
 public interface IVsPackageInstallerEvents
@@ -300,7 +300,7 @@ public interface IVsPackageInstallerEvents
 }
 ```
 
-## <a name="ivspackageinstallerprojectevents-interface"></a>IVsPackageInstallerProjectEvents rozhraní
+## <a name="ivspackageinstallerprojectevents-interface"></a>Rozhraní IVsPackageInstallerProjectEvents
 
 ```cs
 public interface IVsPackageInstallerProjectEvents
@@ -317,7 +317,7 @@ public interface IVsPackageInstallerProjectEvents
 }
 ```
 
-## <a name="ivspackageinstallerservices-interface"></a>IVsPackageInstallerServices rozhraní
+## <a name="ivspackageinstallerservices-interface"></a>Rozhraní IVsPackageInstallerServices
 
 ```cs
 public interface IVsPackageInstallerServices
@@ -369,7 +369,7 @@ public interface IVsPackageInstallerServices
 }
 ```
 
-## <a name="ivspackagemanagerprovider-interface"></a>IVsPackageManagerProvider rozhraní
+## <a name="ivspackagemanagerprovider-interface"></a>Rozhraní IVsPackageManagerProvider
 
 ```cs
 public interface IVsPackageManagerProvider
@@ -408,7 +408,7 @@ public interface IVsPackageManagerProvider
 }
 ```
 
-## <a name="ivspackagemetadata-interface"></a>IVsPackageMetadata rozhraní
+## <a name="ivspackagemetadata-interface"></a>Rozhraní IVsPackageMetadata
 
 ```cs
 public interface IVsPackageMetadata
@@ -462,7 +462,7 @@ public interface IVsPackageMetadata
 }
 ```
 
-## <a name="ivspackageprojectmetadata-interface"></a>IVsPackageProjectMetadata rozhraní
+## <a name="ivspackageprojectmetadata-interface"></a>Rozhraní IVsPackageProjectMetadata
 
 ```cs
 public interface IVsPackageProjectMetadata
@@ -479,7 +479,7 @@ public interface IVsPackageProjectMetadata
 }
 ```
 
-## <a name="ivspackagerestorer-interface"></a>IVsPackageRestorer rozhraní
+## <a name="ivspackagerestorer-interface"></a>Rozhraní IVsPackageRestorer
 
 ```cs
 public interface IVsPackageRestorer
@@ -499,7 +499,7 @@ public interface IVsPackageRestorer
 }
 ```
 
-## <a name="ivspackagesourceprovider-interface"></a>IVsPackageSourceProvider rozhraní
+## <a name="ivspackagesourceprovider-interface"></a>Rozhraní IVsPackageSourceProvider
 
 ```cs
 public interface IVsPackageSourceProvider
@@ -519,7 +519,7 @@ public interface IVsPackageSourceProvider
 }
 ```
 
-## <a name="ivspackageuninstaller-interface"></a>IVsPackageUninstaller rozhraní
+## <a name="ivspackageuninstaller-interface"></a>Rozhraní IVsPackageUninstaller
 
 ```cs
 public interface IVsPackageUninstaller
@@ -538,7 +538,7 @@ public interface IVsPackageUninstaller
 }
 ```
 
-## <a name="ivstemplatewizard-interface"></a>IVsTemplateWizard rozhraní
+## <a name="ivstemplatewizard-interface"></a>Rozhraní IVsTemplateWizard
 
 ```cs
 /// <summary>

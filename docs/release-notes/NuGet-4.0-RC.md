@@ -1,183 +1,183 @@
 ---
-title: Zpráva k vydání verze NuGet 4.0 RC
-description: Zpráva k vydání verze pro NuGet 4.0 RC, včetně známých problémů, opravy chyb, nové funkce a chcete.
+title: NuGet 4.0 RC poznámky k verzi
+description: Poznámky k verzi pro NuGet 4.0 RC včetně známých problémů, oprav chyb, přidaných funkcí a řadičů domény.
 author: karann-msft
 ms.author: karann
 ms.date: 02/03/2017
 ms.topic: conceptual
 ms.reviewer: ananguar
 ms.openlocfilehash: 2d0bb6356c0a20843bdc884b68f5f61838b82e73
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549243"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64496647"
 ---
-# <a name="nuget-40-rc-release-notes"></a>Zpráva k vydání verze NuGet 4.0 RC
+# <a name="nuget-40-rc-release-notes"></a>NuGet 4.0 RC poznámky k verzi
 
-[Zpráva k vydání verze NuGet 3.5 RTM](../release-notes/nuget-3.5-RTM.md)
+[NuGet 3,5 RTM poznámky k verzi](../release-notes/nuget-3.5-RTM.md)
 
-[NuGet 4.0 RC pro Visual Studio 2017](http://blog.nuget.org/20161121/introducing-nuget4.0) se zaměřuje na přidání podpory pro scénáře .NET Core, adresování zpětné vazby zákazníků a vylepšení výkonu v nejrůznějších scénářích. Tato verze přináší několik vylepšení, jako je podpora pro PackageReference, NuGet příkazy jako cílů MSBuild, obnovení balíčku pozadí a další.
+[NuGet 4.0 RC pro Visual Studio 2017](http://blog.nuget.org/20161121/introducing-nuget4.0) se zaměřuje na přidání podpory pro scénáře .NET Core, adresování klíčových názorů zákazníků a zlepšení výkonu v různých scénářích. Tato verze přináší několik vylepšení, jako je podpora packagereference, NuGet příkazy jako MSBuild cíle, obnovení balíčku na pozadí a další.
 
 ## <a name="bug-fixes"></a>Opravy chyb
 
-- Chování změnami `dotnet pack --version-suffix foo`  -  [#3838](https://github.com/NuGet/Home/issues/3838)
+- Změny chování `dotnet pack --version-suffix foo`  - v [#3838](https://github.com/NuGet/Home/issues/3838)
 
-- obnovení nuget.exe vs "15" počítač selže - [#3834](https://github.com/NuGet/Home/issues/3834)
+- nuget.exe obnovení na vs "15" stroj pouze selže - [#3834](https://github.com/NuGet/Home/issues/3834)
 
-- . Nový projekt NETCore souboru by měly blokovat sestavení během obnovení – [#3780](https://github.com/NuGet/Home/issues/3780)
+- . NETCore soubor nový projekt by měl blokovat sestavení během obnovení - [#3780](https://github.com/NuGet/Home/issues/3780)
 
-- Webové aplikace ASP.NET Core migrované z VS2015 do sady VS "15", se nepovedlo obnovit. - [#3773](https://github.com/NuGet/Home/issues/3773)
+- ASP.NET Základní webová aplikace, migrovaná z VS2015 na VS "15", nelze obnovit. - [#3773](https://github.com/NuGet/Home/issues/3773)
 
-- [Selhání testu] Balíček "jQuery ověření" nelze odinstalovat, v uživatelském rozhraní odp. - [#3755](https://github.com/NuGet/Home/issues/3755)
+- [Selhání testu] Balíček "jQuery Validation" nelze odinstalovat pomocí pm ui - [#3755](https://github.com/NuGet/Home/issues/3755)
 
-- Když se balíček nainstaluje na UPW `project.json`, má také obnovit projekty nadřazené - [#3731](https://github.com/NuGet/Home/issues/3731)
+- Při instalaci balíčku do `project.json`UPW , nadřazené projekty by měly být také obnoveny - [#3731](https://github.com/NuGet/Home/issues/3731)
 
-- Úprava cíle NuGet do protokolu zdroje balíčků jako vysokou úroveň podrobností místo normální – [#3719](https://github.com/NuGet/Home/issues/3719)
+- Upravte Cíle NuGet pro protokolování zdrojů balíčku jako vysoké podrobnosti namísto Normal - [#3719](https://github.com/NuGet/Home/issues/3719)
 
-- DotNet
-  - dotnetcore pack3 by měl obsahovat dokumentace XML ve výchozím nastavení - [#3698](https://github.com/NuGet/Home/issues/3698)
+- dotnet
+  - dotnetcore pack3 by měl obsahovat dokumentaci XML ve výchozím nastavení - [#3698](https://github.com/NuGet/Home/issues/3698)
 
-- Dávkové aktualizace nezdaří z uživatelského rozhraní při zdroje bez balíček je první a všechny zdroje je vybrán - [#3696](https://github.com/NuGet/Home/issues/3696)
+- Dávková aktualizace se nezdaří z uhlavního pásma, pokud je nejprve zdroj bez balíčku a je vybrán veškerý zdroj - [#3696](https://github.com/NuGet/Home/issues/3696)
 
-- Příkaz balíčku Nuget neobsahuje všechny soubory – [#3678](https://github.com/NuGet/Home/issues/3678)
+- Nuget pack příkaz neobsahuje všechny soubory - [#3678](https://github.com/NuGet/Home/issues/3678)
 
-- Problém OOM - [#3661](https://github.com/NuGet/Home/issues/3661)
+- OOM problém - [#3661](https://github.com/NuGet/Home/issues/3661)
 
-- ProjectFileDependencyGroups části souboru prostředků by měl použít názvy knihoven pro projekty – [#3611](https://github.com/NuGet/Home/issues/3611)
+- Část Souboru datových zdrojů projectFileDependencyGroups by měla používat názvy knihoven pro projekty – [#3611](https://github.com/NuGet/Home/issues/3611)
 
-- "dotnet restore" a recursing adresáře - [#3517](https://github.com/NuGet/Home/issues/3517)
+- "dotnet restore" a opakování adresářů - [#3517](https://github.com/NuGet/Home/issues/3517)
 
-- Restore3 chyby jsou protokolovány jako upozornění místo chyby - [#3503](https://github.com/NuGet/Home/issues/3503)
+- Obnovení3 chyby jsou zaznamenány jako upozornění namísto chyb - [#3503](https://github.com/NuGet/Home/issues/3503)
 
-- Problém TFS: "[soubor] nebyly nalezeny ve vašem pracovním prostoru, nebo nemáte oprávnění k přístupu"- [#2805](https://github.com/NuGet/Home/issues/2805)
+- Problém tfs: "[soubor] nelze nalézt ve vašem pracovním prostoru, nebo nemáte oprávnění k přístupu k němu" - [#2805](https://github.com/NuGet/Home/issues/2805)
 
-- Zadáním "nuget <packagename>" v sadě Visual Studio uchovává rychlé spuštění vyhledávacího pole "nuget" předponu - [#2719](https://github.com/NuGet/Home/issues/2719)
+- Zadáním "nuget" <packagename>vs quicklaunch vyhledávacího pole udržuje "nuget" prefix - [#2719](https://github.com/NuGet/Home/issues/2719)
 
-- System.Xml.XmlException: Neznámý kořenový prvek součásti Core Properties. Řádek 2, pozice 2. - [#2718](https://github.com/NuGet/Home/issues/2718)
+- System.Xml.XmlException: Nerozpoznaný kořenový prvek v části Vlastnosti jádra. Řádek 2, pozice 2. - [#2718](https://github.com/NuGet/Home/issues/2718)
 
-- `.nuspec` s uvozeny řídicími znaky &lt; nebo &gt; v textové pole již sestavení - [#2651](https://github.com/NuGet/Home/issues/2651)
+- `.nuspec`s &lt; uvozeným nebo &gt; v textových polích, která se již nevytváří - [#2651](https://github.com/NuGet/Home/issues/2651)
 
-- Odstranit nuget.exe nezobrazí výzvu pro přihlašovací údaje (je v neinteraktivním režimu) – [#2626](https://github.com/NuGet/Home/issues/2626)
+- nuget.exe delete nevyzve k zadání přihlašovacích údajů (je v neinteraktivním režimu) - [#2626](https://github.com/NuGet/Home/issues/2626)
 
-- Odstranit nuget.exe upozorňuje klíč rozhraní API pro místní zdroje, i když nemá žádný smysl - [#2625](https://github.com/NuGet/Home/issues/2625)
+- nuget.exe delete varuje o klíči API pro místní zdroje, i když to nedává smysl - [#2625](https://github.com/NuGet/Home/issues/2625)
 
-- Špatné zkušenosti chyby při instalaci EF - pre package - [#2566](https://github.com/NuGet/Home/issues/2566)
+- Při instalaci balíčku EF -pre [došlo](https://github.com/NuGet/Home/issues/2566) k chybě, #2566
 
-- Visual Studio pokusem po změně výběru došlo k chybě ve správci balíčků - [#2551](https://github.com/NuGet/Home/issues/2551)
+- Visual Studio došlo k pokusu o změnu výběru ve Správci balíčků - [#2551](https://github.com/NuGet/Home/issues/2551)
 
-- DotNet
-  - obnovení dotnetcore provádí velká a malá písmena vyhledávání Id v plochém seznamu místních úložišť, když se používají s plovoucí desetinnou čárkou verze - [#2516](https://github.com/NuGet/Home/issues/2516)
+- dotnet
+  - dotnetcore obnovení provádí vyhledávání ID rozlišování malých a velkých písmen v místních úložištích s plochým seznamem při použití plovoucích verzí - [#2516](https://github.com/NuGet/Home/issues/2516)
 
-- Odstranit nuget.exe je porušený pro kanál V2 – [#2509](https://github.com/NuGet/Home/issues/2509)
+- nuget.exe odstranit je přerušeno pro V2 feed - [#2509](https://github.com/NuGet/Home/issues/2509)
 
-- časový limit nabízených oznámení nuget.exe vyžaduje lepší chybové zprávy - [#2503](https://github.com/NuGet/Home/issues/2503)
+- nuget.exe push timeout potřebuje lepší chybovou zprávu - [#2503](https://github.com/NuGet/Home/issues/2503)
 
-- Nástroj pro obnovení bez správných importuje bez upozornění selže. - [#2462](https://github.com/NuGet/Home/issues/2462)
+- Nástroj obnovení bez řádného importu tiše selže. - [#2462](https://github.com/NuGet/Home/issues/2462)
 
-- NuGet vás vyzve k zadání přihlašovacích údajů, když je privátní kanál i v případě, že instalace z webu nuget.org - [#2346](https://github.com/NuGet/Home/issues/2346)
+- NuGet vyzve k zadání přihlašovacích údajů, pokud je soukromý zdroj i při instalaci z nuget.org - [#2346](https://github.com/NuGet/Home/issues/2346)
 
-- Balíček ApplicationInsights 2.0 je uvedena, ale ještě - neexistuje [#2317](https://github.com/NuGet/Home/issues/2317)
+- Balíček ApplicationInsights 2.0 je uveden, ale ještě neexistuje – [#2317](https://github.com/NuGet/Home/issues/2317)
 
-- UIDelay v sadě Visual Studio "15" preview 5 větev - [#3500](https://github.com/NuGet/Home/issues/3500)
+- UIDelay ve VS "15" náhled 5 větev - [#3500](https://github.com/NuGet/Home/issues/3500)
 
-- První událost OnBuild chybí pro obnovení během sestavování pro UPW – [#3489](https://github.com/NuGet/Home/issues/3489)
+- První Událost OnBuild chybí pro obnovení během sestavení pro UPW - [#3489](https://github.com/NuGet/Home/issues/3489)
 
-- Nainstaluje se při PowerShell5 konce objektu EntityFramework? - [#3312](https://github.com/NuGet/Home/issues/3312)
+- PowerShell5 přestávky EntityFramework nainstalovat? - [#3312](https://github.com/NuGet/Home/issues/3312)
 
-- Přidání zdroje podrobné protokolování (zvažte pro 3.5) - [#3294](https://github.com/NuGet/Home/issues/3294)
+- Přidání zdroje do podrobného protokolování (zvažte pro 3.5) - [#3294](https://github.com/NuGet/Home/issues/3294)
 
-- Parametr NoCache není zachované verzi klienta nuget 3.4 + - [#3074](https://github.com/NuGet/Home/issues/3074)
+- Parametr NoCache není dodržen v nugetové klientské verzi 3.4+ - [#3074](https://github.com/NuGet/Home/issues/3074)
 
-- Když poskytovatele přihlašovacích údajů se nepodaří načíst v sadě Visual Studio, neovlivní NuGet - [#2422](https://github.com/NuGet/Home/issues/2422)
+- Když se zprostředkovatele pověření nepodaří načíst ve VS, nepřerušuj nuget – [#2422](https://github.com/NuGet/Home/issues/2422)
 
 ## <a name="features"></a>Funkce
 
-- Nastavte průběžnou Integraci pro spuštění x86- [#3868](https://github.com/NuGet/Home/issues/3868)
+- Nastavit CI pro spuštění x86 - [#3868](https://github.com/NuGet/Home/issues/3868)
 
-- Automatické obnovení 3/3: jiné blokující prvky UI - [#3658](https://github.com/NuGet/Home/issues/3658)
+- Automatické obnovení 3/3: neblokující uI - [#3658](https://github.com/NuGet/Home/issues/3658)
 
-- Automatické obnovení 2/3: na pozadí obnovení nominace - [#3657](https://github.com/NuGet/Home/issues/3657)
+- Auto Restore 2/3: obnovení pozadí na nominaci - [#3657](https://github.com/NuGet/Home/issues/3657)
 
-- Obnovit odolný systém souborů projektu tak, aby odpovídaly chování sestavení (recurse) - [#3615](https://github.com/NuGet/Home/issues/3615)
+- Obnovit refs projektu tak, aby odpovídaly chování sestavení (recurse) - [#3615](https://github.com/NuGet/Home/issues/3615)
 
-- V sadě Visual Studio "15" – minbar – podpora DPL [#3614](https://github.com/NuGet/Home/issues/3614)
+- Podpora DPL ve VS "15" - minbar - [#3614](https://github.com/NuGet/Home/issues/3614)
 
-- Přesunout soubor s nastavením na Program Files - [#3613](https://github.com/NuGet/Home/issues/3613)
+- Přesunout soubor nastavení do programových souborů - [#3613](https://github.com/NuGet/Home/issues/3613)
 
-- Cíle a vlastnosti vygenerované obnovení potřebujete podporu zapojení cílení na různé - [#3496](https://github.com/NuGet/Home/issues/3496)
+- Generované rekvizity a cíle obnovení vyžadují podporu účasti napříč cíleními – [#3496](https://github.com/NuGet/Home/issues/3496)
 
-- Podpora obnovení NuGet pro PackageTargetFallback (f.k.a importy) - [#3494](https://github.com/NuGet/Home/issues/3494)
+- Podpora obnovení NuGet pro PackageTargetFallback (f.k.a Imports) - [#3494](https://github.com/NuGet/Home/issues/3494)
 
 - Implementace ToolsRef - [#3472](https://github.com/NuGet/Home/issues/3472)
 
-- Restore3 pro identifikátorů RID - [#3465](https://github.com/NuGet/Home/issues/3465)
+- Obnovení3 pro rid - [#3465](https://github.com/NuGet/Home/issues/3465)
 
-- NuGet uživatelského rozhraní pro podporu přidat nebo odebrat nebo aktualizovat PackageRefs - [#3457](https://github.com/NuGet/Home/issues/3457)
+- NuGet ui pro podporu přidat nebo odebrat/aktualizovat PackageRefs - [#3457](https://github.com/NuGet/Home/issues/3457)
 
-- Automatické obnovení 1/3: Implementace nominace rozhraní API prostřednictvím ukládání do mezipaměti projektu obnovit informace o - [#3456](https://github.com/NuGet/Home/issues/3456)
+- Automatické obnovení 1/3: Implemenation nominace API přes Caching Projektu Obnovit Info - [#3456](https://github.com/NuGet/Home/issues/3456)
 
-- Obnovení NuGet [0], úlohy a cíle - [#2994](https://github.com/NuGet/Home/issues/2994)
+- [0] NuGet Obnovit úlohu & cíle - [#2994](https://github.com/NuGet/Home/issues/2994)
 
-- [1] povolit řešení obnovení na úrovni v nástroji MSBuild - [#2993](https://github.com/NuGet/Home/issues/2993)
+- [1] Povolit obnovení úrovně řešení v MSBuild - [#2993](https://github.com/NuGet/Home/issues/2993)
 
-- Podpora rozšiřitelnosti veřejného poskytovatele přihlašovacích údajů v sadě Visual Studio – [#2909](https://github.com/NuGet/Home/issues/2909)
+- Podpora veřejné rozšiřitelnosti poskytovatele pověření v sadě Visual Studio – [#2909](https://github.com/NuGet/Home/issues/2909)
 
-- Rekurzivní nuget restore - [#2533](https://github.com/NuGet/Home/issues/2533)
+- Obnovení rekurzivního nugetu - [#2533](https://github.com/NuGet/Home/issues/2533)
 
-- Nelze načíst Microsoft.TeamFoundation.Client na odkaz na dev15, muset aktualizovat Microsoft.TeamFoundation.Client verzi 15.0 pro VS "15" Preview – [#2392](https://github.com/NuGet/Home/issues/2392)
+- Nelze načíst Microsoft.TeamFoundation.Client na dev15, je třeba aktualizovat Microsoft.TeamFoundation.Client verze 15.0 pro VS "15" Preview - [#2392](https://github.com/NuGet/Home/issues/2392)
 
-- Nepovedlo se nainstalovat balíček C++ k C++ UWP projektu v sadě Visual Studio "15" Preview – [#2369](https://github.com/NuGet/Home/issues/2369)
+- Nelze nainstalovat balíček C++ do projektu C++ UWP v náhledu VS "15" - [#2369](https://github.com/NuGet/Home/issues/2369)
 
-- Nupkg musí podporovat \buildCrossTargeting\ složka – a importovat `.targets`  /  `.props` pro "crosstargeting" MSBuild oboru. - [#3499](https://github.com/NuGet/Home/issues/3499)
+- Nupkg musí podporovat \buildCrossTargeting\ složku `.targets`  /  `.props` - a importovat pro "crosstargeting" MSBuild oboru. - [#3499](https://github.com/NuGet/Home/issues/3499)
 
-- Návrh ToolsReference – [#3462](https://github.com/NuGet/Home/issues/3462)
+- ToolsReference Design - [#3462](https://github.com/NuGet/Home/issues/3462)
 
-- Oprava NuGet uživatelského rozhraní pro podporu obnovení s PackageReferences v `.csproj`  -  [#3455](https://github.com/NuGet/Home/issues/3455)
+- Oprava nugetového uznatého pro `.csproj`  - podporu obnovení w/ Reference balíčků v [#3455](https://github.com/NuGet/Home/issues/3455)
 
-- Přidání tlačítka Vymazat mezipaměť nastavení Správce balíčků VS - [#3289](https://github.com/NuGet/Home/issues/3289)
+- Přidání tlačítka vymazat mezipaměť do nastavení správce balíčků VS - [#3289](https://github.com/NuGet/Home/issues/3289)
 
-## <a name="dcrs"></a>Chcete
+## <a name="dcrs"></a>Řadiče domény
 
-- Řešení obnovení by měly být blokovány, zatímco probíhá automatické obnovení. - [#3797](https://github.com/NuGet/Home/issues/3797)
+- Obnovení řešení by měla být blokována, zatímco automatické obnovení probíhá. - [#3797](https://github.com/NuGet/Home/issues/3797)
 
-- Instalace NetCore z uživatelského rozhraní Správce balíčků NuGet nainstaluje do každé TFM místo, které podporuje balíčku - [#3721](https://github.com/NuGet/Home/issues/3721)
+- NetCore nainstalovat z NuGet Package Manager ui nainstaluje do každého TFM , namísto ty, které podporuje balíček - [#3721](https://github.com/NuGet/Home/issues/3721)
 
-- Obnovte nominator rozhraní API musí podporovat DotNetCliToolsReferences příliš. - [#3702](https://github.com/NuGet/Home/issues/3702)
+- Obnovení nominátor api potřebuje pro podporu DotNetCliToolsReferences příliš. - [#3702](https://github.com/NuGet/Home/issues/3702)
 
-- Označit naší sady VS "15" vsix jako systemcomponent - [#3700](https://github.com/NuGet/Home/issues/3700)
+- Označte naše VS "15" vsix jako systémkomponenta - [#3700](https://github.com/NuGet/Home/issues/3700)
 
-- Migrace z odkazující na MS. VS. Services.Client do MS. VS. Services.Client.Interactive - [#3670](https://github.com/NuGet/Home/issues/3670)
+- Migrovat z odkazování na MS. Vs. Services.Client pro MS. Vs. Services.Client.Interactive - [#3670](https://github.com/NuGet/Home/issues/3670)
 
-- $(RestoreLegacyPackagesDirectory) by měly dodržovat na úrovni projektu obnovení – [#3618](https://github.com/NuGet/Home/issues/3618)
+- $(RestoreLegacyPackagesDirectory) by měla být respektována na úrovni projektu obnovením - [#3618](https://github.com/NuGet/Home/issues/3618)
 
-- Obnovení do projektu pomocí jedné TargetFramework nesmí podmínky props – [#3588](https://github.com/NuGet/Home/issues/3588)
+- Obnovit do projektu s jedním TargetFramework nesmí podmínku rekvizity - [#3588](https://github.com/NuGet/Home/issues/3588)
 
-- DotNet
-  - dotnetcore restore3 foo.csproj by měl postupujte podle projectref závislostí a těch obnovení příliš. Stejně jako sestavení. - [#3577](https://github.com/NuGet/Home/issues/3577)
+- dotnet
+  - dotnetcore restore3 foo.csproj by měl následovat projectref závislosti, a obnovit ty taky. Jako stavět. - [#3577](https://github.com/NuGet/Home/issues/3577)
 
-- "type": "platformy" závislosti reprezentované jako "type": "balíček" v souboru zámku - [#2695](https://github.com/NuGet/Home/issues/2695)
+- "type": "platforma" Závislosti reprezentované jako "type":"package" v souboru zámku - [#2695](https://github.com/NuGet/Home/issues/2695)
 
-- režim podrobného vypisování nuget.exe by se zobrazit soubor ke stažení adresa url – [#2629](https://github.com/NuGet/Home/issues/2629)
+- nuget.exe Verbose režim by měl ukázat stáhnout url - [#2629](https://github.com/NuGet/Home/issues/2629)
 
-- Přesunout NuGet xplat pro balíčky Microsoft.NetCore.App a netcoreapp1.0 - [#2483](https://github.com/NuGet/Home/issues/2483)
+- Přesuňte NuGet xplat na Microsoft.NetCore.App a netcoreapp1.0 - [#2483](https://github.com/NuGet/Home/issues/2483)
 
-- Push – bude možné přepsat server symbolů při odesílání z příkazového řádku - [#2348](https://github.com/NuGet/Home/issues/2348)
+- Push - Při tlačení z příkazového řádku by mělo být možné přepsat symbolový server - [#2348](https://github.com/NuGet/Home/issues/2348)
 
-- Sloučit kód pro vyhledání globálních balíčků cesta - [#2296](https://github.com/NuGet/Home/issues/2296)
+- Konsolidovat kód pro hledání cesty globálních balíčků – [#2296](https://github.com/NuGet/Home/issues/2296)
 
-- Třeba názvu lepší než suppressParent - [#2196](https://github.com/NuGet/Home/issues/2196)
+- Potřebujete lepší název než potlačitParent - [#2196](https://github.com/NuGet/Home/issues/2196)
 
-- Určení `project.json` název závislosti pro projekty MSBuild - [#1914](https://github.com/NuGet/Home/issues/1914)
+- Určit `project.json` název závislosti, který se má použít pro projekty MSBuild - [#1914](https://github.com/NuGet/Home/issues/1914)
 
-- Přidání podpory SemVer 2.0.0 NuGet.Core - [#3383](https://github.com/NuGet/Home/issues/3383)
+- Přidat podporu SemVer 2.0.0 do NuGet.Core - [#3383](https://github.com/NuGet/Home/issues/3383)
 
-- Povolit přechodné závislosti NuPkgs s `.targets` k dispozici v nástroji MSBuild - [#3342](https://github.com/NuGet/Home/issues/3342)
+- Povolit přenosité závislosti NuPkgs s `.targets` k dispozici v MSBuild - [#3342](https://github.com/NuGet/Home/issues/3342)
 
-- Obnovení NuGet řádku je výrazně pomalejší než VS - [#3330](https://github.com/NuGet/Home/issues/3330)
+- Obnovení NuGet z příkazového řádku je výrazně pomalejší než VS - [#3330](https://github.com/NuGet/Home/issues/3330)
 
-- Provést porovnání ID a verzi balíčku malá a velká písmena - [#2522](https://github.com/NuGet/Home/issues/2522)
+- Nastavení ID balíčku a porovnání verzí malá a velká písmena – [#2522](https://github.com/NuGet/Home/issues/2522)
 
-- Možnost NoCache nefunguje pro `packages.config` na základě obnovení/install (GlobalPackagesFolder) - [#1406](https://github.com/NuGet/Home/issues/1406)
+- NoCache možnost nefunguje `packages.config` pro založené obnovení nebo instalaci (GlobalPackagesFolder) - [#1406](https://github.com/NuGet/Home/issues/1406)
 
-- Prostředky FindPackageByIdResource potřebuje výchozí kontext mezipaměti a protokolování - [#1357](https://github.com/NuGet/Home/issues/1357)
+- FindPackageByIdProstředky prostředky potřebuje výchozí kontext mezipaměti a logger - [#1357](https://github.com/NuGet/Home/issues/1357)

@@ -1,28 +1,38 @@
 ---
-title: Zpráva k vydání verze NuGet 4.5 RTM
-description: Zpráva k vydání verze pro NuGet 4.5 RTM, včetně známých problémů, opravy chyb, nové funkce a chcete.
+title: NuGet 4,5 RTM poznámky k verzi
+description: Poznámky k verzi pro NuGet 4.5 RTM včetně známých problémů, oprav chyb, přidaných funkcí a řadičů domény.
 author: anangaur
 ms.author: anangaur
 ms.date: 12/4/2017
 ms.topic: conceptual
-ms.openlocfilehash: 01ecd8c7de1a0f713766e3c413d889038522bac7
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
-ms.translationtype: HT
+ms.openlocfilehash: 321aedb471bc6f86e9c03878093b199267e31195
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548293"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64496573"
 ---
-# <a name="nuget-45-rtm-release-notes"></a>Zpráva k vydání verze NuGet 4.5 RTM
+# <a name="nuget-45-release-notes"></a>NuGet 4.5 Poznámky k verzi
 
-[Visual Studio 2017 15.5 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) součástí [NuGet 4.5 RTM](https://dist.nuget.org/win-x86-commandline/v4.5.0/nuget.exe).
+[Visual Studio 2017 15.5 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) přichází s [NuGet 4.5 RTM](https://dist.nuget.org/win-x86-commandline/v4.5.0/nuget.exe).
+
+## <a name="summary-whats-new-in-450"></a>Shrnutí: Co je nového v 4.5.0
+
+## <a name="summary-whats-new-in-452"></a>Shrnutí: Co je nového v 4.5.2
+
+* Oprava zabezpečení: Oprávnění k souborům vytvořeným uvnitř ~/.nuget jsou příliš otevřená [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
+
+## <a name="summary-whats-new-in-453"></a>Shrnutí: Co je nového v 4.5.3
+
+* Oprava zabezpečení: Soubory uvnitř NUPKGs mohou mít relativní cestu nad adresářem NUPKG [#7906](https://github.com/NuGet/Home/issues/7906)
 
 ## <a name="known-issues"></a>Známé problémy
 
-### <a name="issues-with-net-standard-20-with-net-framework--nuget"></a>Problémy s .NET Standard 2.0 pomocí rozhraní .NET Framework a NuGet 
+### <a name="issues-with-net-standard-20-with-net-framework--nuget"></a>Problémy s rozhraním .NET Standard 2.0 s rozhraním .NET Framework & NuGet 
 
-.NET standard a jeho nástroje je navržená tak, že projekty cílené na rozhraní .NET Framework 4.6.1 může spotřebovat balíčky NuGet & projekty cílené na .NET Standard 2.0 nebo dřívější. [Tento dokument](https://github.com/dotnet/standard/issues/481) shrnuje problémy kolem tohoto scénáře plánu pro účely řešení a alternativní řešení můžete nasadit s dnešní stavu nástrojů.
+.NET Standard & jeho nástroje byly navrženy tak, že projekty zaměřené na rozhraní .NET Framework 4.6.1 mohou využívat balíčky NuGet & projekty zaměřené na standard .NET Standard 2.0 nebo starší. [Tento dokument](https://github.com/dotnet/standard/issues/481) shrnuje problémy kolem tohoto scénáře, plán pro jejich řešení a řešení, která můžete nasadit s dnešním stavem nástrojů.
 
-### <a name="you-are-unable-to-view-add-or-update-dotnetclitools-using-nuget-package-manager"></a>Nejde zobrazit, přidat ani aktualizovat DotNetCLITools pomocí Správce balíčků Nuget
+### <a name="you-are-unable-to-view-add-or-update-dotnetclitools-using-nuget-package-manager"></a>Pomocí Nástroje pro balení Nuget nelze zobrazit, přidat nebo aktualizovat nástroje DotNetCLITools.
 
 #### <a name="issue"></a>Problém
 
@@ -46,40 +56,40 @@ Proveďte ruční obnovení.
 
 #### <a name="issue"></a>Problém
 
-V některých případech použijete balíček, který obsahuje sestavení s neplatným podpisem, nebo když se verze balíčku nastaví pomocí časovače "DateTime, může to způsobí, že automaticky – obnovení balíčku občas způsobit nekonečnou smyčku [dotnet/project-system #1457](https://github.com/dotnet/project-system/issues/1457).
+V některých případech při použití balíčku, který obsahuje sestavení s neplatným podpisem nebo když je verze balíčku nastavena s panelem DateTime, způsobí, že automatické obnovení balíčku bude spuštěno v nekonečné smyčce [dotnet/project-system#1457](https://github.com/dotnet/project-system/issues/1457).
 
 #### <a name="workaround"></a>Alternativní řešení
 
 Pro tento problém zatím neexistuje alternativní řešení.
 
-## <a name="issues-fixed-in-nuget-45-rtm-timeframe"></a>Problémy opravené ve verzi RTM 4.5 NuGet časový rámec
+## <a name="issues-fixed-in-nuget-45-rtm-timeframe"></a>Problémy opravené v časovém rámci NuGet 4.5 RTM
 
-Problémy opravené ve verzi RTM 4.4 NuGet, najdete [4.4 RTM poznámkách k verzi NuGet](../release-notes/nuget-4.4-RTM.md) 
+Problémy opravené v NuGet 4.4 RTM naleznete v [nuget4.4 RTM poznámky k verzi](../release-notes/nuget-4.4-RTM.md) 
 
 ### <a name="features"></a>Funkce
 
-- Zakázat automatické nabízené oznámení balíčku symbolů - [#6113](https://github.com/NuGet/Home/issues/6113)
+- Zakázat automatické nabízení symbolů - [#6113](https://github.com/NuGet/Home/issues/6113)
 
 ### <a name="bugs"></a>Chyby
 
-- [Regrese] v 15.5p1: Portable0.0 se přeskočila - [#6105](https://github.com/NuGet/Home/issues/6105)
-- Po obnovení – chybí prostředky z balíčků [#5995](https://github.com/NuGet/Home/issues/5995)
-- Poskytovatelé přihlašovacích údajů modulu plug-in, nebudou fungovat s identifikátory URI obsahující mezery – [#5982](https://github.com/NuGet/Home/issues/5982)
-- Pokud balíček se nepovedlo obnovit, chyba by měl vytisknout ve výstupu i s minimální úroveň podrobností ON - [#5658](https://github.com/NuGet/Home/issues/5658)
-- DotNet
-  - dotnetcore obnovení na úrovni řešení není postupujte z ProjectReference s ReferenceOutputAssembly false nejlepší náhodné sestavení selhání - [#5490](https://github.com/NuGet/Home/issues/5490)
-- Automatické dokončování ve PMC funguje správně pomocí metody objektu - [#4800](https://github.com/NuGet/Home/issues/4800)
-- nuget.exe obnovení se nezdaří pomocí nástrojů Visual Studio 2015 – [#4713](https://github.com/NuGet/Home/issues/4713)
-- výkonu – pmc je náročné vytvořit instanci v vs2017 - [#4205](https://github.com/NuGet/Home/issues/4205)
-- Pomalá závislost informace o pomalé připojení - [#4089](https://github.com/NuGet/Home/issues/4089)
-- odinstalovat balíček plánovaným bodem obnovení kratším - RemoveDependencies selže, pokud více balíčků sdílejí společné závislosti - [#4026](https://github.com/NuGet/Home/issues/4026)
-- Dokončení NuGet.Core.nupkg pro publikování – [#3581](https://github.com/NuGet/Home/issues/3581)
-- Balíček NuGet řeší závislosti ID z názvu adresáře v případě - IncludeProjectReferences se používá pro csproj + project.json - [#3566](https://github.com/NuGet/Home/issues/3566)
-- Inicializační metoda typu 'NuGet.ProxyCache' došlo k výjimce – [#3144](https://github.com/NuGet/Home/issues/3144)
-- problémy s výkonem obnovení nuget pomocí kudu - [#3087](https://github.com/NuGet/Home/issues/3087)
-- Uživatelské rozhraní klienta nepovede zobrazíte všechny chyby nebo upozornění při hledání náskok před registrací objekty BLOB – [#2149](https://github.com/NuGet/Home/issues/2149)
-- -Aktualizace generuje nesprávný - Get-Packages [#2135](https://github.com/NuGet/Home/issues/2135)
+- [Regrese] v 15.5p1: Portable0.0 je přeskočeno - [#6105](https://github.com/NuGet/Home/issues/6105)
+- Prostředky z balíčků chybí po obnovení - [#5995](https://github.com/NuGet/Home/issues/5995)
+- Poskytovatelé pověření pluginů nepracují s identifikátory URI obsahujícími mezery - [#5982](https://github.com/NuGet/Home/issues/5982)
+- Pokud se balíček nepodařilo obnovit, chyba by měla být vytištěna ve výstupu i s minimální podrobností ON - [#5658](https://github.com/NuGet/Home/issues/5658)
+- dotnet
+  - dotnetcore obnovení na úrovni řešení nedodržuje ProjectReference s ReferenceOutputAssembly false vedoucí k selhání náhodné sestavení - [#5490](https://github.com/NuGet/Home/issues/5490)
+- Automatické dokončování v PMC pracuje nesprávně s objektovými metodami - [#4800](https://github.com/NuGet/Home/issues/4800)
+- Obnovení nástroje nuget.exe se nezdaří pomocí sady nástrojů sady nástrojů Sady nástrojů Visual Studio 2015 – [#4713](https://github.com/NuGet/Home/issues/4713)
+- perf - pmc je drahé na konkretizovat v vs2017 - [#4205](https://github.com/NuGet/Home/issues/4205)
+- Pomalé získání informací o závislostech na pomalém připojení - [#4089](https://github.com/NuGet/Home/issues/4089)
+- uninstall-package w/ -RemoveDependencies se nezdaří, pokud více balíčků sdílí společnou závislost - [#4026](https://github.com/NuGet/Home/issues/4026)
+- Finalize NuGet.Core.nupkg pro publikování - [#3581](https://github.com/NuGet/Home/issues/3581)
+- Sada NuGet pack řeší ID závislostí z názvu adresáře, když se pro csproj + project.js [#3566on](https://github.com/NuGet/Home/issues/3566) používá -IncludeProjectReferences
+- Inicializátor typu pro "NuGet.ProxyCache" vyvolal výjimku - [#3144](https://github.com/NuGet/Home/issues/3144)
+- nuget obnovení výkonu problém s kudu - [#3087](https://github.com/NuGet/Home/issues/3087)
+- Klient ui nezobrazí žádnou chybu nebo upozornění, pokud je hledání před objekty BLOB registrace - [#2149](https://github.com/NuGet/Home/issues/2149)
+- Get-Packages -Updates generuje nesprávný dotaz - [#2135](https://github.com/NuGet/Home/issues/2135)
 
-## <a name="links-to-github-issues-fixed-in-45-rtm"></a>Odkazy na problémy Githubu Vyřešeno ve verzi 4.5 RTM
+## <a name="links-to-github-issues-fixed-in-45-rtm"></a>Odkazy na problémy GitHubu opravené v 4.5 RTM
 
 [Seznam problémů](https://github.com/NuGet/Home/issues?q=is%3Aissue+milestone%3A4.5+is%3Aclosed)

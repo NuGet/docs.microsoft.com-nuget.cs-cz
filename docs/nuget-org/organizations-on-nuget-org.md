@@ -1,6 +1,6 @@
 ---
 title: Vaše organizace na NuGet.org
-description: Organizace na NuGet.org vám umožní spravovat balíčky publikovaná podle skupiny nebo týmu, firemní prostředí.
+description: Organizace na NuGet.org vám pomohou spravovat balíčky publikované podle skupiny nebo v týmovém prostředí společnosti.
 author: anangaur
 ms.author: anangaur
 ms.date: 04/10/2018
@@ -9,101 +9,101 @@ ms.reviewer:
 - kraigb
 - camsoper
 ms.openlocfilehash: 152de360bfa31a0c8c60fac0b12149748773b13e
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/28/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "67427539"
 ---
 # <a name="your-organization-on-nugetorg"></a>Vaše organizace na NuGet.org
 
-Organizacím umožňují podnikům a open source projekty, spolupracovat na balíčky pomocí jediné identity NuGet.org. Pro spotřebitele balíčku zobrazí se stejná jako existující uživatelský účet na NuGet.org účet organizace.
+Organizace umožňují firmám a projektům s otevřeným zdrojovým kódem spolupracovat na balíčcích pomocí jediné NuGet.org identity. Pro příjemce balíčku účet organizace se zobrazí stejně jako existující uživatelský účet na NuGet.org.
 
-## <a name="organization-accounts-vs-individual-accounts"></a>Účty organizace a samostatné účty
+## <a name="organization-accounts-vs-individual-accounts"></a>Účty organizace vs. jednotlivé účty
 
-Účet organizace má jeden nebo více účtů osoba (uživatel) jako členy. Tyto členy můžete spravovat sadu balíčků při zachování jedinou identitu pro vlastnictví.
+Účet organizace má jeden nebo více individuálních (uživatelských) účtů jako svých členů. Tito členové mohou spravovat sadu balíčků při zachování jedné identity pro vlastnictví.
 
-Svého individuálního účtu je svoji identitu na NuGet.org a může mít libovolný počet organizace. Balíček může patřit k účtu organizace jako můžou patřit do individuálního účtu. Balíček příjemci nezobrazuje žádný rozdíl mezi samostatný účet nebo účet organizace: oba se objeví jako balíček `owners`.
+Váš individuální účet je vaší identitou na NuGet.org a může být členem libovolného počtu organizací. Balíček může patřit k účtu organizace, stejně jako může patřit k individuálnímu účtu. Spotřebitelé balíčků nevidí žádný rozdíl mezi individuálním účtem nebo účtem organizace: oba se zobrazují jako balíček `owners`.
 
-## <a name="adding-a-new-organization"></a>Přidává se nová organizace
+## <a name="adding-a-new-organization"></a>Přidání nové organizace
 
-Pokud chcete přidat novou organizaci, vyberte svůj účet na NuGet.org a pak vyberte **Správa organizace...**  příkazu nabídky:
+Chcete-li přidat novou organizaci, vyberte svůj účet v NuGet.org a pak vyberte příkaz **nabídky Spravovat organizace...**
 
-![Možnost nabídky na NuGet.org pro správce organizace](media/org-manage-option.png)
+![Možnost nabídky v NuGet.org pro manažerské organizace](media/org-manage-option.png)
 
-Na další stránce vyberte **přidat novou organizaci** tlačítka:
+Na další stránce vyberte tlačítko **Přidat novou organizaci:**
 
-![Pro vytvoření nové organizace na NuGet.org](media/org-add-new-option.png)
+![Tlačítko pro vytvoření nové organizace v NuGet.org](media/org-add-new-option.png)
 
-Na další stránce zadejte jméno a e-mailovou adresu organizace. Protože účty organizace sdílejí stejný obor názvů jako uživatelské účty, název organizace musí být odlišné od všech existující organizace nebo uživatelské účty. E-mailová adresa musí být také jedinečný ve všech účtech.
+Na další stránce zadejte název organizace a e-mailovou adresu. Vzhledem k tomu, že účty organizace sdílejí stejný obor názvů jako uživatelské účty, musí se název organizace lišit od všech ostatních existujících účtů organizace nebo uživatelů. E-mailová adresa musí být také jedinečná ve všech účtech.
 
-![Přidejte novou stránku organizace na NuGet.org](media/org-add-new-page.png)
+![Přidání nové stránky organizace na NuGet.org](media/org-add-new-page.png)
 
-Po vytvoření účtu organizace, se na správce a můžete odesílat balíčky pro organizaci a přidat členy organizace.
+Po vytvoření účtu organizace jste správcem a můžete odeslat balíčky pro organizaci a přidat členy organizace.
 
-### <a name="transform-existing-account-to-an-organization"></a>Transformace existující účet organizace
+### <a name="transform-existing-account-to-an-organization"></a>Transformace existujícího účtu na organizaci
 
 > [!Warning]
-> Převod účtu je nevratná operace: nelze transformovat organizace zpět na uživatelský účet.
+> Převod účtu je nevratný: nelze přeměnit organizaci zpět na uživatelský účet.
 
-Pokud už správu balíčků v týmu pomocí jediného uživatelského účtu a chcete převést na tento účet organizace, použijte **transformovat váš účet organizace** možnost **Správa organizace** stránky:
+Pokud spravujete balíčky jako tým pomocí jednoho uživatelského účtu a chcete tento účet převést do organizace, použijte možnost **Transformovat svůj účet na organizaci** na stránce Spravovat **organizace:**
 
-![Možnost převést existující účet organizace na NuGet.org](media/org-transform-option.png)
+![Možnost NuGet.org transformovat existující účet na organizaci](media/org-transform-option.png)
 
-Na další stránce zadejte jiného uživatelského účtu přiřadit jako správce organizace, a pak vyberte **transformace**.
+Na další stránce zadejte jiný uživatelský účet, který chcete přiřadit jako správce organizace, a pak vyberte **Transformovat**.
 
-![Zadání informací pro transformaci uživatelský účet organizace](media/org-transform-page.png)
+![Zadávání informací o transformaci uživatelského účtu do organizace](media/org-transform-page.png)
 
-## <a name="managing-organization-members"></a>Správa organizace členy
+## <a name="managing-organization-members"></a>Správa členů organizace
 
-Jako správce organizace, můžete přidat členy tím, že poskytuje každý člen NuGet.org *název uživatelského účtu*; e-mailové adresy nelze použít. Pak označit každý člen jako spolupracovník nebo správce s následujícími oprávněními:
+Jako správce organizace můžete přidávat členy zadáním *NuGet.org uživatelského účtu*každého člena ; e-mailové adresy nelze použít. Potom označíte každého člena jako spolupracovníka nebo správce pomocí následujících oprávnění:
 
-| Oprávnění | Spolupracovníka | Správce |
+| Oprávnění | Spolupracovník | Správce |
 | --- | --- | --- |
-| Správa balíčků pro organizaci<br/>(odeslání nové balíčky, aktualizace nebo vyjmutí ze seznamu existujících balíčků) | Ano | Ano |
-| Změna organizace metadat<br/>(e-mailovou adresu, nastavení oznámení) | Ne | Ano |
-| Spravovat členy organizace | Ne | Ano |
-| Požádat o nebo reagovat na požadavky co-ownership pro organizaci balíčky | Ne | Ano |
+| Správa balíčků organizace<br/>(odeslat nové balíčky, aktualizovat nebo zrušit seznam existujících balíčků) | Ano | Ano |
+| Změna metadat organizace<br/>(e-mailová adresa, nastavení oznámení) | Ne | Ano |
+| Správa členů organizace | Ne | Ano |
+| Žádost nebo jednat na základě žádostí o spoluvlastnictví pro organizační balíčky | Ne | Ano |
 
 ## <a name="managing-packages"></a>Správa balíčků
 
-Můžete zobrazit všechny balíčky přes svůj účet a všechny organizace, kterých jste členem na [spravovat balíčky](https://www.nuget.org/account/Packages) stránky. Chcete-li zobrazit balíčky, které jsou specifické pro váš účet nebo libovolné konkrétní organizaci, použijte filtr účty v horní části stránky.
+Můžete zobrazit všechny balíčky ve vašem účtu a všechny organizace, jejichž jste členem na stránce [Spravovat balíčky.](https://www.nuget.org/account/Packages) Chcete-li zobrazit balíčky specifické pro váš účet nebo konkrétní organizaci, použijte filtr účtů v pravém horním rohu stránky.
 
-![Správa balíčků s filtrem účtu](media/org-manage-packages-option.png)
+![Správa balíčků pomocí filtru účtu](media/org-manage-packages-option.png)
 
 ### <a name="transferring-packages-to-an-organization"></a>Přenos balíčků do organizace
-Pokud chcete převést některé své balíčky do nově vytvořeného organizace, můžete k tomu vyžádání účet organizace, který chcete spoluvlastní balíček a odebrat sami sebe jako vlastníka. Pokud jste správcem organizace, neexistuje žádná potvrzení vyžadovat, abyste přijali vlastnictví. Ale pokud spolupracovníka, přidání organizace jako vlastníka vyžaduje jednu z Správci tak, aby přijímal vlastnictví.
+Pokud chcete převést některé balíčky do nově vytvořené organizace, můžete tak učinit tak, že požádáte účet organizace, abyste spoluvlastnili balíček a poté se odebrali jako vlastník. Pokud jste správcem organizace, není nutné k přijetí vlastnictví žádné potvrzení. Pokud jste však spolupracovník, přidání organizace jako vlastníka vyžaduje, aby jeden ze správců převzal vlastnictví.
 
 ## <a name="publishing-packages"></a>Publikování balíčků
 
-Publikovat balíčky organizace jako publikovat balíčky uživatelský účet: přímo nahráním balíček do NuGet.org nebo vynucením balíček `nuget push` nebo `dotnet nuget push` příkazy rozhraní příkazového řádku.
+Publikujete balíčky do organizace, jako je publikování balíčků do uživatelského účtu: přímým `nuget push` nahráním balíčku do NuGet.org nebo odesláním balíčku prostřednictvím příkazů příkazu příkazu příkazu příkazu nebo `dotnet nuget push` CLI.
 
-### <a name="uploading-packages"></a>Nahrání balíčků
+### <a name="uploading-packages"></a>Nahrávání balíčků
 
-Když můžete přímo nahrát nový balíček na [nahrát NuGet.org](https://www.nuget.org/packages/manage/upload) stránce přiřadit vlastníka balíčku k účtu uživatele nebo organizaci:
+Když přímo nahrajete nový balíček na stránku [NuGet.org Upload,](https://www.nuget.org/packages/manage/upload) přiřadíte vlastníka balíčku k uživatelskému nebo organizačnímu účtu :
 
-![Nahrání balíčku s možností účtu](media/org-upload-option.png)
+![Možnost Nahrát balíček s možností účtu](media/org-upload-option.png)
 
-### <a name="using-api-keys"></a>Pomocí klíče rozhraní API
+### <a name="using-api-keys"></a>Použití klíčů rozhraní API
 
-Vložit balíčku `nuget push` nebo `dotnet nuget push` příkazy rozhraní příkazového řádku, je nutné získat klíč rozhraní API vyžaduje těchto příkazů. Podrobnosti najdete v tématu [publikování balíčku](../quickstart/create-and-publish-a-package-using-visual-studio.md#publish-the-package).
+Chcete-li protlačit `nuget push` `dotnet nuget push` balíček prostřednictvím příkazů příkazového příkazu nebo příkazového příkazu, musíte získat klíč rozhraní API, který tyto příkazy potřebují. Podrobnosti naleznete [v tématu Publikování balíčku](../quickstart/create-and-publish-a-package-using-visual-studio.md#publish-the-package).
 
-Při vytváření nového klíče rozhraní API, vyberte příslušné organizaci **vlastníka balíčku** rozevírací seznam. Žádné klíče rozhraní API, které vytvoříte se vztahuje pouze na zvoleném organizace:
+Při vytváření nového klíče rozhraní API vyberte příslušnou organizaci v rozevíracím seznamu **Vlastník balíčku.** Jakýkoli klíč rozhraní API, který vytvoříte, se vztahuje pouze na vybranou organizaci:
 
 ![Klíč rozhraní API s možností účtu](media/org-apikey-option.png)
 
 ## <a name="removing-an-organization"></a>Odebrání organizace
 
-Jako uživatel, můžete odebrat sami sebe z organizace tak, že vyberete **X** tlačítko zobrazí vaše členství v organizaci:
+Jako uživatel můžete odebrat sami sebe z organizace výběrem tlačítka **X** zobrazeného členstvím v organizaci:
 
 ![Odebrání uživatelského účtu z organizace](media/org-remove-self-option.png)
 
-Správci můžou odeberte všechny členy z organizace, včetně jiných správců. Pokud jste jediným správcem organizace, nemůžete se sami odebrat není-li přidat jiného člena jako správce.
+Správci mohou odebrat libovolného člena organizace, včetně jiných správců. Pokud jste jediným správcem organizace, nemůžete se odebrat sami, pokud jako správce nepřidáte jiného člena.
 
-### <a name="deleting-an-organization-account"></a>Odstraňuje se účet organizace
+### <a name="deleting-an-organization-account"></a>Odstranění účtu organizace
 
-Účet organizace můžete odstranit kliknutím **odstranit** tlačítko zobrazené na stránce vaší organizace.
+Účet organizace můžete odstranit kliknutím na tlačítko **Odstranit** zobrazené na stránce organizace.
 
-![Odstranit organizaci](media/org-delete-option.png)
+![Odstranění organizace](media/org-delete-option.png)
 
-Odstranit organizace, musíte potvrdit ho kliknutím **odstranit organizaci** tlačítko potvrzení.
+Chcete-li organizaci odstranit, musíte ji potvrdit kliknutím na tlačítko Odstranit potvrzení **organizace.**

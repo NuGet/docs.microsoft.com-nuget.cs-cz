@@ -1,49 +1,49 @@
 ---
-title: Vytváření balíčků NuGet pro .NET Standard a .NET Framework pomocí sady Visual Studio 2015
-description: Kompletní návod k vytváření .NET Standard a .NET Framework balíčků NuGet pomocí NuGet 3. x a Visual Studio 2015.
+title: Vytvoření balíčků Rozhraní .NET Standard a .NET Framework NuGet pomocí sady Visual Studio 2015
+description: Komplexní návod k vytváření balíčků .NET Standard a .NET Framework NuGet pomocí nuget3.x a Visual Studio 2015.
 author: karann-msft
 ms.author: karann
 ms.date: 02/02/2018
 ms.topic: tutorial
 ms.openlocfilehash: b16bf422e2627be3b8516a875d749639734064a9
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "72380726"
 ---
-# <a name="create-net-standard-and-net-framework-packages-with-visual-studio-2015"></a>Vytváření balíčků .NET Standard a .NET Framework pomocí sady Visual Studio 2015
+# <a name="create-net-standard-and-net-framework-packages-with-visual-studio-2015"></a>Vytvoření balíčků rozhraní .NET Standard a .NET Framework pomocí sady Visual Studio 2015
 
-**Poznámka:** Visual Studio 2017 se doporučuje pro vývoj .NET Standardch knihoven. Visual Studio 2015 může pracovat, ale nástroje .NET Core byly předáno pouze do stavu Preview. Podívejte se na téma [Vytvoření a publikování balíčku pomocí sady Visual Studio 2017](../quickstart/create-and-publish-a-package-using-visual-studio.md) pro práci s NuGet 4. x + a Visual Studio 2017.
+**Poznámka:** Visual Studio 2017 se doporučuje pro vývoj knihoven .NET Standard. Visual Studio 2015 může fungovat, ale nástroje .NET Core byly přeneseny pouze do stavu Náhled. Viz [Vytvoření a publikování balíčku s Visual Studio 2017](../quickstart/create-and-publish-a-package-using-visual-studio.md) pro práci s NuGet 4.x+ a Visual Studio 2017.
 
-[Knihovna .NET Standard](/dotnet/articles/standard/library) je formální specifikace rozhraní API .NET, která má být k dispozici ve všech modulech runtime .NET, což znamená větší jednotnost v ekosystému .NET. Knihovna .NET Standard definuje jednotnou sadu rozhraní API BCL (knihovny základních tříd) pro všechny platformy .NET, které mají být implementovány, nezávisle na zatížení. Umožňuje vývojářům vytvářet kód, který je použitelný napříč všemi moduly runtime technologie .NET, a snižuje, zda neeliminují direktivy podmíněné kompilace specifické pro platformu ve sdíleném kódu.
+[Standardní knihovna .NET](/dotnet/articles/standard/library) je formální specifikace rozhraní .NET API, která má být k dispozici ve všech runčasech .NET, čímž vytváří větší jednotnost v ekosystému .NET. Standardní knihovna .NET definuje jednotnou sadu rozhraní API BCL (Base Class Library) pro všechny platformy .NET k implementaci, nezávisle na zatížení. Umožňuje vývojářům vytvářet kód, který je použitelný ve všech runčasech .NET, a snižuje, pokud neeliminuje direktivy podmíněné kompilace specifické pro platformu ve sdíleném kódu.
 
-Tato příručka vás provede vytvořením balíčku NuGet, který cílí na .NET Standard knihovny 1,4 nebo zacílení balíčku .NET Framework 4,6. Knihovna .NET Standard 1,4 funguje napříč .NET Framework 4.6.1, Univerzální platforma Windows 10, .NET Core a mono/Xamarin. Podrobnosti najdete v [tabulce mapování .NET Standard](/dotnet/standard/net-standard#net-implementation-support) (dokumentace rozhraní .NET). Pokud chcete, můžete zvolit jinou verzi knihovny .NET Standard.
+Tato příručka vás provede vytvořením balíčku NuGet, který cílí na .NET Standard Library 1.4 nebo balíček zaměřený na rozhraní .NET Framework 4.6. Knihovna .NET Standard 1.4 funguje napříč rozhraním .NET Framework 4.6.1, Univerzální platformou Windows 10, .NET Core a Mono/Xamarin. Podrobnosti naleznete v [tabulce mapování standardu .NET](/dotnet/standard/net-standard#net-implementation-support) (dokumentace k rozhraní.NET). Pokud chcete, můžete zvolit jinou verzi knihovny .NET Standard.
 
 ## <a name="prerequisites"></a>Požadavky
 
 1. Visual Studio 2015 Update 3
-1. (Jenom .NET Standard) [.NET Core SDK](https://www.microsoft.com/net/download/)
-1. Rozhraní příkazového řádku NuGet Stáhněte si nejnovější verzi nástroje NuGet. exe z [NuGet.org/downloads](https://nuget.org/downloads)a uložte ji do umístění podle vašeho výběru. Pak přidejte toto umístění do proměnné prostředí PATH, pokud ještě není.
+1. (Pouze standard.NET) [Sada SDK jádra .NET](https://www.microsoft.com/net/download/)
+1. NuGet CLI. Stáhněte si nejnovější verzi nuget.exe z [nuget.org/downloads](https://nuget.org/downloads)a uložte ji do zvoleného umístění. Pak přidejte toto umístění do proměnné prostředí PATH, pokud ještě není.
 
     > [!Note]
-    > NuGet. exe je samotný nástroj rozhraní příkazového řádku, nikoli instalační program, proto uložte stažený soubor z prohlížeče namísto jeho spuštění.
+    > nuget.exe je samotný nástroj rozhraní příkazového příkazu, nikoli instalátor, takže nezapomeňte uložit stažený soubor z prohlížeče namísto jeho spuštění.
 
-## <a name="create-the-class-library-project"></a>Vytvořit projekt knihovny tříd
+## <a name="create-the-class-library-project"></a>Vytvoření projektu knihovny tříd
 
-1. V aplikaci Visual Studio, **soubor > nový > projektu**, rozbalte **uzel C# Visual > Windows** , vyberte možnost **Knihovna tříd (přenosná)** , změňte název na AppLogger a vyberte **OK**.
+1. V sadě Visual Studio rozbal **> >te**uzel **Visual C# > Windows** , vyberte **Knihovnu tříd (Portable),** změňte název na AppLogger a vyberte **OK**.
 
     ![Vytvořit nový projekt knihovny tříd](media/NetStandard-NewProject.png)
 
-1. V dialogovém okně **Přidat přenosnou knihovnu tříd** , která se zobrazí, vyberte možnosti `.NET Framework 4.6` a `ASP.NET Core 1.0`. (Pokud cílíte .NET Framework, můžete vybrat, jaké možnosti jsou vhodné.)
+1. V zobrazeném dialogovém okně **Přidat knihovnu přenosných tříd** vyberte volby pro `.NET Framework 4.6` a `ASP.NET Core 1.0`. (Pokud cílení .NET Framework, můžete vybrat podle toho, které možnosti jsou vhodné.)
 
-1. Pokud cílíte .NET Standard, klikněte pravým tlačítkem na `AppLogger (Portable)` v Průzkumník řešení, vyberte **vlastnosti**, vyberte kartu **Knihovna** a potom v části **cíle** vyberte **target .NET Platform Standard** . Tato akce zobrazí výzvu k potvrzení a po výběru možnosti `.NET Standard 1.4` (nebo jiné dostupné verze) z rozevírací nabídky:
+1. Pokud cílíte na standard `AppLogger (Portable)` .NET, klikněte pravým tlačítkem myši na položku Průzkumník řešení a vyberte **vlastnosti**, vyberte kartu **Knihovna** a v části **Cílení** vyberte **možnost Cílová platforma .NET Standard.** Tato akce vyzve k potvrzení, po `.NET Standard 1.4` kterém můžete vybrat (nebo jinou dostupnou verzi) z rozbalovacího programu:
 
-    ![Nastavení cíle na .NET Standard 1,4](media/NetStandard-ChangeTarget.png)
+    ![Nastavení cíle na standard .NET 1.4](media/NetStandard-ChangeTarget.png)
 
-1. Klikněte na kartu **sestavení** , změňte **konfiguraci** na `Release` a zaškrtněte políčko **soubor dokumentace XML**.
+1. Klikněte na kartu **Sestavení,** `Release`změňte **konfiguraci** na a zaškrtněte **políčko soubor dokumentace XML**.
 
-1. Přidejte do komponenty kód, například:
+1. Přidejte kód do komponenty, například:
 
     ```cs
     namespace AppLogger
@@ -58,17 +58,17 @@ Tato příručka vás provede vytvořením balíčku NuGet, který cílí na .NE
     }
     ```
 
-1. Nastavte konfiguraci na vydanou verzi, sestavte projekt a ověřte, že se soubory DLL a XML vytvoří ve složce `bin\Release`.
+1. Nastavte konfiguraci na Release, vytvořte projekt a zkontrolujte, zda `bin\Release` jsou soubory DLL a XML vytvořeny ve složce.
 
-## <a name="create-and-update-the-nuspec-file"></a>Vytvoření a aktualizace souboru. nuspec
+## <a name="create-and-update-the-nuspec-file"></a>Vytvoření a aktualizace souboru Nuspec
 
-1. Otevřete příkazový řádek, přejděte do složky, která obsahuje složku `AppLogger.csproj` (jedna úroveň níže, kde se nachází soubor `.sln`), a spuštěním příkazu NuGet `spec` vytvořte počáteční soubor `AppLogger.nuspec`:
+1. Otevřete příkazový řádek, přejděte `AppLogger.csproj` do složky obsahující `.sln` složku (o jednu `spec` úroveň níže, `AppLogger.nuspec` kde je soubor) a spusťte příkaz NuGet a vytvořte počáteční soubor:
 
     ```cli
     nuget spec
     ```
 
-1. V editoru otevřete `AppLogger.nuspec` a aktualizujte ho tak, aby odpovídaly následujícímu. nahraďte YOUR_NAME příslušnou hodnotou. Hodnota `<id>`, konkrétně, musí být jedinečná napříč nuget.org (podívejte se na zásady vytváření názvů popsané v tématu [Vytvoření balíčku](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number). Všimněte si také, že je nutné také aktualizovat značky Autor a popis, jinak se zobrazí chyba v průběhu balení.
+1. Otevřete `AppLogger.nuspec` v editoru a aktualizujte jej tak, aby odpovídal následujícímu, a nahrazují YOUR_NAME příslušnou hodnotou. Hodnota, `<id>` konkrétně musí být jedinečný v celé nuget.org (viz konvence pojmenování popsané v [vytvoření balíčku](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number). Všimněte si také, že musíte také aktualizovat značky autora a popisu nebo se během kroku balení zobrazí chyba.
 
     ```xml
     <?xml version="1.0"?>
@@ -88,9 +88,9 @@ Tato příručka vás provede vytvořením balíčku NuGet, který cílí na .NE
     </package>
     ```
 
-1. Přidejte referenční sestavení do souboru `.nuspec`, konkrétně knihovny DLL knihovny a soubor XML IntelliSense:
+1. Přidejte do souboru `.nuspec` referenční sestavení, konkrétně knihovnu DLL knihovny a soubor XML technologie IntelliSense:
 
-    Pokud cílíte .NET Standard, zobrazí se podobné položky jako v následujícím příkladu:
+    Pokud cílení .NET Standard, položky se zobrazí podobně jako následující:
 
     ```xml
     <!-- Insert below <metadata> element -->
@@ -100,7 +100,7 @@ Tato příručka vás provede vytvořením balíčku NuGet, který cílí na .NE
     </files>
     ```
 
-    Pokud cílíte .NET Framework, zobrazí se podobné položky jako v následujícím příkladu:
+    Pokud cílení .NET Framework, položky se zobrazí podobně jako následující:
 
     ```xml
     <!-- Insert below <metadata> element -->
@@ -110,11 +110,11 @@ Tato příručka vás provede vytvořením balíčku NuGet, který cílí na .NE
     </files>
     ```
 
-1. Klikněte pravým tlačítkem na řešení a vyberte **Sestavit řešení** , aby se vygenerovaly všechny soubory balíčku.
+1. Klikněte pravým tlačítkem myši na řešení a vyberte **sestavit řešení** generovat všechny soubory pro balíček.
 
-### <a name="declaring-dependencies"></a>Deklarace závislostí
+### <a name="declaring-dependencies"></a>Deklarování závislostí
 
-Pokud máte nějaké závislosti na jiných balíčcích NuGet, uveďte je v elementu `<dependencies>` manifestu s prvky `<group>`. Chcete-li například deklarovat závislost na NewtonSoft. JSON 8.0.3 nebo vyšší, přidejte následující:
+Pokud máte nějaké závislosti na jiných balíčcích NuGet, `<dependencies>` uveďte `<group>` je v elementu manifestu s prvky. Chcete-li například deklarovat závislost na souboru NewtonSoft.Json 8.0.3 nebo vyšší, přidejte následující:
 
 ```xml
 <!-- Insert within the <metadata> element -->
@@ -125,11 +125,11 @@ Pokud máte nějaké závislosti na jiných balíčcích NuGet, uveďte je v ele
 </dependencies>
 ```
 
-Syntaxe atributu *Version* tady znamená, že je přijatelná verze 8.0.3 nebo vyšší. Pokud chcete zadat jiné rozsahy verzí, přečtěte si téma [Správa verzí balíčku](../concepts/package-versioning.md).
+Syntaxe atributu *version* zde označuje, že verze 8.0.3 nebo vyšší je přijatelná. Chcete-li určit různé rozsahy verzí, podívejte se na [správa verzí balíčků](../concepts/package-versioning.md).
 
-### <a name="adding-a-readme"></a>Přidání souboru Readme
+### <a name="adding-a-readme"></a>Přidání readme
 
-Vytvořte soubor `readme.txt`, umístěte ho do kořenové složky projektu a podívejte se na něj v souboru `.nuspec`:
+Vytvořte `readme.txt` soubor, umístěte jej do kořenové složky `.nuspec` projektu a podívejte se na něj v souboru:
 
 ```xml
 <?xml version="1.0"?>
@@ -142,34 +142,34 @@ Vytvořte soubor `readme.txt`, umístěte ho do kořenové složky projektu a po
 </package>
 ```
 
-Sada Visual Studio zobrazí `readme.txt` při instalaci balíčku do projektu. Tento soubor se nezobrazuje při instalaci do projektů .NET Core nebo pro balíčky, které jsou nainstalované jako závislost.
+Visual Studio `readme.txt` zobrazit při instalaci balíčku do projektu. Soubor není zobrazen při instalaci do projektů .NET Core nebo pro balíčky, které jsou nainstalovány jako závislost.
 
-## <a name="package-the-component"></a>Zabalení komponenty
+## <a name="package-the-component"></a>Balení komponenty
 
-Pomocí dokončených `.nuspec` odkazujících na všechny soubory, které potřebujete zahrnout do balíčku, jste připraveni spustit příkaz `pack`:
+S dokončeným `.nuspec` odkazováním na všechny soubory, které potřebujete zahrnout do `pack` balíčku, jste připraveni spustit příkaz:
 
 ```cli
 nuget pack AppLogger.nuspec
 ```
 
-Vygeneruje se `AppLogger.YOUR_NAME.1.0.0.nupkg`. Tento soubor otevřete v nástroji, jako je [Průzkumník balíčků NuGet](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer) , a rozbalením všech uzlů se zobrazí následující obsah (zobrazený pro .NET Standard):
+To generuje `AppLogger.YOUR_NAME.1.0.0.nupkg`. Otevření tohoto souboru v nástroji, jako je [NuGet Package Explorer](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer) a rozbalení všech uzlů, uvidíte následující obsah (zobrazeno pro .NET Standard):
 
-![Průzkumník balíčků NuGet zobrazující balíček AppLogger](media/NetStandard-PackageExplorer.png)
+![NuGet Package Explorer zobrazující balíček AppLogger](media/NetStandard-PackageExplorer.png)
 
 > [!Tip]
-> Soubor `.nupkg` je pouze soubor ZIP s jinou příponou. Můžete také prošetřit obsah balíčku a potom změnou `.nupkg` na `.zip`, ale nezapomeňte obnovit rozšíření před nahráním balíčku do nuget.org.
+> Soubor `.nupkg` je pouze soubor ZIP s jinou příponou. Můžete také prozkoumat obsah balíčku, `.nupkg` `.zip`pak změnou na , ale nezapomeňte obnovit rozšíření před odesláním balíček nuget.org.
 
-Pokud chcete balíček zpřístupnit ostatním vývojářům, postupujte podle pokynů v tématu [publikování balíčku](../nuget-org/publish-a-package.md).
+Chcete-li balíček zpřístupnit ostatním [vývojářům,](../nuget-org/publish-a-package.md)postupujte podle pokynů k části Publikovat balíček .
 
-Všimněte si, že `pack` vyžaduje mono 4.4.2 v Mac OS X a nefunguje v systémech Linux. Na Macu musíte také převést cesty systému Windows v souboru `.nuspec` na cesty ve stylu systému UNIX.
+Všimněte `pack` si, že vyžaduje Mono 4.4.2 na Mac OS X a nefunguje na systémech Linux. Na Macu musíte také převést názvy cest Windows v souboru `.nuspec` na cesty ve stylu Unixu.
 
 ## <a name="related-topics"></a>Související témata
 
-- [odkaz. nuspec](../reference/nuspec.md)
-- [Podpora více verzí rozhraní .NET Framework](../create-packages/supporting-multiple-target-frameworks.md)
-- [Zahrnutí vlastností MSBuild a cílů do balíčku](../create-packages/creating-a-package.md#include-msbuild-props-and-targets-in-a-package)
+- [Odkaz .nuspec](../reference/nuspec.md)
+- [Podpora více verzí rozhraní .NET framework](../create-packages/supporting-multiple-target-frameworks.md)
+- [Zahrnout rekvizity a cíle MSBuild do balíčku](../create-packages/creating-a-package.md#include-msbuild-props-and-targets-in-a-package)
 - [Vytvoření lokalizovaných balíčků](../create-packages/creating-localized-packages.md)
 - [Balíčky symbolů](../create-packages/symbol-packages-snupkg.md)
-- [Správa verzí balíčků](../concepts/package-versioning.md)
-- [Dokumentace ke knihovně .NET Standard](/dotnet/articles/standard/library)
-- [Přenos do .NET Core z .NET Framework](/dotnet/articles/core/porting/index)
+- [Správa verzí balíčku](../concepts/package-versioning.md)
+- [Dokumentace standardní knihovny .NET](/dotnet/articles/standard/library)
+- [Přenesení na jádro .NET z rozhraní .NET Framework](/dotnet/articles/core/porting/index)

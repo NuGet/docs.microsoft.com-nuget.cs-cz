@@ -1,63 +1,63 @@
 ---
-title: Instalace a použití balíčku NuGet v Visual Studio pro Mac
-description: Návodný postup pro instalaci a používání balíčku NuGet v projektu Visual Studio pro Mac.
+title: Instalace a použití balíčku NuGet v Sadě Visual Studio pro Mac
+description: Návod k procesu instalace a používání balíčku NuGet v projektu Visual Studio for Mac.
 author: jmatthiesen
 ms.author: jomatthi
 ms.date: 08/14/2019
 ms.topic: quickstart
 ms.openlocfilehash: 6f3fd4f2ffec0037a48aec845fddee258b5c1e7f
-ms.sourcegitcommit: ac9a00ccaf90e539a381e92b650074910b21eb0d
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/03/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "70238525"
 ---
-# <a name="quickstart-install-and-use-a-package-in-visual-studio-for-mac"></a>Rychlý start: Instalace a použití balíčku v Visual Studio pro Mac
+# <a name="quickstart-install-and-use-a-package-in-visual-studio-for-mac"></a>Úvodní příručka: Instalace a použití balíčku v Visual Studiu pro Mac
 
-Balíčky NuGet obsahují opakovaně použitelný kód, který vám pro použití v projektech zpřístupní jiní vývojáři. Podívejte [se, co je NuGet?](../What-is-NuGet.md) pro pozadí. Balíčky se nainstalují do Visual Studio pro Mac projektu pomocí Správce balíčků NuGet. Tento článek popisuje proces použití oblíbeného balíčku [Newtonsoft. JSON](https://www.nuget.org/packages/Newtonsoft.Json/) a projektu konzoly .NET Core. Stejný postup platí pro všechny ostatní projekty Xamarin nebo .NET Core.
+Balíčky NuGet obsahují opakovaně použitelný kód, který vám ostatní vývojáři zpřístupní pro použití ve vašich projektech. Podívejte se [na co je NuGet?](../What-is-NuGet.md) pro pozadí. Balíčky jsou nainstalovány do projektu Sady Visual Studio pro Mac pomocí Správce balíčků NuGet. Tento článek ukazuje proces pomocí populárního balíčku [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) a konzolového projektu .NET Core. Stejný proces platí pro všechny ostatní Xamarin nebo .NET Core projektu.
 
-Po instalaci se podívejte na balíček v kódu `using <namespace>` , kde \<obor názvů\> je specifický pro balíček, který používáte. Po provedení odkazu můžete balíček volat prostřednictvím jeho rozhraní API.
+Po instalaci, odkazovat na `using <namespace>` balíček v kódu s kde \<obor názvů\> je specifické pro balíček, který používáte. Jakmile je odkaz, můžete volat balíček prostřednictvím jeho rozhraní API.
 
 > [!Tip]
-> **Začínáme s NuGet.org**: Procházení *NuGet.org* je způsob, jakým vývojáři rozhraní .NET obvykle hledají komponenty, které mohou znovu použít ve svých vlastních aplikacích. Můžete vyhledat *NuGet.org* přímo nebo vyhledat a nainstalovat balíčky v sadě Visual Studio, jak je znázorněno v tomto článku. Obecné informace najdete v tématu [vyhledání a vyhodnocení balíčků NuGet](../consume-packages/finding-and-choosing-packages.md).
+> **Začněte s nuget.org**: Procházení *nuget.org* je způsob, jakým vývojáři rozhraní .NET obvykle vyhledávají součásti, které mohou znovu použít ve svých vlastních aplikacích. Můžete hledat *nuget.org* přímo nebo najít a nainstalovat balíčky v rámci sady Visual Studio, jak je znázorněno v tomto článku. Obecné informace naleznete v [tématu Hledání a vyhodnocení balíčků NuGet](../consume-packages/finding-and-choosing-packages.md).
 
 ## <a name="prerequisites"></a>Požadavky
 
 - Visual Studio 2019 pro Mac.
 
-Edici 2019 Community Edition můžete zdarma nainstalovat z [VisualStudio.com](https://www.visualstudio.com/) nebo použít edice Professional nebo Enterprise.
+Můžete nainstalovat edici Community 2019 zdarma z [visualstudio.com](https://www.visualstudio.com/) nebo použít edice Professional nebo Enterprise.
 
-Pokud používáte sadu Visual Studio ve Windows, přečtěte si téma [instalace a použití balíčku v aplikaci Visual Studio (pouze Windows)](install-and-use-a-package-in-visual-studio.md).
+Pokud používáte Visual Studio ve Windows, přečtěte si informace [o instalaci a použití balíčku v sadě Visual Studio (jenom windows).](install-and-use-a-package-in-visual-studio.md)
 
 ## <a name="create-a-project"></a>Vytvoření projektu
 
-Balíčky NuGet se dají nainstalovat do libovolného projektu .NET, za předpokladu, že balíček podporuje stejnou cílovou architekturu jako projekt.
+Balíčky NuGet lze nainstalovat do libovolného projektu .NET za předpokladu, že balíček podporuje stejný cílový rámec jako projekt.
 
-Pro tento návod použijte jednoduchou konzolovou aplikaci .NET Core. Vytvořit projekt v Visual Studio pro Mac pomocí **souborového > nové řešení...** vyberte šablonu **konzolové aplikace > aplikace .NET Core >** . Klikněte na **Další**. Po zobrazení výzvy přijměte výchozí hodnoty pro **cílovou architekturu** .
+Pro tento návod použijte jednoduchou aplikaci .NET Core Console. Vytvořte projekt ve Visual Studiu for Mac pomocí **souboru > novéřešení...**, vyberte šablonu **aplikace .NET Core > App > Console.** Klikněte na **Další**. Při přijetí výchozích hodnot pro **cílovou architekturu** po zobrazení výzvy.
 
-Visual Studio vytvoří projekt, který se otevře v Průzkumník řešení.
+Visual Studio vytvoří projekt, který se otevře v Průzkumníku řešení.
 
-## <a name="add-the-newtonsoftjson-nuget-package"></a>Přidejte balíček NuGet Newtonsoft. JSON.
+## <a name="add-the-newtonsoftjson-nuget-package"></a>Přidat balíček Newtonsoft.Json NuGet
 
-K instalaci balíčku použijte Správce balíčků NuGet. Při instalaci balíčku zaznamená NuGet závislost v souboru projektu nebo `packages.config` v souboru (v závislosti na formátu projektu). Další informace najdete v tématu [Přehled spotřeby balíčků a pracovní postup](../consume-packages/Overview-and-Workflow.md).
+Chcete-li nainstalovat balíček, použijte Správce balíčků NuGet. Při instalaci balíčku NuGet zaznamenává závislost v souboru projektu `packages.config` nebo souboru (v závislosti na formátu projektu). Další informace naleznete v [tématu Přehled spotřeby balíčků a pracovní postup](../consume-packages/Overview-and-Workflow.md).
 
 ### <a name="nuget-package-manager"></a>Správce balíčků NuGet
 
-1. V Průzkumník řešení klikněte pravým tlačítkem na **závislosti** a vyberte **Přidat balíčky...** .
+1. V Průzkumníku řešení klikněte pravým **tlačítkem** myši na závislosti a zvolte **Přidat balíčky...**.
 
     ![Příkaz Spravovat balíčky NuGet pro odkazy na projekt](media/QS_Use_Mac-02-ManageNuGetPackages.png)
 
-1. V levém horním rohu dialogového okna vyberte "nuget.org" jako **zdroj balíčku** a vyhledejte **Newtonsoft. JSON**, vyberte tento balíček v seznamu a vyberte **Přidat balíčky...** :
+1. V levém horním rohu dialogového okna zvolte "nuget.org" jako **zdroj balíčku** a vyhledejte **Newtonsoft.Json**, vyberte tento balíček v seznamu a vyberte **Přidat balíčky...**:
 
-    ![Vyhledání balíčku Newtonsoft. JSON](media/QS_Use_Mac-03-NewtonsoftJson.png)
+    ![Lokalizace newtonsoft.json balíčku](media/QS_Use_Mac-03-NewtonsoftJson.png)
 
-    Pokud chcete získat další informace o Správci balíčků NuGet, přečtěte si téma [instalace a Správa balíčků pomocí Visual Studio pro Mac](../consume-packages/install-use-packages-visual-studio.md).
+    Pokud chcete další informace o Správci balíčků NuGet, přečtěte si informace [o instalaci a správě balíčků pomocí Sady Visual Studio for Mac](../consume-packages/install-use-packages-visual-studio.md).
 
-## <a name="use-the-newtonsoftjson-api-in-the-app"></a>Použití rozhraní API Newtonsoft. JSON v aplikaci
+## <a name="use-the-newtonsoftjson-api-in-the-app"></a>Použití rozhraní Newtonsoft.Json API v aplikaci
 
-Pomocí balíčku Newtonsoft. JSON v projektu můžete zavolat jeho `JsonConvert.SerializeObject` metodu pro převod objektu na řetězec čitelný z lidského.
+S newtonsoft.Json balíček v projektu, `JsonConvert.SerializeObject` můžete volat jeho metodu převést objekt na člověka čitelný řetězec.
 
-1. `Program.cs` Otevřete soubor (umístěný v oblast řešení) a nahraďte jeho obsah následujícím kódem:
+1. Otevřete `Program.cs` soubor (umístěný v panelu řešení) a nahraďte obsah souboru následujícím kódem:
 
     ```cs
     using System;
@@ -89,19 +89,19 @@ Pomocí balíčku Newtonsoft. JSON v projektu můžete zavolat jeho `JsonConvert
     }
     ```
 
-1. Sestavte a spusťte aplikaci výběrem možnosti **spustit > spustit ladění**:
+1. Vytvořte a spusťte aplikaci tak, že vyberete **Spustit > Spustit ladění**:
 
 1. Po spuštění aplikace se v konzole zobrazí serializovaný výstup JSON:
 
-  ![Výstup aplikace konzoly](media/QS_Use_Mac-06-AppStart.png)
+  ![Výstup aplikace Konzola](media/QS_Use_Mac-06-AppStart.png)
 
-## <a name="next-steps"></a>Další postup
-Blahopřejeme k instalaci a používání vašeho prvního balíčku NuGet!
+## <a name="next-steps"></a>Další kroky
+Gratulujeme k instalaci a používání vašeho prvního balíčku NuGet!
 
 > [!div class="nextstepaction"]
-> [Instalace a Správa balíčků pomocí Visual Studio pro Mac](/visualstudio/mac/nuget-walkthrough?toc=/nuget/toc.json)
+> [Instalace a správa balíčků pomocí Visual Studia pro Mac](/visualstudio/mac/nuget-walkthrough?toc=/nuget/toc.json)
 
-Pokud chcete prozkoumat další možnosti, které NuGet nabízí, vyberte odkazy níže.
+Chcete-li prozkoumat další, které NuGet nabízí, vyberte níže uvedené odkazy.
 
-- [Přehled a pracovní postup pro spotřebu balíčku](../consume-packages/overview-and-workflow.md)
+- [Přehled a pracovní postup spotřeby balíků](../consume-packages/overview-and-workflow.md)
 - [Odkazy na balíčky v souborech projektů](../consume-packages/package-references-in-project-files.md)

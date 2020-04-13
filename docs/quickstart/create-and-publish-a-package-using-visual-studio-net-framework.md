@@ -1,43 +1,43 @@
 ---
-title: Vytvoření a publikování .NET Framework balíčku NuGet pomocí sady Visual Studio ve Windows
-description: Návod k vytvoření a publikování .NET Framework balíčku NuGet pomocí sady Visual Studio ve Windows.
+title: Vytvoření a publikování balíčku .NET Framework NuGet pomocí sady Visual Studio v systému Windows
+description: Návod k vytvoření a publikování balíčku .NET Framework NuGet pomocí sady Visual Studio v systému Windows.
 author: karann-msft
 ms.author: karann
 ms.date: 05/13/2018
 ms.topic: quickstart
 ms.openlocfilehash: e00aac83a710e2f745d5e4bb9aec741ee686e595
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "72380648"
 ---
-# <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>Rychlý Start: vytvoření a publikování balíčku pomocí sady Visual Studio (.NET Framework, Windows)
+# <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>Úvodní příručka: Vytvoření a publikování balíčku pomocí sady Visual Studio (.NET Framework, Windows)
 
-Vytvoření balíčku NuGet z knihovny tříd .NET Framework zahrnuje vytvoření knihovny DLL v aplikaci Visual Studio ve Windows a následné vytvoření a publikování balíčku pomocí nástroje příkazového řádku NuGet. exe.
+Vytvoření balíčku NuGet z knihovny tříd rozhraní .NET Framework zahrnuje vytvoření knihovny DLL v sadě Visual Studio v systému Windows a následné vytvoření a publikování balíčku pomocí nástroje příkazového řádku nuget.exe.
 
 > [!Note]
-> Tento rychlý Start se týká jenom sady Visual Studio 2017 a vyšších verzí pro Windows. Visual Studio pro Mac nezahrnuje funkce popsané tady. Místo toho použijte [nástroje DOTNET CLI](create-and-publish-a-package-using-the-dotnet-cli.md) .
+> Tento úvodní příručka se vztahuje pouze na visual studio 2017 a vyšší verze pro Windows. Visual Studio pro Mac neobsahuje zde popsané funkce. Místo toho použijte [nástroje rozhraní SE kontinua dotnet.](create-and-publish-a-package-using-the-dotnet-cli.md)
 
 ## <a name="prerequisites"></a>Požadavky
 
-1. Nainstalujte jakoukoli edici sady Visual Studio 2017 nebo novější z [VisualStudio.com](https://www.visualstudio.com/) s libovolným. Zatížení související s NET. Pokud je nainstalovaná úloha .NET, Visual Studio 2017 automaticky zahrnuje funkce NuGet.
+1. Nainstalujte libovolnou edici Visual Studia 2017 nebo vyšší z [visualstudio.com](https://www.visualstudio.com/) s libovolným . NET související s úlohou. Visual Studio 2017 automaticky zahrnuje funkce NuGet při instalaci úlohy .NET.
 
-1. Nainstalujte rozhraní příkazového řádku `nuget.exe` stažením z [NuGet.org](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe)a uložením tohoto souboru `.exe` do vhodné složky a přidáním této složky do proměnné prostředí PATH.
+1. Nainstalujte `nuget.exe` rozhraní se konstatování pomocí `.exe` nuget.org [,](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe)uložíte jej do vhodné složky a přidáte tuto složku do proměnné prostředí PATH.
 
-1. [Zaregistrujte si bezplatný účet na NuGet.org](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) , pokud ho ještě nemáte. Když se vytvoří nový účet, pošle se potvrzovací e-mail. Než budete moct nahrát balíček, musíte účet potvrdit.
+1. [Zaregistrujte se zdarma účet na nuget.org,](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) pokud nemáte ještě jeden. Vytvoření nového účtu odešle potvrzovací e-mail. Před nahráním balíčku musíte účet potvrdit.
 
-## <a name="create-a-class-library-project"></a>Vytvořit projekt knihovny tříd
+## <a name="create-a-class-library-project"></a>Vytvoření projektu knihovny tříd
 
-Můžete použít existující .NET Framework projekt knihovny tříd pro kód, který chcete zabalit, nebo vytvořit jednoduchý, a to následujícím způsobem:
+Můžete použít existující projekt knihovny tříd rozhraní .NET Framework pro kód, který chcete zabalit, nebo vytvořit jednoduchý následující:
 
-1. V aplikaci Visual Studio zvolte **soubor > Nový > projekt**, vyberte uzel **vizuálů C#**  , vyberte šablonu knihovny tříd (.NET Framework), pojmenujte projekt AppLogger a klikněte na tlačítko **OK**.
+1. V sadě Visual Studio zvolte **Soubor > Nový > project**, vyberte uzel Visual **C#,** vyberte šablonu "Knihovna tříd (.NET Framework)", pojmenujte projekt AppLogger a klepněte na tlačítko **OK**.
 
-1. Klikněte pravým tlačítkem na výsledný soubor projektu a vyberte **sestavit** , abyste se ujistili, že se projekt vytvořil správně. Knihovna DLL se nachází ve složce ladění (nebo v případě, že tuto konfiguraci sestavíte místo toho).
+1. Klikněte pravým tlačítkem myši na výsledný soubor projektu a vyberte **sestavení,** abyste se ujistili, že byl projekt vytvořen správně. DLL se nachází ve složce Ladění (nebo verze, pokud vytvoříte tuto konfiguraci místo).
 
-V rámci skutečného balíčku NuGet samozřejmě implementujete spoustu užitečných funkcí, se kterými můžou sestavovat aplikace i ostatní. Můžete také nastavit cílové architektury, například. Podívejte se například na příručky pro [UWP](../guides/create-uwp-packages.md) a [Xamarin](../guides/create-packages-for-xamarin.md).
+V rámci skutečného balíčku NuGet samozřejmě implementovat mnoho užitečných funkcí, s nimiž ostatní mohou vytvářet aplikace. Můžete také nastavit cílové architektury, jak se vám líbí. Například naleznete v průvodcích pro [UPW](../guides/create-uwp-packages.md) a [Xamarin](../guides/create-packages-for-xamarin.md).
 
-Pro tento návod však nebudete psát žádný další kód, protože knihovna tříd ze šablony je dostačující k vytvoření balíčku. I když chcete pro balíček použít nějaký funkční kód, použijte následující:
+Pro tento návod však nebudete psát žádný další kód, protože knihovna tříd ze šablony je dostatečná k vytvoření balíčku. Přesto, pokud chcete nějaký funkční kód pro balíček, použijte následující:
 
 ```cs
 using System;
@@ -55,40 +55,40 @@ namespace AppLogger
 ```
 
 > [!Tip]
-> Pokud nemáte důvod vybrat jinak, .NET Standard je upřednostňovaným cílem pro balíčky NuGet, protože poskytuje kompatibilitu s nejširší škálou náročných projektů. Přečtěte si téma [Vytvoření a publikování balíčku pomocí sady Visual Studio (.NET Standard)](create-and-publish-a-package-using-visual-studio.md).
+> Pokud nemáte důvod zvolit jinak, .NET Standard je upřednostňovaný cíl pro balíčky NuGet, protože poskytuje kompatibilitu s nejširší škálou náročných projektů. Viz [Vytvoření a publikování balíčku pomocí sady Visual Studio (.NET Standard).](create-and-publish-a-package-using-visual-studio.md)
 
-## <a name="configure-project-properties-for-the-package"></a>Konfigurovat vlastnosti projektu pro balíček
+## <a name="configure-project-properties-for-the-package"></a>Konfigurace vlastností projektu pro balíček
 
-Balíček NuGet obsahuje manifest (soubor `.nuspec`), který obsahuje relevantní metadata, jako je například identifikátor balíčku, číslo verze, popis a další. Některé z nich lze vykreslit přímo z vlastností projektu a zabránit tak jejich samostatné aktualizaci v projektu i v manifestu. V této části se dozvíte, kde můžete nastavit příslušné vlastnosti.
+Balíček NuGet obsahuje manifest `.nuspec` (soubor), který obsahuje relevantní metadata, jako je například identifikátor balíčku, číslo verze, popis a další. Některé z nich lze vyvodit z vlastností projektu přímo, což zabraňuje nutnosti samostatně aktualizovat v projektu i manifestu. Tato část popisuje, kde nastavit příslušné vlastnosti.
 
-1. Vyberte příkaz nabídky **Vlastnosti projektu >** a pak vyberte kartu **aplikace** .
+1. Vyberte příkaz Nabídky **Vlastnosti projektu >** a pak vyberte kartu **Aplikace.**
 
-1. V poli **název sestavení** poskytněte balíčku jedinečný identifikátor.
+1. V poli **Název sestavení** pojmenujte balíček jedinečným identifikátorem.
 
     > [!Important]
-    > Balíčku musíte dát identifikátor, který je jedinečný v rámci nuget.org nebo libovolného hostitele, který používáte. Pro tento návod doporučujeme, abyste v názvu jako pozdější krok publikování použili "Sample" nebo "test", aby byl balíček veřejně viditelný (i když je to nepravděpodobné, že ho kdokoli bude používat).
+    > Balíček je nutné poskytnout identifikátor, který je jedinečný v celé nuget.org nebo libovolného hostitele, který používáte. Pro tento návod doporučujeme zahrnout "Ukázka" nebo "Test" v názvu jako pozdější krok publikování dělá balíček veřejně viditelné (i když je nepravděpodobné, že někdo bude skutečně používat).
     >
     > Pokud se pokusíte publikovat balíček s názvem, který již existuje, zobrazí se chyba.
 
-1. Vyberte tlačítko **informace o sestavení...** , které zobrazí dialogové okno, ve kterém můžete zadat další vlastnosti, které se přenesou do manifestu (viz [soubor. nuspec – náhradní tokeny reference](../reference/nuspec.md#replacement-tokens)). Nejčastěji používaná pole jsou **název**, **Popis**, **Společnost**, **Copyright**a **verze sestavení**. Tyto vlastnosti se nakonec zobrazí s vaším balíčkem na hostiteli, jako je nuget.org, a ujistěte se, že jsou plně popisné.
+1. Vyberte tlačítko **Informace o sestavení...** tlačítko, ve kterém se zobrazí dialogové okno, ve kterém můžete zadat další vlastnosti, které se přenášejí do manifestu (viz [.nuspec odkaz na soubor - náhradní tokeny](../reference/nuspec.md#replacement-tokens)). Nejčastěji používanými poli jsou **verze Název**, **Popis**, **Společnost**, **Autorská práva**a **Sestava**. Tyto vlastnosti se nakonec zobrazí s balíčkem na hostiteli, jako je nuget.org, takže se ujistěte, že jsou plně popisné.
 
-    ![Informace o sestavení v projektu .NET Framework v aplikaci Visual Studio](media/qs_create-vs-01b-project-properties.png)
+    ![Informace o sestavení v projektu rozhraní .NET Framework v sadě Visual Studio](media/qs_create-vs-01b-project-properties.png)
 
-1. Volitelné: Chcete-li zobrazit a upravit vlastnosti přímo, otevřete soubor `Properties/AssemblyInfo.cs` v projektu.
+1. Volitelné: chcete-li vlastnosti zobrazit `Properties/AssemblyInfo.cs` a upravit přímo, otevřete soubor v projektu.
 
-1. Po nastavení vlastností nastavte konfiguraci projektu na **vydaná** a znovu sestavte projekt, aby se vygenerovala Aktualizovaná knihovna DLL.
+1. Když jsou vlastnosti nastaveny, nastavte konfiguraci projektu na **Release** a znovu vytvořte projekt, abyste vygenerovali aktualizovanou dll.
 
-## <a name="generate-the-initial-manifest"></a>Generování počátečního manifestu
+## <a name="generate-the-initial-manifest"></a>Generovat počáteční manifest
 
-Když je knihovna DLL v rukou a nastavené vlastnosti projektu, nyní použijete příkaz `nuget spec` pro vygenerování počátečního souboru `.nuspec` z projektu. Tento krok zahrnuje relevantní náhradní tokeny k vykreslování informací ze souboru projektu.
+Se sadou vlastností DLL a vlastností `nuget spec` projektu nyní `.nuspec` pomocí příkazu vygenerujete počáteční soubor z projektu. Tento krok zahrnuje příslušné náhradní tokeny pro kreslení informací ze souboru projektu.
 
-Spustíte `nuget spec` pouze jednou pro vygenerování počátečního manifestu. Při aktualizaci balíčku můžete buď změnit hodnoty v projektu, nebo přímo upravit manifest.
+Spuštění `nuget spec` pouze jednou generovat počáteční manifest. Při aktualizaci balíčku můžete buď změnit hodnoty v projektu, nebo přímo upravit manifest.
 
-1. Otevřete příkazový řádek a přejděte do složky projektu obsahující `AppLogger.csproj` soubor.
+1. Otevřete příkazový řádek a přejděte `AppLogger.csproj` do složky projektu obsahující soubor.
 
-1. Spusťte následující příkaz: `nuget spec AppLogger.csproj`. Když zadáte projekt, NuGet vytvoří manifest, který se shoduje s názvem projektu, v tomto případě `AppLogger.nuspec`. Obsahuje také náhradní tokeny v manifestu.
+1. Spusťte následující `nuget spec AppLogger.csproj`příkaz: . Zadáním projektu, NuGet vytvoří manifest, který odpovídá názvu projektu, `AppLogger.nuspec`v tomto případě . Zahrnuje také náhradní tokeny v manifestu.
 
-1. V textovém editoru otevřete `AppLogger.nuspec` a prověřte jeho obsah, který by měl vypadat takto:
+1. Otevřete `AppLogger.nuspec` v textovém editoru a prohlédněte si jeho obsah, který by se měl zobrazit takto:
 
     ```xml
     <?xml version="1.0"?>
@@ -110,31 +110,31 @@ Spustíte `nuget spec` pouze jednou pro vygenerování počátečního manifestu
     </package>
     ```
 
-## <a name="edit-the-manifest"></a>Upravit manifest
+## <a name="edit-the-manifest"></a>Úprava manifestu
 
-1. NuGet vyvolá chybu, pokud se pokusíte vytvořit balíček s výchozími hodnotami v souboru `.nuspec`, takže před pokračováním musíte upravit následující pole. Viz [odkaz na soubor. nuspec – volitelné prvky metadat](../reference/nuspec.md#optional-metadata-elements) pro popis způsobu jejich použití.
+1. NuGet vytvoří chybu, pokud se pokusíte vytvořit balíček s výchozí hodnoty v `.nuspec` souboru, takže je nutné upravit následující pole před pokračováním. Viz [.nuspec odkaz na soubor - volitelné prvky metadat](../reference/nuspec.md#optional-metadata-elements) pro popis, jak jsou použity.
 
     - licenseUrl
-    - projectUrl
+    - projektUrl
     - iconUrl
     - releaseNotes
-    - značky
+    - tags
 
-1. Pro balíčky sestavené pro veřejnou spotřebu věnujte zvláštní pozornost vlastnosti **značek** , protože značky můžou ostatním uživatelům najít balíček na zdrojích, jako je NuGet.org, a pochopit, co dělá.
+1. U balíčků vytvořených pro veřejnou spotřebu věnujte zvláštní pozornost vlastnosti **Tags,** protože značky pomáhají ostatním najít váš balíček na zdrojích, jako je nuget.org a pochopit, co dělá.
 
-1. V tomto okamžiku můžete také přidat další prvky do manifestu, jak je popsáno v [souboru. nuspec reference](../reference/nuspec.md).
+1. V tuto chvíli můžete také přidat do manifestu další prvky, jak je popsáno [v odkazu na soubor .nuspec](../reference/nuspec.md).
 
-1. Než budete pokračovat, soubor uložte.
+1. Před pokračováním soubor uložte.
 
-## <a name="run-the-pack-command"></a>Spuštění příkazu Pack
+## <a name="run-the-pack-command"></a>Spuštění příkazu pack
 
-1. Z příkazového řádku ve složce, která obsahuje soubor `.nuspec`, spusťte příkaz `nuget pack`.
+1. Z příkazového řádku ve složce obsahující `.nuspec` soubor `nuget pack`spusťte příkaz .
 
-1. NuGet vygeneruje soubor `.nupkg` ve formě *identifikátor-Version. nupkg*, který najdete v aktuální složce.
+1. NuGet generuje `.nupkg` soubor ve formě *identifier-version.nupkg*, který najdete v aktuální složce.
 
 ## <a name="publish-the-package"></a>Publikování balíčku
 
-Až budete mít soubor `.nupkg`, publikujete ho do nuget.org pomocí `nuget.exe` s klíčem rozhraní API získaným z nuget.org. Pro nuget.org musíte použít `nuget.exe` 4.1.0 nebo vyšší.
+Jakmile máte `.nupkg` soubor, publikujete jej `nuget.exe` nuget.org pomocí klíče rozhraní API získaného z nuget.org. Pro nuget.org musíte `nuget.exe` použít 4.1.0 nebo vyšší.
 
 [!INCLUDE [publish-notes](includes/publish-notes.md)]
 
@@ -142,17 +142,17 @@ Až budete mít soubor `.nupkg`, publikujete ho do nuget.org pomocí `nuget.exe`
 
 [!INCLUDE [publish-api-key](includes/publish-api-key.md)]
 
-### <a name="publish-with-nuget-push"></a>Publikování s nabízeným oznámením NuGet
+### <a name="publish-with-nuget-push"></a>Publikovat pomocí nuget push
 
-1. Otevřete příkazový řádek a přejděte do složky, která obsahuje soubor `.nupkg`.
+1. Otevřete příkazový řádek a změňte `.nupkg` na složku obsahující soubor.
 
-1. Spusťte následující příkaz, zadáním názvu balíčku a nahrazením hodnoty klíče vaším klíčem rozhraní API:
+1. Spusťte následující příkaz, zadejte název balíčku a nahraďte hodnotu klíče klíčem rozhraní API:
 
     ```cli
     nuget push AppLogger.1.0.0.nupkg qz2jga8pl3dvn2akksyquwcs9ygggg4exypy3bhxy6w6x6 -Source https://api.nuget.org/v3/index.json
     ```
 
-1. NuGet. exe zobrazuje výsledky procesu publikování:
+1. nuget.exe zobrazí výsledky procesu publikování:
 
     ```output
     Pushing AppLogger.1.0.0.nupkg to 'https://www.nuget.org/api/v2/package'...
@@ -161,7 +161,7 @@ Až budete mít soubor `.nupkg`, publikujete ho do nuget.org pomocí `nuget.exe`
     Your package was pushed.
     ```
 
-Viz [push NuGet](../reference/cli-reference/cli-ref-push.md).
+Viz [nuget push](../reference/cli-reference/cli-ref-push.md).
 
 ### <a name="publish-errors"></a>Chyby publikování
 
@@ -173,15 +173,15 @@ Viz [push NuGet](../reference/cli-reference/cli-ref-push.md).
 
 ## <a name="next-steps"></a>Další kroky
 
-Blahopřejeme k vytvoření prvního balíčku NuGet!
+Gratulujeme k vytvoření prvního balíčku NuGet!
 
 > [!div class="nextstepaction"]
 > [Vytvoření balíčku](../create-packages/creating-a-package.md)
 
-Pokud chcete prozkoumat další možnosti, které NuGet nabízí, vyberte odkazy níže.
+Chcete-li prozkoumat další, které NuGet nabízí, vyberte níže uvedené odkazy.
 
 - [Publikování balíčku](../nuget-org/publish-a-package.md)
 - [Předběžné verze balíčků](../create-packages/Prerelease-Packages.md)
 - [Podpora více cílových architektur](../create-packages/supporting-multiple-target-frameworks.md)
-- [Správa verzí balíčků](../concepts/package-versioning.md)
+- [Správa verzí balíčku](../concepts/package-versioning.md)
 - [Vytvoření lokalizovaných balíčků](../create-packages/creating-localized-packages.md)

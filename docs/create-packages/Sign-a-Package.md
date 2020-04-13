@@ -1,76 +1,76 @@
 ---
 title: Podepisování balíčků NuGet
-description: Vysvětluje, jak lze pomocí podepsaných balíčků povolit ověření integrity obsahu.
+description: Vysvětluje, jak lze podepsané balíčky použít k povolení ověření integrity obsahu.
 author: rido-min
 ms.author: rmpablos
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
 ms.openlocfilehash: 00fe1d5fa81132b5d6826203a0d26e56aa8d4755
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/16/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "79429001"
 ---
 # <a name="signing-nuget-packages"></a>Podepisování balíčků NuGet
 
-Podepsané balíčky umožňují kontrolu integrity obsahu, která zajišťuje ochranu proti manipulaci s obsahem. Podpis balíčku také slouží jako jediný zdroj pravdy na skutečný původ balíčku a pravost posilují balíčku pro daného příjemce. V tomto průvodci se předpokládá, že jste už [vytvořili balíček](creating-a-package.md).
+Podepsané balíčky umožňují kontrolu ověření integrity obsahu, která poskytuje ochranu proti manipulaci s obsahem. Podpis balíčku slouží také jako jediný zdroj pravdy o skutečném původu balíčku a posiluje pravost balíčku pro spotřebitele. Tato příručka předpokládá, že jste již [vytvořili balíček](creating-a-package.md).
 
-## <a name="get-a-code-signing-certificate"></a>Získání certifikátu pro podpis kódu
+## <a name="get-a-code-signing-certificate"></a>Získání certifikátu pro podepisování kódu
 
-Platné certifikáty mohou být získány od veřejné certifikační autority, jako je [Symantec](https://trustcenter.websecurity.symantec.com/process/trust/productOptions?productType=SoftwareValidationClass3), [DigiCert](https://www.digicert.com/code-signing/), [Daddy](https://www.godaddy.com/web-security/code-signing-certificate), [Global Sign](https://www.globalsign.com/en/code-signing-certificate/), [Comodo](https://www.comodo.com/e-commerce/code-signing/code-signing-certificate.php), [Certum](https://www.certum.eu/certum/cert,offer_en_open_source_cs.xml)atd. Úplný seznam certifikačních autorit, které jsou pro Windows důvěryhodné, můžete získat z [http://aka.ms/trustcertpartners](https://aka.ms/trustcertpartners).
+Platné certifikáty lze získat od veřejné certifikační autority, jako jsou [Symantec](https://trustcenter.websecurity.symantec.com/process/trust/productOptions?productType=SoftwareValidationClass3), [DigiCert](https://www.digicert.com/code-signing/), [Go Daddy](https://www.godaddy.com/web-security/code-signing-certificate), [Global Sign](https://www.globalsign.com/en/code-signing-certificate/), [Comodo](https://www.comodo.com/e-commerce/code-signing/code-signing-certificate.php), [Certum](https://www.certum.eu/certum/cert,offer_en_open_source_cs.xml)atd. Úplný seznam certifikačních úřadů důvěryhodných systémem [http://aka.ms/trustcertpartners](https://aka.ms/trustcertpartners)Windows lze získat z aplikace .
 
-Pro účely testování můžete použít certifikáty vystavené svým držitelem. Balíčky podepsané pomocí certifikátů vydaných svým držitelem ale neakceptuje NuGet.org. Další informace o [Vytvoření testovacího certifikátu](#create-a-test-certificate)
+Pro účely testování můžete použít certifikáty s vlastním vydáním. Balíčky podepsané pomocí certifikátů vydaných samostatně však nejsou NuGet.org akceptovány. Další informace o [vytvoření testovacího certifikátu](#create-a-test-certificate)
 
-## <a name="export-the-certificate-file"></a>Exportovat soubor certifikátu
+## <a name="export-the-certificate-file"></a>Export souboru certifikátu
 
 * Existující certifikát můžete exportovat do binárního formátu DER pomocí Průvodce exportem certifikátu.
 
   ![Průvodce exportem certifikátu](../reference/media/CertificateExportWizard.png)
 
-* Certifikát můžete také exportovat pomocí [příkazu Exportovat-Certificate PowerShell](/powershell/module/pkiclient/export-certificate).
+* Certifikát můžete také exportovat pomocí [příkazu Export-Certificate PowerShell](/powershell/module/pkiclient/export-certificate).
 
-## <a name="sign-the-package"></a>Podepsat balíček
+## <a name="sign-the-package"></a>Podepište balíček
 
 > [!note]
-> Vyžaduje NuGet. exe 4.6.0 nebo novější. Už brzy [#7939](https://github.com/NuGet/Home/issues/7939) podpora příkazu dotnet. exe.
+> Vyžaduje nuget.exe 4.6.0 nebo novější. Dotnet.exe podpora je již brzy - [#7939](https://github.com/NuGet/Home/issues/7939)
 
-Podepište balíček pomocí [znaku NuGet](../reference/cli-reference/cli-ref-sign.md):
+Podepište balíček pomocí [nugetového znaku](../reference/cli-reference/cli-ref-sign.md):
 
 ```cli
 nuget sign MyPackage.nupkg -CertificatePath <PathToTheCertificate> -Timestamper <TimestampServiceURL>
 ```
 
 > [!Tip]
-> Poskytovatel certifikátu často poskytuje adresu URL serveru pro časová razítka, kterou můžete použít pro `Timestamper` volitelného argumentu zobrazit výše. Projděte si dokumentaci ke svému poskytovateli nebo podporu pro tuto adresu URL služby.
+> Poskytovatel certifikátu často také poskytuje adresu URL serveru časových razítek, kterou můžete použít pro výše uvedenou povinnou `Timestamper` argumentaci. Obraťte se na dokumentaci a/nebo podporu této adresy URL služby od svého poskytovatele.
 
-* Můžete použít certifikát, který je k dispozici v úložišti certifikátů, nebo použít certifikát ze souboru. Viz reference k rozhraní příkazového řádku pro [znak NuGet](../reference/cli-reference/cli-ref-sign.md).
-* Podepsané balíčky by měly obsahovat časové razítko, aby se zajistilo, že signatura zůstane platná, i když vypršela platnost podpisového certifikátu. V opačném případě bude operace podepsání [Upozornění](../reference/errors-and-warnings/NU3002.md).
-* Můžete zobrazit podrobnosti o podpisu daného balíčku pomocí [ověření NuGet](../reference/cli-reference/cli-ref-verify.md).
+* Můžete použít certifikát dostupný v úložišti certifikátů nebo certifikát ze souboru. Viz odkaz na CLI pro [znaménko nuget](../reference/cli-reference/cli-ref-sign.md).
+* Podepsané balíčky by měly obsahovat časové razítko, abyste měli jistotu, že podpis zůstane platný i po vypršení platnosti podpisového certifikátu. Jinak bude operace znaku produkovat [upozornění](../reference/errors-and-warnings/NU3002.md).
+* Můžete zobrazit podrobnosti o podpisu daného balíčku pomocí [nuget verify](../reference/cli-reference/cli-ref-verify.md).
 
-## <a name="register-the-certificate-on-nugetorg"></a>Registrace certifikátu v NuGet.org
+## <a name="register-the-certificate-on-nugetorg"></a>Registrace certifikátu na NuGet.org
 
-K publikování podepsaného balíčku je třeba nejprve zaregistrovat certifikát pomocí NuGet.org. Certifikát budete potřebovat jako soubor `.cer` v binárním formátu DER.
+Chcete-li publikovat podepsaný balíček, musíte nejprve zaregistrovat certifikát u NuGet.org. Certifikát potřebujete jako `.cer` soubor v binárním formátu DER.
 
 1. [Přihlaste](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) se k NuGet.org.
-1. Pokud chcete certifikát zaregistrovat s účtem organizace, použijte `Account settings` (nebo `Manage Organization` **>** `Edit Organziation`.
-1. Rozbalte část `Certificates` a vyberte `Register new`.
-1. Vyhledejte a vyberte soubor certifikát, který byl dříve exportován.
-  ![registrovaných certifikátů](../reference/media/registered-certs.png)
+1. Přejděte `Account settings` na `Manage Organization` **>** `Edit Organziation` (nebo pokud chcete certifikát zaregistrovat pomocí účtu organizace).
+1. Rozbalte `Certificates` oddíl `Register new`a vyberte .
+1. Procházejte a vyberte soubor certficate, který byl exportován dříve.
+  ![Registrované certifikáty](../reference/media/registered-certs.png)
 
 **Poznámka**
-* Jeden uživatel může odeslat více certifikátů a stejný certifikát může registrovat více uživatelů.
-* Jakmile má uživatel zaregistrován certifikát, všechna budoucí odeslání balíčku **musí** být podepsána jedním z certifikátů. Viz [Správa požadavků na podepisování pro váš balíček v NuGet.org](#manage-signing-requirements-for-your-package-on-nugetorg) .
-* Uživatelé taky můžou z účtu odebrat registrovaný certifikát. Po odebrání certifikátu se při odeslání nezdaří nové balíčky podepsané tímto certifikátem. Existující balíčky to neovlivní.
+* Jeden uživatel může odeslat více certifikátů a stejný certifikát může být registrován více uživateli.
+* Jakmile má uživatel certifikát registrovaný, **musí** být všechny budoucí odeslání balíčku podepsány jedním z certifikátů. Viz [Správa požadavků na podepisování pro váš balíček na NuGet.org](#manage-signing-requirements-for-your-package-on-nugetorg)
+* Uživatelé mohou také odebrat registrovaný certifikát z účtu. Po odebrání certifikátu se při odeslání nezdaří nové balíčky podepsané tímto certifikátem. Existující balíčky nejsou ovlivněny.
 
 ## <a name="publish-the-package"></a>Publikování balíčku
 
-Nyní jste připraveni balíček publikovat do NuGet.org. Viz [publikování balíčků](../nuget-org/Publish-a-package.md).
+Nyní jste připraveni publikovat balíček NuGet.org. Viz [Publikování balíčků](../nuget-org/Publish-a-package.md).
 
-## <a name="create-a-test-certificate"></a>Vytvořit testovací certifikát
+## <a name="create-a-test-certificate"></a>Vytvoření testovacího certifikátu
 
-Pro účely testování můžete použít certifikáty vystavené svým držitelem. Pokud chcete vytvořit certifikát vystavený svým držitelem, použijte [příkaz prostředí PowerShell New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate).
+Pro účely testování můžete použít certifikáty s vlastním vydáním. Chcete-li vytvořit certifikát s vlastním vydáním, použijte [příkaz New-SelfSignedCertificate PowerShell](/powershell/module/pkiclient/new-selfsignedcertificate).
 
 ```ps
 New-SelfSignedCertificate -Subject "CN=NuGet Test Developer, OU=Use for testing purposes ONLY" `
@@ -84,24 +84,24 @@ New-SelfSignedCertificate -Subject "CN=NuGet Test Developer, OU=Use for testing 
                           -CertStoreLocation "Cert:\CurrentUser\My" 
 ```
 
-Tento příkaz vytvoří testovací certifikát, který je k dispozici v osobním úložišti certifikátů aktuálního uživatele. Pokud chcete zobrazit nově vytvořený certifikát, můžete otevřít úložiště certifikátů spuštěním `certmgr.msc`.
+Tento příkaz vytvoří testovací certifikát, který je k dispozici v úložišti osobních certifikátů aktuálního uživatele. Úložiště certifikátů můžete otevřít `certmgr.msc` spuštěním a zobrazit nově vytvořený certifikát.
 
 > [!Warning]
-> NuGet.org nepřijímá balíčky podepsané certifikáty s certifikátem vydaným svým držitelem.
+> NuGet.org nepřijímá balíčky podepsané certifikáty vydanými samostatně.
 
 ## <a name="manage-signing-requirements-for-your-package-on-nugetorg"></a>Správa požadavků na podepisování pro váš balíček na NuGet.org
 1. [Přihlaste](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) se k NuGet.org.
 
-1. Přejít na `Manage Packages` 
-   ![konfigurace podepsaných balíčků](../reference/media/configure-package-signers.png)
+1. Přejít `Manage Packages`  
+    ![na Konfigurovat podepisující balíky](../reference/media/configure-package-signers.png)
 
-* Pokud jste jediným vlastníkem balíčku, je požadováno podepisování, tj. k podepisování a publikování balíčků do NuGet.org můžete použít kterýkoli z registrovaných certifikátů.
+* Pokud jste jediným vlastníkem balíčku, jste povinným podepi NuGet.orgsujícím, tj.
 
-* Pokud má balíček více vlastníků, můžete ve výchozím nastavení použít k podepsání tohoto balíčku "kterýkoli" certifikát vlastníka. Jako spoluvlastník balíčku můžete potlačit "any" se svým držitelem nebo jiným spoluvlastníky, aby to byl povinný podpis. Pokud nastavíte vlastníka, který nemá žádný registrovaný certifikát, budou povoleny nepodepsané balíčky. 
+* Pokud balíček má více vlastníků, ve výchozím nastavení "Všechny" certifikáty vlastníka lze použít k podpisu balíčku. Jako spoluvlastník balíčku můžete přepsat "Any" se sebou nebo jiným spoluvlastníkem, abyste byli povinni podepisovat. Pokud vytvoříte vlastníka, který nemá žádný certifikát registrovaný, budou povoleny nepodepsané balíčky. 
 
-* Podobně platí, že pokud je vybrána možnost libovolná pro balíček, kde jeden vlastník má registrovaný certifikát a jiný vlastník nemá zaregistrován žádný certifikát, NuGet.org přijme buď podepsaný balíček s podpisem registrovaným jedním z jeho vlastníků nebo Nepodepsaný balíček (protože u jednoho z vlastníků není zaregistrovaný žádný certifikát).
+* Podobně pokud je pro balíček vybrána výchozí možnost "Any", kde má jeden vlastník certifikát registrovaný a jiný vlastník nemá žádný certifikát registrovaný, přijme NuGet.org podepsaný balíček s podpisem registrovaným jedním z jeho vlastníků nebo nepodepsaný balíček (protože jeden z vlastníků nemá žádný certifikát registrovaný).
 
 ## <a name="related-articles"></a>Související články
 
 - [Správa rozsahu důvěryhodnosti balíčků](../consume-packages/installing-signed-packages.md)
-- [Reference na podepsané balíčky](../reference/Signed-Packages-Reference.md)
+- [Odkaz na podepsané balíčky](../reference/Signed-Packages-Reference.md)

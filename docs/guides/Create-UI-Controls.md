@@ -1,40 +1,40 @@
 ---
-title: Jak zabalit ovládací prvky uživatelského rozhraní pomocí NuGet
-description: Vytvoření balíčků NuGet, které obsahují ovládací prvky UWP nebo WPF, včetně nezbytných metadat a podpůrných souborů pro návrháře sady Visual Studio a Blendu.
+title: Jak zabalit ovládací prvky ui s NuGet
+description: Jak vytvořit balíčky NuGet, které obsahují ovládací prvky UPW nebo WPF, včetně nezbytných metadat a podpůrných souborů pro návrháře sady Visual Studio a Blend.
 author: karann-msft
 ms.author: karann
 ms.date: 05/23/2018
 ms.topic: tutorial
 ms.openlocfilehash: da8c5a05311c790bf6b873bc0f1a077d3ef1db87
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "73610619"
 ---
 # <a name="creating-ui-controls-as-nuget-packages"></a>Vytvoření ovládacích prvků uživatelského rozhraní jako balíčků NuGet
 
-Počínaje sadou Visual Studio 2017 můžete využít výhod přidaných funkcí pro ovládací prvky UWP a WPF, které zadáváte do balíčků NuGet. Tato příručka vás provede následujícími možnostmi v kontextu ovládacích prvků UWP pomocí [ukázky ExtensionSDKasNuGetPackage](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage). Totéž platí pro ovládací prvky WPF, pokud není uvedeno jinak.
+Počínaje Visual Studio 2017, můžete využít přidané možnosti pro OVLÁDACÍ PRVKY UPW a WPF, které dodáváte v balíčcích NuGet. Tato příručka vás provede těmito funkcemi v kontextu ovládacích prvků UPW pomocí [ukázky ExtensionSDKasNuGetPackage](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage). Totéž platí pro ovládací prvky WPF, pokud není uvedeno jinak.
 
 ## <a name="prerequisites"></a>Požadavky
 
 1. Visual Studio 2017
-1. Informace o tom, jak [vytvářet balíčky UWP](create-uwp-packages.md)
+1. Pochopení toho, jak [vytvořit balíčky UPW](create-uwp-packages.md)
 
 ## <a name="generate-library-layout"></a>Generovat rozložení knihovny
 
 > [!Note]
-> To platí pouze pro ovládací prvky UWP.
+> To platí pouze pro ovládací prvky UPW.
 
-Nastavení vlastnosti `GenerateLibraryLayout` zajistí, že výstup sestavení projektu bude vygenerován v rozložení, které je připraveno k zabalení bez nutnosti jednotlivých položek souborů v nuspec.
+Nastavení `GenerateLibraryLayout` vlastnosti zajišťuje, že výstup sestavení projektu je generován v rozložení, které je připraveno k balení bez nutnosti jednotlivých položek souboru v nuspec.
 
-Z vlastností projektu, přejít na kartu sestavení a zaškrtněte políčko Generovat rozložení knihovny. Tím se upraví soubor projektu a nastaví se příznak `GenerateLibraryLayout` pro aktuálně vybranou konfiguraci a platformu sestavení na hodnotu true.
+Ve vlastnostech projektu přejděte na kartu sestavení a zaškrtněte políčko Generovat rozložení knihovny. Tím se změní soubor projektu `GenerateLibraryLayout` a nastaví příznak na hodnotu true pro aktuálně vybranou konfiguraci sestavení a platformu.
 
-Případně upravte soubor projektu pro přidání `<GenerateLibraryLayout>true</GenerateLibraryLayout>` do první nepodmíněné skupiny vlastností. Tato vlastnost by se použila bez ohledu na konfiguraci sestavení a platformu.
+Případně upravte soubor projektu, `<GenerateLibraryLayout>true</GenerateLibraryLayout>` který chcete přidat do první skupiny nepodmíněných vlastností. To by použít vlastnost bez ohledu na konfiguraci sestavení a platformu.
 
-## <a name="add-toolboxassets-pane-support-for-xaml-controls"></a>Přidání podpory nástrojů/panelu nástrojů pro ovládací prvky XAML
+## <a name="add-toolboxassets-pane-support-for-xaml-controls"></a>Přidání podpory panelu nástrojů/datových zdrojů pro ovládací prvky XAML
 
-Chcete-li, aby se ovládací prvek XAML zobrazil v sadě nástrojů návrháře XAML v sadě Visual Studio a v podokně assets (prostředky), vytvořte soubor `VisualStudioToolsManifest.xml` v kořenu složky `tools` projektu balíčku. Tento soubor není povinný, pokud nepotřebujete, aby se ovládací prvek zobrazoval v podokně nástrojů nebo aktiv.
+Chcete-li, aby se ovládací prvek XAML zobrazil v panelu nástrojů návrháře `VisualStudioToolsManifest.xml` XAML v `tools` sadě Visual Studio a podokně Prostředků blendu, vytvořte soubor v kořenovém adresáři složky projektu balíčku. Tento soubor není vyžadován, pokud nepotřebujete ovládací prvek, který se zobrazí v panelu nástrojů nebo v podokně Datové zdroje.
 
     \build
     \lib
@@ -59,14 +59,14 @@ Struktura souboru je následující:
 
 kde:
 
-- *your_package_file*: název řídicího souboru, například `ManagedPackage.winmd` ("ManagedPackage" je libovolný název, který se používá pro tento příklad a nemá žádný jiný význam).
-- *vs_category*: popisek skupiny, ve které by se měl ovládací prvek zobrazit v sadě nástrojů Visual Studio designer. `VSCategory` je nutné, aby se ovládací prvek zobrazoval v sadě nástrojů.
-- *blend_category*: popisek skupiny, ve které by se měl ovládací prvek zobrazit v podokně assets návrháře Blendu. `BlendCategory` je nutné, aby se ovládací prvek objevil v prostředcích.
-- *type_full_name_n*: plně kvalifikovaný název pro každý ovládací prvek, včetně oboru názvů, jako je například `ManagedPackage.MyCustomControl`. Všimněte si, že formát tečky se používá pro spravované i nativní typy.
+- *your_package_file*: název řídicího souboru, například `ManagedPackage.winmd` ("ManagedPackage" je libovolně pojmenovaný pro tento příklad a nemá žádný jiný význam).
+- *vs_category*: Popisek pro skupinu, ve kterém by měl být ovládací prvek zobrazen v panelu nástrojů návrháře sady Visual Studio. A `VSCategory` je nezbytné pro ovládací prvek se zobrazí v panelu nástrojů.
+- *blend_category*: Popisek pro skupinu, ve které by se měl ovládací prvek zobrazit v podokně Datové zdroje návrháře prolnutí. A `BlendCategory` je nezbytné pro ovládací prvek se zobrazí v prostředky.
+- *type_full_name_n*: Plně kvalifikovaný název pro každý ovládací prvek, `ManagedPackage.MyCustomControl`včetně oboru názvů, například . Všimněte si, že formát tečky se používá pro spravované i nativní typy.
 
-V pokročilejších scénářích můžete také zahrnout více `<File>` prvků v rámci `<FileList>`, pokud jeden balíček obsahuje více sestavení ovládacích prvků. Můžete mít také více `<ToolboxItems>` uzlů v rámci jednoho `<File>`, pokud chcete uspořádat ovládací prvky do samostatných kategorií.
+V pokročilejších scénářích můžete také `<File>` zahrnout `<FileList>` více prvků v rámci, když jeden balíček obsahuje více sestavení ovládacího prvku. Můžete mít také `<ToolboxItems>` více uzlů `<File>` v rámci jednoho, pokud chcete uspořádat ovládací prvky do samostatných kategorií.
 
-V následujícím příkladu se ovládací prvek implementovaný v `ManagedPackage.winmd` zobrazí v aplikaci Visual Studio a Blend ve skupině s názvem "Managed Package" a "MyCustomControl" se zobrazí v této skupině. Všechny tyto názvy jsou libovolné.
+V následujícím příkladu ovládací `ManagedPackage.winmd` prvek implementovaný v aplikaci se zobrazí v sadě Visual Studio a Blend ve skupině s názvem "Spravovaný balíček" a "MyCustomControl" se zobrazí v této skupině. Všechna tato jména jsou libovolná.
 
 ```xml
 <FileList>
@@ -78,49 +78,49 @@ V následujícím příkladu se ovládací prvek implementovaný v `ManagedPacka
 </FileList>
 ```
 
-![Příklad ovládacího prvku, který se zobrazí v aplikaci Visual Studio](media/UWP-control-vs-toolbox.png)
+![Ukázkový ovládací prvek tak, jak se zobrazuje v sadě Visual Studio](media/UWP-control-vs-toolbox.png)
 
-![Vzorový ovládací prvek, který se zobrazí v Blendu](media/UWP-control-blend-assets.png)
+![Příklad ovládacího prvku, který se zobrazuje v prolnutí](media/UWP-control-blend-assets.png)
 
 > [!Note]
-> Každý ovládací prvek, který byste chtěli zobrazit v podokně Sada nástrojů/prostředky, musíte explicitně zadat. Ujistěte se, že je zadáte ve formátu `Namespace.ControlName`.
+> Je nutné explicitně zadat každý ovládací prvek, který chcete zobrazit v podokně nástrojů/datových zdrojů. Ujistěte se, že `Namespace.ControlName`je zadáte ve formátu .
 
-## <a name="add-custom-icons-to-your-controls"></a>Přidat vlastní ikony do ovládacích prvků
+## <a name="add-custom-icons-to-your-controls"></a>Přidání vlastních ikon k ovládacím prvkům
 
-Chcete-li zobrazit vlastní ikonu v podokně Sada nástrojů/assets, přidejte do projektu obrázek nebo odpovídající projekt `design.dll` s názvem "obor názvů. Control. Extension" a nastavte akci sestavení na "Integrovaný prostředek". Musíte také zajistit, aby související `AssemblyInfo.cs` určovala `[assembly: ProvideMetadata(typeof(RegisterMetadata))]`atributu ProvideMetadata. Podívejte se na tuto [ukázku](https://github.com/NuGet/Samples/blob/master/ExtensionSDKasNuGetPackage/NativePackage.Design/Properties/AssemblyInfo.cs#L20).
+Chcete-li zobrazit vlastní ikonu v podokně panelu nástrojů nebo `design.dll` datových zdrojů, přidejte obrázek do projektu nebo odpovídajícího projektu s názvem Namespace.ControlName.extension a nastavte akci sestavení na Vložený zdroj. Musíte také zajistit, `AssemblyInfo.cs` že přidružený určuje ProvideMetadata atribut - `[assembly: ProvideMetadata(typeof(RegisterMetadata))]`. Viz tento [příklad](https://github.com/NuGet/Samples/blob/master/ExtensionSDKasNuGetPackage/NativePackage.Design/Properties/AssemblyInfo.cs#L20).
 
-Podporované formáty jsou `.png`, `.jpg`, `.jpeg`, `.gif`a `.bmp`. Doporučený formát je BMP24 v rozmezí 16 × 16 pixelů.
+Podporované formáty `.png` `.jpg`jsou `.jpeg` `.gif`, `.bmp`, , a . Doporučený formát je BMP24 v 16 pixelech x 16 pixelů.
 
-![Ukázka ikony pole nástrojů](https://raw.githubusercontent.com/NuGet/docs.microsoft.com-nuget/live/docs/guides/media/ColorPicker_16x16x24.bmp)
+![Ukázka ikony rámečku nástrojů](https://raw.githubusercontent.com/NuGet/docs.microsoft.com-nuget/live/docs/guides/media/ColorPicker_16x16x24.bmp)
 
-Růžová pozadí je nahrazena za běhu. Když se změní motiv sady Visual Studio a očekává se barva pozadí, jsou ikony Přebarvené. Další informace najdete v referenčních [obrázcích a ikonách pro Visual Studio](https://docs.microsoft.com/visualstudio/extensibility/ux-guidelines/images-and-icons-for-visual-studio).
+Růžové pozadí je nahrazeno za běhu. Ikony jsou přebarveny při změně motivu sady Visual Studio a očekává se barva pozadí. Další informace naleznete v [odkazech na obrázky a ikony sady Visual Studio](https://docs.microsoft.com/visualstudio/extensibility/ux-guidelines/images-and-icons-for-visual-studio).
 
-V následujícím příkladu obsahuje projekt soubor s obrázkem s názvem "ManagedPackage. MyCustomControl. png".
+V níže uvedeném příkladu projekt obsahuje soubor obrázku s názvem "ManagedPackage.MyCustomControl.png".
 
 ![Nastavení vlastní ikony v projektu](media/UWP-control-custom-icon.png)
 
 > [!Note]
-> Pro nativní ovládací prvky je nutné umístit ikonu jako prostředek v projektu `design.dll`.
+> U nativních ovládacích prvků je nutné `design.dll` umístit ikonu jako zdroj do projektu.
 
-## <a name="support-specific-windows-platform-versions"></a>Podporují konkrétní verze platformy Windows.
+## <a name="support-specific-windows-platform-versions"></a>Podpora konkrétních verzí platformy Windows
 
-Balíčky UWP mají TargetPlatformVersion (TPV) a TargetPlatformMinVersion (TPMinV), které definují horní a dolní meze verze operačního systému, kde se dá aplikace nainstalovat. TPV dále určuje verzi sady SDK, proti které je aplikace sestavena. Nezapomeňte na tyto vlastnosti při vytváření balíčku UWP: použití rozhraní API mimo hranice verzí platforem definované v aplikaci způsobí selhání sestavení nebo selhání aplikace za běhu.
+Balíčky UPW mají TargetPlatformVersion (TPV) a TargetPlatformMinVersion (TPMinV), které definují horní a dolní hranice verze operačního systému, kde lze nainstalovat aplikaci. TPV dále určuje verzi sady SDK, proti které je aplikace postavena. Mějte na paměti tyto vlastnosti při vytváření balíčku UPW: použití rozhraní API mimo hranice verze platformy definované v aplikaci způsobí, že sestavení nezdaří nebo aplikace nezdaří za běhu.
 
-Řekněme například, že jste nastavili TPMinV pro balíček Controls na Windows 10 výročí Edition (10,0; Sestavení 14393), aby bylo zajištěno, že balíček je spotřebován pouze projekty UWP, které odpovídají danému dolnímu omezení. Chcete-li, aby bylo možné balíček využívat v projektech UWP, je nutné zabalit ovládací prvky s následujícími názvy složek:
+Řekněme například, že jste nastavili tpminv pro balíček ovládacích prvků na Windows 10 Anniversary Edition (10.0; Sestavení 14393), takže chcete zajistit, že balíček je spotřebována pouze projekty UPW, které odpovídají dolní mez. Chcete-li povolit, aby byl balíček spotřebován projekty UPW, je nutné zabalit ovládací prvky s následujícími názvy složek:
 
     \lib\uap10.0.14393\*
     \ref\uap10.0.14393\*
 
-NuGet bude automaticky kontrolovat TPMinV projektu, a pokud je nižší než Windows 10 výročí Edition (10,0;), instalace selže. Sestavení 14393)
+NuGet automaticky zkontroluje TPMinV náročného projektu a nezdaří instalaci, pokud je nižší než Windows 10 Anniversary Edition (10.0; Budova 14393)
 
-V případě WPF řekněme, že chcete, aby váš balíček WPF Controls byly spotřebované projekty, které cílí na .NET Framework v 4.6.1 nebo vyšší. Aby bylo možné tento postup vyhovět, je nutné zabalit ovládací prvky s následujícími názvy složek:
+V případě WPF řekněme, že chcete, aby váš balíček wpf ovládacích prvků spotřebovávat projekty cílení .NET Framework v4.6.1 nebo vyšší. Chcete-li vynutit, že je nutné zabalit ovládací prvky s následujícími názvy složek:
 
     \lib\net461\*
     \ref\net461\*
 
-## <a name="add-design-time-support"></a>Přidání podpory pro dobu návrhu
+## <a name="add-design-time-support"></a>Přidání podpory návrhu
 
-Chcete-li nakonfigurovat, kde se vlastnosti ovládacího prvku zobrazí v inspektoru vlastností, přidejte vlastní doplňky atd., umístěte soubor `design.dll` do složky `lib\uap10.0.14393\Design` tak, aby odpovídala cílové platformě. Aby bylo zajištěno, že funkce **[Upravit šablonu > upravit kopírování](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)** funguje, je nutné zahrnout `Generic.xaml` a všechny slovníky prostředků, které se sloučí do složky `<your_assembly_name>\Themes` (znovu pomocí vlastního názvu sestavení). (Tento soubor nemá žádný vliv na chování za běhu ovládacího prvku.) Struktura složek by tedy vypadala takto:
+Chcete-li nakonfigurovat, kde se vlastnosti ovládacího prvku zobrazí v `design.dll` inspektoru `lib\uap10.0.14393\Design` vlastností, přidejte vlastní adorners atd., umístěte soubor do složky podle potřeby na cílovou platformu. Chcete-li zajistit, aby funkce **[Upravit šablonu > Upravit kopii](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)** fungovala, musíte do složky zahrnout slovníky `Generic.xaml` prostředků a všechny slovníky prostředků, které slučuje `<your_assembly_name>\Themes` (opět pomocí skutečného názvu sestavení). (Tento soubor nemá žádný vliv na chování ovládacího prvku za běhu.) Struktura složek by se tedy jevila takto:
 
     \lib
       \uap10.0.14393
@@ -131,7 +131,7 @@ Chcete-li nakonfigurovat, kde se vlastnosti ovládacího prvku zobrazí v inspek
             Generic.xaml
 
 
-V případě WPF pokračuje v příkladu, kde chcete, aby byl balíček WPF ovládací prvky spotřebován projekty cílené na .NET Framework v 4.6.1 nebo vyšší:
+Pro WPF, pokračování v příkladu, kde chcete, aby váš wpf ovládací prvky balíček spotřebovávat projekty cílení .NET Framework v4.6.1 nebo vyšší:
 
     \lib
       \net461
@@ -142,18 +142,18 @@ V případě WPF pokračuje v příkladu, kde chcete, aby byl balíček WPF ovl�
             Generic.xaml
 
 > [!Note]
-> Ve výchozím nastavení se vlastnosti ovládacího prvku zobrazí pod kategorií různé v inspektoru vlastností.
+> Ve výchozím nastavení se vlastnosti ovládacího prvku zobrazí v kategorii Různé v inspektoru vlastností.
 
 ## <a name="use-strings-and-resources"></a>Použití řetězců a prostředků
 
-Do balíčku můžete vkládat řetězcové prostředky (`.resw`), které lze použít pro ovládací prvek nebo zpracování projektu UWP, nastavením vlastnosti **Akce sestavení** `.resw` souboru na **PRIResource**.
+Můžete vložit prostředky řetězce`.resw`( ) do balíčku, který může být použit ovládacím prvkem nebo náročným projektem UPW, nastavit vlastnost **Build Action** souboru `.resw` na **PRIResource**.
 
-Příklad naleznete v tématu [MyCustomControl.cs](https://github.com/NuGet/Samples/blob/master/ExtensionSDKasNuGetPackage/ManagedPackage/MyCustomControl.cs) v ukázce ExtensionSDKasNuGetPackage.
+Příklad naleznete [MyCustomControl.cs](https://github.com/NuGet/Samples/blob/master/ExtensionSDKasNuGetPackage/ManagedPackage/MyCustomControl.cs) v ExtensionSDKasNuGetPackage vzorku.
 
 > [!Note]
-> To platí pouze pro ovládací prvky UWP.
+> To platí pouze pro ovládací prvky UPW.
 
-## <a name="see-also"></a>Viz také:
+## <a name="see-also"></a>Viz také
 
-- [Vytvoření balíčků UPW](create-uwp-packages.md)
-- [Ukázka ExtensionSDKasNuGetPackage](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage)
+- [Vytvořit balíčky UPW](create-uwp-packages.md)
+- [Ukázka rozšířeníSDKasNuGetPackage](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage)

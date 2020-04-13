@@ -1,61 +1,61 @@
 ---
-title: Požadavky na Data uživatelů
-description: Zásady žádosti o export dat uživatele a odstranit
+title: Požadavky na uživatelská data
+description: Zásady pro vyžádání exportu a odstranění uživatelských dat
 author: karann-msft
 ms.author: karann
 ms.date: 05/01/2018
 ms.topic: conceptual
 ms.openlocfilehash: ef054f741755bccf56eedfd462915b8e9fd6931a
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/28/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "67427512"
 ---
-# <a name="user-data-requests"></a>Požadavky na Data uživatelů
+# <a name="user-data-requests"></a>Požadavky na uživatelská data
 
-nuget.org uživatelé mohli odesílat žádosti o odstranění informace a informace o žádosti o export prostřednictvím [nuget.org](https://www.nuget.org). Oba typy jsou odeslány ve formě podporu požadavků a jsou spustit správci nuget.org do 30 dní.
+nuget.org uživatelé mohou odesílat žádosti o odstranění informací a žádosti o export informací prostřednictvím [nuget.org](https://www.nuget.org). Oba typy jsou odeslány ve formě žádostí o podporu a jsou provedeny správci nuget.org do 30 dnů.
 
-Následující data uživatele jsou přímo přístupné prostřednictvím nuget.org:
+Následující uživatelská data jsou přímo přístupná prostřednictvím nuget.org:
 
-* Účet související data, jako jsou e-mailovou adresu, účet pro přihlášení, profilový obrázek a nastavení e-mailových oznámení
-* Klíče vlastní rozhraní API
-* Seznam balíčků vlastněná podnikem
+* Údaje související s účtem, jako je e-mailová adresa, přihlašovací účet, profilový obrázek a nastavení e-mailových oznámení
+* Vlastněné klíče ROZHRANÍ API
+* Seznam vlastněných balíčků
 
-Tato data není součástí data exportovaná prostřednictvím žádosti o podporu.
+Tato data nejsou zahrnuta v datech exportovaných prostřednictvím žádosti o podporu.
 
-## <a name="identifying-customer-data"></a>Identifikace zákaznická data
+## <a name="identifying-customer-data"></a>Identifikace údajů o zákaznících
 
-Zákaznická data je možné identifikovat jako nuget.org názvy uživatelských účtů.
+Údaje o zákaznících lze identifikovat jako nuget.org názvy uživatelských účtů.
 
-## <a name="deleting-customer-data"></a>Odstraňuje se zákaznická data
+## <a name="deleting-customer-data"></a>Odstranění dat zákazníků
 
-Žádost o odstranění uživatele data z webu nuget.org:
+Chcete-li požádat o odstranění uživatelských dat z nuget.org:
 
-1. Uživatel musí přihlásit k [nuget.org](https://www.nuget.org)
-1. Uživatel, musíte odeslat žádost pro svůj účet odstranit [nuget.org/account/delete](https://www.nuget.org/account/delete)
+1. Uživatel se musí přihlásit k [nuget.org](https://www.nuget.org)
+1. Uživatel musí odeslat žádost o odstranění svého účtu [nuget.org/account/delete](https://www.nuget.org/account/delete)
 
-Uživatelé, kteří jsou výhradní vlastníci balíčky můžou najít novým vlastníkům před chce mít jeho účet odstraněn. Pokud nepřevezme vlastnictví balíčku, je balíček NuGet neuvedené v seznamu a v důsledku toho už nejsou k dispozici ve vyhledávacích dotazů v sadě Visual Studio nebo na webu nuget.org. Před odstraněním účtu, správce nuget.org pracovat uživatele o nalezení novým vlastníkům pro balíčky, které vlastní.
+Uživatelům, kteří jsou výhradními vlastníky balíčků, doporučujeme najít nové vlastníky, než požádají o odstranění svého účtu. Pokud vlastnictví balíčku není převedena, balíček NuGet je neuvedena a v důsledku toho již není k dispozici ve vyhledávacích dotazech v sadě Visual Studio nebo na webu nuget.org. Před odstraněním účtu nuget.org správci spolupracují s uživatelem na hledání nových vlastníků pro balíčky, které vlastní.
 
-Účet akce odstranění dokončení správcem nuget.org do 30 dní od data požadavku.
+Akci odstranění účtu dokončí správce nuget.org do 30 dnů od data žádosti.
 
-Při odstraňování účtu všechna data uživatele se odebere ze systému nuget.org a budou provedeny následující akce:
+Po odstranění účtu budou všechna data uživatele odebrána ze systému nuget.org a budou podniknuty následující akce:
 
-* Odstraněný účet stane odregistrovat s nuget.org
-* Všechny vlastněné, že klíče rozhraní API se odstraní.
-* Všechny rezervované obory názvů jsou všeobecně dostupné
-* Odeberou se všechny vlastnictví balíčku
+* Odstraněný účet se stane neregistrovaným u nuget.org
+* Všechny vlastněné klíče ROZHRANÍ API jsou odstraněny.
+* Všechny vyhrazené obory názvů jsou uvolněny.
+* Jakékoli vlastnictví balíčku bude odebráno.
 
-Vlastní balíčky jsou *není* odstraněn. I když neuvedené ve výsledcích hledání, zůstaly dostupné prostřednictvím obnovení balíčků pro projekty, které jsou na nich závislé.
+Vlastněné balíčky *nejsou* odstraněny. Přestože nejsou uvedeny z výsledků hledání, zůstávají k dispozici prostřednictvím obnovení balíčku pro projekty, které jsou na nich závislé.
 
-## <a name="exporting-customer-data"></a>Export zákaznických dat
+## <a name="exporting-customer-data"></a>Export dat zákazníků
 
-Po přihlášení na nuget.org, uživatel může odeslat žádost o export prostřednictvím [nuget.org/policies/Contact](https://www.nuget.org/policies/Contact)
+Po přihlášení k nuget.org může uživatel odeslat žádost o export prostřednictvím [nuget.org/policies/Contact](https://www.nuget.org/policies/Contact)
 
-Data exportovaná je k dispozici po dobu 48 hodin na uživatele ke stažení prostřednictvím objektu Blob Azure. Po 48 hodinách přístup vyprší a uživatel musí odeslat novou žádost o export, podle potřeby.
+Exportovaná data jsou k dispozici pro 48 hodin pro uživatele ke stažení prostřednictvím objektu blob Azure. Po 48 hodinách vyprší platnost přístupu a uživatel musí podle potřeby odeslat novou žádost o export.
 
 Exportovaná data zahrnují:
 
-* Žádostí o podporu uživatele
-* Akce uživatele (publikování balíčku, vytvořte účet) jako trvalý v protokolech auditu
-* Žádné informace o uživateli jako trvalý v protokolech služby IIS
+* Požadavky uživatele na podporu
+* Akce uživatele (publikovat balíček, vytvořit účet) jako trvalé v protokolech auditu
+* Všechny informace o uživateli jako trvalé v protokolech iis

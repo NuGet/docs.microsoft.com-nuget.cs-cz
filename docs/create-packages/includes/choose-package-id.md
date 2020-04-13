@@ -1,26 +1,26 @@
 ---
 ms.openlocfilehash: c92f6e0c34347ee8555d416140d95ea2df5a3fbb
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "73610557"
 ---
-Identifikátor balíčku a číslo verze jsou dvě nejdůležitější hodnoty v projektu, protože jednoznačně identifikují přesný kód obsažený v balíčku.
+Identifikátor balíčku a číslo verze jsou dvě nejdůležitější hodnoty v projektu, protože jednoznačně identifikují přesný kód, který je obsažen v balíčku.
 
-**Osvědčené postupy pro identifikátor balíčku:**
+**Doporučené postupy pro identifikátor balíčku:**
 
-- **Jedinečnost**: identifikátor musí být jedinečný v rámci NuGet.org nebo bez ohledu na to, jakou galerii hostují balíček. Než se rozhodnete pro identifikátor, vyhledejte příslušnou galerii a ověřte, jestli se tento název už používá. Aby nedocházelo ke konfliktům, dobrým vzorem je použít název vaší společnosti jako první část identifikátoru, například `Contoso.`.
-- **Obor názvů jako názvy**: Sledujte vzor podobný oborům názvů v rozhraní .NET pomocí notace tečky namísto spojovníků. Použijte například `Contoso.Utility.UsefulStuff` místo `Contoso-Utility-UsefulStuff` nebo `Contoso_Utility_UsefulStuff`. Příjemci také naleznou užitečné, pokud se identifikátor balíčku shoduje s obory názvů použitými v kódu.
-- **Ukázkové balíčky**: Pokud vytváříte balíček ukázkového kódu, který ukazuje, jak použít jiný balíček, připojte `.Sample` jako příponu k identifikátoru, jako v `Contoso.Utility.UsefulStuff.Sample`. (Vzorový balíček samozřejmě má závislost na druhém balíčku.) Při vytváření ukázkového balíčku použijte hodnotu `contentFiles` v `<IncludeAssets>`. Ve složce `content` uspořádejte vzorový kód do složky s názvem `\Samples\<identifier>` jako v `\Samples\Contoso.Utility.UsefulStuff.Sample`.
+- **Jedinečnost**: Identifikátor musí být jedinečný v celé nuget.org nebo v jakékoli galerii, která balíček hostuje. Než se rozhodnete pro identifikátor, vyhledejte v příslušné galerii, zda je název již používán. Chcete-li se vyhnout konfliktům, je dobrým vzorem použití názvu společnosti `Contoso.`jako první části identifikátoru, například .
+- **Názvy podobné oboru názvů**: Postupujte podle vzoru podobného oborům názvů v rozhraní .NET pomocí tečkového zápisu místo spojovníků. Například použijte `Contoso.Utility.UsefulStuff` spíše `Contoso-Utility-UsefulStuff` `Contoso_Utility_UsefulStuff`než nebo . Spotřebitelé také najít užitečné, když identifikátor balíčku odpovídá obory názvů používané v kódu.
+- **Ukázkové balíčky**: Pokud vytvoříte balíček ukázkový kód, `.Sample` který ukazuje, jak používat jiný `Contoso.Utility.UsefulStuff.Sample`balíček, připojte jako příponu k identifikátoru, jako v . (Ukázkový balíček by samozřejmě měl závislost na druhém balíčku.) Při vytváření ukázkového balíčku `contentFiles` použijte `<IncludeAssets>`hodnotu v . Ve `content` složce uspořádejte ukázkový `\Samples\<identifier>` kód `\Samples\Contoso.Utility.UsefulStuff.Sample`do složky volané jako v .
 
-**Osvědčené postupy pro verzi balíčku:**
+**Doporučené postupy pro verzi balíčku:**
 
-- Obecně platí, že nastavte verzi balíčku tak, aby odpovídala projektu (nebo sestavení), i když to není bezpodmínečně nutné. Toto je jednoduchá skutečnost při omezení balíčku na jediné sestavení. Celkově mějte na paměti, že aplikace NuGet pracuje s verzemi balíčku při řešení závislostí, nikoli ve verzích sestavení.
-- Při použití nestandardního schématu verzí nezapomeňte zvážit pravidla správy verzí NuGet, jak je vysvětleno v tématu [Správa verzí balíčků](../../concepts/package-versioning.md). NuGet je většinou [kompatibilní s semver 2](../../concepts/package-versioning.md#semantic-versioning-200).
+- Obecně nastavte verzi balíčku tak, aby odpovídala projektu (nebo sestavení), i když to není nezbytně nutné. Jedná se o jednoduchou záležitost, když omezíte balíček na jedno sestavení. Celkově nezapomeňte, že NuGet sám se zabývá verze balíčků při řešení závislostí, nikoli verze sestavení.
+- Při použití nestandardní verze schématu, nezapomeňte zvážit NuGet pravidla správy verzí, jak je vysvětleno v [package versioning](../../concepts/package-versioning.md). NuGet je většinou [semver 2 kompatibilní](../../concepts/package-versioning.md#semantic-versioning-200).
 
-> Informace o řešení závislostí najdete v tématu věnovaném [řešení závislostí s PackageReference](../../concepts/dependency-resolution.md#dependency-resolution-with-packagereference). Starší informace, které mohou být užitečné také pro lepší pochopení správy verzí, najdete v této sérii příspěvků na blogu.
+> Informace o rozlišení závislostí naleznete v [tématu Řešení závislostí s PackageReference](../../concepts/dependency-resolution.md#dependency-resolution-with-packagereference). Pro starší informace, které mohou být také užitečné pro lepší pochopení správy verzí, naleznete v této sérii blogových příspěvků.
 >
-> - [Část 1: pořízení Hell knihovny DLL](https://blog.davidebbo.com/2011/01/nuget-versioning-part-1-taking-on-dll.html)
-> - [Část 2: základní algoritmus](https://blog.davidebbo.com/2011/01/nuget-versioning-part-2-core-algorithm.html)
-> - [Část 3: sjednocení pomocí přesměrování vazeb](https://blog.davidebbo.com/2011/01/nuget-versioning-part-3-unification-via.html)
+> - [Část 1: Převzetí DLL Hell](https://blog.davidebbo.com/2011/01/nuget-versioning-part-1-taking-on-dll.html)
+> - [Část 2: Základní algoritmus](https://blog.davidebbo.com/2011/01/nuget-versioning-part-2-core-algorithm.html)
+> - [Část 3: Sjednocení prostřednictvím závazných přesměrování](https://blog.davidebbo.com/2011/01/nuget-versioning-part-3-unification-via.html)

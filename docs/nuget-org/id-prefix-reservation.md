@@ -1,102 +1,102 @@
 ---
 title: Rezervace předpony ID
-description: Popis funkce rezervace předpony ID balíčku a průvodce vytvářením
+description: Popis funkce rezervace ID balíčku a průvodce autorem.
 author: karann-msft
 ms.author: karann
 ms.date: 09/07/2019
 ms.topic: reference
 ms.reviewer: karann
 ms.openlocfilehash: da464cc44d8c874e13c0cdfab871f31e643b577f
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "73610498"
 ---
 # <a name="package-id-prefix-reservation"></a>Rezervace předpony ID balíčku
 
-Vlastníci balíčku si můžou vyhradit a chránit svoji identitu tím, že si zachovají předpony ID. Příjemci balíčku jsou k dispozici další informace, pokud jsou nenáročné na balíčky, které jsou náročné, v jejich identifikačních vlastnostech. 
+Vlastníci balíčků mohou rezervovat a chránit svou identitu rezervací předponek ID. Příjemci balíčků jsou opatřeny další informace, pokud balíčky, které spotřebovávají nejsou klamavé v jejich identifikační vlastnosti. 
 
-[NuGet.org](https://www.nuget.org/) a visual Studio 2017 verze 15,4 nebo novější zobrazí vizuální indikátor pro balíčky, které jsou odesílány vlastníky s vyhrazenou předponou ID balíčku, pokud balíček odpovídá vzoru pro pojmenování předpony vyhrazeného ID. Níže uvedený odkaz vysvětluje, co znamená rezervace předpony ID a jak může vlastník použít pro předponu ID.
+[nuget.org](https://www.nuget.org/) a Visual Studio 2017 verze 15.4 nebo novější zobrazit vizuální indikátor pro balíčky, které jsou odeslány vlastníky s předponou id rezervované ho balíku, tak dlouho, dokud balíček odpovídá vyhrazené ID předpony pojmenování vzor. Níže uvedený odkaz vysvětluje, co rezervace předpony ID znamená a jak může vlastník požádat o předponu ID.
 
 ## <a name="id-prefix-reservation-details"></a>Podrobnosti rezervace předpony ID
 
-Když je vyhrazená předpona ID balíčku, v galerii [NuGet.org](https://www.nuget.org/) a také v aplikaci Visual Studio dojde k několika akcím. Kromě toho existují pokročilé scénáře, které jsou podporovány rezervací předpony ID, jako je například nastavení předpony jako Public, delegování podmnožin předpony více vlastníkům.
+Když je předpona ID balíčku vyhrazena, několik věcí se stane v [galerii nuget.org,](https://www.nuget.org/) stejně jako v sadě Visual Studio. Kromě toho existují pokročilé scénáře, které jsou podporovány rezervace mise předpony ID, jako je například nastavení předpony jako "veřejné", delegování podskupin předpony na více vlastníků.
 
-### <a name="id-prefix-reservation-on-nugetorg"></a>Rezervace předpony ID v nuget.org
+### <a name="id-prefix-reservation-on-nugetorg"></a>ID rezervace předpony na nuget.org
 
-Pokud je předpona vyhrazena pro [NuGet.org](https://www.nuget.org/), dojde k následujícímu:
+Pokud je předpona rezervována v [nuget.org](https://www.nuget.org/), dojde k následujícímu:
 
-1. Rezervace předpony je přidružená k vlastníkovi nebo sadě vlastníků v [NuGet.org](https://www.nuget.org/).
+1. Rezervace předpony je přidružena k vlastníkovi nebo sadě vlastníků na [nuget.org](https://www.nuget.org/).
 
-1. Pokaždé, když se odešle balíček do [NuGet.org](https://www.nuget.org/) s ID, které se shoduje s předponou rezervovaného ID, balíček se zamítne, pokud nepochází od vlastníků, které rezervovaly předponu ID.
+1. Vždy, když je balíček odeslán [nuget.org](https://www.nuget.org/) s ID, které odpovídá předponě rezervovaného ID, je balíček odmítnut, pokud nepochází od vlastníka, který si předponu ID rezervoval.
 
-1. Každý balíček, který odpovídá předponě rezervovaného ID a pochází od vlastníků, které rezervovaly předponu ID, bude mít vizuální indikátor v aplikaci Visual Studio 2017 verze 15,4 nebo novější a na [NuGet.org](https://www.nuget.org/) , který označuje, že balíček je pod rezervovanou předponou ID. To platí pro nové odesílání balíčků i pro existující balíčky v rámci vlastníků. **Poznámka:** Indikátor v aplikaci Visual Studio se zobrazí pouze v případě, že je jako zdroj balíčku vybrán jeden informační kanál.
+1. Každý balíček, který odpovídá předponě rezervovaného ID a pochází od vlastníka, který si rezervoval předponu ID, bude mít vizuální indikátor ve Visual Studiu 2017 verze 15.4 nebo novější a [na nuget.org](https://www.nuget.org/) označující, že balíček je pod předponou vyhrazeného ID. To platí jak pro nové odeslání balíčku, tak pro stávající balíčky pod vlastníkem (vlastníky). **Poznámka:** Indikátor v sadě Visual Studio se zobrazí pouze v případě, že je jako zdroj balíčku vybrán jeden zdroj.
 
-1. Všechny dříve existující balíčky, které odpovídají předponě rezervovaného ID, ale *nejsou vlastněny vlastníkem rezervované* předpony, zůstanou beze změny (nebudou v seznamu uvedeny), ale nebudou mít indikátor vizuálu. Kromě toho budou moci vlastníci těchto balíčků i nadále odesílat nové verze do balíčku.
+1. Všechny dříve existující balíčky, které odpovídají předponě rezervovaného ID, ale *nejsou* vlastněny vlastníkem vyhrazené předpony, zůstanou nezměněny (nebudou neuvedeny, ale také nebudou mít vizuální indikátor). Kromě toho budou vlastníci těchto balíčků stále moci odeslat nové verze do balíčku.
 
 Tyto změny jsou založeny na následujících podmínkách a ukládají několik dalších omezení:
 
-- Pouze jeden vlastník balíčku musí mít vyhrazenou předponu pro zobrazení vizuálního indikátoru (pro balíčky s více vlastníky).
+- Pouze jeden vlastník balíčku musí mít vyhrazenou předponu pro vizuální indikátor zobrazí (pro balíčky s více vlastníky).
 
-- Pokud je k dispozici více než jeden vlastník balíčku, kde má jeden nebo více vlastníků vyhrazenou předponu a jeden nebo více vlastníků nemá rezervovanou předponu, mohou jiní vlastníky s rezervovanou předponou odebrat pouze vlastníci. Vlastníci, kteří nemají vyhrazenou předponu, nemohou odebrat vlastníky s vyhrazenou předponou. Můžou pořád odebrat i další vlastníky, které nemají rezervovanou předponu.
+- Pokud existuje více než jeden vlastník balíčku, kde jeden nebo více vlastníků má vyhrazenou předponu a jeden nebo více vlastníků nemá vyhrazenou předponu, pak pouze vlastníci s vyhrazenou předponou mohou odebrat jinévlastníky s vyhrazenou předponou. Vlastníci, kteří nemají rezervovanou předponu, nemohou odebrat vlastníky s rezervovanou předponou. Stále mohou odebrat ostatní vlastníky, kteří také nemají rezervovanou předponu.
 
-- Jakmile má balíček vizuální indikátor, měl by mít *vždy* vizuální indikátor (Zaručujeme, že nejméně jeden vlastník s rezervovanou předponou zůstane vždy vlastníkem).
+- Jakmile má balíček vizuální indikátor, měl by mít *vždy* vizuální indikátor (zaručující, že alespoň jeden vlastník s vyhrazenou předponou zůstane vždy vlastníkem)
 
-### <a name="advanced-prefix-reservation-scenarios"></a>Pokročilé scénáře rezervace předpon
+### <a name="advanced-prefix-reservation-scenarios"></a>Scénáře rozšířené rezervace předpony
 
-K dispozici je několik pokročilejších scénářů rezervace prefixů, včetně delegování s předponou a označení předpon jako veřejných. Níže jsou uvedeny pokročilejší rezervace předpon, které je možné provést. 
+Existuje několik pokročilejších scénářů rezervace předpony popsaných níže, včetně delegování podpony a označení předpony jako veřejné. Níže jsou pokročilejší rezervace předpony, které lze provést. 
 
-- Během rezervace předpony může vlastník požádat o delegování podmnožiny předpon (nebo předpony) na jiné vlastníky. Například pokud "[Microsoft](https://www.nuget.org/profiles/microsoft)" vlastní Microsoft.\*, ale[ASPNET](https://www.nuget.org/profiles/aspnet)chce rezervovat Microsoft. ASPNET.\*","[Microsoft](https://www.nuget.org/profiles/microsoft)"se může rozhodnout delegovat" Microsoft. ASPNET.\*k účtu [ASPNET](https://www.nuget.org/profiles/aspnet) .
+- Během rezervace předpony může vlastník požádat o delegování podmnoží předpony (nebo předpony) jiným vlastníkům. Například pokud '[Microsoft](https://www.nuget.org/profiles/microsoft)' vlastní 'Microsoft. \*', ale '[aspnet](https://www.nuget.org/profiles/aspnet)' chce rezervovat 'Microsoft.AspNet. \*', '[Microsoft](https://www.nuget.org/profiles/microsoft)' může zvolit delegovat 'Microsoft.AspNet. \*' na účet [aspnet.](https://www.nuget.org/profiles/aspnet)
 
-- V rámci rezervované předpony se vlastník může rozhodnout, že má předponu veřejnou. Tím se jim budou zobrazovat indikátory, které ukazují, že balíček pochází z rezervované předpony, ale **neblokuje** budoucí odesílání balíčků na předponu pro libovolného vlastníka. To je užitečné pro open source projekty s mnoha přispěvateli – přispěvatelé Top nebo Core můžou mít vyhrazenou předponu, ale může být pořád otevřená pro všechny přispěvatele. 
+- Během rezervace předpony může vlastník zvolit, zda předponu zveřejní. To jim stále poskytne vizuální indikátor, který ukazuje, že balíček pochází z vyhrazené předpony, ale **nebude** blokovat budoucí odeslání balíčku na předponu pro žádného vlastníka. To je užitečné pro open source projekty s mnoha přispěvateli – horní nebo základní přispěvatelé mohou mít předponu vyhrazenou, ale stále může být otevřena všem přispěvatelům. 
 
 ### <a name="prefix-reservation-visual-indicator"></a>Vizuální indikátor rezervace předpony
 
-Když balíček pochází z rezervované předpony, zobrazí se v galerii [NuGet.org](https://www.nuget.org/) a v aplikaci visual Studio 2017 verze 15,4 nebo novější následující vizuální indikátory:
+Když balíček pochází z rezervované předpony, zobrazí se níže uvedené vizuální indikátory na [galerii nuget.org](https://www.nuget.org/) a ve Visual Studiu 2017 verze 15.4 nebo novější:
 
-Galerie **nuget.org**
-![galerii NuGet.org](media/nuget-gallery-reserved-prefix.png)
+**nuget.org Gallery**galerie nuget.org nuget.org
+![](media/nuget-gallery-reserved-prefix.png)
 
 **Visual Studio**
 ![Visual Studio](media/visual-studio-reserved-prefix.png)
 
-## <a name="id-prefix-reservation-application-process"></a>Proces aplikace rezervace předpony ID
+## <a name="id-prefix-reservation-application-process"></a>Proces žádosti o žádost o rezervaci předpony ID
 
-1. Zkontrolujte kritéria přijetí [pro rezervaci ID předpony](#id-prefix-reservation-criteria).
+1. Zkontrolujte [kritéria přijetí rezervace ID předpony](#id-prefix-reservation-criteria).
 
-2. Určete předpony, které chcete vyhradit, kromě všech [pokročilých scénářů vyhrazených předpon](#advanced-prefix-reservation-scenarios) , které můžete potřebovat.
+2. Určete předpony, které chcete rezervovat, kromě všech [pokročilých scénářů rezervace předpony,](#advanced-prefix-reservation-scenarios) které můžete potřebovat.
 
-3. Odešlete e-mailovou zprávu [account@nuget.org](mailto:account@nuget.org) se zobrazovaným jménem vlastníka na [NuGet.org](https://www.nuget.org/)a všemi rezervovanými předponami, které požadujete. Pokud delegujete podmnožiny předpon více vlastníkům, ujistěte se, že jste uváděli všechny zobrazované názvy a podmnožiny předpon všech vlastníků.
+3. Odešlete [account@nuget.org](mailto:account@nuget.org) poštu se zobrazovaným jménem vlastníka na [nuget.org](https://www.nuget.org/)a také všechny vyhrazené předpony, které požadujete. Pokud delegujete podmnožiny předpony na více vlastníků, nezapomeňte uvést všechny názvy zobrazení vlastníka a podmnožiny předponu.
 
-Po odeslání aplikace se zobrazí oznámení o přijetí nebo zamítnutí (s kritérii, která způsobila zamítnutí). Pro potvrzení identity vlastníka možná budete muset požádat o další identifikační otázky.
+Po podání žádosti budete upozorněni na přijetí nebo zamítnutí (s kritérii, která způsobila zamítnutí). Možná budeme muset položit další identifikační otázky, abychom potvrdili identitu vlastníka.
 
 ### <a name="id-prefix-reservation-criteria"></a>Kritéria rezervace předpony ID
 
-Při kontrole libovolné aplikace pro rezervaci předpony ID tým [NuGet.org](https://www.nuget.org/) vyhodnotí aplikaci proti níže uvedeným kritériím. Není nutné splnit všechna kritéria, aby bylo možné vyhradit předponu, ale aplikace může být zamítnuta, pokud není k dispozici podstatný důkaz o splněných kritériích (s uvedeným vysvětlením):
+Při kontrole jakékoli žádosti o rezervaci předpony ID vyhodnotí [nuget.org](https://www.nuget.org/) tým aplikaci podle níže uvedených kritérií. Aby byla předpona rezervována, musí být splněna všechna kritéria, ale žádost může být zamítnuta, pokud neexistují podstatné důkazy o splnění kritérií (s vysvětlením):
 
-1. Je správně předpona ID balíčku a jednoznačně identifikuje vlastníka balíčku?
+1. Má předpona ID balíčku správně a jasně identifikovat vlastníka balíčku?
 
-1. Povolil se vlastník balíčku [2FA pro svůj účet NuGet.org](individual-accounts.md#enable-two-factor-authentication-2fa)?
+1. Povolil vlastník balíčku [2FA pro svůj NuGet.org účet](individual-accounts.md#enable-two-factor-authentication-2fa)?
 
-1. Je významný počet balíčků, které již byly odeslány vlastníkem v rámci předpony ID balíčku?
+1. Je významný počet balíčků, které již byly odeslány vlastníkem pod předponou ID balíčku?
 
-1. Je prefix ID balíčku něco společného, který by neměl patřit žádnému individuálnímu vlastníkovi nebo organizaci?
+1. Je předpona ID balíčku předpona něco společného, co by nemělo patřit žádnému jednotlivému vlastníkovi nebo organizaci?
 
-1. *Nepovedlo* se zachovávat předponu ID balíčku, která by způsobila nejednoznačnost a nejasnost pro komunitu?
+1. *Nezpůsobilo* by vyhrazení předpony ID balíčku nejednoznačnost a zmatek pro komunitu?
 
-1. Jsou identifikující vlastnosti balíčků, které odpovídají předponě ID balíčku, jasné a konzistentní (zejména autor balíčku)?
+1. Jsou identifikační vlastnosti balíčků, které odpovídají předponě ID balíčku, jasné a konzistentní (zejména autor balíčku)?
 
-1. Mají balíčky licenci (pomocí elementu metadata [licence](../reference/nuspec.md#license) a licenseUrl, který se už nepoužívá)?
+1. Mají balíčky licenci (pomocí prvku metadat [licence](../reference/nuspec.md#license) a NOT licenseUrl, který je zastaralá)?
 
-1. Pokud mají balíčky ikonu (pomocí elementu metadat iconUrl), jsou také použity v prvku metadat [ikony](../reference/nuspec.md#icon) (není nutné odebrat iconUrl)?
+1. Pokud balíčky mají ikonu (pomocí iconUrl metadata element), jsou také pomocí prvku metadat [ikony](../reference/nuspec.md#icon) (to není požadavek na odstranění iconUrl)?
 
-## <a name="third-party-feed-provider-scenarios"></a>Scénáře poskytovatele kanálu třetích stran
+## <a name="third-party-feed-provider-scenarios"></a>Scénáře poskytovatelů informačních kanálů třetích stran
 
-Pokud se poskytovatel kanálu třetí strany zajímá o implementaci vlastní služby pro poskytování rezervací předpon, může to udělat úpravou vyhledávací služby v poskytovatelích kanálu NuGet v3. Změnou ve službě vyhledávání informačních kanálů je přidání vlastnosti `verified`. Klient NuGet nebude podporovat přidané vlastnosti v kanálu v2.
+Pokud poskytovatel informačního kanálu třetí strany má zájem o implementaci své vlastní služby k poskytování rezervací předpony, může tak učinit úpravou vyhledávací služby v zprostředkovateli informačního kanálu NuGet V3. Změna ve službě vyhledávání zdrojů je `verified` přidání vlastnosti. Klient NuGet nebude podporovat přidané vlastnosti v kanálu V2.
 
-Další informace najdete v dokumentaci k [vyhledávací službě rozhraní API](../api/search-query-service-resource.md).
+Další informace naleznete v [dokumentaci k vyhledávací službě rozhraní API](../api/search-query-service-resource.md).
 
-## <a name="package-id-prefix-reservation-dispute-policy"></a>Zásady sporu pro rezervaci předpony ID balíčku
-Pokud se domníváte, že vlastník na [NuGet.org](https://www.nuget.org) byl přiřazen k rezervaci předpony ID balíčku, která se nachází na výše uvedených kritériích, nebo v jakýchkoli ochranných známkách nebo copyrightech, e-mailové [support@nuget.org](mailto:support@nuget.org) se zadaným prefixem ID, vlastníkem předpony ID a důvodem pro spor přiřazené rezervace předpony.
+## <a name="package-id-prefix-reservation-dispute-policy"></a>Zásady pro spor o rezervaci předpony ID balíčku
+Pokud se domníváte, že majiteli na [NuGet.org](https://www.nuget.org) byla přidělena rezervace předpony id balíčku, která je v [support@nuget.org](mailto:support@nuget.org) rozporu s výše uvedenými kritérii nebo porušuje ochranná práva nebo autorská práva, zašlete prosím e-mail s dotyčnou předponou ID, vlastníka předpony ID a důvodem zpochybnění přiřazené rezervace předpony.
 

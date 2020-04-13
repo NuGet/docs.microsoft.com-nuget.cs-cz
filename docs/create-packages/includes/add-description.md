@@ -1,14 +1,14 @@
 ---
 ms.openlocfilehash: b615bcb78ad2eaf8524bfbf17864d4652e546ff1
-ms.sourcegitcommit: 1a63a84da2719c8141823ac89a20bf507fd22b00
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "80151361"
 ---
-Volitelný popis balíčku, který se zobrazí na stránce NuGet.org balíčku, se buď naplní z `<description></description>`, který se používá v souboru `.csproj` nebo který se nanuspec prostřednictvím `$description` v [souboru.](../../reference/nuspec.md).
+Volitelný popis balíčku, který je zobrazen na stránce NuGet.org balíčku, je `<description></description>` buď `.csproj` vtažen z použitého souboru, nebo vyžádán prostřednictvím `$description` [souboru .nuspec](../../reference/nuspec.md).
 
-Příklad pole _popisu_ je zobrazen v následujícím textu XML souboru `.csproj` pro balíček .NET:
+Příklad pole _popisu_ je uveden v následujícím textu `.csproj` XML souboru pro balíček .NET:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">

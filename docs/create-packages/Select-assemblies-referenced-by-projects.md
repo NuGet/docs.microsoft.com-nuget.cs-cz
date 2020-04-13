@@ -1,37 +1,37 @@
 ---
-title: Vyberte sestavení odkazovaných projektů
-description: Zpřístupníte podmnožinu sestavení v balíčku kompilátoru, všechna sestavení jsou k dispozici za běhu.
+title: Vybrat sestavení odkazovaná projekty
+description: Zpřístupnit kompilátoru podmnožinu sestavení v balíčku, zatímco všechna sestavení jsou k dispozici za běhu.
 author: zivkan
 ms.author: zivkan
 ms.date: 05/24/2019
 ms.topic: conceptual
 ms.openlocfilehash: b32075c3f2c06c15c07d36602bdabdaee8b9405a
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/28/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "67427659"
 ---
-# <a name="select-assemblies-referenced-by-projects"></a>Vyberte sestavení odkazovaných projektů
+# <a name="select-assemblies-referenced-by-projects"></a>Vybrat sestavení odkazovaná projekty
 
-Odkazy na explicitní sestavení umožňuje podmnožinu sestavení má být použit pro technologii IntelliSense a kompilace, všechna sestavení jsou k dispozici v době běhu. `PackageReference` a `packages.config` fungují jinak a díky tomu potřeba starat vytvořit balíček, který má být kompatibilní s oběma typy projektů autory balíčku.
+Explicitní odkazy na sestavení umožňují použití podmnožiny sestavení pro službu IntelliSense a kompilaci, zatímco všechna sestavení jsou k dispozici za běhu. `PackageReference`a `packages.config` pracovat odlišně, a jako výsledek balíček autoři musí dbát na vytvoření balíčku, které mají být kompatibilní s oběma typy projektu.
 
 > [!Note]
-> Odkazy na explicitní sestavení se vztahují na sestavení .NET. Není metoda distribuovat nativní sestavení, které jsou P/vyvolaná ve spravované sestavení.
+> Explicitní odkazy na sestavení se vztahují k sestavením .NET. Není metoda k distribuci nativní sestavení, které jsou P/Vzbuzované spravované sestavení.
 
-## <a name="packagereference-support"></a>`PackageReference` Podpora
+## <a name="packagereference-support"></a>`PackageReference`Podporu
 
-Když projekt používá balíček s `PackageReference` a balíček obsahuje `ref\<tfm>\` adresáře, bude klasifikovat NuGet ty sestaví jako prostředky v době kompilace, zatímco `lib\<tfm>\` sestavení jsou klasifikovány jako za běhu. Sestavení v `ref\<tfm>\` nejsou používány za běhu. To znamená, že je nutné pro libovolné sestavení v `ref\<tfm>\` mít odpovídající sestavení v jednom `lib\<tfm>\` nebo relevantní `runtime\` adresář, v opačném případě modul runtime pravděpodobně dojde k chybám. Od sestavení v `ref\<tfm>\` nejsou používány za běhu, může být [sestavení obsahující jenom metadata](https://github.com/dotnet/roslyn/blob/master/docs/features/refout.md) snížit velikost balíčku.
+Pokud projekt používá balíček s `PackageReference` a `ref\<tfm>\` balíček obsahuje adresář, NuGet klasifikuje tyto `lib\<tfm>\` sestavení jako prostředky v době kompilace, zatímco sestavení jsou klasifikovány jako datové zdroje runtime. Sestavení v `ref\<tfm>\` se nepoužívají za běhu. To znamená, že je `ref\<tfm>\` nezbytné pro všechny sestavení `lib\<tfm>\` v `runtime\` mít odpovídající sestavení v jednom nebo příslušném adresáři, jinak dojde k chybám za běhu. Vzhledem k `ref\<tfm>\` tomu, že sestavení v nejsou používány za běhu, mohou být [sestavení pouze metadata](https://github.com/dotnet/roslyn/blob/master/docs/features/refout.md) ke snížení velikosti balíčku.
 
 > [!Important]
-> Pokud balíček obsahuje soubor nuspec `<references>` – element (používané `packages.config`, viz níže) a neobsahuje sestavení v `ref\<tfm>\`, NuGet budou prezentovat sestavení, které jsou uvedeny v souboru nuspec `<references>` prvek jako prostředky kompilace i prostředí runtime. To znamená, že bude existovat výjimky modulu CLR při muset načíst další sestavení v odkazovaných sestaveních `lib\<tfm>\` adresáře.
+> Pokud balíček obsahuje `<references>` nuspec element `packages.config`(používá , viz níže) `ref\<tfm>\`a neobsahuje sestavení v , NuGet `<references>` bude inzerovat sestavení uvedená v nuspec element jako kompilování a runtime prostředky. To znamená, že budou existovat výjimky za běhu, když odkazovaná `lib\<tfm>\` sestavení potřebují načíst jakékoli jiné sestavení v adresáři.
 
 > [!Note]
-> Pokud balíček obsahuje `runtime\` adresáři NuGet nemusejí podporovat použití prostředků v `lib\` adresáře.
+> Pokud balíček `runtime\` obsahuje adresář, NuGet nesmí používat `lib\` prostředky v adresáři.
 
-## <a name="packagesconfig-support"></a>`packages.config` Podpora
+## <a name="packagesconfig-support"></a>`packages.config`Podporu
 
-Projekty pomocí `packages.config` ke správě NuGet balíčky obvykle přidá odkazy na všechna sestavení v `lib\<tfm>\` adresáře. `ref\` Adresář byl přidán k podpoře `PackageReference` , není proto při použití `packages.config`. Explicitně nastavit, která sestavení jsou odkazovány pro projekty používající `packages.config`, musíte použít balíček [ `<references>` prvku v souboru nuspec](../reference/nuspec.md#explicit-assembly-references). Příklad:
+Projekty, které používají `packages.config` ke správě balíčků NuGet, obvykle přidávají odkazy na všechna sestavení v adresáři. `lib\<tfm>\` Adresář `ref\` byl přidán `PackageReference` do podpory, a proto `packages.config`není považován za použití . Chcete-li explicitně nastavit, která `packages.config`sestavení jsou odkazována pro projekty pomocí , balíček musí použít [ `<references>` prvek v souboru nuspec](../reference/nuspec.md#explicit-assembly-references). Příklad:
 
 ```xml
 <references>
@@ -42,11 +42,11 @@ Projekty pomocí `packages.config` ke správě NuGet balíčky obvykle přidá o
 ```
 
 > [!Note]
-> `packages.config` použití projektu proces volá [resolveassemblyreference –](https://github.com/Microsoft/msbuild/blob/master/documentation/wiki/ResolveAssemblyReference.md) zkopírujte sestavení do `bin\<configuration>\` výstupní adresář. Sestavení vašeho projektu je zkopírován, pak systém sestavení vypadá v manifestu sestavení pro odkazované sestavení a pak zkopíruje tato sestavení a rekurzivně opakuje pro všechna sestavení. To znamená, že pokud žádná sestavení v vaše `lib\<tfm>\` adresáře nejsou uvedené v jakékoli jiné manifest sestavení jako závislost (Pokud je sestavení načtených v modulu runtime pomocí `Assembly.Load`, MEF nebo jiné rozhraní framework injektáž závislostí), nemusí být zkopírovat do svého projektu `bin\<configuration>\` výstupní adresář navzdory tomu, že v `bin\<tfm>\`.
+> `packages.config`projekt použít proces s názvem [ResolveAssemblyReference](https://github.com/Microsoft/msbuild/blob/master/documentation/wiki/ResolveAssemblyReference.md) `bin\<configuration>\` ke kopírování sestavení do výstupního adresáře. Sestavení projektu je zkopírováno, pak systém sestavení vyhledá manifest sestavení pro odkazovaná sestavení, pak zkopíruje tato sestavení a rekurzivně se opakuje pro všechna sestavení. To znamená, že pokud některé `lib\<tfm>\` sestavení v adresáři nejsou uvedeny v manifestu jiného sestavení jako závislost `Assembly.Load`(pokud je sestavení načteno za běhu pomocí , MEF `bin\<configuration>\` nebo jiného `bin\<tfm>\`rámce vkládání závislostí), nemusí být zkopírováno do výstupního adresáře projektu, přestože je v .
 
 ## <a name="example"></a>Příklad
 
-Tento balíček bude obsahovat tři sestavení `MyLib.dll`, `MyHelpers.dll` a `MyUtilities.dll`, který cílí na rozhraní .NET Framework 4.7.2. `MyUtilities.dll` obsahuje třídy, které mají být používány pouze další dvě sestavení, takže nechci zpřístupnit tyto třídy v technologii IntelliSense nebo v době kompilace projektů s použitím balíčku. Moje `nuspec` soubor musí obsahovat následující prvky XML:
+Můj balíček bude obsahovat `MyHelpers.dll` `MyUtilities.dll`tři sestavení , `MyLib.dll`a , které jsou zaměřené na rozhraní .NET Framework 4.7.2. `MyUtilities.dll`obsahuje třídy určené k použití pouze další dvě sestavení, takže nechci, aby tyto třídy k dispozici v IntelliSense nebo v době kompilace na projekty pomocí balíčku. Soubor `nuspec` musí obsahovat následující prvky XML:
 
 ```xml
 <references>
@@ -57,7 +57,7 @@ Tento balíček bude obsahovat tři sestavení `MyLib.dll`, `MyHelpers.dll` a `M
 </references>
 ```
 
-a budou soubory v balíčku:
+a soubory v balíčku budou:
 
 ```text
 lib\net472\MyLib.dll

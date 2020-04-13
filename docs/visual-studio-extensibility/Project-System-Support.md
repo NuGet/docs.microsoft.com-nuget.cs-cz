@@ -1,41 +1,41 @@
 ---
-title: Podpora NuGet pro projekt systému Visual Studio
-description: Integrace NuGet do projektu systému Visual Studio pro typy projektů třetích stran.
+title: Podpora nugetpro systém projektu sady Visual Studio
+description: Integrace NuGet do systému projektu Visual Studio pro typy projektů třetích stran.
 author: karann-msft
 ms.author: karann
 ms.date: 01/09/2017
 ms.topic: reference
 ms.openlocfilehash: 00a64d95c943e9e5cb3a279358a6495125a1bd87
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551367"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64495921"
 ---
-# <a name="nuget-support-for-the-visual-studio-project-system"></a>Podpora NuGet pro projekt systému Visual Studio
+# <a name="nuget-support-for-the-visual-studio-project-system"></a>Podpora nuget pro systém projektu sady Visual Studio
 
-Pro podporu typů projektů třetích stran v sadě Visual Studio, podporuje NuGet 3.x+ [Common Project System (CPS)](https://github.com/Microsoft/VSProjectSystem/blob/master/doc/overview/intro.md), a NuGet 3.2 + podporuje také systémů projektů prohlášení CPS.
+Pro podporu typů projektů třetích stran v sadě Visual Studio podporuje NuGet 3.x+ [společný projektový systém (CPS)](https://github.com/Microsoft/VSProjectSystem/blob/master/doc/overview/intro.md)a NuGet 3.2+ podporuje také projektové systémy bez CPS.
 
-K integraci s NuGet, musí systém projektu inzerovat vlastní podporu pro všechny možnosti projektu popsané v tomto tématu.
+Chcete-li integrovat s NuGet, projektový systém musí inzerovat vlastní podporu pro všechny možnosti projektu popsané v tomto tématu.
 
 > [!Note]
-> Nemusíte deklarovat funkce, které váš projekt nemá ve skutečnosti pro účely povolení balíčků pro instalaci ve vašem projektu. Mnoho funkcí sady Visual Studio a další rozšíření závisí na možnostech projektu kromě klienta NuGet. Možnosti projektu falešně inzerování může způsobit, že tyto součásti selhání a zkušenosti vašich uživatelů dojít ke snížení.
+> Nedeklarujte možnosti, které váš projekt ve skutečnosti nemá z důvodu povolení balíčků k instalaci v projektu. Mnoho funkcí sady Visual Studio a další rozšíření závisí na možnostech projektu kromě klienta NuGet. Nepravdivě reklamní schopnosti vašeho projektu může vést tyto součásti k poruše a zkušenosti uživatelů ke snížení.
 
-## <a name="advertise-project-capabilities"></a>Inzerování možností projektu
+## <a name="advertise-project-capabilities"></a>Inzerovat možnosti projektu
 
-NuGet klienta Určuje, které balíčky jsou kompatibilní s typem váš projekt na základě [možnosti projektu](https://github.com/Microsoft/VSProjectSystem/blob/master/doc/overview/about_project_capabilities.md), jak je popsáno v následující tabulce.
+Klient NuGet určuje, které balíčky jsou kompatibilní s typem projektu na základě [možností projektu](https://github.com/Microsoft/VSProjectSystem/blob/master/doc/overview/about_project_capabilities.md), jak je popsáno v následující tabulce.
 
-| Funkce | Popis |
+| Schopnost | Popis |
 | --- | --- |
-| Odkazy AssemblyReferences | Označuje, že projekt podporuje (liší od WinRTReferences) odkazy na sestavení. |
-| DeclaredSourceItems | Označuje, že projekt je obvyklou pro projekty MSBuild (ne DNX), deklaruje zdrojové položky v samotném projektu. |
-| UserSourceItems|Označuje, že uživatel může přidat různé soubory do svého projektu. |
+| Odkazy na sestavení | Označuje, že projekt podporuje odkazy na sestavení (odlišné od WinRTReferences). |
+| Deklarované položky zdroje | Označuje, že projekt je typický msbuild projektu (ne DNX) v tom, že deklaruje zdrojové položky v samotném projektu. |
+| Uživatelské položky|Označuje, že uživatel může do svého projektu přidávat libovolné soubory. |
 
-Pro systémy projektu založeného na CPS podrobnosti implementace pro možnosti projektu popsané ve zbytku této části jsme udělali za vás. Zobrazit [deklarace schopnosti projektu v projektech CPS](https://github.com/Microsoft/VSProjectSystem/blob/master/doc/overview/about_project_capabilities.md#how-to-declare-project-capabilities-in-your-project).
+Pro projektové systémy založené na CPS byly provedeny podrobnosti implementace pro možnosti projektu popsané ve zbývající části této části. Viz [deklarování možností projektu v projektech CPS](https://github.com/Microsoft/VSProjectSystem/blob/master/doc/overview/about_project_capabilities.md#how-to-declare-project-capabilities-in-your-project).
 
-## <a name="implementing-vsprojectcapabilitiespresencechecker"></a>Implementing VsProjectCapabilitiesPresenceChecker
+## <a name="implementing-vsprojectcapabilitiespresencechecker"></a>Implementace nástroje VsProjectCapabilitiesPresenceChecker
 
-`VsProjectCapabilitiesPresenceChecker` Třída musí implementovat `IVsBooleanSymbolPresenceChecker` rozhraní, která je definovaná následujícím způsobem:
+Třída `VsProjectCapabilitiesPresenceChecker` musí implementovat `IVsBooleanSymbolPresenceChecker` rozhraní, které je definováno takto:
 
 ```cs
 public interface IVsBooleanSymbolPresenceChecker
@@ -67,7 +67,7 @@ public interface IVsBooleanSymbolPresenceChecker
 }
 ```
 
-Ukázková implementace tohoto rozhraní by pak:
+Ukázková implementace tohoto rozhraní by pak byla:
 
 ```cs
 class VsProjectCapabilitiesPresenceChecker : IVsBooleanSymbolPresenceChecker
@@ -97,13 +97,13 @@ class VsProjectCapabilitiesPresenceChecker : IVsBooleanSymbolPresenceChecker
 }
 ```
 
-Nezapomeňte přidat nebo odebrat možnosti z `ActualProjectCapabilities` založena na co se projektový systém skutečně podporuje. Najdete v článku [projektu dokumentaci funkce](https://github.com/Microsoft/VSProjectSystem/blob/master/doc/overview/project_capabilities.md) úplný popis.
+Nezapomeňte přidat nebo odebrat `ActualProjectCapabilities` funkce ze sady na základě toho, co váš projektový systém skutečně podporuje. Úplné popisy naleznete v dokumentaci k [možnostem projektu.](https://github.com/Microsoft/VSProjectSystem/blob/master/doc/overview/project_capabilities.md)
 
-## <a name="responding-to-queries"></a>Reakce na dotazy
+## <a name="responding-to-queries"></a>Odpovídání na dotazy
 
-Projekt deklaruje díky podpoře tuto funkci `VSHPROPID_ProjectCapabilitiesChecker` vlastnosti prostřednictvím `IVsHierarchy::GetProperty`. Měla by vrátit instanci `Microsoft.VisualStudio.Shell.Interop.IVsBooleanSymbolPresenceChecker`, který je definován v `Microsoft.VisualStudio.Shell.Interop.14.0.DesignTime.dll` sestavení. Odkazují na toto sestavení nainstalováním [svůj balíček NuGet](https://www.nuget.org/packages/Microsoft.VisualStudio.Shell.Interop.14.0.DesignTime).
+Projekt deklaruje tuto `VSHPROPID_ProjectCapabilitiesChecker` schopnost podporou `IVsHierarchy::GetProperty`vlastnostprostřednictvím . By měl vrátit `Microsoft.VisualStudio.Shell.Interop.IVsBooleanSymbolPresenceChecker`instanci , `Microsoft.VisualStudio.Shell.Interop.14.0.DesignTime.dll` která je definována v sestavení. Odkaz na toto sestavení instalací [jeho NuGet balíček](https://www.nuget.org/packages/Microsoft.VisualStudio.Shell.Interop.14.0.DesignTime).
 
-Můžete například přidat následující `case` příkazu vaše `IVsHierarchy::GetProperty` metody `switch` – příkaz:
+Do `switch` příkazu `IVsHierarchy::GetProperty` metody můžete `case` například přidat následující příkaz:
 
 ```cs
 case __VSHPROPID8.VSHPROPID_ProjectCapabilitiesChecker:
@@ -113,6 +113,6 @@ case __VSHPROPID8.VSHPROPID_ProjectCapabilitiesChecker:
 
 ## <a name="dte-support"></a>Podpora DTE
 
-NuGet jednotky systém projektu přidáte odkazy na položky obsahu a nástroje MSBuild importuje voláním [DTE](/dotnet/api/envdte.dte?view=visualstudiosdk-2017), což je nejvyšší úrovně rozhraní automatizace sady Visual Studio. DTE představuje sadu rozhraní modelu COM, které je mohou implementovat.
+NuGet řídí systém projektu přidat odkazy, položky obsahu a MSBuild importy voláním do [DTE](/dotnet/api/envdte.dte?view=visualstudiosdk-2017), což je rozhraní automatizace visual studio nejvyšší úrovně. DTE je sada rozhraní COM, které již můžete implementovat.
 
-Pokud váš projekt je založena na CPS, DTE je implementovaná za vás.
+Pokud je typ projektu založen na CPS, DTE je implementována za vás.

@@ -1,45 +1,45 @@
 ---
-title: Běžné konfigurace NuGet
-description: NuGet. config soubory řídí chování NuGet globálně i na jednotlivých projektech a jsou upraveny pomocí příkazu NuGet config.
+title: Běžné konfigurace NuGetu
+description: NuGet.Config soubory řídit NuGet chování globálně i na základě projektu a jsou upraveny pomocí nuget config příkazu.
 author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: conceptual
 ms.openlocfilehash: 89127203df0aa1eb24f36b8ec64c5bb4a4d59319
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/16/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "79428910"
 ---
-# <a name="common-nuget-configurations"></a>Běžné konfigurace NuGet
+# <a name="common-nuget-configurations"></a>Běžné konfigurace NuGetu
 
-Chování NuGet se řídí seshromážděným nastavením v jednom nebo několika souborech `NuGet.Config` (XML), které můžou existovat na úrovni projektu, uživatele a počítače. Globální `NuGetDefaults.Config` soubor také konkrétně nakonfiguruje zdroje balíčků. Nastavení platí pro všechny příkazy vydávané v rozhraní příkazového řádku, konzole správce balíčků a uživatelské rozhraní Správce balíčků.
+Chování nugetu je řízeno nahromaděnými nastaveními v jednom nebo více `NuGet.Config` (XML) souborech, které mohou existovat na úrovni celého projektu, uživatele a počítače. Globální `NuGetDefaults.Config` soubor také konkrétně konfiguruje zdroje balíčků. Nastavení platí pro všechny příkazy vydané v příkazech příkazu příkazu cli, konzoly správce balíčků a ui Správce balíčků.
 
-## <a name="config-file-locations-and-uses"></a>Umístění souborů konfigurace a použití
+## <a name="config-file-locations-and-uses"></a>Umístění a použití konfiguračních souborů
 
-| Rozsah | Umístění souboru NuGet. config | Popis |
+| Rozsah | Umístění souboru NuGet.Config | Popis |
 | --- | --- | --- |
-| Řešení | Aktuální složka (neboli složka řešení) nebo libovolná složka až do kořenového adresáře jednotky.| Ve složce řešení se nastavení aplikuje na všechny projekty v podsložkách. Všimněte si, že pokud je konfigurační soubor umístěn ve složce projektu, nemá žádný vliv na tento projekt. |
-| Uživatel | Windows: `%appdata%\NuGet\NuGet.Config`<br/>Mac/Linux: `~/.config/NuGet/NuGet.Config` nebo `~/.nuget/NuGet/NuGet.Config` (liší se podle distribuce operačního systému) | Nastavení platí pro všechny operace, ale jsou přepsána všemi nastaveními na úrovni projektu. |
-| Počítač | Windows: `%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux: `$XDG_DATA_HOME`. Pokud `$XDG_DATA_HOME` má hodnotu null nebo je prázdné, bude použita `~/.local/share` nebo `/usr/local/share` (liší se podle distribuce operačního systému).  | Nastavení platí pro všechny operace v počítači, ale jsou přepsána všemi uživateli nebo nastavením na úrovni projektu. |
+| Řešení | Aktuální složka (aka řešení složky) nebo libovolné složky až do kořenového adresáře jednotky.| Ve složce řešení platí nastavení pro všechny projekty v podsložkách. Všimněte si, že pokud je konfigurační soubor umístěn do složky projektu, nemá na tento projekt žádný vliv. |
+| Uživatel | Windows:`%appdata%\NuGet\NuGet.Config`<br/>Mac/Linux: `~/.config/NuGet/NuGet.Config` `~/.nuget/NuGet/NuGet.Config` nebo (liší se podle distribuce operačního systému) | Nastavení platí pro všechny operace, ale jsou přepsána všemi nastaveními na úrovni projektu. |
+| Počítač | Windows:`%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux: `$XDG_DATA_HOME`. Pokud `$XDG_DATA_HOME` je null `~/.local/share` nebo `/usr/local/share` prázdné, nebo budou použity (se liší podle distribuce operačního systému)  | Nastavení platí pro všechny operace v počítači, ale jsou přepsána libovolným nastavením na úrovni uživatele nebo projektu. |
 
-Poznámky pro starší verze NuGet:
-- NuGet 3,3 a starší používaly `.nuget` složku pro nastavení pro všechna řešení. Tato složka se nepoužívá v NuGet 3.4 +.
-- Pro NuGet 2,6 až 3. x byl konfigurační soubor na úrovni počítače ve Windows umístěný v%ProgramData%\NuGet\Config [\\{IDE} [\\{Version} [\\{SKU}]]] \NuGet.Config, kde *{IDE}* může být *VisualStudio*, *{Version}* byla verze sady Visual Studio, jako je *14,0*a *{SKU}* je *komunita*, *pro*nebo *podnik*. Chcete-li migrovat nastavení do NuGet 4.0 +, stačí zkopírovat konfigurační soubor do% ProgramFiles (x86)% \ NuGet\Config. V systému Linux se toto předchozí umístění/etc/opt a na Macu/Library/Application Support podpora.
+Poznámky k dřívějším verzím nugetu:
+- NuGet 3.3 a `.nuget` starší používá složku pro nastavení celého řešení. Tato složka se nepoužívá v NuGet 3.4+.
+- Pro soubor NuGet 2.6 až 3.x byl konfigurační soubor na úrovni počítače v\\systému Windows\\umístěn v\\%ProgramData%\NuGet\Config[ {IDE}[ {Version}[ {SKU}]]]\NuGet.Config, kde *{IDE}* může být *VisualStudio*, *{Version}* byla verze sady Visual Studio, například *14.0*, a *{SKU}* je *buď Community*, *Pro*, nebo *Enterprise*. Chcete-li migrovat nastavení do položky NuGet 4.0+, jednoduše zkopírujte konfigurační soubor do %ProgramFiles(x86)%\NuGet\Config. Na Linuxu bylo toto předchozí umístění /etc/opt a na Macu, /Library/Application Support.
 
-## <a name="changing-config-settings"></a>Mění se nastavení konfigurace.
+## <a name="changing-config-settings"></a>Změna nastavení konfigurace
 
-Soubor `NuGet.Config` je jednoduchý textový soubor XML obsahující páry klíč/hodnota, jak je popsáno v tématu [nastavení konfigurace NuGet](../reference/nuget-config-file.md) .
+Soubor `NuGet.Config` je jednoduchý textový soubor XML obsahující páry klíč/hodnota, jak je popsáno v tématu [Nastavení konfigurace NuGet.](../reference/nuget-config-file.md)
 
-Nastavení se spravují pomocí příkazu NuGet CLI pro [konfiguraci](../reference/cli-reference/cli-ref-config.md):
-- Ve výchozím nastavení se změny provedou v konfiguračním souboru na úrovni uživatele.
-- Chcete-li změnit nastavení v jiném souboru, použijte přepínač `-configFile`. V tomto případě soubory můžou používat libovolný název souboru.
-- U klíčů se rozlišují malá a velká písmena.
-- Ke změně nastavení v souboru nastavení na úrovni počítače je potřeba zvýšení oprávnění.
+Nastavení jsou spravována pomocí [příkazu konfigurace příkazu](../reference/cli-reference/cli-ref-config.md)NuGet CLI :
+- Ve výchozím nastavení jsou změny v konfiguračním souboru na úrovni uživatele.
+- Chcete-li změnit nastavení v `-configFile` jiném souboru, použijte přepínač. V tomto případě mohou soubory použít libovolný název souboru.
+- Klíče jsou vždy rozlišována malá a velká písmena.
+- Zvýšení oprávnění je nutné ke změně nastavení v souboru nastavení na úrovni počítače.
 
 > [!Warning]
-> I když můžete soubor upravovat v libovolném textovém editoru, NuGet (v 3.4.3 a novějším) tiše ignoruje celý konfigurační soubor, pokud obsahuje nesprávně vytvořený kód XML (neshodné značky, neplatné uvozovky atd.). To je důvod, proč je vhodnější spravovat nastavení pomocí `nuget config`.
+> Přestože můžete upravit soubor v libovolném textovém editoru, NuGet (v3.4.3 a novější) tiše ignoruje celý konfigurační soubor, pokud obsahuje poškozený XML (neodpovídající značky, neplatné uvozovky atd.). To je důvod, proč je vhodnější `nuget config`spravovat nastavení pomocí .
 
 ### <a name="setting-a-value"></a>Nastavení hodnoty
 
@@ -72,7 +72,7 @@ nuget config -set repositoryPath=/home/packages -configfile $XDG_DATA_HOME/NuGet
 ```
 
 > [!Note]
-> V NuGet 3,4 a novějších můžete použít proměnné prostředí v libovolné hodnotě, jako v `repositoryPath=%PACKAGEHOME%` (Windows) a `repositoryPath=$PACKAGEHOME` (Mac/Linux).
+> V NuGet 3.4 a novější můžete použít proměnné prostředí `repositoryPath=%PACKAGEHOME%` v libovolné `repositoryPath=$PACKAGEHOME` hodnotě, jako v (Windows) a (Mac/Linux).
 
 ### <a name="removing-a-value"></a>Odebrání hodnoty
 
@@ -86,9 +86,9 @@ nuget config -set repositoryPath= -configfile c:\my.Config
 nuget config -set repositoryPath= -configfile /home/my.Config
 ```
 
-### <a name="creating-a-new-config-file"></a>Vytváření nového konfiguračního souboru
+### <a name="creating-a-new-config-file"></a>Vytvoření nového konfiguračního souboru
 
-Zkopírujte níže uvedenou šablonu do nového souboru a pak použijte `nuget config -configFile <filename>` k nastavení hodnot:
+Zkopírujte níže uvedenou šablonu `nuget config -configFile <filename>` do nového souboru a pak nastavte hodnoty:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -96,29 +96,29 @@ Zkopírujte níže uvedenou šablonu do nového souboru a pak použijte `nuget c
 </configuration>
 ```
 
-## <a name="how-settings-are-applied"></a>Způsob použití nastavení
+## <a name="how-settings-are-applied"></a>Jak se nastavení používají
 
-Více `NuGet.Config` souborů vám umožní ukládat nastavení v různých umístěních, aby se mohla vztahovat na jeden projekt, skupinu projektů nebo všechny projekty. Tato nastavení se souhrnně vztahují na jakoukoliv operaci NuGet vyvolanou z příkazového řádku nebo ze sady Visual Studio s nastaveními, která existují "nejblíže" do projektu, nebo když aktuální složka převezme přednost.
+Více `NuGet.Config` souborů umožňuje ukládat nastavení v různých umístěních tak, aby se vztahovaly na jeden projekt, skupinu projektů nebo všechny projekty. Tato nastavení společně platí pro všechny operace NuGet vyvolané z příkazového řádku nebo z Visual Studio, s nastavením, které existují "nejblíže" k projektu nebo aktuální složky s prioritou.
 
 Konkrétně NuGet načte nastavení z různých konfiguračních souborů v následujícím pořadí:
 
-1. [Soubor NuGetDefaults. config](#nuget-defaults-file)obsahující nastavení související pouze se zdroji balíčků.
+1. [Soubor NuGetDefaults.Config](#nuget-defaults-file), který obsahuje nastavení související pouze se zdroji balíčků.
 1. Soubor na úrovni počítače.
 1. Soubor na úrovni uživatele.
-1. Soubor zadaný pomocí `-configFile`.
-1. Soubory nalezené v každé složce v cestě z kořene jednotky do aktuální složky (kde je vyvolán NuGet. exe nebo složka obsahující projekt sady Visual Studio). Například pokud je příkaz vyvolán v c:\A\B\C, NuGet vyhledá a načte konfigurační soubory v jazyce c:\, potom c:\A, c:\A\B a finally c:\A\B\C.
+1. Soubor zadaný `-configFile`pomocí aplikace .
+1. Soubory nalezené v každé složce v cestě od kořenového adresáře jednotky k aktuální složce (kde je vyvolán nuget.exe nebo složka obsahující projekt sady Visual Studio). Pokud je například příkaz vyvolán v c:\A\B\C, společnost NuGet vyhledá a\, načte konfigurační soubory do c: potom c:\A, potom c:\A\B a nakonec c:\A\B\C.
 
-Jelikož NuGet najde nastavení těchto souborů, použije se takto:
+Jako NuGet najde nastavení v těchto souborech, jsou použity takto:
 
-1. Pro prvky s jednou položkou nahradila NuGet všechny dříve nalezené hodnoty pro stejný klíč. To znamená, že nastavení, která jsou nejblíže aktuální složce nebo projektu, přepíší dříve nalezené. Například nastavení `defaultPushSource` v `NuGetDefaults.Config` je přepsáno, pokud existuje v jiném konfiguračním souboru.
+1. Pro elementy s jednou položkou NuGet nahradil všechny dříve nalezené hodnoty pro stejný klíč. To znamená, že nastavení, která jsou "nejblíže" k aktuální složce nebo projektu přepsat všechny ostatní našel dříve. `defaultPushSource` Například nastavení in `NuGetDefaults.Config` je přepsáno, pokud existuje v jiném konfiguračním souboru.
 
-1. Pro prvky kolekce (například `<packageSources>`) NuGet kombinuje hodnoty ze všech konfiguračních souborů do jedné kolekce.
+1. Pro kolekce prvků `<packageSources>`(například ), NuGet kombinuje hodnoty ze všech konfiguračních souborů do jedné kolekce.
 
-1. Pokud je pro daný uzel k dispozici `<clear />`, NuGet ignoruje dříve definované hodnoty konfigurace pro tento uzel.
+1. Pokud `<clear />` je k dispozici pro daný uzel, NuGet ignoruje dříve definované hodnoty konfigurace pro tento uzel.
 
 ### <a name="settings-walkthrough"></a>Návod k nastavení
 
-Řekněme, že máte na dvou samostatných jednotkách tuto strukturu složek:
+Řekněme, že máte následující strukturu složek na dvou samostatných jednotkách:
 
     disk_drive_1
         User
@@ -129,9 +129,9 @@ Jelikož NuGet najde nastavení těchto souborů, použije se takto:
          Source
        tmp
 
-Pak budete mít čtyři `NuGet.Config` soubory v následujících umístěních s daným obsahem. (Soubor na úrovni počítače není v tomto příkladu zahrnutý, ale bude se chovat podobně jako soubor na úrovni uživatele.)
+Potom máte `NuGet.Config` čtyři soubory v následujících umístěních s daným obsahem. (Soubor na úrovni počítače není součástí tohoto příkladu, ale bude se chovat podobně jako soubor na úrovni uživatele.)
 
-Soubor A. User-Level File (`%appdata%\NuGet\NuGet.Config` ve Windows, `~/.config/NuGet/NuGet.Config` on Mac/Linux):
+Soubor A. Soubor na`%appdata%\NuGet\NuGet.Config` úrovni uživatele, ( ve Windows, `~/.config/NuGet/NuGet.Config` na Mac/Linux):
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -142,7 +142,7 @@ Soubor A. User-Level File (`%appdata%\NuGet\NuGet.Config` ve Windows, `~/.config
 </configuration>
 ```
 
-Soubor B disk_drive_2/NuGet.Config:
+Soubor B. disk_drive_2/NuGet.Config:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -184,43 +184,43 @@ Soubor D. disk_drive_2/Project2/NuGet.Config:
 </configuration>
 ```
 
-NuGet potom načte a aplikuje nastavení podle toho, kde se vyvolalo:
+NuGet pak načte a použije nastavení takto, v závislosti na tom, kde je vyvolána:
 
-- **Vyvoláno z disk_drive_1/Users**: používá se jenom výchozí úložiště uvedené v konfiguračním souboru na úrovni uživatele (A), protože to je jediný soubor, který se nachází v disk_drive_1.
+- **Vyvoláno z disk_drive_1/uživatelů**: Používá se pouze výchozí úložiště uvedené v konfiguračním souboru na úrovni uživatele (A), protože je to jediný soubor nalezený na disk_drive_1.
 
-- **Vyvoláno z disk_drive_2/nebo disk_drive_ adresáře/TMP**: nejprve se načte soubor na úrovni uživatele (a), pak NuGet přejde do kořenového adresáře disk_drive_2 a vyhledá soubor (B). NuGet také hledá konfigurační soubor v adresáře/TMP, ale nenalezne ho. V důsledku toho se použije výchozí úložiště v nuget.org, je povolené obnovení balíčků a balíčky se rozbalí v disk_drive_2/TMP.
+- **Vyvolána z disk_drive_2/ nebo disk_drive_/tmp**: Soubor na úrovni uživatele (A) je načten jako první, pak NuGet přejde do kořenového adresáře disk_drive_2 a najde soubor (B). NuGet také hledá konfigurační soubor v /tmp, ale nenajde jeden. V důsledku toho se používá výchozí úložiště na nuget.org, je povoleno obnovení balíčku a balíčky se rozbalí v disk_drive_2/tmp.
 
-- **Vyvoláno z disk_drive_2/Project1 nebo disk_drive_2/Project1/source**: nejprve se načte soubor na úrovni uživatele (A), pak NuGet načte soubor (B) z kořenového adresáře disk_drive_2 následovaný souborem (C). Nastavení v (C) přepíší ta v (B) a (A), takže `repositoryPath`, kde se balíčky nainstalují, disk_drive_2/Project1/External/Packages místo *disk_drive_2 adresáře/TMP*. Z toho důvodu, že (C) vymaže `<packageSources>`nuget.org, již není k dispozici jako zdroj, který opouští pouze `https://MyPrivateRepo/ES/nuget`.
+- **Vyvolána z disk_drive_2/Project1 nebo disk_drive_2/Project1/Source**: Soubor na úrovni uživatele (A) je načten jako první, potom NuGet načte soubor (B) z kořenového adresáře disk_drive_2, následovaný souborem (C). Nastavení v (C) přepsat ty v (B) `repositoryPath` a (A), takže kde se balíčky nainstalovat je disk_drive_2/Project1/External/Packages namísto *disk_drive_2/tmp*. Také proto, že (C) vymaže `<packageSources>`, `https://MyPrivateRepo/ES/nuget`nuget.org již není k dispozici jako zdroj, který ponechá pouze .
 
-- **Vyvoláno z disk_drive_2/Project2 nebo disk_drive_2/Project2/source**: soubor na úrovni uživatele (A) se načte za prvé následovaný souborem (B) a souborem (D). Vzhledem k tomu, že `packageSources` není zaškrtnuto, jsou jako zdroje k dispozici `nuget.org` a `https://MyPrivateRepo/DQ/nuget`. Balíčky se rozšiřují v disk_drive_2 adresáře/TMP, jak je uvedeno v (B).
+- **Vyvolána z disk_drive_2/Project2 nebo disk_drive_2/Project2/Source**: Soubor na úrovni uživatele (A) je načten nejprve následuje soubor (B) a soubor (D). Protože `packageSources` není vymazána, `nuget.org` `https://MyPrivateRepo/DQ/nuget` oba a jsou k dispozici jako zdroje. Balíčky se rozbalí v disk_drive_2/tmp, jak je uvedeno v (B).
 
-## <a name="nuget-defaults-file"></a>Soubor výchozích hodnot NuGet
+## <a name="nuget-defaults-file"></a>NuGet výchozí soubor
 
-`NuGetDefaults.Config` soubor existuje, chcete-li určit zdroje balíčků, ze kterých jsou balíčky nainstalovány a aktualizovány, a řídit výchozí cíl pro publikování balíčků pomocí `nuget push`. Vzhledem k tomu, že správci můžou pohodlně (například pomocí Zásady skupiny) nasazovat konzistentní `NuGetDefaults.Config` soubory pro vývojáře a sestavování počítačů, můžou zajistit, aby všichni v organizaci používali místo nuget.org správné zdroje balíčků.
+Soubor `NuGetDefaults.Config` existuje, aby určil zdroje balíčků, ze kterých jsou balíčky nainstalovány `nuget push`a aktualizovány, a aby bylo nutné řídit výchozí cíl pro publikování balíčků pomocí aplikace . Vzhledem k tomu, že správci mohou pohodlně `NuGetDefaults.Config` (například pomocí zásad skupiny) nasadit konzistentní soubory do vývojářských a buildových počítačů, mohou zajistit, aby všichni v organizaci používali správné zdroje balíčků, nikoli nuget.org.
 
 > [!Important]
-> `NuGetDefaults.Config` soubor nikdy nezpůsobí odebrání zdroje balíčku z konfigurace NuGet vývojáře. To znamená, že pokud vývojář již použil NuGet, a proto má registrovaný zdroj balíčku nuget.org, nebude po vytvoření souboru `NuGetDefaults.Config` odebrán.
+> Soubor `NuGetDefaults.Config` nikdy způsobí, že zdroj balíčku, které mají být odebrány z konfigurace nuget vývojáře. To znamená, že pokud vývojář již použil NuGet a proto má nuget.org zdroj balíčku `NuGetDefaults.Config` registrován, nebude odebrán po vytvoření souboru.
 >
-> Kromě toho ani `NuGetDefaults.Config` ani žádný jiný mechanismus v NuGet nemůže zabránit přístupu ke zdrojům balíčků, jako je nuget.org. Pokud si organizace chce takový přístup zablokovat, musí k tomu použít jiné prostředky, jako například brány firewall.
+> Kromě toho ani `NuGetDefaults.Config` žádný jiný mechanismus v NuGet můžete zabránit přístupu ke zdrojům balíčku, jako je nuget.org. Pokud organizace chce blokovat takový přístup, musí k tomu použít jiné prostředky, například brány firewall.
 
-### <a name="nugetdefaultsconfig-location"></a>Umístění NuGetDefaults. config
+### <a name="nugetdefaultsconfig-location"></a>Umístění NuGetDefaults.Config
 
-Následující tabulka popisuje, kde by měl být soubor `NuGetDefaults.Config` uložený v závislosti na cílovém operačním systému:
+Následující tabulka popisuje, `NuGetDefaults.Config` kde by měl být soubor uložen v závislosti na cílovém os:
 
-| Platforma operačního systému  | Umístění NuGetDefaults. config |
+| Platforma Operačního eS  | Umístění NuGetDefaults.Config |
 | --- | --- |
-| Windows      | **Visual Studio 2017 nebo NuGet 4. x +:** `%ProgramFiles(x86)%\NuGet\Config` <br />**Visual Studio 2015 a starší nebo NuGet 3. x a starší:** `%PROGRAMDATA%\NuGet` |
-| Mac/Linux    | `$XDG_DATA_HOME` (obvykle `~/.local/share` nebo `/usr/local/share`v závislosti na distribuci operačního systému)|
+| Windows      | **Visual Studio 2017 nebo NuGet 4.x+:**`%ProgramFiles(x86)%\NuGet\Config` <br />**Visual Studio 2015 a starší nebo NuGet 3.x a starší:**`%PROGRAMDATA%\NuGet` |
+| Mac/Linux    | `$XDG_DATA_HOME`(obvykle `~/.local/share` nebo `/usr/local/share`, v závislosti na distribuci Operačního systému)|
 
-### <a name="nugetdefaultsconfig-settings"></a>Nastavení NuGetDefaults. config
+### <a name="nugetdefaultsconfig-settings"></a>Nastavení NuGetDefaults.Config
 
-- `packageSources`: Tato kolekce má stejný význam jako `packageSources` v běžných konfiguračních souborech a určuje výchozí zdroje. Nástroj NuGet používá zdroje v pořadí při instalaci nebo aktualizaci balíčků v projektech pomocí formátu správy `packages.config`. Pro projekty, které používají formát PackageReference, NuGet používá nejprve místní zdroje, pak zdroje na sdílených síťových složkách a pak zdroje HTTP bez ohledu na pořadí v konfiguračních souborech. NuGet vždycky ignoruje pořadí zdrojů s operacemi obnovení.
+- `packageSources`: Tato kolekce má `packageSources` stejný význam jako v běžných konfiguračních souborech a určuje výchozí zdroje. NuGet používá zdroje v pořadí při instalaci nebo `packages.config` aktualizaci balíčků v projektech pomocí formátu pro správu. Pro projekty používající formát PackageReference nuget nejprve používá místní zdroje, pak zdroje na sdílené síťové složky, pak zdroje HTTP, bez ohledu na pořadí v konfiguračních souborech. NuGet vždy ignoruje pořadí zdrojů s operaceobnovení.
 
-- `disabledPackageSources`: Tato kolekce má také stejný význam jako v souborech `NuGet.Config`, kde je každý ovlivněný zdroj uveden podle názvu a hodnota true/false, která označuje, jestli je zakázaná. To umožňuje, aby název zdroje a adresa URL zůstaly v `packageSources`, aniž by bylo ve výchozím nastavení zapnuté. Jednotliví vývojáři potom můžou zdroj znovu povolit nastavením hodnoty zdroje na hodnotu false v jiných `NuGet.Config` souborech, aniž by museli znovu najít správnou adresu URL. To je užitečné také k tomu, aby vývojářům poskytoval úplný seznam interních zdrojových adres URL pro organizaci, přičemž ve výchozím nastavení povoluje pouze zdroj jednotlivých týmů.
+- `disabledPackageSources`: Tato kolekce má také `NuGet.Config` stejný význam jako v souborech, kde každý ohrožený zdroj je uveden podle jeho názvu a true/false hodnotu označující, zda je zakázán. To umožňuje, aby zdrojový název `packageSources` a adresa URL zůstaly ve výchozím nastavení, aniž by byly zapnuty. Jednotliví vývojáři pak mohou znovu povolit zdroj nastavením `NuGet.Config` hodnoty zdroje na false v jiných souborech, aniž by museli znovu najít správnou adresu URL. To je také užitečné pro poskytování vývojářům úplný seznam interních zdrojových adres URL pro organizaci a zároveň ve výchozím nastavení povolit pouze zdroj jednotlivých týmů.
 
-- `defaultPushSource`: Určuje výchozí cíl pro operace `nuget push` a přepíše vestavěnou výchozí hodnotu nuget.org. Správci můžou toto nastavení nasadit, aby nedocházelo k publikování interních balíčků na veřejném nuget.orgu po havárii, protože vývojáři potřebují k publikování do nuget.org použít `nuget push -Source`.
+- `defaultPushSource`: určuje výchozí cíl `nuget push` pro operace, přepsání předdefinované výchozí nuget.org. Správci mohou toto nastavení nasadit, aby se zabránilo publikování interních `nuget push -Source` balíčků na veřejné nuget.org náhodou, protože vývojáři konkrétně potřebují publikovat do nuget.org.
 
-### <a name="example-nugetdefaultsconfig-and-application"></a>Příklad NuGetDefaults. config a Application
+### <a name="example-nugetdefaultsconfig-and-application"></a>Příklad NuGetDefaults.Config a aplikace
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

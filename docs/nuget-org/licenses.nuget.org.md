@@ -3,63 +3,63 @@ title: licenses.nuget.org
 author: agr
 ms.date: 02/22/2019
 ms.openlocfilehash: 717cf8c47335c620410be71300b07de82799e1d3
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/28/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "67427551"
 ---
 # <a name="licensesnugetorg"></a>licenses.nuget.org
 
-## <a name="rationale"></a>Důvody
+## <a name="rationale"></a>Odůvodnění
 
-Se zavedením [licence výrazy](../reference/nuspec.md#license), požadavek se umístila mít spolehlivé služby, které by pro identifikátory jednotlivých licencí, identifikátory výjimky nebo licence výrazy poskytnout odkaz na text.
-Další požadavky pro tuto službu je mají stabilní schéma adresy URL, který není napadnutelná propojit rot, takže jsme může bezpečně použít pro zajištění zpětné kompatibility pro starší klienty.
+Se zavedením [licenčních výrazů](../reference/nuspec.md#license)se objevil požadavek na spolehlivou službu, která by poskytovala referenční text pro jednotlivé identifikátory licencí, identifikátory výjimek nebo licenční výrazy.
+Dalším požadavkem pro tuto službu je mít stabilní schéma URL, které není náchylné k propojení hnilobě, takže můžeme bezpečně použít k zajištění zpětné kompatibility pro starší klienty.
 
-Licenses.nuget.org splňuje tuto roli. Nuget.org se použije k poskytnutí text odkazu licence pro balíčky, které určují svoji licenci pro použití výrazu licence. `nuget pack` nebo s jinými balení [klientských nástrojů](../install-nuget-client-tools.md) nastavit [ `licenseUrl` ](../reference/nuspec.md#licenseurl) element tak, aby odkazoval na licenses.nuget.org k zajištění zpětné kompatibility se starší klienty, kteří nepodporují `license` element.
+Licenses.nuget.org tuto roli plní. Nuget.org jej používá k poskytnutí textového odkazu licence pro balíčky, které určují svou licenci pomocí licenčního výrazu. `nuget pack`nebo balení s [jinými klientskými nástroji](../install-nuget-client-tools.md) nastavte [`licenseUrl`](../reference/nuspec.md#licenseurl) prvek tak, aby ukazoval na `license` licenses.nuget.org aby poskytoval zpětnou kompatibilitu se staršími klienty, kteří tento prvek nepodporují.
 
-## <a name="protocol"></a>Protocol
+## <a name="protocol"></a>Protocol (Protokol)
 
-Licenses.nuget.org má zobrazit uživateli ve svém prohlížeči, jsou uvedeny žádné odpovědi. který je strojově čitelný.
-Protokol HTTPS a musí být vytvořen určitým způsobem žádosti se očekává. Ladicí program podporuje pouze `GET` požadavky.
-Výrazy licence nebo licence výjimka identifikátorů přijímá jako vstup způsobem níže uvedené. Mějte prosím na paměti, že všechny prvky výrazů licence jsou malá a velká písmena a veškerý vstup do licenses.nuget.org tedy malá a velká písmena i.
+Licenses.nuget.org je určen k zobrazení lidmi ve svých prohlížečích, nejsou k dispozici žádné strojově čitelné odpovědi.
+Protokol HTTPS musí být použit a očekává se, že požadavky budou vytvořeny určitým způsobem. Podporuje `GET` pouze požadavky.
+Přijímá licenční výrazy nebo identifikátory výjimek licence jako vstup způsobem uvedeným níže. Vezměte prosím na vědomí, že všechny prvky licenční výrazy jsou rozlišování velkých a malých písmen, a proto všechny vstupy do licenses.nuget.org je rozlišování velkých a malých písmen.
 
-### <a name="license-expressions"></a>Výrazy licence
+### <a name="license-expressions"></a>Licenční výrazy
 
-#### <a name="request"></a>Request
+#### <a name="request"></a>Žádost
 
-Výrazy licence (včetně triviální případech, pokud výraz se skládá z jednu licenci) musí být [kódovaná adresou URL](https://tools.ietf.org/html/rfc3986#section-2.1) a použít jako cesta požadavku, aby licenses.nuget.org.
+Licenční výrazy (včetně triviálních případů, kdy se výraz skládá z jedné licence) musí být [kódovány adresou URL](https://tools.ietf.org/html/rfc3986#section-2.1) a použity jako cesta v požadavku na licenses.nuget.org.
 
-| Výraz licence | Adresa URL pro použití |
+| Výraz licence | Adresa URL, která má být |
 |:---|:---|
 | MIT                                                | <https://licenses.nuget.org/MIT> |
 | (MIT)                                              | <https://licenses.nuget.org/(MIT)> |
-| (LGPL 2.0 – jen s Apache FLTK výjimky nebo-2.0+) | <https://licenses.nuget.org/(LGPL-2.0-only%20WITH%20FLTK-exception%20OR%20Apache-2.0+)> |
+| (POUZE LGPL-2.0-s výjimkou FLTK NEBO Apache-2.0+) | <https://licenses.nuget.org/(LGPL-2.0-only%20WITH%20FLTK-exception%20OR%20Apache-2.0+)> |
 
-Služby podporuje pouze identifikátory licencí a licencí výjimka identifikátory, které jsou přijaty nuget.org. Všechny licence výrazy, které obsahují identifikátory nepodporované licence nebo licence výjimka identifikátory nebo, který není v souladu s syntaxe výrazu licence jsou považovány za neplatné.
+Služba podporuje pouze identifikátory licencí a identifikátory výjimek licencí, které jsou akceptovány nuget.org. Všechny licenční výrazy, které obsahují nepodporované identifikátory licencí nebo identifikátory výjimek licencí nebo které neodpovídají syntaxi licenčního výrazu, jsou považovány za neplatné.
 
 #### <a name="response"></a>Odpověď
 
-Licenses.nuget.org reaguje na požadavky obsahující výrazy platnou licenci se stavovým kódem HTTP 200 a webová stránka obsahující popis výrazu licence:
+Licenses.nuget.org reaguje na požadavky obsahující platné licenční výrazy se stavovým kódem HTTP 200 a webovou stránkou obsahující popis licenčního výrazu:
 
-* Pokud se zadaný výraz licence obsahuje identifikátor jednu licenci na webové stránce je vrácen, která obsahuje odkaz na text licenční;
-* Pokud se zadaný výraz licence je výraz složeného licence, webové stránky, je vrácena, který obsahuje výraz licence s odkazy na jednotlivé licence nebo licence výjimka odkazy.
+* pokud zadaný licenční výraz obsahuje jeden identifikátor licence, je vrácena webová stránka, která obsahuje tento referenční text licence;
+* Pokud je zadaný licenční výraz složeným licenčním výrazem, je vrácena webová stránka obsahující licenční výraz s odkazy na jednotlivé licence nebo licence výjimky.
 
-Všechny žádosti, které obsahují výraz neplatná licence za následek odpověď HTTP 404.
+Všechny požadavky, které obsahují neplatný licenční výraz, mají za následek odpověď HTTP 404.
 
-### <a name="license-exceptions"></a>Licence výjimky
+### <a name="license-exceptions"></a>Výjimky licencí
 
-#### <a name="request"></a>Request
+#### <a name="request"></a>Žádost
 
-Licence výjimka identifikátory musí být kódovaná adresou URL a slouží jako cestu požadavku, aby licenses.nuget.org. Pouze identifikátor jednu licenci výjimky, lze je zadat v jedné žádosti. Žádné další znaky kromě licence výjimka identifikátor může představovat v část cesty adresy URL.
+Identifikátory výjimek licence musí být kódovány adresou URL a použity jako cesta v žádosti o licenses.nuget.org. V jednom požadavku lze poskytnout pouze jeden identifikátor výjimky licence. V části cesty adresy URL se nesmí v části cesty k adrese URL nenasytit žádné další znaky kromě identifikátoru výjimky licence.
 
-| Identifikátor výjimky licence | Adresa URL pro použití |
+| Identifikátor výjimky licence | Adresa URL, která má být |
 |:---|:---|
-|FLTK-exception            | <https://licenses.nuget.org/FLTK-exception> |
-|openvpn-openssl-exception | <https://licenses.nuget.org/openvpn-openssl-exception> |
+|Výjimka FLTK            | <https://licenses.nuget.org/FLTK-exception> |
+|openvpn-openssl-výjimka | <https://licenses.nuget.org/openvpn-openssl-exception> |
 
 #### <a name="response"></a>Odpověď
 
-Licenses.nuget.org odpoví na žádost s identifikátorem výjimka známé licence se odpověď HTTP 200 a webové stránky obsahující text odkazu pro výjimku příslušnými licenčními.
+Licenses.nuget.org odpoví na požadavek se známým identifikátorem výjimky licence s odpovědí HTTP 200 a webovou stránkou obsahující referenční text pro zadanou výjimku licence.
 
-Jakoukoli žádost obsahující identifikátor výjimky nepodporované licence výsledků v odpovědi HTTP 404.
+Jakýkoli požadavek obsahující nepodporovaný identifikátor výjimky licence má za následek odpověď HTTP 404.

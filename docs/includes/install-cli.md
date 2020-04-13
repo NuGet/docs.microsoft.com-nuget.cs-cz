@@ -1,38 +1,38 @@
 ---
 ms.openlocfilehash: 5197447531288a8b071354dbeb3a3ae02f7cce09
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "73610535"
 ---
 #### <a name="windows"></a>Windows
 
 > [!Note]
-> NuGet. exe 5,0 a novější vyžaduje spuštění .NET Framework 4.7.2 nebo novějším.
+> NuGet.exe 5.0 a novější vyžadují .NET Framework 4.7.2 nebo novější ke spuštění.
 
-1. Přejděte na [NuGet.org/downloads](https://nuget.org/downloads) a vyberte NuGet 3,3 nebo vyšší (2.8.6 není kompatibilní s mono). Nejnovější verze se vždycky doporučuje a k publikování balíčků do nuget.org se vyžaduje 4.1.0 +.
-1. Každé stažení je `nuget.exe` soubor přímo. Řekněte prohlížeči, aby soubor uložil do složky podle vašeho výběru. Soubor *není instalační* program. Pokud ji spustíte přímo z prohlížeče, nezobrazí se žádná.
-1. Přidejte složku, do které jste umístili `nuget.exe` do proměnné prostředí PATH pro použití nástroje CLI odkudkoli.
+1. Navštivte [nuget.org/downloads](https://nuget.org/downloads) a vyberte NuGet 3.3 nebo vyšší (2.8.6 není kompatibilní s Mono). Vždy se doporučuje nejnovější verze a 4.1.0+ je nutné publikovat balíčky do nuget.org.
+1. Každé stahování `nuget.exe` je soubor přímo. Nařiďte prohlížeči, aby soubor uložil do vybrané složky. Soubor *není* instalačníprogram; pokud jej spustíte přímo z prohlížeče, nic neuvidíte.
+1. Přidejte složku, `nuget.exe` do které jste umístili proměnnou prostředí PATH, abyste použili nástroj cli odkudkoli.
 
 #### <a name="macoslinux"></a>macOS/Linux
 
-V případě distribuce operačního systému se může chování mírně lišit.
+Chování se může mírně lišit podle distribuce operačního systému.
 
-1. Nainstalujte [mono 4.4.2 nebo novější](https://www.mono-project.com/docs/getting-started/install/).
+1. Nainstalujte [Mono 4.4.2 nebo novější](https://www.mono-project.com/docs/getting-started/install/).
 
-1. Na příkazovém řádku prostředí spusťte následující příkaz:
+1. Na řádku prostředí proveďte následující příkaz:
 
     ```bash
     # Download the latest stable `nuget.exe` to `/usr/local/bin`
     sudo curl -o /usr/local/bin/nuget.exe https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
     ```
 
-1. Vytvořte alias přidáním následujícího skriptu do příslušného souboru pro váš operační systém (obvykle `~/.bash_aliases` nebo `~/.bash_profile`):
+1. Vytvořte alias přidáním následujícího skriptu do příslušného `~/.bash_aliases` souboru operačního systému (obvykle nebo `~/.bash_profile`):
 
     ```bash
     # Create as alias for nuget
     alias nuget="mono /usr/local/bin/nuget.exe"
     ```
 
-1. Znovu načtěte prostředí.  Otestujte instalaci zadáním `nuget` bez parametrů. Měla by se zobrazit Help CLI NuGet.
+1. Znovu nabijte granát.  Otestujte instalaci `nuget` zadáním bez parametrů. NuGet CLI nápověda by se měla zobrazit.
