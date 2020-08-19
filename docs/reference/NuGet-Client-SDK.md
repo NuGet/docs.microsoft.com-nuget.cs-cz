@@ -1,23 +1,23 @@
 ---
-title: Sada SDK klienta NuGet
+title: Sada SDK pro klienta NuGet
 description: Rozhraní API se vyvíjí a ještě není dokumentováno, ale příklady jsou k dispozici na blogu Dave Glick.
 author: karann-msft
 ms.author: karann
 ms.date: 01/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: a5c542379318f24ee35ccf25651d0e8de91253ba
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.openlocfilehash: 39a4de4071eec70c88a2add158f2a3a734f7d7b7
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78231237"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622925"
 ---
-# <a name="nuget-client-sdk"></a>Sada SDK klienta NuGet
+# <a name="nuget-client-sdk"></a>Sada SDK pro klienta NuGet
 
 *Sada SDK klientské sady NuGet* odkazuje na skupinu balíčků NuGet:
 
-* [`NuGet.Protocol`](https://www.nuget.org/packages/NuGet.Protocol) – používá se k interakci s http a souborovým kanálem NuGet na bázi souborů
-* [`NuGet.Packaging`](https://www.nuget.org/packages/NuGet.Packaging) – používá se k interakci s balíčky NuGet. `NuGet.Protocol` závisí na tomto balíčku.
+* [`NuGet.Protocol`](https://www.nuget.org/packages/NuGet.Protocol) – Používá se k interakci s HTTP a souborovým kanálem NuGet na bázi souborů
+* [`NuGet.Packaging`](https://www.nuget.org/packages/NuGet.Packaging) – Používá se k interakci s balíčky NuGet. `NuGet.Protocol` závisí na tomto balíčku.
 
 Zdrojový kód pro tyto balíčky najdete v úložišti [NuGet/NuGet. Client](https://github.com/NuGet/NuGet.Client) GitHub.
 
@@ -26,10 +26,12 @@ Zdrojový kód pro tyto balíčky najdete v úložišti [NuGet/NuGet. Client](ht
 
 ## <a name="getting-started"></a>Začínáme
 
-### <a name="install-the-package"></a>Instalace balíčku
+### <a name="install-the-packages"></a>Nainstalovat balíčky
 
 ```ps1
-dotnet add package NuGet.Protocol
+dotnet add package NuGet.Protocol  # interact with HTTP and folder-based NuGet package feeds, includes NuGet.Packaging
+
+dotnet add package NuGet.Packaging # interact with .nupkg and .nuspec files from a stream
 ```
 
 ## <a name="examples"></a>Příklady
@@ -38,19 +40,19 @@ Tyto příklady najdete v projektu [NuGet. Protocol. Samples](https://github.com
 
 ### <a name="list-package-versions"></a>Výpis verzí balíčků
 
-Vyhledejte všechny verze Newtonsoft. JSON pomocí [rozhraní API obsahu balíčku NuGet V3](../api/package-base-address-resource.md#enumerate-package-versions):
+Vyhledá všechny verze Newtonsoft.Jsna základě [rozhraní API obsahu balíčku NuGet V3](../api/package-base-address-resource.md#enumerate-package-versions):
 
 [!code-csharp[ListPackageVersions](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=ListPackageVersions)]
 
 ### <a name="download-a-package"></a>Stažení balíčku
 
-Stáhněte si Newtonsoft. JSON v 12.0.1 pomocí [rozhraní API obsahu balíčku NuGet V3](../api/package-base-address-resource.md):
+Stažení Newtonsoft.Jsna v 12.0.1 pomocí [rozhraní API obsahu balíčku NuGet V3](../api/package-base-address-resource.md):
 
 [!code-csharp[DownloadPackage](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=DownloadPackage)]
 
 ### <a name="get-package-metadata"></a>Získat metadata balíčku
 
-Získejte metadata balíčku "Newtonsoft. JSON" pomocí [rozhraní API metadat balíčku NuGet V3](../api/registration-base-url-resource.md):
+Získejte metadata pro balíček "Newtonsoft.Json" pomocí [rozhraní API metadat balíčku NuGet V3](../api/registration-base-url-resource.md):
 
 [!code-csharp[GetPackageMetadata](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=GetPackageMetadata)]
 
@@ -59,6 +61,23 @@ Získejte metadata balíčku "Newtonsoft. JSON" pomocí [rozhraní API metadat b
 Vyhledejte balíčky "JSON" pomocí [rozhraní API pro vyhledávání NuGet V3](../api/search-query-service-resource.md):
 
 [!code-csharp[SearchPackages](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=SearchPackages)]
+
+### <a name="create-a-package"></a>Vytvoření balíčku
+
+Vytvořte balíček, nastavte metadata a přidejte závislosti pomocí [`NuGet.Packaging`](https://www.nuget.org/packages/NuGet.Packaging) .
+
+> [!IMPORTANT]
+> Důrazně doporučujeme, abyste balíčky NuGet vytvořili pomocí oficiálních nástrojů **NuGet a** nepoužívali toto rozhraní API nízké úrovně. K dispozici je celá řada vlastností, které jsou důležité pro balíček se správným formátem a nejnovější verzi nástrojů, které zahrnou tyto osvědčené postupy.
+> 
+> Další informace o vytváření balíčků NuGet najdete v tématu Přehled [pracovního postupu pro vytváření balíčků](../create-packages/overview-and-workflow.md) a dokumentaci k nástrojům pro oficiální balení (například [pomocí rozhraní příkazového řádku dotnet](../create-packages/creating-a-package-dotnet-cli.md)).
+
+[!code-csharp[CreatePackage](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=CreatePackage)]
+
+### <a name="read-a-package"></a>Čtení balíčku
+
+Přečtěte si balíček z datového proudu souboru pomocí [`NuGet.Packaging`](https://www.nuget.org/packages/NuGet.Packaging) .
+
+[!code-csharp[ReadPackage](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=ReadPackage)]
 
 ## <a name="third-party-documentation"></a>Dokumentace třetích stran
 

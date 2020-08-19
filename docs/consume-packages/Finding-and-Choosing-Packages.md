@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 45928e60033959bc8b4f43d1ef3e4c943e7ec057
-ms.sourcegitcommit: e02482e15c0cef63153086ed50d14f5b2a38f598
+ms.openlocfilehash: feb21ae1e70144491a5c0fe8f6a7be36e61d9b32
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87473863"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622980"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Hledání a vyhodnocení balíčků NuGet pro váš projekt
 
@@ -90,32 +90,41 @@ Nejlepším způsobem, jak vyhodnotit užitečnost balíčku, je stáhnout si ho
 
 Zároveň použití balíčku NuGet znamená, že se v něm nachází závislost, takže je potřeba zajistit, aby byla robustní a spolehlivá. Vzhledem k tomu, že instalace a přímá testování balíčku je časově náročné, můžete také zjistit spoustu kvality balíčku pomocí informací na stránce se seznamem balíčku:
 
-- *Statistika ke stažení*: na stránce balíček na NuGet.org se v části **Statistika** zobrazuje celkový počet stažení, stažení nejnovější verze a průměrné stahování za den. Větší čísla označují, že mnoho dalších vývojářů zavedlo závislost na balíčku, což znamená, že se prověřil.
+- **Statistika ke stažení**: na stránce balíček na NuGet.org se v části **Statistika** zobrazuje celkový počet stažení, stažení nejnovější verze a průměrné stahování za den. Větší čísla označují, že mnoho dalších vývojářů zavedlo závislost na balíčku, což znamená, že se prověřil.
 
     ![Stáhnout statistiku na stránce se seznamem balíčku](media/Finding-03-Downloads.png)
 
-- *Použití GitHubu*: na stránce balíček je v části **využití GitHubu** uvedena veřejná úložiště GitHub, která jsou závislá na tomto balíčku a mají velký počet hvězdiček na GitHubu. Počet hvězdiček v úložišti GitHubu obecně označuje, jak populární je úložiště s uživateli GitHubu (více hvězdiček obvykle znamená více oblíbených). Další informace o systému hodnocení Star a úložiště najdete na [stránce Začínáme GitHubu](https://help.github.com/en/github/getting-started-with-github/saving-repositories-with-stars#about-stars) .
+- **Používá**se v: na stránce balíček **používá** část Seznam hlavních 5 nejoblíbenějších balíčků NuGet.org a oblíbených úložišť GitHubu, které jsou závislé na tomto balíčku. Balíčky a úložiště, která závisí na tomto balíčku, se můžou v tomto balíčku jmenovat "závislé položky". Závislé balíčky a úložiště se dají zobrazit jako "potvrzení" tohoto balíčku, protože autoři balíčku se rozhodli důvěřovat a závisí na něm.
+  - Závislý balíček musí záviset na *jakékoli verzi* tohoto balíčku v *nejnovější stabilní verzi uvedené v seznamu*. Tato definice zajistí, že zobrazené závislé balíčky jsou aktuální odrazem rozhodnutí autora balíčku na důvěru a závisí na tomto balíčku. Závislé položky předprodejní nejsou uvedeny, protože se zatím nepovažují za částečně endoresements. Příklady najdete v následující tabulce:
 
-    ![Použití GitHubu](media/GitHub-Usage.png)
+    | Sbalení A verze | Balíček A je na seznamu závislých na balíčku B? |
+    |-|-|
+    | v 1.0.0<br>v 1.1.0 (nejnovější stabilní) – > balíčku B<br>v 1.2.0 – Preview | TRUE, nejnovější stabilní verze závisí na balíčku B |
+    | v 1.0.0--> balíčku B<br>v 1.1.0 (nejnovější stabilní)<br>v 1.2.0 – Preview | FALSE, nejnovější stabilní verze nezávisí na balíčku B |
+    | v 1.0.0--> balíčku B<br>v 1.1.0 (nejnovější stabilní)<br>v 1.2.0-Preview--> balíčku B | FALSE, nejnovější stabilní verze nezávisí na balíčku B |
+
+  - Počet hvězdiček v úložišti GitHubu obecně označuje, jak populární je úložiště s uživateli GitHubu (více hvězdiček obvykle znamená více oblíbených). Další informace o systému hodnocení Star a úložiště najdete na [stránce Začínáme GitHubu](https://help.github.com/en/github/getting-started-with-github/saving-repositories-with-stars#about-stars) .
+
+    ![Využíval](media/Used-By-section-Humanizer.png)
 
     > [!Note]
-    > Oddíl využití GitHubu balíčku se vygeneruje automaticky, pravidelně, bez lidského přezkoumání individuálních úložišť, a výhradně pro informativní účely, aby se zobrazila úložiště GitHub, která jsou závislá na balíčku a která jsou oblíbená s uživateli GitHubu.
+    > Balíček používaný v oddílu se generuje automaticky, pravidelně bez lidského přezkoumání individuálních úložišť a výhradně pro informativní účely, aby vám ukázal NuGet.org balíčky a oblíbená úložiště GitHubu, která závisí na balíčku.
 
-- *Historie verzí*: na stránce balíček vyhledejte v části **informace** datum poslední aktualizace a zkontrolujte **historii verzí**. Dobře uchovávaný balíček má nedávné aktualizace a bohatou historii verzí. Opomíjené balíčky mají několik aktualizací a v některých časových intervalech se často neaktualizovaly.
+- **Historie verzí**: na stránce balíček vyhledejte v části **informace** datum poslední aktualizace a zkontrolujte **historii verzí**. Dobře uchovávaný balíček má nedávné aktualizace a bohatou historii verzí. Opomíjené balíčky mají několik aktualizací a v některých časových intervalech se často neaktualizovaly.
 
     ![Historie verzí na stránce se seznamem balíčku](media/Finding-04-VersionHistory.png)
 
-- *Poslední instalace*: na stránce balíček v části **Statistika**vyberte **Zobrazit úplné statistiky**. Na stránce úplných statistik se zobrazuje balíček, který se nainstaluje za posledních šest týdnů podle čísla verze. Balíček, který používají jiní vývojáři, je obvykle lepší volbou než ten, který není.
+- **Poslední instalace**: na stránce balíček v části **Statistika**vyberte **Zobrazit úplné statistiky**. Na stránce úplných statistik se zobrazuje balíček, který se nainstaluje za posledních šest týdnů podle čísla verze. Balíček, který používají jiní vývojáři, je obvykle lepší volbou než ten, který není.
 
-- *Podpora*: na stránce balíček v části **informace**vyberte možnost **Web projektu** (Pokud je k dispozici) a zjistěte, jaké možnosti podpory Autor poskytuje. Projekt s vyhrazenou lokalitou je obecně lepší podporovat.
+- **Podpora**: na stránce balíček v části **informace**vyberte možnost **Web projektu** (Pokud je k dispozici) a zjistěte, jaké možnosti podpory Autor poskytuje. Projekt s vyhrazenou lokalitou je obecně lepší podporovat.
 
-- *Historie pro vývojáře*: na stránce balíček v části **vlastníci**vyberte vlastníka a podívejte se, jaké další balíčky se publikovaly. U zařízení s více balíčky je pravděpodobnější, že budou v budoucnu nadále podporovat svou práci.
+- **Historie pro vývojáře**: na stránce balíček v části **vlastníci**vyberte vlastníka a podívejte se, jaké další balíčky se publikovaly. U zařízení s více balíčky je pravděpodobnější, že budou v budoucnu nadále podporovat svou práci.
 
-- *Příspěvky na Open Source*: mnoho balíčků se uchovává v úložištích open source, což umožňuje vývojářům v závislosti na tom, jak přímo přispívá k opravám chyb a vylepšení funkcí. Historie příspěvků každého daného balíčku je také dobrým ukazatelem toho, kolik vývojářů je aktivně zapojeno.
+- **Příspěvky na Open Source**: mnoho balíčků se uchovává v úložištích open source, což umožňuje vývojářům v závislosti na tom, jak přímo přispívá k opravám chyb a vylepšení funkcí. Historie příspěvků každého daného balíčku je také dobrým ukazatelem toho, kolik vývojářů je aktivně zapojeno.
 
-- *Rozhovor s vlastníky*: noví vývojáři můžou být ve stejném pořádku, aby využívali Skvělé balíčky, abyste je mohli použít, a je dobré jim dát možnost přispívat do ekosystému NuGet něco nového. Na základě toho se můžete obrátit přímo na vývojáře balíčku prostřednictvím možnosti **vlastníci kontaktů** v části **informace** na stránce výpis. Je pravděpodobné, že budete spokojeni s tím, abyste mohli spolupracovat na svých potřebách.
+- **Rozhovor s vlastníky**: noví vývojáři můžou být ve stejném pořádku, aby využívali Skvělé balíčky, abyste je mohli použít, a je dobré jim dát možnost přispívat do ekosystému NuGet něco nového. Na základě toho se můžete obrátit přímo na vývojáře balíčku prostřednictvím možnosti **vlastníci kontaktů** v části **informace** na stránce výpis. Je pravděpodobné, že budete spokojeni s tím, abyste mohli spolupracovat na svých potřebách.
 
-- *Rezervované předpony ID balíčku*: mnoho vlastníků balíčků bylo aplikováno pro a byla udělena [vyhrazená předpona ID balíčku](../nuget-org/id-prefix-reservation.md). Když uvidíte vizuální značku vedle ID balíčku v [NuGet.org](https://www.nuget.org/)nebo v aplikaci Visual Studio, to znamená, že vlastník balíčku splnil [kritéria](../nuget-org/id-prefix-reservation.md#id-prefix-reservation-criteria) pro rezervaci předpony ID. To znamená, že vlastník balíčku je jasný k identifikaci a jejich balíčku.
+- **Rezervované předpony ID balíčku**: mnoho vlastníků balíčků bylo aplikováno pro a byla udělena [vyhrazená předpona ID balíčku](../nuget-org/id-prefix-reservation.md). Když uvidíte vizuální značku vedle ID balíčku v [NuGet.org](https://www.nuget.org/)nebo v aplikaci Visual Studio, to znamená, že vlastník balíčku splnil [kritéria](../nuget-org/id-prefix-reservation.md#id-prefix-reservation-criteria) pro rezervaci předpony ID. To znamená, že vlastník balíčku je jasný k identifikaci a jejich balíčku.
 
 > [!Note]
 > Vždy si zavědomete licenčních podmínek balíčku, které můžete zobrazit výběrem **informace o licenci** na stránce se seznamem balíčku na NuGet.org. Pokud balíček neurčí licenční smlouvu, obraťte se na vlastníka balíčku přímo pomocí odkazu **vlastníci kontaktu** na stránce balíček. Společnost Microsoft nelicencuje žádné duševní vlastnictví od poskytovatelů balíčků třetích stran a nezodpovídá za informace poskytované třetími stranami.

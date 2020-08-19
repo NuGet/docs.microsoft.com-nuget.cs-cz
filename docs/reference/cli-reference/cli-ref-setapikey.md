@@ -1,22 +1,22 @@
 ---
 title: NuGet CLI – příkaz setapikey
-description: Referenční informace o příkazu NuGet. exe setapikey
+description: Odkaz na příkaz nuget.exe setapikey
 author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: e06cfb5b355dfae8104090db7babdecdf9e9fec1
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.openlocfilehash: b84d4257c580f6e734c26ebfc589be27bea10c82
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78231224"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622808"
 ---
 # <a name="setapikey-command-nuget-cli"></a>setapikey – příkaz (NuGet CLI)
 
-**Platí pro:** spotřeba balíčku, publikování &bullet; **podporovaných verzích:** vše
+**Platí pro:** spotřeba balíčku, publikování &bullet; **podporovaných verzí:** vše
 
-Uloží klíč rozhraní API pro danou adresu URL serveru do `NuGet.Config`, aby se nemusel zadat pro následné příkazy.
+Uloží klíč rozhraní API pro danou adresu URL serveru `NuGet.Config` tak, aby se nemusel zadat pro následné příkazy.
 
 ## <a name="usage"></a>Využití
 
@@ -24,21 +24,37 @@ Uloží klíč rozhraní API pro danou adresu URL serveru do `NuGet.Config`, aby
 nuget setapikey <key> -Source <url> [options]
 ```
 
-kde `<source>` identifikuje server a `<key>` je klíč, který se má uložit. Pokud je hodnota `<source>` vynechána, předpokládá se nuget.org. 
+kde `<source>` identifikuje server a `<key>` je klíč, který se má uložit. Pokud `<source>` je hodnota vynechána, předpokládá se NuGet.org. 
 
 > [!NOTE]
-> Klíč rozhraní API se nepoužívá pro ověřování pomocí privátního informačního kanálu. Pokud chcete spravovat přihlašovací údaje pro ověřování ve zdroji, přečtěte si [`nuget sources` příkaz](../cli-reference/cli-ref-sources.md) .
-> Klíče rozhraní API lze získat z jednotlivých serverů NuGet. Pokud chcete vytvořit a spravovat APIKeys pro nuget.org, přečtěte si téma [Publishing-API-Key](../../quickstart/includes/publish-api-key.md) .
+> Klíč rozhraní API se nepoužívá pro ověřování pomocí privátního informačního kanálu. Pro správu přihlašovacích údajů pro ověřování ve zdroji použijte [ `nuget sources` příkaz](../cli-reference/cli-ref-sources.md) .
+> Klíče rozhraní API lze získat z jednotlivých serverů NuGet. Pokud chcete vytvořit a spravovat APIKeys pro nuget.org, přečtěte si téma [získání-a-API-Key](../../nuget-org/scoped-api-keys.md#acquire-an-api-key) .
 
 ## <a name="options"></a>Možnosti
 
-| Možnost | Popis |
-| --- | --- |
-| ConfigFile | Konfigurační soubor NuGet, který se má použít Pokud není zadaný, použije se `%AppData%\NuGet\NuGet.Config` (Windows) nebo `~/.nuget/NuGet/NuGet.Config` (Mac/Linux).|
-| ForceEnglishOutput | *(3.5 +)* Vynutí, aby soubor NuGet. exe běžel pomocí neutrální jazykové verze určené pro angličtinu. |
-| Nápověda | Zobrazí informace o nápovědě k příkazu. |
-| NonInteractive | Potlačí výzvy pro vstup uživatele nebo potvrzení. |
-| Verbosity | Určuje množství podrobností zobrazených ve výstupu: *normální*, *tiché*a *podrobné*. |
+- **`-ConfigFile`**
+
+  Konfigurační soubor NuGet, který se má použít Pokud není zadaný, `%AppData%\NuGet\NuGet.Config` použije se (Windows) nebo `~/.nuget/NuGet/NuGet.Config` nebo `~/.config/NuGet/NuGet.Config` (Mac/Linux).
+
+- **`-ForceEnglishOutput`**
+
+  *(3.5 +)* Vynutí spuštění nuget.exe s využitím neutrální jazykové verze založené na angličtině.
+
+- **`-?|-help`**
+
+  Zobrazí informace o nápovědě k příkazu.
+
+- **`-NonInteractive`**
+
+  Potlačí výzvy pro vstup uživatele nebo potvrzení.
+
+- **`-src|-Source`**
+
+  Adresa URL serveru, kde je klíč rozhraní API platný
+
+- **`-Verbosity [normal|quiet|detailed]`**
+
+  Určuje množství podrobností zobrazených ve výstupu: `normal` (výchozí), `quiet` nebo `detailed` .
 
 Podívejte se také na [proměnné prostředí](cli-ref-environment-variables.md) .
 

@@ -1,19 +1,19 @@
 ---
 title: NuGet CLI – příkaz ověření
-description: Referenční informace o příkazu NuGet. exe Verify
+description: Odkaz na příkaz nuget.exe Verify
 author: dtivel
 ms.author: dtivel
 ms.date: 03/06/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: 9510f7323fe0cb860e0dbde51c1eda761846ee27
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 2c501753a16820c5d027441001561c6b637ccda9
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68328252"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622600"
 ---
-# <a name="verify-command-nuget-cli"></a>Příkaz verify (NuGet CLI)
+# <a name="verify-command-nuget-cli"></a>VERIFY – příkaz (NuGet CLI)
 
 **Platí pro:** &bullet; **podporované verze balíčku:** 4.6 +
 
@@ -21,7 +21,7 @@ Ověří balíček.
 
 Ověřování podepsaných balíčků se ještě nepodporuje v .NET Core, v mono nebo na platformách jiných než Windows.
 
-## <a name="usage"></a>Použití
+## <a name="usage"></a>Využití
 
 ```cli
 nuget verify <-All|-Signatures> <package(s)> [options]
@@ -39,18 +39,31 @@ Určuje, že by mělo být provedeno ověření podpisu balíčku.
 
 ## <a name="options-for-verify--signatures"></a>Možnosti pro "ověřit-podpisy"
 
-| Možnost | Popis |
-| --- | --- |
-| CertificateFingerprint | Určuje jeden nebo více otisků certifikátů SHA-256 certifikátů, které musí být podepsané balíčky podepsány. Otisk certifikátu SHA-256 je hodnota hash SHA-256 certifikátu. Více vstupů by mělo být odděleno středníkem. |
+- **`-CertificateFingerprint`**
+
+  Určuje jeden nebo více otisků certifikátů SHA-256 certifikátů, které musí být podepsané balíčky podepsány. Otisk certifikátu SHA-256 je hodnota hash SHA-256 certifikátu. Více vstupů by mělo být odděleno středníkem.
 
 ## <a name="options"></a>Možnosti
 
-| Možnost | Popis |
-| --- | --- |
-| ConfigFile | Konfigurační soubor NuGet, který se má použít Pokud není zadaný, `%AppData%\NuGet\NuGet.Config` použije se (Windows `~/.nuget/NuGet/NuGet.Config` ) nebo (Mac/Linux).|
-| ForceEnglishOutput | Vynutí, aby soubor NuGet. exe běžel pomocí neutrální jazykové verze určené pro angličtinu. |
-| Help | Zobrazí informace o nápovědě k příkazu. |
-| Verbosity | Určuje množství podrobností zobrazených ve výstupu: *normální*, tiché a *podrobné*. |
+- **`-ConfigFile`**
+
+  Konfigurační soubor NuGet, který se má použít Pokud není zadaný, `%AppData%\NuGet\NuGet.Config` použije se (Windows) nebo `~/.nuget/NuGet/NuGet.Config` nebo `~/.config/NuGet/NuGet.Config` (Mac/Linux).
+
+- **`-ForceEnglishOutput`**
+
+  Vynutí spuštění nuget.exe s využitím neutrální jazykové verze založené na angličtině.
+
+- **`-?|-help`**
+
+  Zobrazí informace o nápovědě k příkazu.
+
+- **`-NonInteractive`**
+
+  Potlačí výzvy pro vstup uživatele nebo potvrzení.
+
+- **`-Verbosity [normal|quiet|detailed]`**
+
+  Určuje množství podrobností zobrazených ve výstupu: `normal` (výchozí), `quiet` nebo `detailed` .
 
 ## <a name="examples"></a>Příklady
 

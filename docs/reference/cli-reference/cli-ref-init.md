@@ -1,26 +1,26 @@
 ---
 title: NuGet – příkaz init CLI
-description: Referenční informace o příkazu NuGet. exe init
+description: Odkaz na příkaz nuget.exe init
 author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 4441dc3cc35a96736b51867c196313fc9ccfdac2
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 3b830d678a473c917b70bd46900bdb0206d3652e
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68328336"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88623081"
 ---
 # <a name="init-command-nuget-cli"></a>init – příkaz (NuGet CLI)
 
-**Platí pro:** vytváření &bullet; balíčků **podporuje verze:** 3.3+
+**Platí pro:** vytváření balíčků &bullet; **podporuje verze:** 3.3 +
 
-Zkopíruje všechny balíčky z ploché složky do cílové složky pomocí hierarchického rozložení, jak je popsáno v [příkazu přidat](cli-ref-add.md). To znamená, že `init` použití je ekvivalentní s `add` použitím příkazu na každém balíčku ve složce.
+Zkopíruje všechny balíčky z ploché složky do cílové složky pomocí hierarchického rozložení, jak je popsáno v [příkazu přidat](cli-ref-add.md). To znamená, že použití `init` je ekvivalentní s použitím `add` příkazu na každém balíčku ve složce.
 
-Stejně jako `add`v nástroji musí být cílem buď místní složka, nebo cesta UNC; Úložiště balíčků HTTP, jako je nuget.org nebo privátní servery, nejsou podporovaná.
+Stejně jako v nástroji `add` musí být cílem buď místní složka, nebo cesta UNC; Úložiště balíčků HTTP, jako je nuget.org nebo privátní servery, nejsou podporovaná.
 
-## <a name="usage"></a>Použití
+## <a name="usage"></a>Využití
 
 ```cli
 nuget init <source> <destination> [options]
@@ -30,14 +30,29 @@ kde `<source>` je složka obsahující balíčky a `<destination>` je místní s
 
 ## <a name="options"></a>Možnosti
 
-| Možnost | Popis |
-| --- | --- |
-| ConfigFile | Konfigurační soubor NuGet, který se má použít Pokud není zadaný, `%AppData%\NuGet\NuGet.Config` použije se (Windows `~/.nuget/NuGet/NuGet.Config` ) nebo (Mac/Linux).|
-| ForceEnglishOutput | *(3.5 +)* Vynutí, aby soubor NuGet. exe běžel pomocí neutrální jazykové verze určené pro angličtinu. |
-| Expand | Přidá všechny soubory v každém balíčku, který je přidán do zdroje balíčku. totéž jako `-Expand` `add` u příkazu. |
-| Help | Zobrazí informace o nápovědě k příkazu. |
-| NonInteractive | Potlačí výzvy pro vstup uživatele nebo potvrzení. |
-| Verbosity | Určuje množství podrobností zobrazených ve výstupu: *normální*, tiché a *podrobné*. |
+- **`-ConfigFile`**
+
+  Konfigurační soubor NuGet, který se má použít Pokud není zadaný, `%AppData%\NuGet\NuGet.Config` použije se (Windows) nebo `~/.nuget/NuGet/NuGet.Config` nebo `~/.config/NuGet/NuGet.Config` (Mac/Linux).
+
+- **`-Expand`**
+
+  Přidá všechny soubory v každém balíčku, který je přidán do zdroje balíčku. totéž jako `-Expand` u `add` příkazu.
+
+- **`-ForceEnglishOutput`**
+
+  *(3.5 +)* Vynutí spuštění nuget.exe s využitím neutrální jazykové verze založené na angličtině.
+
+- **`-?|-help`**
+
+  Zobrazí informace o nápovědě k příkazu.
+
+- **`-NonInteractive`**
+
+  Potlačí výzvy pro vstup uživatele nebo potvrzení.
+
+- **`-Verbosity [normal|quiet|detailed]`**
+
+  Určuje množství podrobností zobrazených ve výstupu: `normal` (výchozí), `quiet` nebo `detailed` .
 
 Podívejte se také na [proměnné prostředí](cli-ref-environment-variables.md) .
 

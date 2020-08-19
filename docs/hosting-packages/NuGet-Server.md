@@ -1,69 +1,69 @@
 ---
-title: Použití nuget.serveru k hostování informačních kanálů NuGet
-description: Jak vytvořit a hostovat informační kanál balíčku NuGet na libovolném serveru se spuštěnou službou IIS pomocí souboru NuGet.Server, čímž jsou balíčky zpřístupněny prostřednictvím protokolů HTTP a OData.
+title: Použití NuGet. Server k hostování kanálů NuGet
+description: Postup vytvoření a hostování informačního kanálu balíčku NuGet na jakémkoli serveru se službou IIS pomocí NuGet. Server, zpřístupnění balíčků prostřednictvím protokolu HTTP a OData.
 author: karann-msft
 ms.author: karann
 ms.date: 03/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: 098375b2bba13675ba5d80a27e0226dc2ee39e77
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 7a806e6b586c63c701642c9e43865cb077d7999c
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79059523"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88623042"
 ---
 # <a name="nugetserver"></a>NuGet.Server
 
-NuGet.Server je balíček poskytovaný službou .NET Foundation, který vytváří ASP.NET aplikaci, která může hostovat zdroj balíčků na libovolném serveru se službou IIS. Jednoduše řečeno, NuGet.Server zpřístupňuje složku na serveru prostřednictvím HTTP(S) (konkrétně OData). Je snadné nastavit a je nejlepší pro jednoduché scénáře.
+NuGet. Server je balíček poskytovaný rozhraním .NET Foundation, který vytváří aplikaci ASP.NET, která může hostovat kanál balíčku na jakémkoli serveru, na kterém je spuštěna služba IIS. Jednoduše řečeno, NuGet. server zpřístupňuje složku na serveru prostřednictvím protokolu HTTP (konkrétně OData). U jednoduchých scénářů se snadno nastavuje a je nejvhodnější.
 
-1. Vytvořte prázdnou ASP.NET webovou aplikaci v sadě Visual Studio a přidejte do ní balíček NuGet.Server.
+1. Vytvořte prázdnou webovou aplikaci v ASP.NET v aplikaci Visual Studio a přidejte do ní balíček NuGet. Server.
 1. Nakonfigurujte `Packages` složku v aplikaci a přidejte balíčky.
-1. Nasazení aplikace na vhodný server.
+1. Nasaďte aplikaci na vhodný server.
 
-Následující části podrobně procházejí tímto procesem pomocí jazyka C#.
+Následující části podrobně popisují tento proces pomocí jazyka C#.
 
-Máte-li další dotazy týkající se nuget.server, vytvořte problém na [https://github.com/nuget/NuGetGallery/issues](https://github.com/nuget/NuGetGallery/issues).
+Pokud máte další dotazy k NuGet. Server, vytvořte problém v [https://github.com/nuget/NuGetGallery/issues](https://github.com/nuget/NuGetGallery/issues) .
 
-## <a name="create-and-deploy-an-aspnet-web-application-with-nugetserver"></a>Vytvoření a nasazení webové aplikace ASP.NET pomocí serveru NuGet.Server
+## <a name="create-and-deploy-an-aspnet-web-application-with-nugetserver"></a>Vytvoření a nasazení webové aplikace v ASP.NET pomocí NuGet. Server
 
-1. V sadě Visual Studio vyberte **soubor > nový > project**, vyhledejte "ASP.NET webovou aplikaci (.NET Framework)", vyberte odpovídající šablonu pro C#.
+1. V aplikaci Visual Studio vyberte **soubor > nový > projekt**, vyhledejte "ASP.NET webová aplikace (.NET Framework)", vyberte šablonu pro **jazyk C#**.
 
-    ![Výběr šablony webového projektu rozhraní .NET Framework](media/Hosting_00-NuGet.Server-ProjectType.png)
+    ![Vyberte šablonu .NET Framework webového projektu.](media/Hosting_00-NuGet.Server-ProjectType.png)
 
-1. Nastavte **framework** na ".NET Framework 4.6".
+1. Nastavte **rozhraní** na ".NET Framework 4,6".
 
-    ![Nastavení cílového rámce pro nový projekt](media/Hosting_01-NuGet.Server-Set4.6.png)
+    ![Nastavení cílové architektury pro nový projekt](media/Hosting_01-NuGet.Server-Set4.6.png)
 
-1. Pojmenujte aplikaci jiný *název* než NuGet.Server, vyberte OK a v dalším dialogovém okně vyberte **prázdnou** šablonu a pak vyberte **OK**.
+1. Poskytněte aplikaci vhodný *jiný* název než NuGet. Server, vyberte OK a v dalším dialogovém okně vyberte **prázdnou** šablonu a pak vyberte **OK**.
 
-    ![Výběr prázdného webového projektu](media/Hosting_02-NuGet.Server-Empty.png)
+    ![Vyberte prázdný webový projekt.](media/Hosting_02-NuGet.Server-Empty.png)
 
-1. Klikněte pravým tlačítkem myši na projekt a vyberte **spravovat balíčky NuGet**.
+1. Klikněte pravým tlačítkem na projekt a vyberte **Spravovat balíčky NuGet**.
 
-1. V unovém rozhraní Správce balíčků vyberte kartu **Procházet** a pak vyhledejte a nainstalujte nejnovější verzi balíčku NuGet.Server, pokud cílíte na rozhraní .NET Framework 4.6. (Můžete jej také nainstalovat z konzoly Správce balíčků s `Install-Package NuGet.Server`.) Při přijetí výzvy přijměte licenční podmínky.
+1. V uživatelském rozhraní Správce balíčků vyberte kartu **Procházet** a pak vyhledejte a nainstalujte nejnovější verzi balíčku NuGet. Server, pokud cílíte .NET Framework 4,6. (Můžete ji také nainstalovat z konzoly Správce balíčků s `Install-Package NuGet.Server` .) Pokud se zobrazí výzva, přijměte licenční podmínky.
 
-    ![Instalace balíčku NuGet.Server](media/Hosting_03-NuGet.Server-Package.png)
+    ![Instalace balíčku NuGet. Server](media/Hosting_03-NuGet.Server-Package.png)
 
-1. Instalace nuget.serveru převede prázdnou webovou aplikaci na zdroj balíčku. Nainstaluje řadu dalších balíčků, vytvoří `Packages` složku v aplikaci a `web.config` upraví zahrnout další nastavení (podrobnosti naleznete v komentářích v tomto souboru).
+1. Instalace NuGet. Server převede prázdnou webovou aplikaci na zdroj balíčku. Nainstaluje celou řadu dalších balíčků, vytvoří `Packages` složku v aplikaci a upraví `web.config` tak, aby zahrnovala další nastavení (podrobnosti najdete v komentářích v tomto souboru).
 
     > [!Important]
-    > Pečlivě `web.config` zkontrolujte po NuGet.Server balíček dokončil své změny tohoto souboru. NuGet.Server nemusí přepsat existující prvky, ale místo toho vytvořit duplicitní prvky. Tyto duplikáty způsobí "Vnitřní chyba serveru" při pozdějším pokusu o spuštění projektu. Například pokud `web.config` vaše `<compilation debug="true" targetFramework="4.5.2" />` obsahuje před instalací NuGet.Server, balíček není přepsat, `<compilation debug="true" targetFramework="4.6" />`ale vloží druhý . V takovém případě odstraňte prvek se starší verzí frameworku.
+    > Pečlivě zkontrolujte `web.config` , až balíček NuGet. Server dokončí změny tohoto souboru. NuGet. Server nemůže přepsat existující prvky, ale místo toho vytvoří duplicitní prvky. Tyto duplicity způsobí při pozdějším spuštění projektu "interní chybu serveru". Například pokud váš soubor `web.config` obsahuje `<compilation debug="true" targetFramework="4.5.2" />` před instalací NuGet. Server, balíček ho nepřepíše, ale vloží druhý `<compilation debug="true" targetFramework="4.6" />` . V takovém případě odstraňte element se starší verzí rozhraní .NET Framework.
 
-1. Spusťte web místně v sadě Visual Studio (pomocí **ladění > spustit bez ladění** nebo Ctrl+F5). Domovská stránka obsahuje adresy URL zdroje balíčků, jak je znázorněno níže. Pokud se zobrazí chyby, pečlivě zkontrolujte `web.config` duplicitní prvky, jak je uvedeno dříve.
+1. Místní spuštění webu v aplikaci Visual Studio (použití **ladění > spustit bez ladění** nebo CTRL + F5). Domovská stránka poskytuje adresy URL kanálu balíčku, jak je znázorněno níže. Pokud se zobrazí chyby, pečlivě zkontrolujte, zda neexistují `web.config` duplicitní prvky, jak bylo uvedeno dříve.
 
-    ![Výchozí domovská stránka aplikace s NuGet.Server](media/Hosting_04-NuGet.Server-FeedHomePage.png)
+    ![Výchozí domovská stránka aplikace s NuGet. Server](media/Hosting_04-NuGet.Server-FeedHomePage.png)
 
-1.  Při prvním spuštění aplikace NuGet.Server restrukturalizuje `Packages` složku tak, aby obsahovala složku pro každý balíček. To odpovídá [rozložení místního úložiště](https://blog.nuget.org/20151118/nuget-3.3.html#folder-based-repository-commands) zavedené s NuGet 3.3 ke zlepšení výkonu. Při přidávání dalšíbalíčky, pokračovat v následující struktuře.
+1.  Při prvním spuštění aplikace NuGet. Server restrukturuje `Packages` složku tak, aby obsahovala složku pro každý balíček. To odpovídá [rozložení místního úložiště](https://blog.nuget.org/20151118/nuget-3.3.html#folder-based-repository-commands) zavedenému pomocí NuGet 3,3 pro zlepšení výkonu. Při přidávání dalších balíčků pokračujte podle této struktury.
 
-1. Po otestování místního nasazení nasaďte aplikaci do jakékoli jiné interní nebo externí lokality podle potřeby.
+1. Po otestování místního nasazení Nasaďte aplikaci na jakoukoli jinou interní nebo externí lokalitu podle potřeby.
 
-1. Po nasazení `http://<domain>`do , bude adresa URL, kterou `http://<domain>/nuget`používáte pro zdroj balíčku .
+1. Po nasazení do nástroje `http://<domain>` bude adresa URL, kterou použijete pro zdroj balíčku, `http://<domain>/nuget` .
 
-## <a name="adding-packages-to-the-feed-externally"></a>Externí přidávání balíků do informačního kanálu
+## <a name="adding-packages-to-the-feed-externally"></a>Přidávají se balíčky do externího kanálu externě.
 
-Po spuštění webu NuGet.Server můžete přidat balíčky pomocí [nuget push](../reference/cli-reference/cli-ref-push.md) za předpokladu, že nastavíte hodnotu klíče rozhraní API v aplikaci `web.config`.
+Po spuštění serveru NuGet. Server můžete balíčky přidat pomocí [nabízených oznámení NuGet](../reference/cli-reference/cli-ref-push.md) , pokud nastavíte hodnotu klíče rozhraní API v `web.config` .
 
-Po instalaci balíčku NuGet.Server `web.config` obsahuje `appSetting/apiKey` prázdnou hodnotu:
+Po instalaci balíčku NuGet. Server `web.config` obsahuje prázdná `appSetting/apiKey` hodnota:
 
 ```xml
 <appSettings>
@@ -71,9 +71,9 @@ Po instalaci balíčku NuGet.Server `web.config` obsahuje `appSetting/apiKey` pr
 </appSettings>
 ```
 
-Pokud `apiKey` je vynechánnebo prázdný, odesílání balíčků do informačního kanálu je zakázáno.
+Pokud `apiKey` je hodnota vynechána nebo prázdná, je zablokováno vkládání balíčků do informačního kanálu.
 
-Chcete-li tuto funkci `apiKey` povolit, nastavte hodnotu (v ideálním `appSettings/requireApiKey` případě silné `true`heslo) a přidejte klíč volaný s hodnotou :
+Pokud chcete tuto funkci povolit, nastavte na `apiKey` hodnotu (ideálně silné heslo) a přidejte klíč `appSettings/requireApiKey` s názvem s hodnotou `true` :
 
 ```xml
 <appSettings>
@@ -85,21 +85,21 @@ Chcete-li tuto funkci `apiKey` povolit, nastavte hodnotu (v ideálním `appSetti
 </appSettings>
 ```
 
-Pokud je server již zabezpečený nebo jinak nepotřebujete klíč rozhraní API (například při použití `requireApiKey` privátního serveru v místní týmové síti), můžete nastavit na . `false` Všechny uživatele s přístupem k serveru pak mohou vymísťovat balíčky.
+Pokud je váš server už zabezpečený nebo pokud nepotřebujete klíč rozhraní API (například při použití privátního serveru v místní týmové síti), můžete nastavit `requireApiKey` na `false` . Všichni uživatelé s přístupem k serveru pak můžou nabízet balíčky.
 
-Počínaje nuget.server 3.0.0, url pro odesílání `http://<domain>/nuget`balíčků byla změna na . Před vydáním verze 3.0.0 byla `http://<domain>/api/v2/package`adresa URL push .
+Počínaje NuGet. Server 3.0.0 se adresa URL pro zatlačení balíčků změnila na `http://<domain>/nuget` . Před vydáním verze 3.0.0 byla adresa URL nabízení `http://<domain>/api/v2/package` .
 
-S NuGet 3.2.1 a novější, `/api/v2/package` tato starší `/nuget` adresa URL `enableLegacyPushRoute: true` je povolena kromě`NuGetODataConfig.cs` ve výchozím nastavení prostřednictvím možnosti v spouštěcí konfiguraci (ve výchozím nastavení). Všimněte si, že tato funkce nefunguje, pokud více informačních kanálů jsou hostovány ve stejném projektu.
+U NuGet 3.2.1 a novějších verzí je tato starší adresa URL `/api/v2/package` ve výchozím nastavení povolená, a to `/nuget` prostřednictvím `enableLegacyPushRoute: true` Možnosti v konfiguraci spouštění ( `NuGetODataConfig.cs` ve výchozím nastavení). Všimněte si, že tato funkce nefunguje, když je více kanálů hostováno ve stejném projektu.
 
-## <a name="removing-packages-from-the-feed"></a>Odebrání balíčků z informačního kanálu
+## <a name="removing-packages-from-the-feed"></a>Odebírají se balíčky z informačního kanálu.
 
-S NuGet.Server [nuget delete](../reference/cli-reference/cli-ref-delete.md) příkaz odebere balíček z úložiště za předpokladu, že zahrnete klíč rozhraní API s komentářem.
+Pomocí NuGet. Server odebere příkaz [NuGet Delete](../reference/cli-reference/cli-ref-delete.md) balíček z úložiště, do kterého jste zadali klíč rozhraní API s komentářem.
 
-Pokud chcete změnit chování, aby delist balíček místo (ponechat `enableDelisting` k `web.config` dispozici pro obnovení balíčku), změňte klíč v true.
+Pokud chcete změnit chování pro devýpis balíčku (nechat ho k dispozici pro obnovení balíčku), změňte `enableDelisting` klíč v `web.config` na true.
 
-## <a name="configuring-the-packages-folder"></a>Konfigurace složky Balíčky
+## <a name="configuring-the-packages-folder"></a>Konfigurace složky balíčků
 
-Pomocí `NuGet.Server` položky 1.5 a novějšímůžete přizpůsobit `appSettings/packagesPath` složku `web.config`balíčku pomocí hodnoty v části :
+Pomocí `NuGet.Server` 1,5 a novějších verzí můžete složku balíčku přizpůsobit pomocí `appSettings/packagesPath` hodnoty v `web.config` :
 
 ```xml
 <appSettings>
@@ -108,21 +108,21 @@ Pomocí `NuGet.Server` položky 1.5 a novějšímůžete přizpůsobit `appSetti
 </appSettings>
 ```
 
-`packagesPath`může být absolutní nebo virtuální cesta.
+`packagesPath` může být absolutní nebo virtuální cesta.
 
-Pokud `packagesPath` je vynechánnebo ponechán prázdný, složka `~/Packages`balíčky je výchozí .
+Když `packagesPath` je vynecháno nebo je ponecháno prázdné, složka Packages (balíčky) je výchozí `~/Packages` .
 
-## <a name="making-packages-available-when-you-publish-the-web-app"></a>Zpřístupnění balíčků při publikování webové aplikace
+## <a name="making-packages-available-when-you-publish-the-web-app"></a>Zpřístupnění balíčků po publikování webové aplikace
 
-Chcete-li balíčky zpřístupnit v informačním kanálu při `.nupkg` publikování aplikace `Packages` na server, přidejte jednotlivé soubory do složky v sadě Visual Studio a potom nastavte každý z nich **akce sestavení** na **obsah** a kopírovat **do výstupního adresáře** **ke kopírování vždy**:
+Chcete-li zpřístupnit balíčky v informačním kanálu při publikování aplikace na server, přidejte jednotlivé `.nupkg` soubory do `Packages` složky v aplikaci Visual Studio a pak nastavte každou **akci sestavení** na **obsah** a **Kopírovat do výstupního adresáře** **vždy**:
 
-![Kopírování balíčků do složky Balíčky v projektu](media/Hosting_05-NuGet.Server-Package-Folder.png)
+![Kopírování balíčků do složky Packages v projektu](media/Hosting_05-NuGet.Server-Package-Folder.png)
 
-## <a name="release-notes"></a>Poznámky k verzi
+## <a name="release-notes"></a>Zpráva k vydání verze
 
-Poznámky k verzi pro NuGet.Server jsou k dispozici na [stránce vydání GitHubu](https://github.com/NuGet/NuGet.Server/releases).
-To zahrnuje podrobnosti o opravách chyb a nových funkcích, které jsou přidány.
+Poznámky k verzi pro NuGet. Server jsou k dispozici na [stránce verze GitHubu](https://github.com/NuGet/NuGet.Server/releases).
+Obsahuje také podrobnosti o opravách chyb a nových funkcích, které jsou přidány.
 
-## <a name="nugetserver-support"></a>Podpora nuget.server
+## <a name="nugetserver-support"></a>Podpora NuGet. Server
 
-Další nápovědu pomocí souboru NuGet.Server získáte vytvořením problému v aplikaci [https://github.com/nuget/NuGetGallery/issues](https://github.com/nuget/NuGetGallery/issues).
+Další nápovědu k používání NuGet. Server získáte vytvořením problému v [https://github.com/nuget/NuGetGallery/issues](https://github.com/nuget/NuGetGallery/issues) .

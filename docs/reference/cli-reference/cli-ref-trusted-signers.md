@@ -1,35 +1,35 @@
 ---
 title: Příkaz NuGet CLI Trusted-signers
-description: Referenční informace k příkazu NuGet. exe Trusted-signers
+description: Referenční informace k příkazu nuget.exe Trusted-Signer
 author: patbel
 ms.author: patbel
 ms.date: 11/12/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: 94c4c6524c1870898893b80be914477af5a14e8b
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 2753f92601b3d8b43593762cc07cd8384646feea
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610337"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622665"
 ---
 # <a name="trusted-signers-command-nuget-cli"></a>příkaz důvěryhodného přihlášení (NuGet CLI)
 
-**Platí pro:** spotřeba balíčku &bullet; **podporované verze:** 4.9.1 +
+**Platí pro:** &bullet; **podporované verze balíčku:** 4.9.1 +
 
-Získá nebo nastaví důvěryhodné podepisující osoby na konfiguraci NuGet. Další informace o využití najdete v tématu [běžné konfigurace NuGet](../../consume-packages/configuring-nuget-behavior.md). Podrobnosti o tom, jak vypadá schéma NuGet. config, najdete v odkazu na [konfigurační soubor NuGet](../nuget-config-file.md).
+Získá nebo nastaví důvěryhodné podepisující osoby na konfiguraci NuGet. Další informace o využití najdete v tématu [běžné konfigurace NuGet](../../consume-packages/configuring-nuget-behavior.md). Podrobnosti o tom, jak vypadá nuget.config schéma, najdete v referenční dokumentaci k [konfiguračnímu souboru NuGet](../nuget-config-file.md).
 
-## <a name="usage"></a>Použití
+## <a name="usage"></a>Využití
 
 ```cli
 nuget trusted-signers <list|add|remove|sync> [options]
 ```
 
-Pokud není zadán žádný z `list|add|remove|sync`, bude příkaz ve výchozím nastavení `list`.
+Pokud `list|add|remove|sync` není zadán žádný parametr, bude příkaz ve výchozím nastavení nastaven na hodnotu `list` .
 
 ## <a name="nuget-trusted-signers-list"></a>seznam důvěryhodných podpisů NuGet
 
-Zobrazí seznam všech důvěryhodných přihlášení v konfiguraci. Tato možnost zahrne všechny certifikáty (s otiskem prstu a otiskem prstu) každého podepsaného. Pokud certifikát obsahuje předchozí `[U]`, znamená to, že položka certifikátu má `allowUntrustedRoot` nastavená jako `true`.
+Zobrazí seznam všech důvěryhodných přihlášení v konfiguraci. Tato možnost zahrne všechny certifikáty (s otiskem prstu a otiskem prstu) každého podepsaného. Pokud předchozí certifikát obsahuje `[U]` , znamená to, že položka certifikátu je `allowUntrustedRoot` nastavená jako `true` .
 
 Níže je uvedený příklad výstupu z tohoto příkazu:
 
@@ -65,14 +65,23 @@ nuget trusted-signers add <package(s)> -Name <name> [options]
 
 kde `<package(s)>` je jeden nebo více `.nupkg` souborů.
 
-| Možnost | Popis |
-| --- | --- |
-| Autorizova | Určuje, že podpis autora balíčků by měl být důvěryhodný. |
-| Úložištì | Určuje, že signatura úložiště nebo potvrzovací podpisy balíčků by měly být důvěryhodné. |
-| AllowUntrustedRoot | Určuje, jestli by měl být certifikát pro důvěryhodného podepisujícího povolený řetězení k nedůvěryhodnému kořenovému adresáři. |
-| vlastníka | Středníkem oddělený seznam důvěryhodných vlastníků, aby bylo možné dále omezit důvěryhodnost úložiště. Platí pouze při použití možnosti `-Repository`. |
+- **`-Author`**
 
-Poskytování `-Author` i `-Repository` ve stejnou dobu není podporováno.
+  Určuje, že podpis autora balíčků by měl být důvěryhodný.
+
+- **`-AllowUntrustedRoot`**
+
+  Určuje, jestli by měl být certifikát pro důvěryhodného podepisujícího povolený řetězení k nedůvěryhodnému kořenovému adresáři.
+
+- **`-Owners`**
+
+  Středníkem oddělený seznam důvěryhodných vlastníků, aby bylo možné dále omezit důvěryhodnost úložiště. Platí pouze při použití `-Repository` Možnosti.
+
+- **`-Repository`**
+
+  Určuje, že signatura úložiště nebo potvrzovací podpisy balíčků by měly být důvěryhodné.
+
+Poskytování současně `-Author` není `-Repository` podporováno.
 
 ## <a name="options-for-add-based-on-a-service-index"></a>Možnosti pro přidání na základě indexu služby
 
@@ -82,11 +91,17 @@ nuget trusted-signers add -Name <name> [options]
 
 _Poznámka_: Tato možnost bude přidávat jenom důvěryhodná úložiště. 
 
-| Možnost | Popis |
-| --- | --- |
-| ServiceIndex | Určuje index služby V3 úložiště, který se má důvěřovat. Toto úložiště musí podporovat prostředek pro podpisy úložišť. Pokud není zadaný, příkaz bude hledat zdroj balíčku se stejným `-Name` a z něj získá index služby. |
-| AllowUntrustedRoot | Určuje, jestli by měl být certifikát pro důvěryhodného podepisujícího povolený řetězení k nedůvěryhodnému kořenovému adresáři. |
-| vlastníka | Středníkem oddělený seznam důvěryhodných vlastníků, aby bylo možné dále omezit důvěryhodnost úložiště. |
+- **`-AllowUntrustedRoot`**
+
+  Určuje, jestli by měl být certifikát pro důvěryhodného podepisujícího povolený řetězení k nedůvěryhodnému kořenovému adresáři.
+
+- **`-Owners`**
+
+  Středníkem oddělený seznam důvěryhodných vlastníků, aby bylo možné dále omezit důvěryhodnost úložiště.
+
+- **`-ServiceIndex`**
+
+  Určuje index služby V3 úložiště, který se má důvěřovat. Toto úložiště musí podporovat prostředek pro podpisy úložišť. Pokud není zadaný, příkaz bude hledat zdroj balíčku se stejným `-Name` a z něj získá index služby.
 
 ## <a name="options-for-add-based-on-the-certificate-information"></a>Možnosti pro přidání na základě informací o certifikátu
 
@@ -96,17 +111,24 @@ nuget trusted-signers add -Name <name> [options]
 
 _Poznámka_: Pokud důvěryhodný podpis se zadaným názvem již existuje, bude položka certifikátu přidána k tomuto podepsanému. V opačném případě bude vytvořen důvěryhodný autor s položkou certifikátu z daných informací o certifikátu.
 
-| Možnost | Popis |
-| --- | --- |
-| CertificateFingerprint | Určuje otisky certifikátu certifikátu, pomocí kterého musí být podepsané balíčky podepsané. Otisk certifikátu je hodnota hash certifikátu. Algoritmus hash použitý pro výpočet tohoto algoritmu hash by měl být určený v možnosti `FingerprintAlgorithm`. |
-| FingerprintAlgorithm | Určuje algoritmus hash používaný k výpočtu otisku prstu certifikátu. Výchozí hodnota je `SHA256`. Podporované hodnoty jsou `SHA256`, `SHA384` a `SHA512` |
-| AllowUntrustedRoot | Určuje, jestli by měl být certifikát pro důvěryhodného podepisujícího povolený řetězení k nedůvěryhodnému kořenovému adresáři. |
 
-## <a name="nuget-trusted-signers-remove--name-name"></a>Trusted-Signer NuGet – jméno \<název\>
+- **`-AllowUntrustedRoot`**
+
+  Určuje, jestli by měl být certifikát pro důvěryhodného podepisujícího povolený řetězení k nedůvěryhodnému kořenovému adresáři.
+
+- **`-CertificateFingerprint`**
+
+  Určuje otisky certifikátu certifikátu, pomocí kterého musí být podepsané balíčky podepsané. Otisk certifikátu je hodnota hash certifikátu. Algoritmus hash použitý pro výpočet tohoto algoritmu hash by měl být v `FingerprintAlgorithm` Možnosti určení.
+
+- **`-FingerprintAlgorithm`**
+
+  Určuje algoritmus hash používaný k výpočtu otisku prstu certifikátu. Výchozí hodnota je `SHA256` . Podporované hodnoty jsou `SHA256` `SHA384` a `SHA512` .
+
+## <a name="nuget-trusted-signers-remove--name-name"></a>nedůvěryhodné podepsané – Remove-Name \<name\>
 
 Odebere všechny důvěryhodné podepisující osoby, které odpovídají danému názvu.
 
-## <a name="nuget-trusted-signers-sync--name-name"></a>\<název synchronizace NuGet-Signer Name\>
+## <a name="nuget-trusted-signers-sync--name-name"></a>Název synchronizačního podepsaného NuGet-Signer \<name\>
 
 Vyžádá nejnovější seznam certifikátů používaných v aktuálně důvěryhodném úložišti, aby aktualizoval existující seznam certifikátů v důvěryhodném přihlášení.
 
@@ -114,12 +136,30 @@ _Poznámka_: Tento gesto odstraní aktuální seznam certifikátů a nahradí je
 
 ## <a name="options"></a>Možnosti
 
-| Možnost | Popis |
-| --- | --- |
-| ConfigFile | Konfigurační soubor NuGet, který se má použít Pokud není zadaný, použije se `%AppData%\NuGet\NuGet.Config` (Windows) nebo `~/.nuget/NuGet/NuGet.Config` (Mac/Linux).|
-| ForceEnglishOutput | Vynutí, aby soubor NuGet. exe běžel pomocí neutrální jazykové verze určené pro angličtinu. |
-| Nápověda | Zobrazí informace o nápovědě k příkazu. |
-| Podrobnosti | Určuje množství podrobností zobrazených ve výstupu: *normální*, *tiché*a *podrobné*. |
+- **`-ConfigFile`**
+
+  Konfigurační soubor NuGet, který se má použít Pokud není zadaný, `%AppData%\NuGet\NuGet.Config` použije se (Windows) nebo `~/.nuget/NuGet/NuGet.Config` nebo `~/.config/NuGet/NuGet.Config` (Mac/Linux).
+
+- **`-ForceEnglishOutput`**
+
+  Vynutí spuštění nuget.exe s využitím neutrální jazykové verze založené na angličtině.
+
+- **`-?|-help`**
+
+  Zobrazí informace o nápovědě k příkazu.
+
+- **`-Name`**
+
+  Jméno důvěryhodného podepisujícího.
+
+- **`-NonInteractive`**
+
+  Potlačí výzvy pro vstup uživatele nebo potvrzení.
+
+- **`-Verbosity [normal|quiet|detailed]`**
+
+  Určuje množství podrobností zobrazených ve výstupu: `normal` (výchozí), `quiet` nebo `detailed` .
+
 
 ## <a name="examples"></a>Příklady
 

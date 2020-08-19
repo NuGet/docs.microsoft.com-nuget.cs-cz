@@ -5,18 +5,21 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: d3d156cf882229260e8cf55f8ece2804aec36dc9
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: f5ba4bd8140fa8cac7da8bf1351ad5448671b768
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75384981"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88623120"
 ---
-# <a name="add-bindingredirect-package-manager-console-in-visual-studio"></a>Add-BindingRedirect (konzola Správce balíčků v sadě Visual Studio)
+# <a name="add-bindingredirect-package-manager-console-in-visual-studio"></a>Add-BindingRedirect (konzola správce balíčků v aplikaci Visual Studio)
 
 *K dispozici pouze v rámci [konzoly Správce balíčků](../../consume-packages/install-use-packages-powershell.md) v sadě Visual Studio ve Windows.*
 
 Prověřuje všechna sestavení v rámci výstupní cesty pro projekt a v případě potřeby přidá přesměrování vazby na konfigurační soubor aplikace nebo webu. Tento příkaz se spustí automaticky při instalaci balíčku.
+
+> [!NOTE]
+> To se týká jenom scénářů, které používají soubor packages.config. Další informace najdete v dokumentaci k [souboru NuGet packages.config](~/reference/packages-config.md).
 
 Podrobnosti o přesměrování vazby a o tom, proč se používají, naleznete v tématu [Přesměrování verzí sestavení](/dotnet/framework/configure-apps/redirect-assembly-versions) v dokumentaci .NET.
 
