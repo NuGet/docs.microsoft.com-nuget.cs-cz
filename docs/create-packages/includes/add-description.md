@@ -1,14 +1,14 @@
 ---
-ms.openlocfilehash: b615bcb78ad2eaf8524bfbf17864d4652e546ff1
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: c604d20c6358b7da5b1294ae48d9b7452794102f
+ms.sourcegitcommit: 6cda91f135e58cf57a2471b0c7c4a2f748f40024
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80151361"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89359644"
 ---
-Volitelný popis balíčku, který je zobrazen na stránce NuGet.org balíčku, je `<description></description>` buď `.csproj` vtažen z použitého souboru, nebo vyžádán prostřednictvím `$description` [souboru .nuspec](../../reference/nuspec.md).
+Volitelný popis balíčku, který se zobrazí na stránce NuGet.org balíčku, se buď naplní z `<description></description>` používaného souboru, nebo se naplní `.csproj` prostřednictvím `$description` [souboru. nuspec](../../reference/nuspec.md).
 
-Příklad pole _popisu_ je uveden v následujícím textu `.csproj` XML souboru pro balíček .NET:
+Příklad pole _popisu_ je zobrazen v následujícím textu XML `.csproj` souboru pro balíček .NET:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -25,5 +25,5 @@ Příklad pole _popisu_ je uveden v následujícím textu `.csproj` XML souboru 
       REST API Reference for Blob Service - https://docs.microsoft.com/en-us/rest/api/storageservices/blob-service-rest-api
     </Description>
   </PropertyGroup>
-</PropertyGroup>
+</Project>
 ```
