@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 04/02/2019
 ms.topic: conceptual
-ms.openlocfilehash: 52c71c6fe1a1854d5aed229abf2ce7ddc2685ae9
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: e4a6be7fb26e3cc4bd297eaf02999f6ac1389b77
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73611340"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93236799"
 ---
 # <a name="nuget-50-release-notes"></a>Zpráva k vydání verze NuGet 5,0
 
@@ -27,25 +27,25 @@ Prostředky pro distribuci NuGet:
 
 ## <a name="summary-whats-new-in-50"></a>Shrnutí: Novinky v 5,0
 
-* Podpora pro obnovení [filtrovaných řešení](https://docs.microsoft.com/visualstudio/ide/filtered-solutions?view=vs-2019) v aplikaci Visual Studio 2019 – [#5820](https://github.com/NuGet/Home/issues/5820)
-* `BuildTransitive` složka umožňuje balíčkům průjezdně přispívat cíle/props do projektu hostitele – [#6091](https://github.com/NuGet/Home/issues/6091)
-* Lepší podpora scénářů PackageReference v rozhraní NuGet Ideographic API [](https://github.com/NuGet/Home/issues/7005)– #7005 [#7493](https://github.com/NuGet/Home/issues/7493)
-* `nuget.exe pack project.json` se už nepoužívá – [#7928](https://github.com/NuGet/Home/issues/7928)
-* Modul plug-in zprostředkovatele přihlašovacích údajů pro Gen 1 byl nahrazen [2. Gen 2](https://aka.ms/nuget-cross-platform-authentication-plugin) a bude brzy zastaralý – [#7819](https://github.com/NuGet/Home/issues/7819)
+* Podpora pro obnovení [filtrovaných řešení](/visualstudio/ide/filtered-solutions?view=vs-2019) v aplikaci Visual Studio 2019 – [#5820](https://github.com/NuGet/Home/issues/5820)
+* `BuildTransitive` Složka umožňuje balíčkům, aby byly do projektu hostitele zacíleny cílení na přispívat/props – [#6091](https://github.com/NuGet/Home/issues/6091)
+* Lepší podpora scénářů PackageReference v rozhraní NuGet Ideographic API [#7005](https://github.com/NuGet/Home/issues/7005)– #7005 [#7493](https://github.com/NuGet/Home/issues/7493)
+* `nuget.exe pack project.json` se již nepoužívá- [#7928](https://github.com/NuGet/Home/issues/7928)
+* Modul plug-in zprostředkovatele přihlašovacích údajů pro Gen 1 byl nahrazen [2. Gen 2](../reference/extensibility/nuget-cross-platform-authentication-plugin.md) a bude brzy zastaralý – [#7819](https://github.com/NuGet/Home/issues/7819)
 
 ## <a name="issues-fixed-in-this-release"></a>Chyby opravené v této verzi
 
 **Štěnic**
 
-* Při obnovení NoOp Vyhněte se zápisu do adresáře obj pomocí *. argument dgspec. JSON – [#7854](https://github.com/NuGet/Home/issues/7854)
+* Při obnovení NoOp Vyhněte se tomu * .dgspec.jspři zápisu do adresáře obj – [#7854](https://github.com/NuGet/Home/issues/7854)
 
 * Oprávnění k souborům vytvořeným uvnitř ~/.NuGet jsou příliš otevřená – [#7673](https://github.com/NuGet/Home/issues/7673)
 
 * `dotnet list package --outdated` nefunguje se zdroji, které potřebují auth- [#7605](https://github.com/NuGet/Home/issues/7605)
 
-* NuGet. VisualStudio. IVsPackageInstaller-volání na projekt bez odkazů na balíčky vždycky používá Packages. config, i když je výchozí hodnota nastavená na PackageReference- [#7005](https://github.com/NuGet/Home/issues/7005) .
+* NuGet. VisualStudio. IVsPackageInstaller-volání na projekt bez odkazů na balíčky vždy používá packages.config, i když je výchozí nastavení nastaveno na PackageReference- [#7005](https://github.com/NuGet/Home/issues/7005)
 
-* PMC: Update-Package REINSTALL-Package se nezdařil ("nelze nalézt balíček") na delistované balíčky. - [#7268](https://github.com/NuGet/Home/issues/7268)
+* PMC: přeinstalace Update-Package se nezdařila ("nelze nalézt balíček") na delistované balíčky. - [#7268](https://github.com/NuGet/Home/issues/7268)
 
 * Přidání oznámení třetí strany do našeho úložiště a VSIX – [#7409](https://github.com/NuGet/Home/issues/7409)
 
@@ -61,11 +61,11 @@ Prostředky pro distribuci NuGet:
 
 * Přidejte zpět NuGet. balení. Core pomocí TypeForwardedTo attrs- [#7768](https://github.com/NuGet/Home/issues/7768)
 
-* plugins_cache potřebuje pro správnou práci [#7770](https://github.com/NuGet/Home/issues/7770) kratší cestu.
+* plugins_cache potřebuje kratší cestu, aby správně fungovala [#7770](https://github.com/NuGet/Home/issues/7770)
 
 * Preferovat cestu pro zjišťování nástroje MSBuild, pokud uživatel nepožádal o konkrétní verzi nástroje MSBuild – [#7786](https://github.com/NuGet/Home/issues/7786)
 
-* `nuget.exe /?` by měl vypsat správné verze nástroje MSBuild – [#7794](https://github.com/NuGet/Home/issues/7794)
+* `nuget.exe /?` měl by vypsat správné verze nástroje MSBuild – [#7794](https://github.com/NuGet/Home/issues/7794)
 
 * NuGet. TARGETS (498; 5): Chyba: nepovedlo se najít část cesty/tmp/NuGetScratch-on mono- [#7793](https://github.com/NuGet/Home/issues/7793) .
 
@@ -81,13 +81,13 @@ Prostředky pro distribuci NuGet:
 
 * Uživatelské rozhraní NuGet 16.0 sady VS má nečitelný tabulátory z důvodu problémů s barvou – [#7735](https://github.com/NuGet/Home/issues/7735)
 
-* NuGet. Core & NuGet. clients. txt License. txt – [#7629](https://github.com/NuGet/Home/issues/7629)
+* NuGet. Core & NuGet. klienti License.txt objasnění [#7629](https://github.com/NuGet/Home/issues/7629)
 
 * Při pokusu o určení typu [#7596](https://github.com/NuGet/Home/issues/7596) se nenutně vytvoří výčet složky globálního balíčku.
 
 * Chyby z vynucení zámků souborů by se měly zobrazit v Seznam chyb okně – [#7429](https://github.com/NuGet/Home/issues/7429)
 
-* Oprava NuGet. problémy s konfigurací – [#7326](https://github.com/NuGet/Home/issues/7326)
+* Oprava problémů NuGet.Configuration – [#7326](https://github.com/NuGet/Home/issues/7326)
 
 * Přizpůsobit k aktualizaci MSBuild umístění instalace – [#7325](https://github.com/NuGet/Home/issues/7325)
 
@@ -97,7 +97,7 @@ Prostředky pro distribuci NuGet:
 
 * `dotnet pack` by měl zachovat rozsah verzí závislosti ve vytvořeném nupkg (i když se používá plovoucí verze) – [#7232](https://github.com/NuGet/Home/issues/7232)
 
-* `dotnet restore` se na ověřeném zdroji nezdařila, pokud má konfigurace na úrovni uživatele také [#7209](https://github.com/NuGet/Home/issues/7209) source-level
+* `dotnet restore`v ověřeném zdroji se nezdařila, pokud má konfigurace na úrovni uživatele také [#7209](https://github.com/NuGet/Home/issues/7209) zdroje.
 
 * Sada BuildActions by neměla omezovat sadu souborů obsahu – [#7155](https://github.com/NuGet/Home/issues/7155)
 
@@ -105,7 +105,7 @@ Prostředky pro distribuci NuGet:
 
 * Zablokování kvůli problémům s vlákny při volání do CPS (CommonProjectSystem) – [#7103](https://github.com/NuGet/Home/issues/7103)
 
-* `dotnet add package` nepoužívá přihlašovací údaje z globální konfigurace pro zdroj zadaný v místní konfiguraci. [#6935](https://github.com/NuGet/Home/issues/6935)
+* `dotnet add package` nepoužívá přihlašovací údaje z globální konfigurace pro zdroj zadaný v místní konfiguraci [#6935](https://github.com/NuGet/Home/issues/6935)
 
 * Problémy s vlákny s rozhraním MEF volanou v případě asynchronních cest kódu – [#6771](https://github.com/NuGet/Home/issues/6771)
 
@@ -115,19 +115,19 @@ Prostředky pro distribuci NuGet:
 
 * Obnovení NuGet je nesprávně NoOpsé, když 2 projekty sdílí adresář obj – [#6114](https://github.com/NuGet/Home/issues/6114)
 
-* Nelze použít PAT s `dotnet restore` v systému Linux s balíčky z ověřeného informačního kanálu – [#5651](https://github.com/NuGet/Home/issues/5651)
+* Nelze použít PAT se systémem `dotnet restore` v systému Linux s balíčky z ověřeného informačního kanálu – [#5651](https://github.com/NuGet/Home/issues/5651)
 
 * dotnet restore se nepovedlo kvůli zakázanému kanálu pro nejrůznější počítače – [#5410](https://github.com/NuGet/Home/issues/5410)
 
 **Chcete odeslat obecnou**
 
-* Upozornění na budoucí odebrání příkazu "dotnet Pack Project. JSON" – [#7928](https://github.com/NuGet/Home/issues/7928)
- 
+* Upozornění na budoucí odebrání "dotnet Pack project.json"- [#7928](https://github.com/NuGet/Home/issues/7928)
+ 
 * Přidání upozornění na zastaralost pro modul plug-in Gen1 přihlašovacích údajů – [#7819](https://github.com/NuGet/Home/issues/7819)
- 
+ 
 * Podepisování: povolené úložiště, které vyžaduje ověření klienta každého balíčku jako úložiště pomocí RepositorySignatures/5.0.0 Resource- [#7759](https://github.com/NuGet/Home/issues/7759)
 
-* Omezte číslo požadavku HTTP na zdroj prostřednictvím NuGet. config- [#4538](https://github.com/NuGet/Home/issues/4538)
+* omezení počtu žádostí http na zdroj prostřednictvím NuGet.Config- [#4538](https://github.com/NuGet/Home/issues/4538)
 
 * NuGet by měl cílit na Net472 (aby bylo možné vyčistit 16,0 sestavení VSIX) – [#7143](https://github.com/NuGet/Home/issues/7143)
 
@@ -149,26 +149,26 @@ Prostředky pro distribuci NuGet:
 
 * Časový limit obnovení v systémech s 1 procesorem [#6742](https://github.com/NuGet/Home/issues/6742)
 
-* NuGet dává přednost ověřování NTLM i v případě, že v souboru NuGet. config existují přihlašovací údaje, které filtrují typy ověřování pro přihlašovací údaje – [#5286](https://github.com/NuGet/Home/issues/5286)
+* NuGet dává přednost ověřování NTLM i v případě, že existují přihlašovací údaje v NuGet.config-přidání možnosti konfigurace pro filtrování typů ověřování pro přihlašovací údaje – [#5286](https://github.com/NuGet/Home/issues/5286)
 
-* Povolit EmbedInteropTypes pro PackageReference (vyhovující možnosti Packages. config) – [#2365](https://github.com/NuGet/Home/issues/2365)
+* Povolit EmbedInteropTypes pro PackageReference (odpovídá schopnosti Packages.Config) – [#2365](https://github.com/NuGet/Home/issues/2365)
 
 **[Seznam všech problémů opravených v této verzi – 5,0 RTM](https://github.com/NuGet/Home/milestone/84?closed=1)**
 
 ## <a name="summary-whats-new-in-502"></a>Shrnutí: co je nového v 5.0.2
 
-* Zabezpečení (při spuštění prostřednictvím příkazu dotnet. exe nebo mono. exe) – složka obj by měla být vytvořena se správnými oprávněními [#7908](https://github.com/NuGet/Home/issues/7908)
+* Zabezpečení (při spuštění prostřednictvím dotnet.exe nebo mono.exe) – složka obj by měla být vytvořená se správnými oprávněními [#7908](https://github.com/NuGet/Home/issues/7908)
 
-* NuGet. exe Restore on mono/MacOS se nezdařil s vlastními balíčky NuGet. config a `PackageSignatureValidity: False` [#8011](https://github.com/NuGet/Home/issues/8011)
+* nuget.exe obnovení mono/MacOS se nezdařila s vlastní nuget.config a `PackageSignatureValidity: False` [#8011](https://github.com/NuGet/Home/issues/8011)
 
 
 ## <a name="known-issues"></a>Známé problémy
 
-### <a name="packages-in-fallbackfolders-installed-by-net-core-sdk-are-custom-installed-and-fail-signature-validation---7414httpsgithubcomnugethomeissues7414"></a>Balíčky v FallbackFolders nainstalované pomocí .NET Core SDK jsou vlastní instalace a ověření podpisu při selhání. - [#7414](https://github.com/NuGet/Home/issues/7414)
+### <a name="packages-in-fallbackfolders-installed-by-net-core-sdk-are-custom-installed-and-fail-signature-validation---7414"></a>Balíčky v FallbackFolders nainstalované pomocí .NET Core SDK jsou vlastní instalace a ověření podpisu při selhání. - [#7414](https://github.com/NuGet/Home/issues/7414)
 #### <a name="issue"></a>Problém
-Při použití příkazu dotnet. exe 2. x k obnovení projektu, který má více cílů netcoreapp 1. x a netcoreapp 2. x, se záložní složka považuje za informační kanál souboru. To znamená, že při obnovení NuGet vybere balíček ze záložní složky a pokusí se ho nainstalovat do složky globálních balíčků a provede běžné ověřování podpisů, které selže.<br>
+Při použití dotnet.exe 2. x k obnovení projektu, který má více cílů netcoreapp 1. x a netcoreapp 2. x, se záložní složka považuje za informační kanál souboru. To znamená, že při obnovení NuGet vybere balíček ze záložní složky a pokusí se ho nainstalovat do složky globálních balíčků a provede běžné ověřování podpisů, které selže.<br>
 #### <a name="workaround"></a>Alternativní řešení
-Zakažte použití záložní složky nastavením `RestoreAdditionalProjectSources` na hodnotu Nothing:
+Zakažte použití záložní složky nastavením na `RestoreAdditionalProjectSources` hodnotu Nothing:
 
 `<RestoreAdditionalProjectSources></RestoreAdditionalProjectSources>`
 

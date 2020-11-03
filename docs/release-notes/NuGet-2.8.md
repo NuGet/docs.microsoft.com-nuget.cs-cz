@@ -6,43 +6,43 @@ ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
 ms.openlocfilehash: 98b8b7334738306e6d40ba7c455409a87c4bb822
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/16/2020
-ms.locfileid: "79429050"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237014"
 ---
 # <a name="nuget-28-release-notes"></a>Zpráva k vydání verze NuGet 2,8
 
-[Poznámky k verzi NuGet 2.7.2](../release-notes/nuget-2.7.2.md) | zpráva k [vydání verze NuGet 2.8.1](../release-notes/nuget-2.8.1.md)
+Poznámky k verzi [NuGet 2.7.2](../release-notes/nuget-2.7.2.md)  |  [Poznámky k verzi NuGet 2.8.1](../release-notes/nuget-2.8.1.md)
 
 NuGet 2,8 byl vydán 29. ledna 2014.
 
-## <a name="acknowledgements"></a>Potvrzení
+## <a name="acknowledgements"></a>Poděkování
 
-1. [Llewellyn Pritcharda](https://www.codeplex.com/site/users/view/leppie) ([@leppie](https://twitter.com/leppie))
+1. [Llewellyn Pritcharda](https://www.codeplex.com/site/users/view/leppie) ( [@leppie](https://twitter.com/leppie) )
     - [#3466](https://nuget.codeplex.com/workitem/3466) – při dobalení se ověří ID balíčků závislostí.
-2. [Martin Balliauw](https://www.codeplex.com/site/users/view/maartenba) ([@maartenballiauw](https://twitter.com/maartenballiauw))
+2. [Martin Balliauw](https://www.codeplex.com/site/users/view/maartenba) ( [@maartenballiauw](https://twitter.com/maartenballiauw) )
     - [#2379](https://nuget.codeplex.com/workitem/2379) – při přihlašovacích údajích kanálu persistening odebrat příponu $metadata.
-3. [Filip de Vos](https://www.codeplex.com/site/users/view/FilipDeVos) ([@foxtricks](https://twitter.com/foxtricks))
-    - [#3538](http://nuget.codeplex.com/workitem/3538) – podpora zadání souboru projektu pro příkaz NuGet. exe Update.
+3. [Filip de Vos](https://www.codeplex.com/site/users/view/FilipDeVos) ( [@foxtricks](https://twitter.com/foxtricks) )
+    - [#3538](http://nuget.codeplex.com/workitem/3538) – podpora určení souboru projektu pro příkaz nuget.exe Update.
 4. [Juan Gonzalez](https://www.codeplex.com/site/users/view/jjgonzalez)
     - tokeny nahrazení [#3536](http://nuget.codeplex.com/workitem/3536) neprošly parametrem-IncludeReferencedProjects.
-5. [David Poole](https://www.codeplex.com/site/users/view/Sarkie) ([@Sarkie_Dave](https://twitter.com/Sarkie_Dave))
+5. [David Poole](https://www.codeplex.com/site/users/view/Sarkie) ( [@Sarkie_Dave](https://twitter.com/Sarkie_Dave) )
     - [#3677](http://nuget.codeplex.com/workitem/3677) – oprava nugetu. při vložení velkého balíčku se doručí aktivační OutOfMemoryException.
 6. [Wouter Ouwens](https://www.codeplex.com/site/users/view/Despotes)
-    - [#3666](http://nuget.codeplex.com/workitem/3666) – oprava nesprávné cílové cesty, pokud se projekt odkazuje naC++ jiný CLI/projekt.
-7. [Adam petrpo](http://www.codeplex.com/site/users/view/adamralph) ([@adamralph](https://twitter.com/adamralph))
+    - [#3666](http://nuget.codeplex.com/workitem/3666) – oprava nesprávné cílové cesty, pokud se projekt odkazuje na jiný projekt CLI/C++.
+7. [Adam petrpo](http://www.codeplex.com/site/users/view/adamralph) ( [@adamralph](https://twitter.com/adamralph) )
     - [#3639](https://nuget.codeplex.com/workitem/3639) – povolí instalaci balíčků jako závislostí vývoje ve výchozím nastavení.
-8. [David Fowlera](https://www.codeplex.com/site/users/view/dfowler) ([@davidfowl](https://twitter.com/davidfowl))
+8. [David Fowlera](https://www.codeplex.com/site/users/view/dfowler) ( [@davidfowl](https://twitter.com/davidfowl) )
     - [#3717](https://nuget.codeplex.com/workitem/3717) – odebrání implicitních upgradů na nejnovější verzi opravy
 9. [Gregoriánský Vandenbrouck](https://www.codeplex.com/site/users/view/vdbg)
-    - Několik oprav chyb a vylepšení pro NuGet. Server, příkaz NuGet. exe Mirror a další.
+    - Několik oprav chyb a vylepšení pro NuGet. Server, příkaz nuget.exe zrcadlení a další.
     - Tato práce se provedla za několik měsíců, přičemž gregoriánský spolupracuje s námi na správném načasování pro integraci do hlavní větve pro 2,8.
 
 ## <a name="patch-resolution-for-dependencies"></a>Řešení opravy pro závislosti
 
-Při vyhodnocování závislostí balíčku NuGet implementovala strategii pro vybírání nejnižší hlavní a dílčí verze balíčku, která splňuje závislosti na balíčku. Na rozdíl od hlavní a dílčí verze však verze opravy vždy přeložila na nejvyšší verzi. I když bylo chování záměrně úmyslné, vytvořilo se nedostatečné determinismem pro instalaci balíčků se závislostmi. Vezměte v úvahu v následujícím příkladu:
+Při vyhodnocování závislostí balíčku NuGet implementovala strategii pro vybírání nejnižší hlavní a dílčí verze balíčku, která splňuje závislosti na balíčku. Na rozdíl od hlavní a dílčí verze však verze opravy vždy přeložila na nejvyšší verzi. I když bylo chování záměrně úmyslné, vytvořilo se nedostatečné determinismem pro instalaci balíčků se závislostmi. Uvažujte následující příklad:
 
     PackageA@1.0.0 -[ >=1.0.0 ]-> PackageB@1.0.0
 
@@ -52,7 +52,7 @@ Při vyhodnocování závislostí balíčku NuGet implementovala strategii pro v
 
     Developer2 installs PackageA@1.0.0: installed PackageA@1.0.0 and PackageB@1.0.1
 
-V tomto příkladu, i když jsou Developer1 a Developer2 nainstalované PackageA@1.0.0, každá skončila s jinou verzí PackageB. NuGet 2,8 mění toto výchozí chování tak, že chování rozlišení závislosti pro verze patch je konzistentní s chováním pro hlavní a dílčí verze. V tomto příkladu se PackageB@1.0.0 nainstaluje jako výsledek instalace PackageA@1.0.0bez ohledu na novější verzi patch.
+V tomto příkladu, i když je nainstalovaný Developer1 a Developer2 PackageA@1.0.0 , každá skončila s jinou verzí PackageB. NuGet 2,8 mění toto výchozí chování tak, že chování rozlišení závislosti pro verze patch je konzistentní s chováním pro hlavní a dílčí verze. V předchozím příkladu se pak PackageB@1.0.0 nainstaluje jako výsledek instalace PackageA@1.0.0 bez ohledu na novější verzi patch.
 
 ## <a name="-dependencyversion-switch"></a>– Přepínač DependencyVersion
 
@@ -62,7 +62,7 @@ I když NuGet 2,8 mění _výchozí_ chování pro řešení závislostí, přid
 
 ## <a name="dependencyversion-attribute"></a>DependencyVersion – atribut
 
-Kromě přepínače-DependencyVersion popsaného výše, NuGet taky povolil možnost nastavit nový atribut v souboru NuGet. config, který definuje výchozí hodnotu, pokud není přepínač-DependencyVersion zadaný při vyvolání. Install-Package. Tuto hodnotu bude také respektován dialog správce balíčků NuGet pro všechny operace instalace balíčku. Chcete-li nastavit tuto hodnotu, přidejte do souboru NuGet. config atribut níže:
+Kromě přepínače-DependencyVersion popsaného výše má NuGet taky možnost nastavit nový atribut v souboru Nuget.Config definujícím výchozí hodnotu, pokud není přepínač-DependencyVersion zadaný při volání Install-Package. Tuto hodnotu bude také respektován dialog správce balíčků NuGet pro všechny operace instalace balíčku. Chcete-li nastavit tuto hodnotu, přidejte následující atribut do souboru Nuget.Config:
 
     <config>
         <add key="dependencyversion" value="Highest" />
@@ -89,13 +89,13 @@ Není neobvyklé instalovat předprodejní verzi balíčku, aby bylo možné pro
 
 ## <a name="development-dependencies"></a>Vývojové závislosti
 
-Jako balíčky NuGet se dají doručovat spousty různých typů funkcí – včetně nástrojů, které se používají k optimalizaci procesu vývoje. Tyto komponenty, i když můžou být instrumentované při vývoji nového balíčku, by se při pozdějším publikování neměly považovat za závislost nového balíčku. NuGet 2,8 umožňuje balíčku identifikovat sebe sama v souboru `.nuspec` jako developmentDependency. Po nainstalování budou tato metadata také přidána do souboru `packages.config` projektu, do kterého byl balíček nainstalován. Když se tento soubor `packages.config` později analyzovat pro závislosti NuGet během `nuget.exe pack`, vyloučí se tyto závislosti označené jako závislosti na vývoji.
+Jako balíčky NuGet se dají doručovat spousty různých typů funkcí – včetně nástrojů, které se používají k optimalizaci procesu vývoje. Tyto komponenty, i když můžou být instrumentované při vývoji nového balíčku, by se při pozdějším publikování neměly považovat za závislost nového balíčku. NuGet 2,8 umožňuje balíčku identifikovat sebe sama v `.nuspec` souboru jako developmentDependency. Po nainstalování budou tato metadata také přidána do `packages.config` souboru projektu, do kterého byl balíček nainstalován. Když `packages.config` se tento soubor později analyzuje pro závislosti NuGet `nuget.exe pack` , vyloučí se tyto závislosti označené jako závislosti na vývoji.
 
-## <a name="individual-packagesconfig-files-for-different-platforms"></a>Jednotlivé soubory Packages. config pro různé platformy
+## <a name="individual-packagesconfig-files-for-different-platforms"></a>Jednotlivé soubory packages.config pro různé platformy
 
-Při vývoji aplikací pro více cílových platforem je běžné mít různé soubory projektu pro každé z příslušných prostředí sestavení. Také je běžné využívat různé balíčky NuGet v různých souborech projektu, protože balíčky mají různé úrovně podpory pro různé platformy. NuGet 2,8 poskytuje vylepšenou podporu pro tento scénář vytvořením různých souborů `packages.config` pro různé soubory projektu specifické pro platformu.
+Při vývoji aplikací pro více cílových platforem je běžné mít různé soubory projektu pro každé z příslušných prostředí sestavení. Také je běžné využívat různé balíčky NuGet v různých souborech projektu, protože balíčky mají různé úrovně podpory pro různé platformy. NuGet 2,8 poskytuje vylepšenou podporu pro tento scénář vytvořením různých `packages.config` souborů pro různé soubory projektu specifické pro platformu.
 
-![Více souborů Package. config](./media/NuGet-2.8/multiple-packageconfigs.png)
+![Více souborů package.config](./media/NuGet-2.8/multiple-packageconfigs.png)
 
 ## <a name="fallback-to-local-cache"></a>Záložní přechod do místní mezipaměti
 

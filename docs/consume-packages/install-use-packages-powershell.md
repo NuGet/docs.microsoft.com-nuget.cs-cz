@@ -1,32 +1,32 @@
 ---
-title: Instalace a správa balíčků NuGet pomocí konzoly v sadě Visual Studio
-description: Pokyny pro použití konzoly NuGet Package Manager console v sadě Visual Studio pro práci s balíčky.
+title: Instalace a Správa balíčků NuGet pomocí konzoly nástroje v aplikaci Visual Studio
+description: Pokyny k použití konzoly Správce balíčků NuGet v aplikaci Visual Studio pro práci s balíčky.
 author: karann-msft
 ms.author: karann
 ms.date: 07/08/2019
 ms.topic: conceptual
 f1_keywords:
 - vs.nuget.packagemanager.console
-ms.openlocfilehash: 42031f7b5fe4d3c1b4dbe5e1bfbf9197014e0e88
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 8b23b6cc22eff5413e317fbe619edd3d4f4716ee
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79428952"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237397"
 ---
-# <a name="install-and-manage-packages-with-the-package-manager-console-in-visual-studio-powershell"></a>Instalace a správa balíčků pomocí konzoly Správce balíčků v sadě Visual Studio (PowerShell)
+# <a name="install-and-manage-packages-with-the-package-manager-console-in-visual-studio-powershell"></a>Instalace a Správa balíčků pomocí konzoly Správce balíčků v aplikaci Visual Studio (PowerShell)
 
-Konzola Správce balíčků NuGet umožňuje pomocí [příkazů NuGet PowerShell](../reference/powershell-reference.md) najít, nainstalovat, odinstalovat a aktualizovat balíčky NuGet. Použití konzoly je nezbytné v případech, kdy ui Správce balíčků neposkytuje způsob, jak provést operaci. Informace `nuget.exe` o použití příkazů příkazového příkazu příkazu PŘÍKAZOvého nastavení v konzole naleznete v [tématu Použití příkazového příkazu nuget.exe v konzole](#use-the-nugetexe-cli-in-the-console).
+Konzola správce balíčků NuGet umožňuje používat [příkazy NuGet PowerShellu](../reference/powershell-reference.md) k vyhledání, instalaci, odinstalaci a aktualizaci balíčků NuGet. V případech, kdy uživatelské rozhraní Správce balíčků neposkytuje způsob provedení operace, je nutné použít konzolu. Chcete-li použít `nuget.exe` příkazy rozhraní příkazového řádku v konzole nástroje, přečtěte si téma [použití nuget.exe CLI v konzole](#use-the-nugetexe-cli-in-the-console).
 
-Konzole je integrovándo sady Visual Studio v systému Windows. Není součástí Visual Studio pro Mac nebo Visual Studio kód.
+Konzola je integrována do sady Visual Studio ve Windows. Není součástí Visual Studio pro Mac ani Visual Studio Code.
 
 ## <a name="find-and-install-a-package"></a>Vyhledání a instalace balíčku
 
-Například nalezení a instalace balíčku se provádí třemi jednoduchými kroky:
+Například vyhledání a instalace balíčku se provádí pomocí tří snadných kroků:
 
-1. Otevřete projekt nebo řešení v sadě Visual Studio a otevřete konzolu pomocí **příkazu Nástroje > NuGet Správce balíčků > konzoli správce balíčků.**
+1. Otevřete projekt nebo řešení v aplikaci Visual Studio a otevřete konzolu pomocí **nástrojů > správce balíčků NuGet > příkaz konzoly Správce balíčků** .
 
-1. Najděte balíček, který chcete nainstalovat. Pokud již víte, přejděte ke kroku 3.
+1. Najděte balíček, který chcete nainstalovat. Pokud už to znáte, přejděte ke kroku 3.
 
     ```ps
     # Find packages containing the keyword "elmah"
@@ -41,28 +41,28 @@ Například nalezení a instalace balíčku se provádí třemi jednoduchými kr
     ```
 
 > [!Important]
-> Všechny operace, které jsou k dispozici v konzole lze provést také s [NuGet CLI](../reference/nuget-exe-cli-reference.md). Příkazy konzoly však pracovat v kontextu sady Visual Studio a uložené projekt/řešení a často dosáhnout více než jejich ekvivalentní příkazy příkazového řádku. Například instalace balíčku prostřednictvím konzoly přidá odkaz na projekt vzhledem k tomu, že příkaz příkazu příkazu příkazu cli nikoli. Z tohoto důvodu vývojáři pracující v sadě Visual Studio obvykle dávají přednost použití konzoly rozhraní cli.
+> Všechny operace, které jsou k dispozici v konzole nástroje, lze také provést pomocí rozhraní příkazového [řádku NuGet](../reference/nuget-exe-cli-reference.md). Nicméně příkazy konzoly fungují v kontextu aplikace Visual Studio a uloženého projektu nebo řešení a často doplní více než ekvivalentní příkazy rozhraní příkazového řádku. Například instalace balíčku prostřednictvím konzoly přidá odkaz na projekt, zatímco příkaz CLI neprovede. Z tohoto důvodu vývojáři pracující v aplikaci Visual Studio obvykle upřednostňují použití konzoly pro rozhraní příkazového řádku.
 
 > [!Tip]
-> Mnoho operací konzoly závisí na otevření řešení v sadě Visual Studio se známým názvem cesty. Pokud máte neuložené řešení nebo žádné řešení, zobrazí se chyba "Řešení není otevřeno nebo není uloženo. Ujistěte se, že máte otevřené a uložené řešení." To znamená, že konzola nemůže určit složku řešení. Uložení neuloženého řešení nebo vytvoření a uložení řešení, pokud nemáte otevřené, by mělo chybu opravit.
+> Mnoho operací konzoly závisí na tom, že se řešení otevřelo v aplikaci Visual Studio se známým názvem cesty. Pokud máte neuložené řešení nebo žádné řešení, zobrazí se tato chyba: řešení není otevřeno nebo není uloženo. Ujistěte se prosím, že máte otevřené a uložené řešení. To znamená, že konzola nemůže určit složku řešení. Uložení neuloženého řešení nebo vytvoření a uložení řešení, pokud ho ještě nemáte, by mělo chybu opravit.
 
-## <a name="opening-the-console-and-console-controls"></a>Otevření ovládacích prvků konzoly a konzoly
+## <a name="opening-the-console-and-console-controls"></a>Otevření konzoly a ovládacích prvků konzoly
 
-1. Otevřete konzolu v sadě Visual Studio pomocí příkazu **Nástroje > Správce balíčků > konzola správce balíčků.** Konzola je okno sady Visual Studio, které lze uspořádat a umístit však chcete (viz [Přizpůsobení rozložení oken v sadě Visual Studio).](/visualstudio/ide/customizing-window-layouts-in-visual-studio)
+1. Otevřete konzolu v aplikaci Visual Studio pomocí **nástrojů > správce balíčků NuGet > příkaz konzoly Správce balíčků** . Konzola je okno aplikace Visual Studio, které lze uspořádat a umístit (viz [přizpůsobení rozložení oken v aplikaci Visual Studio](/visualstudio/ide/customizing-window-layouts-in-visual-studio)).
 
-1. Ve výchozím nastavení konzolové příkazy pracují s určitým zdrojem balíčku a projektem, jak je nastaveno v ovládacím prvku v horní části okna:
+1. Ve výchozím nastavení fungují příkazy konzoly s konkrétním zdrojem a projektem balíčku jako nastavené v ovládacím prvku v horní části okna:
 
     ![Ovládací prvky konzoly Správce balíčků pro zdroj balíčku a projekt](media/PackageManagerConsoleControls1.png)
 
-1. Výběrem jiného zdroje balíčku nebo projektu se změní výchozí hodnoty pro následné příkazy. Chcete-li tato nastavení přepsat bez evidenčních hodnot, podporuje většina příkazů `-Source` a `-ProjectName` možností.
+1. Výběr jiného zdroje balíčků nebo projektu změní tato výchozí nastavení pro následné příkazy. Pokud chcete tato nastavení overrride beze změny výchozích nastavení, je většina příkazů podporována `-Source` a `-ProjectName` Možnosti.
 
-1. Chcete-li spravovat zdroje balíčků, vyberte ikonu ozubeného kola. Toto je zástupce **nástroje > možnosti > NuGet Správce balíčků > zdroje balíčků,** jak je popsáno na stránce [ui Správce balíčků.](install-use-packages-visual-studio.md#package-sources) Ovládací prvek vpravo od voliče projektu také vymaže obsah konzoly:
+1. Pokud chcete spravovat zdroje balíčků, vyberte ikonu ozubeného kolečka. Jedná se o zástupce **nástrojů > možností > správce balíčků NuGet > dialogové okno zdroje balíčků** , jak je popsáno na stránce [uživatelského rozhraní Správce balíčků](install-use-packages-visual-studio.md#package-sources) . Ovládací prvek napravo od výběru projektu také vymaže obsah konzoly:
 
-    ![Nastavení konzoly Správce balíčků a jasné ovládací prvky](media/PackageManagerConsoleControls2.png)
+    ![Nastavení konzoly Správce balíčků a zrušení ovládacích prvků](media/PackageManagerConsoleControls2.png)
 
-1. Tlačítko zcela vpravo přeruší dlouhotrvající příkaz. Spuštění `Get-Package -ListAvailable -PageSize 500` například uvádí prvních 500 balíčků na výchozím zdroji (například nuget.org), což může trvat několik minut.
+1. Tlačítko vpravo přerušuje dlouho běžící příkaz. Například při spuštění se `Get-Package -ListAvailable -PageSize 500` zobrazí seznam prvních 500 balíčků na výchozím zdroji (například NuGet.org), což může trvat několik minut.
 
-    ![Ovládací prvek zastavení konzoly Správce balíčků](media/PackageManagerConsoleControls3.png)
+    ![Řízení ukončení konzoly Správce balíčků](media/PackageManagerConsoleControls3.png)
 
 ## <a name="install-a-package"></a>Instalace balíčku
 
@@ -74,12 +74,12 @@ Install-Package Elmah
 Install-Package Elmah -ProjectName UtilitiesLib
 ```
 
-Viz [Instalační balíček](../reference/ps-reference/ps-ref-install-package.md).
+Viz [Install-Package](../reference/ps-reference/ps-ref-install-package.md).
 
-Instalace balíčku v konzole provádí stejné kroky, jaké jsou popsány v části [Co se stane při instalaci balíčku](../concepts/package-installation-process.md), s následujícími dodatky:
+Instalace balíčku v konzole nástroje provádí stejný postup, jak je popsáno v tématu [co se stane, když se nainstaluje balíček](../concepts/package-installation-process.md), a to s následujícími přídavky:
 
-- Konzola zobrazí příslušné licenční podmínky ve svém okně s předpokládanou smlouvou. Pokud s podmínkami nesouhlasíte, měli byste balíček okamžitě odinstalovat.
-- Také odkaz na balíček je přidán do souboru projektu a zobrazí se v **Průzkumníku řešení** v uzlu **Odkazy,** je třeba uložit projekt zobrazíte změny v souboru projektu přímo.
+- Konzola zobrazuje příslušné licenční podmínky v okně s předpokládanou smlouvou. Pokud s podmínkami nesouhlasíte, měli byste balíček hned odinstalovat.
+- Také odkaz na balíček je přidán do souboru projektu a zobrazí se v **Průzkumník řešení** pod uzlem **odkazy** , je nutné projekt uložit, aby se změny v souboru projektu zobrazily přímo.
 
 ## <a name="uninstall-a-package"></a>Odinstalace balíčku
 
@@ -94,13 +94,13 @@ Uninstall-Package Elmah -RemoveDependencies
 Uninstall-Package Elmah -Force
 ```
 
-Viz [Odinstalovat-Balíček](../reference/ps-reference/ps-ref-uninstall-package.md). Pomocí [get-package](../reference/ps-reference/ps-ref-get-package.md) zobrazíte všechny balíčky aktuálně nainstalované ve výchozím projektu, pokud potřebujete najít identifikátor.
+Viz [Uninstall-Package](../reference/ps-reference/ps-ref-uninstall-package.md). Pokud potřebujete najít identifikátor, použijte [Get-Package](../reference/ps-reference/ps-ref-get-package.md) pro zobrazení všech balíčků aktuálně nainstalovaných ve výchozím projektu.
 
-Odinstalování balíčku provede následující akce:
+Odinstalace balíčku provede následující akce:
 
-- Odebere odkazy na balíček z projektu (a bez ohledu na formát správy je používán). Odkazy se již nezobrazují v **Průzkumníku řešení**. (Pravděpodobně bude nutné znovu vytvořit projekt, aby byl odebrán ze složky **Bin.)**
-- Vrátí všechny změny `app.config` provedené `web.config` v aplikaci nebo při instalaci balíčku.
-- Odebere dříve nainstalované závislosti, pokud tyto závislosti nepoužívají žádné zbývající balíčky.
+- Odstraní odkazy na balíček z projektu (a jakýkoli formát správy se používá). Odkazy se již nezobrazují v **Průzkumník řešení** . (Projekt bude pravděpodobně nutné znovu sestavit, aby se zobrazila jeho odebraný ze složky **bin** .)
+- Vrátí všechny změny provedené `app.config` `web.config` v nebo při instalaci balíčku.
+- Odebere dříve nainstalované závislosti, pokud žádné zbývající balíčky nepoužívají tyto závislosti.
 
 ## <a name="update-a-package"></a>Aktualizace balíčku
 
@@ -120,7 +120,7 @@ Update-Package
 
 Viz [Get-Package](../reference/ps-reference/ps-ref-get-package.md) a [Update-Package](../reference/ps-reference/ps-ref-update-package.md)
 
-## <a name="find-a-package"></a>Najít balíček
+## <a name="find-a-package"></a>Nalezení balíčku
 
 ```ps
 # Find packages containing keywords
@@ -137,42 +137,42 @@ Find-Package logging -First 100
 Find-Package jquery -AllVersions -ExactMatch
 ```
 
-Viz [Najít-balíček](../reference/ps-reference/ps-ref-find-package.md). V Sadě Visual Studio 2013 a starší, použijte [get-package](../reference/ps-reference/ps-ref-get-package.md) místo.
+Viz [Najít-Package](../reference/ps-reference/ps-ref-find-package.md). V Visual Studio 2013 a starších verzích použijte [příkaz Get-Package](../reference/ps-reference/ps-ref-get-package.md) .
 
 ## <a name="availability-of-the-console"></a>Dostupnost konzoly
 
-Počínaje Visual Studio 2017 NuGet a NuGet Správce balíčků jsou automaticky nainstalovány, když vyberete libovolné . NET související s úlohami; Můžete jej také nainstalovat jednotlivě kontrolou **jednotlivých součástí > nástroje Code >** možnost i správce balíčků NuGet v instalačním programu sady Visual Studio.
+Od sady Visual Studio 2017 se NuGet a správce balíčků NuGet automaticky nainstalují, když vyberete libovolnou možnost. Úlohy s ČISTÝM vztahem; můžete ji také nainstalovat jednotlivě tím, že v instalačním programu sady Visual Studio zkontrolujete **jednotlivé součásti > nástroj Code tools > správce balíčků NuGet** .
 
-Také pokud chybí Správce balíčků NuGet v sadě Visual Studio 2015 a starší, zkontrolujte **nástroje > rozšíření a aktualizace...** a vyhledejte rozšíření NuGet Package Manager. Pokud se vám nedaří použít instalační program rozšíření v sadě Visual [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html)Studio, můžete si rozšíření stáhnout přímo z aplikace .
+Pokud ve Visual Studiu 2015 a starších verzích chybí správce balíčků NuGet, podívejte se na **nástroje > rozšíření a aktualizace...** a vyhledejte rozšíření Správce balíčků NuGet. Pokud nemůžete použít instalační program rozšíření v aplikaci Visual Studio, můžete si rozšíření stáhnout přímo z [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html) .
 
-Konzola Správce balíčků není v současné době k dispozici v sadě Visual Studio for Mac. Ekvivalentní příkazy jsou však k dispozici prostřednictvím [rozhraní příkazového příkazu NuGet](../reference/nuget-exe-CLI-reference.md). Visual Studio pro Mac má ui pro správu balíčků NuGet. Viz [včetně balíčku NuGet v projektu](/visualstudio/mac/nuget-walkthrough).
+Konzola správce balíčků není v Visual Studio pro Mac v současnosti k dispozici. Ekvivalentní příkazy jsou však k dispozici prostřednictvím rozhraní příkazového [řádku NuGet](../reference/nuget-exe-CLI-reference.md). Visual Studio pro Mac má uživatelské rozhraní pro správu balíčků NuGet. Viz [zahrnutí balíčku NuGet do projektu](/visualstudio/mac/nuget-walkthrough).
 
-Konzola Správce balíčků není součástí kódu sady Visual Studio.
+Konzola správce balíčků není součástí Visual Studio Code.
 
-## <a name="extend-the-package-manager-console"></a>Rozšíření konzoly Správce balíčků
+## <a name="extend-the-package-manager-console"></a>Rozšiřování konzoly Správce balíčků
 
-Některé balíčky instalují nové příkazy pro konzolu. Například `MvcScaffolding` vytvoří příkazy, jako `Scaffold` je uvedeno níže, který generuje ASP.NET MVC řadiče a zobrazení:
+Některé balíčky instalují nové příkazy pro konzolu nástroje. Například `MvcScaffolding` vytvoří příkazy `Scaffold` , jako jsou zobrazené níže, které generují řadiče a zobrazení ASP.NET MVC:
 
-![Instalace a používání mvcscaffoldu](media/PackageManagerConsoleInstall.png)
+![Instalace a použití MvcScaffold](media/PackageManagerConsoleInstall.png)
 
-## <a name="set-up-a-nuget-powershell-profile"></a>Nastavení profilu prostředí NuGet PowerShell
+## <a name="set-up-a-nuget-powershell-profile"></a>Nastavení profilu PowerShellu NuGet
 
-Profil Prostředí PowerShell umožňuje zpřístupnit běžně používané příkazy všude, kde používáte PowerShell. NuGet podporuje profil specifický pro NuGet, který se obvykle nachází v následujícím umístění:
+Profil PowerShellu umožňuje, aby byly běžně používané příkazy dostupné bez ohledu na to, kde používáte PowerShell. NuGet podporuje profil specifický pro NuGet, který se obvykle nachází v následujícím umístění:
 
     %UserProfile%\Documents\WindowsPowerShell\NuGet_profile.ps1
 
-Chcete-li profil `$profile` najít, zadejte do konzole:
+Profil najdete tak, že do `$profile` konzoly zadáte:
 
 ```ps
 $profile
 C:\Users\<user>\Documents\WindowsPowerShell\NuGet_profile.ps1
 ```
 
-Další podrobnosti naleznete v části [Profily prostředí Windows PowerShell](https://technet.microsoft.com/library/bb613488.aspx).
+Další podrobnosti najdete v tématu [profily Windows PowerShellu](/previous-versions//bb613488(v=vs.85)).
 
-## <a name="use-the-nugetexe-cli-in-the-console"></a>Použití cli nuget.exe v konzole
+## <a name="use-the-nugetexe-cli-in-the-console"></a>Použití rozhraní příkazového řádku nuget.exe v konzole nástroje
 
-Chcete-li [ `nuget.exe` rozhraní příkazového řádku](../reference/nuget-exe-cli-reference.md) zpřístupnit v konzole Správce balíčků, nainstalujte balíček [NuGet.CommandLine](https://www.nuget.org/packages/NuGet.CommandLine/) z konzoly:
+Chcete-li zpřístupnit rozhraní příkazového [ `nuget.exe` řádku](../reference/nuget-exe-cli-reference.md) v konzole správce balíčků, nainstalujte balíček [NuGet. CommandLine](https://www.nuget.org/packages/NuGet.CommandLine/) z konzoly:
 
 ```ps
 # Other versions are available, see https://www.nuget.org/packages/NuGet.CommandLine/

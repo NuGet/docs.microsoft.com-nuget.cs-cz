@@ -5,14 +5,14 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/02/2017
 ms.topic: reference
-ms.openlocfilehash: 2a82b1977265a8f8a15247759bc3de80a5efe228
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: 4f8b42847cbc155393fe6d2afbe2e0857b619da3
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75385340"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93236877"
 ---
-# <a name="powershell-reference"></a>Referenční informace o prostředí PowerShell
+# <a name="powershell-reference"></a>Referenční informace prostředí
 
 Konzola správce balíčků poskytuje rozhraní PowerShellu v sadě Visual Studio ve Windows pro interakci s nástrojem NuGet přes konkrétní příkazy uvedené níže. (Konzola není v Visual Studio pro Mac v současnosti dostupná.) Průvodce pro používání konzoly najdete v tématu [instalace a Správa balíčků pomocí tématu konzoly Správce balíčků](../consume-packages/install-use-packages-powershell.md) .
 
@@ -24,19 +24,19 @@ Konzola správce balíčků poskytuje rozhraní PowerShellu v sadě Visual Studi
 
 | Běžné příkazy | Popis | Verze NuGet |
 | --- | --- | --- |
-| [Install-Package](ps-reference/ps-ref-install-package.md) | Nainstaluje do projektu balíček a jeho závislé součásti. | Všechny |
-| [Update-Package](ps-reference/ps-ref-update-package.md) | Aktualizuje balíček a jeho závislosti nebo všechny balíčky v projektu. | Všechny |
-| [Find-Package](ps-reference/ps-ref-find-package.md) | Vyhledá zdroj balíčku pomocí ID balíčku nebo klíčových slov. | 3.0+ |
-| [Get-Package](ps-reference/ps-ref-get-package.md) | Načte seznam balíčků nainstalovaných v místním úložišti nebo vypíše balíčky dostupné ze zdroje balíčku. | Všechny |
+| [Install-Package](ps-reference/ps-ref-install-package.md) | Nainstaluje balíček a jeho závislosti do projektu. | Vše |
+| [Update-Package](ps-reference/ps-ref-update-package.md) | Aktualizuje balíček a jeho závislosti nebo všechny balíčky v projektu. | Vše |
+| [Find-Package](ps-reference/ps-ref-find-package.md) | Vyhledá zdroj balíčku pomocí ID balíčku nebo klíčových slov. | 3.0 + |
+| [Get-Package](ps-reference/ps-ref-get-package.md) | Načte seznam balíčků nainstalovaných v místním úložišti nebo vypíše balíčky dostupné ze zdroje balíčku. | Vše |
 
 | Sekundární příkazy | Popis | Verze NuGet |
 | --- | --- | --- |
-| [Add-BindingRedirect](ps-reference/ps-ref-add-bindingredirect.md) | Prověřuje všechna sestavení v rámci výstupní cesty pro projekt a přidá přesměrování vazby do `app.config` nebo `web.config` v případě potřeby. | Všechny |
-| [Get-Project](ps-reference/ps-ref-get-project.md) | Zobrazí informace o výchozím nebo zadaném projektu. | 3.0+ |
+| [Add-BindingRedirect](ps-reference/ps-ref-add-bindingredirect.md) | Prověřuje všechna sestavení v rámci výstupní cesty pro projekt a přidá přesměrování vazby do `app.config` nebo v `web.config` případě potřeby. | Vše |
+| [Get-Project](ps-reference/ps-ref-get-project.md) | Zobrazí informace o výchozím nebo zadaném projektu. | 3.0 + |
 | [Open-PackagePage](ps-reference/ps-ref-open-packagepage.md) | Spustí výchozí prohlížeč s adresou URL projektu, licence nebo sestavy pro zneužití zadaného balíčku. | Zastaralé v 3.0 + |
-| [Register-TabExpansion](ps-reference/ps-ref-register-tabexpansion.md) | Registruje rozšíření karet pro parametry příkazu, což vám umožní vytvořit přizpůsobené rozšíření pro běžně používané hodnoty parametrů. | Všechny |
-| [Sync-Package](ps-reference/ps-ref-sync-package.md) | Získat verzi nainstalovaného balíčku ze zadaného projektu a synchronizovat verzi s ostatními projekty v řešení. | 3.0+ |
-| [Uninstall-Package](ps-reference/ps-ref-uninstall-package.md) | Odebere balíček z projektu, volitelně odebere jeho závislosti. | Všechny |
+| [Registrovat – TabExpansion](ps-reference/ps-ref-register-tabexpansion.md) | Registruje rozšíření karet pro parametry příkazu, což vám umožní vytvořit přizpůsobené rozšíření pro běžně používané hodnoty parametrů. | Vše |
+| [Sync-Package](ps-reference/ps-ref-sync-package.md) | Získat verzi nainstalovaného balíčku ze zadaného projektu a synchronizovat verzi s ostatními projekty v řešení. | 3.0 + |
+| [Uninstall-Package](ps-reference/ps-ref-uninstall-package.md) | Odebere balíček z projektu, volitelně odebere jeho závislosti. | Vše |
 
 Pro úplnou a podrobnou nápovědu k některým z těchto příkazů v konzole nástroje stačí spustit následující s názvem příkazu:
 
@@ -44,16 +44,16 @@ Pro úplnou a podrobnou nápovědu k některým z těchto příkazů v konzole n
 Get-Help <command> -full
 ```
 
-Všechny příkazy konzoly Správce balíčků podporují tyto [běžné parametry PowerShellu](https://go.microsoft.com/fwlink/?LinkID=113216):
+Všechny příkazy konzoly Správce balíčků podporují tyto [běžné parametry PowerShellu](/powershell/module/microsoft.powershell.core/about/about_commonparameters):
 
-- Ladit
+- Ladění
 - ErrorAction
 - ErrorVariable
 - OutBuffer
 - OutVariable
 - PipelineVariable
-- Podrobnosti
+- Verbose
 - WarningAction
 - WarningVariable
 
-Podrobnosti najdete v dokumentaci k prostředí PowerShell v tématu [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216) .
+Podrobnosti najdete v dokumentaci k prostředí PowerShell v tématu [about_CommonParameters](/powershell/module/microsoft.powershell.core/about/about_commonparameters) .

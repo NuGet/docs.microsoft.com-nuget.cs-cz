@@ -6,12 +6,12 @@ ms.author: patbel
 ms.date: 11/12/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: 2753f92601b3d8b43593762cc07cd8384646feea
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 9e25f439617a76d30880bea3c10a5d063e681a41
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622665"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238150"
 ---
 # <a name="trusted-signers-command-nuget-cli"></a>příkaz důvěryhodného přihlášení (NuGet CLI)
 
@@ -46,6 +46,7 @@ Registered trusted signers:
  2.   microsoft [author]
       Certificate fingerprint(s):
         SHA256 - 3F9001EA83C560D712C24CF213C3D312CB3BFF51EE89435D3430BD06B5D0EECE
+        SHA256 - AA12DA22A49BCE7D5C1AE64CC1F3D892F150DA76140F210ABD2CBFFCA2C18A27
 
  3.   myUntrustedAuthorSignature [author]
       Certificate fingerprint(s):
@@ -89,7 +90,7 @@ Poskytování současně `-Author` není `-Repository` podporováno.
 nuget trusted-signers add -Name <name> [options]
 ```
 
-_Poznámka_: Tato možnost bude přidávat jenom důvěryhodná úložiště. 
+_Poznámka_ : Tato možnost bude přidávat jenom důvěryhodná úložiště. 
 
 - **`-AllowUntrustedRoot`**
 
@@ -109,7 +110,7 @@ _Poznámka_: Tato možnost bude přidávat jenom důvěryhodná úložiště.
 nuget trusted-signers add -Name <name> [options]
 ```
 
-_Poznámka_: Pokud důvěryhodný podpis se zadaným názvem již existuje, bude položka certifikátu přidána k tomuto podepsanému. V opačném případě bude vytvořen důvěryhodný autor s položkou certifikátu z daných informací o certifikátu.
+_Poznámka_ : Pokud důvěryhodný podpis se zadaným názvem již existuje, bude položka certifikátu přidána k tomuto podepsanému. V opačném případě bude vytvořen důvěryhodný autor s položkou certifikátu z daných informací o certifikátu.
 
 
 - **`-AllowUntrustedRoot`**
@@ -132,7 +133,7 @@ Odebere všechny důvěryhodné podepisující osoby, které odpovídají daném
 
 Vyžádá nejnovější seznam certifikátů používaných v aktuálně důvěryhodném úložišti, aby aktualizoval existující seznam certifikátů v důvěryhodném přihlášení.
 
-_Poznámka_: Tento gesto odstraní aktuální seznam certifikátů a nahradí je aktuálním seznamem z úložiště.
+_Poznámka_ : Tento gesto odstraní aktuální seznam certifikátů a nahradí je aktuálním seznamem z úložiště.
 
 ## <a name="options"></a>Možnosti
 

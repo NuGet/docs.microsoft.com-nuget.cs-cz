@@ -6,12 +6,12 @@ ms.author: dtivel
 ms.date: 03/06/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: 2c501753a16820c5d027441001561c6b637ccda9
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 7ce08f11195437e94bfe69883ff525e9ad3a73f0
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622600"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238137"
 ---
 # <a name="verify-command-nuget-cli"></a>VERIFY – příkaz (NuGet CLI)
 
@@ -19,7 +19,7 @@ ms.locfileid: "88622600"
 
 Ověří balíček.
 
-Ověřování podepsaných balíčků se ještě nepodporuje v .NET Core, v mono nebo na platformách jiných než Windows.
+Ověřování podepsaných balíčků ještě není v mono podporováno.
 
 ## <a name="usage"></a>Využití
 

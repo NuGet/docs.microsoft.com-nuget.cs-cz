@@ -1,24 +1,24 @@
 ---
-title: Reference k prostředí PowerShell pro instalaci balíčků NuGet
-description: Reference k příkazu Install-Package PowerShell v konzole správce balíčků NuGet v aplikaci Visual Studio.
+title: Reference k NuGet Install-Package PowerShellu
+description: Referenční informace k příkazu Install-Package PowerShellu v konzole správce balíčků NuGet v aplikaci Visual Studio.
 author: karann-msft
 ms.author: karann
 ms.date: 06/01/2017
 ms.topic: reference
-ms.openlocfilehash: a65ba63ed070f40e82c43d12e5fad12d86f28112
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: 5bda888e0fb526faca79e88da93b0ceb9aff5348
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75384438"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237202"
 ---
-# <a name="install-package-package-manager-console-in-visual-studio"></a>Install-Package (konzola Správce balíčků v sadě Visual Studio)
+# <a name="install-package-package-manager-console-in-visual-studio"></a>Install-Package (konzola správce balíčků v aplikaci Visual Studio)
 
-*Toto téma popisuje příkaz v [konzole správce balíčků](../../consume-packages/install-use-packages-powershell.md) v sadě Visual Studio ve Windows. Obecný příkaz k instalaci balíčku PowerShellu najdete v [referenčních informacích k PowerShellu PackageManagement](/powershell/module/packagemanagement/?view=powershell-6).*
+*Toto téma popisuje příkaz v [konzole správce balíčků](../../consume-packages/install-use-packages-powershell.md) v sadě Visual Studio ve Windows. Obecný příkaz Install-Package PowerShellu najdete v [referenčních informacích k PowerShellu PackageManagement](/powershell/module/packagemanagement/?view=powershell-6).*
 
 Nainstaluje balíček a jeho závislosti do projektu.
 
-## <a name="syntax"></a>Syntaxe
+## <a name="syntax"></a>Syntax
 
 ```ps
 Install-Package [-Id] <string> [-IgnoreDependencies] [-ProjectName <string>] [[-Source] <string>] 
@@ -26,7 +26,7 @@ Install-Package [-Id] <string> [-IgnoreDependencies] [-ProjectName <string>] [[-
     [-WhatIf] [<CommonParameters>]
 ```
 
-V NuGet 2.8 + může `Install-Package` nadowngradovat existující balíček v projektu. Například pokud máte nainstalovanou aplikaci Microsoft. AspNet. MVC 5.1.0-RC1, následující příkaz by ho měl downgradovat na 5.0.0:
+V NuGet 2.8 + `Install-Package` může downgradovat existující balíček v projektu. Například pokud máte nainstalovanou aplikaci Microsoft. AspNet. MVC 5.1.0-RC1, následující příkaz by ho měl downgradovat na 5.0.0:
 
 ```ps
 Install-Package Microsoft.AspNet.MVC -Version 5.0.0.
@@ -36,21 +36,21 @@ Install-Package Microsoft.AspNet.MVC -Version 5.0.0.
 
 | Parametr | Popis |
 | --- | --- |
-| Id | Požadovanou Identifikátor balíčku, který se má nainstalovat (*3.0 +* ) Identifikátorem může být cesta nebo adresa URL souboru `packages.config` nebo souboru `.nupkg`. Samotný přepínač-ID je nepovinný. |
+| Id | Požadovanou Identifikátor balíčku, který se má nainstalovat ( *3.0 +* ) Identifikátor může být cesta nebo adresa URL `packages.config` souboru nebo `.nupkg` souboru. Samotný přepínač-ID je nepovinný. |
 | IgnoreDependencies | Nainstalujte jenom tento balíček a ne jeho závislosti. |
 | ProjectName | Projekt, do kterého má být balíček nainstalován, je nastaven výchozí projekt. |
-| Zdroj | Adresa URL nebo cesta ke složce pro zdroj balíčku, který má být prohledán. Cesty k místní složce můžou být absolutní nebo relativní vzhledem k aktuální složce. Pokud tento parametr vynecháte, `Install-Package` prohledá aktuálně vybraný zdroj balíčku. |
-| Version | Verze balíčku, který se má nainstalovat, ve výchozím nastavení na nejnovější verzi |
-| IncludePrerelease | Bere v úvahu předběžné verze balíčků pro instalaci. V případě neuvedení této položky jsou zvažovány pouze stabilní balíčky. |
-| FileConflictAction | Akce, která se má provést, když se zobrazí výzva k přepsání nebo ignorování existujících souborů, na které se odkazuje v projektu Možné hodnoty jsou *overwrite, ignore, None, OverwriteAll*a *(3.0 +)* *IgnoreAll*. |
-| DependencyVersion | Verze balíčků závislostí, které se mají použít, což může být jedna z následujících:<br/><ul><li>*Nejnižší* (výchozí): nejnižší verze</li><li>*HighestPatch*: verze, která má nejnižší hlavní, nejnižší podverzi, nejvyšší opravu</li><li>*HighestMinor*: verze s nejnižší hlavní, nejvyšší podverze a nejvyšší opravou</li><li>*Nejvyšší* (výchozí pro balíček Update-Package bez parametrů): nejvyšší verze</li></ul>Výchozí hodnotu můžete nastavit pomocí nastavení [`dependencyVersion`](../nuget-config-file.md#config-section) v souboru `Nuget.Config`. |
+| Zdroj | Adresa URL nebo cesta ke složce pro zdroj balíčku, který má být prohledán. Cesty k místní složce můžou být absolutní nebo relativní vzhledem k aktuální složce. Pokud tento parametr vynecháte, `Install-Package` vyhledá aktuálně vybraný zdroj balíčku. |
+| Verze | Verze balíčku, který se má nainstalovat, ve výchozím nastavení na nejnovější verzi |
+| IncludePrerelease | Bere v úvahu předběžné verze balíčků pro instalaci. Pokud tento parametr vynecháte, budou se brát v úvahu jenom stabilní balíčky. |
+| FileConflictAction | Akce, která se má provést, když se zobrazí výzva k přepsání nebo ignorování existujících souborů, na které se odkazuje v projektu Možné hodnoty jsou *overwrite, ignore, None, OverwriteAll* a *(3.0 +)* *IgnoreAll* . |
+| DependencyVersion | Verze balíčků závislostí, které se mají použít, což může být jedna z následujících:<br/><ul><li>*Nejnižší* (výchozí): nejnižší verze</li><li>*HighestPatch* : verze, která má nejnižší hlavní, nejnižší podverzi, nejvyšší opravu</li><li>*HighestMinor* : verze s nejnižší hlavní, nejvyšší podverze a nejvyšší opravou</li><li>*Nejvyšší* (výchozí pro Update-Package bez parametrů): nejvyšší verze</li></ul>Výchozí hodnotu můžete nastavit pomocí [`dependencyVersion`](../nuget-config-file.md#config-section) nastavení v `Nuget.Config` souboru. |
 | WhatIf | Ukazuje, co se stane při spuštění příkazu, aniž by bylo nutné instalaci skutečně provést. |
 
 Žádný z těchto parametrů nepřijímají vstupní ani zástupné znaky kanálu.
 
 ## <a name="common-parameters"></a>Společné parametry
 
-`Install-Package` podporuje následující [běžné parametry PowerShellu](https://go.microsoft.com/fwlink/?LinkID=113216): Debug, Error Action, ErrorVariable, inbuffer, subvariable, PipelineVariable, verbose, WarningAction a WarningVariable.
+`Install-Package` podporuje následující [běžné parametry PowerShellu](/powershell/module/microsoft.powershell.core/about/about_commonparameters): Debug, Error Action, ErrorVariable, inbuffer, subvariable, PipelineVariable, verbose, WarningAction a WarningVariable.
 
 ## <a name="examples"></a>Příklady
 

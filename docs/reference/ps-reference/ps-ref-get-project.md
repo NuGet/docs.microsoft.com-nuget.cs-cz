@@ -1,22 +1,22 @@
 ---
-title: Referenční dokumentace k prostředí NuGet Get-Project PowerShell
+title: Reference k NuGet Get-Project PowerShellu
 description: Reference k příkazu getproject PowerShell v konzole správce balíčků NuGet v aplikaci Visual Studio.
 author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 3343952535c2d3c822f5cac24cb30c8f5bfa5be3
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: 6d9e1d48c8e1838f193878cab3483b1bfba7d7f0
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75384617"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238072"
 ---
-# <a name="get-project-package-manager-console-in-visual-studio"></a>Get-Project (konzola Správce balíčků v sadě Visual Studio)
+# <a name="get-project-package-manager-console-in-visual-studio"></a>Get-Project (konzola správce balíčků v aplikaci Visual Studio)
 
 *K dispozici pouze v rámci [konzoly Správce balíčků](../../consume-packages/install-use-packages-powershell.md) v sadě Visual Studio ve Windows.*
 
-Zobrazí informace o výchozím nebo zadaném projektu. `Get-Project` konkrétně vrátí referenční objektu aplikace Visual Studio DTE (vývojové nástroje) pro projekt.
+Zobrazí informace o výchozím nebo zadaném projektu. `Get-Project` konkrétně vrátí referenční do objektu aplikace Visual Studio DTE (vývojové nástroje) pro projekt.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -28,14 +28,14 @@ Get-Project [[-Name] <string>] [-All] [<CommonParameters>]
 
 | Parametr | Popis |
 | --- | --- |
-| Name | Určuje projekt, který se má zobrazit, výchozí nastavení výchozího projektu, který je vybraný v konzole správce balíčků. Přepínač-Name je sám nepovinný. |
-| Všechny | Zobrazí informace pro každý projekt v řešení; pořadí projektů není deterministické. |
+| Název | Určuje projekt, který se má zobrazit, výchozí nastavení výchozího projektu, který je vybraný v konzole správce balíčků. Přepínač-Name je sám nepovinný. |
+| Vše | Zobrazí informace pro každý projekt v řešení; pořadí projektů není deterministické. |
 
 Žádný z těchto parametrů nepřijímají vstupní ani zástupné znaky kanálu.
 
 ## <a name="common-parameters"></a>Společné parametry
 
-`Get-Project` podporuje následující [běžné parametry PowerShellu](https://go.microsoft.com/fwlink/?LinkID=113216): Debug, Error Action, ErrorVariable, inbuffer, subvariable, PipelineVariable, verbose, WarningAction a WarningVariable.
+`Get-Project` podporuje následující [běžné parametry PowerShellu](/powershell/module/microsoft.powershell.core/about/about_commonparameters): Debug, Error Action, ErrorVariable, inbuffer, subvariable, PipelineVariable, verbose, WarningAction a WarningVariable.
 
 ## <a name="examples"></a>Příklady
 

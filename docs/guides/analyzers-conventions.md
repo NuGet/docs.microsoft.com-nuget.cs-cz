@@ -1,60 +1,60 @@
 ---
-title: Formáty analyzátoru kompilátoru .NET pro NuGet
-description: Konvence pro analyzátory .NET, které jsou zabaleny a distribuovány s balíčky NuGet, které implementují rozhraní API nebo knihovny.
+title: Formáty .NET Compiler Platform Analyzer pro NuGet
+description: Konvence pro analyzátory .NET, které jsou zabaleny a distribuovány pomocí balíčků NuGet, které implementují rozhraní API nebo knihovny.
 author: karann-msft
 ms.author: karann
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: 4d337299f725b38981b0121069d5e6295b05e34e
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 9de890d14747a74a13a660109a3b6812a5e08acc
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "72924629"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237916"
 ---
-# <a name="analyzer-nuget-formats"></a>Analyzátor NuGet formáty
+# <a name="analyzer-nuget-formats"></a>Formáty NuGet analyzátoru
 
-Platforma kompilátoru .NET (označovaná také jako "Roslyn") umožňuje vývojářům vytvářet [analyzátory,](https://github.com/dotnet/roslyn/wiki/How-To-Write-a-C%23-Analyzer-and-Code-Fix) které zkoumají strom syntaxe a sémantiku kódu při jeho zápisu. To poskytuje vývojářům způsob, jak vytvořit nástroje pro analýzu specifické pro doménu, jako jsou ty, které by pomohly řídit použití konkrétního rozhraní API nebo knihovny. Více informací najdete na wiki [.NET/Roslyn](https://github.com/dotnet/roslyn/wiki) GitHub. Viz také [článek, Použijte Roslyn napsat Live Analyzátor kódu pro vaše rozhraní API](https://msdn.microsoft.com/magazine/dn879356.aspx) v MSDN Magazine.
+.NET Compiler Platform (označované také jako "Roslyn") umožňuje vývojářům vytvářet [analyzátory](https://github.com/dotnet/roslyn/wiki/How-To-Write-a-C%23-Analyzer-and-Code-Fix) , které zkoumají strom syntaxe a sémantiku kódu při zápisu. To poskytuje vývojářům možnost vytvářet nástroje pro analýzu specifické pro doménu, jako jsou ty, které by pomohly s použitím konkrétního rozhraní API nebo knihovny. Další informace najdete na wikiwebu [.NET/Roslyn](https://github.com/dotnet/roslyn/wiki) GitHub. Přečtěte si také článek [použití Roslyn k zápisu živého analyzátoru kódu pro vaše rozhraní API](/archive/msdn-magazine/2014/special-issue/csharp-and-visual-basic-use-roslyn-to-write-a-live-code-analyzer-for-your-api) na webu MSDN Magazine.
 
-Analyzátory samy o sobě jsou obvykle zabaleny a distribuovány jako součást nuget balíčky, které implementují rozhraní API nebo knihovny v otázce.
+Samotné analyzátory jsou obvykle zabaleny a distribuovány jako součást balíčků NuGet, které implementují příslušné rozhraní API nebo knihovny.
 
-Dobrý příklad naleznete v balíčku [System.Runtime.Analyzers,](https://www.nuget.org/packages/System.Runtime.Analyzers) který má následující obsah:
+Dobrý příklad naleznete v balíčku [System. Runtime. analyzers](https://www.nuget.org/packages/System.Runtime.Analyzers) , který má následující obsah:
 
-- analyzátory\dotnet\System.Runtime.Analyzers.dll
-- analyzátory\dotnet\cs\System.Runtime.CSharp.Analyzers.dll
-- analyzátory\dotnet\vb\System.Runtime.VisualBasic.Analyzers.dll
+- analyzers\dotnet\System.Runtime.Analyzers.dll
+- analyzers\dotnet\cs\System.Runtime.CSharp.Analyzers.dll
+- analyzers\dotnet\vb\System.Runtime.VisualBasic.Analyzers.dll
 - build\System.Runtime.Analyzers.Common.props
 - build\System.Runtime.Analyzers.props
 - build\System.Runtime.CSharp.Analyzers.props
 - build\System.Runtime.VisualBasic.Analyzers.props
-- nástroje\install.ps1
-- nástroje\uninstall.ps1
+- tools\install.ps1
+- tools\uninstall.ps1
 
-Jak můžete vidět, umístíte knihovny DLL `analyzers` analyzátoru do složky v balíčku.
+Jak vidíte, umístěte knihovny DLL analyzátoru do `analyzers` složky v balíčku.
 
-Rekvizity soubory, které jsou zahrnuty zakázat starší FxCop pravidla ve `build` prospěch implementace analyzátoru, jsou umístěny ve složce.
+Soubory props, které jsou zahrnuty pro zakázání starších pravidel FxCop ve prospěch implementace analyzátoru, jsou umístěny do `build` složky.
 
-Instalace a odinstalace skriptů, `packages.config` které `tools`podporují projekty pomocí jsou umístěny v aplikaci .
+Instalace a odinstalace skriptů podporujících projekty pomocí `packages.config` jsou umístěny v `tools` .
 
-Všimněte si také, že vzhledem k `platform` tomu, že tento balíček nemá žádné požadavky specifické pro platformu, složka je vynechána.
+Všimněte si také, že vzhledem k tomu, že tento balíček nemá žádné požadavky specifické pro platformu, `platform` je tato složka vynechána.
 
 
 ## <a name="analyzers-path-format"></a>Formát cesty analyzátorů
 
-Použití `analyzers` složky je podobné jako u [cílových architektur](../create-packages/supporting-multiple-target-frameworks.md), s výjimkou specifikátorů v cestě popisují závislosti hostitele vývoje namísto sestavení. Obecný formát je následující:
+Použití `analyzers` složky je podobné jako u [cílových rozhraní](../create-packages/supporting-multiple-target-frameworks.md), s výjimkou specifikátorů v cestě popisují závislosti vývojového hostitele namísto doby sestavení. Obecný formát je následující:
 
     $/analyzers/{framework_name}{version}/{supported_architecture}/{supported_language}/{analyzer_name}.dll
 
-- **framework_name** a **verze**: *volitelná* plocha rozhraní API rozhraní .NET Framework, kterou musí spustit obsažené knihovny DLL. `dotnet`je v současné době jedinou platnou hodnotu, protože Roslyn je jediný hostitel, který může spustit analyzátory. Pokud není zadán žádný cíl, předpokládá se, že knihovny DLL se použijí na *všechny* cíle.
-- **supported_language**: jazyk, pro který se vztahuje `cs` dll, `vb` jeden z (C#) a (Visual Basic) a `fs` (F#). Jazyk označuje, že analyzátor by měl být načten pouze pro projekt používající tento jazyk. Pokud není zadán žádný jazyk, předpokládá se, že dll se vztahuje na *všechny* jazyky, které podporují analyzátory.
-- **analyzer_name**: určuje knihovny DLL analyzátoru. Pokud potřebujete další soubory nad rámec knihoven DLL, musí být zahrnuty prostřednictvím souborů cílů nebo vlastností.
+- **framework_name** a **verze** : *volitelná* oblast rozhraní API .NET Framework, kterou obsažené knihovny DLL musí spustit. `dotnet` je v současné době jediná platná hodnota, protože Roslyn je jediný hostitel, který může spustit analyzátory. Pokud není zadán žádný cíl, považují se knihovny DLL za použití na *všechny* cíle.
+- **supported_language** : jazyk, pro který se knihovna DLL používá, jedna z `cs` (C#) a `vb` (Visual Basic) a `fs` (F #). Jazyk označuje, že analyzátor má být načten pouze pro projekt, který používá daný jazyk. Pokud není zadán žádný jazyk, předpokládá se, že se knihovna DLL použije pro *všechny* jazyky, které podporují analyzátory.
+- **analyzer_name** : Určuje knihovny DLL analyzátoru. Pokud potřebujete další soubory kromě knihoven DLL, musí být zahrnuty prostřednictvím cílů nebo souborů vlastností.
 
 
 ## <a name="install-and-uninstall-scripts"></a>Instalace a odinstalace skriptů
 
-Pokud projekt uživatele `packages.config`používá , skript MSBuild, který vyzvedne analyzátor nevstoupí do `install.ps1` hry, takže byste měli umístit a `uninstall.ps1` ve `tools` složce s obsahem, které jsou popsány níže.
+Pokud projekt uživatele používá `packages.config` , skript MSBuild, který vybírá analyzátor, nepřichází do hry, takže byste měli umístit `install.ps1` `uninstall.ps1` `tools` složku s obsahem, který je popsán níže.
 
-**install.ps1 obsah souboru**
+**install.ps1 obsahu souboru**
 
 ```ps
 param($installPath, $toolsPath, $package, $project)
@@ -109,7 +109,7 @@ foreach($analyzersPath in $analyzersPaths)
 ```
 
 
-**odinstalovat soubor PS1**
+**uninstall.ps1 obsahu souboru**
 
 ```ps
 param($installPath, $toolsPath, $package, $project)

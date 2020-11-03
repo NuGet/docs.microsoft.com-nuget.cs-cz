@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: dc20e43bfb43a4b6e47297fb3446319860034d46
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: fe5625247dca51c10d82fffe82022c40a4716069
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623020"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237929"
 ---
 # <a name="publishing-packages"></a>Publikování balíčků
 
@@ -24,7 +24,7 @@ Tento článek popisuje publikování na nuget.org. informace o publikování do
 
 ## <a name="publish-to-nugetorg"></a>Publikovat na nuget.org
 
-V případě nuget.org se musíte přihlásit pomocí účet Microsoft, se kterým budete požádáni o registraci účtu v nuget.org. Můžete se také přihlásit pomocí účtu nuget.org vytvořeného pomocí starších verzí portálu.
+V případě nuget.org se musíte přihlásit pomocí účet Microsoft, se kterým budete požádáni o registraci účtu v nuget.org.
 
 ![Přihlašovací umístění NuGet](media/publish_NuGetSignIn.png)
 
@@ -47,7 +47,7 @@ Dále můžete balíček nahrát prostřednictvím webového portálu nuget.org,
 ### <a name="command-line"></a>Příkazový řádek
 
 Pokud chcete nabízet balíčky do nuget.org, budete nejdřív potřebovat klíč rozhraní API, který se vytvoří v nuget.org. Musíte použít buď dotnet.exe (.NET Core), nebo nuget.exe v 4.1.0 nebo novějším, které implementují požadované protokoly NuGet.
-Další informace najdete v tématu protokoly [.NET Core](https://docs.microsoft.com/dotnet/core/install/), [nuget.exe](https://www.nuget.org/downloads)a [NuGet](../api/nuget-protocols.md).
+Další informace najdete v tématu protokoly [.NET Core](/dotnet/core/install/), [nuget.exe](https://www.nuget.org/downloads)a [NuGet](../api/nuget-protocols.md).
 
 #### <a name="create-api-keys"></a>Vytvoření klíčů rozhraní API
 
@@ -111,13 +111,13 @@ Všichni vlastníci balíčku mají úplná oprávnění pro balíček, včetně
 Chcete-li změnit vlastnictví balíčku, postupujte následovně:
 
 1. Přihlaste se k nuget.org pomocí účtu, který je aktuálním vlastníkem balíčku.
-1. Vyberte název účtu, vyberte **Spravovat balíčky**a rozbalte **publikované balíčky**.
-1. Vyberte balíček, který chcete spravovat, a pak na pravé straně vyberte **Spravovat vlastníky**.
+1. Vyberte název účtu, vyberte **Spravovat balíčky** a rozbalte **publikované balíčky** .
+1. Vyberte balíček, který chcete spravovat, a pak na pravé straně vyberte **Spravovat vlastníky** .
 
 Tady máte několik možností:
 
-1. Odeberte všechny vlastníka uvedené v části **aktuální vlastníci**.
-1. Přidejte vlastníka do části **Přidat vlastníka** zadáním jeho uživatelského jména, zprávy a výběru možnosti **Přidat**. Tato akce pošle e-mailem tomuto novému spoluvlastníkovi odkaz s potvrzením. Po potvrzení tato osoba má úplná oprávnění k přidávání a odebírání vlastníků. (Až do potvrzení, část **aktuální vlastníci** indikuje, že se čeká na schválení pro tuto osobu.)
+1. Odeberte všechny vlastníka uvedené v části **aktuální vlastníci** .
+1. Přidejte vlastníka do části **Přidat vlastníka** zadáním jeho uživatelského jména, zprávy a výběru možnosti **Přidat** . Tato akce pošle e-mailem tomuto novému spoluvlastníkovi odkaz s potvrzením. Po potvrzení tato osoba má úplná oprávnění k přidávání a odebírání vlastníků. (Až do potvrzení, část **aktuální vlastníci** indikuje, že se čeká na schválení pro tuto osobu.)
 1. Pokud chcete přenést vlastnictví (jako při změně vlastnictví nebo balíčku, který se publikoval v nesprávném účtu), přidejte nového vlastníka a jakmile se potvrdí vlastnictví, můžou vás ze seznamu odebrat.
 
 Pokud chcete přiřadit vlastnictví společnosti nebo skupiny, vytvořte účet nuget.org pomocí e-mailového aliasu předaného příslušnému členovi týmu. Například různé balíčky Microsoft ASP.NET jsou spoluvlastněny účty [Microsoft](https://nuget.org/profiles/microsoft) a [ASPNET](https://nuget.org/profiles/aspnet) , které jednoduše odkazují na tyto aliasy.

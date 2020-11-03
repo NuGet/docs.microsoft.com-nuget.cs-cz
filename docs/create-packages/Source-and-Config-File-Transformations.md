@@ -1,33 +1,33 @@
 ---
-title: Transformace zdrojových a konfiguračních souborů pro balíčky NuGet
-description: Podrobnosti o schopnosti balíčků NuGet transformovat zdrojový kód a konfigurační (XML) soubory při instalaci.
+title: Transformace zdrojového a konfiguračního souboru pro balíčky NuGet
+description: Podrobnosti o možnosti balíčků NuGet pro transformaci zdrojového kódu a konfiguračních souborů (XML) po instalaci.
 author: karann-msft
 ms.author: karann
 ms.date: 04/24/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 2fefd9cff4d151111023521c31d58878743775bf
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 8e3eade14c70782563ba82894f072f9b3a611923
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "78231172"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237981"
 ---
 # <a name="transforming-source-code-and-configuration-files"></a>Transformace zdrojového kódu a konfiguračních souborů
 
-**Transformace zdrojového kódu** použije nahrazení jednosměrného tokenu na `content` `contentFiles` soubory`content` v balíčku `packages.config` `contentFiles` nebo `PackageReference`složce ( pro zákazníky, kteří používají a pro ) při instalaci balíčku, kde tokeny odkazují na [vlastnosti projektu](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7)sady Visual Studio . To umožňuje vložit soubor do oboru názvů projektu nebo přizpůsobit kód, který `global.asax` by obvykle jít do v ASP.NET projektu.
+**Transformace zdrojového kódu** aplikuje jednosměrnou náhradu tokenu na soubory v balíčku `content` nebo `contentFiles` složce ( `content` pro zákazníky používající `packages.config` a `contentFiles` pro `PackageReference` ) při instalaci balíčku, kde tokeny odkazují na [Vlastnosti projektu](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7)sady Visual Studio. To umožňuje vložit soubor do oboru názvů projektu, nebo upravit kód, který by obvykle přešel do `global.asax` projektu ASP.NET.
 
-**Transformace konfiguračního souboru** umožňuje upravit soubory, které `web.config` již `app.config`existují v cílovém projektu, například a . Balíček může být například nutné přidat `modules` položku do oddílu v konfiguračním souboru. Tato transformace se provádí zahrnutím speciální soubory v balíčku, které popisují oddíly přidat do konfiguračních souborů. Při odinstalaci balíčku jsou tyto stejné změny stornovány, což je obousměrná transformace.
+**Transformace konfiguračního souboru** umožňuje upravit soubory, které již existují v cílovém projektu, například `web.config` a `app.config` . Balíček může například potřebovat přidat položku do `modules` oddílu v konfiguračním souboru. Tato transformace se provádí zahrnutím speciálních souborů do balíčku, které popisují oddíly, které se mají přidat do konfiguračních souborů. Při odinstalaci balíčku se tyto změny projeví opačným způsobem transformace.
 
 ## <a name="specifying-source-code-transformations"></a>Určení transformací zdrojového kódu
 
-1. Soubory, které chcete vložit z balíčku do projektu, musí `content` být `contentFiles` umístěny v rámci balíčku a složek. Například pokud chcete, aby `ContosoData.cs` soubor volal `Models` být nainstalován ve složce cílového `content\Models` `contentFiles\{lang}\{tfm}\Models` projektu, musí být uvnitř a složky v balíčku.
+1. Soubory, které chcete vložit z balíčku do projektu, se musí nacházet v rámci balíčků `content` a `contentFiles` složek. Například pokud chcete, aby byl soubor s názvem `ContosoData.cs` nainstalován do `Models` složky cílového projektu, musí být uvnitř `content\Models` `contentFiles\{lang}\{tfm}\Models` složek a v balíčku.
 
-1. Chcete-li pokyn NuGet použít nahrazení tokenu v době instalace, připojit `.pp` k názvu souboru zdrojového kódu. Po instalaci nebude mít soubor `.pp` příponu.
+1. Pokud chcete, aby NuGet při instalaci nahradil nahrazení tokenu, připojí se `.pp` k názvu souboru zdrojového kódu. Po instalaci nebude mít tento soubor `.pp` příponu.
 
-    Chcete-li například provést `ContosoData.cs`transformace v aplikace `ContosoData.cs.pp`, pojmenujte soubor v balíčku . Po instalaci se `ContosoData.cs`zobrazí jako .
+    Chcete-li například transformovat v `ContosoData.cs` , pojmenujte soubor v balíčku `ContosoData.cs.pp` . Po instalaci se zobrazí jako `ContosoData.cs` .
 
-1. V souboru zdrojového kódu použijte tokeny formuláře `$token$` bez velkých a malých písmen k označení hodnot, které by měl YGet nahradit vlastnostmi projektu:
+1. V souboru se zdrojovým kódem použijte tokeny nerozlišující malá a velká písmena formuláře `$token$` k označení hodnot, které má NuGet nahradit vlastnostmi projektu:
 
     ```cs
     namespace $rootnamespace$.Models
@@ -43,27 +43,27 @@ ms.locfileid: "78231172"
     }
     ```
 
-    Po instalaci nuget `$rootnamespace$` nahradí `Fabrikam` za předpokladu, že cílový `Fabrikam`projekt, jehož kořenový obor názvů je .
+    Při instalaci nahrazuje NuGet za `$rootnamespace$` `Fabrikam` předpokladu, že cílový projekt má kořenový obor názvů `Fabrikam` .
 
-Token `$rootnamespace$` je nejčastěji používaná vlastnost projektu; všechny ostatní jsou uvedeny ve [vlastnostech projektu](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7). Mějte samozřejmě na paměti, že některé vlastnosti mohou být specifické pro typ projektu.
+`$rootnamespace$`Token je nejčastěji používaná vlastnost projektu. všechny ostatní jsou uvedeny ve [vlastnostech projektu](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7). Je třeba mít na vědomí, že některé vlastnosti mohou být specifické pro typ projektu.
 
-## <a name="specifying-config-file-transformations"></a>Určení transformací konfiguračních souborů
+## <a name="specifying-config-file-transformations"></a>Určení transformací konfiguračního souboru
 
-Jak je popsáno v následujících částech, transformace konfiguračních souborů lze provést dvěma způsoby:
+Jak je popsáno v následujících částech, lze transformaci konfiguračního souboru provést dvěma způsoby:
 
-- Zahrnout `app.config.transform` `web.config.transform` a soubory ve `content` složce balíčku, kde `.transform` rozšíření říká NuGet, že tyto soubory obsahují XML sloučit s existujícími soubory konfigurační konfigurace při instalaci balíčku. Při odinstalaci balíčku je odebrán stejný kód XML.
-- Zahrnout `app.config.install.xdt` `web.config.install.xdt` a soubory ve `content` složce balíčku, pomocí [xDT syntaxe](https://msdn.microsoft.com/library/dd465326.aspx) popsat požadované změny. Pomocí této možnosti můžete `.uninstall.xdt` také zahrnout soubor pro stornování změn při odebrání balíčku z projektu.
+- Zahrnutí `app.config.transform` a `web.config.transform` soubory do `content` složky balíčku, kde `.transform` rozšíření informuje NuGet, že tyto soubory obsahují soubor XML pro sloučení s existujícími konfiguračními soubory při instalaci balíčku. Při odinstalaci balíčku je stejný kód XML odstraněn.
+- Přidejte `app.config.install.xdt` `web.config.install.xdt` soubory do `content` složky balíčku pomocí [syntaxe XDT](/previous-versions/aspnet/dd465326(v=vs.110)) a popište požadované změny. Pomocí této možnosti můžete také začlenit `.uninstall.xdt` soubor, který vrátí zpět změny, když se balíček odebere z projektu.
 
 > [!Note]
-> Transformace nejsou použity `.config` na soubory odkazované jako odkaz v sadě Visual Studio.
+> Transformace nejsou aplikovány na `.config` soubory, na které se odkazuje jako na odkaz v aplikaci Visual Studio.
 
-Výhodou použití XDT je, že namísto jednoduchého sloučení dvou statických souborů poskytuje syntaxi pro manipulaci se strukturou XML DOM pomocí porovnávání elementů a atributů pomocí plné podpory XPath. XDT pak můžete přidat, aktualizovat nebo odebrat prvky, umístit nové prvky na určité místo nebo nahradit nebo odebrat prvky (včetně podřízených uzlů). Díky tomu je jednoduché vytvořit odinstalovat transformace, které zálohovat všechny transformace provedené během instalace balíčku.
+Výhodou použití XDT je, že místo pouhého sloučení dvou statických souborů poskytuje syntaxi pro manipulaci s strukturou modelu DOM XML pomocí elementu a atributu odpovídajícího pomocí úplné podpory XPath. XDT pak může přidat, aktualizovat nebo odebrat prvky, umístit nové prvky do konkrétního umístění nebo nahradit/odebrat prvky (včetně podřízených uzlů). Díky tomu je snadné vytvořit odinstalační transformace, které při instalaci balíčku provedly zpět všechny transformace.
 
 ### <a name="xml-transforms"></a>Transformace XML
 
-Složka `app.config.transform` `web.config.transform` a ve `content` složce balíčku obsahuje pouze ty prvky, `app.config` `web.config` které se mají sloučit do existujících souborů a souborů projektu.
+`app.config.transform`A `web.config.transform` ve `content` složce balíčku obsahují pouze prvky, které mají být sloučeny do existujících `app.config` souborů a souborů projektu `web.config` .
 
-Jako příklad předpokládejme, že projekt zpočátku obsahuje následující obsah v aplikaci `web.config`:
+Předpokládejme například, že projekt zpočátku obsahuje následující obsah v `web.config` :
 
 ```xml
 <configuration>
@@ -75,7 +75,7 @@ Jako příklad předpokládejme, že projekt zpočátku obsahuje následující 
 </configuration>
 ```
 
-Chcete-li `MyNuModule` přidat `modules` prvek do oddílu `web.config.transform` během instalace balíčku, `content` vytvořte soubor ve složce balíčku, který vypadá takto:
+Chcete-li přidat `MyNuModule` prvek do `modules` oddílu při instalaci balíčku, vytvořte `web.config.transform` soubor ve `content` složce balíčku, který vypadá takto:
 
 ```xml
 <configuration>
@@ -87,7 +87,7 @@ Chcete-li `MyNuModule` přidat `modules` prvek do oddílu `web.config.transform`
 </configuration>
 ```
 
-Po NuGet nainstaluje `web.config` balíček, se zobrazí takto:
+Po instalaci balíčku NuGet se `web.config` zobrazí následující:
 
 ```xml
 <configuration>
@@ -100,24 +100,24 @@ Po NuGet nainstaluje `web.config` balíček, se zobrazí takto:
 </configuration>
 ```
 
-Všimněte si, že NuGet nenahradil `modules` oddíl, pouze sloučil novou položku do něj přidáním pouze nové prvky a atributy. NuGet nezmění žádné existující prvky nebo atributy.
+Všimněte si, že NuGet nenahradil `modules` oddíl, právě ho sloučil do nového záznamu přidáním pouze nových elementů a atributů. NuGet nemění žádné existující prvky ani atributy.
 
-Při odinstalaci balíčku NuGet znovu `.transform` zkontroluje soubory a odebere prvky, které obsahuje z příslušných `.config` souborů. Všimněte si, že tento proces `.config` nebude mít vliv na všechny řádky v souboru, který upravíte po instalaci balíčku.
+Po odinstalaci balíčku NuGet znovu prohledá `.transform` soubory a odebere prvky, které obsahuje, z příslušných `.config` souborů. Všimněte si, že tento proces nebude mít vliv na žádné řádky v `.config` souboru, které upravíte po instalaci balíčku.
 
-Jako rozsáhlejší příklad balíček [Moduly protokolování chyb a obslužné rutiny pro ASP.NET (ELMAH)](https://www.nuget.org/packages/elmah/) přidá mnoho položek do `web.config`aplikace , které jsou znovu odebrány při odinstalaci balíčku.
+V několika složitějších příkladech balíčky [protokolování chyb a obslužné rutiny pro balíček ASP.NET (knihovny elmah)](https://www.nuget.org/packages/elmah/) přidávají mnoho položek do `web.config` , které se po odinstalaci balíčku znovu odeberou.
 
-Chcete-li `web.config.transform` zkontrolovat jeho soubor, stáhněte balíček ELMAH `.nupkg` z `.zip`výše uvedeného odkazu, změňte příponu balíčku z na a otevřete `content\web.config.transform` jej v tomto souboru ZIP.
+Pokud si chcete prohlédnout svůj `web.config.transform` soubor, Stáhněte si z výše uvedeného odkazu balíček knihovny elmah, změňte rozšíření balíčku z `.nupkg` na a `.zip` pak ho otevřete `content\web.config.transform` v tomto souboru ZIP.
 
-Chcete-li zobrazit efekt instalace a odinstalace balíčku, vytvořte nový projekt ASP.NET v sadě Visual Studio (šablona je v části **Visual C# > Web** v dialogovém okně Nový projekt) a vyberte prázdnou ASP.NET aplikaci. Otevřít `web.config` zobrazíte počáteční stav. Potom klikněte pravým tlačítkem myši na projekt, vyberte **spravovat balíčky NuGet**, vyhledejte ELMAH na nuget.org a nainstalujte nejnovější verzi. Všimněte si `web.config`všech změn v . Nyní odinstalujte balíček a uvidíte, `web.config` že se vrátíte do jeho předchozího stavu.
+Chcete-li zobrazit efekt instalace a odinstalace balíčku, vytvořte nový projekt ASP.NET v aplikaci Visual Studio (šablona je v dialogovém okně Nový projekt v části **Visual C# > web** ) a vyberte prázdnou aplikaci ASP.NET. Otevřete `web.config` a zobrazte jeho počáteční stav. Pak klikněte pravým tlačítkem na projekt, vyberte **Spravovat balíčky NuGet** , vyhledejte knihovny elmah v NuGet.org a nainstalujte nejnovější verzi. Všimněte si všech změn v `web.config` . Nyní balíček odinstalujte a uvidíte, že `web.config` se vrátí do předchozího stavu.
 
-### <a name="xdt-transforms"></a>XDT transformace
+### <a name="xdt-transforms"></a>Transformace XDT
 
 > [!Note]
-> Jak je uvedeno v [části problémy s kompatibilitou `packages.config` balíčků `PackageReference`v dokumentech pro migraci z ](../consume-packages/migrate-packages-config-to-package-reference.md#package-compatibility-issues)do `packages.config`, transformace XDT, jak je popsáno níže, jsou podporovány pouze . Pokud přidáte níže uvedené soubory do balíčku, `PackageReference` spotřebitelé pomocí balíčku s nebude mít transformace použít (viz tato`PackageReference` [ukázka,](https://github.com/NuGet/Samples/tree/master/XDTransformExample) aby XDT transformace pracovat s ).
+> Jak je uvedeno v [části problémy s kompatibilitou balíčku v dokumentaci pro migraci z nástroje `packages.config` do `PackageReference` ](../consume-packages/migrate-packages-config-to-package-reference.md#package-compatibility-issues), XDT transformace, jak je popsáno níže, jsou podporovány pouze v nástroji `packages.config` . Pokud do svého balíčku přidáte následující soubory, příjemci, kteří používají váš balíček, nebudou `PackageReference` mít použité transformace (v [této ukázce](https://github.com/NuGet/Samples/tree/master/XDTransformExample) se dozvíte, jak pomocí XDT transformovat práci `PackageReference` ).
 
-Konfigurační soubory můžete upravit pomocí [syntaxe XDT](https://msdn.microsoft.com/library/dd465326.aspx). Můžete také mít NuGet nahradit tokeny s [vlastnostmi projektu](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7) zahrnutím název vlastnosti do `$` oddělovače (malá a velká písmena).
+Konfigurační soubory můžete upravovat pomocí [syntaxe XDT](/previous-versions/aspnet/dd465326(v=vs.110)). Tokeny NuGet můžete také nahradit [vlastnostmi projektu](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7) zahrnutím názvu vlastnosti v rámci `$` oddělovačů (bez rozlišení velkých a malých písmen).
 
-Například `app.config.install.xdt` následující soubor vloží `appSettings` prvek `app.config` do obsahující `FullPath` `FileName`, `ActiveConfigurationSettings` a hodnoty z projektu:
+Například následující `app.config.install.xdt` soubor bude vkládat `appSettings` element do `app.config` obsahující `FullPath` `FileName` hodnoty, a `ActiveConfigurationSettings` z projektu:
 
 ```xml
 <?xml version="1.0"?>
@@ -130,7 +130,7 @@ Například `app.config.install.xdt` následující soubor vloží `appSettings`
 </configuration>
 ```
 
-Předpokládejme, že projekt zpočátku obsahuje `web.config`následující obsah v aplikaci :
+Pro jiný příklad Předpokládejme, že projekt zpočátku obsahuje následující obsah `web.config` :
 
 ```xml
 <configuration>
@@ -142,7 +142,7 @@ Předpokládejme, že projekt zpočátku obsahuje `web.config`následující obs
 </configuration>
 ```
 
-Chcete-li `MyNuModule` přidat `modules` prvek do oddílu během `web.config.install.xdt` instalace balíčku, balíček bude obsahovat následující:
+Chcete-li `MyNuModule` `modules` během instalace balíčku přidat element do oddílu, bude `web.config.install.xdt` obsahovat následující:
 
 ```xml
 <?xml version="1.0"?>
@@ -155,7 +155,7 @@ Chcete-li `MyNuModule` přidat `modules` prvek do oddílu během `web.config.ins
 </configuration>
 ```
 
-Po instalaci balíčku, `web.config` bude vypadat takto:
+Po instalaci balíčku `web.config` bude vypadat takto:
 
 ```xml
 <configuration>
@@ -168,7 +168,7 @@ Po instalaci balíčku, `web.config` bude vypadat takto:
 </configuration>
 ```
 
-Chcete-li `MyNuModule` odebrat pouze prvek `web.config.uninstall.xdt` během odinstalace balíčku, soubor by měl obsahovat následující:
+Chcete-li odebrat pouze `MyNuModule` prvek během odinstalace balíčku, `web.config.uninstall.xdt` soubor by měl obsahovat následující:
 
 ```xml
 <?xml version="1.0"?>

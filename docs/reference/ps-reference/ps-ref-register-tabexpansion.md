@@ -1,16 +1,16 @@
 ---
-title: Registry NuGet – Reference k prostředí PowerShell TabExpansion
-description: Reference k příkazu register-TabExpansion prostředí PowerShell v konzole správce balíčků NuGet v aplikaci Visual Studio.
+title: Reference k NuGet Register-TabExpansion PowerShellu
+description: Referenční informace k příkazu Register-TabExpansion PowerShellu v konzole správce balíčků NuGet v aplikaci Visual Studio.
 author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 37aed96760e642b03c02bf31fe47a54f0e3cb74a
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: 9d5bae2878cb6bf0848bca9a5ed9af0fee61bb85
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75384451"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237150"
 ---
 # <a name="register-tabexpansion-package-manager-console-in-visual-studio"></a>Register-TabExpansion (konzola správce balíčků v aplikaci Visual Studio)
 
@@ -28,18 +28,18 @@ Register-TabExpansion [-Name] <String> [-Definition] <Object> [<CommonParameters
 
 | Parametr | Popis |
 | --- | --- |
-| Name | Požadovanou Příkaz, pro který mají být zaregistrována rozšíření. Samotný přepínač-Name je nepovinný. |
-| Definice | Požadovanou Objekt popisující argument v syntaxi `@{'<parameter>' = {'<value1>', '<value2>', ...}}`, kde `<parameter>` je název parametru, který má být upraven, a každý `<value>` poskytuje konkrétní rozšíření. Jsou přijímány jednoduché i dvojité uvozovky. |
+| Název | Požadovanou Příkaz, pro který mají být zaregistrována rozšíření. Samotný přepínač-Name je nepovinný. |
+| Definice | Požadovanou Objekt popisující argument v syntaxi, `@{'<parameter>' = {'<value1>', '<value2>', ...}}` kde `<parameter>` je název parametru, který má být upraven, a každý `<value>` z nich poskytuje konkrétní rozšíření. Jsou přijímány jednoduché i dvojité uvozovky. |
 
 Žádný z těchto parametrů nepřijímají vstupní ani zástupné znaky kanálu.
 
 ## <a name="common-parameters"></a>Společné parametry
 
-`Register-TabExpansion` podporuje následující [běžné parametry PowerShellu](https://go.microsoft.com/fwlink/?LinkID=113216): Debug, Error Action, ErrorVariable, inbuffer, subvariable, PipelineVariable, verbose, WarningAction a WarningVariable.
+`Register-TabExpansion` podporuje následující [běžné parametry PowerShellu](/powershell/module/microsoft.powershell.core/about/about_commonparameters): Debug, Error Action, ErrorVariable, inbuffer, subvariable, PipelineVariable, verbose, WarningAction a WarningVariable.
 
 ## <a name="examples"></a>Příklady
 
-Vezměte v úvahu řešení, které obsahuje tři projekty s názvy EventManager, nástroje a SpecialParser. Vývojář často používá příkaz `Update-Package` v různých časech u každého z těchto projektů. Zjistí, že má příkaz `Update-Package` pro `-ProjectName` argumentu zadat rozšíření automatického dokončování, takže nemusí pokaždé zadávat název projektu. 
+Vezměte v úvahu řešení, které obsahuje tři projekty s názvy EventManager, nástroje a SpecialParser. Vývojář často používá `Update-Package` příkaz v různých časech s každým z těchto projektů. Zjistí, že má `Update-Package` příkaz k dispozici rozšíření automatického dokončování pro `-ProjectName` argument, takže nemusí pokaždé zadávat název projektu. 
 
 Následující příkaz zaregistruje tyto tři názvy projektů jako rozšíření pro `-ProjectName` parametr:
 
@@ -47,6 +47,6 @@ Následující příkaz zaregistruje tyto tři názvy projektů jako rozšířen
 Register-TabExpansion Update-Package @{'ProjectName' = {'EventManager', 'Utilities', 'SpecialParser'}}    
 ```
 
-Vývojář pak může zadat `Update-Package -ProjectName `, stisknout klávesu TAB a zobrazit rozšíření nabízená jako možnosti automatického dokončování:
+Vývojář pak může zadat `Update-Package -ProjectName ` , stisknout klávesu TAB a zobrazit rozšíření nabízená jako možnosti automatického dokončování:
 
 ![Příklad použití Register-TabExpansion](media/Register-TabExpansion-Example.png)

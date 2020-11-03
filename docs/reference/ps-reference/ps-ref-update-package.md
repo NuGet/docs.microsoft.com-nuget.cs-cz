@@ -1,24 +1,24 @@
 ---
-title: Aktualizace NuGet – Reference k balíčku PowerShell
-description: Reference k příkazu Update-Package PowerShell v konzole správce balíčků NuGet v aplikaci Visual Studio.
+title: Reference k NuGet Update-Package PowerShellu
+description: Referenční informace k příkazu Update-Package PowerShellu v konzole správce balíčků NuGet v aplikaci Visual Studio.
 author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: e1bff9d4b7391d8be87afa4b8f2fbd51ae922140
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: af918d11e8f976be962d52084c5eda4d53e382c6
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75384853"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238033"
 ---
-# <a name="update-package-package-manager-console-in-visual-studio"></a>Update-Package (konzola Správce balíčků v sadě Visual Studio)
+# <a name="update-package-package-manager-console-in-visual-studio"></a>Update-Package (konzola správce balíčků v aplikaci Visual Studio)
 
 *K dispozici pouze v rámci [konzoly Správce balíčků NuGet](../../consume-packages/install-use-packages-powershell.md) v sadě Visual Studio ve Windows.*
 
 Aktualizuje balíček a jeho závislosti nebo všechny balíčky v projektu na novější verzi.
 
-## <a name="syntax"></a>Syntaxe
+## <a name="syntax"></a>Syntax
 
 ```ps
 Update-Package [-Id] <string> [-IgnoreDependencies] [-ProjectName <string>] [-Version <string>]
@@ -26,7 +26,7 @@ Update-Package [-Id] <string> [-IgnoreDependencies] [-ProjectName <string>] [-Ve
     [-DependencyVersion] [-ToHighestPatch] [-ToHighestMinor] [-WhatIf] [<CommonParameters>]
 ```
 
-V NuGet 2.8 + můžete `Update-Package` použít k downgradování existujícího balíčku v projektu. Například pokud máte nainstalovanou aplikaci Microsoft. AspNet. MVC 5.1.0-RC1, následující příkaz by ho měl downgradovat na 5.0.0:
+V NuGet 2.8 + `Update-Package` lze použít k downgradování existujícího balíčku v projektu. Například pokud máte nainstalovanou aplikaci Microsoft. AspNet. MVC 5.1.0-RC1, následující příkaz by ho měl downgradovat na 5.0.0:
 
 ```ps
 Update-Package Microsoft.AspNet.MVC -Version 5.0.0.
@@ -39,13 +39,13 @@ Update-Package Microsoft.AspNet.MVC -Version 5.0.0.
 | Id | Identifikátor balíčku, který se má aktualizovat Pokud tento parametr vynecháte, aktualizuje všechny balíčky. Samotný přepínač-ID je nepovinný. |
 | IgnoreDependencies | Přeskočí aktualizaci závislostí balíčku. |
 | ProjectName | Název projektu obsahujícího balíčky, které se mají aktualizovat – výchozí nastavení pro všechny projekty |
-| Version | Verze, která se má použít pro upgrade, ve výchozím nastavení na nejnovější verzi. V NuGet 3.0 + musí být hodnota verze jedna z *nejnižší, nejvyšší, HighestMinor*nebo *HighestPatch* (ekvivalentní k bezpečnému). |
+| Verze | Verze, která se má použít pro upgrade, ve výchozím nastavení na nejnovější verzi. V NuGet 3.0 + musí být hodnota verze jedna z *nejnižší, nejvyšší, HighestMinor* nebo *HighestPatch* (ekvivalentní k bezpečnému). |
 | Odvod | Omezuje upgrady jenom na verze se stejnou hlavní a dílčí verzí jako aktuálně nainstalovaný balíček. |
-| Zdroj | Adresa URL nebo cesta ke složce pro zdroj balíčku, který má být prohledán. Cesty k místní složce můžou být absolutní nebo relativní vzhledem k aktuální složce. Pokud tento parametr vynecháte, `Update-Package` prohledá aktuálně vybraný zdroj balíčku. |
+| Zdroj | Adresa URL nebo cesta ke složce pro zdroj balíčku, který má být prohledán. Cesty k místní složce můžou být absolutní nebo relativní vzhledem k aktuální složce. Pokud tento parametr vynecháte, `Update-Package` vyhledá aktuálně vybraný zdroj balíčku. |
 | IncludePrerelease | Zahrnuje předběžné verze balíčků pro aktualizace. |
-| Přeinstalace | Resintalls balíčky pomocí jejich aktuálně nainstalovaných verzí. Viz [Přeinstalace a aktualizace balíčků](../../consume-packages/reinstalling-and-updating-packages.md). |
-| FileConflictAction | Akce, která se má provést, když se zobrazí výzva k přepsání nebo ignorování existujících souborů, na které se odkazuje v projektu Možné hodnoty jsou *overwrite, ignore, None, OverwriteAll*a *IgnoreAll* (3.0 +). |
-| DependencyVersion | Verze balíčků závislostí, které se mají použít, což může být jedna z následujících:<br/><ul><li>*Nejnižší* (výchozí): nejnižší verze</li><li>*HighestPatch*: verze, která má nejnižší hlavní, nejnižší podverzi, nejvyšší opravu</li><li>*HighestMinor*: verze s nejnižší hlavní, nejvyšší podverze a nejvyšší opravou</li><li>*Nejvyšší* (výchozí pro balíček Update-Package bez parametrů): nejvyšší verze</li></ul>Výchozí hodnotu můžete nastavit pomocí nastavení [`dependencyVersion`](../nuget-config-file.md#config-section) v souboru `Nuget.Config`. |
+| Instaluje | Resintalls balíčky pomocí jejich aktuálně nainstalovaných verzí. Viz [Přeinstalace a aktualizace balíčků](../../consume-packages/reinstalling-and-updating-packages.md). |
+| FileConflictAction | Akce, která se má provést, když se zobrazí výzva k přepsání nebo ignorování existujících souborů, na které se odkazuje v projektu Možné hodnoty jsou *overwrite, ignore, None, OverwriteAll* a *IgnoreAll* (3.0 +). |
+| DependencyVersion | Verze balíčků závislostí, které se mají použít, což může být jedna z následujících:<br/><ul><li>*Nejnižší* (výchozí): nejnižší verze</li><li>*HighestPatch* : verze, která má nejnižší hlavní, nejnižší podverzi, nejvyšší opravu</li><li>*HighestMinor* : verze s nejnižší hlavní, nejvyšší podverze a nejvyšší opravou</li><li>*Nejvyšší* (výchozí pro Update-Package bez parametrů): nejvyšší verze</li></ul>Výchozí hodnotu můžete nastavit pomocí [`dependencyVersion`](../nuget-config-file.md#config-section) nastavení v `Nuget.Config` souboru. |
 | ToHighestPatch | ekvivalent – Safe. |
 | ToHighestMinor | Omezuje upgrady jenom na verze se stejnou hlavní verzí jako aktuálně nainstalovaný balíček. |
 | WhatIf | Ukazuje, co se stane při spuštění příkazu bez toho, aby se aktualizace skutečně prováděla. |
@@ -54,7 +54,7 @@ Update-Package Microsoft.AspNet.MVC -Version 5.0.0.
 
 ### <a name="common-parameters"></a>Společné parametry
 
-`Update-Package` podporuje následující [běžné parametry PowerShellu](https://go.microsoft.com/fwlink/?LinkID=113216): Debug, Error Action, ErrorVariable, inbuffer, subvariable, PipelineVariable, verbose, WarningAction a WarningVariable.
+`Update-Package` podporuje následující [běžné parametry PowerShellu](/powershell/module/microsoft.powershell.core/about/about_commonparameters): Debug, Error Action, ErrorVariable, inbuffer, subvariable, PipelineVariable, verbose, WarningAction a WarningVariable.
 
 ### <a name="examples"></a>Příklady
 
@@ -81,11 +81,11 @@ Update-Package Elmah -ProjectName MvcApplication1 -Safe
 # (subject to version constraints). If this command rolls a dependency back to an earlier version,
 # use Update-Package <dependency_name> to reinstall that one dependency without affecting the
 # dependent package.
-Update-Package ELmah –reinstall 
+Update-Package Elmah –reinstall 
 
 # Reinstall the Elmah package in just MyProject
 Update-Package Elmah -ProjectName MyProject -reinstall
 
 # Reinstall the same version of the original package without touching dependencies.
-Update-Package ELmah –reinstall -ignoreDependencies
+Update-Package Elmah –reinstall -ignoreDependencies
 ```

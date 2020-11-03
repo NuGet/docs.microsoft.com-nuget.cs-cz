@@ -1,22 +1,22 @@
 ---
 title: Podpora dlouhých cest CLI NuGet
-description: Referenční informace o podpoře dlouhých cest NuGet. exe
+description: Referenční informace o podpoře nuget.exe dlouhé cesty
 author: zhili1208
 ms.author: lzhi
 ms.date: 07/12/2018
 ms.topic: reference
-ms.openlocfilehash: 9b5a97d963eab7fbbde4aefae1c9b1a8bfcdeb11
-ms.sourcegitcommit: 415c70d7014545c1f65271a2debf8c3c1c5eb688
+ms.openlocfilehash: 1143da911c80125a9d60e4b98798b11871e9988a
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77036952"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238189"
 ---
 # <a name="long-path-support-nuget-cli"></a>Podpora dlouhých cest (rozhraní příkazového řádku NuGet)
 
 **Platí pro:** všechny &bullet; **podporované verze:** 4,8 +
 
-NuGet. exe 4,8 a novější podporuje dlouhé cesty k souborům a adresářům pro scénáře, jako jsou balíčky, obnovení, instalace a většina dalších scénářů, které potřebují cesty k souborům.
+NuGet.exe 4,8 a novější podporují dlouhé cesty k souborům a adresářům pro scénáře, jako jsou balíčky, obnovení, instalace a většina dalších scénářů, které potřebují cesty k souborům.
 
 ## <a name="required-operating-system"></a>Požadovaný operační systém
 
@@ -30,7 +30,7 @@ Jedna z nich musí povolit podporu dlouhých cest v těchto systémech nastaven�
 
 Kroky:
 1. Spusťte **Zásady skupiny editoru** – na panelu hledání spusťte příkaz upravit zásady skupiny nebo spusťte gpedit. msc z příkazu Run (Windows-R).
-2. V **Editor místních zásad skupiny**povolte položku místní zásady počítače/Konfigurace počítače/šablony pro správu/všechna nastavení/Povolit dlouhé cesty Win32.
+2. V **Editor místních zásad skupiny** povolte položku místní zásady počítače/Konfigurace počítače/šablony pro správu/všechna nastavení/Povolit dlouhé cesty Win32.
 
 ![Zásady dlouhých cest](media/LongPathPolicy.png)
 
@@ -40,5 +40,4 @@ Kroky:
 >
 > -   Dotnet CLI podporuje dlouhé cesty bez ohledu na operační systém nebo verzi.
 > -   Visual Studio nebo `msbuild -t:restore` ještě nepodporuje dlouhé cesty.
-> -   Software, který používá knihovny NuGet ke spouštění obnovení a dalších příkazů, bude podporovat dlouhé cesty ke stejným systémům, na kterých pracuje NuGet. exe, pokud také nastavil `longPathAware` v manifestu Windows a nakonfiguroval `UseLegacyPathHandling` na `false` přes App. config [Zobrazit další informace](https://blogs.msdn.microsoft.com/jeremykuhne/2016/07/30/net-4-6-2-and-long-paths-on-windows-10/)
-
+> -   Software, který používá knihovny NuGet ke spouštění obnovení a dalších příkazů, bude podporovat dlouhé cesty ke stejným systémům, které NuGet.exe fungovat, pokud jsou nastaveny také `longPathAware` v manifestu systému Windows a konfigurována `UseLegacyPathHandling` na `false` pomocí App.Config [Zobrazit další informace](/archive/blogs/jeremykuhne/net-4-6-2-and-long-paths-on-windows-10) .

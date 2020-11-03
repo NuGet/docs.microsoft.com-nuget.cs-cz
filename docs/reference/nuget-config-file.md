@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/13/2019
 ms.topic: reference
-ms.openlocfilehash: 28fae46a65bd4c2b7050e12568c21123fc8658c1
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 371f0d934fcd3c1f111d277131553c1eed0200be
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623159"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238098"
 ---
 # <a name="nugetconfig-reference"></a>Odkaz na nuget.config
 
@@ -38,7 +38,7 @@ Obsahuje různá nastavení konfigurace, která lze nastavit pomocí [ `nuget co
 | http_proxy http_proxy. uživatelské http_proxy. Password no_proxy | Nastavení proxy serveru, které se má použít při připojování ke zdrojům balíčků; `http_proxy` by měl být ve formátu `http://<username>:<password>@<domain>` . Hesla jsou šifrovaná a nelze je přidat ručně. V případě je `no_proxy` Tato hodnota čárkami oddělený seznam domén, které proxy server obejít. Pro tyto hodnoty můžete alternativně použít proměnné prostředí http_proxy a no_proxy. Další podrobnosti najdete v tématu [nastavení proxy NuGet](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (skolima.blogspot.com). |
 | signatureValidationMode | Určuje režim ověřování, který se používá k ověření signatur balíčků pro instalaci balíčku a obnovení. Hodnoty jsou `accept` , `require` . Výchozí hodnota je `accept` .
 
-**Příklad**:
+**Příklad** :
 
 ```xml
 <config>
@@ -58,7 +58,7 @@ Nakonfiguruje, jestli NuGet při instalaci balíčku automaticky přesměrováv�
 | --- | --- |
 | Přeskočit | Logická hodnota označující, zda se má přeskočit automatický přesměrování vazby Výchozí hodnotou je hodnota false. |
 
-**Příklad**:
+**Příklad** :
 
 ```xml
 <bindingRedirects>
@@ -75,7 +75,7 @@ Nakonfiguruje, jestli NuGet při instalaci balíčku automaticky přesměrováv�
 | enabled | Logická hodnota označující, zda může NuGet provádět automatické obnovení. Můžete také nastavit `EnableNuGetPackageRestore` proměnnou prostředí s hodnotou `True` místo nastavení tohoto klíče v konfiguračním souboru. |
 | automatická | Logická hodnota označující, zda má NuGet při sestavení kontrolovat chybějící balíčky. |
 
-**Příklad**:
+**Příklad** :
 
 ```xml
 <packageRestore>
@@ -92,7 +92,7 @@ Určuje, zda `packages` je složka řešení obsažena ve správě zdrojového k
 | --- | --- |
 | disableSourceControlIntegration | Logická hodnota označující, zda se má při práci se správou zdrojových kódů ignorovat složku balíčků. Výchozí hodnota je False. |
 
-**Příklad**:
+**Příklad** :
 
 ```xml
 <solution>
@@ -116,7 +116,7 @@ Zobrazí seznam všech známých zdrojů balíčků. Pořadí se ignoruje během
 | --- | --- |
 | (název, který se má přiřadit ke zdroji balíčku) | Cesta nebo adresa URL zdroje balíčku. |
 
-**Příklad**:
+**Příklad** :
 
 ```xml
 <packageSources>
@@ -213,7 +213,7 @@ Ukládá klíče pro zdroje, které používají ověřování pomocí klíče r
 | --- | --- |
 | (zdrojová adresa URL) | Šifrovaný klíč rozhraní API. |
 
-**Příklad**:
+**Příklad** :
 
 ```xml
 <apikeys>
@@ -250,7 +250,7 @@ Identifikuje aktuálně aktivní zdroj nebo označuje agregaci všech zdrojů.
 | --- | --- |
 | (název zdroje) nebo `All` | Pokud je klíč názvem zdroje, hodnota je zdrojová cesta nebo adresa URL. Pokud `All` by měla být hodnota `(Aggregate source)` pro kombinování všech zdrojů balíčků, které nejsou jinak zakázané. |
 
-**Příklad**:
+**Příklad** :
 
 ```xml
 <activePackageSource>
@@ -268,7 +268,7 @@ Ukládá důvěryhodné podepisující osoby používané k povolení balíčku 
 
 Tuto část lze aktualizovat pomocí [ `nuget trusted-signers` příkazu](../reference/cli-reference/cli-ref-trusted-signers.md).
 
-**Schéma**:
+**Schéma:**
 
 Důvěryhodný podpis má kolekci `certificate` položek, které zařadí všechny certifikáty identifikující daného podepisujícího. Důvěryhodný podpis může být buď `Author` nebo `Repository` .
 
@@ -278,12 +278,13 @@ Podporované algoritmy hash používané pro otisk certifikátu jsou `SHA256` `S
 
 Pokud `certificate` `allowUntrustedRoot` `true` je jako daný certifikát povoleno řetězení k nedůvěryhodnému kořenovému adresáři při sestavování řetězu certifikátů v rámci ověření podpisu.
 
-**Příklad**:
+**Příklad** :
 
 ```xml
 <trustedSigners>
     <author name="microsoft">
         <certificate fingerprint="3F9001EA83C560D712C24CF213C3D312CB3BFF51EE89435D3430BD06B5D0EECE" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
+        <certificate fingerprint="AA12DA22A49BCE7D5C1AE64CC1F3D892F150DA76140F210ABD2CBFFCA2C18A27" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
     </author>
     <repository name="nuget.org" serviceIndex="https://api.nuget.org/v3/index.json">
         <certificate fingerprint="0E5F38F57DC1BCC806D8494F4F90FBCEDD988B46760709CBEEC6F4219AA6157D" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
@@ -310,7 +311,7 @@ Pokud se shoda nenajde, vyhledá NuGet zdroje souborů, potom zdroje http a pak 
 | --- | --- |
 | (název záložní složky) | Cesta k záložní složce |
 
-**Příklad**:
+**Příklad** :
 
 ```xml
 <fallbackPackageFolders>
@@ -324,10 +325,10 @@ Nastaví výchozí formát správy balíčků, buď *packages.config* , nebo Pac
 
 | Klíč | Hodnota |
 | --- | --- |
-| formát | Logická hodnota označující výchozí formát správy balíčků. Pokud `1` je formát PackageReference. Pokud `0` je formát *packages.config*. |
+| formát | Logická hodnota označující výchozí formát správy balíčků. Pokud `1` je formát PackageReference. Pokud `0` je formát *packages.config* . |
 | zakázaný | Logická hodnota označující, zda se při první instalaci balíčku má zobrazit výzva k výběru výchozího formátu balíčku. `False` skryje výzvu. |
 
-**Příklad**:
+**Příklad** :
 
 ```xml
 <packageManagement>
@@ -352,10 +353,10 @@ Následující tabulka zobrazuje syntaxi proměnných lnstalování a podporu od
 
 | Syntax | Oddělovač adresářů | nuget.exe Windows | dotnet.exe Windows | nuget.exe Mac (v mono) | dotnet.exe Mac |
 |---|---|---|---|---|---|
-| `%MY_VAR%` | `/`  | Yes | Yes | Yes | Yes |
-| `%MY_VAR%` | `\`  | Yes | Ano | No | No |
-| `$MY_VAR` | `/`  | No | No | No | No |
-| `$MY_VAR` | `\`  | No | No | No | No |
+| `%MY_VAR%` | `/`  | Ano | Ano | Ano | Ano |
+| `%MY_VAR%` | `\`  | Ano | Ano | Ne | Ne |
+| `$MY_VAR` | `/`  | Ne | Ne | Ne | Ne |
+| `$MY_VAR` | `\`  | Ne | Ne | Ne | Ne |
 
 
 ## <a name="example-config-file"></a>Ukázkový konfigurační soubor
@@ -431,6 +432,7 @@ Níže je příklad `nuget.config` souboru, který ilustruje několik nastavení
     <trustedSigners>
         <author name="microsoft">
             <certificate fingerprint="3F9001EA83C560D712C24CF213C3D312CB3BFF51EE89435D3430BD06B5D0EECE" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
+            <certificate fingerprint="AA12DA22A49BCE7D5C1AE64CC1F3D892F150DA76140F210ABD2CBFFCA2C18A27" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
         </author>
         <repository name="nuget.org" serviceIndex="https://api.nuget.org/v3/index.json">
             <certificate fingerprint="0E5F38F57DC1BCC806D8494F4F90FBCEDD988B46760709CBEEC6F4219AA6157D" hashAlgorithm="SHA256" allowUntrustedRoot="false" />

@@ -6,14 +6,14 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: aed591ceba00f1820a573eacf312112db0a1c69e
-ms.sourcegitcommit: 7e9c0630335ef9ec1e200e2ee9065f702e52a8ec
+ms.openlocfilehash: 86c9d07cf90b84fffd09b04847d41772dd633b98
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85292268"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237871"
 ---
-# <a name="search"></a>Search
+# <a name="search"></a>Hledat
 
 Je možné vyhledat balíčky dostupné ve zdroji balíčku pomocí rozhraní V3 API. Prostředek, který se používá pro hledání, je prostředek, který se `SearchQueryService` nachází v [indexu služby](service-index.md).
 
@@ -21,11 +21,11 @@ Je možné vyhledat balíčky dostupné ve zdroji balíčku pomocí rozhraní V3
 
 Použijí se tyto `@type` hodnoty:
 
-@typeosa                   | Poznámky
+@type osa                   | Poznámky
 ----------------------------- | -----
 SearchQueryService            | Počáteční verze
-SearchQueryService/3.0.0 – beta | Alias pro`SearchQueryService`
-SearchQueryService/3.0.0 – RC   | Alias pro`SearchQueryService`
+SearchQueryService/3.0.0 – beta | Alias pro `SearchQueryService`
+SearchQueryService/3.0.0 – RC   | Alias pro `SearchQueryService`
 SearchQueryService/3.5.0      | Zahrnuje podporu pro `packageType` parametr dotazu.
 
 ### <a name="searchqueryservice350"></a>SearchQueryService/3.5.0
@@ -49,12 +49,12 @@ Ve výsledcích hledání by se nikdy neměl zobrazovat neuvedený balíček.
 
 ### <a name="request-parameters"></a>Parametry žádosti
 
-Name        | V     | Typ    | Vyžadováno | Poznámky
+Název        | V     | Typ    | Vyžadováno | Poznámky
 ----------- | ------ | ------- | -------- | -----
 q           | URL    | řetězec  | ne       | Hledané výrazy, které se mají použít k filtrování balíčků
-Přeskočit        | URL    | celé číslo | ne       | Počet výsledků, které se mají přeskočit, pro stránkování
-nezbytná        | URL    | celé číslo | ne       | Počet výsledků, které se mají vrátit, pro stránkování
-předběžné verze  | URL    | Boolean | ne       | `true`nebo `false` Určete, jestli se mají zahrnout [předběžné verze balíčků](../create-packages/prerelease-packages.md)
+Přeskočit        | URL    | integer | ne       | Počet výsledků, které se mají přeskočit, pro stránkování
+take        | URL    | integer | ne       | Počet výsledků, které se mají vrátit, pro stránkování
+předběžné verze  | URL    | boolean | ne       | `true` nebo `false` Určete, jestli se mají zahrnout [předběžné verze balíčků](../create-packages/prerelease-packages.md)
 semVerLevel | URL    | řetězec  | ne       | Řetězec verze SemVer 1.0.0 
 packageType | URL    | řetězec  | ne       | Typ balíčku, který se má použít k filtrování balíčků (přidaných v `SearchQueryService/3.5.0` )
 
@@ -80,9 +80,9 @@ Odpověď je dokument JSON obsahující až do `take` výsledků hledání. Výs
 
 Kořenový objekt JSON má následující vlastnosti:
 
-Name      | Typ             | Vyžadováno | Poznámky
+Název      | Typ             | Vyžadováno | Poznámky
 --------- | ---------------- | -------- | -----
-totalHits | celé číslo          | ano      | Celkový počet shod, nesouvisející `skip` a`take`
+totalHits | integer          | ano      | Celkový počet shod, nesouvisející `skip` a `take`
 data      | pole objektů | ano      | Výsledky hledání, které odpovídají žádosti
 
 ### <a name="search-result"></a>Výsledek hledání
@@ -90,7 +90,7 @@ data      | pole objektů | ano      | Výsledky hledání, které odpovídají 
 Každá položka v `data` poli je objekt JSON, který se skládá ze skupiny verzí balíčku sdílejících stejné ID balíčku.
 Objekt má následující vlastnosti:
 
-Name           | Typ                       | Vyžadováno | Poznámky
+Název           | Typ                       | Vyžadováno | Poznámky
 -------------- | -------------------------- | -------- | -----
 id             | řetězec                     | ano      | ID vyhovujícího balíčku
 verze        | řetězec                     | ano      | Úplný řetězec verze SemVer 2.0.0 balíčku (může obsahovat metadata sestavení)
@@ -102,26 +102,26 @@ licenseUrl     | řetězec                     | ne       |
 vlastníka         | řetězec nebo pole řetězců | ne       | 
 projectUrl     | řetězec                     | ne       | 
 registrace   | řetězec                     | ne       | Absolutní adresa URL k přidruženému [registračnímu indexu](registration-base-url-resource.md#registration-index)
-summary        | řetězec                     | ne       | 
+shrnutí        | řetězec                     | ne       | 
 tags           | řetězec nebo pole řetězců | ne       | 
 title          | řetězec                     | ne       | 
-totalDownloads | celé číslo                    | ne       | Tato hodnota se dá odvodit ze součtu souborů ke stažení v `versions` poli.
-ověřují       | Boolean                    | ne       | Logická hodnota JSON, která označuje, jestli je balíček [ověřený](../nuget-org/id-prefix-reservation.md)
+totalDownloads | integer                    | ne       | Tato hodnota se dá odvodit ze součtu souborů ke stažení v `versions` poli.
+ověřují       | boolean                    | ne       | Logická hodnota JSON, která označuje, jestli je balíček [ověřený](../nuget-org/id-prefix-reservation.md)
 packageTypes   | pole objektů           | ano      | Typy balíčků definované autorem balíčku (přidáno v `SearchQueryService/3.5.0` )
 
-Na nuget.org je ověřený balíček jeden, který obsahuje ID balíčku, které odpovídá předponě rezervovaného ID a vlastněné jedním z vlastníků rezervované předpony. Další informace najdete v dokumentaci k [rezervaci předpony ID](../reference/id-prefix-reservation.md).
+Na nuget.org je ověřený balíček jeden, který obsahuje ID balíčku, které odpovídá předponě rezervovaného ID a vlastněné jedním z vlastníků rezervované předpony. Další informace najdete v dokumentaci k [rezervaci předpony ID](../nuget-org/id-prefix-reservation.md).
 
 Metadata obsažená v objektu výsledků hledání jsou pořízena z nejnovější verze balíčku. Každá položka v `versions` poli je objekt JSON s následujícími vlastnostmi:
 
-Name      | Typ    | Vyžadováno | Poznámky
+Název      | Typ    | Vyžadováno | Poznámky
 --------- | ------- | -------- | -----
 @id       | řetězec  | ano      | Absolutní adresa URL k přidruženému [registračnímu listu](registration-base-url-resource.md#registration-leaf)
 verze   | řetězec  | ano      | Úplný řetězec verze SemVer 2.0.0 balíčku (může obsahovat metadata sestavení)
-soubory | celé číslo | ano      | Počet souborů ke stažení pro tuto konkrétní verzi balíčku
+soubory | integer | ano      | Počet souborů ke stažení pro tuto konkrétní verzi balíčku
 
 `packageTypes`Pole se vždy skládá z nejméně jedné (1) položky. Typ balíčku pro dané ID balíčku se považuje za typy balíčků definované nejnovější verzí balíčku s ohledem na ostatní parametry vyhledávání. Každá položka v `packageTypes` poli je objekt JSON s následujícími vlastnostmi:
 
-Name      | Typ    | Vyžadováno | Poznámky
+Název      | Typ    | Vyžadováno | Poznámky
 --------- | ------- | -------- | -----
 name      | řetězec  | ano      | Název typu balíčku.
 

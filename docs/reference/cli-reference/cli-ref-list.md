@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 91886dbbdcdb24648289d6f6efbe1f87e4099fff
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: a6a4ee434c43ad4865dba12f039b5d545a90d3c4
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623068"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238163"
 ---
 # <a name="list-command-nuget-cli"></a>list – příkaz (NuGet CLI)
 
@@ -24,7 +24,7 @@ Zobrazí seznam balíčků z daného zdroje. Pokud nejsou zadány žádné zdroj
 nuget list [search terms] [options]
 ```
 
-kde volitelné hledané výrazy budou filtrovat zobrazený seznam. [Hledané výrazy](/nuget/consume-packages/finding-and-choosing-packages#search-syntax) se aplikují na názvy balíčků, značek a popisů balíčků stejně jako při jejich použití v NuGet.org. 
+kde volitelné hledané výrazy budou filtrovat zobrazený seznam. [Hledané výrazy](../../consume-packages/finding-and-choosing-packages.md#search-syntax) se aplikují na názvy balíčků, značek a popisů balíčků stejně jako při jejich použití v NuGet.org. 
 
 ## <a name="options"></a>Možnosti
 

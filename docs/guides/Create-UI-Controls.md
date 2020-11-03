@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/23/2018
 ms.topic: tutorial
-ms.openlocfilehash: e1ebf5042597693ee55d986a4f93e797c27ad30a
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 17062d83349fe1b8cd28e57dd888686a226ac9cb
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622704"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238020"
 ---
 # <a name="creating-ui-controls-as-nuget-packages"></a>Vytvoření ovládacích prvků uživatelského rozhraní jako balíčků NuGet
 
 Počínaje sadou Visual Studio 2017 můžete využít výhod přidaných funkcí pro ovládací prvky UWP a WPF, které zadáváte do balíčků NuGet. Tato příručka vás provede následujícími možnostmi v kontextu ovládacích prvků UWP pomocí [ukázky ExtensionSDKasNuGetPackage](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage). Totéž platí pro ovládací prvky WPF, pokud není uvedeno jinak.
 
-## <a name="prerequisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 1. Visual Studio 2017
 1. Informace o tom, jak [vytvářet balíčky UWP](create-uwp-packages.md)
@@ -59,11 +59,11 @@ Struktura souboru je následující:
 
 kde:
 
-- *your_package_file*: název řídicího souboru, například `ManagedPackage.winmd` ("ManagedPackage", je libovolný název, který se používá pro tento příklad a nemá žádný jiný význam).
-- *vs_category*: popisek skupiny, ve které by se měl ovládací prvek zobrazit v sadě nástrojů Visual Studio designer. `VSCategory`Je nutné, aby se ovládací prvek zobrazil v sadě nástrojů.
-*ui_framework*: název rozhraní, například WPF, Upozorňujeme, že `UIFramework` atribut je vyžadován v uzlech ToolboxItems v sadě Visual Studio 16,7 Preview 3 nebo vyšší, aby se ovládací prvek zobrazil v sadě nástrojů.
-- *blend_category*: popisek skupiny, ve které by se měl ovládací prvek zobrazit v podokně assets návrháře Blendu. `BlendCategory`Je nutné, aby se ovládací prvek objevil v prostředcích.
-- *type_full_name_n*: plně kvalifikovaný název pro každý ovládací prvek, včetně oboru názvů, jako je například `ManagedPackage.MyCustomControl` . Všimněte si, že formát tečky se používá pro spravované i nativní typy.
+- *your_package_file* : název řídicího souboru, například `ManagedPackage.winmd` ("ManagedPackage", je libovolný název, který se používá pro tento příklad a nemá žádný jiný význam).
+- *vs_category* : popisek skupiny, ve které by se měl ovládací prvek zobrazit v sadě nástrojů Visual Studio designer. `VSCategory`Je nutné, aby se ovládací prvek zobrazil v sadě nástrojů.
+*ui_framework* : název rozhraní, například WPF, Upozorňujeme, že `UIFramework` atribut je vyžadován v uzlech ToolboxItems v sadě Visual Studio 16,7 Preview 3 nebo vyšší, aby se ovládací prvek zobrazil v sadě nástrojů.
+- *blend_category* : popisek skupiny, ve které by se měl ovládací prvek zobrazit v podokně assets návrháře Blendu. `BlendCategory`Je nutné, aby se ovládací prvek objevil v prostředcích.
+- *type_full_name_n* : plně kvalifikovaný název pro každý ovládací prvek, včetně oboru názvů, jako je například `ManagedPackage.MyCustomControl` . Všimněte si, že formát tečky se používá pro spravované i nativní typy.
 
 V pokročilejších scénářích můžete také zahrnout více `<File>` prvků v případě, že `<FileList>` jeden balíček obsahuje více sestavení ovládacích prvků. Můžete mít také více `<ToolboxItems>` uzlů v rámci jednoho `<File>` , pokud chcete uspořádat ovládací prvky do samostatných kategorií.
 
@@ -94,7 +94,7 @@ Podporované formáty jsou `.png` , `.jpg` ,, a `.jpeg` `.gif` `.bmp` . Doporuč
 
 ![Ukázka ikony pole nástrojů](https://raw.githubusercontent.com/NuGet/docs.microsoft.com-nuget/live/docs/guides/media/ColorPicker_16x16x24.bmp)
 
-Růžová pozadí je nahrazena za běhu. Když se změní motiv sady Visual Studio a očekává se barva pozadí, jsou ikony Přebarvené. Další informace najdete v referenčních [obrázcích a ikonách pro Visual Studio](https://docs.microsoft.com/visualstudio/extensibility/ux-guidelines/images-and-icons-for-visual-studio).
+Růžová pozadí je nahrazena za běhu. Když se změní motiv sady Visual Studio a očekává se barva pozadí, jsou ikony Přebarvené. Další informace najdete v referenčních [obrázcích a ikonách pro Visual Studio](/visualstudio/extensibility/ux-guidelines/images-and-icons-for-visual-studio).
 
 V následujícím příkladu obsahuje projekt soubor s obrázkem s názvem "ManagedPackage.MyCustomControl.png".
 
@@ -147,14 +147,14 @@ V případě WPF pokračuje v příkladu, kde chcete, aby byl balíček WPF ovl�
 
 ## <a name="use-strings-and-resources"></a>Použití řetězců a prostředků
 
-Do balíčku můžete vložit řetězcové prostředky ( `.resw` ), které lze použít v ovládacím prvku nebo v projektu UWP, nastavte vlastnost souboru **Akce sestavení** `.resw` na **PRIResource**.
+Do balíčku můžete vložit řetězcové prostředky ( `.resw` ), které lze použít v ovládacím prvku nebo v projektu UWP, nastavte vlastnost souboru **Akce sestavení** `.resw` na **PRIResource** .
 
 Příklad naleznete v tématu [MyCustomControl.cs](https://github.com/NuGet/Samples/blob/master/ExtensionSDKasNuGetPackage/ManagedPackage/MyCustomControl.cs) v ukázce ExtensionSDKasNuGetPackage.
 
 > [!Note]
 > To platí pouze pro ovládací prvky UWP.
 
-## <a name="see-also"></a>Viz také
+## <a name="see-also"></a>Viz také:
 
 - [Vytváření balíčků UWP](create-uwp-packages.md)
 - [Ukázka ExtensionSDKasNuGetPackage](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage)

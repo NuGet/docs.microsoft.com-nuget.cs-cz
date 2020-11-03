@@ -1,89 +1,89 @@
 ---
 title: Přehled ekosystému NuGet
-description: Komplexní prostředky v ekosystému NuGet, včetně nugetových zdrojů, projektů jiných než Microsoft NuGet, nástrojů a školicích materiálů.
+description: Komplexní prostředky v ekosystému NuGet včetně zdrojů NuGet, projektů, nástrojů a školicích materiálů od jiných výrobců než Microsoftu.
 author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 31243076f36f6ff274c4377c1773ea59dda8c834
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 165587fb64be5a5f4dbfdece7dc3a1e6402b733e
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "64495515"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237423"
 ---
 # <a name="an-overview-of-the-nuget-ecosystem"></a>Přehled ekosystému NuGet
 
-Vzhledem k tomu, že je zavedení v roce 2010, NuGet představila skvělou příležitost ke zlepšení a automatizaci různých aspektů vývojových procesů.
+Vzhledem k tomu, že je Úvod do 2010, NuGet má skvělou možnost zlepšit a automatizovat různé aspekty vývojových procesů.
 
-Vzhledem k tomu, že NuGet je open source pod tolerantní [licencí Apache v2](http://choosealicense.com/licenses/apache/), jiné projekty mohou využít NuGet a společnosti mohou vytvářet podporu pro něj ve svých produktech. Ať už pro open source projekty nebo vývoj podnikových aplikací, NuGet a další aplikace postavené na nugeta a jeho okolí poskytují široký ekosystém nástrojů pro zlepšení procesu vývoje softwaru.
+Vzhledem k tomu, že NuGet je open source v rámci opravňující [licence Apache v2](http://choosealicense.com/licenses/apache/), můžou další projekty využít NuGet a společnosti, které pro něj můžou ve svých produktech vytvořit podporu. Bez ohledu na to, jestli pro open source projekty nebo pro vývoj podnikových aplikací, NuGet a další aplikace založené na a kolem NuGet přináší širokou škálu nástrojů pro zlepšení procesu vývoje softwaru.
 
-Všechny tyto projekty jsou schopny inovovat díky příspěvkům vývojářů. Stejně jako přispíváte k NuGet sám, také přispět k těmto projektům hlášení vady a nové funkce nápady, poskytování zpětné vazby, psaní dokumentace a přispívání kódu, kde je to možné.
+Všechny tyto projekty jsou schopné inovovat z důvodu příspěvků vývojářů. Stejně jako přispějete k samotnému NuGet, můžete také přispět k těmto projektům prostřednictvím hlášení vad a nových nápadů na funkce, poskytování zpětné vazby, psaní dokumentace a přispívání kódu tam, kde je to možné.
 
-## <a name="net-foundation-projects"></a>Projekty nadace .NET Foundation
+## <a name="net-foundation-projects"></a>Projekty .NET Foundation
 
-NuGet poskytuje bezplatný systém správy balíčků s otevřeným zdrojovým kódem pro vývojovou platformu Microsoftu. Skládá se z několika klientských nástrojů, stejně jako soubor služeb, které tvoří [oficiální NuGet Gallery](http://www.nuget.org). V kombinaci tyto tvoří projekt NuGet, který se řídí [.NET Foundation](http://www.dotnetfoundation.org/).
+NuGet poskytuje bezplatný open source systém správy balíčků pro vývojovou platformu Microsoftu. Skládá se z několika klientských nástrojů a také ze sady služeb, které tvoří [oficiální galerii NuGet](http://www.nuget.org). V kombinaci těchto formulářů se jedná o projekt NuGet, který se řídí [.NET Foundation](http://www.dotnetfoundation.org/).
 
-Organizace NuGet obsahuje různá úložiště na GitHubu. [https://github.com/Nuget/Home](https://github.com/Nuget/Home)poskytuje přehled všech úložišť a kde najít různé součásti NuGet.
+Organizace NuGet obsahuje různá úložiště na GitHubu. [https://github.com/Nuget/Home](https://github.com/Nuget/Home) poskytuje přehled o všech úložištích a o tom, kde najít různé komponenty NuGet.
 
 ## <a name="microsoft-projects"></a>Projekty společnosti Microsoft
 
-Společnost Microsoft významně přispěla k vývoji NuGet. Všechny příspěvky zaměstnanců společnosti Microsoft jsou také open source a jsou darovány (včetně autorských práv) nadaci .NET Foundation.
+Společnost Microsoft přispěla k rozsáhlému vývoji NuGet. Všechny příspěvky, které provedli zaměstnanci Microsoftu, jsou také open source a jsou v rámci .NET Foundation darovány (včetně autorských práv).
 
 ## <a name="non-microsoft-projects"></a>Projekty jiných společností než Microsoft
 
-Mnoho dalších jednotlivců a společností významně přispělo k ekosystému NuGet. Každý projekt zde uvedený může mít jinou licenci než základní součásti NuGet, proto zkontrolujte, zda jsou licenční podmínky před použitím přijatelné:
+Mnoho dalších jednotlivců a společností významně přispělo k ekosystému NuGet. Každý projekt, který je zde uveden, může mít jinou licenci než základní komponenty NuGet, takže si před použitím ověřte, zda jsou licenční podmínky přijatelné:
 
 - [AppVeyor CI](https://www.appveyor.com/)
-- [Artefaktory](https://www.jfrog.com/artifactory/)
+- [Artifactory](https://www.jfrog.com/artifactory/)
 - [BoxStarter](http://boxstarter.org/)
-- [Čokoládový](https://chocolatey.org/)
+- [Chocolatey](https://chocolatey.org/)
 - [CoApp](http://coapp.org/)
-- [JetBrains ReSharper](https://resharper-plugins.jetbrains.com/)
+- [Reostřejšíer JetBrains](https://resharper-plugins.jetbrains.com/)
 - [JetBrains TeamCity](https://www.jetbrains.com/teamcity/)
 - [Klondike](https://github.com/themotleyfool/Klondike)
 - [MinimalNugetServer](https://github.com/TanukiSharp/MinimalNugetServer)
-- [MyGet (nebo NuGet jako služba)](http://www.myget.org/)
-- [Nuget průzkumník balíčků](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer)
-- [NuGet Server](http://nugetserver.net/)
+- [MyGet (nebo NuGet-as-a-Service)](http://www.myget.org/)
+- [Průzkumník balíčků NuGet](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer)
+- [Server NuGet](http://nugetserver.net/)
 - [OctopusDeploy](https://octopus.com/)
 - [Paket](https://fsprojects.github.io/Paket/)
 - [ProGet (Inedo)](http://inedo.com/proget)
-- [skripty](http://scriptcs.net/)
-- [Sharpdevelop](http://community.sharpdevelop.net/blogs/mattward/archive/2011/01/23/NuGetSupportInSharpDevelop.aspx)
+- [scriptcs](http://scriptcs.net/)
+- [SharpDevelop](http://community.sharpdevelop.net/blogs/mattward/archive/2011/01/23/NuGetSupportInSharpDevelop.aspx)
 - [Sonatype Nexus](http://www.sonatype.com/nexus-repository-sonatype)
-- [Zdroj symbolů](http://www.symbolsource.org/Public)
+- [SymbolSource](http://www.symbolsource.org/Public)
 - [Xamarin a MonoDevelop](https://github.com/mrward/monodevelop-nuget-addin)
 
-## <a name="other-nuget-based-utilities"></a>Další nástroje založené na NuGetu
+## <a name="other-nuget-based-utilities"></a>Další nástroje založené na NuGet
 
-Jedná se o nástroje a nástroje postavené na NuGet:
+Jedná se o nástroje a pomůcky založené na NuGetu:
 
-- [Rozšíření Glimpse](http://getglimpse.com/Packages) (plug-iny jsou balíčky)
+- [Rozšíření nakoukněte](http://getglimpse.com/Packages) (moduly plug-in jsou balíčky)
 - [NuGetMustHaves.com](http://nugetmusthaves.com/)
-- [Orchard](http://www.orchardproject.net/) (moduly CMS jsou načteny z informačního kanálu v1 NuGet hostovaného v galerii Orchard)
-- [Java implementace NuGet Serveru](http://jonnyzzz.com/blog/2012/03/07/nuget-server-in-pure-java/)
-- [NuGetLatest](https://twitter.com/NuGetLatest) (Twitter bot tweeting nový balíček publikací)
-- [DefinitelyTyped](http://definitelytyped.org/) [(Automatické](https://github.com/DefinitelyTyped/NugetAutomation/) definice typu písma [publikovány na NuGet)](http://www.nuget.org/packages?q=DefinitelyTyped)
+- [Sadu](http://www.orchardproject.net/) (moduly CMS se načítají z datového kanálu NuGet v1 hostovaného v galerii sad)
+- [Implementace serveru NuGet v jazyce Java](http://jonnyzzz.com/blog/2012/03/07/nuget-server-in-pure-java/)
+- [NuGetLatest](https://twitter.com/NuGetLatest) (Twitter – nové publikace balíčku)
+- [DefinitelyTyped](http://definitelytyped.org/) ([Automatické](https://github.com/DefinitelyTyped/NugetAutomation/) definice typu TypeScript [publikované do NuGet](http://www.nuget.org/packages?q=DefinitelyTyped))
 
-## <a name="training-materials-and-references"></a>Školicí materiály a reference
+## <a name="training-materials-and-references"></a>Školicí materiály a odkazy
 
-Použití nového nástroje nebo technologie obvykle přichází s křivkou učení. Naštěstí pro vás, NuGet nemá žádné strmé křivky učení to všechno! Ve skutečnosti může každý [rychle začít konzumovat balíčky.](../quickstart/use-a-package.md)
+Použití nového nástroje nebo technologie obvykle přináší výukovou křivku. Donovanovo NuGet nemá žádnou výukovou křivku strmé. Ve skutečnosti může kdokoli [začít spotřebovávat balíčky](../quickstart/install-and-use-a-package-in-visual-studio.md) rychle.
 
-To znamená, že vytváření balíčků - a obzvláště dobré balíčky - spolu s přijetím NuGet v automatizovaných procesech sestavení a nasazení vyžaduje strávit trochu více času s následujícími zdroji:
+Tyto postupy, vytváření balíčků a zejména dobré balíčky – spolu s přechodu NuGet v procesech automatizovaného sestavování a nasazování vyžaduje více času s následujícími zdroji o něco delší dobu:
 
-- [NuGet Blog](http://blog.nuget.org/)
-- [NuGet tým na Twitteru,@nuget](http://twitter.com/nuget)
-- Knihy:
-  - [Apress Pro NuGet](http://bit.ly/ProNuGet)
-  - [NuGet 2 Základy](http://www.amazon.com/NuGet-2-Essentials-Damir-Arh-ebook/dp/B00GTQD5M4)
+- [Blog NuGet](http://blog.nuget.org/)
+- [Tým NuGet na Twitteru, @nuget](http://twitter.com/nuget)
+- Příruček
+  - [Apress pro NuGet](http://bit.ly/ProNuGet)
+  - [Základy NuGet 2](http://www.amazon.com/NuGet-2-Essentials-Damir-Arh-ebook/dp/B00GTQD5M4)
 
-## <a name="documentation-for-individual-packages"></a>Dokumentace k jednotlivým balíčkům
+## <a name="documentation-for-individual-packages"></a>Dokumentace pro jednotlivé balíčky
 
 [NuDoq](http://nudoq.org) poskytuje přímý přístup a aktualizace a dokumentaci pro balíčky NuGet.
 
-NuDoq pravidelně dotazuje server galerie nuget.org pro nejnovější aktualizace balíčků, rozbalí a zpracuje soubory dokumentace knihovny a odpovídajícím způsobem aktualizuje web.
+NuDoq pravidelně dotazuje Server Galerie nuget.org na nejnovější aktualizace balíčků, rozbalí a zpracuje soubory dokumentace ke knihovně a aktualizuje web odpovídajícím způsobem.
 
 ## <a name="adding-your-project"></a>Přidání projektu
 
-Pokud máte projekt ekosystému NuGet, který by byl cenným doplňkem této stránky, odešlete žádost o přijetí změny s úpravou na tuto stránku.
+Pokud máte projekt ekosystému NuGet, který by byl užitečným doplňkem na tuto stránku, odešlete prosím na tuto stránku žádost o přijetí změn s úpravami.

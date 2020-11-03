@@ -1,16 +1,16 @@
 ---
-title: Nejčastější dotazy k NuGet
+title: Otázky Frequently-Asked NuGet
 description: Běžné otázky a odpovědi pro používání NuGetu na příkazovém řádku a v aplikaci Visual Studio
 author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 937a0083ca47ba5668059736a7e99f7ca88e8908
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: aae6f0474cc6e8e8aa5c269b79be6fd949d9184c
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622613"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237994"
 ---
 # <a name="nuget-frequently-asked-questions"></a>Nejčastější dotazy k NuGet
 
@@ -41,13 +41,13 @@ Další informace najdete v tématu [vyhledání a výběr balíčků](../consum
 - Sada Visual Studio ve Windows podporuje [uživatelské rozhraní Správce balíčků](../consume-packages/install-use-packages-visual-studio.md) a [konzolu Správce balíčků](../consume-packages/install-use-packages-powershell.md).
 - Visual Studio pro Mac obsahuje integrované funkce NuGet, jak je popsáno v tématu [zahrnutí balíčku NuGet do projektu](/visualstudio/mac/nuget-walkthrough).
 - Visual Studio Code (všechny platformy) nemá žádnou přímou integraci NuGet. Použijte rozhraní příkazového [řádku NuGet](../reference/nuget-exe-cli-reference.md) nebo rozhraní příkazového [řádku dotnet](../reference/dotnet-commands.md).
-- Azure DevOps poskytuje [krok sestavení pro obnovení balíčků NuGet](/vsts/build-release/tasks/package/nuget). [V Azure DevOps můžete také hostovat kanály privátního balíčku NuGet](https://docs.microsoft.com/azure/devops/artifacts/nuget/publish).
+- Azure DevOps poskytuje [krok sestavení pro obnovení balíčků NuGet](/vsts/build-release/tasks/package/nuget). [V Azure DevOps můžete také hostovat kanály privátního balíčku NuGet](/azure/devops/artifacts/nuget/publish).
 
 **Návody ověřit přesnou verzi nástrojů NuGet, které jsou nainstalované?**
 
-V aplikaci Visual Studio použijte **nápovědu > o Microsoft Visual Studio** příkaz a podívejte se na verzi zobrazenou vedle **Správce balíčků NuGet**.
+V aplikaci Visual Studio použijte **nápovědu > o Microsoft Visual Studio** příkaz a podívejte se na verzi zobrazenou vedle **Správce balíčků NuGet** .
 
-Případně můžete spustit konzolu Správce balíčků (**nástroje > správce balíčků NuGet > konzolu Správce balíčků**) a zadáním `$host` zobrazíte informace o NuGet včetně verze.
+Případně můžete spustit konzolu Správce balíčků ( **nástroje > správce balíčků NuGet > konzolu Správce balíčků** ) a zadáním `$host` zobrazíte informace o NuGet včetně verze.
 
 **Jaké programovací jazyky podporuje NuGet?**
 
@@ -61,7 +61,7 @@ NuGet má plnou podporu pro celou řadu šablon projektů, jako jsou Windows, we
 
 **Návody balíčky aktualizací, které jsou součástí šablon sady Visual Studio?**
 
-V uživatelském rozhraní Správce balíčků otevřete kartu **aktualizace** a vyberte **Aktualizovat vše**nebo použijte [ `Update-Package` příkaz](../reference/ps-reference/ps-ref-update-package.md) z konzoly Správce balíčků.
+V uživatelském rozhraní Správce balíčků otevřete kartu **aktualizace** a vyberte **Aktualizovat vše** nebo použijte [ `Update-Package` příkaz](../reference/ps-reference/ps-ref-update-package.md) z konzoly Správce balíčků.
 
 Chcete-li aktualizovat vlastní šablonu, je nutné ručně aktualizovat úložiště šablon. Podívejte se na [blog Xavier pro denákle](http://www.xavierdecoster.com/update-project-template-to-latest-nuget-packages) na tomto předmětu. Všimněte si, že se jedná o vlastní riziko, protože ruční aktualizace mohou poškodit šablonu, pokud není nejnovější verze všech závislostí vzájemně kompatibilní.
 
@@ -103,7 +103,7 @@ Jedná se o známý problém s tím, jak prostředí PowerShell spolupracuje s o
 
 **Návody seznam můj balíček v informačním kanálu?**
 
-Viz [Vytvoření a publikování balíčku](../quickstart/create-and-publish-a-package.md).
+Viz [Vytvoření a publikování balíčku](../quickstart/create-and-publish-a-package-using-visual-studio.md).
 
 **Mám více verzí knihovny, která cílí na různé verze .NET Framework. Návody sestavit jeden balíček, který tuto podporu podporuje?**
 

@@ -1,38 +1,38 @@
 ---
-title: Referenční dokumentace prostředí PowerShell pro odinstalaci NuGet
-description: Reference k příkazu Uninstall-Package PowerShell v konzole správce balíčků NuGet v aplikaci Visual Studio.
+title: Reference k NuGet Uninstall-Package PowerShellu
+description: Referenční informace k příkazu Uninstall-Package PowerShellu v konzole správce balíčků NuGet v aplikaci Visual Studio.
 author: karann-msft
 ms.author: karann
 ms.date: 06/01/2017
 ms.topic: reference
-ms.openlocfilehash: 05b7bf0e8abad0904b9e851ea6b7a5317e74229d
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: d164176355e32e5bbe0a017fc2b291cbc9ef326a
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75384412"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237124"
 ---
-# <a name="uninstall-package-package-manager-console-in-visual-studio"></a>Uninstall-Package (konzola Správce balíčků v sadě Visual Studio)
+# <a name="uninstall-package-package-manager-console-in-visual-studio"></a>Uninstall-Package (konzola správce balíčků v aplikaci Visual Studio)
 
-*Toto téma popisuje příkaz v [konzole správce balíčků](../../consume-packages/install-use-packages-powershell.md) v sadě Visual Studio ve Windows. Obecný příkaz pro odinstalaci do PowerShellu najdete v tématu [referenční informace k PowerShellu pro PackageManagement](/powershell/module/packagemanagement/?view=powershell-6).*
+*Toto téma popisuje příkaz v [konzole správce balíčků](../../consume-packages/install-use-packages-powershell.md) v sadě Visual Studio ve Windows. Obecný příkaz Uninstall-Package PowerShellu najdete v [referenčních informacích k PowerShellu PackageManagement](/powershell/module/packagemanagement/?view=powershell-6).*
 
-Odebere balíček z projektu, volitelně odebere jeho závislosti. Pokud jsou na tomto balíčku závislé jiné balíčky a není zadán parametr –Force, příkaz se nezdaří.
+Odebere balíček z projektu, volitelně odebere jeho závislosti. Pokud jsou na tomto balíčku závislé jiné balíčky, příkaz se nezdaří, pokud není zadána možnost – Force.
 
-## <a name="syntax"></a>Syntaxe
+## <a name="syntax"></a>Syntax
 
 ```ps
 Uninstall-Package [-Id] <string> [-RemoveDependencies] [-ProjectName <string>] [-Force]
     [-Version <string>] [-WhatIf] [<CommonParameters>]
 ```
 
-Pokud jsou na tomto balíčku závislé jiné balíčky a není zadán parametr –Force, příkaz se nezdaří.
+Pokud jsou na tomto balíčku závislé jiné balíčky, příkaz se nezdaří, pokud není zadána možnost – Force.
 
 ## <a name="parameters"></a>Parametry
 
 | Parametr | Popis |
 | --- | --- |
 | Id | Požadovanou Identifikátor balíčku, který se má odinstalovat Samotný přepínač-ID je nepovinný. |
-| Version | Verze balíčku, který se má odinstalovat, se zastaví jako aktuálně nainstalovaná verze. |
+| Verze | Verze balíčku, který se má odinstalovat, se zastaví jako aktuálně nainstalovaná verze. |
 | RemoveDependencies | Odinstalujte balíček a jeho nepoužívané závislosti. To znamená, že pokud má nějaká závislost jiný balíček, který na něm závisí, přeskočí se. |
 | ProjectName | Projekt, ze kterého má být balíček odinstalován, výchozí nastavení projektu. |
 | Force | Vynutí odinstalaci balíčku, a to i v případě, že na něm závisí jiné balíčky. |
@@ -42,7 +42,7 @@ Pokud jsou na tomto balíčku závislé jiné balíčky a není zadán parametr 
 
 ## <a name="common-parameters"></a>Společné parametry
 
-`Uninstall-Package` podporuje následující [běžné parametry PowerShellu](https://go.microsoft.com/fwlink/?LinkID=113216): Debug, Error Action, ErrorVariable, inbuffer, subvariable, PipelineVariable, verbose, WarningAction a WarningVariable.
+`Uninstall-Package` podporuje následující [běžné parametry PowerShellu](/powershell/module/microsoft.powershell.core/about/about_commonparameters): Debug, Error Action, ErrorVariable, inbuffer, subvariable, PipelineVariable, verbose, WarningAction a WarningVariable.
 
 ## <a name="examples"></a>Příklady
 
