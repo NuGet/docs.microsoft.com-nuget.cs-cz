@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 0edfa1f61e6b18ef38689ed2272b2c5992a46ae6
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 05fa68ad3a0b353117a14e2b3e1cdf13dc806127
+ms.sourcegitcommit: 0cc6ac680c3202d0b036c0bed7910f6709215682
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237845"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94550385"
 ---
 # <a name="restore-packages-using-package-restore"></a>Obnovení balíčků pomocí obnovení balíčku
 
@@ -36,7 +36,7 @@ Obnovení balíčku se pokusí nainstalovat všechny závislosti balíčků do s
    - [Visual Studio](#restore-using-visual-studio) ([Automatické obnovení](#restore-packages-automatically-using-visual-studio) nebo [Ruční obnovení](#restore-packages-manually-using-visual-studio))
    - [dotnet CLI](#restore-using-the-dotnet-cli)
    - [nuget.exe CLI](#restore-using-the-nugetexe-cli)
-   - [MSBuild](#restore-using-msbuild)
+   - [Nástroji](#restore-using-msbuild)
    - [Azure Pipelines](#restore-using-azure-pipelines)
    - [Azure DevOps Server](#restore-using-azure-devops-server)
 
@@ -72,9 +72,9 @@ K obnovení balíčku dojde automaticky při vytvoření projektu ze šablony ne
 
 ### <a name="restore-packages-manually-using-visual-studio"></a>Ruční obnovení balíčků pomocí sady Visual Studio
 
-1. Obnovení balíčku povolíte tak, že vyberete možnosti **nástrojů**  >  **Options**  >  **Správce balíčků NuGet** . V části možnosti **obnovení balíčku** vyberte možnost **povoluje, aby NuGet stahoval chybějící balíčky** .
+1. Obnovení balíčku povolíte tak, že vyberete možnosti **nástrojů**  >  **Options**  >  **Správce balíčků NuGet**. V části možnosti **obnovení balíčku** vyberte možnost **povoluje, aby NuGet stahoval chybějící balíčky**.
 
-1. V **Průzkumník řešení** klikněte pravým tlačítkem na řešení a vyberte **obnovit balíčky NuGet** .
+1. V **Průzkumník řešení** klikněte pravým tlačítkem na řešení a vyberte **obnovit balíčky NuGet**.
 
    Pokud některé balíčky stále nejsou nainstalované správně, **Průzkumník řešení** zobrazí ikonu chyby. Klikněte pravým tlačítkem a vyberte **Spravovat balíčky NuGet** a pak pomocí **Správce balíčků** odinstalujte a znovu nainstalujte ovlivněné balíčky. Další informace najdete v tématu [Přeinstalace a aktualizace balíčků](../consume-packages/reinstalling-and-updating-packages.md) .
 
@@ -143,7 +143,7 @@ NuGet má dva formáty, ve kterých může projekt používat balíčky: [`Packa
 [!INCLUDE [restore-nuget-exe-cli](includes/restore-nuget-exe-cli.md)]
 
 > [!IMPORTANT]
-> `restore`Příkaz neupraví soubor projektu ani *packages.config* . Chcete-li přidat závislost, přidejte balíček prostřednictvím uživatelského rozhraní nebo konzoly Správce balíčků v aplikaci Visual Studio, nebo upravte *packages.config* a pak spusťte buď `install` nebo `restore` .
+> `restore`Příkaz neupraví soubor projektu ani *packages.config*. Chcete-li přidat závislost, přidejte balíček prostřednictvím uživatelského rozhraní nebo konzoly Správce balíčků v aplikaci Visual Studio, nebo upravte *packages.config* a pak spusťte buď `install` nebo `restore` .
 
 ## <a name="restore-using-msbuild"></a>Obnovení pomocí MSBuild
 
@@ -169,7 +169,7 @@ Chcete-li obnovit balíčky uvedené v souboru projektu pomocí PackageReference
    Ujistěte se, že výstup nástroje MSBuild označuje, že sestavení bylo úspěšně dokončeno.
    
 > [!Note]
-> MSBuild má `-restore` přepínač, který se spustí `Restore` , znovu načtěte projekt a pak sestavte. Viz [obnovení a sestavování pomocí jednoho příkazu MSBuild](/nuget/reference/msbuild-targets#restoring-and-building-with-one-msbuild-command).
+> MSBuild má `-restore` přepínač, který se spustí `Restore` , znovu načtěte projekt a pak sestavte. Viz [obnovení a sestavování pomocí jednoho příkazu MSBuild](../reference/msbuild-targets.md#restoring-and-building-with-one-msbuild-command).
 
 ```cmd
 # Will restore the project, then build, since build is the default target.
@@ -224,13 +224,13 @@ Chcete-li se vyhnout použití mezipaměti pro zdroje HTTP, proveďte jednu z n�
 
 Pro NuGet 2,6 a starší se dřív podporovalo obnovení balíčku integrovaného v MSBuild, ale už není pravdivé. (Obvykle se povolilo tak, že kliknete pravým tlačítkem na řešení v aplikaci Visual Studio a vyberete **Povolit obnovení balíčku NuGet** ). Pokud váš projekt používá nepoužívané obnovení balíčku integrované v nástroji MSBuild, proveďte migraci na automatické obnovení balíčku.
 
-Projekty, které používají MSBuild-Integrated obnovení balíčku obvykle obsahují složku *. NuGet* se třemi soubory: *NuGet.config* , *nuget.exe* a *NuGet. targets* . Přítomnost souboru *NuGet. targets* určuje, jestli bude NuGet dál používat přístup integrovaný na MSBuild, takže tento soubor se musí během migrace odebrat.
+Projekty, které používají MSBuild-Integrated obnovení balíčku obvykle obsahují složku *. NuGet* se třemi soubory: *NuGet.config* , *nuget.exe* a *NuGet. targets*. Přítomnost souboru *NuGet. targets* určuje, jestli bude NuGet dál používat přístup integrovaný na MSBuild, takže tento soubor se musí během migrace odebrat.
 
 Migrace na automatické obnovení balíčků:
 
 1. Zavřete Visual Studio.
-2. Odstraňte *. NuGet/nuget.exe* a *. NuGet/NuGet. targets* .
-3. Pro každý soubor projektu odeberte `<RestorePackages>` prvek a odeberte všechny odkazy na *NuGet. targets* .
+2. Odstraňte *. NuGet/nuget.exe* a *. NuGet/NuGet. targets*.
+3. Pro každý soubor projektu odeberte `<RestorePackages>` prvek a odeberte všechny odkazy na *NuGet. targets*.
 
 Test automatického obnovení balíčků:
 

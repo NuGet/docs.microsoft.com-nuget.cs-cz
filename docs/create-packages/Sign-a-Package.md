@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 81f8695d7b3cec73f3e18f90ddf38dfe6c3ecf4d
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 64b28c29ae3b533bde7c8f41dd38a4ab0a5afef7
+ms.sourcegitcommit: 0cc6ac680c3202d0b036c0bed7910f6709215682
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237585"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94550372"
 ---
 # <a name="signing-nuget-packages"></a>Podepisování balíčků NuGet
 
@@ -54,7 +54,7 @@ nuget sign MyPackage.nupkg -CertificatePath <PathToTheCertificate> -Timestamper 
 K publikování podepsaného balíčku je třeba nejprve zaregistrovat certifikát pomocí NuGet.org. Certifikát budete potřebovat jako `.cer` soubor v binárním formátu der.
 
 1. [Přihlaste](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) se k NuGet.org.
-1. Přejít na `Account settings` (nebo `Manage Organization` **>** `Edit Organziation` Pokud chcete zaregistrovat certifikát s účtem organizace).
+1. Přejít na `Account settings` (nebo `Manage Organization` **>** `Edit Organization` Pokud chcete zaregistrovat certifikát s účtem organizace).
 1. Rozbalte `Certificates` část a vyberte `Register new` .
 1. Vyhledejte a vyberte soubor certifikát, který byl dříve exportován.
   ![Registrované certifikáty](../reference/media/registered-certs.png)
