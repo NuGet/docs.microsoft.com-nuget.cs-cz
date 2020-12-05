@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: f91d47bdf9b957b512d3d83434693ee93de07afb
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 6e5107ac05046ea46cc819ebe2a504ba6b030634
+ms.sourcegitcommit: e39e5a5ddf68bf41e816617e7f0339308523bbb3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623133"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96738939"
 ---
 # <a name="nuspec-reference"></a>odkaz. nuspec
 
@@ -83,7 +83,7 @@ Verze balíčku, podle vzoru *hlavní_verze. podverze. Oprava* . Čísla verzí 
 
 Při nahrávání balíčku do nuget.org `version` je pole omezeno na 64 znaků.
 
-#### <a name="description"></a>description
+#### <a name="description"></a>Popis
 Popis balíčku pro zobrazení uživatelského rozhraní
 
 Při nahrávání balíčku do nuget.org `description` je pole omezeno na 4000 znaků.
@@ -96,6 +96,9 @@ Při nahrávání balíčku do nuget.org `authors` je pole omezeno na 4000 znak�
 ### <a name="optional-metadata-elements"></a>Volitelné prvky metadat
 
 #### <a name="owners"></a>vlastníka
+> [!Important]
+> Vlastníci jsou zastaralí. Místo toho použijte autory.
+
 Čárkami oddělený seznam tvůrců balíčků s použitím názvů profilů v nuget.org. Často se jedná o stejný seznam jako v a `authors` při nahrávání balíčku do NuGet.org se ignoruje. Viz [Správa vlastníků balíčků na NuGet.org](../nuget-org/publish-a-package.md#managing-package-owners-on-nugetorg). 
 
 #### <a name="projecturl"></a>projectUrl
@@ -519,7 +522,7 @@ Každý `<file>` prvek určuje následující atributy:
 | --- | --- |
 | **src** | Umístění souboru nebo souborů, které mají být zahrnuty, v závislosti na vyloučení určených `exclude` atributem. Cesta je relativní vzhledem k `.nuspec` souboru, pokud není zadána absolutní cesta. Zástupný znak `*` je povolen a dvojitý zástupný znak `**` implikuje hledání rekurzivní složky. |
 | **cílové** | Relativní cesta ke složce v rámci balíčku, kde jsou umístěny zdrojové soubory, které musí začínat `lib` na, `content` , `build` nebo `tools` . Viz [vytvoření. nuspec z pracovního adresáře založeného na konvencích](../create-packages/creating-a-package.md#from-a-convention-based-working-directory). |
-| **vyloučení** | Seznam souborů nebo vzorů souborů, které mají být vyloučeny z umístění, jsou odděleny středníkem `src` . Zástupný znak `*` je povolen a dvojitý zástupný znak `**` implikuje hledání rekurzivní složky. |
+| **slevy** | Seznam souborů nebo vzorů souborů, které mají být vyloučeny z umístění, jsou odděleny středníkem `src` . Zástupný znak `*` je povolen a dvojitý zástupný znak `**` implikuje hledání rekurzivní složky. |
 
 ### <a name="examples"></a>Příklady
 
@@ -723,7 +726,7 @@ Tyto soubory jsou zadány pomocí sady atributů, které popisují, jak by měly
 | Atribut | Popis |
 | --- | --- |
 | **připojit** | Požadovanou Umístění souboru nebo souborů, které mají být zahrnuty, v závislosti na vyloučení určených `exclude` atributem. Cesta je relativní ke složce, `contentFiles` Pokud není zadána absolutní cesta. Zástupný znak `*` je povolen a dvojitý zástupný znak `**` implikuje hledání rekurzivní složky. |
-| **vyloučení** | Seznam souborů nebo vzorů souborů, které mají být vyloučeny z umístění, jsou odděleny středníkem `src` . Zástupný znak `*` je povolen a dvojitý zástupný znak `**` implikuje hledání rekurzivní složky. |
+| **slevy** | Seznam souborů nebo vzorů souborů, které mají být vyloučeny z umístění, jsou odděleny středníkem `src` . Zástupný znak `*` je povolen a dvojitý zástupný znak `**` implikuje hledání rekurzivní složky. |
 | **buildAction** | Akce sestavení, která má být přiřazena položce obsahu pro MSBuild, jako například `Content` ,,, `None` `Embedded Resource` `Compile` atd. Výchozí hodnota je `Compile` . |
 | **copyToOutput** | Logická hodnota označující, zda se mají kopírovat položky obsahu do výstupní složky Build (nebo Publishing). Výchozí hodnotou je hodnota false. |
 | **Flatten** | Logická hodnota označující, zda se mají kopírovat položky obsahu do jediné složky ve výstupu sestavení (true), nebo pro zachování struktury složek v balíčku (false). Tento příznak funguje pouze v případě, že příznak copyToOutput je nastaven na hodnotu true. Výchozí hodnotou je hodnota false. |
@@ -892,6 +895,6 @@ Mějte na paměti, že ruční vytváření nuspecs obsahujících odkazy na roz
 V tomto příkladu jsou nainstalovány následující pro konkrétní cíle projektu:
 
 - . NET4-> `System.Web` , `System.Net`
-- . Profil klienta NET4 – > `System.Net`
+- Profil klienta. NET4 – > `System.Net`
 - Silverlight 3 – > `System.Json`
 - WindowsPhone – > `Microsoft.Devices.Sensors`

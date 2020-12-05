@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 16fd7b9103ef5ac335f0b2e5493dd2983b182f50
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 4a04c6dd7993fc47bcf7a6fe46236ed700a0d105
+ms.sourcegitcommit: e39e5a5ddf68bf41e816617e7f0339308523bbb3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623172"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96738926"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Sada NuGet Pack a obnovení jako cíle MSBuild
 
@@ -54,7 +54,7 @@ Všimněte si, že nástroj `Owners` `Summary` `.nuspec` MSBuild nepodporuje vla
 | VersionSuffix | PackageVersionSuffix | empty | $ (VersionSuffix) z MSBuild. Nastavení PackageVersion přepsání PackageVersionSuffix |
 | Autoři | Autoři | Uživatelské jméno aktuálního uživatele | |
 | Vlastníci | – | Nepřítomno v NuSpec | |
-| Title | Title | PackageId| |
+| Nadpis | Nadpis | PackageId| |
 | Popis | Popis | Popis balíčku | |
 | Copyright | Copyright | empty | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false (nepravda) | |
@@ -71,7 +71,7 @@ Všimněte si, že nástroj `Owners` `Summary` `.nuspec` MSBuild nepodporuje vla
 | Úložiště/větev | RepositoryBranch | empty | Volitelné informace o větvi úložiště Pro zahrnutí této vlastnosti je nutné zadat také *RepositoryUrl* . Příklad: *Master* (NuGet 4.7.0 +) |
 | Úložiště/potvrzení změn | RepositoryCommit | empty | Volitelné potvrzení změn úložiště nebo sada změn, které označují, na který zdroj byl balíček vytvořen. Pro zahrnutí této vlastnosti je nutné zadat také *RepositoryUrl* . Příklad: *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +) |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
-| Shrnutí | Nepodporováno | | |
+| Souhrn | Nepodporováno | | |
 
 ### <a name="pack-target-inputs"></a>cílové vstupy balení
 
@@ -365,7 +365,8 @@ Příklad:
 1. Stáhnout balíčky
 1. Zápis souboru prostředků, cílů a vlastností props
 
-`restore`Cíl funguje **pouze** pro projekty, které používají formát PackageReference. Nefunguje **pro** projekty používající `packages.config` formát. místo toho použijte [obnovení NuGet](../reference/cli-reference/cli-ref-restore.md) .
+`restore`Cíl funguje pro projekty, které používají formát PackageReference.
+`MSBuild 16.5+` má také [podporu](#restoring-packagereference-and-packages.config-with-msbuild) pro `packages.config` formát.
 
 ### <a name="restore-properties"></a>Obnovit vlastnosti
 
@@ -391,7 +392,8 @@ Další nastavení obnovení může pocházet z vlastností MSBuild v souboru pr
 | RestorePackagesWithLockFile | Výslovný se na použití souboru zámku. |
 | RestoreLockedMode | Spustit obnovení v uzamčeném režimu. To znamená, že obnovení nebude přehodnocovat závislosti. |
 | NuGetLockFilePath | Vlastní umístění souboru zámku. Výchozí umístění je vedle projektu a je pojmenováno `packages.lock.json` . |
-| RestoreForceEvaluate | Vynutí obnovení pro přepočítání závislostí a aktualizaci souboru zámku bez upozornění. | 
+| RestoreForceEvaluate | Vynutí obnovení pro přepočítání závislostí a aktualizaci souboru zámku bez upozornění. |
+| RestorePackagesConfig | Přepínač opt, který obnovuje projekty pomocí packages.config. Podpora pouze s nástrojem `MSBuild -t:restore` . |
 
 #### <a name="examples"></a>Příklady
 
@@ -435,6 +437,17 @@ msbuild -t:build -restore
 ```
 
 Stejná logika platí pro jiné cíle podobné `build` .
+
+### <a name="restoring-packagereference-and-packagesconfig-with-msbuild"></a>Obnovení PackageReference a packages.config pomocí nástroje MSBuild
+
+Pomocí nástroje MSBuild 16.5 + packages.config jsou také podporovány pro `msbuild -t:restore` .
+
+```cli
+msbuild -t:restore -p:RestorePackagesConfig=true
+```
+
+> [!NOTE]
+> `packages.config` obnovení je k dispozici pouze pro `MSBuild 16.5+` , a nikoli s `dotnet.exe`
 
 ### <a name="packagetargetfallback"></a>PackageTargetFallback
 
