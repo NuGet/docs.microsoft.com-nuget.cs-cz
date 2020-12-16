@@ -5,12 +5,12 @@ author: dominofire
 ms.author: feaguila
 ms.date: 11/9/2020
 ms.topic: conceptual
-ms.openlocfilehash: 09fb98eec79ee4ed08d85a1c557a420d6b265f11
-ms.sourcegitcommit: f4b74b500e3db9e468f11142df48d87880382267
+ms.openlocfilehash: 329fdf6479d0799ae4b15cc3493848ba2d999853
+ms.sourcegitcommit: 650c08f8bc3d48dfd206a111e5e2aaca3001f569
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94572828"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97523439"
 ---
 # <a name="nuget-58-release-notes"></a>Zpráva k vydání verze NuGet 5,8
 
@@ -144,5 +144,5 @@ Děkujeme všem přispěvatelům, kteří vám pomohl tuto verzi NuGet udělat.
 
 ## <a name="feedback-welcome"></a>Úvodní názory
 
-Váš názor je pro nás důležitý.  Pokud se v této verzi vyskytnou nějaké problémy, podívejte se na naše [problémy GitHubu](https://github.com/NuGet/Home/issues) a [komunitu vývojářů pro Visual Studio](https://developercommunity.visualstudio.com/) , kde najdete stávající problémy.  Pro nové problémy v rámci NuGet ohlaste [problém GitHubu](hhttps://github.com/NuGet/Home/issues/new).
+Váš názor je pro nás důležitý.  Pokud se v této verzi vyskytnou nějaké problémy, podívejte se na naše [problémy GitHubu](https://github.com/NuGet/Home/issues) a [komunitu vývojářů pro Visual Studio](https://developercommunity.visualstudio.com/) , kde najdete stávající problémy.  Pro nové problémy v rámci NuGet ohlaste [problém GitHubu](https://github.com/NuGet/Home/issues/new).
 Pro obecné problémy s prostředím NuGet nám dejte informace v části **Help > nahlásit problém** pomocí možnosti [nahlásit problém](https://docs.microsoft.com/visualstudio/ide/how-to-report-a-problem-with-visual-studio) , která se nachází ve vašem oblíbeném prostředí IDE.

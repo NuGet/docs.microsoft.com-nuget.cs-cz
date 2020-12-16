@@ -1,50 +1,50 @@
 ---
 title: Dotaz na všechny balíčky publikované do nuget.org
-description: Pomocí nugetového rozhraní API můžete dotazovat na všechny balíčky publikované do nuget.org a zůstat aktuální v průběhu času.
+description: Pomocí rozhraní API NuGet se můžete dotazovat na všechny balíčky publikované na nuget.org a v průběhu času zůstat v aktuálním stavu.
 author: joelverhagen
 ms.author: jver
 ms.date: 11/02/2017
 ms.topic: tutorial
 ms.reviewer: kraigb
-ms.openlocfilehash: 0bd21c427b5b89ae9e5f1500d75e1bf63a96e828
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 749d9466976d51c7cb65332c8b149e3a30862e63
+ms.sourcegitcommit: 650c08f8bc3d48dfd206a111e5e2aaca3001f569
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "64498224"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97523397"
 ---
 # <a name="query-for-all-packages-published-to-nugetorg"></a>Dotaz na všechny balíčky publikované do nuget.org
 
-Jeden společný vzor dotazu na starší rozhraní API OData V2 byl výčet všech balíčků publikovaných do nuget.org, seřazené při publikování balíčku. Scénáře, které vyžadují tento druh dotazu proti nuget.org se značně liší:
+Jeden společný vzor dotazu na starší verzi rozhraní OData v2 API vytvořil výčet všech balíčků publikovaných do nuget.org, seřazené podle toho, kdy byl balíček publikovaný. Scénáře, které vyžadují tento druh dotazů na nuget.org, se výrazně liší:
 
-- Replikace nuget.org úplně
-- Zjišťování, kdy jsou vydány nové verze
-- Hledání balíčků, které závisí na vašem balíčku
+- Úplné replikace nuget.org
+- Zjišťování, kdy byly vydány nové verze balíčků
+- Hledání balíčků, které jsou závislé na vašem balíčku
 
-Starší způsob, jak to udělat, obvykle závisí na řazení entity balíčku OData podle časového `skip` razítka a stránkování přes masivní sadu výsledků pomocí a `top` (velikost stránky) parametry. Bohužel, tento přístup má některé nevýhody:
+Starší způsob, jak to provést, je obvykle závislý na řazení entity balíčku OData pomocí časového razítka a stránkování napříč velkou sadou výsledků dotazu `skip` pomocí `top` parametrů a (velikost stránky). Tento přístup bohužel má několik nevýhod:
 
-- Možnost chybějících balíčků, protože dotazy jsou prováděny na data, která se často mění pořadí
-- Pomalá doba odezvy dotazu, protože dotazy nejsou optimalizovány (nejvíce optimalizované dotazy jsou ty, které podporují hlavní scénář pro oficiální klientnu NuGet)
-- Použití zastaralého a nedokumentovaného ROZHRANÍ API, což znamená, že podpora takových dotazů v budoucnu není zaručena
-- Neschopnost přehrát historii v přesném pořadí, v jakém se objevila
+- Možnost chybějících balíčků, protože se provádějí dotazy na data, která často mění pořadí
+- Pomalá odezva na dotaz, protože dotazy nejsou optimalizované (nejvíc optimalizované dotazy jsou ty, které podporují scénář hlavní pro oficiálního klienta NuGet)
+- Použití zastaralých a nedokumentovaných rozhraní API, což znamená, že podpora takových dotazů v budoucnu není zaručená
+- Neschopnost přehrát historii v přesném pořadí, v jakém se ukázalo
 
-Z tohoto důvodu lze sledovat následující příručku k řešení výše uvedených scénářů spolehlivějším způsobem, který obnaží budoucnost.
+Z tohoto důvodu je možné za tímto účelem vyřešit výše uvedené scénáře a spolehlivě a budoucím způsobem kontrolovat.
 
 ## <a name="overview"></a>Přehled
 
-V centru této příručky je prostředek v [nuget api](../../api/overview.md) s názvem **katalogu**. Katalog je pouze připojit rozhraní API, které umožňuje volajícímu zobrazit úplnou historii balíčků přidaných, upravených a odstraněných z nuget.org. Máte-li zájem o všechny nebo dokonce podmnožinu balíčků publikovaných do nuget.org, katalog je skvělý způsob, jak zůstat up-to-date se sadou aktuálně dostupných balíčků, jak čas pokračuje.
+Uprostřed tohoto průvodce je prostředek v [rozhraní NuGet API](../../api/overview.md) , který se nazývá **katalog**. Katalog je rozhraní API pro připojení, které umožňuje volajícímu zobrazit úplnou historii balíčků přidaných, upravených a odstraněných z nuget.org. Pokud vás zajímá všechny nebo dokonce podmnožiny balíčků publikovaných na nuget.org, je katalog skvělým způsobem, jak si udržet aktuální sadu aktuálně dostupných balíčků jako času.
 
-Tato příručka má být na vysoké úrovni walk-through, ale pokud máte zájem o jemné zrnitosti podrobnosti katalogu, naleznete v jeho [referenčním dokumentu rozhraní API](../../api/catalog-resource.md).
+Tento průvodce je určený jako podrobný návod, ale pokud vás zajímá podrobné informace o katalogu, podívejte se na jeho [referenční dokument k rozhraní API](../../api/catalog-resource.md).
 
-Následující kroky mohou být implementovány v libovolném programovacím jazyce podle vašeho výběru. Pokud chcete úplné spuštění ukázky, podívejte se na [c# ukázku](#c-sample-code) uvedenou níže.
+Následující kroky lze implementovat v libovolném programovacím jazyce podle vašeho výběru. Pokud chcete spustit úplnou ukázku, podívejte se na [ukázku C#](#c-sample-code) uvedenou níže.
 
-V opačném případě postupujte podle níže uvedeného průvodce a vytvořte spolehlivou čtečku katalogů.
+Jinak postupujte podle příručky níže a vytvořte si spolehlivého čtečky katalogu.
 
 ## <a name="initialize-a-cursor"></a>Inicializovat kurzor
 
-Prvním krokem při vytváření spolehlivé čtečky katalogů je implementace kurzoru. Podrobné informace o návrhu kurzoru katalogu naleznete v [referenčním dokumentu katalogu](../../api/catalog-resource.md#cursor). Stručně řečeno, kurzor je bod v čase, do kterého jste zpracovali události v katalogu. Události v katalogu představují publikování balíčků a další změny balíčků. Pokud vám záleží na všech balíčcích, které byly někdy publikovány na NuGet (od počátku času), inicializovali byste kurzor na časové razítko "minimální hodnoty" (např. `DateTime.MinValue` v .NET). Pokud vám záleží pouze na balíčcích publikovaných od nynějška, použijete aktuální časové razítko jako počáteční hodnotu kurzoru.
+Prvním krokem při sestavování spolehlivého čtečky katalogu je implementace kurzoru. Úplné podrobnosti o návrhu kurzoru katalogu najdete v [referenčním dokumentu katalogu](../../api/catalog-resource.md#cursor). V krátké době je kurzor v čase, ke kterému jste v katalogu zpracovali události. Události v katalogu reprezentují balíčky Publisher a další změny balíčků. Pokud se zajímáte o všechny balíčky, které byly v minulosti publikovány do NuGet (od začátku času), měli byste ukazatel inicializovat na časové razítko "minimální hodnota" (např. `DateTime.MinValue` v rozhraní .NET). Pokud se budete zajímat jenom o balíčcích publikovaných od tohoto okamžiku, použije se aktuální časové razítko jako počáteční hodnota kurzoru.
 
-Pro tuto příručku budeme inicializovat náš kurzor na časové razítko před hodinou. Prozatím uložte to časové razítko do paměti.
+V tomto průvodci inicializujeme kurzor na časové razítko před hodinovou známkou. Prozatím stačí toto časové razítko uložit v paměti.
 
 ```cs
 DateTime cursor = DateTime.UtcNow.AddHours(-1);
@@ -52,69 +52,69 @@ DateTime cursor = DateTime.UtcNow.AddHours(-1);
 
 ## <a name="determine-catalog-index-url"></a>Určení adresy URL indexu katalogu
 
-Umístění každého prostředku (koncového bodu) v rozhraní API NuGet by měla být zjištěna pomocí [indexu služby](../../api/service-index.md). Vzhledem k tomu, že tato příručka se zaměřuje na nuget.org, budeme používat nuget.org index služeb.
+Umístění každého prostředku (koncového bodu) v rozhraní NuGet API by mělo být zjištěno pomocí [indexu služby](../../api/service-index.md). Vzhledem k tomu, že se tato příručka zaměřuje na nuget.org, budeme používat index služby NuGet. org.
 
     GET https://api.nuget.org/v3/index.json
 
-Servisní doklad je dokument JSON obsahující všechny prostředky na nuget.org. Vyhledejte prostředek s `@type` hodnotou `Catalog/3.0.0`vlastnosti . Přidružená `@id` hodnota vlastnosti je adresa URL samotného indexu katalogu. 
+Dokument služby je dokument JSON obsahující všechny prostředky na nuget.org. Vyhledejte prostředek s `@type` hodnotou vlastnosti `Catalog/3.0.0` . Přidružená `@id` hodnota vlastnosti je adresa URL samotného indexu katalogu. 
 
-## <a name="find-new-catalog-leaves"></a>Najít nové katalogové listy
+## <a name="find-new-catalog-leaves"></a>Najít nový katalog – listy
 
-Pomocí `@id` hodnoty vlastnosti nalezené v předchozím kroku stáhněte index katalogu:
+Pomocí `@id` hodnoty vlastnosti nalezené v předchozím kroku Stáhněte rejstřík katalogu:
 
     GET https://api.nuget.org/v3/catalog0/index.json
 
-Dekontujte [index katalogu](../../api/catalog-resource.md#catalog-index). Odfiltrujte všechny [objekty stránky katalogu](../../api/catalog-resource.md#catalog-page-object-in-the-index) s `commitTimeStamp` hodnotou aktuální kurzoru menší nebo rovnou.
+Deserializace [indexu katalogu](../../api/catalog-resource.md#catalog-index). Vyfiltrujte všechny [objekty stránky katalogu](../../api/catalog-resource.md#catalog-page-object-in-the-index) s `commitTimeStamp` menší nebo rovnou aktuální hodnotě kurzoru.
 
-Pro každou zbývající stránku katalogu stáhněte celý dokument pomocí vlastnosti. `@id`
+Pro každou zbývající stránku katalogu Stáhněte celý dokument pomocí `@id` Vlastnosti.
 
     GET https://api.nuget.org/v3/catalog0/page2926.json
 
-Dekontujte [stránku katalogu](../../api/catalog-resource.md#catalog-page). Odfiltrovat všechny [objekty listu katalogu](../../api/catalog-resource.md#catalog-item-object-in-a-page) s `commitTimeStamp` menší nebo rovna aktuální hodnotu kurzoru.
+Deserializace [stránky katalogu](../../api/catalog-resource.md#catalog-page). Vyfiltrujte všechny [objekty listu katalogu](../../api/catalog-resource.md#catalog-item-object-in-a-page) s `commitTimeStamp` menší nebo rovnou aktuální hodnotě kurzoru.
 
-Po stažení všech stránek katalogu, které nejsou odfiltrovány, máte sadu objektů listu katalogu představující balíčky, které byly publikovány, neuvedeny, uvedeny nebo odstraněny v čase mezi časovým razítkem kurzoru a nyní.
+Po stažení všech stránek katalogu, které nejsou odfiltrovány, máte sadu listů katalogu, která představuje balíčky, které byly publikovány, nejsou v seznamu, uvedeny nebo odstraněny v čase mezi časovým razítkem kurzoru a nyní.
 
-## <a name="process-catalog-leaves"></a>Listy katalogu procesů
+## <a name="process-catalog-leaves"></a>Ponechá katalog procesů
 
-V tomto okamžiku můžete provádět jakékoli vlastní zpracování, které chcete na položky katalogu. Pokud vše, co potřebujete, je ID a verze `nuget:id` `nuget:version` balíčku, můžete zkontrolovat vlastnosti a na objekty položky katalogu nalezené na stránkách. Nezapomeňte se podívat `@type` na vlastnost, abyste zjistili, zda se položka katalogu týká existujícího balíčku nebo odstraněného balíčku.
+V tomto okamžiku můžete provádět libovolné vlastní zpracování, které byste chtěli v položkách katalogu. Pokud potřebujete jenom ID a verzi balíčku, můžete zkontrolovat `nuget:id` `nuget:version` vlastnosti a v objektech položky katalogu, které se nacházejí na stránkách. Nezapomeňte se podívat na `@type` vlastnost a zjistit, zda se položka katalogu týká existujícího balíčku nebo odstraněného balíčku.
 
-Pokud vás zajímají metadata o balíčku (například v popisu, závislosti, .nupkg velikost, atd),můžete `@id` načíst katalog list [dokumentu](../../api/catalog-resource.md#catalog-leaf) pomocí vlastnosti.
+Pokud vás zajímá metadata o balíčku (například popis, závislosti, velikost nupkg atd.), můžete načíst [dokument listu katalogu](../../api/catalog-resource.md#catalog-leaf) pomocí `@id` Vlastnosti.
 
     GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
 
-Tento dokument obsahuje všechna metadata obsažená v [prostředku metadat balíčku](../../api/registration-base-url-resource.md)a další!
+Tento dokument obsahuje všechna metadata zahrnutá v [prostředku metadat balíčku](../../api/registration-base-url-resource.md)a další.
 
-Tento krok je, kde implementovat vlastní logiku. Další kroky v této příručce jsou implementovány v podstatě stejným způsobem bez ohledu na to, co děláte s katalogu listy.
+Tento krok je místo, kde implementujete vlastní logiku. Ostatní kroky v této příručce jsou implementovány v podstatě stejně, jako bez ohledu na to, co v katalogu děláte.
 
-### <a name="downloading-the-nupkg"></a>Stahování .nupkg
+### <a name="downloading-the-nupkg"></a>Stahuje se. nupkg.
 
-Máte-li zájem o stažení .nupkg pro balíčky nalezené v katalogu, můžete použít [zdroj obsahu balíčku](../../api/package-base-address-resource.md). Všimněte si však, že je krátká prodleva mezi při nalezení balíčku v katalogu a kdy je k dispozici v prostředku obsahu balíčku. Proto pokud narazíte `404 Not Found` při pokusu o stažení .nupkg pro balíček, který jste našli v katalogu, jednoduše opakujte krátce později. Oprava tohoto zpoždění je sledována problémgithub [nuget/nugetgallery #3455](https://github.com/NuGet/NuGetGallery/issues/3455).
+Pokud vás zajímá stahování souborů. nupkg pro balíčky nalezené v katalogu, můžete použít [prostředek obsahu balíčku](../../api/package-base-address-resource.md). Upozorňujeme ale, že mezi tím, kdy se balíček v katalogu nachází, existuje krátké zpoždění a když je dostupný v prostředku obsahu balíčku. Proto pokud při `404 Not Found` pokusu o stažení balíčku. nupkg pro balíček, který jste našli v katalogu, narazíte na soubor., zkuste to znovu později. Oprava této prodlevy se sleduje podle problému GitHubu [NuGet/NuGetGallery # 3455](https://github.com/NuGet/NuGetGallery/issues/3455).
 
-## <a name="move-the-cursor-forward"></a>Přesunutí kurzoru dopředu
+## <a name="move-the-cursor-forward"></a>Přesunout kurzor vpřed
 
-Po úspěšném zpracování položek katalogu je třeba určit novou hodnotu kurzoru, kterou chcete uložit. Chcete-li to provést, najděte maximum `commitTimeStamp` (nejnovější chronologicky) všech položek katalogu, které jste zpracovali. Toto je vaše nová hodnota kurzoru. Uložte ji do některé ho trvaléúložiště, jako je databáze, systém souborů nebo úložiště objektů blob. Pokud chcete získat více položek katalogu, jednoduše začněte od [prvního kroku](#initialize-a-cursor) inicializací hodnoty kurzoru z tohoto trvalého úložiště.
+Po úspěšném zpracování položek katalogu je nutné určit novou hodnotu kurzoru, kterou chcete uložit. To provedete tak, že vyhledáte maximum (nejnovější chronologicky) `commitTimeStamp` všech zpracovaných položek katalogu. Toto je nová hodnota kurzoru. Uložte ho do některého trvalého úložiště, jako je databáze, systém souborů nebo úložiště objektů BLOB. Pokud chcete získat další položky katalogu, stačí začít od [prvního kroku](#initialize-a-cursor) inicializací hodnoty kurzoru z tohoto trvalého úložiště.
 
-Pokud vaše aplikace vyvolá výjimku nebo chyby, nepohybujte kurzorem dopředu. Přesunutí kurzoru dopředu má význam, že už nikdy nebudete muset zpracovávat položky katalogu před kurzorem.
+Pokud vaše aplikace vyvolá výjimku nebo chyby, nepřesunete kurzor vpřed. Přesunutí kurzoru má za to, že nikdy nemusíte před kurzorem znovu zpracovávat položky katalogu.
 
-Pokud z nějakého důvodu máte chybu v tom, jak zpracováváte listy katalogu, můžete jednoduše přesunout kurzor zpět v čase a povolit kódu znovu zpracovat staré položky katalogu.
+Pokud z nějakého důvodu máte chybu ve způsobu zpracování katalogu, můžete jednoduše přesunout kurzor zpět v čase a nechat svůj kód znovu zpracovat staré položky katalogu.
 
-## <a name="c-sample-code"></a>Ukázkový kód jazyka C#
+## <a name="c-sample-code"></a>Ukázkový kód C#
 
-Vzhledem k tomu, že katalog je sada dokumentů JSON k dispozici přes HTTP, může být v interakci s pomocí libovolného programovacího jazyka, který má klienta HTTP a JSON deserializer.
+Vzhledem k tomu, že se jedná o sadu dokumentů JSON, které jsou dostupné přes protokol HTTP, může se jednat o použití libovolného programovacího jazyka, který má klienta HTTP a deserializaci JSON.
 
-Ukázky jazyka C# jsou k dispozici v [úložišti NuGet/Samples](https://github.com/NuGet/Samples/tree/master/CatalogReaderExample).
+Ukázky v jazyce C# jsou k dispozici v [úložišti NuGet/Samples](https://github.com/NuGet/Samples/tree/master/CatalogReaderExample).
 
 ```cli
 git clone https://github.com/NuGet/Samples.git
 ```
 
-### <a name="catalog-sdk"></a>Sada SDK katalogu
+### <a name="catalog-sdk"></a>Katalogová sada SDK
 
-Nejjednodušší způsob, jak využít katalog, je použít balíček sady SDK katalogu [.NET.](https://dotnet.myget.org/feed/nuget-build/package/nuget/NuGet.Protocol.Catalog) Tento balíček je `nuget-build` k dispozici na myget kanálu, pro `https://dotnet.myget.org/F/nuget-build/api/v3/index.json`které používáte nuget balíček zdroj URL .
+Nejjednodušší způsob, jak využít katalog, je použít předběžnou verzi balíčku sady SDK katalogu .NET `NuGet.Protocol.Catalog` , která je k dispozici na Azure Artifacts pomocí následující zdrojové adresy URL balíčku NuGet: `https://pkgs.dev.azure.com/dnceng/public/_packaging/nuget-build/nuget/v3/index.json` .
 
-Tento balíček můžete nainstalovat do `netstandard1.3` projektu kompatibilního s nebo vyšší (například rozhraní .NET Framework 4.6).
+Tento balíček můžete nainstalovat do projektu kompatibilního se systémem `netstandard1.3` nebo vyšším (například .NET Framework 4,6).
 
-Ukázka pomocí tohoto balíčku je k dispozici na GitHubu v [projektu NuGet.Protocol.Catalog.Sample](https://github.com/NuGet/Samples/tree/master/CatalogReaderExample/NuGet.Protocol.Catalog.Sample).
+Ukázka použití tohoto balíčku je k dispozici na GitHubu v [projektu NuGet. Protocol. Catalog. Sample](https://github.com/NuGet/Samples/tree/master/CatalogReaderExample/NuGet.Protocol.Catalog.Sample).
 
 #### <a name="sample-output"></a>Ukázkový výstup
 
@@ -152,9 +152,9 @@ warn: NuGet.Protocol.Catalog.CatalogProcessor[0]
 
 ### <a name="minimal-sample"></a>Minimální vzorek
 
-Příklad s menším počtem závislostí, který podrobněji ilustruje interakci s katalogem, naleznete v [ukázkovém projektu CatalogReaderExample](https://github.com/NuGet/Samples/tree/master/CatalogReaderExample/CatalogReaderExample). Projekt se `netcoreapp2.0` zaměřuje a závisí na [NuGet.Protocol 4.4.0](https://www.nuget.org/packages/NuGet.Protocol/4.4.0) (pro řešení indexu služeb) a [Newtonsoft.Json 9.0.1](https://www.nuget.org/packages/Newtonsoft.Json/9.0.1) (pro deserializaci JSON).
+Příklad s menším počtem závislostí, které ilustrují interakci s katalogem, naleznete v tématu [CatalogReaderExample Sample Project](https://github.com/NuGet/Samples/tree/master/CatalogReaderExample/CatalogReaderExample). Projekt cílí na `netcoreapp2.0` a závisí na [4.4.0 NuGet. Protocol](https://www.nuget.org/packages/NuGet.Protocol/4.4.0) (pro překlad indexu služby) a [Newtonsoft.Jsv 9.0.1](https://www.nuget.org/packages/Newtonsoft.Json/9.0.1) (pro deserializaci JSON).
 
-Hlavní logika kódu je viditelná v [souboru Program.cs](https://github.com/NuGet/Samples/blob/master/CatalogReaderExample/CatalogReaderExample/Program.cs).
+Hlavní logika kódu je viditelná v [souboru program.cs](https://github.com/NuGet/Samples/blob/master/CatalogReaderExample/CatalogReaderExample/Program.cs).
 
 #### <a name="sample-output"></a>Ukázkový výstup
 
