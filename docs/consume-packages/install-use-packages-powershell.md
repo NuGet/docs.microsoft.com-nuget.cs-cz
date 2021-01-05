@@ -7,18 +7,21 @@ ms.date: 07/08/2019
 ms.topic: conceptual
 f1_keywords:
 - vs.nuget.packagemanager.console
-ms.openlocfilehash: 8b23b6cc22eff5413e317fbe619edd3d4f4716ee
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 31fa51bc017eaaf9306d5f267e5d4b0d7a15ec9c
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237397"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699835"
 ---
 # <a name="install-and-manage-packages-with-the-package-manager-console-in-visual-studio-powershell"></a>Instalace a Správa balíčků pomocí konzoly Správce balíčků v aplikaci Visual Studio (PowerShell)
 
 Konzola správce balíčků NuGet umožňuje používat [příkazy NuGet PowerShellu](../reference/powershell-reference.md) k vyhledání, instalaci, odinstalaci a aktualizaci balíčků NuGet. V případech, kdy uživatelské rozhraní Správce balíčků neposkytuje způsob provedení operace, je nutné použít konzolu. Chcete-li použít `nuget.exe` příkazy rozhraní příkazového řádku v konzole nástroje, přečtěte si téma [použití nuget.exe CLI v konzole](#use-the-nugetexe-cli-in-the-console).
 
 Konzola je integrována do sady Visual Studio ve Windows. Není součástí Visual Studio pro Mac ani Visual Studio Code.
+
+> [!Important]
+> Níže uvedené příkazy jsou specifické pro konzolu Správce balíčků v aplikaci Visual Studio a liší se od [příkazů modulu Správa balíčků](/powershell/module/packagemanagement/) , které jsou k dispozici v obecném prostředí PowerShell. Konkrétně každé prostředí obsahuje příkazy, které nejsou k dispozici v druhém a příkazy se stejným názvem se mohou v jejich specifických argumentech také lišit. Při použití konzoly Správa balíčků v aplikaci Visual Studio platí příkazy a argumenty popsané v tomto stávajícím tématu.
 
 ## <a name="find-and-install-a-package"></a>Vyhledání a instalace balíčku
 
@@ -98,7 +101,7 @@ Viz [Uninstall-Package](../reference/ps-reference/ps-ref-uninstall-package.md). 
 
 Odinstalace balíčku provede následující akce:
 
-- Odstraní odkazy na balíček z projektu (a jakýkoli formát správy se používá). Odkazy se již nezobrazují v **Průzkumník řešení** . (Projekt bude pravděpodobně nutné znovu sestavit, aby se zobrazila jeho odebraný ze složky **bin** .)
+- Odstraní odkazy na balíček z projektu (a jakýkoli formát správy se používá). Odkazy se již nezobrazují v **Průzkumník řešení**. (Projekt bude pravděpodobně nutné znovu sestavit, aby se zobrazila jeho odebraný ze složky **bin** .)
 - Vrátí všechny změny provedené `app.config` `web.config` v nebo při instalaci balíčku.
 - Odebere dříve nainstalované závislosti, pokud žádné zbývající balíčky nepoužívají tyto závislosti.
 

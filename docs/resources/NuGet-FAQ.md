@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: aae6f0474cc6e8e8aa5c269b79be6fd949d9184c
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: be24660d05f34242e45f223e2248b943ecc38616
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237994"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699656"
 ---
 # <a name="nuget-frequently-asked-questions"></a>Nejčastější dotazy k NuGet
 
@@ -45,9 +45,9 @@ Další informace najdete v tématu [vyhledání a výběr balíčků](../consum
 
 **Návody ověřit přesnou verzi nástrojů NuGet, které jsou nainstalované?**
 
-V aplikaci Visual Studio použijte **nápovědu > o Microsoft Visual Studio** příkaz a podívejte se na verzi zobrazenou vedle **Správce balíčků NuGet** .
+V aplikaci Visual Studio použijte **nápovědu > o Microsoft Visual Studio** příkaz a podívejte se na verzi zobrazenou vedle **Správce balíčků NuGet**.
 
-Případně můžete spustit konzolu Správce balíčků ( **nástroje > správce balíčků NuGet > konzolu Správce balíčků** ) a zadáním `$host` zobrazíte informace o NuGet včetně verze.
+Případně můžete spustit konzolu Správce balíčků (**nástroje > správce balíčků NuGet > konzolu Správce balíčků**) a zadáním `$host` zobrazíte informace o NuGet včetně verze.
 
 **Jaké programovací jazyky podporuje NuGet?**
 
@@ -149,3 +149,10 @@ Nejedná se o problém při použití PackageReference, protože každý soubor 
 
 - Přidejte `https://api.nuget.org/v3/index.json` do seznamu zdrojů nebo
 - Odstraňte `%appdata%\.nuget\NuGet.Config` (Windows) nebo `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) a umožněte novému vytvoření NuGet.
+
+**Jak migruji na PackageReference, proč se moje sestavení nedaří `This project references NuGet package(s) that are missing on this computer.` ?**
+
+V packages.config projekty, pokud `build` byl nainstalován balíček s props nebo cíli, nástroj NuGet přidá `EnsureNuGetPackageBuildImports` cíl pro ověření, že před sestavením byl importován obsah nástroje MSBuild balíčku.
+Pokud byl `target` ručně upraven, NuGet nemusí být schopný rozpoznat, že při migraci je potřeba ho odebrat.
+
+Pokud je váš projekt `PackageReference` a stále máte tento cíl v souboru projektu, mělo by být bezpečné ho odebrat.

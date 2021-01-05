@@ -1,16 +1,16 @@
 ---
 title: Sada NuGet Pack a obnovení jako cíle MSBuild
 description: Sada NuGet Pack a obnovení může pracovat přímo jako cíle MSBuild s NuGet 4.0 +.
-author: karann-msft
-ms.author: karann
+author: nkolev92
+ms.author: nikolev
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4a04c6dd7993fc47bcf7a6fe46236ed700a0d105
-ms.sourcegitcommit: e39e5a5ddf68bf41e816617e7f0339308523bbb3
+ms.openlocfilehash: 66df4e0e4739300608fd5f9e44eea5bcd00079c8
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96738926"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699884"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Sada NuGet Pack a obnovení jako cíle MSBuild
 
@@ -71,7 +71,7 @@ Všimněte si, že nástroj `Owners` `Summary` `.nuspec` MSBuild nepodporuje vla
 | Úložiště/větev | RepositoryBranch | empty | Volitelné informace o větvi úložiště Pro zahrnutí této vlastnosti je nutné zadat také *RepositoryUrl* . Příklad: *Master* (NuGet 4.7.0 +) |
 | Úložiště/potvrzení změn | RepositoryCommit | empty | Volitelné potvrzení změn úložiště nebo sada změn, které označují, na který zdroj byl balíček vytvořen. Pro zahrnutí této vlastnosti je nutné zadat také *RepositoryUrl* . Příklad: *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +) |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
-| Souhrn | Nepodporováno | | |
+| Shrnutí | Nepodporováno | | |
 
 ### <a name="pack-target-inputs"></a>cílové vstupy balení
 
@@ -131,7 +131,7 @@ Počínaje verzí NuGet 5,3 & Visual Studio 2019 verze 16,3, `pack` vyvolá upoz
 
 Při balení souboru obrázku ikony je nutné použít `PackageIcon` vlastnost k určení cesty k balíčku vzhledem k kořenu balíčku. Kromě toho je nutné zajistit, aby byl soubor zahrnut do balíčku. Velikost souboru obrázku je omezená na 1 MB. Podporované formáty souborů zahrnují JPEG a PNG. Doporučujeme, abyste 128 × 128 rozlišení obrazu.
 
-Příklad:
+Například:
 
 ```xml
 <PropertyGroup>
@@ -242,7 +242,7 @@ Při použití licenčního výrazu by se měla použít vlastnost PackageLicens
 
 [Přečtěte si další informace o výrazech licencí a licencích, které jsou přijaty nástrojem NuGet.org](nuspec.md#license).
 
-Při balení licenčního souboru musíte použít vlastnost PackageLicenseFile a zadat cestu k balíčku relativní ke kořenu balíčku. Kromě toho je nutné zajistit, aby byl soubor zahrnut do balíčku. Příklad:
+Při balení licenčního souboru musíte použít vlastnost PackageLicenseFile a zadat cestu k balíčku relativní ke kořenu balíčku. Kromě toho je nutné zajistit, aby byl soubor zahrnut do balíčku. Například:
 
 ```xml
 <PropertyGroup>
@@ -256,6 +256,23 @@ Při balení licenčního souboru musíte použít vlastnost PackageLicenseFile 
 
 [Ukázka licenčního souboru](https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample).
 
+### <a name="packing-a-file-without-an-extension"></a>Balení souboru bez přípony
+
+V některých scénářích, jako je například balení souboru s licencí, může být vhodné zahrnout soubor bez přípony.
+Z historických důvodů nástroj NuGet & MSBuild považuje cesty bez přípony jako adresáře.
+
+```xml
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="LICENSE" Pack="true" PackagePath=""/>
+  </ItemGroup>  
+```
+
+[Soubor bez ukázkového rozšíření](https://github.com/NuGet/Samples/blob/master/PackageLicenseFileExtensionlessExample/).
 ### <a name="istool"></a>Nástroj
 
 Při použití `MSBuild -t:pack -p:IsTool=true` aplikace jsou všechny výstupní soubory, jak je uvedeno ve scénáři [výstup sestavení](#output-assemblies) , zkopírovány do `tools` složky namísto `lib` složky. Všimněte si, že se liší od a, `DotNetCliTool` který je určen nastavením `PackageType` v `.csproj` souboru.
@@ -366,7 +383,10 @@ Příklad:
 1. Zápis souboru prostředků, cílů a vlastností props
 
 `restore`Cíl funguje pro projekty, které používají formát PackageReference.
-`MSBuild 16.5+` má také [podporu](#restoring-packagereference-and-packages.config-with-msbuild) pro `packages.config` formát.
+`MSBuild 16.5+` má také [podporu](#restoring-packagereference-and-packagesconfig-with-msbuild) pro `packages.config` formát.
+
+> [!NOTE]
+> `restore`Cíl [by neměl být spuštěn](#restoring-and-building-with-one-msbuild-command) v kombinaci s `build` cílem.
 
 ### <a name="restore-properties"></a>Obnovit vlastnosti
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: b162990eae2160961f560b6c6ee73e47cb4121d6
-ms.sourcegitcommit: f29fa9b93fd59e679fab50d7413bbf67da3ea5b3
+ms.openlocfilehash: 9f680a714717d1bde0472f2e1266cacfd8bd4d5f
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86451148"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699714"
 ---
 # <a name="troubleshooting-package-restore-errors"></a>Řešení potíží s chybami při obnovení balíčku
 
@@ -25,7 +25,7 @@ Pokud vám pokyny pro vás nefungují, [Zajistěte prosím problém na GitHubu](
 Pokud používáte sadu Visual Studio, nejprve povolte obnovení balíčku následujícím způsobem. V opačném případě pokračujte v následujících oddílech.
 
 1. Vyberte **nástroje > správce balíčků NuGet > nabídce Nastavení správce balíčků** .
-1. V části **obnovení balíčku**nastavte obě možnosti.
+1. V části **obnovení balíčku** nastavte obě možnosti.
 1. Vyberte **OK**.
 1. Sestavte projekt znovu.
 
@@ -46,7 +46,7 @@ Use NuGet Package Restore to download them. The missing file is {name}.
 
 K této chybě dochází, když se pokusíte sestavit projekt, který obsahuje odkazy na jeden nebo více balíčků NuGet, ale tyto balíčky se v počítači nebo v projektu aktuálně neinstalují.
 
-- Při použití formátu správy [PackageReference](package-references-in-project-files.md) chyba znamená, že balíček není nainstalován ve složce *Global-Packages* , jak je popsáno v tématu [Správa globálních balíčků a složek mezipaměti](managing-the-global-packages-and-cache-folders.md).
+- Při použití formátu správy [PackageReference](package-references-in-project-files.md) může být tato chyba zbylé z packages.config do migrace PackageReference a musí být [ručně odebrána](../resources/NuGet-FAQ.md#working-with-packages) ze souboru projektu.
 - Při použití [packages.config](../reference/packages-config.md)chyba znamená, že balíček není nainstalován ve `packages` složce v kořenu řešení.
 
 K této situaci obvykle dochází, když získáte zdrojový kód projektu ze správy zdrojového kódu nebo z jiného stahování. Balíčky jsou obvykle vynechány ze správy zdrojového kódu nebo ze souborů ke stažení, protože je lze obnovit z kanálů balíčků jako nuget.org (viz [balíčky a Správa zdrojového kódu](Packages-and-Source-Control.md)). Zahrnutí by jinak dispozici determinističtější úložiště nebo vytvářet zbytečně velké soubory. zip.
@@ -59,7 +59,7 @@ K obnovení balíčků použijte jednu z následujících metod:
 - [Visual Studio](package-restore.md#restore-using-visual-studio) ([Automatické obnovení](package-restore.md#restore-packages-automatically-using-visual-studio) nebo [Ruční obnovení](package-restore.md#restore-packages-manually-using-visual-studio))
 - [dotnet CLI](package-restore.md#restore-using-the-dotnet-cli)
 - [nuget.exe CLI](package-restore.md#restore-using-the-nugetexe-cli)
-- [Nástroji](package-restore.md#restore-using-msbuild)
+- [MSBuild](package-restore.md#restore-using-msbuild)
 - [Azure Pipelines](package-restore.md#restore-using-azure-pipelines)
 - [Azure DevOps Server](package-restore.md#restore-using-azure-devops-server)
 

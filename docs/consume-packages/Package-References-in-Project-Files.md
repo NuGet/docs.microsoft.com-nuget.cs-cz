@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: a5833df60c5f7905359f421141347b1237f45d86
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 1127e7aee27d57abd5f14dd3bea82dfff3ba6d93
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237637"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699781"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Odkazy na balíčky (PackageReference) v souborech projektu
 
@@ -102,7 +102,7 @@ Následující Tagy metadat řídí prostředky závislostí:
 | Značka | Popis | Výchozí hodnota |
 | --- | --- | --- |
 | IncludeAssets | Tyto prostředky budou spotřebovány. | Vše |
-| ExcludeAssets | Tyto prostředky nebudou spotřebovány. | žádné |
+| ExcludeAssets | Tyto prostředky nebudou spotřebovány. | Žádná |
 | PrivateAssets | Tyto prostředky budou spotřebovány, ale nebudou se přesměrovat do nadřazeného projektu. | contentFiles; analyzátory; sestavit |
 
 Přípustné hodnoty pro tyto značky jsou následující, s více hodnotami oddělenými středníkem s výjimkou `all` a, `none` které se musí objevit sami:
@@ -117,7 +117,7 @@ Přípustné hodnoty pro tyto značky jsou následující, s více hodnotami odd
 | buildTransitive | *(5.0 +)* `.props` a `.targets` ve `buildTransitive` složce pro prostředky, jejichž přenos do libovolného náročného projektu se protéká. Podívejte se na stránku [funkce](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior) . |
 | analyzátory | Analyzátory .NET |
 | nativní | Obsah `native` složky |
-| žádné | Žádná z výše uvedených verzí se nepoužívá. |
+| Žádná | Žádná z výše uvedených verzí se nepoužívá. |
 | Vše | Všechny výše uvedené (kromě `none` ) |
 
 V následujícím příkladu je vše kromě souborů obsahu z balíčku spotřebováno projektem a vše kromě souborů obsahu a analyzátory by vedlo k nadřazenému projektu.
@@ -201,10 +201,42 @@ Kromě toho NuGet automaticky vygeneruje vlastnosti pro balíčky obsahující s
   <Target Name="TakeAction" AfterTargets="Build">
     <Exec Command="$(PkgPackage_With_Tools)\tools\tool.exe" />
   </Target>
-````
+```
 
 Vlastnosti nástroje MSBuild a identity balíčku nemají stejná omezení, takže Identita balíčku musí být změněna na popisný název MSBuild, který je opraven slovem `Pkg` .
 Chcete-li ověřit přesný název generované vlastnosti, podívejte se do vygenerovaného souboru [NuGet. g. props](../reference/msbuild-targets.md#restore-outputs) .
+
+## <a name="packagereference-aliases"></a>PackageReference aliasy
+
+V některých vzácných instancích budou různé balíčky obsahovat třídy ve stejném oboru názvů. Počínaje verzí NuGet 5,7 & Visual Studio 2019 Update 7, který je ekvivalentní s ProjectReference, PackageReference podporuje [`Aliases`](/dotnet/api/microsoft.codeanalysis.projectreference.aliases) .
+Ve výchozím nastavení nejsou k dispozici žádné aliasy. Když je zadán alias, *všechna* sestavení pocházející z balíčku s poznámkami musí být odkazována aliasem.
+
+Můžete se podívat na ukázkové použití na [NuGet\Samples](https://github.com/NuGet/Samples/tree/master/PackageReferenceAliasesExample)
+
+V souboru projektu zadejte aliasy následujícím způsobem:
+
+```xml
+  <ItemGroup>
+    <PackageReference Include="NuGet.Versioning" Version="5.8.0" Aliases="ExampleAlias" />
+  </ItemGroup>
+```
+
+a v kódu ho použijte následujícím způsobem:
+
+```cs
+extern alias ExampleAlias;
+
+namespace PackageReferenceAliasesExample
+{
+...
+        {
+            var version = ExampleAlias.NuGet.Versioning.NuGetVersion.Parse("5.0.0");
+            Console.WriteLine($"Version : {version}");
+        }
+...
+}
+
+```
 
 ## <a name="nuget-warnings-and-errors"></a>Upozornění a chyby NuGet
 
