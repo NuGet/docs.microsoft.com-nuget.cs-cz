@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 39a4de4071eec70c88a2add158f2a3a734f7d7b7
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 0eca8478b4d6509dbc1407560d2c86069c7575dd
+ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622925"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98235734"
 ---
 # <a name="nuget-client-sdk"></a>Sada SDK pro klienta NuGet
 
@@ -20,23 +20,18 @@ ms.locfileid: "88622925"
 * [`NuGet.Packaging`](https://www.nuget.org/packages/NuGet.Packaging) – Používá se k interakci s balíčky NuGet. `NuGet.Protocol` závisí na tomto balíčku.
 
 Zdrojový kód pro tyto balíčky najdete v úložišti [NuGet/NuGet. Client](https://github.com/NuGet/NuGet.Client) GitHub.
+Zdrojový kód pro tyto příklady najdete v projektu [NuGet. Protocol. Samples](https://github.com/NuGet/Samples/tree/master/NuGetProtocolSamples) na GitHubu.
 
 > [!Note]
 > Dokumentaci k protokolu serveru NuGet najdete v tématu [rozhraní API serveru NuGet](~/api/overview.md).
 
-## <a name="getting-started"></a>Začínáme
+## <a name="nugetprotocol"></a>NuGet. Protocol
 
-### <a name="install-the-packages"></a>Nainstalovat balíčky
+Nainstalujte `NuGet.Protocol` balíček pro práci s informačními kanály balíčku NuGet na základě protokolu HTTP a složky:
 
 ```ps1
-dotnet add package NuGet.Protocol  # interact with HTTP and folder-based NuGet package feeds, includes NuGet.Packaging
-
-dotnet add package NuGet.Packaging # interact with .nupkg and .nuspec files from a stream
+dotnet add package NuGet.Protocol
 ```
-
-## <a name="examples"></a>Příklady
-
-Tyto příklady najdete v projektu [NuGet. Protocol. Samples](https://github.com/NuGet/Samples/tree/master/NuGetProtocolSamples) na GitHubu.
 
 ### <a name="list-package-versions"></a>Výpis verzí balíčků
 
@@ -61,6 +56,36 @@ Získejte metadata pro balíček "Newtonsoft.Json" pomocí [rozhraní API metada
 Vyhledejte balíčky "JSON" pomocí [rozhraní API pro vyhledávání NuGet V3](../api/search-query-service-resource.md):
 
 [!code-csharp[SearchPackages](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=SearchPackages)]
+
+### <a name="push-a-package"></a>Vložení balíčku
+
+Vložení balíčku pomocí [rozhraní API pro nabízené oznámení NuGet v3 a odstranit](../api/package-publish-resource.md):
+
+[!code-csharp[PushPackage](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=PushPackage)]
+
+### <a name="delete-a-package"></a>Odstranění balíčku
+
+Odstranění balíčku pomocí [rozhraní API pro nabízené oznámení NuGet v3 a odstranit](../api/package-publish-resource.md):
+
+> [!Note]
+> Servery NuGet mají zdarma interpretovat požadavek na odstranění balíčku jako "pevné odstranění", "obnovitelné odstranění" nebo "zrušit seznam".
+> Například nuget.org interpretuje požadavek na odstranění balíčku jako "unlist". Další informace o tomto postupu najdete v tématu [odstranění zásad balíčků](../nuget-org/policies/deleting-packages.md) .
+
+[!code-csharp[DeletePackage](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=DeletePackage)]
+
+### <a name="work-with-authenticated-feeds"></a>Práce s ověřenými informačními kanály
+
+Použijte [`NuGet.Protocol`](https://www.nuget.org/packages/NuGet.Protocol) pro práci s ověřenými informačními kanály.
+
+[!code-csharp[AuthenticatedFeed](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=AuthenticatedFeed)]
+
+## <a name="nugetpackaging"></a>Balíčky NuGet. balení
+
+Instalace `NuGet.Packaging` balíčku pro interakci se `.nupkg` soubory a `.nuspec` z datového proudu:
+
+```ps1
+dotnet add package NuGet.Packaging
+```
 
 ### <a name="create-a-package"></a>Vytvoření balíčku
 

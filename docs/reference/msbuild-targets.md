@@ -5,12 +5,12 @@ author: nkolev92
 ms.author: nikolev
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 66df4e0e4739300608fd5f9e44eea5bcd00079c8
-ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
+ms.openlocfilehash: 7de3f0f1133a89848e9268d489751293fb3cbf25
+ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97699884"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98235695"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Sada NuGet Pack a obnovení jako cíle MSBuild
 
@@ -71,7 +71,7 @@ Všimněte si, že nástroj `Owners` `Summary` `.nuspec` MSBuild nepodporuje vla
 | Úložiště/větev | RepositoryBranch | empty | Volitelné informace o větvi úložiště Pro zahrnutí této vlastnosti je nutné zadat také *RepositoryUrl* . Příklad: *Master* (NuGet 4.7.0 +) |
 | Úložiště/potvrzení změn | RepositoryCommit | empty | Volitelné potvrzení změn úložiště nebo sada změn, které označují, na který zdroj byl balíček vytvořen. Pro zahrnutí této vlastnosti je nutné zadat také *RepositoryUrl* . Příklad: *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +) |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
-| Shrnutí | Nepodporováno | | |
+| Souhrn | Nepodporováno | | |
 
 ### <a name="pack-target-inputs"></a>cílové vstupy balení
 
@@ -131,7 +131,7 @@ Počínaje verzí NuGet 5,3 & Visual Studio 2019 verze 16,3, `pack` vyvolá upoz
 
 Při balení souboru obrázku ikony je nutné použít `PackageIcon` vlastnost k určení cesty k balíčku vzhledem k kořenu balíčku. Kromě toho je nutné zajistit, aby byl soubor zahrnut do balíčku. Velikost souboru obrázku je omezená na 1 MB. Podporované formáty souborů zahrnují JPEG a PNG. Doporučujeme, abyste 128 × 128 rozlišení obrazu.
 
-Například:
+Příklad:
 
 ```xml
 <PropertyGroup>
@@ -242,7 +242,7 @@ Při použití licenčního výrazu by se měla použít vlastnost PackageLicens
 
 [Přečtěte si další informace o výrazech licencí a licencích, které jsou přijaty nástrojem NuGet.org](nuspec.md#license).
 
-Při balení licenčního souboru musíte použít vlastnost PackageLicenseFile a zadat cestu k balíčku relativní ke kořenu balíčku. Kromě toho je nutné zajistit, aby byl soubor zahrnut do balíčku. Například:
+Při balení licenčního souboru musíte použít vlastnost PackageLicenseFile a zadat cestu k balíčku relativní ke kořenu balíčku. Kromě toho je nutné zajistit, aby byl soubor zahrnut do balíčku. Příklad:
 
 ```xml
 <PropertyGroup>
@@ -413,7 +413,8 @@ Další nastavení obnovení může pocházet z vlastností MSBuild v souboru pr
 | RestoreLockedMode | Spustit obnovení v uzamčeném režimu. To znamená, že obnovení nebude přehodnocovat závislosti. |
 | NuGetLockFilePath | Vlastní umístění souboru zámku. Výchozí umístění je vedle projektu a je pojmenováno `packages.lock.json` . |
 | RestoreForceEvaluate | Vynutí obnovení pro přepočítání závislostí a aktualizaci souboru zámku bez upozornění. |
-| RestorePackagesConfig | Přepínač opt, který obnovuje projekty pomocí packages.config. Podpora pouze s nástrojem `MSBuild -t:restore` . |
+| RestorePackagesConfig | Přepínač pro výslovný souhlas, který obnovuje projekty pomocí packages.config. Podpora pouze s nástrojem `MSBuild -t:restore` . |
+| RestoreUseStaticGraphEvaluation | Přepínač výslovného souhlasu pro použití statického vyhodnocení grafu MSBuild namísto standardního vyhodnocení. Statické vyhodnocení grafu je experimentální funkce, která je výrazně rychlejší pro velké úložiště a řešení. |
 
 #### <a name="examples"></a>Příklady
 
@@ -469,25 +470,40 @@ msbuild -t:restore -p:RestorePackagesConfig=true
 > [!NOTE]
 > `packages.config` obnovení je k dispozici pouze pro `MSBuild 16.5+` , a nikoli s `dotnet.exe`
 
-### <a name="packagetargetfallback"></a>PackageTargetFallback
+### <a name="restoring-with-msbuild-static-graph-evaluation"></a>Obnovení pomocí vyhodnocení statického grafu MSBuild
 
-`PackageTargetFallback`Element umožňuje zadat sadu kompatibilních cílů, které mají být použity při obnovení balíčků. Je navržena tak, aby povolovala balíčkům, které používají dotnet [TxM](../reference/target-frameworks.md) pro práci s kompatibilními balíčky, které nedeklarují dotnet TxM. To znamená, že pokud váš projekt používá dotnet TxM, pak všechny balíčky, na kterých závisí, musí mít také hodnotu dotnet TxM, pokud do projektu nepřidáte, aby bylo možné, aby platformy, které `<PackageTargetFallback>` nejsou dotnet, byly kompatibilní s dotnet.
+> [!NOTE]
+> Pomocí nástroje MSBuild 16.6 + nástroj NuGet přidal experimentální funkci pro použití statického vyhodnocení grafu z příkazového řádku, který významně vylepšuje čas obnovení pro velká úložiště.
 
-Například pokud projekt používá `netstandard1.6` TxM a závislý balíček obsahuje pouze `lib/net45/a.dll` a `lib/portable-net45+win81/a.dll` , projekt se nepodaří sestavit. Pokud je to, co chcete uvést, je druhá knihovna DLL, pak můžete přidat `PackageTargetFallback` tak, aby říkáme, že `portable-net45+win81` je knihovna DLL kompatibilní:
-
-```xml
-<PackageTargetFallback Condition="'$(TargetFramework)'=='netstandard1.6'">
-    portable-net45+win81
-</PackageTargetFallback>
+```cli
+msbuild -t:restore -p:RestoreUseStaticGraphEvaluation=true
 ```
 
-Chcete-li deklarovat zálohu pro všechny cíle v projektu, ponechte `Condition` atribut. Můžete také všechny existující `PackageTargetFallback` , a to i tak, `$(PackageTargetFallback)` jak je znázorněno zde:
+Případně ho můžete povolit nastavením vlastnosti v adresáři. Build. props.
 
 ```xml
-<PackageTargetFallback>
-    $(PackageTargetFallback);portable-net45+win81
-</PackageTargetFallback >
+<Project>
+  <PropertyGroup>
+    <RestoreUseStaticGraphEvaluation>true</RestoreUseStaticGraphEvaluation>
+  </PropertyGroup>
+</Project>
 ```
+
+> [!NOTE]
+> Od sady Visual Studio 2019. x a NuGet 5. x se tato funkce považuje za experimentální a výslovný souhlas. Podrobnosti o tom, kdy bude tato funkce ve výchozím nastavení povolená, najdete v [balíčku NuGet/Home # 9803](https://github.com/NuGet/Home/issues/9803) .
+
+Statické obnovení grafu mění část obnovení MSBuild, projekt čte a vyhodnocuje, ale nikoli algoritmus obnovení. Algoritmus obnovení je stejný u všech nástrojů NuGet (NuGet.exe, MSBuild.exe, dotnet.exe a Visual Studio).
+
+Ve velmi málo scénářích se statické obnovení grafu může chovat odlišně od aktuálního obnovení a některé deklarované PackageReferences nebo ProjectReferences mohou chybět.
+
+Pokud chcete při migraci na statický graf obnovit svůj názor, zvažte spuštění:
+
+```cli
+msbuild.exe -t:restore -p:RestoreUseStaticGraphEvaluation
+msbuild.exe -t:restore
+```
+
+NuGet by *neměl* hlásit žádné změny. Pokud se zobrazí nesoulad, uveďte problém na [stránce NuGet/Home](https://github.com/nuget/home/issues/new).
 
 ### <a name="replacing-one-library-from-a-restore-graph"></a>Nahrazení jedné knihovny z grafu obnovení
 

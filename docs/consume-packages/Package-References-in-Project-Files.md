@@ -1,16 +1,16 @@
 ---
 title: Formát NuGet PackageReference (odkazy na balíčky v souborech projektu)
 description: Podrobnosti o NuGet PackageReference v souborech projektu, které podporuje NuGet 4.0 + a VS2017 a .NET Core 2,0
-author: karann-msft
-ms.author: karann
+author: nkolev92
+ms.author: nikolev
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 1127e7aee27d57abd5f14dd3bea82dfff3ba6d93
-ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
+ms.openlocfilehash: dcaed83ca54e3234702e963ffc2ebbde4cd75b28
+ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97699781"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98235760"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Odkazy na balíčky (PackageReference) v souborech projektu
 
@@ -102,7 +102,7 @@ Následující Tagy metadat řídí prostředky závislostí:
 | Značka | Popis | Výchozí hodnota |
 | --- | --- | --- |
 | IncludeAssets | Tyto prostředky budou spotřebovány. | Vše |
-| ExcludeAssets | Tyto prostředky nebudou spotřebovány. | Žádná |
+| ExcludeAssets | Tyto prostředky nebudou spotřebovány. | žádné |
 | PrivateAssets | Tyto prostředky budou spotřebovány, ale nebudou se přesměrovat do nadřazeného projektu. | contentFiles; analyzátory; sestavit |
 
 Přípustné hodnoty pro tyto značky jsou následující, s více hodnotami oddělenými středníkem s výjimkou `all` a, `none` které se musí objevit sami:
@@ -117,7 +117,7 @@ Přípustné hodnoty pro tyto značky jsou následující, s více hodnotami odd
 | buildTransitive | *(5.0 +)* `.props` a `.targets` ve `buildTransitive` složce pro prostředky, jejichž přenos do libovolného náročného projektu se protéká. Podívejte se na stránku [funkce](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior) . |
 | analyzátory | Analyzátory .NET |
 | nativní | Obsah `native` složky |
-| Žádná | Žádná z výše uvedených verzí se nepoužívá. |
+| žádné | Žádná z výše uvedených verzí se nepoužívá. |
 | Vše | Všechny výše uvedené (kromě `none` ) |
 
 V následujícím příkladu je vše kromě souborů obsahu z balíčku spotřebováno projektem a vše kromě souborů obsahu a analyzátory by vedlo k nadřazenému projektu.
@@ -305,7 +305,7 @@ Při v aplikaci Visual Studio můžete také [potlačit upozornění](/visualstu
 
 *Tato funkce je k dispozici pro NuGet **4,9** nebo vyšší a pro Visual Studio 2017 **15,9** nebo vyšší.*
 
-Vstup do obnovení NuGet je sada odkazů na balíčky ze souboru projektu (závislosti na nejvyšší úrovni nebo přímých závislostí) a výstup je plný uzávěr všech závislostí balíčku včetně přenosných závislostí. V případě, že se vstupní seznam PackageReference nezměnil, nástroj NuGet se pokusí vždy vydávat stejný plný uzávěr závislostí balíčku. Existují však situace, kdy to není možné. Například:
+Vstup do obnovení NuGet je sada odkazů na balíčky ze souboru projektu (závislosti na nejvyšší úrovni nebo přímých závislostí) a výstup je plný uzávěr všech závislostí balíčku včetně přenosných závislostí. V případě, že se vstupní seznam PackageReference nezměnil, nástroj NuGet se pokusí vždy vydávat stejný plný uzávěr závislostí balíčku. Existují však situace, kdy to není možné. Příklad:
 
 * Při použití plovoucích verzí, jako je `<PackageReference Include="My.Sample.Lib" Version="4.*"/>` . I když tady je tento záměr na nejnovější verzi v každé obnovy balíčků, existují situace, kdy uživatelé potřebují, aby byl graf uzamčený na určitou nejnovější verzi a aby byl na novější verzi, pokud je k dispozici, po explicitním gestu.
 * Je publikovaná novější verze balíčku, která odpovídá požadavkům verze PackageReference. Například 
@@ -390,3 +390,34 @@ Můžete řídit různá chování při obnovení pomocí souboru zámku, jak je
 | `-LockedMode` | `--locked-mode` | RestoreLockedMode | Zapne uzamčený režim pro obnovení. To je užitečné ve scénářích CI/CD, kde chcete opakovat sestavení.|   
 | `-ForceEvaluate` | `--force-evaluate` | RestoreForceEvaluate | Tato možnost je užitečná pro balíčky s plovoucí verzí definovanou v projektu. Ve výchozím nastavení při obnovení NuGet nebude automaticky aktualizovat verzi balíčku pro každé obnovení, pokud u této možnosti nespustíte příkaz Restore. |
 | `-LockFilePath` | `--lock-file-path` | NuGetLockFilePath | Definuje vlastní umístění souboru zámku pro projekt. Ve výchozím nastavení NuGet podporuje `packages.lock.json` v kořenovém adresáři. Pokud máte ve stejném adresáři více projektů, NuGet podporuje soubor zámku specifický pro projekt. `packages.<project_name>.lock.json` |
+
+## <a name="assettargetfallback"></a>AssetTargetFallback
+
+`AssetTargetFallback`Vlastnost umožňuje určit další kompatibilní verze rozhraní pro projekty, na které projekt odkazuje, a balíčky NuGet, které váš projekt spotřebovává.
+
+Pokud zadáte závislost balíčku pomocí `PackageReference` , ale tento balíček neobsahuje prostředky, které jsou kompatibilní s cílovým rozhraním .NET Framework vašich projektů, `AssetTargetFallback` vlastnost se dostane do hry. Kompatibilita odkazovaného balíčku je znovu zkontrolována pomocí každé cílové architektury, která je určena v `AssetTargetFallback` .
+V případě `project` , že `package` je odkazováno na nebo `AssetTargetFallback` , se vyvolá upozornění [NU1701](../reference/errors-and-warnings/NU1701.md) .
+
+V následující tabulce najdete příklady `AssetTargetFallback` vlivu kompatibility.
+
+| Projektový rámec | AssetTargetFallback | Balíčky balíčků | Výsledek |
+|-------------------|---------------------|--------------------|--------|
+|  .NET Framework 4.7.2 | | .NET Standard 2,0 | .NET Standard 2,0 |
+| .NET Core – aplikace 3,1 | | .NET Standard 2,0, .NET Framework 4.7.2 | .NET Standard 2,0 |
+| .NET Core – aplikace 3,1 | |  .NET Framework 4.7.2 | Nekompatibilní, selhání s [`NU1202`](../reference/errors-and-warnings/NU1202.md) |
+| .NET Core – aplikace 3,1 | net472;net471 |  .NET Framework 4.7.2 | .NET Framework 4.7.2 s [`NU1701`](../reference/errors-and-warnings/NU1701.md) |
+
+Pomocí oddělovače lze zadat více rozhraní `;` . Pro přidání záložního rozhraní můžete provést následující akce:
+
+```xml
+<AssetTargetFallback Condition=" '$(TargetFramework)'=='netcoreapp3.1' ">
+    $(AssetTargetFallback);net472;net471
+</AssetTargetFallback>
+```
+
+`$(AssetTargetFallback)`Pokud chcete přepsat místo přidání do stávajících hodnot, můžete ho nechat vypnuté `AssetTargetFallback` .
+
+> [!NOTE]
+> Pokud používáte [projekt založený na sadě .NET SDK](/dotnet/core/sdk), `$(AssetTargetFallback)` jsou nakonfigurovány správné hodnoty a nemusíte je nastavovat ručně.
+>
+> `$(PackageTargetFallback)` byla dřívější funkce, která se pokusila vyřešit tuto výzvu, ale je zásadní a *neměla by* se používat. Chcete-li provést migraci z nástroje `$(PackageTargetFallback)` na `$(AssetTargetFallback)` , jednoduše změňte název vlastnosti.
