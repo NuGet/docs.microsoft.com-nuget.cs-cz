@@ -1,16 +1,16 @@
 ---
-title: Vytvoření balíčků NuGet pro Univerzální platforma Windows
+title: Vytváření balíčků NuGet pro platformu UWP (C#)
 description: Ucelený návod k vytváření balíčků NuGet pomocí prostředí Windows Runtime komponenty pro Univerzální platforma Windows v jazyce C#.
 author: rrelyea
 ms.author: rrelyea
 ms.date: 02/28/2020
 ms.topic: tutorial
-ms.openlocfilehash: 6f8037f439d627af158b6d5b7746a633b053e514
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 22df2cd6dc374ba265c79a019747191e797b774c
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93238007"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774285"
 ---
 # <a name="create-uwp-packages-c"></a>Vytváření balíčků UWP (C#)
 
@@ -26,19 +26,19 @@ V tomto návodu vytvoříte balíček NuGet pomocí komponenty pro platformu UWP
 
 ## <a name="create-a-uwp-windows-runtime-component"></a>Vytvoření komponenty prostředí Windows Runtime UWP
 
-1. V aplikaci Visual Studio zvolte **soubor > nový > projekt** , vyhledejte "UWP c#", vyberte šablonu **prostředí Windows Runtime komponenty (Universal Windows)** , klikněte na další, změňte název na ImageEnhancer a klikněte na vytvořit. Po zobrazení výzvy přijměte výchozí hodnoty pro cílovou verzi a minimální verzi.
+1. V aplikaci Visual Studio zvolte **soubor > nový > projekt**, vyhledejte "UWP c#", vyberte šablonu **prostředí Windows Runtime komponenty (Universal Windows)** , klikněte na další, změňte název na ImageEnhancer a klikněte na vytvořit. Po zobrazení výzvy přijměte výchozí hodnoty pro cílovou verzi a minimální verzi.
 
     ![Vytváření nového projektu součásti prostředí Windows Runtime pro UWP](media/UWP-NewProject-CS.png)
 
-1. Klikněte pravým tlačítkem na projekt v Průzkumník řešení, vyberte **přidat > novou položku** , vyberte **ovládací prvek s šablonou** , změňte název na AwesomeImageControl.cs a klikněte na **Přidat** :
+1. Klikněte pravým tlačítkem na projekt v Průzkumník řešení, vyberte **přidat > novou položku**, vyberte **ovládací prvek s šablonou**, změňte název na AwesomeImageControl.cs a klikněte na **Přidat**:
 
     ![Přidání nové položky ovládacího prvku v šabloně XAML do projektu](media/UWP-NewXAMLControl-CS.png)
 
-1. Klikněte pravým tlačítkem na projekt v Průzkumník řešení a vyberte **Vlastnosti.** Na stránce Vlastnosti klikněte na kartu **sestavení** a povolte **soubor dokumentace XML** :
+1. Klikněte pravým tlačítkem na projekt v Průzkumník řešení a vyberte **Vlastnosti.** Na stránce Vlastnosti klikněte na kartu **sestavení** a povolte **soubor dokumentace XML**:
 
     ![Nastavení generovat soubory dokumentace XML na Ano](media/UWP-GenerateXMLDocFiles-CS.png)
 
-1. Klikněte pravým tlačítkem na *řešení* , vyberte **dávkové sestavení** , zaškrtněte pět polí sestavení v dialogovém okně, jak je znázorněno níže. Tím je zajištěno, že při sestavení vygenerujete úplnou sadu artefaktů pro každý cílový systém, který systém Windows podporuje.
+1. Klikněte pravým tlačítkem na *řešení* , vyberte **dávkové sestavení**, zaškrtněte pět polí sestavení v dialogovém okně, jak je znázorněno níže. Tím je zajištěno, že při sestavení vygenerujete úplnou sadu artefaktů pro každý cílový systém, který systém Windows podporuje.
 
     ![Dávkové sestavení](media/UWP-BatchBuild-CS.png)
 

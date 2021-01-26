@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/30/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: ffbcb8dc18542f39c32a6d84b279c8eccaf98fc3
-ms.sourcegitcommit: 7e9c0630335ef9ec1e200e2ee9065f702e52a8ec
+ms.openlocfilehash: 11485f583d6993919f6bb8acabcc87d9e4261975
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85292307"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774159"
 ---
 # <a name="catalog"></a>Katalog
 
@@ -27,7 +27,7 @@ ms.locfileid: "85292307"
 
 Použije se následující `@type` hodnota:
 
-@typeosa   | Poznámky
+@type osa   | Poznámky
 ------------- | -----
 Katalog/3.0.0 | Počáteční verze
 
@@ -63,15 +63,17 @@ Položky katalogu se vždycky přidávají do katalogu ve rovnoměrně zvětšuj
 
 Následující požadavek Načte index katalogu.
 
-    GET {@id}
+```
+GET {@id}
+```
 
 Index katalogu je dokument JSON, který obsahuje objekt s následujícími vlastnostmi:
 
-Name            | Typ             | Vyžadováno | Poznámky
+Název            | Typ             | Vyžadováno | Poznámky
 --------------- | ---------------- | -------- | -----
 commitId        | řetězec           | ano      | Jedinečné ID přidružené k nejnovějšímu potvrzení změn
 commitTimeStamp | řetězec           | ano      | Časové razítko posledního potvrzení změn
-count           | celé číslo          | ano      | Počet stránek v indexu
+count           | integer          | ano      | Počet stránek v indexu
 položek           | pole objektů | ano      | Pole objektů, každý objekt, který představuje stránku
 
 Každý prvek v `items` poli je objekt s minimálními podrobnostmi o každé stránce. Tyto objekty stránky neobsahují katalog (položky). Pořadí prvků v tomto poli není definováno. Stránky lze seřadit podle klienta v paměti pomocí jejich `commitTimeStamp` Vlastnosti.
@@ -84,18 +86,20 @@ Když se do katalogu přidají položky, index se `commitId` změní a `commitTi
 
 Objekty stránky katalogu nalezené ve vlastnosti index katalogu `items` mají následující vlastnosti:
 
-Name            | Typ    | Vyžadováno | Poznámky
+Název            | Typ    | Vyžadováno | Poznámky
 --------------- | ------- | -------- | -----
 @id             | řetězec  | ano      | Adresa URL pro načtení stránky katalogu
 commitId        | řetězec  | ano      | Jedinečné ID přidružené k nejnovějšímu potvrzení na této stránce
 commitTimeStamp | řetězec  | ano      | Časové razítko posledního potvrzení na této stránce
-count           | celé číslo | ano      | Počet položek na stránce katalogu
+count           | integer | ano      | Počet položek na stránce katalogu
 
 Na rozdíl od [prostředku metadat balíčku](registration-base-url-resource.md) , který v některých případech zanechá v indexu, zůstanou listy v katalogu nikdy vložené do indexu a musí se vždy načíst pomocí `@id` adresy URL stránky.
 
 ### <a name="sample-request"></a>Ukázková žádost
 
-    GET https://api.nuget.org/v3/catalog0/index.json
+```
+GET https://api.nuget.org/v3/catalog0/index.json
+```
 
 ### <a name="sample-response"></a>Ukázková odpověď
 
@@ -109,11 +113,11 @@ Nové položky katalogu jsou přidány na stránku v indexu katalogu pouze s nej
 
 Dokument stránky katalogu je objekt JSON s následujícími vlastnostmi:
 
-Name            | Typ             | Vyžadováno | Poznámky
+Název            | Typ             | Vyžadováno | Poznámky
 --------------- | ---------------- | -------- | -----
 commitId        | řetězec           | ano      | Jedinečné ID přidružené k nejnovějšímu potvrzení na této stránce
 commitTimeStamp | řetězec           | ano      | Časové razítko posledního potvrzení na této stránce
-count           | celé číslo          | ano      | Počet položek na stránce
+count           | integer          | ano      | Počet položek na stránce
 položek           | pole objektů | ano      | Položky katalogu na této stránce
 nadřazený          | řetězec           | ano      | Adresa URL indexu katalogu
 
@@ -129,7 +133,7 @@ Když jsou položky přidány na stránku, `commitId` změny a `commitTimeStamp`
 
 Objekty položky katalogu, které byly nalezeny ve vlastnosti stránky katalogu, `items` mají následující vlastnosti:
 
-Name            | Typ    | Vyžadováno | Poznámky
+Název            | Typ    | Vyžadováno | Poznámky
 --------------- | ------- | -------- | -----
 @id             | řetězec  | ano      | Adresa URL pro načtení položky katalogu
 @type           | řetězec  | ano      | Typ položky katalogu
@@ -147,7 +151,9 @@ Další podrobnosti o tom, co každý typ znamená, naleznete níže v [odpovíd
 
 ### <a name="sample-request"></a>Ukázková žádost
 
-    GET https://api.nuget.org/v3/catalog0/page2926.json
+```
+GET https://api.nuget.org/v3/catalog0/page2926.json
+```
 
 ### <a name="sample-response"></a>Ukázková odpověď
 
@@ -159,7 +165,7 @@ List katalogu obsahuje metadata týkající se konkrétního ID a verze balíčk
 
 Dokument listu katalogu je objekt JSON s následujícími vlastnostmi:
 
-Name                    | Typ                       | Vyžadováno | Poznámky
+Název                    | Typ                       | Vyžadováno | Poznámky
 ----------------------- | -------------------------- | -------- | -----
 @type                   | řetězec nebo pole řetězců | ano      | Typ (y) položky katalogu
 Katalog: commitId        | řetězec                     | ano      | ID potvrzení přidružené k této položce katalogu
@@ -182,7 +188,7 @@ Položky katalogu s typem `PackageDetails` obsahují snímek metadat balíčku p
 1. Balíček je **vložen**.
 1. **Zobrazí se balíček.**
 1. Balíček není v **seznamu**.
-1. Dojde k **přetečení**balíčku.
+1. Dojde k **přetečení** balíčku.
 
 Přetékání balíčku je gesto správce, které v podstatě generuje falešné vložení stávajícího balíčku bez jakýchkoli změn samotného balíčku. V nuget.org se po opravě chyby v jedné z úloh na pozadí, které využívají katalog, používá přesměrování.
 
@@ -190,27 +196,27 @@ Klienti, kteří mají položky katalogu, by se neměli pokoušet určit, který
 
 Položky katalogu podrobností katalogu obsahují kromě těch, které jsou [zahrnuté ve všech pochodech katalogu](#catalog-leaf), následující vlastnosti.
 
-Name                    | Typ                       | Vyžadováno | Poznámky
+Název                    | Typ                       | Vyžadováno | Poznámky
 ----------------------- | -------------------------- | -------- | -----
 Autoři                 | řetězec                     | ne       |
 vytvářejí                 | řetězec                     | ne       | Časové razítko při prvním vytvoření balíčku. Záložní vlastnost: `published` .
 dependencyGroups        | pole objektů           | ne       | Závislosti balíčku seskupené podle cílového rozhraní ([stejný formát jako prostředek metadat balíčku](registration-base-url-resource.md#package-dependency-group))
-vyřazení             | odkazy objektů                     | ne       | Vyřazení přidružení k balíčku ([stejný formát jako prostředek metadat balíčku](registration-base-url-resource.md#package-deprecation))
+vyřazení             | object                     | ne       | Vyřazení přidružení k balíčku ([stejný formát jako prostředek metadat balíčku](registration-base-url-resource.md#package-deprecation))
 description             | řetězec                     | ne       |
 iconUrl                 | řetězec                     | ne       |
-isPrerelease            | Boolean                    | ne       | Bez ohledu na to, jestli je verze balíčku předběžná. Lze zjistit z `version` .
+isPrerelease            | boolean                    | ne       | Bez ohledu na to, jestli je verze balíčku předběžná. Lze zjistit z `version` .
 language                | řetězec                     | ne       |
 licenseUrl              | řetězec                     | ne       |
-uvedené v seznamu                  | Boolean                    | ne       | Bez ohledu na to, jestli je tento balíček uvedený
+uvedené v seznamu                  | boolean                    | ne       | Bez ohledu na to, jestli je tento balíček uvedený
 minClientVersion        | řetězec                     | ne       |
 packageHash             | řetězec                     | ano      | Hodnota hash balíčku, kódování pomocí [standardu base 64](https://tools.ietf.org/html/rfc4648#section-4)
 packageHashAlgorithm    | řetězec                     | ano      |
-packageSize             | celé číslo                    | ano      | Velikost balíčku. nupkg v bajtech
+packageSize             | integer                    | ano      | Velikost balíčku. nupkg v bajtech
 packageTypes            | pole objektů           | ne       | Typy balíčků určené autorem.
 projectUrl              | řetězec                     | ne       |
 releaseNotes            | řetězec                     | ne       |
-requireLicenseAgreement | Boolean                    | ne       | Předpokládat, `false` Pokud vyloučeno
-summary                 | řetězec                     | ne       |
+requireLicenseAgreement | boolean                    | ne       | Předpokládat, `false` Pokud vyloučeno
+shrnutí                 | řetězec                     | ne       |
 tags                    | pole řetězců           | ne       |
 title                   | řetězec                     | ne       |
 verbatimVersion         | řetězec                     | ne       | Řetězec verze, který je původně nalezen v. nuspec
@@ -223,7 +229,7 @@ Vlastnost Package `version` je úplný řetězec verze po normalizaci. To znamen
 
 `packageTypes`Vlastnost bude přítomna pouze v případě, že autor zadal typ balíčku. Pokud je k dispozici, bude mít vždy alespoň jednu (1) položku. Každá položka v `packageTypes` poli je objekt JSON s následujícími vlastnostmi:
 
-Name      | Typ    | Vyžadováno | Poznámky
+Název      | Typ    | Vyžadováno | Poznámky
 --------- | ------- | -------- | -----
 name      | řetězec  | ano      | Název typu balíčku.
 verze    | řetězec  | ne       | Verze typu balíčku. K dispozici pouze v případě, že autor výslovně zadal verzi v nuspec.
@@ -235,7 +241,9 @@ verze    | řetězec  | ne       | Verze typu balíčku. K dispozici pouze v př
 
 #### <a name="sample-request"></a>Ukázková žádost
 
-Čtětehttps://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
+```
+GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
+```
 
 #### <a name="sample-response"></a>Ukázková odpověď
 
@@ -256,7 +264,9 @@ Neexistují žádné další vlastnosti kromě těch, které jsou [zahrnuté ve 
 
 #### <a name="sample-request"></a>Ukázková žádost
 
-Čtětehttps://api.nuget.org/v3/catalog0/data/2017.11.02.00.40.00/netstandard1.4_lib.1.0.0-test.json
+```
+GET https://api.nuget.org/v3/catalog0/data/2017.11.02.00.40.00/netstandard1.4_lib.1.0.0-test.json
+```
 
 #### <a name="sample-response"></a>Ukázková odpověď
 

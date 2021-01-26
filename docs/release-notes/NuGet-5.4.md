@@ -1,16 +1,16 @@
 ---
 title: Zpráva k vydání verze NuGet 5,4
 description: Poznámky k verzi pro NuGet 5,4, včetně nových funkcí, oprav chyb a chcete odeslat obecnou.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 09/06/2019
 ms.topic: conceptual
-ms.openlocfilehash: c7fb9c1e587b6603abe63581c662571abfd4506b
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: dd4c10672db3a65b68f18636105ee55ab09da7ef
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75384108"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776184"
 ---
 # <a name="nuget-54-release-notes"></a>Zpráva k vydání verze NuGet 5,4
 
@@ -28,7 +28,7 @@ Prostředky pro distribuci NuGet:
 
 * Nová pomocná funkce – seznam ID a verzí balíčků získáte tak, že získáte pravděpodobná balíčky nejvyšší úrovně. - [#8316](https://github.com/NuGet/Home/issues/8316)
 
-* Nová akce [`nuget/setup-nuget`](https://github.com/marketplace/actions/setup-nuget-exe-for-use-with-actions) pro instalaci a konfiguraci NuGet. exe na [akcích GitHubu](https://github.com/features/actions). - [#8818](https://github.com/NuGet/Home/issues/8818)
+* Nová [`nuget/setup-nuget`](https://github.com/marketplace/actions/setup-nuget-exe-for-use-with-actions) akce pro instalaci a konfiguraci NuGet.exe na [akcích GitHubu](https://github.com/features/actions). - [#8818](https://github.com/NuGet/Home/issues/8818)
 
 ### <a name="issues-fixed-in-this-release"></a>Chyby opravené v této verzi
 
@@ -42,7 +42,7 @@ Prostředky pro distribuci NuGet:
 
 * Soubor zámku není správně vygenerován – řazení rozhraní by nemělo mít vliv na obnovení pomocí lockedmode- [#8645](https://github.com/NuGet/Home/issues/8645)
 
-* LockFile se nezdařila pro projekty se sadou <RuntimeIdentifiers> nastavenou v sadě SDK 3.0.100- [#8639](https://github.com/NuGet/Home/issues/8639)
+* LockFile se nezdařila pro projekty se <RuntimeIdentifiers> sadou v sadě SDK 3.0.100- [#8639](https://github.com/NuGet/Home/issues/8639)
 
 * Ověřování podpisů teď bude správně odmítat podpisy s časovými razítky, které mají 2 hodnoty pod stejným identifikátorem OID- [#8629](https://github.com/NuGet/Home/issues/8629)
 

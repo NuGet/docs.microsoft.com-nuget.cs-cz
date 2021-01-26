@@ -1,95 +1,95 @@
 ---
 title: Zásady správného řízení projektu NuGet
-description: Model zásad správného řízení pro NuGet, včetně rolí a odpovědností pro vývojáře, přispěvatele a uživatele.
-author: karann-msft
-ms.author: karann
+description: Model zásad správného řízení pro NuGet, včetně rolí a zodpovědností pro svěření, přispěvatele a uživatele.
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 2aaaf41b3fc4ef3621333e5099780b5d7ef393bc
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 2edaac0218dc936ea6bfe1814c0aab963028ea87
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "64500399"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775603"
 ---
-# <a name="nuget-governance"></a>NuGet zásady správného řízení
+# <a name="nuget-governance"></a>Zásady správného řízení NuGet
 
-> Tento dokument je založen na [benevolentní diktátorský model řízení na](http://www.oss-watch.ac.uk/resources/benevolentdictatorgovernancemodel) Univerzitě v Oxfordu. Je licencován pod [Creative Commons Attribution-ShareAlike 2.0 UK: England & Wales License](http://creativecommons.org/licenses/by-sa/2.0/uk/).
+> Tento dokument je založený na [modelu zásad správného řízení Benevolent Dictator](http://www.oss-watch.ac.uk/resources/benevolentdictatorgovernancemodel) na University of Oxford. Licence na produkt Creative- [2,0 Attribution-ShareAlike UK: anglie & Wales](http://creativecommons.org/licenses/by-sa/2.0/uk/).
 
-Projekt NuGet je veden benevolentním diktátorem a řízen komunitou. To znamená, že komunita aktivně přispívá k každodenní údržbě projektu, ale obecnou strategickou linii je nakreslena benevolentním diktátorem. V případě neshody má benevolentní diktátor poslední slovo.
+Projekt NuGet vychází z Benevolent Dictator a je spravovaný komunitou. To znamená, že komunita aktivně přispívá k každodenní údržbě projektu, ale obecný strategický řádek je vykreslen Benevolent Dictator. V případě odsouhlasení má Benevolent Dictator poslední slovo.
 
-Úkolem benevolentního diktátora je řešit spory v rámci komunity a zajistit, aby projekt mohl postupovat koordinovaným způsobem. Na druhé straně je úkolem komunity řídit rozhodnutí benevolentního diktátora prostřednictvím aktivníangažovanosti a příspěvku.
+Jedná se o úlohu Benevolent Dictator k řešení sporů v rámci komunity a k zajištění toho, aby projekt byl schopný sestavovat koordinovaným způsobem. V takovém případě se jedná o úlohu komunity, která bude řídit rozhodnutí Benevolent Dictator prostřednictvím aktivní zapojení a příspěvku.
 
-## <a name="roles-and-responsibilities"></a>Role a odpovědnosti
+## <a name="roles-and-responsibilities"></a>Role a povinnosti
 
-Jsou zde popsány čtyři role: Benevolentní diktátor, vývojáři, přispěvatelé a uživatelé.
+Tady jsou popsané čtyři role: Benevolent Dictator, potvrzování, přispěvatelé a uživatelé.
 
-### <a name="benevolent-dictator"></a>Benevolentní diktátor
+### <a name="benevolent-dictator"></a>Benevolent dictator
 
-Základní tým NuGet je samozvaný benevolentní diktátor nebo vedoucí projektu. Nicméně, protože komunita má vždy schopnost viditelně, tým je plně odpovědný komunitě. Očekává se, že vedoucí projektu pochopí komunitu jako celek a bude se snažit uspokojit co nejvíce protichůdných potřeb a zároveň zajistí, aby projekt dlouhodobě přežil.
+Jádro NuGet Core je samoně určené jako Benevolent Dictator nebo vedoucí projektu. Protože ale komunita má vždycky možnost rozvětvení, tým je plně zodpovězený na komunitu. Očekává se, že vedoucí projektu porozumí komunitě jako celek a snaží se co nejlépe naplnit tolik konfliktních potřeb a zároveň zajistit, aby byl projekt v dlouhodobém horizontu.
 
-V mnoha ohledech je úloha benevolentního diktátora méně o diktatuře, jako spíše o diplomacii. Klíčem je zajistit, aby, jak se projekt rozšiřuje, právo lidé jsou uvedeny vliv na to a společenství shromáždění za vizi projektu vést. Úkolem zájemce je pak zajistit, aby vývojáři (viz níže) učinili správná rozhodnutí jménem projektu. Obecně řečeno, pokud jsou vývojáři v souladu se strategií projektu, vedoucí projektu jim umožní pokračovat, jak chtějí.
+V mnoha ohledech je role Benevolent dictator méně o dictatorship a další informace o Diplomacy. Klíčem je zajistit, že se po rozšíření projektu nastanou jejich vliv na pravé lidi a na komunitu, které Rallies za vizi vedoucího projektu. Úkolem vedoucího je, aby se zajistilo, že odesílatelé (viz níže) učiní správná rozhodnutí jménem projektu. Obecně řečeno, pokud jsou odesílatelé zarovnané na strategii projektu, vedoucí projektu jim umožní pokračovat v tom, jak chtějí.
 
-Kromě toho pracovníci .NET Foundation zvážit vedoucí projektu primární nebo první kontaktní místo pro NuGet pro účely obchodních operací, včetně registrace domén a technické služby (např. podepisování kódu).
+Navíc zaměstnanci .NET Foundation považují projekt za primární nebo první kontaktní bod pro NuGet pro účely obchodních operací, včetně registrací domény a technických služeb (např. podepisování kódu).
 
-### <a name="committers"></a>Vývojáři
+### <a name="committers"></a>37 přispěvatelů
 
-Vývojáři jsou přispěvatelé, kteří trvale cenné příspěvky nuget a jsou jmenováni benevolentní diktátor. Jakmile jsou vývojáři jmenováni, spoléhají se na to, že budou psát kód přímo do úložiště a prověřovat příspěvky ostatních. Vývojáři jsou často vývojáři, ale mohou přispět jinými způsoby.
+Odesílatelé jsou přispěvatelé, kteří udělali cenné příspěvky do NuGet a jsou určené Benevolent Dictator. Po jmenování se spoléhají na to, že zapisují kód přímo do úložiště a zobrazí další příspěvky. Přídávajících jsou často vývojáři, ale můžou přispívat jiným způsobem.
 
-Obvykle se vývojář zaměřuje na konkrétní aspekt projektu a přináší úroveň odborných znalostí a porozumění, která jim získává respekt komunity a vedoucího projektu. Role vývojáře není oficiální, je to prostě pozice, kterou vlivní členové komunity přebírají, protože vedoucí projektu se na ně dívá jako na vedení a podporu.
+Obvykle se přípravek zaměřuje na konkrétní aspekt projektu a přináší úroveň odbornosti a porozumění, který jim získá ohled na komunitu a vedoucího projektu. Role žadatele není oficiální, je to jednoduše pozice, kterou neberou členové komunity jako vedoucí k tomu, aby měli pokyny a podporu.
 
-Vývojáři nemají žádnou autoritu, pokud jde o celkový směr NuGet. Nicméně, oni mají ucho vedoucího projektu. Úkolem vývojáře je zajistit, aby si vedoucí byl vědom potřeb a kolektivních cílů komunity, a pomáhat rozvíjet nebo přinášet odpovídající příspěvky k projektu. Často jsou committers neformální kontrolu nad svými konkrétními oblastmi odpovědnosti a jsou jim přidělena práva přímo modifikovat určité oblasti zdrojového kódu. To znamená, že i když vývojáři nemají explicitní rozhodovací pravomoc, často zjistí, že jejich činy jsou synonymem pro rozhodnutí vedoucího.
+Potvrzování nemají žádnou autoritu, kde je celkový směr NuGet. Nicméně mají v vedoucím projektu ušní zájem. Je to úloha odesílatele, která zajistí, že si potenciální zákazník klade informace o potřebách komunity a jejich kolektivních cílech a pomohli nám s vývojem a příjímat vhodné příspěvky k projektu. Příslušnci mají často neformální kontrolu nad jejich konkrétní oblastí zodpovědnosti a jsou jim přiřazena práva k přímé úpravě určitých oblastí zdrojového kódu. To znamená, že i když přípravci nemají explicitní rozhodovací autoritu, často zjistí, že jejich akce jsou synonymem rozhodnutí učiněných zájemcem.
 
 ### <a name="contributors"></a>Přispěvatelé
 
-Přispěvatelé jsou členové komunity, kteří odesílají opravy nuget. Tyto záplaty mohou být jednorázový výskyt nebo se vyskytují v průběhu času. Očekává se, že přispěvatelé předkládají opravy, které jsou zpočátku malé a zvětšují se, když přispěvatel, vývojáři a vedoucí projektu vybudovali důvěru v kvalitu oprav přispěvatele. Přispěvatelé jsou rozpoznáni v přidruženém dokumentu poznámky k verzi produktu.
+Přispěvatelé jsou členové komunity, kteří odesílají opravy do NuGet. Tyto opravy můžou být jednorázové výskyty nebo dojde v průběhu času. Předpokladem je, že přispěvatelé odesílají opravy, které jsou malé a větší, když přispěvatel, žadatelé a vedoucí projektu sestavili důvěru ve kvalitě oprav v přispěvateli. Přispěvatelé jsou rozpoznáni v dokumentu poznámky k verzi přidruženého produktu.
 
-Před odesláním první opravy přispěvatele do úložiště musí podepsat [licenční smlouvu přispěvatele](http://en.wikipedia.org/wiki/Contributor_License_Agreement) nebo smlouvu o přiřazení k nadaci .NET Foundation. Oprava může být předložena a projednána, ale nemůže být skutečně potvrzena do úložiště bez příslušného papírování. Chcete-li získat licenční smlouvu s přispěvatelem, zašlete žádost e-mailem na adresu [contributions@nuget.org](mailto:contributions@nuget.org).
+Před vložením do úložiště se první oprava přispěvatele musí podepsat [licenční smlouvu přispěvatele](http://en.wikipedia.org/wiki/Contributor_License_Agreement) nebo smlouvu o přiřazení k rozhraní .NET Foundation. Opravu je možné odeslat a probrat, ale nemůžete ji ve skutečnosti zaslat do úložiště, aniž by to mělo odpovídající paperwork. Pokud chcete získat licenční smlouvu přispěvatele, odešlete prosím žádost e-mailem na adresu [contributions@nuget.org](mailto:contributions@nuget.org) .
 
-Chcete-li se stát přispěvatelem, odešlete žádost o přijetí vyžádat do jednoho z následujících úložišť:
+Pokud se chcete stát přispěvatelem, odešlete žádost o přijetí změn do jednoho z následujících úložišť:
 
 - [Klient NuGet](https://github.com/NuGet/NuGet.Client)
 - [Galerie NuGet](https://github.com/nuget/nugetgallery)
-- [Dokumenty NuGet](https://github.com/nuget/nugetdocs)
+- [Dokumentace k NuGet](https://github.com/nuget/nugetdocs)
 
-Podrobný proces odeslání žádosti o přijetí vyžádat se liší podle úložiště:
+Podrobný proces odeslání žádosti o získání dat se liší podle úložiště:
 
 - [Pokyny k příspěvku pro klienta NuGet a galerii NuGet](https://github.com/NuGet/Home/wiki/Contributing-to-NuGet)
-- [Pokyny k příspěvkům pro NuGet Docs](https://github.com/NuGet/NuGetDocs/wiki/Contributing-to-NuGet-Documentation)
+- [Pokyny k příspěvkům pro dokumenty NuGet](https://github.com/NuGet/NuGetDocs/wiki/Contributing-to-NuGet-Documentation)
 
 ### <a name="users"></a>Uživatelé
 
-Uživatelé jsou členové komunity, kteří potřebují a používají NuGet jako příjemci balíčků a/nebo autoři. Uživatelé jsou nejdůležitějšími členy komunity: bez nich by projekt neměl žádný účel. Uživatel může být kdokoli; neexistují žádné zvláštní požadavky.
+Uživatelé jsou členy komunity, kteří potřebují a používají NuGet, jako spotřebitelé balíčku nebo autoři. Uživatelé jsou nejdůležitějšími členy komunity: bez nich by projekt neměl mít žádný účel. Kdokoli může být uživatel; neexistují žádné zvláštní požadavky.
 
-Uživatelé by měli být povzbuzováni k účasti v životě NuGet a komunity co nejvíce. Příspěvky uživatelů umožňují projektovému týmu zajistit, že uspokojují potřeby těchto uživatelů. Běžné aktivity uživatelů zahrnují mimo jiné následující:
+Uživatelé by měli být povzbuzeni, aby se účastnili životnosti NuGet a komunity co nejvíce. Příspěvky uživatelů umožňují týmu projektu zajistit, že vyhovují potřebám těchto uživatelů. Mezi běžné aktivity uživatelů patří mimo jiné tyto:
 
-- Obhajování využití projektu
-- Informování vývojářů o silných a slabých stránkách projektu z pohledu nového uživatele
-- Poskytování morální podpory (poděkování ujde dlouhou cestu)
-- Psaní dokumentace a výukových programů
-- Podávání hlášení chyb a žádostí o funkce
-- Účast na komunitních akcích, jako jsou například chyby
-- Účast na diskusních fórech nebo fórech
+- Poradce pro použití projektu
+- Informování vývojářů a slabých stránek projektů z perspektivy nového uživatele
+- Poskytování podpory morální (Děkujeme, že se jedná o dlouhou možnost)
+- Psaní dokumentace a výukových kurzů
+- Vytváření sestav o chybách a žádostí o funkce
+- Účast na událostech komunity, jako je například Chyba bashes
+- Účast na diskuzních vývěskách nebo fórech
 
-Uživatelé, kteří se na projektu a jeho komunitě nadále zapojují, se často stále více zapojují. Tito uživatelé se pak mohou stát přispěvateli, jak je popsáno výše.
+Uživatelé, kteří pokračují v zapojení do projektu a jeho komunity, často zjistí, že se tím stanou ještě více a s dalšími účastníky. Tito uživatelé pak mohou začít, aby se stali přispěvateli, jak je popsáno výše.
 
-## <a name="package-succession-under-special-circumstances"></a>Dědění souborných služeb za zvláštních okolností
+## <a name="package-succession-under-special-circumstances"></a>Úspěch balíčku za zvláštních okolností
 
-V nešťastné situaci, kdy je držitel účtu NuGet nezpůsobilý nebo zesnulý, budeme spolupracovat s komunitou na přidání vhodného vlastníka / s do balíčku, kde uvedený účet má výhradní vlastnictví a balíček je zveřejněn pod [licencí schválenou OSI](https://opensource.org/licenses/alphabetical). Chcete-li požádat o vlastnictví, musíte nám zaslat následující dokumenty:
+Ve unfortunate situaci, kdy je držitel účtu NuGet incapacitated nebo zemřelý, budeme spolupracovat s komunitou, aby do balíčku přidal příslušné vlastníky/s, kde má daný účet výhradní vlastnictví a balíček je publikovaný v rámci [licence OSI schválené](https://opensource.org/licenses/alphabetical). Pokud chcete požádat o vlastnictví, musíte nám poslat následující dokumenty:
 
-1. Fotokopie vašeho vládního průkazu totožnosti s fotografií.
-1. Jeden z následujících dokladů prokazujících stav předchozího majitele účtu: 
-    - Úřední úmrtní list vydaný vládou, pokud předchozí držitel účtu zemřel, nebo
-    - Ověřený doklad, jako je potvrzení podepsané zdravotnickým pracovníkem odpovědným za péči o nezpůsobilého držitele účtu.
-1. Jeden z následujících dokladů prokazujících vaše vlastnické právo: 
-    - Oddací list prokazující, že jste pozůstalým manželem nebo manželkou majitele účtu,
-    - Podepsaná plnou moc,
-    - Kopie závěti nebo důvěryhodného dokumentu, který vás jmenuje vykonavatelem nebo příjemcem,
-    - Rodný list pro majitele účtu, pokud jste jejich rodiče, nebo
-    - Opatrovnictví papírování, pokud jste zákonným zástupcem majitele účtu.
+1. Fotokopie vašeho ID fotografie vydané vládou
+1. Jeden z následujících dokumentů prokazující stav předchozího držitele účtu: 
+    - Oficiální certifikát smrti státní správy, pokud se předchozí držitel účtu přestane nastavovat, nebo
+    - Certifikovaný dokument, jako je certifikát podepsaný lékařským odborníkem, který se stará o péči držitele účtu incapacitated.
+1. Jeden z následujících dokumentů potvrzujících právo na vlastnictví: 
+    - Certifikát sňatku ukazující, že jste držitelem držitele účtu, který jste si pozůstali.
+    - Podepsaná mocnina právního zástupce,
+    - Kopie nebo vztahu důvěryhodnosti dokumentu, který můžete pojmenovat jako vykonavatel nebo příjemce,
+    - Certifikát pro narození držitele účtu, pokud jste jeho rodiče, nebo
+    - Strážce paperwork, pokud jste právní opatrovník držitele účtu.
 
-Pokud se ocitnete v nouzi s odkazem na [support@nuget.org](mailto:support@nuget.org) tyto zásady, zašlete nám e-mail na adresu s ID a verzí balíčku.
+Pokud zjistíte, že tuto zásadu potřebujete vyvoláni, pošlete nám e-mail [support@nuget.org](mailto:support@nuget.org) s ID a verzí balíčku.
 
-## <a name="transparency"></a>Průhlednost
+## <a name="transparency"></a>Transparentnost
 
-Pro jeho úspěch je zásadní budování důvěry komunity ve správu projektu s otevřeným zdrojovým kódem. Za tímto účelem musí být rozhodování prováděno transparentním a otevřeným způsobem. Diskuse o směřování projektu musí být provedena veřejně. Komunita by nikdy neměla být zaskočena rozhodnutím benevolentního diktátora. Kromě toho musí být archivována diskuse o rozhodnutích projektu, aby členové komunity mohli pochopit celou historii rozhodnutí a jeho kontext.
+Sestavování důvěry komunity v rámci zásad správného řízení pro open source projekt je zásadní pro jeho úspěch. K tomuto účelu se rozhodování musí provádět transparentním a otevřeným způsobem. Diskuze o směru projektu se musí provádět veřejně. Komunita by nikdy neměla být bez ochrany odlovena rozhodnutím Benevolent Dictator. Kromě toho musí být diskuze o rozhodnutích projektu archivována, aby členové komunity mohli porozumět celé historii rozhodnutí a jeho kontextu.

@@ -1,61 +1,61 @@
 ---
-title: Instalace a použití balíčku NuGet v sadě Visual Studio
-description: Návod k procesu instalace a používání balíčku NuGet v projektu sady Visual Studio.
-author: karann-msft
-ms.author: karann
+title: Instalace a použití balíčku NuGet v aplikaci Visual Studio
+description: Návodný postup pro instalaci a používání balíčku NuGet v projektu sady Visual Studio.
+author: JonDouglas
+ms.author: jodou
 ms.date: 07/24/2018
 ms.topic: quickstart
-ms.openlocfilehash: 10bc34653d294cf70b5c91ce79a79cf6532fba1b
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 55f6a64d90ce8ca628d1ac5c68f8133872a214e0
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80147484"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775524"
 ---
-# <a name="quickstart-install-and-use-a-package-in-visual-studio-windows-only"></a>Úvodní příručka: Instalace a použití balíčku v sadě Visual Studio (jenom pro Windows)
+# <a name="quickstart-install-and-use-a-package-in-visual-studio-windows-only"></a>Rychlý Start: instalace a použití balíčku v aplikaci Visual Studio (pouze Windows)
 
-Balíčky NuGet obsahují opakovaně použitelný kód, který vám ostatní vývojáři zpřístupní pro použití ve vašich projektech. Podívejte se [na co je NuGet?](../What-is-NuGet.md) pro pozadí. Balíčky jsou nainstalovány do projektu sady Visual Studio pomocí Správce balíčků NuGet, [Konzola správce balíčků](../consume-packages/install-use-packages-powershell)nebo [rozhraní SE kontinuu dotnet .](install-and-use-a-package-using-the-dotnet-cli.md) Tento článek ukazuje proces pomocí populární [newtonsoft.json](https://www.nuget.org/packages/Newtonsoft.Json/) balíček a Windows Presentation Foundation (WPF) projekt. Stejný proces platí pro všechny ostatní projekty .NET nebo .NET Core.
+Balíčky NuGet obsahují opakovaně použitelný kód, který vám pro použití v projektech zpřístupní jiní vývojáři. Podívejte [se, co je NuGet?](../What-is-NuGet.md) pro pozadí. Balíčky se nainstalují do projektu sady Visual Studio pomocí Správce balíčků NuGet, [konzoly Správce balíčků](../consume-packages/install-use-packages-powershell.md)nebo příkazového [řádku dotnet](install-and-use-a-package-using-the-dotnet-cli.md). Tento článek popisuje proces použití oblíbených [Newtonsoft.Jsna](https://www.nuget.org/packages/Newtonsoft.Json/) balíčku a projektu Windows Presentation Foundation (WPF). Stejný postup platí pro všechny ostatní projekty .NET nebo .NET Core.
 
-Po instalaci, odkazovat na `using <namespace>` balíček v kódu s kde \<obor názvů\> je specifické pro balíček, který používáte. Jakmile je odkaz, můžete volat balíček prostřednictvím jeho rozhraní API.
+Po instalaci se podívejte na balíček v kódu, `using <namespace>` kde \<namespace\> je specifický pro balíček, který používáte. Po provedení odkazu můžete balíček volat prostřednictvím jeho rozhraní API.
 
 > [!Tip]
-> **Začněte s nuget.org**: Procházení *nuget.org* je způsob, jakým vývojáři rozhraní .NET obvykle vyhledávají součásti, které mohou znovu použít ve svých vlastních aplikacích. Můžete hledat *nuget.org* přímo nebo najít a nainstalovat balíčky v rámci sady Visual Studio, jak je znázorněno v tomto článku. Obecné informace naleznete v [tématu Hledání a vyhodnocení balíčků NuGet](../consume-packages/finding-and-choosing-packages.md).
+> **Začínáme s NuGet.org**: prohlížení *NuGet.org* je způsob, jakým vývojáři rozhraní .NET obvykle hledají komponenty, které mohou znovu použít ve svých vlastních aplikacích. Můžete vyhledat *NuGet.org* přímo nebo vyhledat a nainstalovat balíčky v sadě Visual Studio, jak je znázorněno v tomto článku. Obecné informace najdete v tématu [vyhledání a vyhodnocení balíčků NuGet](../consume-packages/finding-and-choosing-packages.md).
 
 ## <a name="prerequisites"></a>Požadavky
 
-- Visual Studio 2019 s úlohou vývoje plochy .NET.
+- Visual Studio 2019 s úlohou vývoj desktopových aplikací .NET.
 
-Můžete nainstalovat edici Community 2019 zdarma z [visualstudio.com](https://www.visualstudio.com/) nebo použít edice Professional nebo Enterprise.
+Edici 2019 Community Edition můžete zdarma nainstalovat z [VisualStudio.com](https://www.visualstudio.com/) nebo použít edice Professional nebo Enterprise.
 
-Pokud používáte Visual Studio pro Mac, přečtěte si informace [o instalaci a použití balíčku ve Visual Studiu for Mac](install-and-use-a-package-in-visual-studio-mac.md).
+Pokud používáte Visual Studio pro Mac, přečtěte si téma [instalace a použití balíčku v Visual Studio pro Mac](install-and-use-a-package-in-visual-studio-mac.md).
 
 ## <a name="create-a-project"></a>Vytvoření projektu
 
-Balíčky NuGet lze nainstalovat do libovolného projektu .NET za předpokladu, že balíček podporuje stejný cílový rámec jako projekt.
+Balíčky NuGet se dají nainstalovat do libovolného projektu .NET, za předpokladu, že balíček podporuje stejnou cílovou architekturu jako projekt.
 
-Pro tento návod použijte jednoduchou aplikaci WPF. Vytvořte projekt v sadě Visual Studio pomocí**nového projektu** **souboru** > , zadejte **rozhraní .NET** do vyhledávacího pole a pak vyberte **aplikaci WPF (.NET Framework).** Klikněte na **Další**. Přijímejte výchozí hodnoty pro **rozhraní Framework** po zobrazení výzvy.
+Pro tento návod použijte jednoduchou aplikaci WPF. V aplikaci Visual Studio vytvořte projekt pomocí **souboru**  >  **Nový projekt**, zadejte do vyhledávacího pole **.NET** a pak vyberte **aplikaci WPF (.NET Framework)**. Klikněte na **Next** (Další). Po zobrazení výzvy přijměte výchozí hodnoty pro **rozhraní** .
 
-Visual Studio vytvoří projekt, který se otevře v Průzkumníku řešení.
+Visual Studio vytvoří projekt, který se otevře v Průzkumník řešení.
 
-## <a name="add-the-newtonsoftjson-nuget-package"></a>Přidat balíček Newtonsoft.Json NuGet
+## <a name="add-the-newtonsoftjson-nuget-package"></a>Přidání Newtonsoft.Jsdo balíčku NuGet
 
-Chcete-li nainstalovat balíček, můžete použít buď Správce balíčků NuGet nebo konzolu Správce balíčků. Při instalaci balíčku NuGet zaznamenává závislost v souboru projektu `packages.config` nebo souboru (v závislosti na formátu projektu). Další informace naleznete v [tématu Přehled spotřeby balíčků a pracovní postup](../consume-packages/Overview-and-Workflow.md).
+Chcete-li nainstalovat balíček, můžete použít buď správce balíčků NuGet, nebo konzolu Správce balíčků. Při instalaci balíčku zaznamená NuGet závislost v souboru projektu nebo v `packages.config` souboru (v závislosti na formátu projektu). Další informace najdete v tématu [Přehled spotřeby balíčků a pracovní postup](../consume-packages/Overview-and-Workflow.md).
 
 ### <a name="nuget-package-manager"></a>Správce balíčků NuGet
 
-1. V Průzkumníku řešení klepněte pravým **tlačítkem** myši na reference a zvolte **Spravovat balíčky NuGet**.
+1. V Průzkumník řešení klikněte pravým tlačítkem na **odkazy** a vyberte **Spravovat balíčky NuGet**.
 
     ![Příkaz Spravovat balíčky NuGet pro odkazy na projekt](media/QS_Use-02-ManageNuGetPackages.png)
 
-1. Jako **zdroj balíčku**zvolte "nuget.org", vyberte kartu **Procházet,** vyhledejte **Newtonsoft.Json**, vyberte tento balíček v seznamu a vyberte **Instalovat**:
+1. Jako **zdroj balíčku** zvolte "NuGet.org", vyberte kartu **procházet** , vyhledejte **Newtonsoft.Jsna**, vyberte tento balíček v seznamu a vyberte **instalovat**:
 
-    ![Lokalizace newtonsoft.json balíčku](media/QS_Use-03-NewtonsoftJson.png)
+    ![Hledání Newtonsoft.Jsv balíčku](media/QS_Use-03-NewtonsoftJson.png)
 
-    Pokud chcete další informace o Správci balíčků NuGet, přečtěte si informace [o instalaci a správě balíčků pomocí sady Visual Studio](../consume-packages/install-use-packages-visual-studio.md).
+    Pokud chcete získat další informace o Správci balíčků NuGet, přečtěte si téma [instalace a Správa balíčků pomocí sady Visual Studio](../consume-packages/install-use-packages-visual-studio.md).
 
 1. Přijměte všechny výzvy k licenci.
 
-1. (Pouze Visual Studio 2017) Pokud se zobrazí výzva k výběru formátu správy balíčků, vyberte **v souboru projektu položku PackageReference**:
+1. (Pouze Visual Studio 2017) Pokud se zobrazí výzva k výběru formátu správy balíčků, vyberte **v souboru projektu možnost PackageReference**:
 
     ![Výběr formátu správy balíčků](media/QS_Use-03b-SelectFormat.png)
 
@@ -63,21 +63,21 @@ Chcete-li nainstalovat balíček, můžete použít buď Správce balíčků NuG
 
 ### <a name="package-manager-console"></a>Konzola Správce balíčků
 
-1. Vyberte příkaz příkaz **konzoly** > Správce > **balíčků** Správce balíčků Nástroje**NuGet.**
+1. Vyberte **nástroje**  >  **Správce balíčků NuGet**  >  **Konzola** správce balíčků příkaz menu.
 
-1. Po otevření konzoly zkontrolujte, zda se v rozevíracím seznamu **Výchozí projekt** zobrazuje projekt, do kterého chcete balíček nainstalovat. Pokud máte v řešení jeden projekt, je již vybrán.
+1. Po otevření konzoly ověřte, zda je v rozevíracím seznamu **výchozí projekt** uveden projekt, do kterého chcete balíček nainstalovat. Pokud máte v řešení jeden projekt, je již vybrán.
 
-    ![Lokalizace newtonsoft.json balíčku](media/QS_Use-08-Console1.png)
+    ![Vyberte projekt pro balíček.](media/QS_Use-08-Console1.png)
 
-1. Zadejte `Install-Package Newtonsoft.Json` příkaz (viz [Instalační balíček](../reference/ps-reference/ps-ref-install-package.md)). Okno konzoly zobrazuje výstup příkazu. Chyby obvykle označují, že balíček není kompatibilní s cílovým rámcem projektu.
+1. Zadejte příkaz `Install-Package Newtonsoft.Json` (viz [Install-Package](../reference/ps-reference/ps-ref-install-package.md)). V okně konzoly se zobrazí výstup příkazu. Chyby obvykle označují, že balíček není kompatibilní s cílovým rozhraním .NET Framework projektu.
 
-   Chcete-li získat další informace o konzoli Správce balíčků, přečtěte si informace [o instalaci a správě balíčků pomocí konzoly Správce balíčků](../consume-packages/install-use-packages-powershell.md).
+   Pokud chcete získat další informace o konzole správce balíčků, přečtěte si téma [instalace a Správa balíčků pomocí konzoly Správce balíčků](../consume-packages/install-use-packages-powershell.md).
 
-## <a name="use-the-newtonsoftjson-api-in-the-app"></a>Použití rozhraní Newtonsoft.Json API v aplikaci
+## <a name="use-the-newtonsoftjson-api-in-the-app"></a>Použití Newtonsoft.Jsv rozhraní API v aplikaci
 
-S newtonsoft.Json balíček v projektu, `JsonConvert.SerializeObject` můžete volat jeho metodu převést objekt na člověka čitelný řetězec.
+Pomocí Newtonsoft.Jsv balíčku v projektu můžete zavolat jeho `JsonConvert.SerializeObject` metodu pro převod objektu na řetězec čitelný z lidského.
 
-1. Otevřete `MainWindow.xaml` a `Grid` nahraďte existující prvek následujícím:
+1. `MainWindow.xaml`Existující prvek otevřete a nahraďte `Grid` následujícím:
 
     ```xaml
     <Grid Background="White">
@@ -88,7 +88,7 @@ S newtonsoft.Json balíček v projektu, `JsonConvert.SerializeObject` můžete v
     </Grid>
     ```
 
-1. Otevřete `MainWindow.xaml.cs` soubor (umístěný v `MainWindow.xaml` Průzkumníku řešení pod uzlovým) a do `MainWindow` třídy vložte následující kód:
+1. Otevřete `MainWindow.xaml.cs` soubor (umístěný v Průzkumník řešení pod `MainWindow.xaml` uzlem) a vložte následující kód do `MainWindow` třídy:
 
     ```cs
     public class Account
@@ -111,17 +111,17 @@ S newtonsoft.Json balíček v projektu, `JsonConvert.SerializeObject` můžete v
     }
     ```
 
-1. I když jste do projektu přidali balíček Newtonsoft.Json, `JsonConvert` zobrazí se `using` pod ním červené vlnovky, protože potřebujete prohlášení v horní části souboru kódu:
+1. I když jste přidali Newtonsoft.Jsdo balíčku do projektu, zobrazí se červené vlnovky v části, `JsonConvert` protože potřebujete `using` příkaz v horní části souboru kódu:
 
     ```cs
     using Newtonsoft.Json;
     ```
 
-1. Sestavte a spusťte aplikaci stisknutím klávesy F5 nebo výběrem **možnosti Ladění** > **ladění startování**:
+1. Sestavte a spusťte aplikaci stisknutím klávesy F5 nebo výběrem **ladění**  >  **Spustit ladění**:
 
     ![Počáteční výstup aplikace WPF](media/QS_Use-06-AppStart.png)
 
-1. Výběrem na tlačítku zobrazíte obsah textového bloku nahrazený nějakým textem JSON:
+1. Výběrem tlačítka na tomto tlačítku zobrazíte obsah TextBlock nahrazený nějakým textem JSON:
 
     ![Výstup aplikace WPF po výběru tlačítka](media/QS_Use-07-AppEnd.png)
 
@@ -129,20 +129,20 @@ S newtonsoft.Json balíček v projektu, `JsonConvert.SerializeObject` můžete v
 
 > [!Video https://channel9.msdn.com/Series/NuGet-101/Install-and-Use-a-NuGet-Package-with-Visual-Studio-2-of-5/player]
 
-Další videa NuGet najdete na [Channel 9](https://channel9.msdn.com/Series/NuGet-101) a [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_).
+Další videa k NuGetu najdete na webu [Channel 9](https://channel9.msdn.com/Series/NuGet-101) a [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_).
 
 ## <a name="next-steps"></a>Další kroky
 
-Gratulujeme k instalaci a používání vašeho prvního balíčku NuGet!
+Blahopřejeme k instalaci a používání vašeho prvního balíčku NuGet!
 
 > [!div class="nextstepaction"]
-> [Instalace a správa balíčků pomocí sady Visual Studio](../consume-packages/install-use-packages-visual-studio.md)
+> [Instalace a Správa balíčků pomocí sady Visual Studio](../consume-packages/install-use-packages-visual-studio.md)
 
 > [!div class="nextstepaction"]
-> [Instalace a správa balíčků pomocí konzoly Správce balíčků](../consume-packages/install-use-packages-powershell.md)
+> [Instalace a Správa balíčků pomocí konzoly Správce balíčků](../consume-packages/install-use-packages-powershell.md)
 
-Chcete-li prozkoumat další, které NuGet nabízí, vyberte níže uvedené odkazy.
+Pokud chcete prozkoumat další možnosti, které NuGet nabízí, vyberte odkazy níže.
 
-- [Přehled a pracovní postup spotřeby balíků](../consume-packages/overview-and-workflow.md)
+- [Přehled a pracovní postup pro spotřebu balíčku](../consume-packages/overview-and-workflow.md)
 - [Vyhledání a výběr balíčků](../consume-packages/finding-and-choosing-packages.md)
 - [Odkazy na balíčky v souborech projektů](../consume-packages/package-references-in-project-files.md)

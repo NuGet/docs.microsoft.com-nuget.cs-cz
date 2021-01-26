@@ -10,12 +10,12 @@ ms.technology: ''
 description: Služba publikování umožňuje klientům publikovat nové balíčky symbolů.
 keywords: Balíček symbolů nabízených oznámení rozhraní NuGet API
 ms.reviewer: karann
-ms.openlocfilehash: bd4a10cc976c9d0775a63cfe61c35327c196065c
-ms.sourcegitcommit: e39e5a5ddf68bf41e816617e7f0339308523bbb3
+ms.openlocfilehash: 91bb4c9ca77fd7f1ff35831e02eb4f9d65d641c5
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96738874"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98773892"
 ---
 # <a name="push-symbol-packages"></a>Balíčky symbolů nabízených oznámení
 
@@ -42,7 +42,9 @@ Základní adresa URL následujících rozhraní API je hodnota `@id` vlastnosti
 
 nuget.org podporuje vložení nového formátu balíčků symbolů ([snupkg](../create-packages/Symbol-Packages-snupkg.md)) pomocí následujícího rozhraní API. 
 
-    PUT https://www.nuget.org/api/v2/symbolpackage
+```
+PUT https://www.nuget.org/api/v2/symbolpackage
+```
 
 Balíčky symbolů se stejným ID a verzí je možné odeslat víckrát. Balíček symbolů bude odmítnut v následujících případech.
 - Balíček se stejným ID a verzí neexistuje.
@@ -51,7 +53,7 @@ Balíčky symbolů se stejným ID a verzí je možné odeslat víckrát. Balíč
 
 ### <a name="request-parameters"></a>Parametry žádosti
 
-Název           | V     | Typ   | Vyžadováno | Poznámky
+Name           | V     | Typ   | Vyžadováno | Poznámky
 -------------- | ------ | ------ | -------- | -----
 X-NuGet – ApiKey | Hlavička | řetězec | ano      | Například `X-NuGet-ApiKey: {USER_API_KEY}`.
 

@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 852dca8c70b09d941e844b1f7cd03b38e2192481
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 403686de42bf4dc1fa94b9dd92ca6d33f3be2183
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237520"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775287"
 ---
 # <a name="package-metadata"></a>Metadata balíčků
 
@@ -58,9 +58,9 @@ Všechny adresy URL nalezené v registračním prostředku podporují metody HTT
 
 Prostředek registrace seskupuje metadata balíčku podle ID balíčku. Nemůžete najednou získat data o více než jednom ID balíčku. Tento prostředek neposkytuje žádný způsob, jak zjišťovat ID balíčků. Místo toho se předpokládá, že je u klienta již známo ID požadovaného balíčku. Dostupná metadata týkající se jednotlivých verzí balíčků se liší podle implementace serveru. Objekty blob pro registraci balíčků mají následující hierarchickou strukturu:
 
-- **Index** : vstupní bod pro metadata balíčku, který sdílí všechny balíčky na zdroji se stejným ID balíčku.
-- **Stránka** : seskupení verzí balíčku. Počet verzí balíčku na stránce je definován implementací serveru.
-- **List** : dokument určený pro jednu verzi balíčku.
+- **Index**: vstupní bod pro metadata balíčku, který sdílí všechny balíčky na zdroji se stejným ID balíčku.
+- **Stránka**: seskupení verzí balíčku. Počet verzí balíčku na stránce je definován implementací serveru.
+- **List**: dokument určený pro jednu verzi balíčku.
 
 Adresa URL registračního indexu je předvídatelné a může být určena klientem pro ID balíčku a hodnotu prostředku registrace `@id` z indexu služby. Adresy URL registračních stránek a listů jsou zjištěny kontrolou registračního indexu.
 
@@ -72,15 +72,17 @@ Uložení všech verzí balíčku (opustí) v registračním indexu šetří po�
 
 Tato heuristická metoda, kterou používá nuget.org, je následující: Pokud jsou k dispozici 128 nebo více verzí balíčku, přerušte listy na velikost 64. Pokud jsou k dispozici méně než 128 verzí, všechny zůstanou vloženy do registračního indexu. To znamená, že balíčky s 65 až 127 verze budou mít dvě stránky v indexu, ale obě stránky budou vloženy.
 
-    GET {@id}/{LOWER_ID}/index.json
+```
+GET {@id}/{LOWER_ID}/index.json
+```
 
 ### <a name="request-parameters"></a>Parametry žádosti
 
-Název     | V     | Typ    | Vyžadováno | Poznámky
+Name     | V     | Typ    | Vyžadováno | Poznámky
 -------- | ------ | ------- | -------- | -----
 LOWER_ID | URL    | řetězec  | ano      | ID balíčku, malými písmeny
 
-`LOWER_ID`Hodnota je ID požadovaného balíčku s malými písmeny pomocí pravidel implementovaných pomocí. Metoda netto [`System.String.ToLowerInvariant()`](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) .
+`LOWER_ID`Hodnota je ID požadovaného balíčku s malými písmeny pomocí pravidel implementovaných pomocí. Metoda netto [`System.String.ToLowerInvariant()`](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant&preserve-view=true) .
 
 ### <a name="response"></a>Odpověď
 
@@ -204,7 +206,7 @@ Důvod       | Popis
 ------------ | -----------
 Starší verze       | Balíček se už neudržuje.
 CriticalBugs | Balíček obsahuje chyby, které nejsou vhodné pro použití.
-Ostatní        | Balíček je zastaralý z důvodu, že tento seznam není v tomto seznamu.
+Jiné        | Balíček je zastaralý z důvodu, že tento seznam není v tomto seznamu.
 
 Pokud `reasons` vlastnost obsahuje řetězce, které nejsou ze známé sady, měly by být ignorovány. V řetězcích nejsou rozlišována velká a malá písmena, proto `legacy` by měla být zpracována stejně jako `Legacy` . V poli není žádné omezení řazení, takže řetězce mohou být uspořádány do libovolného pořadí. Kromě toho, pokud vlastnost obsahuje pouze řetězce, které nejsou ze známé sady, měla by být zpracována, jako by obsahovala pouze řetězec "other".
 
@@ -219,7 +221,9 @@ range        | object | ne       | Povolený [rozsah verzí](../concepts/package
 
 ### <a name="sample-request"></a>Ukázková žádost
 
-    GET https://api.nuget.org/v3/registration3/nuget.server.core/index.json
+```
+GET https://api.nuget.org/v3/registration3/nuget.server.core/index.json
+```
 
 ### <a name="sample-response"></a>Ukázková odpověď
 
@@ -249,7 +253,9 @@ Tvar listů registračních objektů je stejný jako v indexu registrace [výše
 
 ## <a name="sample-request"></a>Ukázková žádost
 
-    GET https://api.nuget.org/v3/registration3/ravendb.client/page/1.0.531/1.0.729-unstable.json
+```
+GET https://api.nuget.org/v3/registration3/ravendb.client/page/1.0.531/1.0.729-unstable.json
+```
 
 ## <a name="sample-response"></a>Ukázková odpověď
 
@@ -280,7 +286,9 @@ registrace   | řetězec  | ne       | Adresa URL indexu registrace
 
 ### <a name="sample-request"></a>Ukázková žádost
 
-    GET https://api.nuget.org/v3/registration3/nuget.versioning/4.3.0.json
+```
+GET https://api.nuget.org/v3/registration3/nuget.versioning/4.3.0.json
+```
 
 ### <a name="sample-response"></a>Ukázková odpověď
 

@@ -1,16 +1,16 @@
 ---
 title: Vytvoření a publikování .NET Standard balíčku NuGet – Visual Studio ve Windows
 description: Návod k vytvoření a publikování .NET Standard balíčku NuGet pomocí sady Visual Studio ve Windows.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 08/16/2019
 ms.topic: quickstart
-ms.openlocfilehash: 32dcc1d233154463e2950b1ce46554b1cb89956e
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 53f54f6723ad10fca2ed6f75290ba3829dfb9a5e
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237494"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775681"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Rychlý Start: vytvoření a publikování balíčku NuGet pomocí sady Visual Studio (.NET Standard, pouze Windows)
 
@@ -36,7 +36,7 @@ Je to jednoduchý proces vytvoření balíčku NuGet z knihovny tříd .NET Stan
 
 Můžete použít existující .NET Standard projekt knihovny tříd pro kód, který chcete zabalit, nebo vytvořit jednoduchý, a to následujícím způsobem:
 
-1. V aplikaci Visual Studio zvolte **soubor > nový > projekt** , rozbalte uzel **Visual C# > .NET Standard** , vyberte šablonu knihovny tříd (.NET Standard), pojmenujte projekt AppLogger a klikněte na tlačítko **OK** .
+1. V aplikaci Visual Studio zvolte **soubor > nový > projekt**, rozbalte uzel **Visual C# > .NET Standard** , vyberte šablonu knihovny tříd (.NET Standard), pojmenujte projekt AppLogger a klikněte na tlačítko **OK**.
 
    > [!Tip]
    > Pokud nemáte důvod vybrat jinak, .NET Standard je upřednostňovaným cílem pro balíčky NuGet, protože poskytuje kompatibilitu s nejširší škálou náročných projektů.
@@ -76,13 +76,13 @@ namespace AppLogger
     >
     > Pokud se pokusíte publikovat balíček s názvem, který již existuje, zobrazí se chyba.
 
-1. Volitelné Chcete-li zobrazit vlastnosti přímo v souboru projektu, klikněte pravým tlačítkem myši na projekt v Průzkumník řešení a vyberte **Upravit AppLogger. csproj** .
+1. Volitelné Chcete-li zobrazit vlastnosti přímo v souboru projektu, klikněte pravým tlačítkem myši na projekt v Průzkumník řešení a vyberte **Upravit AppLogger. csproj**.
 
-   Tato možnost je k dispozici pouze od začátku v sadě Visual Studio 2017 pro projekty, které používají atribut Style sady SDK. V opačném případě klikněte pravým tlačítkem myši na projekt a vyberte **Uvolnit projekt** . Pak klikněte pravým tlačítkem na uvolněný projekt a zvolte **Upravit AppLogger. csproj** .
+   Tato možnost je k dispozici pouze od začátku v sadě Visual Studio 2017 pro projekty, které používají atribut Style sady SDK. V opačném případě klikněte pravým tlačítkem myši na projekt a vyberte **Uvolnit projekt**. Pak klikněte pravým tlačítkem na uvolněný projekt a zvolte **Upravit AppLogger. csproj**.
 
 ## <a name="run-the-pack-command"></a>Spuštění příkazu Pack
 
-1. Nastavte konfiguraci na **release** .
+1. Nastavte konfiguraci na **release**.
 
 1. Klikněte pravým tlačítkem na projekt v **Průzkumník řešení** a vyberte příkaz **Pack** :
 
@@ -103,9 +103,9 @@ namespace AppLogger
 
 Sadu Visual Studio můžete nakonfigurovat tak, aby automaticky generovala balíček NuGet při sestavování projektu.
 
-1. V Průzkumník řešení klikněte pravým tlačítkem na projekt a vyberte **vlastnosti** .
+1. V Průzkumník řešení klikněte pravým tlačítkem na projekt a vyberte **vlastnosti**.
 
-2. Na kartě **balíček** vyberte při **sestavování vytvořit balíček NuGet** .
+2. Na kartě **balíček** vyberte při **sestavování vytvořit balíček NuGet**.
 
    ![Automaticky generovat balíček při sestavení](media/qs_create-vs-05-generate-on-build.png)
 
@@ -132,7 +132,7 @@ Jakmile budete mít `.nupkg` soubor, publikujete ho v NuGet.org pomocí rozhran�
 
 Vyberte kartu pro nástroj rozhraní příkazového řádku, buď **.NET Core CLI** (dotnet CLI), nebo **NUGET** (nuget.exe CLI).
 
-# <a name="net-core-cli"></a>[Rozhraní příkazového řádku .NET Core](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 Tento krok je doporučenou alternativou použití nástroje `nuget.exe` .
 

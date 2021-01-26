@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 11/02/2017
 ms.topic: tutorial
 ms.reviewer: kraigb
-ms.openlocfilehash: 749d9466976d51c7cb65332c8b149e3a30862e63
-ms.sourcegitcommit: 650c08f8bc3d48dfd206a111e5e2aaca3001f569
+ms.openlocfilehash: 7e611b568538e0acfcbad2e5d986a0f9382ac8fd
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97523397"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774118"
 ---
 # <a name="query-for-all-packages-published-to-nugetorg"></a>Dotaz na všechny balíčky publikované do nuget.org
 
@@ -54,7 +54,9 @@ DateTime cursor = DateTime.UtcNow.AddHours(-1);
 
 Umístění každého prostředku (koncového bodu) v rozhraní NuGet API by mělo být zjištěno pomocí [indexu služby](../../api/service-index.md). Vzhledem k tomu, že se tato příručka zaměřuje na nuget.org, budeme používat index služby NuGet. org.
 
-    GET https://api.nuget.org/v3/index.json
+```
+GET https://api.nuget.org/v3/index.json
+```
 
 Dokument služby je dokument JSON obsahující všechny prostředky na nuget.org. Vyhledejte prostředek s `@type` hodnotou vlastnosti `Catalog/3.0.0` . Přidružená `@id` hodnota vlastnosti je adresa URL samotného indexu katalogu. 
 
@@ -62,13 +64,17 @@ Dokument služby je dokument JSON obsahující všechny prostředky na nuget.org
 
 Pomocí `@id` hodnoty vlastnosti nalezené v předchozím kroku Stáhněte rejstřík katalogu:
 
-    GET https://api.nuget.org/v3/catalog0/index.json
+```
+GET https://api.nuget.org/v3/catalog0/index.json
+```
 
 Deserializace [indexu katalogu](../../api/catalog-resource.md#catalog-index). Vyfiltrujte všechny [objekty stránky katalogu](../../api/catalog-resource.md#catalog-page-object-in-the-index) s `commitTimeStamp` menší nebo rovnou aktuální hodnotě kurzoru.
 
 Pro každou zbývající stránku katalogu Stáhněte celý dokument pomocí `@id` Vlastnosti.
 
-    GET https://api.nuget.org/v3/catalog0/page2926.json
+```
+GET https://api.nuget.org/v3/catalog0/page2926.json
+```
 
 Deserializace [stránky katalogu](../../api/catalog-resource.md#catalog-page). Vyfiltrujte všechny [objekty listu katalogu](../../api/catalog-resource.md#catalog-item-object-in-a-page) s `commitTimeStamp` menší nebo rovnou aktuální hodnotě kurzoru.
 
@@ -80,7 +86,9 @@ V tomto okamžiku můžete provádět libovolné vlastní zpracování, které b
 
 Pokud vás zajímá metadata o balíčku (například popis, závislosti, velikost nupkg atd.), můžete načíst [dokument listu katalogu](../../api/catalog-resource.md#catalog-leaf) pomocí `@id` Vlastnosti.
 
-    GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
+```
+GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
+```
 
 Tento dokument obsahuje všechna metadata zahrnutá v [prostředku metadat balíčku](../../api/registration-base-url-resource.md)a další.
 

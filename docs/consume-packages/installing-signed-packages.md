@@ -1,16 +1,16 @@
 ---
 title: Správa rozsahu důvěryhodnosti balíčků
 description: Popisuje proces instalace podepsaných balíčků NuGet a konfigurace nastavení důvěryhodnosti podpisu balíčku.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 034b9dd9699af529e4d82d6ee5b1c42214673341
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 596ce330e434253e6fb200aa59ae4e14d47779ed
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237624"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774800"
 ---
 # <a name="manage-package-trust-boundaries"></a>Správa rozsahu důvěryhodnosti balíčků
 
@@ -55,7 +55,7 @@ nuget.exe  trusted-signers Add -Name MyCompanyCert -CertificateFingerprint CE408
 ```
 
 >[!TIP]
->`nuget.exe` [verify command](../reference/cli-reference/cli-ref-verify.md) K získání `SHA256` hodnoty otisku certifikátu použijte příkaz Verify.
+>`nuget.exe` [](../reference/cli-reference/cli-ref-verify.md) K získání `SHA256` hodnoty otisku certifikátu použijte příkaz Verify.
 
 
 ### <a name="trust-all-packages-from-a-repository"></a>Důvěřovat všem balíčkům z úložiště

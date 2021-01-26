@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 86c9d07cf90b84fffd09b04847d41772dd633b98
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 7047dfd48b7f93756bbb1491de1b7e65da2c12b4
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237871"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775413"
 ---
 # <a name="search"></a>Hledat
 
@@ -45,11 +45,13 @@ Rozhraní API pro vyhledávání umožňuje klientovi dotaz na stránku balíčk
 
 Ve výsledcích hledání by se nikdy neměl zobrazovat neuvedený balíček.
 
-    GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}&packageType={PACKAGETYPE}
+```
+GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}&packageType={PACKAGETYPE}
+```
 
 ### <a name="request-parameters"></a>Parametry žádosti
 
-Název        | V     | Typ    | Vyžadováno | Poznámky
+Name        | V     | Typ    | Vyžadováno | Poznámky
 ----------- | ------ | ------- | -------- | -----
 q           | URL    | řetězec  | ne       | Hledané výrazy, které se mají použít k filtrování balíčků
 Přeskočit        | URL    | integer | ne       | Počet výsledků, které se mají přeskočit, pro stránkování
@@ -127,7 +129,9 @@ name      | řetězec  | ano      | Název typu balíčku.
 
 ### <a name="sample-request"></a>Ukázková žádost
 
-    GET https://azuresearch-usnc.nuget.org/query?q=NuGet.Versioning&prerelease=false&semVerLevel=2.0.0
+```
+GET https://azuresearch-usnc.nuget.org/query?q=NuGet.Versioning&prerelease=false&semVerLevel=2.0.0
+```
 
 ### <a name="sample-response"></a>Ukázková odpověď
 

@@ -1,16 +1,16 @@
 ---
 title: Přehled ekosystému NuGet
 description: Komplexní prostředky v ekosystému NuGet včetně zdrojů NuGet, projektů, nástrojů a školicích materiálů od jiných výrobců než Microsoftu.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 165587fb64be5a5f4dbfdece7dc3a1e6402b733e
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 57fa8e5683e687aab3022ebc77d7e69a61615877
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237423"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775610"
 ---
 # <a name="an-overview-of-the-nuget-ecosystem"></a>Přehled ekosystému NuGet
 

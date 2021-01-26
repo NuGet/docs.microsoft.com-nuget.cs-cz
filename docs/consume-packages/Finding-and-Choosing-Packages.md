@@ -1,16 +1,16 @@
 ---
 title: Hledání a výběr balíčků NuGet
 description: Přehled toho, jak najít a zvolit nejlepší balíčky NuGet pro projekt, včetně podrobností o syntaxi hledání NuGet.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: feb21ae1e70144491a5c0fe8f6a7be36e61d9b32
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 4ba51028c1a69a3466cec655db19c2c498e29d9b
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622980"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775173"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Hledání a vyhodnocení balíčků NuGet pro váš projekt
 
@@ -94,7 +94,7 @@ Zároveň použití balíčku NuGet znamená, že se v něm nachází závislost
 
     ![Stáhnout statistiku na stránce se seznamem balíčku](media/Finding-03-Downloads.png)
 
-- **Používá**se v: na stránce balíček **používá** část Seznam hlavních 5 nejoblíbenějších balíčků NuGet.org a oblíbených úložišť GitHubu, které jsou závislé na tomto balíčku. Balíčky a úložiště, která závisí na tomto balíčku, se můžou v tomto balíčku jmenovat "závislé položky". Závislé balíčky a úložiště se dají zobrazit jako "potvrzení" tohoto balíčku, protože autoři balíčku se rozhodli důvěřovat a závisí na něm.
+- **Používá** se v: na stránce balíček **používá** část Seznam hlavních 5 nejoblíbenějších balíčků NuGet.org a oblíbených úložišť GitHubu, které jsou závislé na tomto balíčku. Balíčky a úložiště, která závisí na tomto balíčku, se můžou v tomto balíčku jmenovat "závislé položky". Závislé balíčky a úložiště se dají zobrazit jako "potvrzení" tohoto balíčku, protože autoři balíčku se rozhodli důvěřovat a závisí na něm.
   - Závislý balíček musí záviset na *jakékoli verzi* tohoto balíčku v *nejnovější stabilní verzi uvedené v seznamu*. Tato definice zajistí, že zobrazené závislé balíčky jsou aktuální odrazem rozhodnutí autora balíčku na důvěru a závisí na tomto balíčku. Závislé položky předprodejní nejsou uvedeny, protože se zatím nepovažují za částečně endoresements. Příklady najdete v následující tabulce:
 
     | Sbalení A verze | Balíček A je na seznamu závislých na balíčku B? |
@@ -114,11 +114,11 @@ Zároveň použití balíčku NuGet znamená, že se v něm nachází závislost
 
     ![Historie verzí na stránce se seznamem balíčku](media/Finding-04-VersionHistory.png)
 
-- **Poslední instalace**: na stránce balíček v části **Statistika**vyberte **Zobrazit úplné statistiky**. Na stránce úplných statistik se zobrazuje balíček, který se nainstaluje za posledních šest týdnů podle čísla verze. Balíček, který používají jiní vývojáři, je obvykle lepší volbou než ten, který není.
+- **Poslední instalace**: na stránce balíček v části **Statistika** vyberte **Zobrazit úplné statistiky**. Na stránce úplných statistik se zobrazuje balíček, který se nainstaluje za posledních šest týdnů podle čísla verze. Balíček, který používají jiní vývojáři, je obvykle lepší volbou než ten, který není.
 
-- **Podpora**: na stránce balíček v části **informace**vyberte možnost **Web projektu** (Pokud je k dispozici) a zjistěte, jaké možnosti podpory Autor poskytuje. Projekt s vyhrazenou lokalitou je obecně lepší podporovat.
+- **Podpora**: na stránce balíček v části **informace** vyberte možnost **Web projektu** (Pokud je k dispozici) a zjistěte, jaké možnosti podpory Autor poskytuje. Projekt s vyhrazenou lokalitou je obecně lepší podporovat.
 
-- **Historie pro vývojáře**: na stránce balíček v části **vlastníci**vyberte vlastníka a podívejte se, jaké další balíčky se publikovaly. U zařízení s více balíčky je pravděpodobnější, že budou v budoucnu nadále podporovat svou práci.
+- **Historie pro vývojáře**: na stránce balíček v části **vlastníci** vyberte vlastníka a podívejte se, jaké další balíčky se publikovaly. U zařízení s více balíčky je pravděpodobnější, že budou v budoucnu nadále podporovat svou práci.
 
 - **Příspěvky na Open Source**: mnoho balíčků se uchovává v úložištích open source, což umožňuje vývojářům v závislosti na tom, jak přímo přispívá k opravám chyb a vylepšení funkcí. Historie příspěvků každého daného balíčku je také dobrým ukazatelem toho, kolik vývojářů je aktivně zapojeno.
 

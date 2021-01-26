@@ -1,16 +1,16 @@
 ---
 title: Vytvoření balíčku NuGet pomocí nástroje MSBuild
 description: Podrobný průvodce procesem navrhování a vytváření balíčku NuGet, včetně klíčových bodů rozhodování, jako jsou soubory a správa verzí.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 02/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 47a20c5566affec1cdc7772c86d8101dab162d85
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 48741668af932a532240f2796a9bf5d490ee8e35
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237968"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774439"
 ---
 # <a name="create-a-nuget-package-using-msbuild"></a>Vytvoření balíčku NuGet pomocí nástroje MSBuild
 
@@ -39,7 +39,7 @@ Kromě toho, pokud jste balíte projekty, které nejsou ve stylu sady SDK, kter�
 
 - `PackageOutputPath`, výstupní složka balíčku vygenerovaného při volání Pack.
 
-V sadě Visual Studio můžete nastavit tyto hodnoty ve vlastnostech projektu (klikněte pravým tlačítkem myši na projekt v Průzkumník řešení, zvolte **vlastnosti** a vyberte kartu **balíček** ). Tyto vlastnosti lze také nastavit přímo v souborech projektu ( *. csproj* ).
+V sadě Visual Studio můžete nastavit tyto hodnoty ve vlastnostech projektu (klikněte pravým tlačítkem myši na projekt v Průzkumník řešení, zvolte **vlastnosti** a vyberte kartu **balíček** ). Tyto vlastnosti lze také nastavit přímo v souborech projektu (*. csproj*).
 
 ```xml
 <PropertyGroup>
@@ -96,7 +96,7 @@ Pokud používáte nástroj MSBuild s projektem a PackageReference, který není
    </ItemGroup>
    ```
 
-2. Otevřete příkazový řádek pro vývojáře (do **vyhledávacího** pole zadejte **příkaz Developer Command Prompt** ).
+2. Otevřete příkazový řádek pro vývojáře (do **vyhledávacího** pole zadejte **příkaz Developer Command Prompt**).
 
    Obvykle chcete spustit Developer Command Prompt pro Visual Studio z nabídky **Start** , jak bude nakonfigurován se všemi nezbytnými cestami pro MSBuild.
 

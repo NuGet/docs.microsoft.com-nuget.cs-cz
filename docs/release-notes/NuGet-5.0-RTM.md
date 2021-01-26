@@ -1,16 +1,16 @@
 ---
 title: Poznámky k verzi NuGet 5,0 RTM
 description: Poznámky k verzi pro NuGet 5,0, včetně známých problémů, oprav chyb, nových funkcí a chcete odeslat obecnou.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 04/02/2019
 ms.topic: conceptual
-ms.openlocfilehash: e4a6be7fb26e3cc4bd297eaf02999f6ac1389b77
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 637db1ae128ce020c33e54e56148c848a5f905a5
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93236799"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776216"
 ---
 # <a name="nuget-50-release-notes"></a>Zpráva k vydání verze NuGet 5,0
 
@@ -29,7 +29,7 @@ Prostředky pro distribuci NuGet:
 
 * Podpora pro obnovení [filtrovaných řešení](/visualstudio/ide/filtered-solutions?view=vs-2019) v aplikaci Visual Studio 2019 – [#5820](https://github.com/NuGet/Home/issues/5820)
 * `BuildTransitive` Složka umožňuje balíčkům, aby byly do projektu hostitele zacíleny cílení na přispívat/props – [#6091](https://github.com/NuGet/Home/issues/6091)
-* Lepší podpora scénářů PackageReference v rozhraní NuGet Ideographic API [#7005](https://github.com/NuGet/Home/issues/7005)– #7005 [#7493](https://github.com/NuGet/Home/issues/7493)
+* Lepší podpora scénářů PackageReference v rozhraní NuGet Ideographic API [](https://github.com/NuGet/Home/issues/7005)– #7005 [#7493](https://github.com/NuGet/Home/issues/7493)
 * `nuget.exe pack project.json` se již nepoužívá- [#7928](https://github.com/NuGet/Home/issues/7928)
 * Modul plug-in zprostředkovatele přihlašovacích údajů pro Gen 1 byl nahrazen [2. Gen 2](../reference/extensibility/nuget-cross-platform-authentication-plugin.md) a bude brzy zastaralý – [#7819](https://github.com/NuGet/Home/issues/7819)
 

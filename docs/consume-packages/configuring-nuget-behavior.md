@@ -1,16 +1,16 @@
 ---
 title: Běžné konfigurace NuGetu
 description: NuGet.Config soubory NuGet řídí chování NuGet globálně i na jednotlivých projektech a jsou upraveny pomocí příkazu NuGet config.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 10/25/2017
 ms.topic: conceptual
-ms.openlocfilehash: e81c380eab3f1a8635e50e62811c7ae463ec3653
-ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
+ms.openlocfilehash: 35339626b0a20ccfceafa89fef94fb3187013fd7
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97699770"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774855"
 ---
 # <a name="common-nuget-configurations"></a>Běžné konfigurace NuGetu
 
@@ -21,7 +21,7 @@ Chování NuGet se řídí seshromážděným nastavením v jednom nebo několik
 | Obor | Umístění souboru NuGet.Config | Popis |
 | --- | --- | --- |
 | Řešení | Aktuální složka (neboli složka řešení) nebo libovolná složka až do kořenového adresáře jednotky.| Ve složce řešení se nastavení aplikuje na všechny projekty v podsložkách. Všimněte si, že pokud je konfigurační soubor umístěn ve složce projektu, nemá žádný vliv na tento projekt. |
-| Uživatel | **Windows:**`%appdata%\NuGet\NuGet.Config`<br/>**Mac/Linux:** `~/.config/NuGet/NuGet.Config` nebo `~/.nuget/NuGet/NuGet.Config` (se liší distribucí operačního systému) <br/>Další konfigurace jsou podporované na všech platformách. Tyto konfigurace nelze upravovat pomocí nástrojů. </br> **Windows:**`%appdata%\NuGet\config\*.Config` <br/>**Mac/Linux:** `~/.config/NuGet/config/*.config` ani `~/.nuget/config/*.config` | Nastavení platí pro všechny operace, ale jsou přepsána všemi nastaveními na úrovni projektu. |
+| User | **Windows:**`%appdata%\NuGet\NuGet.Config`<br/>**Mac/Linux:** `~/.config/NuGet/NuGet.Config` nebo `~/.nuget/NuGet/NuGet.Config` (se liší distribucí operačního systému) <br/>Další konfigurace jsou podporované na všech platformách. Tyto konfigurace nelze upravovat pomocí nástrojů. </br> **Windows:**`%appdata%\NuGet\config\*.Config` <br/>**Mac/Linux:** `~/.config/NuGet/config/*.config` ani `~/.nuget/config/*.config` | Nastavení platí pro všechny operace, ale jsou přepsána všemi nastaveními na úrovni projektu. |
 | Počítač | **Windows:**`%ProgramFiles(x86)%\NuGet\Config`<br/>**Mac/Linux:** `$XDG_DATA_HOME` . Pokud `$XDG_DATA_HOME` má hodnotu null nebo je prázdný, `~/.local/share` nebo se `/usr/local/share` použije (liší se podle distribuce operačního systému)  | Nastavení platí pro všechny operace v počítači, ale jsou přepsána všemi uživateli nebo nastavením na úrovni projektu. |
 
 Poznámky pro starší verze NuGet:
@@ -120,14 +120,16 @@ Jelikož NuGet najde nastavení těchto souborů, použije se takto:
 
 Řekněme, že máte na dvou samostatných jednotkách tuto strukturu složek:
 
-    disk_drive_1
-        User
-    disk_drive_2
-       Project1
-         Source
-       Project2
-         Source
-       tmp
+```
+disk_drive_1
+    User
+disk_drive_2
+    Project1
+        Source
+    Project2
+        Source
+    tmp
+```
 
 Pak budete mít k `NuGet.Config` danému obsahu čtyři soubory v následujících umístěních. (Soubor na úrovni počítače není v tomto příkladu zahrnutý, ale bude se chovat podobně jako soubor na úrovni uživatele.)
 

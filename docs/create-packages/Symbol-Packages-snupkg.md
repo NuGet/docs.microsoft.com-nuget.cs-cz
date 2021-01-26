@@ -1,7 +1,7 @@
 ---
 title: Jak publikovat balíčky symbolů NuGet pomocí nového formátu balíčku symbolů '. snupkg ' | Microsoft Docs
-author: cristinamanu
-ms.author: cristinamanu
+author: JonDouglas
+ms.author: jodou
 manager: skofman
 ms.date: 10/30/2018
 ms.topic: reference
@@ -12,18 +12,20 @@ keywords: Balíčky symbolů NuGet, ladění balíčku NuGet, podpora ladění N
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: fbcc035a6b800617f995d3bcebd7e1764aa467b0
-ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
+ms.openlocfilehash: 001637348fdd435e4ffd3a5a55e8128d1eab453c
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98235721"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774570"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Vytváření balíčků symbolů (. snupkg)
 
 Dobré prostředí ladění spoléhá na přítomnost symbolů ladění, protože poskytují kritické informace, jako je například přidružení mezi zkompilovaným a zdrojovým kódem, názvy místních proměnných, trasování zásobníku a další. Balíčky symbolů (. snupkg) můžete použít k distribuci těchto symbolů a zlepšení možností ladění balíčků NuGet.
 
-## <a name="prerequisites"></a>Předpoklady
+> Všimněte si, že balíček symbolů není jedinou strategií pro zpřístupnění ladicích symbolů pro uživatele vaší knihovny. Je to také [možné `embed` ](https://docs.microsoft.com/dotnet/core/deploying/single-file#include-pdb-files-inside-the-bundle) v `dll` nebo `exe` s následující vlastností projektu:`<DebugType>embedded</DebugType>`
+
+## <a name="prerequisites"></a>Požadavky
 
 [nuget.exe v 4.9.0 nebo vyšší](https://www.nuget.org/downloads) nebo [dotnet CLI v 2.2.0 nebo vyšší](https://www.microsoft.com/net/download/dotnet-core/2.2), které implementují požadované [protokoly NuGet](../api/nuget-protocols.md).
 
@@ -133,7 +135,7 @@ Balíček symbolů (. snupkg) má následující vlastnosti:
 5) Následující pole budou vyloučena z nuspec snupkg: ```authors``` , ```owners``` , ```requireLicenseAcceptance``` , ```license type``` , ```licenseUrl``` a  ```icon``` .
 6) Nepoužívejte ```<license>``` element. A. snupkg se zabývá stejnou licencí jako odpovídající. nupkg.
 
-## <a name="see-also"></a>Viz také:
+## <a name="see-also"></a>Viz také
 
 Zvažte použití odkazu na zdroj pro povolení ladění zdrojového kódu v sestaveních .NET. Další informace najdete v [pokynech ke zdrojovému propojení](/dotnet/standard/library-guidance/sourcelink).
 

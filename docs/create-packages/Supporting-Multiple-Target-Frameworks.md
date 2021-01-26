@@ -1,22 +1,22 @@
 ---
 title: Cílení na více platforem pro balíčky NuGet
 description: Popis různých metod, které cílí na více .NET Framework verzí z jednoho balíčku NuGet.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 7c0da38ab4059b89c9693ecbece2bc8ed1a775ec
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: e919b11670589900d9e588db33fd68b8df592ac2
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237942"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774553"
 ---
 # <a name="support-multiple-net-versions"></a>Podpora více verzí rozhraní .NET
 
 Mnoho knihoven cílí na konkrétní verzi .NET Framework. Například můžete mít jednu verzi knihovny, která je specifická pro UWP, a další verzi, která využívá funkce v .NET Framework 4,6. Aby to bylo možné, NuGet podporuje vložení více verzí stejné knihovny do jednoho balíčku.
 
-Tento článek popisuje rozložení balíčku NuGet bez ohledu na to, jak je sestaven balíček nebo sestavení (to znamená, že rozložení je stejné, ať už používáte více souborů *. csproj* , které NEPOUŽÍVAJÍ sadu SDK, a vlastní soubor *. nuspec* , nebo jeden pro více cílených sad SDK-Style *. csproj* ). Pro projekt ve stylu sady SDK zná [cíle sady](../reference/msbuild-targets.md) NuGet, jak musí být balíček layed a automatizuje vložení sestavení do správných složek lib a vytváření skupin závislostí pro každou cílovou architekturu (TFM). Podrobné pokyny najdete v tématu [Podpora více .NET Frameworkch verzí v souboru projektu](multiple-target-frameworks-project-file.md).
+Tento článek popisuje rozložení balíčku NuGet bez ohledu na to, jak je sestaven balíček nebo sestavení (to znamená, že rozložení je stejné, ať už používáte více souborů *. csproj* , které NEPOUŽÍVAJÍ sadu SDK, a vlastní soubor *. nuspec* , nebo jeden pro více cílených sad SDK-Style *. csproj*). Pro projekt ve stylu sady SDK zná [cíle sady](../reference/msbuild-targets.md) NuGet, jak musí být balíček layed a automatizuje vložení sestavení do správných složek lib a vytváření skupin závislostí pro každou cílovou architekturu (TFM). Podrobné pokyny najdete v tématu [Podpora více .NET Frameworkch verzí v souboru projektu](multiple-target-frameworks-project-file.md).
 
 Pokud používáte metodu pracovního adresáře založenou na konvenci, která je popsaná v tématu [Vytvoření balíčku](../create-packages/creating-a-package.md#from-a-convention-based-working-directory), musíte balíček ručně rozložit podle pokynů v tomto článku. Pro projekt ve stylu sady SDK se doporučuje automatizovaná metoda, ale můžete také zvolit ruční rozložení balíčku, jak je popsáno v tomto článku.
 
@@ -24,7 +24,9 @@ Pokud používáte metodu pracovního adresáře založenou na konvenci, která 
 
 Při sestavování balíčku, který obsahuje pouze jednu verzi knihovny nebo cílení na více platforem, je vždy nutné vytvořit podsložky v rámci `lib` používání různých názvů architektury s rozlišováním velkých a malých písmen s následující konvencí:
 
-    lib\{framework name}[{version}]
+```
+lib\{framework name}[{version}]
+```
 
 Úplný seznam podporovaných názvů najdete v [referenčních informacích o cílových rozhraních](../reference/target-frameworks.md#supported-frameworks).
 
@@ -32,15 +34,17 @@ Nikdy byste neměli mít verzi knihovny, která není specifická pro rozhraní 
 
 Například následující struktura složek podporuje čtyři verze sestavení, které jsou specifické pro rozhraní:
 
-    \lib
-        \net46
-            \MyAssembly.dll
-        \net461
-            \MyAssembly.dll
-        \uap
-            \MyAssembly.dll
-        \netcore
-            \MyAssembly.dll
+```
+\lib
+    \net46
+        \MyAssembly.dll
+    \net461
+        \MyAssembly.dll
+    \uap
+        \MyAssembly.dll
+    \netcore
+        \MyAssembly.dll
+```
 
 Pro snadné zahrnutí všech těchto souborů při sestavování balíčku použijte rekurzivní `**` zástupné znaky v `<files>` části svého `.nuspec` :
 
@@ -54,16 +58,18 @@ Pro snadné zahrnutí všech těchto souborů při sestavování balíčku použ
 
 Pokud máte sestavení pro konkrétní architekturu, tj. samostatná sestavení, která cílí na ARM, x86 a x64, je nutné umístit je do složky s názvem `runtimes` v podsložkách s názvem `{platform}-{architecture}\lib\{framework}` nebo `{platform}-{architecture}\native` . Například následující struktura složky by pokryla nativní i spravované knihovny DLL cílící na Windows 10 a `uap10.0` rozhraní:
 
-    \runtimes
-        \win10-arm
-            \native
-            \lib\uap10.0
-        \win10-x86
-            \native
-            \lib\uap10.0
-        \win10-x64
-            \native
-            \lib\uap10.0
+```
+\runtimes
+    \win10-arm
+        \native
+        \lib\uap10.0
+    \win10-x86
+        \native
+        \lib\uap10.0
+    \win10-x64
+        \native
+        \lib\uap10.0
+```
 
 Tato sestavení budou k dispozici pouze za běhu, takže pokud chcete zadat odpovídající sestavení pro čas kompilace a pak mít `AnyCPU` sestavení ve `/ref/{tfm}` složce. 
 
@@ -81,11 +87,13 @@ Pokud není nalezena shoda, NuGet zkopíruje sestavení pro nejvyšší verzi, k
 
 Zvažte například následující strukturu složek v balíčku:
 
-    \lib
-        \net45
-            \MyAssembly.dll
-        \net461
-            \MyAssembly.dll
+```
+\lib
+    \net45
+        \MyAssembly.dll
+    \net461
+        \MyAssembly.dll
+```
 
 Při instalaci tohoto balíčku do projektu, který se zaměřuje na .NET Framework 4,6, NuGet nainstaluje sestavení do `net45` složky, protože to je nejvyšší dostupná verze, která je menší nebo rovna 4,6.
 
@@ -97,12 +105,14 @@ Pokud je projekt cílen na rozhraní .NET Framework 4,0 a starší, NuGet vyvol�
 
 NuGet kopíruje sestavení z jediné složky knihovny v balíčku. Předpokládejme například, že balíček má následující strukturu složek:
 
-    \lib
-        \net40
-            \MyAssembly.dll (v1.0)
-            \MyAssembly.Core.dll (v1.0)
-        \net45
-            \MyAssembly.dll (v2.0)
+```
+\lib
+    \net40
+        \MyAssembly.dll (v1.0)
+        \MyAssembly.Core.dll (v1.0)
+    \net45
+        \MyAssembly.dll (v2.0)
+```
 
 Když je balíček nainstalován v projektu, který cílí na .NET Framework 4,5, `MyAssembly.dll` (v 2.0) je jediné nainstalovaná sestavení. `MyAssembly.Core.dll` (v 1.0) není nainstalováno, protože není uvedeno ve `net45` složce. NuGet se chová tímto způsobem `MyAssembly.Core.dll` , protože se mohl sloučit do verze 2,0 systému `MyAssembly.dll` .
 
@@ -112,7 +122,7 @@ Pokud chcete `MyAssembly.Core.dll` nainstalovat .NET Framework 4,5, umístěte k
 
 NuGet také podporuje cílení na konkrétní profil architektury připojením pomlčky a názvu profilu na konec složky.
 
-    lib\{framework name}-{profile}
+lib \{ Framework Name}-{Profile}
 
 Podporované profily jsou následující:
 
@@ -162,22 +172,24 @@ Při vytváření balíčků knihoven cílících na knihovnu přenosných tří
 
 Se `packages.config` soubory obsahu a skripty PowerShellu se dají seskupovat podle cílové architektury pomocí stejné konvence složky ve `content` `tools` složkách a. Například:
 
-    \content
-        \net46
-            \MyContent.txt
-        \net461
-            \MyContent461.txt
-        \uap
-            \MyUWPContent.html
-        \netcore
-    \tools
-        init.ps1
-        \net46
-            install.ps1
-            uninstall.ps1
-        \uap
-            install.ps1
-            uninstall.ps1
+```
+\content
+    \net46
+        \MyContent.txt
+    \net461
+        \MyContent461.txt
+    \uap
+        \MyUWPContent.html
+    \netcore
+\tools
+    init.ps1
+    \net46
+        install.ps1
+        uninstall.ps1
+    \uap
+        install.ps1
+        uninstall.ps1
+```
 
 Pokud je složka rozhraní ponechána prázdná, NuGet nepřidá odkazy na sestavení ani soubory obsahu nebo spustí skripty prostředí PowerShell pro tuto architekturu.
 

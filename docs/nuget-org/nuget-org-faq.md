@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 7076378b53c439eef51a243fa6efcfb01b8cfa73
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: aa845464dbe939260d5fca3e4b89bd846df471a7
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237903"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775941"
 ---
 # <a name="nugetorg-frequently-asked-questions"></a>NuGet.org často kladené otázky
 
@@ -81,7 +81,7 @@ Nejdřív se ujistěte, že používáte nejnovější verze NuGetu. Pokud se ta
 *Pro zachycení MTR:*
 
 - Stáhněte si [WinMTR](https://sourceforge.net/projects/winmtr/files/WinMTR-v092.zip/download).
-- `api.nuget.org`Jako název hostitele zadejte a klikněte na **Spustit** .
+- `api.nuget.org`Jako název hostitele zadejte a klikněte na **Spustit**.
 - Počkejte, dokud se sloupec **odeslán** >= 100.
 
     ![Zachycení MTR](media/mtr.png)
@@ -126,8 +126,8 @@ Pokud jste zapomněli, která účet Microsoft je přidružená k vašemu účtu
 Pokud chcete změnit účet Microsoft pro uživatele NuGet.org, postupujte podle následujících kroků. Znamená, že vaše účet Microsoft s e-mailem `account1@outlook.com` jsou spojené s vaším účtem NuGet.org s uživatelským jménem `MyNuGetAccount` . Chcete změnit přihlašovací údaje k jinému účet Microsoft e-mailem `account2@outlook.com`
 1. Přihlaste se prosím pomocí **aktuálně přidruženého účet Microsoft** , tj. `account1@outlook.com` po kliknutí na **Přihlásit se účtem Microsoft** na [přihlašovací stránce](https://www.nuget.org/users/account/LogOn) .
 1. Po přihlášení přejdete na stránku [Nastavení účtu](https://www.nuget.org/account) .
-1. Rozbalte část pro **přihlašovací účet** . Klikněte na tlačítko **změnit účet** .
-1. Teď budete přesměrováni na přihlašovací stránku Microsoftu. Přihlaste se prosím pomocí účtu, pro který chcete změnit přidružení, `account2@outlook.com` tj. **Poznámka** : možná budete muset kliknout na **Odhlásit se a přihlásit se pomocí jiného účtu** během přihlašování, abyste se mohli přihlásit s jiným účet Microsoft.
+1. Rozbalte část pro **přihlašovací účet**. Klikněte na tlačítko **změnit účet** .
+1. Teď budete přesměrováni na přihlašovací stránku Microsoftu. Přihlaste se prosím pomocí účtu, pro který chcete změnit přidružení, `account2@outlook.com` tj. **Poznámka**: možná budete muset kliknout na **Odhlásit se a přihlásit se pomocí jiného účtu** během přihlašování, abyste se mohli přihlásit s jiným účet Microsoft.
 1. Pokud se zobrazí chyba níže, přečtěte si téma [účet Microsoft je propojeno s jiným účtem NuGet.org](#microsoft-account-is-linked-with-another-nugetorg-account) , kde najdete další podrobnosti.
     >_Nepovedlo se aktualizovat účet Microsoft pomocí ' Account2 <account2@outlook.com> '. K tomu může dojít, pokud je už propojený s jiným účtem NuGet. Pokud chcete získat další informace, obraťte se na podporu._
 
@@ -188,11 +188,11 @@ Postupujte podle kroků v části [nelze použít přihlášení Microsoft, jak 
 ### <a name="unable-to-use-microsoft-login-how-do-i-recover-my-nugetorg-account"></a>Nemůžete použít přihlašovací údaje Microsoftu, jak obnovím svůj účet NuGet.org?
 
 Pokud jste se pokusili použít [pomoc při přihlašování](#which-microsoft-account-is-linked-to-my-nugetorg-account) a nemáte přístup k účet Microsoft, která je přidružená k vašemu účtu NuGet.org, postupujte podle následujících kroků, abyste provedli propojení nového účet Microsoft s účtem NuGet.org.
-1. **Požadavek** : budete potřebovat přístup k účet Microsoft, která není přidružena k žádnému existujícímu účtu NuGet.org. Pokud žádný nemáte, můžete si ho [vytvořit](https://signup.live.com) .
+1. **Požadavek**: budete potřebovat přístup k účet Microsoft, která není přidružena k žádnému existujícímu účtu NuGet.org. Pokud žádný nemáte, můžete si ho [vytvořit](https://signup.live.com) .
 2. Pokud jste zapomněli své uživatelské jméno a heslo pro svůj účet NuGet.org, postupujte podle [pokynů pro obnovení přihlašovacích údajů k heslu](#how-to-recover-nugetorg-password-login).
 3. [Přihlaste se k NuGet.org](https://www.nuget.org/users/account/LogOnNuGetAccount) pomocí přihlášení uživatelského jména a hesla.
 4. Po přihlášení se zobrazí dialogové okno se zobrazí, jak je uvedeno níže. Toto je dialogové okno pro odpokračování hesla.
-5. **Poznámka** : ponechejte prosím pokyn pro přihlášení se zadaným účet Microsoft. Svůj účet NuGet.org teď můžete propojit s ostatními přihlašovacími údaji Microsoftu.
+5. **Poznámka**: ponechejte prosím pokyn pro přihlášení se zadaným účet Microsoft. Svůj účet NuGet.org teď můžete propojit s ostatními přihlašovacími údaji Microsoftu.
 6. Klikněte na tlačítko **Přihlásit se účtem Microsoft** a přihlaste se k účet Microsoft, ke kterému máte přístup, jak je uvedeno v kroku 1.
 7. Váš účet bude teď propojený s novým účet Microsoft, který můžete použít k přihlášení do NuGet.org.
 
@@ -203,7 +203,7 @@ Pokud jste se pokusili použít [pomoc při přihlašování](#which-microsoft-a
 Pokud chcete účet transformovat na organizaci a tento účet už je přidružený k účet Microsoft přihlašování, postupujte prosím podle kroků uvedených v dokumentaci pro [organizace v rámci nástroje NuGet org](organizations-on-nuget-org.md).
 
 Pokud ale účet NuGet.org není přidružený/propojený s účet Microsoft, můžete pomocí následujících kroků tento účet transformovat na organizaci.
-1. **Požadavek** : Nejdřív musíte mít vytvořený jednotlivý účet na NuGet.org, který se použije jako správce účtu org. Pokud ho ještě nemáte, [vytvořte prosím nový účet NuGet.org](individual-accounts.md) .
+1. **Požadavek**: Nejdřív musíte mít vytvořený jednotlivý účet na NuGet.org, který se použije jako správce účtu org. Pokud ho ještě nemáte, [vytvořte prosím nový účet NuGet.org](individual-accounts.md) .
 2. Pokud pro něj nepoužíváte přihlášení k heslu, postupujte podle [pokynů pro obnovení hesla](#how-to-recover-nugetorg-password-login) k vašemu účtu NuGet.org. Pokud to uděláte, přeskočte tento krok.
 3. [Přihlaste se k NuGet.org](https://www.nuget.org/users/account/LogOnNuGetAccount) pomocí přihlášení uživatelského jména a hesla.
 4. Po přihlášení se zobrazí dialogové okno se zobrazí, jak je uvedeno níže. Toto je dialogové okno pro odpokračování hesla. 
@@ -220,9 +220,7 @@ Pokud ale účet NuGet.org není přidružený/propojený s účet Microsoft, m�
 
 Pokud se v průběhu procesu přihlášení k doméně vašeho e-mailového účtu () zobrazuje chyba @yourdomain.com , přečtěte si následující postup obnovení účtu NuGet.org.
 
-<p align="center">
-    <img src="media/unmanaged-aad-tenant.png" />
-</p>
+![Chyba během přihlašování pro účty AAD](media/unmanaged-aad-tenant.png)
 
 **Co je tento nespravovaný stav věc během přihlášení? A proč k této situaci dochází nyní?** 
 
@@ -244,7 +242,7 @@ Můžete [vytvořit](https://www.microsoft.com/account) nový účet Microsoft (
 
 Nemůžete. V důsledku zásad nepovolujeme změnu uživatelských jmen. To je také zásadní změna pro uživatele, kteří mohou mít definovány [Zásady důvěryhodnosti balíčku na základě vlastníka balíčku](../consume-packages/installing-signed-packages.md#trust-package-owners). Jediným způsobem, jak změnit uživatelské jméno, je vytvořit nový účet s požadovaným uživatelským jménem. Před vytvořením nového účtu doporučujeme odstranit stávající účet, jinak nebudete moci znovu použít své registrované účet Microsoft.
 > [!Important]
-> Odstranění uživatele bude stále **Rezervovat** `username` . Stejné uživatelské jméno nebude možné znovu znovu použít a **to zahrnuje změnu malých a velkých písmen** . Příklad: Pokud jste vytvořili uživatele s uživatelským jménem `mycoolname` a chcete ho změnit na `MyCoolName` (změny velikosti písmen), po odstranění uživatele nebude možné.
+> Odstranění uživatele bude stále **Rezervovat** `username` . Stejné uživatelské jméno nebude možné znovu znovu použít a **to zahrnuje změnu malých a velkých písmen**. Příklad: Pokud jste vytvořili uživatele s uživatelským jménem `mycoolname` a chcete ho změnit na `MyCoolName` (změny velikosti písmen), po odstranění uživatele nebude možné.
 
 Postupujte podle kroků uvedených v části [odstranění účtu NuGet.org](#how-to-delete-my-nugetorg-account) a [Zaregistrujte nový účet](individual-accounts.md) se správným uživatelským jménem.
 

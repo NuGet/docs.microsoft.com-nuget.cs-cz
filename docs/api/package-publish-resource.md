@@ -1,115 +1,121 @@
 ---
-title: Nasdílení změn a odstranění rozhraní API Nugetu
-description: Služba publikování umožňuje klientům publikovat nové balíčky a vyjmutí ze seznamu nebo odstranit existující balíčky.
+title: Nabízení a odstraňování, rozhraní API NuGet
+description: Služba publikování umožňuje klientům publikovat nové balíčky a odpisovat nebo odstraňovat existující balíčky.
 author: joelverhagen
 ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 6e81055796e20186c5769d2ec39849e6c551ff87
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 0a79266011433d5adc1341a8e250838988c84d13
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426727"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98773926"
 ---
-# <a name="push-and-delete"></a>Nasdílení změn a odstranění
+# <a name="push-and-delete"></a>Push a DELETE
 
-Je možné vložit, odstranit (nebo vyjmutí ze seznamu, v závislosti na implementaci serveru) a relist balíčky pomocí rozhraní API V3 NuGet. Tyto operace jsou odhlásit z založené `PackagePublish` prostředek se nenašel v [index služby](service-index.md).
+Je možné předávat, odstraňovat (nebo odpisovat) v závislosti na implementaci serveru a přepisovat balíčky pomocí rozhraní NuGet V3 API. Tyto operace jsou založeny na prostředku, který `PackagePublish` najdete v [indexu služby](service-index.md).
 
 ## <a name="versioning"></a>Správa verzí
 
-Následující `@type` hodnota se používá:
+Použije se následující `@type` hodnota:
 
-@type Hodnota          | Poznámky
+@type osa          | Poznámky
 -------------------- | -----
 PackagePublish/2.0.0 | Počáteční verze
 
 ## <a name="base-url"></a>Základní adresa URL
 
-Základní adresa URL pro následující rozhraní API je hodnota `@id` vlastnost `PackagePublish/2.0.0` prostředků ve zdroji balíčku [index služby](service-index.md). Pro níže uvedenou dokumentaci se používá adresu URL nuget.org. Vezměte v úvahu `https://www.nuget.org/api/v2/package` jako zástupný symbol pro `@id` hodnota nalezena v indexu služby.
+Základní adresa URL následujících rozhraní API je hodnota `@id` vlastnosti `PackagePublish/2.0.0` prostředku v [indexu služby](service-index.md)zdroje balíčku. Pro dokumentaci níže se používá adresa URL balíčku NuGet. org. Zvažte možnost `https://www.nuget.org/api/v2/package` použít jako zástupný symbol pro `@id` hodnotu nalezenou v indexu služby.
 
-Všimněte si, že tato adresa URL odkazuje do stejného umístění jako starší verze koncového bodu V2 nabízených oznámení, protože protokol je stejný.
+Všimněte si, že tato adresa URL odkazuje na stejné umístění jako starší verze V2 push Endpoint, protože protokol je stejný.
 
 ## <a name="http-methods"></a>Metody HTTP
 
-`PUT`, `POST` a `DELETE` tento prostředek podporovaných metod HTTP. Které metody jsou podporovány na každém koncovém bodu najdete níže.
+`PUT`Metody, `POST` a `DELETE` http jsou podporovány tímto prostředkem. Které metody jsou podporovány u každého koncového bodu, viz níže.
 
-## <a name="push-a-package"></a>Push balíčku
+## <a name="push-a-package"></a>Vložení balíčku
 
 > [!Note]
-> má nuget.org [další požadavky](NuGet-Protocols.md) pro komunikaci s koncovým bodem nabízených oznámení.
+> nuget.org má [Další požadavky](NuGet-Protocols.md) pro interakci s koncovým bodem push.
 
-nuget.org podporuje vkládání nové balíčky pomocí následující rozhraní API. Pokud balíček s zadané ID a verzí již existuje, bude taková nuget.org nasdílení změn. Další zdroje balíčků můžou podporovat nahrazení existujícího balíčku.
+nuget.org podporuje vkládání nových balíčků pomocí následujícího rozhraní API. Pokud balíček se zadaným ID a verzí již existuje, nuget.org se zamítne. Další zdroje balíčků můžou podporovat nahrazení existujícího balíčku.
 
-    PUT https://www.nuget.org/api/v2/package
+```
+PUT https://www.nuget.org/api/v2/package
+```
 
 ### <a name="request-parameters"></a>Parametry žádosti
 
-Name           | V     | type   | Požadováno | Poznámky
+Name           | V     | Typ   | Vyžadováno | Poznámky
 -------------- | ------ | ------ | -------- | -----
-X-NuGet-ApiKey | Záhlaví | odkazy řetězců | ano      | Třeba `X-NuGet-ApiKey: {USER_API_KEY}`.
+X-NuGet – ApiKey | Hlavička | řetězec | ano      | Například `X-NuGet-ApiKey: {USER_API_KEY}`.
 
-Klíč rozhraní API je neprůhledný řetězec získali ze zdroje balíčku uživatelem a konfiguraci do klienta. Je vyžadováno žádné konkrétní řetězec formátu, ale délka klíče rozhraní API by neměl být delší než rozumnou velikost pro hodnoty hlavičky protokolu HTTP.
+Klíč rozhraní API je neprůhledný řetězec ze zdroje balíčku uživatelem a nakonfigurovaný do klienta. Není k dispozici žádný konkrétní formát řetězce, ale délka klíče rozhraní API by neměla překročit rozumnou velikost pro hodnoty hlaviček protokolu HTTP.
 
 ### <a name="request-body"></a>Text požadavku
 
-Text požadavku musí být v následujícím tvaru:
+Text žádosti musí být v následujícím tvaru:
 
-#### <a name="multipart-form-data"></a>Dat vícedílného formuláře
+#### <a name="multipart-form-data"></a>Data formuláře v částech
 
-Hlavička požadavku `Content-Type` je `multipart/form-data` a nezpracované bajtů .nupkg stisknuté je první položka v textu požadavku. Následující položky v textu vícedílné zprávy jsou ignorovány. Název souboru nebo jiné záhlaví položek s více částmi. jsou ignorovány.
+Hlavička požadavku `Content-Type` je `multipart/form-data` a první položkou v textu požadavku jsou nezpracované bajty vloženého. nupkg. Následné položky v těle části částmi jsou ignorovány. Název souboru nebo jiné hlavičky položek s více částmi jsou ignorovány.
 
 ### <a name="response"></a>Odpověď
 
 Stavový kód | Význam
 ----------- | -------
-201, 202    | Balíček byl úspěšně odeslal.
-400         | Zadaný balíček je neplatný
-409         | Balíček se zadané ID a verze již existuje.
+201, 202    | Balíček se úspěšně odeslal.
+400         | Zadaný balíček je neplatný.
+409         | Balíček se zadaným ID a verzí již existuje.
 
-Implementace serveru lišit na stavový kód úspěchu vrátí, když se úspěšně odeslal balíček.
+Implementace serveru se liší v případě úspěšného vložení balíčku v případě, že se vrátí stavový kód úspěchu.
 
 ## <a name="delete-a-package"></a>Odstranění balíčku
 
-nuget.org interpretuje požadavku na odstranění balíčku jako příslušný "vyjmutí ze seznamu". To znamená, že balíček je stále k dispozici pro stávající zákazníky balíček, ale balíček už se zobrazí ve výsledcích hledání nebo ve webovém rozhraní. Další informace o tento postup najdete v článku [odstranit balíčky](../nuget-org/policies/deleting-packages.md) zásad. Jiné implementace serveru je zdarma jak interpretovat jako pevný odstranit tento signál, obnovitelné odstranění nebo vyjmutí ze seznamu. Například [NuGet.Server](https://www.nuget.org/packages/NuGet.Server) (na serveru implementace podporuje pouze rozhraní API pro starší verze 2) podporuje tato žádost zpracovává jako unlist nebo pevné delete založené na možnosti konfigurace.
+nuget.org interpretuje požadavek na odstranění balíčku jako "unlist". To znamená, že balíček je stále k dispozici pro existující uživatele balíčku, ale balíček se již nezobrazuje ve výsledcích hledání nebo ve webovém rozhraní. Další informace o tomto postupu najdete v tématu [odstraněné zásady balíčků](../nuget-org/policies/deleting-packages.md) . Další implementace serveru jsou zdarma k interpretaci tohoto signálu jako pevného odstranění, obnovitelného odstranění nebo oddálení seznamu. Například [NuGet. Server](https://www.nuget.org/packages/NuGet.Server) (implementace serveru podporuje jenom starší verze V2 API) podporuje zpracování této žádosti jako buď oddálení, nebo pevné odstranění na základě možnosti konfigurace.
 
-    DELETE https://www.nuget.org/api/v2/package/{ID}/{VERSION}
+```
+DELETE https://www.nuget.org/api/v2/package/{ID}/{VERSION}
+```
 
 ### <a name="request-parameters"></a>Parametry žádosti
 
-Name           | V     | type   | Požadováno | Poznámky
+Name           | V     | Typ   | Vyžadováno | Poznámky
 -------------- | ------ | ------ | -------- | -----
-ID             | Adresa URL    | odkazy řetězců | ano      | ID balíčku, který se má odstranit
-VERZE        | Adresa URL    | odkazy řetězců | ano      | Verze balíčku k odstranění
-X-NuGet-ApiKey | Záhlaví | odkazy řetězců | ano      | Třeba `X-NuGet-ApiKey: {USER_API_KEY}`.
+ID             | URL    | řetězec | ano      | ID balíčku, který se má odstranit
+VERZE        | URL    | řetězec | ano      | Verze balíčku, který se má odstranit
+X-NuGet – ApiKey | Hlavička | řetězec | ano      | Například `X-NuGet-ApiKey: {USER_API_KEY}`.
 
 ### <a name="response"></a>Odpověď
 
 Stavový kód | Význam
 ----------- | -------
-204         | Balíček byl odstraněn.
-404         | Žádný balíček pomocí zadaných `ID` a `VERSION` existuje
+204         | Balíček se odstranil.
+404         | Žádný balíček se zadaným `ID` a `VERSION` neexistuje.
 
-## <a name="relist-a-package"></a>Relist balíčku
+## <a name="relist-a-package"></a>Přepsání balíčku
 
-Pokud balíček je neuvedené v seznamu, je možné vytvořit balíček znovu viditelné ve výsledcích vyhledávání pomocí koncového bodu "relist". Tento koncový bod má stejný tvar jako [odstranit (vyjmutí ze seznamu) koncového bodu](#delete-a-package) , ale používá `POST` metoda protokolu HTTP místo `DELETE` metody.
+Pokud balíček není v seznamu, je možné ho znovu nastavit tak, aby se zobrazil ve výsledcích hledání pomocí koncového bodu "relist". Tento koncový bod má stejný tvar jako [koncový bod Delete (unlist)](#delete-a-package) , ale `POST` místo metody používá metodu http `DELETE` .
 
-Pokud už je balíček uvedený, stále neproběhne.
+Pokud je tento balíček již uveden, požadavek bude stále úspěšný.
 
-    POST https://www.nuget.org/api/v2/package/{ID}/{VERSION}
+```
+POST https://www.nuget.org/api/v2/package/{ID}/{VERSION}
+```
 
 ### <a name="request-parameters"></a>Parametry žádosti
 
-Name           | V     | type   | Požadováno | Poznámky
+Name           | V     | Typ   | Vyžadováno | Poznámky
 -------------- | ------ | ------ | -------- | -----
-ID             | Adresa URL    | odkazy řetězců | ano      | ID balíčku, který se má relist
-VERZE        | Adresa URL    | odkazy řetězců | ano      | Verze balíčku, který se relist
-X-NuGet-ApiKey | Záhlaví | odkazy řetězců | ano      | Třeba `X-NuGet-ApiKey: {USER_API_KEY}`.
+ID             | URL    | řetězec | ano      | ID balíčku, který se má znovu zobrazit
+VERZE        | URL    | řetězec | ano      | Verze balíčku, který se má znovu zobrazit
+X-NuGet – ApiKey | Hlavička | řetězec | ano      | Například `X-NuGet-ApiKey: {USER_API_KEY}`.
 
 ### <a name="response"></a>Odpověď
 
 Stavový kód | Význam
 ----------- | -------
-200         | Balíček je nyní uveden.
-404         | Žádný balíček pomocí zadaných `ID` a `VERSION` existuje
+200         | Balíček je nyní uveden
+404         | Žádný balíček se zadaným `ID` a `VERSION` neexistuje.

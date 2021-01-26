@@ -5,12 +5,12 @@ author: dominofire
 ms.author: feaguila
 ms.date: 11/9/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7f641c669cdb0cc979d698f6b219cbb4f2692a2e
-ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
+ms.openlocfilehash: 550971d77ed4b15129fdc58fef95e0cceda8d8d1
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98235747"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776166"
 ---
 # <a name="nuget-58-release-notes"></a>Zpráva k vydání verze NuGet 5,8
 
@@ -34,13 +34,13 @@ Prostředky pro distribuci NuGet:
 
 * Zobrazit podrobnosti o ohrožení zabezpečení balíčku v podokně podrobností balíčku uživatelského rozhraní Správce balíčků – [#9850](https://github.com/NuGet/Home/issues/9850)
 
-* Ověření podepsaných balíčků NuGet pomocí nového [`dotnet nuget verify`](https://docs.microsoft.com/dotnet/core/tools/dotnet-nuget-verify) příkazu [#8051](https://github.com/NuGet/Home/issues/8051)
+* Ověření podepsaných balíčků NuGet pomocí nového [`dotnet nuget verify`](/dotnet/core/tools/dotnet-nuget-verify) příkazu [#8051](https://github.com/NuGet/Home/issues/8051)
 
-* [`dotnet add package`](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package#:~:text=dotnet%20add%20package%201%20Name%202%20Synopsis%203,when%20targeting%20a%20specific%20framework.%20...%206%20Examples) podporuje `--prerelease` možnost Přidat nejnovější verzi balíčku, včetně předprodejních verzí – [#4699](https://github.com/NuGet/Home/issues/4699)
+* [`dotnet add package`](/dotnet/core/tools/dotnet-add-package#:~:text=dotnet%20add%20package%201%20Name%202%20Synopsis%203,when%20targeting%20a%20specific%20framework.%20...%206%20Examples) podporuje `--prerelease` možnost Přidat nejnovější verzi balíčku, včetně předprodejních verzí – [#4699](https://github.com/NuGet/Home/issues/4699)
 
-* Vyhledat balíčky v rozhraní [`nuget.exe search`](https://docs.microsoft.com/nuget/reference/cli-reference/cli-ref-search) příkazového řádku pomocí příkazu [#9704](https://github.com/NuGet/Home/issues/9704)
+* Vyhledat balíčky v rozhraní [`nuget.exe search`](../reference/cli-reference/cli-ref-search.md) příkazového řádku pomocí příkazu [#9704](https://github.com/NuGet/Home/issues/9704)
 
-* [`dotnet list package`](https://docs.microsoft.com/dotnet/core/tools/dotnet-list-package) příkaz podporuje `--verbosity` možnost – [#9600](https://github.com/NuGet/Home/issues/9600)
+* [`dotnet list package`](/dotnet/core/tools/dotnet-list-package) příkaz podporuje `--verbosity` možnost – [#9600](https://github.com/NuGet/Home/issues/9600)
 
 * Povolení Optimalizace rychlého obnovení No-Op pro projekty založené na stylu csproj v aplikaci Visual Studio – [#9565](https://github.com/NuGet/Home/issues/9565)
 
@@ -155,4 +155,4 @@ Děkujeme všem přispěvatelům, kteří vám pomohl tuto verzi NuGet udělat.
 ## <a name="feedback-welcome"></a>Úvodní názory
 
 Váš názor je pro nás důležitý.  Pokud se v této verzi vyskytnou nějaké problémy, podívejte se na naše [problémy GitHubu](https://github.com/NuGet/Home/issues) a [komunitu vývojářů pro Visual Studio](https://developercommunity.visualstudio.com/) , kde najdete stávající problémy.  Pro nové problémy v rámci NuGet ohlaste [problém GitHubu](https://github.com/NuGet/Home/issues/new).
-Pro obecné problémy s prostředím NuGet nám dejte informace v části **Help > nahlásit problém** pomocí možnosti [nahlásit problém](https://docs.microsoft.com/visualstudio/ide/how-to-report-a-problem-with-visual-studio) , která se nachází ve vašem oblíbeném prostředí IDE.
+Pro obecné problémy s prostředím NuGet nám dejte informace v části **Help > nahlásit problém** pomocí možnosti [nahlásit problém](/visualstudio/ide/how-to-report-a-problem-with-visual-studio) , která se nachází ve vašem oblíbeném prostředí IDE.

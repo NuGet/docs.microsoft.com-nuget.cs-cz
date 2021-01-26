@@ -1,16 +1,16 @@
 ---
 title: Migrace z packages.config na formáty PackageReference
 description: Podrobnosti o tom, jak migrovat projekt z formátu správy packages.config do PackageReference, jak je podporuje NuGet 4.0 + a VS2017 a .NET Core 2,0
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 05/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 23bd936707173f49a651a8ba432fa8773fa53881
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 8161f4a39d4adfdb9efb25bcb840b20b85a58e07
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237832"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774784"
 ---
 # <a name="migrate-from-packagesconfig-to-packagereference"></a>Migrace z packages.config na PackageReference
 
@@ -18,11 +18,11 @@ Visual Studio 2017 verze 15,7 a novější podporuje migraci projektu z formátu
 
 ## <a name="benefits-of-using-packagereference"></a>Výhody použití PackageReference
 
-* **Spravovat všechny závislosti projektu na jednom místě** : stejně jako odkazy na projekt a odkazy na sestavení, odkazy na balíček NuGet (pomocí `PackageReference` uzlu) se spravují přímo v souborech projektu místo použití samostatného souboru packages.config.
-* **Nepotřebné zobrazení závislostí nejvyšší úrovně** : na rozdíl od packages.config vypíše PackageReference jenom balíčky NuGet, které jste přímo nainstalovali v projektu. V důsledku toho uživatelské rozhraní Správce balíčků NuGet a soubor projektu nejsou v závislosti na nižší úrovni nepotřebné.
-* **Vylepšení výkonu** : při použití PackageReference jsou balíčky udržovány ve složce *Global-Packages* (jak je popsáno v tématu [Správa globálních balíčků a složek mezipaměti](../consume-packages/managing-the-global-packages-and-cache-folders.md) , nikoli ve `packages` složce v rámci řešení. V důsledku toho PackageReference provádí rychlejší a spotřebovává méně místa na disku.
-* **Přesnější řízení závislostí a toku obsahu** : pomocí existujících funkcí nástroje MSBuild můžete [podmíněně odkazovat na balíček NuGet](../consume-packages/Package-References-in-Project-Files.md#adding-a-packagereference-condition) a vybrat odkazy na balíčky pro cílovou architekturu, konfiguraci, platformu nebo jiné pivoty.
-* **PackageReference je v aktivním vývoji** : viz [problémy PackageReference na GitHubu](https://aka.ms/nuget-pr-improvements). packages.config už není v aktivním vývoji.
+* **Spravovat všechny závislosti projektu na jednom místě**: stejně jako odkazy na projekt a odkazy na sestavení, odkazy na balíček NuGet (pomocí `PackageReference` uzlu) se spravují přímo v souborech projektu místo použití samostatného souboru packages.config.
+* **Nepotřebné zobrazení závislostí nejvyšší úrovně**: na rozdíl od packages.config vypíše PackageReference jenom balíčky NuGet, které jste přímo nainstalovali v projektu. V důsledku toho uživatelské rozhraní Správce balíčků NuGet a soubor projektu nejsou v závislosti na nižší úrovni nepotřebné.
+* **Vylepšení výkonu**: při použití PackageReference jsou balíčky udržovány ve složce *Global-Packages* (jak je popsáno v tématu [Správa globálních balíčků a složek mezipaměti](../consume-packages/managing-the-global-packages-and-cache-folders.md) , nikoli ve `packages` složce v rámci řešení. V důsledku toho PackageReference provádí rychlejší a spotřebovává méně místa na disku.
+* **Přesnější řízení závislostí a toku obsahu**: pomocí existujících funkcí nástroje MSBuild můžete [podmíněně odkazovat na balíček NuGet](../consume-packages/Package-References-in-Project-Files.md#adding-a-packagereference-condition) a vybrat odkazy na balíčky pro cílovou architekturu, konfiguraci, platformu nebo jiné pivoty.
+* **PackageReference je v aktivním vývoji**: viz [problémy PackageReference na GitHubu](https://aka.ms/nuget-pr-improvements). packages.config už není v aktivním vývoji.
 
 ### <a name="limitations"></a>Omezení
 
@@ -57,7 +57,7 @@ Nyní byste měli být schopni zobrazit možnost migrace. Všimněte si, že tat
 
 1. Otevřete řešení obsahující projekt pomocí `packages.config` .
 
-1. V **Průzkumník řešení** klikněte pravým tlačítkem myši na uzel **odkazy** nebo na `packages.config` soubor a vyberte **migrovat packages.config na PackageReference...** .
+1. V **Průzkumník řešení** klikněte pravým tlačítkem myši na uzel **odkazy** nebo na `packages.config` soubor a vyberte **migrovat packages.config na PackageReference...**.
 
 1. Migrace analyzuje odkazy na balíček NuGet projektu a pokusy o jejich kategorizaci do **závislostí na nejvyšší úrovni** (balíčky NuGet, které jste nainstalovali přímo), a **přenosných závislostí** (balíčky, které byly nainstalovány jako závislosti balíčků nejvyšší úrovně).
 

@@ -1,16 +1,16 @@
 ---
 title: Přeinstalace a aktualizace balíčků NuGet
 description: Podrobnosti o tom, kdy je nutné přeinstalovat a aktualizovat balíčky, stejně jako v případě nefunkčních odkazů na balíčky v aplikaci Visual Studio.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 12/07/2017
 ms.topic: conceptual
-ms.openlocfilehash: 101c6d6b9d93da912f60c40b27559e80327154b8
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 588d546352e5733ba8198061beb8006a79ecedac
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237728"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774977"
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>Postup přeinstalace a aktualizace balíčků
 
@@ -23,7 +23,7 @@ Aktualizace a přeinstalace balíčků se provádí takto:
 | Metoda | Aktualizace | Instaluje |
 | --- | --- | --- |
 | Konzola správce balíčků (popsaná v tématu [použití balíčku Update-Package](#using-update-package)) | Příkaz `Update-Package` | Příkaz `Update-Package -reinstall` |
-| Uživatelské rozhraní Správce balíčků | Na kartě **aktualizace** vyberte jeden nebo více balíčků a vyberte **aktualizovat** . | Na kartě **nainstalované** vyberte balíček, zaznamenejte jeho název a pak vyberte **odinstalovat** . Přepněte na kartu **Procházet** , vyhledejte název balíčku, vyberte ho a pak vyberte **nainstalovat** ). |
+| Uživatelské rozhraní Správce balíčků | Na kartě **aktualizace** vyberte jeden nebo více balíčků a vyberte **aktualizovat** . | Na kartě **nainstalované** vyberte balíček, zaznamenejte jeho název a pak vyberte **odinstalovat**. Přepněte na kartu **Procházet** , vyhledejte název balíčku, vyberte ho a pak vyberte **nainstalovat**). |
 | nuget.exe CLI | Příkaz `nuget update` | Pro všechny balíčky odstraňte složku balíčku a potom spusťte příkaz `nuget install` . V případě jednoho balíčku odstraňte složku balíčku a použijte ji `nuget install <id>` k přeinstalování stejného umístění. |
 
 > [!NOTE]
@@ -36,11 +36,11 @@ V tomto článku:
 
 ## <a name="when-to-reinstall-a-package"></a>Kdy přeinstalovat balíček
 
-1. **Poškozené odkazy po obnovení balíčku** : Pokud jste otevřeli projekt a obnovili balíčky NuGet, ale pořád vidíte poškozené odkazy, zkuste všechny tyto balíčky přeinstalovat.
-1. **Projekt je přerušen z důvodu odstraněných souborů** : nástroj NuGet nebrání v odebírání položek přidaných z balíčků, takže je snadné nechtěně upravovat obsah nainstalovaný z balíčku a poškodit projekt. Chcete-li obnovit projekt, přeinstalujte příslušné balíčky.
-1. **Aktualizace balíčku podařilo přerušit projekt** : Pokud aktualizace balíčku ukončí nějaký projekt, je selhání většinou způsobeno balíčkem závislostí, který se taky mohl aktualizovat. Chcete-li obnovit stav závislosti, přeinstalujte tento konkrétní balíček.
-1. Změna **cílení nebo upgrade projektu** : to může být užitečné, pokud byl projekt změněn na cílený nebo upgradovaný a pokud balíček vyžaduje přeinstalaci z důvodu změny v cílové verzi rozhraní .NET Framework. NuGet zobrazuje chybu sestavení v takových případech ihned po provedení změny cíle projektu a následné výstrahy sestavení vám upozorní, že je možné balíček potřebovat přeinstalovat. V případě upgradu projektu NuGet zobrazuje chybu v protokolu upgradu projektu.
-1. **Přeinstalace balíčku během vývoje** : autoři balíčku často potřebují přeinstalovat stejnou verzi balíčku, kterou vyvíjí, aby bylo možné chování otestovat. `Install-Package`Příkaz neposkytuje možnost vynutit přeinstalaci, takže `Update-Package -reinstall` místo toho použijte.
+1. **Poškozené odkazy po obnovení balíčku**: Pokud jste otevřeli projekt a obnovili balíčky NuGet, ale pořád vidíte poškozené odkazy, zkuste všechny tyto balíčky přeinstalovat.
+1. **Projekt je přerušen z důvodu odstraněných souborů**: nástroj NuGet nebrání v odebírání položek přidaných z balíčků, takže je snadné nechtěně upravovat obsah nainstalovaný z balíčku a poškodit projekt. Chcete-li obnovit projekt, přeinstalujte příslušné balíčky.
+1. **Aktualizace balíčku podařilo přerušit projekt**: Pokud aktualizace balíčku ukončí nějaký projekt, je selhání většinou způsobeno balíčkem závislostí, který se taky mohl aktualizovat. Chcete-li obnovit stav závislosti, přeinstalujte tento konkrétní balíček.
+1. Změna **cílení nebo upgrade projektu**: to může být užitečné, pokud byl projekt změněn na cílený nebo upgradovaný a pokud balíček vyžaduje přeinstalaci z důvodu změny v cílové verzi rozhraní .NET Framework. NuGet zobrazuje chybu sestavení v takových případech ihned po provedení změny cíle projektu a následné výstrahy sestavení vám upozorní, že je možné balíček potřebovat přeinstalovat. V případě upgradu projektu NuGet zobrazuje chybu v protokolu upgradu projektu.
+1. **Přeinstalace balíčku během vývoje**: autoři balíčku často potřebují přeinstalovat stejnou verzi balíčku, kterou vyvíjí, aby bylo možné chování otestovat. `Install-Package`Příkaz neposkytuje možnost vynutit přeinstalaci, takže `Update-Package -reinstall` místo toho použijte.
 
 ## <a name="constraining-upgrade-versions"></a>Omezení verzí upgradu
 
@@ -63,7 +63,7 @@ Ve všech případech použijte zápis popsaný v tématu [Správa verzí balí�
 
 ## <a name="using-update-package"></a>Použití Update-Package
 
-S [ohledem](#considerations) na níže popsané požadavky můžete snadno přeinstalovat všechny balíčky pomocí [příkazu Update-Package](../reference/ps-reference/ps-ref-update-package.md) v konzole správce balíčků sady Visual Studio ( **nástroje** správce  >  **balíčků NuGet**  >  **Konzola správce** balíčků).
+S [ohledem](#considerations) na níže popsané požadavky můžete snadno přeinstalovat všechny balíčky pomocí [příkazu Update-Package](../reference/ps-reference/ps-ref-update-package.md) v konzole správce balíčků sady Visual Studio (**nástroje** správce  >  **balíčků NuGet**  >  **Konzola správce** balíčků).
 
 ```ps
 Update-Package -Id <package_name> –reinstall
@@ -101,7 +101,7 @@ Aktualizace balíčků v projektu nebo řešení pomocí [PackageReference](../C
 
 Úplné podrobnosti o příkazu naleznete v tématu [Update-Package](../reference/ps-reference/ps-ref-update-package.md) reference.
 
-### <a name="considerations"></a>Důležité informace
+### <a name="considerations"></a>Požadavky
 
 Při přeinstalaci balíčku se může týkat následující:
 

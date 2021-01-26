@@ -1,21 +1,21 @@
 ---
 title: Reference k verzi balíčku NuGet
 description: Přesné podrobnosti o zadání čísel a rozsahů verzí pro další balíčky, na kterých závisí balíček NuGet, a jak se nainstalují závislosti.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 4cb12f439d796d583f52d657225c39418d5a4836
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 5ba7860fae1037c0c0eb4c55d2df12d98b1d77cf
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237358"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775112"
 ---
 # <a name="package-versioning"></a>Správa verzí balíčků
 
-U konkrétního balíčku se vždy používá identifikátor jeho balíčku a přesné číslo verze. Například [Entity Framework](https://www.nuget.org/packages/EntityFramework/) v NuGet.org má k dispozici několik desítek specifických balíčků, od verze *4.1.10311* po verzi *6.1.3* (nejnovější stabilní verze) a řadu předběžných verzí, jako je *6.2.0-Beta1* .
+U konkrétního balíčku se vždy používá identifikátor jeho balíčku a přesné číslo verze. Například [Entity Framework](https://www.nuget.org/packages/EntityFramework/) v NuGet.org má k dispozici několik desítek specifických balíčků, od verze *4.1.10311* po verzi *6.1.3* (nejnovější stabilní verze) a řadu předběžných verzí, jako je *6.2.0-Beta1*.
 
 Při vytváření balíčku přiřadíte konkrétní číslo verze s volitelnou příponou textu v předběžné verzi. Při využívání balíčků můžete na druhou stranu zadat buď přesné číslo verze, nebo rozsah přijatelných verzí.
 
@@ -27,19 +27,21 @@ V tomto tématu:
 
 ## <a name="version-basics"></a>Základy verzí
 
-Konkrétní číslo verze je ve formátu *hlavní. podverze. Oprava [-přípona]* , kde tyto komponenty mají následující význam:
+Konkrétní číslo verze je ve formátu *hlavní. podverze. Oprava [-přípona]*, kde tyto komponenty mají následující význam:
 
-- *Hlavní* : přerušující se změny
-- *Vedlejší* : nové funkce, ale zpětně kompatibilní
-- *Oprava* : zpětně kompatibilní opravy chyb
+- *Hlavní*: přerušující se změny
+- *Vedlejší*: nové funkce, ale zpětně kompatibilní
+- *Oprava*: zpětně kompatibilní opravy chyb
 - *-Přípona* (volitelné): spojovník následovaný řetězcem, který označuje předběžnou verzi (podle [konvence sémantické verze nebo SemVer 1,0](https://semver.org/spec/v1.0.0.html)).
 
 **Příklady:**
 
-    1.0.1
-    6.11.1231
-    4.3.1-rc
-    2.2.44-beta1
+```
+1.0.1
+6.11.1231
+4.3.1-rc
+2.2.44-beta1
+```
 
 > [!Important]
 > nuget.org odmítne jakékoli nahrání balíčku, který nemá přesné číslo verze. Verze musí být zadaná v `.nuspec` souboru projektu nebo, který se používá k vytvoření balíčku.
@@ -55,18 +57,20 @@ V takovém případě vývojáři balíčku většinou následují jako rozpozna
 - `-rc`: Verze Release Candidate, obvykle verze, která je potenciálně finální (stabilní), pokud se neobjeví významné chyby.
 
 > [!Note]
-> NuGet 4.3.0 + podporuje [SemVer 2.0.0](https://semver.org/spec/v2.0.0.html), která podporuje předběžná vydání čísel s tečkami Notation, jako v *1.0.1-Build. 23* . Zápis tečky není u verzí NuGet před 4.3.0 podporován. Můžete použít formulář jako *1.0.1-build23* .
+> NuGet 4.3.0 + podporuje [SemVer 2.0.0](https://semver.org/spec/v2.0.0.html), která podporuje předběžná vydání čísel s tečkami Notation, jako v *1.0.1-Build. 23*. Zápis tečky není u verzí NuGet před 4.3.0 podporován. Můžete použít formulář jako *1.0.1-build23*.
 
 Při překládání odkazů na balíčky a více verzí balíčku se liší pouze příponou, NuGet zvolí verzi bez přípony a pak použije přednost na předběžné verze v obráceném abecedním pořadí. Například následující verze se volí v uvedeném pořadí:
 
-    1.0.1
-    1.0.1-zzz
-    1.0.1-rc
-    1.0.1-open
-    1.0.1-beta
-    1.0.1-alpha2
-    1.0.1-alpha
-    1.0.1-aaa
+```
+1.0.1
+1.0.1-zzz
+1.0.1-rc
+1.0.1-open
+1.0.1-beta
+1.0.1-alpha2
+1.0.1-alpha
+1.0.1-aaa
+```
 
 ## <a name="semantic-versioning-200"></a>Sémantika správy verzí 2.0.0
 
@@ -80,7 +84,7 @@ Některé sémantiky SemVer v 2.0.0 se ve starších klientech nepodporují. NuG
 V případě nuget.org je balíček definován jako balíček SemVer v 2.0.0, pokud je splněn některý z následujících příkazů:
 
 - Vlastní verze balíčku je kompatibilní s SemVer v 2.0.0, ale ne SemVer v 1.0.0, jak je definováno výše.
-- Všechny rozsahy verzí závislostí balíčku mají minimální nebo maximální verzi, která je kompatibilní s SemVer v 2.0.0, ale ne SemVer v 1.0.0 kompatibilní, definovaná výše; například *[1.0.0-Alpha. 1,)* .
+- Všechny rozsahy verzí závislostí balíčku mají minimální nebo maximální verzi, která je kompatibilní s SemVer v 2.0.0, ale ne SemVer v 1.0.0 kompatibilní, definovaná výše; například *[1.0.0-Alpha. 1,)*.
 
 Pokud nahrajete balíček SemVer v 2.0.0 pro nuget.org, balíček je neviditelná pro starší klienty a je k dispozici pouze pro následující klienty NuGet:
 
@@ -104,15 +108,15 @@ Při odkazování na závislosti balíčků podporuje NuGet použití zápisu in
 
 | Notace | Použité pravidlo | Popis |
 |----------|--------------|-------------|
-| 1.0 | × ≥ 1,0 | Minimální verze, včetně |
-| (1.0,) | x > 1,0 | Minimální verze, exkluzivní |
-| [1,0] | x = = 1,0 | Přesná shoda verze |
-| (, 1,0] | × ≤ 1,0 | Maximální verze, včetně |
-| (, 1,0) | x < 1,0 | Maximální verze, exkluzivní |
-| [1.0,2.0] | 1,0 ≤ x ≤ 2,0 | Přesný rozsah (včetně) |
-| (1.0,2.0) | 1,0 < x < 2,0 | Přesný rozsah, exkluzivní |
-| [1.0,2.0) | 1,0 ≤ x < 2,0 | Smíšené celkové minimální a exkluzivní verze |
-| (1,0)    | neplatné | neplatné |
+| 1.0 | × ≥ 1,0 | Minimální verze (včetně) |
+| (1.0,) | x > 1.0 | Minimální verze (vyjma) |
+| [1.0] | x == 1.0 | Přesná shoda verze |
+| (,1.0] | x ≤ 1.0 | Maximální verze (včetně) |
+| (,1.0) | x < 1.0 | Maximální verze (vyjma) |
+| [1.0,2.0] | 1.0 ≤ x ≤ 2.0 | Přesný rozsah (včetně) |
+| (1.0,2.0) | 1.0 < x < 2.0 | Přesný rozsah (vyjma) |
+| [1.0,2.0) | 1.0 ≤ x < 2.0 | Kombinace minimální (včetně) a maximální (vyjma) verze |
+| (1.0)    | neplatné | neplatné |
 
 Při použití formátu PackageReference NuGet podporuje také použití plovoucího zápisu, \* pro části hlavních, dílčích, oprav a předběžných verzí přípony. Plovoucí verze se ve formátu nepodporují `packages.config` . Je-li zadána plovoucí verze, pravidlo je vyhodnoceno na nejvyšší existující verzi, která odpovídá popisu verze. Příklady plovoucí verze a jejich řešení jsou uvedené níže.
 
@@ -228,18 +232,15 @@ Při získávání balíčků z úložiště během instalace, přeinstalace neb
 
 - Počáteční nuly jsou odebrány z čísel verzí:
 
-        1.00 is treated as 1.0
-        1.01.1 is treated as 1.1.1
-        1.00.0.1 is treated as 1.0.0.1
+  1,00 se považuje za 1,0 1.01.1 se zpracovává jako 1.1.1 1.00.0.1 se považuje za 1.0.0.1.
 
 - Hodnota nula ve čtvrté části čísla verze bude vynechána.
 
-        1.0.0.0 is treated as 1.0.0
-        1.0.01.0 is treated as 1.0.1
-        
+  1.0.0.0 se považuje za 1.0.0 1.0.01.0 se považuje za 1.0.1.
+
 - Metadata buildu SemVer 2.0.0 se odebrala.
 
-        1.0.7+r3456 is treated as 1.0.7
+  1.0.7 + r3456 se považují za 1.0.7
 
 `pack` a `restore` operace normalizují verze, kdykoli je to možné. U balíčků už je tato normalizace neovlivněna čísly verzí v samotných balíčcích. má vliv jenom na to, jak NuGet odpovídá verzím při řešení závislostí.
 

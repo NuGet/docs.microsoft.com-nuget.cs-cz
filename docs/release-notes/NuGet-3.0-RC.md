@@ -1,45 +1,45 @@
 ---
-title: Zpráva k vydání verze NuGet 3.0 RC
-description: Zpráva k vydání verze pro NuGet 3.0 RC, včetně známých problémů, opravy chyb, nové funkce a chcete.
-author: karann-msft
-ms.author: karann
+title: Poznámky k verzi NuGet 3,0 RC
+description: Poznámky k verzi pro NuGet 3,0 RC, včetně známých problémů, oprav chyb, přidaných funkcí a chcete odeslat obecnou.
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 0575cb1598f259a1cf1597f67123b644d67c31b5
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 19bc51a278425295811db253ca3f4ba4366ccf49
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551716"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776572"
 ---
-# <a name="nuget-30-rc-release-notes"></a>Zpráva k vydání verze NuGet 3.0 RC
+# <a name="nuget-30-rc-release-notes"></a>Poznámky k verzi NuGet 3,0 RC
 
-[Zpráva k vydání verze NuGet 3.0 Beta](../release-notes/nuget-3.0-beta.md) | [zpráva k vydání verze NuGet 3.0 RC2](../release-notes/nuget-3.0-RC2.md)
+Poznámky k verzi [NuGet 3,0 beta](../release-notes/nuget-3.0-beta.md)  |  [Poznámky k verzi NuGet 3,0 RC2](../release-notes/nuget-3.0-RC2.md)
 
-NuGet 3.0 RC byla vydána verze Visual Studio 2015 RC 29. dubna 2015. Tato verze obsahuje řadu oprav chyb, vylepšení výkonu a aktualizace pro podporu nového rozhraní.  Je dostupná jenom pro Visual Studio 2015.
+NuGet 3,0 RC byl vydán 29. dubna 2015 s vydáním sady Visual Studio 2015 RC. Tato verze přináší řadu důležitých oprav chyb, vylepšení výkonu a aktualizace pro podporu nových rozhraní.  Je k dispozici pouze pro Visual Studio 2015.
 
-### <a name="continued-focus-on-performance"></a>Trvalé zaměřením na výkon
+### <a name="continued-focus-on-performance"></a>Pokračující zaměření na výkon
 
-Stability a výkonu dotazů NuGet dál, který se Zaměřujeme na žhavým tématem.  V této vydané verzi měli byste začít zobrazit operace velmi rychlé vyhledávání v uživatelském rozhraní NuGet a Web.  Sledujeme, služby a jak použít službu tak, aby nám můžete dále ladit tyto operace.
+Stabilita a výkon dotazů NuGet dál představují aktivní téma, které se zaměřujeme na.  V této verzi byste měli začít zobrazovat velmi rychlé operace vyhledávání v uživatelském rozhraní a na webu NuGet.  Sledujeme službu a jak službu používáte, abychom mohli i nadále ladit tyto operace.
 
 ## <a name="significant-issues-resolved"></a>Vyřešené významné problémy
 
-Stabilizovat klienty NuGet vyřešili jsme řadu problémů jako součást této verze.  Tady je právě krátký seznam některých důležitější vyřešení problémů:
+Za účelem stabilizace klientů NuGet jsme v rámci této verze vyřešili spoustu problémů.  Tady je jenom stručný seznam některých z důležitějších problémů, které jsme vyřešili:
 
-* Jako součást přejmenovat K framework pro ASP.NET 5, byly aktualizovány monikery framework pro zpracování dnx a dnxcore [odkaz](https://github.com/NuGet/Home/issues/215)
-* Přidání dokumentaci nápovědy z odkazů v Uživatelském rozhraní aplikace Visual Studio [odkaz](https://github.com/NuGet/Home/issues/232)
-* Lepší zpracování složitých odkazů v `.nuspec` s odkazy na rozhraní oddělených čárkou [odkaz](https://github.com/NuGet/Home/issues/276)
-* Oprava podporu pro japonské jazykové verze [odkaz](https://github.com/NuGet/Home/issues/253)
-* Aktualizace klienta povolit projekty ASP.NET 5 používaly nové koncové body v3 [odkaz](https://github.com/NuGet/Home/issues/219)
-* Aktualizováno za účelem lepší popisovač složku packages se správou zdrojového kódu [odkaz](https://github.com/NuGet/Home/issues/56)
-* Oprava podporu pro satelitní balíčky [odkaz](https://github.com/NuGet/Home/issues/17)
-* Oprava podpory pro soubory obsahu pro konkrétní rozhraní [odkaz](https://github.com/NuGet/Home/issues/18)
+* V rámci přejmenování rozhraní K Framework pro ASP.NET 5 byly monikery rozhraní aktualizované pro zpracování [propojení](https://github.com/NuGet/Home/issues/215) DNX a dnxcore.
+* Přidání dokumentace k nápovědě z odkazů v rámci [odkazu](https://github.com/NuGet/Home/issues/232) na uživatelské rozhraní sady Visual Studio
+* Lepší zacházení se složitými odkazy v `.nuspec` rámci [odkazu](https://github.com/NuGet/Home/issues/276) na odkazy rozhraní s oddělovači
+* Pevná podpora pro japonské [odkazy](https://github.com/NuGet/Home/issues/253) na japonštinu
+* Aktualizovaný klient, aby povoloval ASP.NET 5 projektů používat nové [odkazy](https://github.com/NuGet/Home/issues/219) na koncové body V3
+* Aktualizováno pro lepší zpracování složky balíčků pomocí [odkazu](https://github.com/NuGet/Home/issues/56) správy zdrojového kódu
+* [Odkaz](https://github.com/NuGet/Home/issues/17) na fixní podporu pro satelitní balíčky
+* Opravená podpora pro [odkaz](https://github.com/NuGet/Home/issues/18) soubory obsahu pro konkrétní rozhraní
 
-## <a name="github-presence-overhaul"></a>Generální Githubu přítomnost opravu
+## <a name="github-presence-overhaul"></a>Renovace stavu GitHubu
 
-Provedli jsme některé změny naše [úložiště zdrojového kódu na Githubu](http://github.com/nuget/home).  Pokud máte nějaké problémy s klienta NuGet sady Visual Studio, příkazy prostředí Powershell nebo příkazového řádku spustitelný soubor můžete protokolovat těchto problémů a sledovat jejich průběh na naše [seznamu problémů na úložiště Domovská stránka úložiště GitHub](http://github.com/nuget/home/issues).  Sledujeme problémy v galerii v našich [úložiště GitHub NuGetGallery](http://github.com/nuget/NuGetGallery/issues).
+Provedli jsme některé změny našich [úložišť zdrojového kódu na GitHubu](http://github.com/nuget/home).  Pokud máte nějaké problémy s klientem nástroje NuGet pro aplikaci Visual Studio, příkazy prostředí PowerShell nebo spustitelný soubor příkazového řádku, můžete tyto problémy zaprotokolovat a sledovat jejich průběh v našem [seznamu problémů domovského úložiště GitHub](http://github.com/nuget/home/issues).  Sledujeme problémy pro galerii v našem [úložišti GitHub NuGetGallery](http://github.com/nuget/NuGetGallery/issues).
 
 
-## <a name="stay-tuned"></a>Nenechte si ujít
+## <a name="stay-tuned"></a>Zůstat vyladěné
 
-Prosím dohlížet na [náš blog o](http://blog.nuget.org) další průběh a oznámení pro NuGet 3.0!
+Na [našem blogu](http://blog.nuget.org) prosím sledujte, kde najdete další informace o průběhu a oznámeních pro NuGet 3,0!

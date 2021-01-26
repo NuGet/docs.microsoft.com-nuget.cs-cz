@@ -1,22 +1,22 @@
 ---
 title: NuGet CLI – příkaz Add
 description: Referenční informace o příkazu nuget.exe Add
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 89d268946243e8eae07e482db48e809a15260c38
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 096d2f7a61a3c861ce2084368500ab8e8b21f212
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622899"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776095"
 ---
 # <a name="add-command-nuget-cli"></a>Add – příkaz (NuGet CLI)
 
-**Platí pro**: publikování &bullet; **podporovaných verzí**balíčku: 3.3 +
+**Platí pro**: publikování &bullet; **podporovaných verzí** balíčku: 3.3 +
 
-Přidá zadaný balíček do zdroje nepřipojeného balíčku protokolu HTTP (složka nebo cesta UNC) v hierarchickém rozložení, kde jsou vytvářeny složky pro ID a číslo verze balíčku. Příklad:
+Přidá zadaný balíček do zdroje nepřipojeného balíčku protokolu HTTP (složka nebo cesta UNC) v hierarchickém rozložení, kde jsou vytvářeny složky pro ID a číslo verze balíčku. Například:
 
 ```
 \\myserver\packages

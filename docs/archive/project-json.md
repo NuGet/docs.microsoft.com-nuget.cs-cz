@@ -1,26 +1,26 @@
 ---
-title: project.json File Reference pro NuGet
-description: V některých typech projektu project.json udržuje seznam balíčků NuGet použitých v projektu.
-author: karann-msft
-ms.author: karann
+title: project.jsodkaz na soubor pro NuGet
+description: V některých typech projektů project.jszachovává seznam balíčků NuGet použitých v projektu.
+author: JonDouglas
+ms.author: jodou
 ms.date: 07/27/2017
 ms.topic: reference
-ms.openlocfilehash: 5ecbcd4855de8ea7b6301a5e307779216baf96fc
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 6665f4f3e688cb4a3989216c8c8f1a8655b61ed8
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "69488285"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775201"
 ---
-# <a name="projectjson-reference"></a>odkaz na project.json
+# <a name="projectjson-reference"></a>project.jsna referenci
 
-*NuGet 3.x+*
+*NuGet 3. x +*
 
-Soubor `project.json` udržuje seznam balíčků používaných v projektu, známý jako formát správy balíčků. Nahrazuje, `packages.config` ale je zase nahrazen [PackageReference](../consume-packages/package-references-in-project-files.md) s NuGet 4.0 +.
+`project.json`Soubor uchovává seznam balíčků použitých v projektu, označovaných jako formát správy balíčků. Nahrazuje, `packages.config` ale je zase nahrazen [PackageReferenceem](../consume-packages/package-references-in-project-files.md) s NuGet 4.0 +.
 
-Soubor [`project.lock.json`](#projectlockjson) (popsaný níže) se také používá `project.json`v projektech využívajících .
+[`project.lock.json`](#projectlockjson)Soubor (popsaný níže) se používá také v projektech, které používají `project.json` .
 
-`project.json`má následující základní strukturu, kde každý ze čtyř objektů nejvyšší úrovně může mít libovolný počet podřízených objektů:
+`project.json` má následující základní strukturu, kde každý ze čtyř objektů nejvyšší úrovně může mít libovolný počet podřízených objektů:
 
 ```json
 {
@@ -41,13 +41,13 @@ Soubor [`project.lock.json`](#projectlockjson) (popsaný níže) se také použ�
 
 ## <a name="dependencies"></a>Závislosti
 
-Zobrazí seznam závislostí balíčku NuGet projektu v následujícím formuláři:
+Zobrazí seznam závislostí balíčku NuGet v projektu v následujícím tvaru:
 
 ```json
 "PackageID" : "version_constraint"
 ```
 
-Příklad:
+Například:
 
 ```json
 "dependencies": {
@@ -56,31 +56,31 @@ Příklad:
 }
 ```
 
-Část `dependencies` je, kde dialogové okno NuGet Package Manager přidá závislosti balíčků do projektu.
+V tomto `dependencies` oddílu se v dialogovém okně Správce balíčků NuGet do projektu přidají závislosti balíčků.
 
-ID balíčku odpovídá id balíčku na nuget.org , stejné jako id použité v `Install-Package Microsoft.NETCore`konzole správce balíčků: .
+ID balíčku odpovídá ID balíčku v nuget.org, stejné jako ID použité v konzole správce balíčků: `Install-Package Microsoft.NETCore` .
 
-Při obnovování balíčků, verze `"5.0.0"` `>= 5.0.0`omezení implikuje . To znamená, že pokud 5.0.0 není k dispozici na serveru, ale 5.0.1 je, NuGet nainstaluje 5.0.1 a upozorní vás na upgrade. NuGet jinak vybere nejnižší možnou verzi na serveru odpovídající omezení.
+Při obnovování balíčků má omezení verze `"5.0.0"` implikuje `>= 5.0.0` . To znamená, že pokud 5.0.0 není na serveru k dispozici, ale 5.0.1 je, NuGet nainstaluje 5.0.1 a upozorní vás na upgrade. NuGet v opačném případě vybere nejnižší možnou verzi serveru, který odpovídá omezení.
 
-Další podrobnosti o pravidlech řešení problémů najdete v [tématu Řešení závislostí.](../concepts/dependency-resolution.md)
+Další podrobnosti o pravidlech řešení najdete v tématu věnovaném [řešení závislostí](../concepts/dependency-resolution.md) .
 
-### <a name="managing-dependency-assets"></a>Správa prostředků závislostí
+### <a name="managing-dependency-assets"></a>Správa prostředků závislosti
 
-Prostředky ze závislostí toku do projektu nejvyšší úrovně je řízen a zadáním čárka oddělené sadu značek v `include` a `exclude` vlastnosti odkazu na závislost. Značky jsou uvedeny v následující tabulce:
+Které prostředky ze závislostí toků do projektu nejvyšší úrovně jsou kontrolovány zadáním sady značek oddělených čárkami ve `include` `exclude` vlastnostech a odkazu na závislost. Značky jsou uvedeny v následující tabulce:
 
-| Značka Zahrnout/vyloučit | Ovlivněné složky cíle |
+| Značka include/Exclude | Ovlivněné složky v cíli |
 | --- | --- |
-| contentFiles | Obsah  |
-| modul runtime | Runtime, prostředky a frameworkassemblies  |
-| kompilovat | Lib |
-| sestavení | sestavení (rekvizity a cíle MSBuild) |
+| contentFiles | Content  |
+| modul runtime | Modul runtime, prostředky a FrameworkAssemblies  |
+| kompilovat | Knihovna |
+| sestavení | Build (MSBuild props and targets) |
 | nativní | nativní |
-| Žádná | Žádné složky |
+| žádné | Žádné složky |
 | Vše | Všechny složky |
 
-Značky `exclude` zadané s předností `include`před těmi, které jsou zadány s . Například `include="runtime, compile" exclude="compile"` je stejný `include="runtime"`jako .
+Zadané značky s `exclude` prioritou mají přednost před hodnotami určenými pomocí `include` . Například `include="runtime, compile" exclude="compile"` je stejný jako `include="runtime"` .
 
-Chcete-li například `build` `native` zahrnout složky a závislost, použijte následující:
+Pokud například chcete zahrnout `build` složky a pro `native` závislost, použijte následující:
 
 ```json
 {
@@ -93,7 +93,7 @@ Chcete-li například `build` `native` zahrnout složky a závislost, použijte 
 }
 ```
 
-Chcete-li `content` `build` vyloučit složky a závislost, použijte následující:
+Pokud chcete vyloučit `content` složky a v `build` závislosti, použijte následující:
 
 ```json
 {
@@ -108,7 +108,7 @@ Chcete-li `content` `build` vyloučit složky a závislost, použijte následuj�
 
 ## <a name="frameworks"></a>Rozhraní
 
-Uvádí architektury, na kterých je `net45`projekt `netcoreapp` `netstandard`spuštěn, například , .
+Obsahuje seznam rozhraní, na kterých je projekt spuštěn, například `net45` , `netcoreapp` , `netstandard` .
 
 ```json
 "frameworks": {
@@ -116,11 +116,11 @@ Uvádí architektury, na kterých je `net45`projekt `netcoreapp` `netstandard`sp
     }
  ```
 
-V `frameworks` sekci je povolena pouze jedna položka. (Výjimkou jsou `project.json` soubory pro ASP.NET projekty, které jsou vytvářeny se zastaralou řetězcem nástrojů DNX, která umožňuje více cílů.)
+V části je povolená jenom jedna položka `frameworks` . (Výjimkou jsou `project.json` soubory pro projekty ASP.NET, které jsou sestaveny pomocí zastaralého řetězce nástroje DNX, který umožňuje více cílů.)
 
-## <a name="runtimes"></a>Runtime
+## <a name="runtimes"></a>Moduly runtime
 
-Uvádí seznam operačních systémů a architektur, na `win10-arm` `win8-x64`kterých vaše aplikace běží, například , . `win8-x86`
+Obsahuje seznam operačních systémů a architektur, na kterých běží vaše aplikace, jako je například, `win10-arm` `win8-x64` `win8-x86` .
 
 ```json
 "runtimes": {
@@ -133,14 +133,14 @@ Uvádí seznam operačních systémů a architektur, na `win10-arm` `win8-x64`kt
 }
 ```
 
-Balíček obsahující PCL, který lze spustit v libovolném běhu, nemusí zadávat za běhu. To musí být také true všech závislostí, jinak je nutné zadat runtimes.
+Balíček obsahující PCL, který může běžet v jakémkoli modulu runtime, nemusí určovat modul runtime. Tato hodnota musí být také pravdivá pro jakékoli závislosti, jinak musíte zadat moduly runtime.
 
 
 ## <a name="supports"></a>Podporuje
 
-Definuje sadu kontrol pro závislosti balíčků. Můžete definovat, kde očekáváte spuštění pcl nebo aplikace. Definice nejsou omezující, protože váš kód může být možné spustit jinde. Ale zadání těchto kontrol způsobí, že NuGet zkontrolovat, že všechny závislosti jsou splněny na uvedených TxMs. Příklady hodnot pro `net46.app`tojsou: `uwp.10.0.app`, , atd.
+Definuje sadu kontrol pro závislosti balíčku. Můžete definovat, kde očekáváte, že se má jazyk PCL nebo aplikace spustit. Definice nejsou omezující, protože váš kód může být možné spustit jinde. Ale zadáním těchto kontrol vrátí NuGet kontrolu nad tím, že všechny závislosti jsou splněné na uvedených TxMs. Příklady hodnot pro tyto hodnoty jsou: `net46.app` , `uwp.10.0.app` , atd.
 
-Tato část by měla být vyplněna automaticky, když vyberete položku v dialogovém okně Cíle knihovny přenosných tříd.
+Tato část by měla být naplněna automaticky při výběru položky v dialogovém okně cíle knihovny tříd.
 
 ```json
 "supports": {
@@ -149,9 +149,9 @@ Tato část by měla být vyplněna automaticky, když vyberete položku v dialo
 }
 ```
 
-## <a name="imports"></a>Dovoz
+## <a name="imports"></a>Objem
 
-Importy jsou navrženy tak, `dotnet` aby balíčky, které používají TxM pracovat s balíčky, které nedeklarují dotnet TxM. Pokud váš projekt `dotnet` používá TxM, pak všechny balíčky, `dotnet` na kterých jste závislí, `project.json` musí `dotnet` mít také TxM, pokud nepřidáte následující do vašeho, abyste umožnili kompatibilitu s neplatformami `dotnet`:
+Importy jsou navržené tak, aby umožňovaly balíčkům, které používají `dotnet` TxM k práci s balíčky, které nedeklarují dotnet TxM. Pokud váš projekt používá `dotnet` TxM, pak všechny balíčky, na kterých závisí, musí mít také `dotnet` TxM, pokud do své služby nepřidáte následující, aby bylo možné `project.json` `dotnet` nekompatibilní s platformou `dotnet` :
 
 ```json
 "frameworks": {
@@ -159,23 +159,23 @@ Importy jsou navrženy tak, `dotnet` aby balíčky, které používají TxM prac
 }
 ```
 
-Pokud používáte `dotnet` TxM, pak pcl projektový `imports` systém přidá příslušný příkaz založený na podporovaných cílech.
+Pokud používáte `dotnet` TxM, pak systém projektu PCL přidá příslušný `imports` příkaz na základě podporovaných cílů.
 
-## <a name="differences-from-portable-apps-and-web-projects"></a>Rozdíly od přenosných aplikací a webových projektů
+## <a name="differences-from-portable-apps-and-web-projects"></a>Rozdíly mezi přenosnými aplikacemi a webovými projekty
 
-Soubor `project.json` používaný NuGet je podmnožinou, která se nachází v ASP.NET základní projekty. V ASP.NET `project.json` Jádro se používá pro metadata projektu, informace kompilace a závislosti. Při použití v jiných projektových systémech jsou tyto `project.json` tři věci rozděleny do samostatných souborů a obsahují méně informací. Mezi významné rozdíly patří:
+`project.json`Soubor používaný NuGet je podmnožina nástroje, která se nachází v ASP.NET Corech projektech. V ASP.NET Core `project.json` se používá pro metadata projektu, informace o kompilaci a závislosti. Při použití v jiných systémech projektů jsou tyto tři věci rozděleny do samostatných souborů a `project.json` obsahují méně informací. Mezi významné rozdíly patří:
 
-- V `frameworks` sekci může být pouze jeden rámec.
+- V části může být pouze jedna architektura `frameworks` .
 
-- Soubor nemůže obsahovat závislosti, možnosti kompilace atd., `project.json` které vidíte v souborech DNX. Vzhledem k tomu, že může existovat pouze jeden rámec nemá smysl zadávat závislosti specifické pro architekturu.
+- Soubor nemůže obsahovat závislosti, možnosti kompilace atd., které vidíte v `project.json` souborech DNX. Vzhledem k tomu, že může existovat pouze jeden rámec, nemá smysl zadat závislosti specifické pro rozhraní.
 
-- Kompilace je zpracována MSBuild, takže možnosti kompilace, preprocesor definuje, atd. `project.json`
+- Kompilace je zpracována nástrojem MSBuild, takže možnosti kompilace, definice preprocesoru atd. jsou všechny součástí souboru projektu MSBuild a nikoli `project.json` .
 
-V NuGet 3+ vývojáři se neočekává, `project.json`že ručně upravit , jako správce balíčků ujhává s obsahem. To znamená, že můžete určitě upravit soubor, ale musíte vytvořit projekt pro spuštění obnovení balíčku nebo vyvolání obnovení jiným způsobem. Viz [Obnovení balíčku](../consume-packages/package-restore.md).
+V NuGet 3 + se vývojáři neočekávají ruční úpravou `project.json` , protože uživatelské rozhraní Správce balíčků v aplikaci Visual Studio pracuje s obsahem. V takovém případě můžete soubor upravovat, ale je nutné sestavit projekt, aby bylo možné spustit obnovení balíčku nebo vyvolat obnovení jiným způsobem. Viz [obnovení balíčku](../consume-packages/package-restore.md).
 
 
-## <a name="projectlockjson"></a>project.lock.json
+## <a name="projectlockjson"></a>project.lock.jsna
 
-Soubor `project.lock.json` je generován v procesu obnovení NuGet balíčky `project.json`v projektech, které používají . Obsahuje snímek všechny informace, které jsou generovány jako NuGet procházky grafu balíčků a zahrnuje verzi, obsah a závislosti všech balíčků v projektu. Systém sestavení používá k výběru balíčků z globálního umístění, které jsou relevantní při vytváření projektu namísto v závislosti na místní složky balíčků v samotném projektu. To má za následek rychlejší výkon sestavení, `project.lock.json` protože je `.nuspec` nutné číst pouze namísto mnoha samostatných souborů.
+`project.lock.json`Soubor se vygeneruje v procesu obnovení balíčků NuGet v projektech, které používají `project.json` . Obsahuje snímek všech informací, které jsou generovány s tím, že NuGet projde graf balíčků a obsahuje verzi, obsah a závislosti všech balíčků v projektu. Systém sestavení používá tuto možnost k výběru balíčků z globálního umístění, které je relevantní při sestavování projektu, nikoli v závislosti na místní složce balíčků v samotném projektu. Výsledkem je rychlejší sestavování výkonu, protože je nutné číst pouze `project.lock.json` místo mnoha samostatných `.nuspec` souborů.
 
-`project.lock.json`je automaticky generovánpři obnovení balíčku, takže jej lze vynechat ze `.gitignore` `.tfignore` správy zdrojového kódu přidáním a souborů (viz [Balíčky a správa zdrojového kódu](../consume-packages/packages-and-source-control.md). Pokud jej však zahrnete do správy zdrojového kódu, historie změn zobrazí změny v závislostech vyřešených v průběhu času.
+`project.lock.json` se automaticky generuje při obnovení balíčku, takže ho můžete vypustit ze správy zdrojového kódu, a to tak, že ho přidáte do `.gitignore` `.tfignore` souborů a (viz [balíčky a Správa zdrojového kódu](../consume-packages/packages-and-source-control.md). Pokud však zahrnete je do správy zdrojového kódu, zobrazí se v historii změn v průběhu času změny v závislostech.

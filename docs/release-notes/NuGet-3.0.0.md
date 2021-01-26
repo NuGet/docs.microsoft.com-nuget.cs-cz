@@ -1,57 +1,57 @@
 ---
-title: Poznámky k verzi 3.0 NuGet
-description: Zpráva k vydání verze pro NuGet 3.0.0 včetně – známé problémy, opravy chyb, nové funkce a chcete.
-author: karann-msft
-ms.author: karann
+title: Zpráva k vydání verze NuGet 3,0
+description: Poznámky k verzi pro NuGet 3.0.0, včetně známých problémů, oprav chyb, přidaných funkcí a chcete odeslat obecnou.
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 1ade2b5b5ff7d57d756829c1c1853b5573c17d6d
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 4d4ce17c33dc38df5504a77d9cc3530d466d70af
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551860"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776548"
 ---
-# <a name="nuget-30-release-notes"></a>Poznámky k verzi 3.0 NuGet
+# <a name="nuget-30-release-notes"></a>Zpráva k vydání verze NuGet 3,0
 
-[Zpráva k vydání verze NuGet 3.0 RC2](../release-notes/nuget-3.0-RC2.md) | [zpráva k vydání verze NuGet 3.1](../release-notes/nuget-3.1.md)
+Poznámky k verzi [NuGet 3,0 RC2](../release-notes/nuget-3.0-RC2.md)  |  Zpráva k [vydání verze NuGet 3,1](../release-notes/nuget-3.1.md)
 
-20. července 2015 byla vydána NuGet 3.0 jako rozšíření sady Visual Studio 2015. Můžeme nabídnout poskytovat této vydané verzi sady Visual Studio tak, aby kompletní aktualizované prostředí NuGet 3.0 by být k dispozici pro nové uživatele služby Visual Studio. Tato verze rozšíření NuGet dostupná jenom pro Visual Studio 2015.
+Sada NuGet 3,0 byla vydána 20. července 2015 jako rozšíření sady Visual Studio 2015. Vložili jsme tuto verzi do sady Visual Studio, aby byly k dispozici kompletní aktualizované prostředí NuGet 3,0 pro nové uživatele sady Visual Studio. Tato verze rozšíření NuGet je dostupná jenom pro Visual Studio 2015.
 
-Doporučujeme, abyste tyto vývojáře, kteří mají přístup ke službě update Galerie sady Visual Studio na nejnovější verzi, která je k dispozici, protože aktualizace publikujeme krátce po vydání sady Visual Studio 2015, která obsahuje podporu pro vývoj pro Windows 10.
+Doporučujeme vývojářům, kteří mají přístup k aktualizaci galerie sady Visual Studio, k nejnovější verzi, která je k dispozici, protože publikujeme krátce po vydání sady Visual Studio 2015, které obsahuje podporu pro vývoj pro Windows 10.
 
-Celkem, jsme uzavřeli 240 problémech ve verzi 3.0 a můžete zkontrolovat [úplný seznam všech problémů na Githubu](https://github.com/NuGet/Home/issues?q=milestone%3A3.0.0-RTM+is%3Aclosed).
+V Total jsme uzavřeli 240 problémů ve verzi 3,0 a můžete si prohlédnout [úplný seznam problémů na GitHubu](https://github.com/NuGet/Home/issues?q=milestone%3A3.0.0-RTM+is%3Aclosed).
 
 ## <a name="known-issues"></a>Známé problémy
 
-Došlo k několika problémech doručit v této vydané verzi a všechny tyto položky jsou opravené v našich plánovaných verzi 3.1 se shoduje s verzí Windows 10 na 29. července.  Budete moct aktualizovat vaše rozšíření sady Visual Studio z Galerie nebo po tomto datu k řešení těchto známých problémů.
+V této verzi se dostalo několik známých problémů. všechny tyto položky jsou opravené v naší plánované verzi 3,1, aby se shodovaly s vydáním Windows 10 v červenci vysílání 29..  Můžete aktualizovat rozšíření aplikace Visual Studio z Galerie od tohoto data a opravit tyto známé problémy.
 
-*  Překlad není k dispozici pro "není tuto zprávu nezobrazovat" popisek v okně verze preview a "Autoři" popisek v okně Popis balíčku.
-*  Když pracujete na projektu pomocí TFS ovládací prvek zdroje, NuGet nelze prezentovat Správce balíčků uživatelské rozhraní je-li soubor Nuget.Config je označena jako jen pro čtení.
-   * **Alternativní řešení** rezervovat soubor ze serveru TFS.
-*  Text žlutě "restartování bar", v okně Powershellu NuGet není viditelný, při použití tmavého motivu sady Visual Studio.
-   * **Alternativní řešení** pomocí sady Visual Studio světlý motiv.
+*  Pro popisek "Nezobrazovat znovu" v okně náhledu a v popisku "autoři" v okně Popis balíčku není překlad k dispozici.
+*  Při práci na projektu pomocí správy zdrojového kódu TFS nemůže NuGet prezentovat uživatelské rozhraní Správce balíčků, pokud je soubor Nuget.Config označený jen pro čtení.
+   * **Alternativní řešení** Rezervujte soubor z TFS.
+*  Když použijete tmavý motiv sady Visual Studio, text ve žlutém "pravém panelu" v okně PowerShellu NuGet se nezobrazí.
+   * **Alternativní řešení** Použijte světlý motiv sady Visual Studio.
 
 
-## <a name="summary-of-top-issues-resolved"></a>Přehled hlavních problémů vyřešit
+## <a name="summary-of-top-issues-resolved"></a>Shrnutí nejdůležitějších vyřešených problémů
 
-* [Sítě časté aktualizace se volá, když se aktualizuje okno Správce balíčků](https://github.com/NuGet/Home/issues/515)
-* [Zpožděné posuvníku při změně na instalaci zobrazení ve správci balíčků](https://github.com/NuGet/Home/issues/519)
-* [Volání sítě by měl běžet na vlákně na pozadí](https://github.com/NuGet/Home/issues/516)
-* [Přidá zaškrtávací políčko "Nezobrazovat okno náhledu.](https://github.com/NuGet/Home/issues/566)
-* [Přidání procesu omezování ke snížení využití procesoru](https://github.com/NuGet/Home/issues/356)
-* Vylepšené zpracování odkaz na přenosné knihovny tříd
+* [Častá volání síťové aktualizace po aktualizaci okna Správce balíčků](https://github.com/NuGet/Home/issues/515)
+* [Zpožděný posun při změně na nainstalované zobrazení ve Správci balíčků](https://github.com/NuGet/Home/issues/519)
+* [Síťová volání by se měla spustit ve vlákně na pozadí.](https://github.com/NuGet/Home/issues/516)
+* [Přidáno zaškrtávací políčko nezobrazit Náhled okna](https://github.com/NuGet/Home/issues/566)
+* [Přidání omezení procesů pro snížení využití procesoru](https://github.com/NuGet/Home/issues/356)
+* Vylepšené zpracování odkazů na přenositelné knihovny tříd
     * [https://github.com/NuGet/Home/issues/562](https://github.com/NuGet/Home/issues/562)
     * [https://github.com/NuGet/Home/issues/454](https://github.com/NuGet/Home/issues/454)
     * [https://github.com/NuGet/Home/issues/440](https://github.com/NuGet/Home/issues/440)
-* [Automatické dokončování službě se malá a velká písmena](https://github.com/NuGet/Home/issues/198)
-* [Aktualizace znovu zavést pověření základního ověřování](https://github.com/NuGet/Home/issues/456)
-* [Vylepšené chybové protokolování](https://github.com/NuGet/Home/issues/407)
-* [Vylepšené prostředí powershell chybových zpráv při volání metody Update-Package](https://github.com/NuGet/Home/issues/5)
-* [Oprava propojení, kde se dozvíte o možnostech' aby se zabránilo selhání ve Windows 10](https://github.com/NuGet/Home/issues/822)
-* [Mějte na paměti nastavení zaškrtávacího políčka předběžné verze](https://github.com/NuGet/Home/issues/732)
-* [Vylepšené shromažďování výkonu díky ukládání do mezipaměti výsledky ve všech projektech v řešení](https://github.com/NuGet/Home/issues/721)
-* [Současně se dají shromáždit víc balíčků.](https://github.com/NuGet/Home/issues/713)
-* [Odebrat install-package-force příkaz](https://github.com/NuGet/Home/issues/697)
+* [Služba automatického dokončování rozlišuje velká a malá písmena.](https://github.com/NuGet/Home/issues/198)
+* [Aktualizace pro znovu zavedení přihlašovacích údajů základního ověřování](https://github.com/NuGet/Home/issues/456)
+* [Vylepšené protokolování chyb](https://github.com/NuGet/Home/issues/407)
+* [Vylepšené chybové zprávy PowerShellu při volání rutiny Update-Package](https://github.com/NuGet/Home/issues/5)
+* [Opravte odkaz "informace o možnostech", aby se zabránilo chybám ve Windows 10](https://github.com/NuGet/Home/issues/822)
+* [Zapamatovat si nastavení zaškrtávacího políčka předběžného vydání](https://github.com/NuGet/Home/issues/732)
+* [Lepší výkon při shromažďování díky ukládání výsledků do mezipaměti napříč projekty v řešení](https://github.com/NuGet/Home/issues/721)
+* [Paralelní shromažďování více balíčků](https://github.com/NuGet/Home/issues/713)
+* [Odebraný příkaz Install-Package-Force](https://github.com/NuGet/Home/issues/697)
 
-Prosím dohlížet na [náš blog o](http://blog.nuget.org) další průběh a oznámení podle Připravíme k poskytování podpory pro vývoj pro Windows 10.
+Pořiďte si prosím svůj [blog na našem blogu](http://blog.nuget.org) a získejte další informace o průběhu a oznámeních, jak jsme připraveni doručovat podporu pro vývoj pro Windows 10.

@@ -1,20 +1,20 @@
 ---
-title: Vytváření balíčků pomocí meziop sestavení COM
-description: Popisuje, jak vytvořit balíčky, které obsahují sestavení interop com
-author: karann-msft
-ms.author: karann
+title: Vytváření balíčků pomocí sestavení zprostředkovatele komunikace s objekty COM
+description: Popisuje, jak vytvořit balíčky obsahující sestavení Interop modelu COM.
+author: JonDouglas
+ms.author: jodou
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: de164b136a1636b89f674b8626613094fc53e04c
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 0c663863673b50d0ba4969adf3a5d95151b2ca49
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "75385569"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774492"
 ---
-# <a name="create-nuget-packages-that-contain-com-interop-assemblies"></a>Vytvořit balíčky NuGet, které obsahují meziop sestavení COM
+# <a name="create-nuget-packages-that-contain-com-interop-assemblies"></a>Vytváření balíčků NuGet obsahujících sestavení Interop modelu COM
 
-Balíčky, které obsahují meziop sestavení com musí obsahovat odpovídající [cíle soubor](creating-a-package.md#include-msbuild-props-and-targets-in-a-package) tak, aby správná `EmbedInteropTypes` metadata je přidán do projektů pomocí formátu PackageReference. Ve výchozím `EmbedInteropTypes` nastavení metadata je vždy false pro všechna sestavení při PackageReference se používá, takže soubor cílů přidá tato metadata explicitně. Chcete-li se vyhnout konfliktům, cílový název by měl být jedinečný; v ideálním případě použijte kombinaci názvu balíčku a sestavení, `{InteropAssemblyName}` které je vloženo, a nahradí v níže uvedeném příkladu tuto hodnotu. (Viz také [NuGet.Samples.Interop](https://github.com/NuGet/Samples/tree/master/NuGet.Samples.Interop) pro příklad.)
+Balíčky obsahující sestavení zprostředkovatele komunikace s objekty COM musí obsahovat [soubor](creating-a-package.md#include-msbuild-props-and-targets-in-a-package) s odpovídajícími cíli, aby se `EmbedInteropTypes` do projektů přidala správná metadata pomocí formátu PackageReference. Ve výchozím nastavení `EmbedInteropTypes` jsou metadata vždy false pro všechna sestavení při použití PackageReference, takže soubor targets tato metadata přidá explicitně. Aby nedocházelo ke konfliktům, cílový název by měl být jedinečný; v ideálním případě použijte kombinaci názvu balíčku a sestavení, které je vloženo, a nahraďte `{InteropAssemblyName}` v příkladu níže tuto hodnotu. (Příklad najdete v tématu [NuGet. Samples. Interop](https://github.com/NuGet/Samples/tree/master/NuGet.Samples.Interop) .)
 
 ```xml
 <Target Name="Embedding**AssemblyName**From**PackageId**" AfterTargets="ResolveReferences" BeforeTargets="FindReferenceAssembliesForReferences">
@@ -26,8 +26,8 @@ Balíčky, které obsahují meziop sestavení com musí obsahovat odpovídajíc�
 </Target>
 ```
 
-Všimněte si, `packages.config` že při použití formátu pro správu, přidání odkazů na sestavení z balíčků způsobí NuGet a Visual Studio ke kontrole sestavení mezi opop COM a nastavit `EmbedInteropTypes` na true v souboru projektu. V tomto případě jsou cíle přepsány.
+Všimněte si, že při použití `packages.config` formátu správy, přidání odkazů na sestavení z balíčků způsobí, že nástroj NuGet a sada Visual Studio zkontrolují sestavení zprostředkovatele komunikace s objekty COM a nastaví na `EmbedInteropTypes` hodnotu true v souboru projektu. V tomto případě jsou cíle přepsány.
 
-Navíc ve výchozím nastavení [sestavení prostředky netokují přechodně](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets). Balíčky vytvořené tak, jak je zde popsáno, fungují jinak, když jsou vytaženy jako přenositá závislost z projektu na odkaz na projekt. Příjemce balíčku může povolit jejich tok úpravou privateAssets výchozí hodnotu nezahrnuje sestavení.
+Kromě toho se ve výchozím nastavení [prostředky sestavení neflowují](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets). Balíčky vytvořené tak, jak je zde popsáno, fungují jinak, když jsou získány jako přenositelné závislosti z projektu na odkaz na projekt. Příjemce balíčku může těmto uživatelům poskytnout tok úpravou výchozí hodnoty PrivateAssets, která nezahrnuje Build.
 
 <a name="creating-the-package"></a>

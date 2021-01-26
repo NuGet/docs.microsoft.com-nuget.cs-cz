@@ -1,17 +1,17 @@
 ---
 title: Transformace zdrojového a konfiguračního souboru pro balíčky NuGet
 description: Podrobnosti o možnosti balíčků NuGet pro transformaci zdrojového kódu a konfiguračních souborů (XML) po instalaci.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 04/24/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 8e3eade14c70782563ba82894f072f9b3a611923
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 5bd0e409f527fb668008204fb16ad002f4784c46
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237981"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774588"
 ---
 # <a name="transforming-source-code-and-configuration-files"></a>Transformace zdrojového kódu a konfiguračních souborů
 
@@ -108,7 +108,7 @@ V několika složitějších příkladech balíčky [protokolování chyb a obsl
 
 Pokud si chcete prohlédnout svůj `web.config.transform` soubor, Stáhněte si z výše uvedeného odkazu balíček knihovny elmah, změňte rozšíření balíčku z `.nupkg` na a `.zip` pak ho otevřete `content\web.config.transform` v tomto souboru ZIP.
 
-Chcete-li zobrazit efekt instalace a odinstalace balíčku, vytvořte nový projekt ASP.NET v aplikaci Visual Studio (šablona je v dialogovém okně Nový projekt v části **Visual C# > web** ) a vyberte prázdnou aplikaci ASP.NET. Otevřete `web.config` a zobrazte jeho počáteční stav. Pak klikněte pravým tlačítkem na projekt, vyberte **Spravovat balíčky NuGet** , vyhledejte knihovny elmah v NuGet.org a nainstalujte nejnovější verzi. Všimněte si všech změn v `web.config` . Nyní balíček odinstalujte a uvidíte, že `web.config` se vrátí do předchozího stavu.
+Chcete-li zobrazit efekt instalace a odinstalace balíčku, vytvořte nový projekt ASP.NET v aplikaci Visual Studio (šablona je v dialogovém okně Nový projekt v části **Visual C# > web** ) a vyberte prázdnou aplikaci ASP.NET. Otevřete `web.config` a zobrazte jeho počáteční stav. Pak klikněte pravým tlačítkem na projekt, vyberte **Spravovat balíčky NuGet**, vyhledejte knihovny elmah v NuGet.org a nainstalujte nejnovější verzi. Všimněte si všech změn v `web.config` . Nyní balíček odinstalujte a uvidíte, že `web.config` se vrátí do předchozího stavu.
 
 ### <a name="xdt-transforms"></a>Transformace XDT
 

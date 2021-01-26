@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: f574849bf99cd4da4eefd55c3dd5a0648042f0c1
-ms.sourcegitcommit: 7e9c0630335ef9ec1e200e2ee9065f702e52a8ec
+ms.openlocfilehash: 2893e13ff7b070844a2bdd5722da3aa1f123538d
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85292290"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98773964"
 ---
 # <a name="autocomplete"></a>Automatické dokončování
 
@@ -21,11 +21,11 @@ Pomocí rozhraní V3 API je možné vytvořit ID balíčku a verzi prostředí p
 
 Použijí se tyto `@type` hodnoty:
 
-@typeosa                          | Poznámky
+@type osa                          | Poznámky
 ------------------------------------ | -----
 SearchAutocompleteService            | Počáteční verze
-SearchAutocompleteService/3.0.0 – beta | Alias pro`SearchAutocompleteService`
-SearchAutocompleteService/3.0.0 – RC   | Alias pro`SearchAutocompleteService`
+SearchAutocompleteService/3.0.0 – beta | Alias pro `SearchAutocompleteService`
+SearchAutocompleteService/3.0.0 – RC   | Alias pro `SearchAutocompleteService`
 SearchAutocompleteService/3.5.0      | Zahrnuje podporu pro `packageType` parametr dotazu.
 
 ### <a name="searchautocompleteservice350"></a>SearchAutocompleteService/3.5.0
@@ -45,16 +45,18 @@ První rozhraní API pro automatické dokončování podporuje hledání část�
 
 Ve výsledcích se nezobrazí balíček s pouze neuvedenými verzemi.
 
-    GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}&packageType={PACKAGETYPE}
+```
+GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}&packageType={PACKAGETYPE}
+```
 
 ### <a name="request-parameters"></a>Parametry žádosti
 
 Name        | V     | Typ    | Vyžadováno | Poznámky
 ----------- | ------ | ------- | -------- | -----
 q           | URL    | řetězec  | ne       | Řetězec, který se má porovnat s ID balíčků
-Přeskočit        | URL    | celé číslo | ne       | Počet výsledků, které se mají přeskočit, pro stránkování
-nezbytná        | URL    | celé číslo | ne       | Počet výsledků, které se mají vrátit, pro stránkování
-předběžné verze  | URL    | Boolean | ne       | `true`nebo `false` Určete, jestli se mají zahrnout [předběžné verze balíčků](../create-packages/prerelease-packages.md)
+Přeskočit        | URL    | integer | ne       | Počet výsledků, které se mají přeskočit, pro stránkování
+take        | URL    | integer | ne       | Počet výsledků, které se mají vrátit, pro stránkování
+předběžné verze  | URL    | boolean | ne       | `true` nebo `false` Určete, jestli se mají zahrnout [předběžné verze balíčků](../create-packages/prerelease-packages.md)
 semVerLevel | URL    | řetězec  | ne       | Řetězec verze SemVer 1.0.0 
 packageType | URL    | řetězec  | ne       | Typ balíčku, který se má použít k filtrování balíčků (přidaných v `SearchAutocompleteService/3.5.0` )
 
@@ -80,14 +82,16 @@ Odpověď je dokument JSON, který obsahuje `take` Výsledky automatického doko
 
 Kořenový objekt JSON má následující vlastnosti:
 
-Name      | Typ             | Vyžadováno | Poznámky
+Název      | Typ             | Vyžadováno | Poznámky
 --------- | ---------------- | -------- | -----
-totalHits | celé číslo          | ano      | Celkový počet shod, nesouvisející `skip` a`take`
+totalHits | integer          | ano      | Celkový počet shod, nesouvisející `skip` a `take`
 data      | pole řetězců | ano      | ID balíčků, které odpovídá požadavek
 
 ### <a name="sample-request"></a>Ukázková žádost
 
-    GET https://api-v2v3search-0.nuget.org/autocomplete?q=storage&prerelease=true
+```
+GET https://api-v2v3search-0.nuget.org/autocomplete?q=storage&prerelease=true
+```
 
 ### <a name="sample-response"></a>Ukázková odpověď
 
@@ -99,14 +103,16 @@ Po zjištění ID balíčku pomocí předchozího rozhraní API může klient po
 
 Ve výsledcích se nezobrazí verze balíčku, který není uveden v seznamu.
 
-    GET {@id}?id={ID}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
+```
+GET {@id}?id={ID}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
+```
 
 ### <a name="request-parameters"></a>Parametry žádosti
 
 Name        | V     | Typ    | Vyžadováno | Poznámky
 ----------- | ------ | ------- | -------- | -----
 id          | URL    | řetězec  | ano      | ID balíčku, pro který se mají načíst verze
-předběžné verze  | URL    | Boolean | ne       | `true`nebo `false` Určete, jestli se mají zahrnout [předběžné verze balíčků](../create-packages/prerelease-packages.md)
+předběžné verze  | URL    | boolean | ne       | `true` nebo `false` Určete, jestli se mají zahrnout [předběžné verze balíčků](../create-packages/prerelease-packages.md)
 semVerLevel | URL    | řetězec  | ne       | Řetězec verze SemVer 2.0.0 
 
 Pokud není `prerelease` zadaný, vyloučí se balíčky předběžných verzí.
@@ -119,7 +125,7 @@ Odpověď je dokument JSON obsahující všechny verze balíčků zadaného ID b
 
 Kořenový objekt JSON má následující vlastnost:
 
-Name      | Typ             | Vyžadováno | Poznámky
+Název      | Typ             | Vyžadováno | Poznámky
 --------- | ---------------- | -------- | -----
 data      | pole řetězců | ano      | Verze balíčku, které odpovídají danému požadavku
 
@@ -127,7 +133,9 @@ Verze balíčku v `data` poli mohou obsahovat metadata sestavení SemVer 2.0.0 (
 
 ### <a name="sample-request"></a>Ukázková žádost
 
-    GET https://api-v2v3search-0.nuget.org/autocomplete?id=nuget.protocol&prerelease=true
+```
+GET https://api-v2v3search-0.nuget.org/autocomplete?id=nuget.protocol&prerelease=true
+```
 
 ### <a name="sample-response"></a>Ukázková odpověď
 

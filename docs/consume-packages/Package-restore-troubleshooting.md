@@ -1,16 +1,16 @@
 ---
 title: Řešení potíží s obnovením balíčku NuGet v aplikaci Visual Studio
 description: Popis běžných chyb obnovení NuGet v aplikaci Visual Studio a jejich řešení.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 05/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 9f680a714717d1bde0472f2e1266cacfd8bd4d5f
-ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
+ms.openlocfilehash: f1c7c4ce2872e18b1ed35ccbf3355a6192ab4a9c
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97699714"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775021"
 ---
 # <a name="troubleshooting-package-restore-errors"></a>Řešení potíží s chybami při obnovení balíčku
 

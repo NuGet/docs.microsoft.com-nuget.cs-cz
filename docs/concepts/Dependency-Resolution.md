@@ -1,16 +1,16 @@
 ---
 title: Řešení závislostí balíčku NuGet
 description: Podrobnosti o procesu, pomocí kterého se v NuGet 2. x a NuGet 3. x + vyřeší a nainstalují závislosti balíčku NuGet.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: 4b95251e4b055523a9533b4125589b2650be932d
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 0ef309d95c6ef5437765c02791da6dab13794678
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237741"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775273"
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>Jak NuGet řeší závislosti balíčků
 
@@ -22,7 +22,7 @@ Pokud má více balíčků stejnou závislost, pak se stejné ID balíčku můž
 
 ## <a name="dependency-resolution-with-packagereference"></a>Rozlišení závislosti s PackageReference
 
-Při instalaci balíčků do projektů pomocí formátu PackageReference přidá NuGet v příslušném souboru odkazy na graf plochých balíčků a vyřeší konflikty před časem. Tento proces se označuje jako *přechodné obnovení* . Přeinstalace nebo obnovení balíčků je proces stahování balíčků uvedených v grafu, což vede k rychlejšímu a více předvídatelným sestavením. Můžete také využít výhod plovoucí verze, například 2,8. neměňte \* projekt tak, aby používal nejnovější verzi balíčku.
+Při instalaci balíčků do projektů pomocí formátu PackageReference přidá NuGet v příslušném souboru odkazy na graf plochých balíčků a vyřeší konflikty před časem. Tento proces se označuje jako *přechodné obnovení*. Přeinstalace nebo obnovení balíčků je proces stahování balíčků uvedených v grafu, což vede k rychlejšímu a více předvídatelným sestavením. Můžete také využít výhod plovoucí verze, například 2,8. neměňte \* projekt tak, aby používal nejnovější verzi balíčku.
 
 Když se proces obnovení NuGet spustí před sestavením, vyřeší nejprve závislosti v paměti a pak zapíše výsledný graf do souboru s názvem `project.assets.json` . Zapisuje také vyřešené závislosti do souboru zámku s názvem `packages.lock.json` , pokud [je povolena funkce zámku souboru](../consume-packages/package-references-in-project-files.md#locking-dependencies).
 Soubor assets (prostředky) se nachází na místě `MSBuildProjectExtensionsPath` , ve kterém je výchozí složka obj projektu. Nástroj MSBuild pak přečte tento soubor a převede ho do sady složek, kde mohou být nalezeny možné odkazy, a poté je přidá do stromu projektu v paměti.
@@ -55,7 +55,7 @@ Když aplikace určí přesné číslo verze, například 1,2, které není v in
 
 #### <a name="floating-versions"></a>Plovoucí verze
 
-S znakem je uvedena plovoucí verze závislosti \* . Například, `6.0.*`. Tato specifikace verze říká "použít nejnovější verzi 6.0. x"; `4.*` znamená "použít nejnovější verzi 4. x." Použití plovoucí verze redukuje změny v souboru projektu a udržuje aktuální verzi závislosti.
+S znakem je uvedena plovoucí verze závislosti \* . Například `6.0.*`. Tato specifikace verze říká "použít nejnovější verzi 6.0. x"; `4.*` znamená "použít nejnovější verzi 4. x." Použití libovolné verze redukuje změny v souboru projektu a zároveň udržuje aktuálnost nejnovější verze závislosti.
 
 Při použití plovoucí verze NuGet vyřeší nejvyšší verzi balíčku, který odpovídá vzoru verze, například `6.0.*` načte nejvyšší verzi balíčku, který začíná na 6,0:
 

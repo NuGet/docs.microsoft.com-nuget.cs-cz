@@ -1,16 +1,16 @@
 ---
 title: Vytvoření a publikování balíčku NuGet pomocí rozhraní příkazového řádku dotnet
 description: Návod k vytvoření a publikování balíčku NuGet pomocí .NET Core CLI, dotnet.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: a67c8cd92304c6c4abcffbb79ddbe964664d08fb
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: cb63257c874fc4752f3b3d59db4be5996d5ab81d
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237481"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775755"
 ---
 # <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>Rychlý Start: vytvoření a publikování balíčku (dotnet CLI)
 
@@ -124,7 +124,7 @@ Pokud chcete prozkoumat další možnosti, které NuGet nabízí, vyberte odkazy
 - [Předběžné verze balíčků](../create-packages/Prerelease-Packages.md)
 - [Podpora více cílových architektur](../create-packages/multiple-target-frameworks-project-file.md)
 - [Správa verzí balíčků](../concepts/package-versioning.md)
-- [Přidání licenčního výrazu nebo souboru](../reference/msbuild-targets#packing-a-license-expression-or-a-license-file)
+- [Přidání licenčního výrazu nebo souboru](../reference/msbuild-targets.md#packing-a-license-expression-or-a-license-file)
 - [Vytvoření lokalizovaných balíčků](../create-packages/creating-localized-packages.md)
 - [Vytváření balíčků symbolů](../create-packages/symbol-packages-snupkg.md)
 - [Podepsání balíčků](../create-packages/Sign-a-package.md)

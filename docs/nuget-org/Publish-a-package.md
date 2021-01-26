@@ -1,17 +1,17 @@
 ---
 title: Jak publikovat balíček NuGet
 description: Podrobné pokyny pro publikování balíčku NuGet v nuget.org nebo privátních informačních kanálech a o tom, jak spravovat vlastnictví balíčku v nuget.org.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: fe5625247dca51c10d82fffe82022c40a4716069
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 5be7a4d4c31df9f2f4bda7bdb1ff9f4887108578
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237929"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775991"
 ---
 # <a name="publishing-packages"></a>Publikování balíčků
 
@@ -111,13 +111,13 @@ Všichni vlastníci balíčku mají úplná oprávnění pro balíček, včetně
 Chcete-li změnit vlastnictví balíčku, postupujte následovně:
 
 1. Přihlaste se k nuget.org pomocí účtu, který je aktuálním vlastníkem balíčku.
-1. Vyberte název účtu, vyberte **Spravovat balíčky** a rozbalte **publikované balíčky** .
-1. Vyberte balíček, který chcete spravovat, a pak na pravé straně vyberte **Spravovat vlastníky** .
+1. Vyberte název účtu, vyberte **Spravovat balíčky** a rozbalte **publikované balíčky**.
+1. Vyberte balíček, který chcete spravovat, a pak na pravé straně vyberte **Spravovat vlastníky**.
 
 Tady máte několik možností:
 
-1. Odeberte všechny vlastníka uvedené v části **aktuální vlastníci** .
-1. Přidejte vlastníka do části **Přidat vlastníka** zadáním jeho uživatelského jména, zprávy a výběru možnosti **Přidat** . Tato akce pošle e-mailem tomuto novému spoluvlastníkovi odkaz s potvrzením. Po potvrzení tato osoba má úplná oprávnění k přidávání a odebírání vlastníků. (Až do potvrzení, část **aktuální vlastníci** indikuje, že se čeká na schválení pro tuto osobu.)
+1. Odeberte všechny vlastníka uvedené v části **aktuální vlastníci**.
+1. Přidejte vlastníka do části **Přidat vlastníka** zadáním jeho uživatelského jména, zprávy a výběru možnosti **Přidat**. Tato akce pošle e-mailem tomuto novému spoluvlastníkovi odkaz s potvrzením. Po potvrzení tato osoba má úplná oprávnění k přidávání a odebírání vlastníků. (Až do potvrzení, část **aktuální vlastníci** indikuje, že se čeká na schválení pro tuto osobu.)
 1. Pokud chcete přenést vlastnictví (jako při změně vlastnictví nebo balíčku, který se publikoval v nesprávném účtu), přidejte nového vlastníka a jakmile se potvrdí vlastnictví, můžou vás ze seznamu odebrat.
 
 Pokud chcete přiřadit vlastnictví společnosti nebo skupiny, vytvořte účet nuget.org pomocí e-mailového aliasu předaného příslušnému členovi týmu. Například různé balíčky Microsoft ASP.NET jsou spoluvlastněny účty [Microsoft](https://nuget.org/profiles/microsoft) a [ASPNET](https://nuget.org/profiles/aspnet) , které jednoduše odkazují na tyto aliasy.
