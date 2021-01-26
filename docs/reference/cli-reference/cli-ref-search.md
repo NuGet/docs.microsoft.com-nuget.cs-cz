@@ -1,16 +1,16 @@
 ---
 title: Příkaz pro vyhledávání NuGet CLI
 description: Referenční informace pro příkaz nuget.exe Search
-author: advay26
-ms.author: t-adtand
+author: JonDouglas
+ms.author: jodou
 ms.date: 08/17/2020
 ms.topic: reference
-ms.openlocfilehash: 8d63efefb8f14c03fbe3986d8d7eebcc3eb5bcac
-ms.sourcegitcommit: 6cda91f135e58cf57a2471b0c7c4a2f748f40024
+ms.openlocfilehash: 6f4adcdf3981e5ec0e5e88337a8c3bcdd9158ca3
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89359679"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98779165"
 ---
 # <a name="search-command-nuget-cli"></a>Search – příkaz (NuGet CLI)
 
@@ -46,15 +46,15 @@ Podívejte se také na [proměnné prostředí](cli-ref-environment-variables.md
 
 ## <a name="examples"></a>Příklady
 
-Vyhledat balíčky související s *protokolováním*z výchozích zdrojů:
+Vyhledat balíčky související s *protokolováním* z výchozích zdrojů:
 ```
 nuget search logging
 ```
-Vyhledejte balíčky související s *protokolováním*s podrobnostmi:
+Vyhledejte balíčky související s *protokolováním* s podrobnostmi:
 ```
 nuget search logging -Verbosity detailed
 ```
-Vyhledejte balíčky související s *protokolováním*a zobrazte pouze prvních 5 výsledků:
+Vyhledejte balíčky související s *protokolováním* a zobrazte pouze prvních 5 výsledků:
 ```
 nuget search logging -Take 5
 ```
@@ -62,7 +62,7 @@ Vyhledat balíčky související s *JSON*, včetně předběžných verzí, ze z
 ```
 nuget search JSON -PreRelease -Source "https://api.nuget.org/v3/index.json"
 ```
-Hledat balíčky související s *JSON*z několika zdrojů nebo kanálů:
+Hledat balíčky související s *JSON* z několika zdrojů nebo kanálů:
 ```
 nuget search JSON -Source "https://api.nuget.org/v3/index.json" -Source "https://other-feed-url-goes-here"
 ```

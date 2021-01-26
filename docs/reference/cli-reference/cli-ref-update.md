@@ -1,16 +1,16 @@
 ---
 title: Příkaz NuGet CLI Update
 description: Referenční informace k příkazu nuget.exe Update
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 106c4027f03d8e8c1d19545b3ca9b6cd5263830e
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: cfa7fdcc6af46fd5f4030ba424754291f697bc43
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93236786"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98779133"
 ---
 # <a name="update-command-nuget-cli"></a>Update – příkaz (NuGet CLI)
 
@@ -40,7 +40,7 @@ kde `<configPath>` identifikuje buď `packages.config` soubor řešení nebo, kt
   
 - **`-DependencyVersion [Lowest, HighestPatch, HighestMinor, Highest, Ignore]`**
 
-  Určuje verzi balíčků závislostí, které se mají použít, což může být jedna z následujících:<br/><ul><li>*Nejnižší* (výchozí): nejnižší verze</li><li>*HighestPatch* : verze, která má nejnižší hlavní, nejnižší podverzi, nejvyšší opravu</li><li>*HighestMinor* : verze s nejnižší hlavní, nejvyšší podverze a nejvyšší opravou</li><li>*Nejvyšší* : nejvyšší verze</li><li>*Ignorovat* : nebudou použity žádné balíčky závislostí.</li></ul>
+  Určuje verzi balíčků závislostí, které se mají použít, což může být jedna z následujících:<br/><ul><li>*Nejnižší* (výchozí): nejnižší verze</li><li>*HighestPatch*: verze, která má nejnižší hlavní, nejnižší podverzi, nejvyšší opravu</li><li>*HighestMinor*: verze s nejnižší hlavní, nejvyšší podverze a nejvyšší opravou</li><li>*Nejvyšší*: nejvyšší verze</li><li>*Ignorovat*: nebudou použity žádné balíčky závislostí.</li></ul>
 
 - **`-FileConflictAction [PromptUser, Overwrite, Ignore]`**
 

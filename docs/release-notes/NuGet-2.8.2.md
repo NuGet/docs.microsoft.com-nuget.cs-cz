@@ -1,48 +1,48 @@
 ---
-title: Zpráva k vydání verze NuGet ve verzi 2.8.2
-description: Zpráva k vydání verze pro NuGet ve verzi 2.8.2 včetně – známé problémy, opravy chyb, nové funkce a chcete.
-author: karann-msft
-ms.author: karann
+title: Poznámky k verzi NuGet ve verzi 2.8.2
+description: Poznámky k verzi pro NuGet ve verzi 2.8.2, včetně známých problémů, oprav chyb, přidaných funkcí a chcete odeslat obecnou.
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: ed22aef6766bbe8e4b688e0587304a18eaeb8895
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: d39f2dc9a429ed264461174325c2080468fa8aae
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551145"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780363"
 ---
-# <a name="nuget-282-release-notes"></a>Zpráva k vydání verze NuGet ve verzi 2.8.2
+# <a name="nuget-282-release-notes"></a>Poznámky k verzi NuGet ve verzi 2.8.2
 
-[Zpráva k vydání verze NuGet 2.8.1](../release-notes/nuget-2.8.1.md) | [poznámkách k verzi NuGet 2.8.3](../release-notes/nuget-2.8.3.md)
+Poznámky k verzi [NuGet 2.8.1](../release-notes/nuget-2.8.1.md)  |  [Poznámky k verzi NuGet 2.8.3](../release-notes/nuget-2.8.3.md)
 
-NuGet ve verzi 2.8.2 vydaná 22. května 2014.  Tato verze zahrnuty pouze změny příkazového řádku nuget.exe, balíček NuGet.Server a dalších balíčcích NuGet.  Vydání neobsahuje k aktualizované rozšíření sady Visual Studio nebo rozšíření nástroje WebMatrix.
+Ve verzi 2.8.2 NuGet byl vydán dne 22. května 2014.  Tato verze obsahuje jenom změny v nuget.exe příkazového řádku, balíček NuGet. Server a další balíčky NuGet.  Tato verze neobsahovala aktualizované rozšíření sady Visual Studio nebo rozšíření WebMatrix.
 
-## <a name="notable-updates"></a>Důležité aktualizace
+## <a name="notable-updates"></a>Významné aktualizace
 
-Nejdůležitější aktualizace byly v příkazového řádku nuget.exe a NuGet.Server balíčku (pro kanály NuGet v místním prostředí).
+Nejvýznamnější aktualizace byly v příkazovém řádku nuget.exe a balíčku NuGet. Server (pro informační kanály NuGet v místním prostředí).
 
-### <a name="important-nugetexe-bug-fixes"></a>Opravy chyb důležité nuget.exe
+### <a name="important-nugetexe-bug-fixes"></a>Důležité opravy chyb nuget.exe
 
-1. [nuget.exe Push se nezdaří a udržuje opakování](https://nuget.codeplex.com/workitem/4000)
-1. [nuget.exe nabízených neodesílá pověření základního ověřování správně](https://nuget.codeplex.com/workitem/4109)
-1. [nuget.exe nabízených oznámení nebude postupujte podle dočasné přesměrování](https://nuget.codeplex.com/workitem/4050)
+1. [ Nahrávánínuget.exe se nezdařilo a pokračuje se opakováním](https://nuget.codeplex.com/workitem/4000)
+1. [nuget.exe push neposílá správně pověření pro základní ověřování](https://nuget.codeplex.com/workitem/4109)
+1. [nuget.exe nabízení oznámení nebude následovat po dočasném přesměrování](https://nuget.codeplex.com/workitem/4050)
 
-### <a name="important-nugetserver-bug-fix"></a>Oprava chyby důležité NuGet.Server
+### <a name="important-nugetserver-bug-fix"></a>Důležitá aktualizace NuGet. Server – oprava chyb
 
-1. [Nesprávná hodnota IsAbsoluteLatestVersion vrácený NuGet.Server](https://nuget.codeplex.com/workitem/4147)
+1. [NuGet. Server vrátil nesprávnou hodnotu IsAbsoluteLatestVersion.](https://nuget.codeplex.com/workitem/4147)
 
-## <a name="packages-updated"></a>Balíčky se aktualizovaly
+## <a name="packages-updated"></a>Aktualizované balíčky
 
-Příkazový řádek nuget.exe a NuGet.Server opravy se dodávají jako aktualizace balíčků NuGet.  Došlo k jiné balíčky se aktualizovaly s ve verzi 2.8.2 také.
+Opravy nuget.exe příkazového řádku a NuGet. Server jsou dodávány jako aktualizace balíčků NuGet.  V ve verzi 2.8.2 byly také aktualizovány další balíčky.
 
-Tady je seznam aktualizované balíčky:
+Tady je seznam aktualizovaných balíčků:
 
-1. [NuGet.Core](https://www.nuget.org/packages/NuGet.Core/)
-1. [NuGet.CommandLine](https://www.nuget.org/packages/NuGet.CommandLine/)
+1. [NuGet. Core](https://www.nuget.org/packages/NuGet.Core/)
+1. [NuGet. CommandLine](https://www.nuget.org/packages/NuGet.CommandLine/)
 1. [NuGet.Server](https://www.nuget.org/packages/NuGet.Server/)
-1. [NuGet.Build](https://www.nuget.org/packages/NuGet.Build/)
-1. [NuGet.VisualStudio](https://www.nuget.org/packages/NuGet.VisualStudio/) (balíčku, není rozšíření)
+1. [NuGet. Build](https://www.nuget.org/packages/NuGet.Build/)
+1. [NuGet. VisualStudio](https://www.nuget.org/packages/NuGet.VisualStudio/) (balíček, nikoli rozšíření)
 
 ## <a name="all-changes"></a>Všechny změny
-Došlo k 10 problémy zákazníky a vyřešené ve verzi. Úplný seznam pracovní položky opravených NuGet ve verzi 2.8.2, prosím zobrazení [NuGet sledování problémů pro tuto verzi](https://nuget.codeplex.com/workitem/list/advanced?keyword=&status=All&type=All&priority=All&release=NuGet%202.8.2&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0&reasonClosed=All).
+V této verzi bylo vyřešeno 10 problémů. Úplný seznam pracovních položek opravených ve ve verzi 2.8.2 NuGet najdete v [přehledu problémů NuGet pro tuto verzi](https://nuget.codeplex.com/workitem/list/advanced?keyword=&status=All&type=All&priority=All&release=NuGet%202.8.2&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0&reasonClosed=All).

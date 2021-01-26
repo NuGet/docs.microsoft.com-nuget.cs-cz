@@ -1,16 +1,16 @@
 ---
 title: Zpráva k vydání verze NuGet 5,3
 description: Poznámky k verzi pro NuGet 5,3, včetně nových funkcí, oprav chyb a chcete odeslat obecnou.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 09/06/2019
 ms.topic: conceptual
-ms.openlocfilehash: ca71c5b9ef546f3ea92e55763d5059466ac3a930
-ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
+ms.openlocfilehash: 009a219139a767ee6453305be68ccce478b0ec75
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76813751"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780116"
 ---
 # <a name="nuget-53-release-notes"></a>Zpráva k vydání verze NuGet 5,3
 
@@ -27,9 +27,9 @@ Prostředky pro distribuci NuGet:
 
 * [Ikona balíčku se dá vložit do balíčku](../reference/msbuild-targets.md#packing-an-icon-image-file), takže nemusíte potřebovat externí adresu URL. - [#352](https://github.com/NuGet/Home/issues/352)
 
-* Vylepšené zabezpečení pomocí SHA sledování a vynucení pro balíčky. config- [#7281](https://github.com/NuGet/Home/issues/7281)
+* Vylepšené zabezpečení pomocí algoritmu SHA a vynucování pro Packages.Config [#7281](https://github.com/NuGet/Home/issues/7281)
 
-* Povolit vyřazení zastaralých a starších balíčků NuGet [#2867](https://github.com/NuGet/Home/issues/2867) | [blogový příspěvek](https://devblogs.microsoft.com/nuget/deprecating-packages-on-nuget-org/) | [docs](../nuget-org/deprecate-packages.md)
+* Povolit vyřazení zastaralých a starších balíčků NuGet [#2867](https://github.com/NuGet/Home/issues/2867)  |  [Blogový příspěvek](https://devblogs.microsoft.com/nuget/deprecating-packages-on-nuget-org/)v  |  [dokumentaci](../nuget-org/deprecate-packages.md)
 
 ### <a name="issues-fixed-in-this-release"></a>Chyby opravené v této verzi
 
@@ -37,7 +37,7 @@ Prostředky pro distribuci NuGet:
 
 * Balíčky NuGet vytvořené pomocí sady 3.0.100-preview9 SDK nemůžou používat uživatelé sady SDK 2,2... v závislosti na časovém pásmu [#8603](https://github.com/NuGet/Home/issues/8603)
 
-* Uvozovky "znaky v cestě způsobují" nepovolené znaky v cestě "`nuget restore` [#8168](https://github.com/NuGet/Home/issues/8168)
+* Uvozovky "znaky v cestě způsobují" nepovolené znaky v cestě "při `nuget restore` [#8168](https://github.com/NuGet/Home/issues/8168)
 
 * VS: sestavení jsou plně Ngen-Ed, ne částečně Ngen-Ed- [#8513](https://github.com/NuGet/Home/issues/8513)
 
@@ -47,7 +47,7 @@ Prostředky pro distribuci NuGet:
 
 * Vylepšení NU1403 – ověřte všechny balíčky, včetně očekávaných nebo skutečných hodnot SHA- [#8424](https://github.com/NuGet/Home/issues/8424)
 
-* Více výčtu ve `NuGetPackageManager.PreviewUpdatePackagesAsync` - [#8401](https://github.com/NuGet/Home/issues/8401)
+* Více výčtů v `NuGetPackageManager.PreviewUpdatePackagesAsync`  -  [#8401](https://github.com/NuGet/Home/issues/8401)
 
 * Vrácení "> interní" změny v PluginProcess- [#8390](https://github.com/NuGet/Home/issues/8390)
 
@@ -71,7 +71,7 @@ Prostředky pro distribuci NuGet:
 
 * Nastavit čtení nastavení v VS-opožděné [#8156](https://github.com/NuGet/Home/issues/8156)
 
-* Regrese v `Nuget sources add` způsobí, že znak ":", šestnáctková hodnota 0x3A, nemůže být zahrnutá v názvu "Errors- [#7948](https://github.com/NuGet/Home/issues/7948)
+* Regrese v `Nuget sources add` důsledku toho, že znak ": ', šestnáctková hodnota 0x3A, nemůže být zahrnutá v názvu" Errors- [#7948](https://github.com/NuGet/Home/issues/7948)
 
 * Zprostředkovatelé přihlašovacích údajů plug-in NuGet – skrýt okno procesu – [#7511](https://github.com/NuGet/Home/issues/7511)
 
@@ -87,11 +87,11 @@ Prostředky pro distribuci NuGet:
 
 * Povolit obnovení souborů. proj – [#8212](https://github.com/NuGet/Home/issues/8212)
 
-* Zavedení `NUGET_NETFX_PLUGIN_PATHS` a `NUGET_NETCORE_PLUGIN_PATHS` pro podporu konfigurace současně [#8151](https://github.com/NuGet/Home/issues/8151)
+* Zavedení `NUGET_NETFX_PLUGIN_PATHS` a `NUGET_NETCORE_PLUGIN_PATHS` podpora konfigurace současně [#8151](https://github.com/NuGet/Home/issues/8151)
 
 * Povolit více verzí pro PackageDownload pomocí atributu Version- [#8074](https://github.com/NuGet/Home/issues/8074)
 
-* Možnosti Add-SolutionDirectory a-PackageDirectory do NuGet. exe Pack- [#7163](https://github.com/NuGet/Home/issues/7163)
+* Možnosti Add-SolutionDirectory a-PackageDirectory pro nuget.exe Pack – [#7163](https://github.com/NuGet/Home/issues/7163)
 
 **[Seznam všech problémů opravených v této verzi – 5,3](https://github.com/nuget/home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%225.3")**
 

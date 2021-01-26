@@ -1,128 +1,128 @@
 ---
-title: Zpráva k vydání verze NuGet 3.0 ve verzi Preview
-description: Poznámky k verzi NuGet 3.0 Preview, včetně známých problémů, opravy chyb, přidány nové funkce a chcete.
-author: karann-msft
-ms.author: karann
+title: Poznámky k verzi pro NuGet 3,0 Preview
+description: Poznámky k verzi pro NuGet 3,0 Preview včetně známých problémů, oprav chyb, přidaných funkcí a chcete odeslat obecnou.
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 9389639476172d05556b95d589e429ddfe0e3026
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: ecaed21c5e689a488e033404f8042cd1f17eed0d
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546462"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780328"
 ---
-# <a name="nuget-30-preview-release-notes"></a>Zpráva k vydání verze NuGet 3.0 ve verzi Preview
+# <a name="nuget-30-preview-release-notes"></a>Poznámky k verzi pro NuGet 3,0 Preview
 
-[Zpráva k vydání verze NuGet 2.9 RC](../release-notes/nuget-2.9-rc.md) | [zpráva k vydání verze NuGet 3.0 Beta](../release-notes/nuget-3.0-beta.md)
+Poznámky k verzi [NuGet 2,9 RC](../release-notes/nuget-2.9-rc.md)  |  [Poznámky k verzi NuGet 3,0 beta](../release-notes/nuget-3.0-beta.md)
 
-NuGet 3.0 ve verzi Preview byla vydána 12. listopadu 2014 jako součást Visual Studio 2015 Preview verzi. Jsme vydali NuGet 3.0 ve verzi Preview. Toto je významným vydáním pro nás (byť ve verzi preview), a My jsme rádi začít získávat zpětnou vazbu na naše změny.
+NuGet 3,0 Preview byl vydán 12. listopadu 2014 jako součást verze Visual Studio 2015 Preview. Vydali jsme NuGet 3,0 Preview. Toto je Velká verze pro nás (i když je to verze Preview) a zajímáme se, abychom mohli začít získávat zpětnou vazbu k našim změnám.
 
-## <a name="visual-studio-2012"></a>Visual Studio 2012+
+## <a name="visual-studio-2012"></a>Visual Studio 2012 +
 
-V této verzi Preview NuGet 3.0 je součástí sady Visual Studio 2015 Preview. Pracujeme na dostat drops ve verzi preview pro sadu Visual Studio 2012 a Visual Studio 2013 velmi brzy. Dříve jste předváděli naše záměr [přestat aktualizace pro sadu Visual Studio 2010](http://blog.nuget.org/20141002/visual-studio-2010.html), a jsme obtížná rozhodnutí.
+Tato verze NuGet 3,0 Preview je součástí sady Visual Studio 2015 Preview. Pracujeme na získání verze Preview pro Visual Studio 2012 a brzy Visual Studio 2013. Dříve jsme naši záměr ukončili [aktualizace pro Visual Studio 2010](http://blog.nuget.org/20141002/visual-studio-2010.html)a udělali jsme toto obtížné rozhodnutí.
 
-## <a name="brand-new-ui"></a>Úplně nové uživatelské rozhraní
+## <a name="brand-new-ui"></a>Nové uživatelské rozhraní značky
 
-První, co zjistíte o NuGet 3.0 ve verzi Preview je naše zcela nové uživatelské rozhraní. Již není modální dialogové okno; Nyní je úplné okna dokumentu sady Visual Studio. Tímto způsobem lze najednou otevřít uživatelské rozhraní pro více projektů (a/nebo řešení), odtrhnout okna na jiný monitor, ukotvit ale byste to líbí, atd.
+První věc o NuGet 3,0 Preview je naše značka nové uživatelské rozhraní. Už není modální dialog. Teď je to celé okno dokumentu sady Visual Studio. To vám umožní otevřít uživatelské rozhraní pro více projektů (a/nebo řešení) najednou, odtrhnout okno na jiný monitor, ukotvit ho, pokud chcete, atd.
 
 ![Nové uživatelské rozhraní NuGet](./media/NuGet-3.0-Preview/new-ui.png)
 
-Nad rámec rozdíly použitelnost kvůli opuštění modální dialogové okno máme také řadu nových funkcí v nové uživatelské rozhraní.
+Mimo rozdíl mezi použitelnostmi z důvodu opuštění modálního dialogového okna máme také spoustu nových funkcí v novém uživatelském rozhraní.
 
 ### <a name="version-selection"></a>Výběr verze
 
-Možná nejčastěji požadované funkce uživatelského rozhraní umožňující výběr verze pro balíček instalace a aktualizace – tato funkce je teď k dispozici.
+Možná nejvíce požadovaná funkce uživatelského rozhraní je to, aby bylo možné vybrat verzi pro instalaci balíčku a aktualizaci – nyní je k dispozici.
 
 ![Výběr verze balíčku](./media/NuGet-3.0-Preview/version-selection.png)
 
-Zda jsou instalujete nebo aktualizujete balíček, rozevírací seznam verzí vám umožní vidět všechny verze k dispozici pro balíček, se některé důležité verze přesunuty do horní části seznamu pro výběr snadno. Už nepotřebujete k získání konkrétních verzí, které nejsou na nejnovější verzi použijte konzolu Powershellu.
+Bez ohledu na to, jestli instalujete nebo aktualizujete balíček, vám v rozevírací nabídce verze zobrazíte všechny verze, které jsou pro balíček k dispozici, a některé významné verze se v horní části seznamu povýší pro snadný výběr. Nemusíte už používat konzolu PowerShellu k získání konkrétních verzí, které nejsou nejnovější.
 
-### <a name="combined-installedonlineupdates-workflows"></a>Kombinované nainstalované/Online/aktualizace pracovní postupy
+### <a name="combined-installedonlineupdates-workflows"></a>Pracovní postupy kombinované instalace/online/aktualizací
 
-Naše předchozí uživatelské rozhraní bylo nainstalováno, Online, a aktualizace 3 kartách. Balíčky uvedené byly specifické pro dané pracovní postupy a byly specifické pro pracovní postupy a akce, které jsou k dispozici. Zatímco, který vypadal jako logické Slyšeli jsme, že celá řada z vás bude často získat zasekne podle oddělení.
+Naše předchozí uživatelské rozhraní obsahovalo 3 karty pro instalaci, online a aktualizace. Uvedené balíčky byly specifické pro tyto pracovní postupy a dostupné akce byly také specifické pro pracovní postupy. I když se to zdálo jako logické, zjistili jsme, že mnohé z nich byste často Trip prostřednictvím tohoto oddělení.
 
-Teď máme kombinované prostředí, kde můžete nainstalovat, aktualizovat nebo odinstalovat balíček bez ohledu na to, jak jste získali balíčku vybrané. Jako pomoc s konkrétní pracovní postupy, nyní je k dispozici rozevírací seznam filtru, který vám umožní filtrovat viditelné balíčků, ale pak akce, které jsou k dispozici pro balíček jsou k dispozici konzistentní vzhledem k aplikacím.
+Teď máme kombinované prostředí, kde můžete balíček nainstalovat, aktualizovat nebo odinstalovat, a to bez ohledu na to, jak jste balíček vybrali. Abychom vám pomohli s konkrétními pracovními postupy, teď máme rozevírací seznam filtr, který umožňuje filtrovat balíčky, ale akce dostupné pro balíček jsou konzistentní.
 
-![Odinstalovat balíček](./media/NuGet-3.0-Preview/uninstall-package.png)
+![Odinstalace balíčku](./media/NuGet-3.0-Preview/uninstall-package.png)
 
-Pomocí filtru "Nainstalováno", může potom snadno zobrazit nainstalované balíčky, které jsou dostupné aktualizace, a pak můžete odinstalovat nebo aktualizovat balíček tak, že změníte výběr verze zobrazíte změnit akce k dispozici.
+Když použijete filtr "installed", můžete snadno zobrazit nainstalované balíčky, u kterých jsou k dispozici aktualizace, a pak můžete balíček odinstalovat nebo aktualizovat změnou výběru verze, aby se zobrazila změna dostupné akce.
 
 ![Aktualizace balíčku](./media/NuGet-3.0-Preview/update-package.png)
 
-### <a name="version-consolidation"></a>Konsolidace verze
+### <a name="version-consolidation"></a>Konsolidace verzí
 
-Je běžné mít stejný balíček nainstalovat do více projektů v rámci vašeho řešení. Někdy verze nainstalované do jednotlivých projektů můžete odchylek od sebe a je nutné konsolidovat verze používá. NuGet 3.0 ve verzi Preview zavádí novou funkci pouze v tomto scénáři.
+Je běžné, že máte nainstalovaný stejný balíček do více projektů v rámci vašeho řešení. Někdy se verze nainstalovaná do každého projektu můžou oddělit a je potřeba sjednotit používané verze. NuGet 3,0 Preview zavádí novou funkci jenom pro tento scénář.
 
-Okno správy balíčků úrovni řešení je přístupný kliknutím pravým tlačítkem na řešení a vyberete spravovat balíčky NuGet pro řešení. Odtud Pokud vyberte balíček, který je nainstalován do více projektů, ale s různými verzemi používá, novou akci "Konsolidovat" k dispozici. Na snímku níže, obrazovky `Newtonsoft.Json` byl nainstalován do `SamplesClassLibrary` s verzí `6.0.4` a jsou nainstalovaná do `SamplesConsoleApp` s verzí `5.0.4`.
+Kliknutím pravým tlačítkem na řešení a zvolením možnosti spravovat balíčky NuGet pro řešení lze použít okno pro správu balíčků na úrovni řešení. Odtud platí, že pokud vyberete balíček, který je nainstalovaný do více projektů, ale u různých používaných verzí, bude k dispozici nová akce "konsolidace". V níže uvedeném snímku obrazovky `Newtonsoft.Json` byla nainstalovaná `SamplesClassLibrary` verze s verzí `6.0.4` a nainstalovaná do `SamplesConsoleApp` verze `5.0.4` .
 
-![Konsolidace verze](./media/NuGet-3.0-Preview/consolidate.png)
+![Konsolidovat verze](./media/NuGet-3.0-Preview/consolidate.png)
 
 Tady je pracovní postup pro konsolidaci do jedné verze.
 
-1. Vyberte `Newtonsoft.Json` balíčku v seznamu
-1. Zvolte `Consolidate` z `Action` rozevíracího seznamu
-1. Použití `Version` rozevíracího seznamu vyberte verzi, které se mají konsolidovat do
-1. Zaškrtněte políčka pro projekty, které by měly být konsolidovány do této verze (Všimněte si, že projekty už ve vybrané verzi zapnutá)
-1. Klikněte na tlačítko `Consolidate` tlačítko provést sloučení
+1. Vybrat `Newtonsoft.Json` balíček v seznamu
+1. Zvolit `Consolidate` z `Action` rozevíracího seznamu
+1. Pomocí `Version` rozevíracího seznamu vyberte verzi, na kterou se má konsolidovat.
+1. Zaškrtněte políčka pro projekty, které by měly být konsolidovány do této verze (Všimněte si, že projekty, které už jsou ve vybrané verzi, budou šedé)
+1. Kliknutím na `Consolidate` tlačítko proveďte konsolidaci.
 
-### <a name="operation-previews"></a>Operace verze Preview
+### <a name="operation-previews"></a>Náhledy operací
 
-Bez ohledu na to, kterou operaci provádíte – instalace/aktualizace/odinstalace – nové uživatelské rozhraní teď nabízí způsob, jak zobrazit náhled změn, které se pošle do vašeho projektu. V této verzi preview se zobrazí všechny nové balíčky, které nainstaluje balíčky, které se aktualizuje a balíčky, které bude odinstalován, společně s balíčky, které bude v průběhu operace beze změny.
+Bez ohledu na to, jakou operaci provádíte – – instalace/aktualizace/odinstalace – nové uživatelské rozhraní teď nabízí způsob, jak zobrazit náhled změn, které se provedou v projektu. V této verzi Preview se zobrazí všechny nové balíčky, které se budou instalovat, balíčky, které se budou aktualizovat, a balíčky, které se odinstalují, a balíčky, které se během této operace nemění.
 
-V následujícím příkladu vidíme, že instalace Microsoft.AspNet.SignalR způsobí mnoho změn do projektu.
+V následujícím příkladu vidíte, že instalace Microsoft. AspNet. Signal bude mít za následek poměrně několik změn projektu.
 
-![Instalace funkce SignalR ve verzi Preview](./media/NuGet-3.0-Preview/preview.png)
+![Instalace signálu Preview](./media/NuGet-3.0-Preview/preview.png)
 
 ### <a name="installation-options"></a>Možnosti instalace
 
-Pomocí konzoly Powershellu, jste měli kontrolu nad několika možností významné instalace. Tyto funkce jsme teď jste zařazení do systému i uživatelského rozhraní. Nyní můžete řídit chování řešení závislostí pro jak se vybírají verze závislosti.
+Pomocí konzoly PowerShellu byste měli mít kontrolu nad několika významnými možnostmi instalace. Tyto funkce jsme teď nastavili i do uživatelského rozhraní. Nyní můžete řídit chování rozlišení závislosti pro způsob, jakým jsou vybrány verze závislostí.
 
 ![Chování závislostí](./media/NuGet-3.0-Preview/dependency-behavior.png)
 
-Můžete také zadat akce má být provedena, pokud soubory obsahu z balíčků jsou v konfliktu se soubory, které již ve vašem projektu.
+Můžete také zadat akci, která má být provedena, když soubory obsahu z balíčků jsou v konfliktu se soubory, které jsou již v projektu.
 
 ![Akce při konfliktu souborů](./media/NuGet-3.0-Preview/file-conflict-action.png)
 
 ### <a name="infinite-scrolling"></a>Nekonečné posouvání
 
-Jsme použili k získání odlišují zpětné vazby na naše uživatelské rozhraní s oběma posouvání a stránkování paradigmat při výpisu balíčky. Bylo poměrně běžných muset posunout na konec krátký seznam, klikněte na tlačítko Další číslo stránky a posuňte se znovu. Pomocí nové uživatelské rozhraní implementovali jsme nekonečné posouvání v seznamu balíčků tak, že budete muset posunout – už nemusíte stránkování.
+V našem uživatelském rozhraní se používáme k tomu, abychom při výpisu balíčků měli poměrně značnou část zpětné vazby. Je poměrně běžné, že se posuňte do dolní části krátkého seznamu, kliknete na číslo další stránky a znovu se posuňte. S novým uživatelským rozhraním jsme v seznamu balíčků implementovali nekonečné posouvání, abyste se mohli jenom posouvat jenom o další stránkování.
 
 ![Nekonečné posouvání](./media/NuGet-3.0-Preview/infinite-scrolling.png)
 
-### <a name="make-it-work-make-it-fast-make-it-pretty"></a>Usnadnit práci, usnadňují rychlé, nastavte ji Pretty
+### <a name="make-it-work-make-it-fast-make-it-pretty"></a>Udělejte to jako funkční, rychle se zajistěte, udělejte to v podstatě
 
-Jsme nadšeni, abyste toto nové uživatelské rozhraní pro vás k vyzkoušení. Během této milník ve verzi Preview jsme následující funkční staré adage z "usnadňují práce, usnadňují rychlé, hodně usnadňují." V této verzi preview jsme dosažené výsledky většinu tento první cíle – to funguje. Víme, že se poměrně rychle ještě není a víme, že poměrně hodně ještě není. Vztah důvěryhodnosti, který budeme pracovat na tyto cíle a verzi RC. Do té doby, rádi uslyšíme vaše názory *použitelnost* nové uživatelské rozhraní – pracovní postupy, operace a jak ho *pracuje* používat nové uživatelské rozhraní.
+Jsme rádi, že vám toto nové uživatelské rozhraní vyzkoušíme. Během tohoto milníku ve verzi Preview jsme povedli dobrý Star pořekadlem o tom, jak to funguje, a to tak, aby bylo v podstatě. " V této verzi Preview jsme provedli většinu tohoto prvního cíle – to funguje. Víme, že ještě není poměrně rychlé a ví, že ještě není poměrně poměrně. Vztah důvěryhodnosti, který budeme pracovat na těchto cílech mezi teď a verzí RC. Mezitím bychom rádi slyšeli svůj názor na *použitelnost* nového uživatelského rozhraní – pracovní postupy, operace a to, jak se *zdá* , že se nové uživatelské rozhraní používá.
 
-Existuje několik funkcí, které jste odebrali jsme ve srovnání s původní uživatelské rozhraní. Jeden z nich je to tak úmyslně, a druhé právě neměli udělat v čase.
+Existuje několik funkcí, které jsme odebrali ve srovnání se starým uživatelským rozhraním. Jedna z nich byla úmyslné a druhá z nich se neudělala v čase.
 
-#### <a name="searching-all-package-sources"></a>Hledání "Vše" zdroje balíčků
+#### <a name="searching-all-package-sources"></a>Hledají se zdroje balíčků "All"
 
-Staré uživatelské rozhraní umožňují vyhledávat v balíčku pro všemi zdroji balíčku. Odebrali jsme funkci v uživatelském rozhraní a můžeme nesmí být převedení zpět. Tato funkce používá k provádění operací vyhledávání pro všemi zdroji balíčku, příběhů výsledky dohromady a pokus o řazení výsledků na základě vašeho výběru řazení.
+Staré uživatelské rozhraní vám umožnilo provést hledání balíčku se všemi zdroji balíčků. Tuto funkci jsme odebrali v uživatelském rozhraní a my ji nebudeme vracet. Tato funkce se používá k provádění operací vyhledávání u všech zdrojů balíčků, spojování výsledků společně a pokus o řazení výsledků na základě výběru řazení.
 
-Zjistili jsme, že je velmi obtížné příběhů společně hledání podle relevance. Může si představit prohledávání proti Google a Bing a společně tkaní výsledky? Kromě toho tato funkce byla pomalé a snadno *omylem* použití a My myslíte, že se jen zřídka skutečně užitečné. Z důvodu problémů funkce zavedená, dostali jsme řadu sestavy chyb na to, které by mohly nikdy jsme opravili.
+Zjistili jsme, že je v zásadě obtížné spojit se vazbou. Mohli byste si představit hledání na Google a Bingu a výsledky tkaní společně? Tato funkce byla navíc pomalá, snadno se *nechtěně* nepoužívá. Domníváme se, že je výjimečně užitečná. Vzhledem k problémům, které zavedla funkce, jsme na ni dostali spoustu zpráv o chybách, které se nikdy neopravily.
 
 #### <a name="update-all"></a>Aktualizovat vše
 
-Mívali jsme "Aktualizovat vše" tlačítko v původní uživatelské rozhraní, která existuje v nové uživatelské rozhraní ještě není. Pro naše verzi RC jsme se resurrect tuto funkci.
+Použili jsme tlačítko Aktualizovat vše ve starém uživatelském rozhraní, které ještě není v novém uživatelském rozhraní. Tuto funkci budeme obnovení pro naši verzi RC.
 
-## <a name="new-clientserver-api"></a>Nový klient/Server rozhraní API
+## <a name="new-clientserver-api"></a>Nové rozhraní API pro klienty a servery
 
-Kromě všech těchto nových funkcí v naší nové uživatelské rozhraní správy balíčků jsme také pracovali na některé podrobnosti implementace protokolu Nugetu klient/server. Práce, kterou jsme provedli je vytvoření "Rozhraní API v3" pro NuGet, které jsou navržené s ohledem na vysokou dostupnost důležitých scénářů, jako je obnovení balíčků a instalace balíčků. Nové rozhraní API je postavena na REST a Hypermédia a My jsme vybrali [JSON-LD](http://json-ld.org) jako naše formát prostředku.
+Kromě všech nových funkcí v naší nové uživatelské rozhraní pro správu balíčků jsme také pracovali na některých podrobnostech implementace pro protokol klienta a serveru NuGet. K práci, kterou jsme dokončili, je vytvoření rozhraní API v3 pro NuGet, které je navržené kolem vysoké dostupnosti pro kritické scénáře, jako je například obnovení balíčků a instalace balíčků. Nové rozhraní API je založené na REST a na médiích a jako náš formát prostředku jsme vybrali [JSON-ld](http://json-ld.org) .
 
-V bitech NuGet 3.0 ve verzi Preview uvidíte nový zdroj balíčků nazývá "preview.nuget.org" v rozevírací nabídce zdroje balíčku. Pokud vyberete tento zdroj balíčku, použijeme spíše pro připojení k nuget.org naše nové rozhraní API. Zpřístupnili jsme náhled zdroje v uživatelském rozhraní a dál budeme testování, opravit a zlepšit nové rozhraní API. Tento nový zdroj balíčků založená na v3 rozhraní API ve verzi RC: NuGet 3.0, nahradí zdroje balíčku na základě v2 "nuget.org".
+V bitech NuGet 3,0 Preview se v rozevíracím seznamu zdroj balíčků zobrazí nový zdroj balíčku s názvem "preview.nuget.org". Pokud vyberete tento zdroj balíčku, budeme místo toho používat naše nové rozhraní API, abyste se připojili k nuget.org. V uživatelském rozhraní jsme provedli zdroj verze Preview, ale pokračujeme v testování, revizi a vylepšení nového rozhraní API. V NuGet 3,0 RC tento nový zdroj balíčku založený na rozhraní API V3 nahradí zdroj balíčku "nuget.org" na bázi v2.
 
-Bez ohledu na investic, kterou jsme už vložení do rozhraní API v3 jsme provedli všechny tyto nové funkce fungovat i pro naše stávající rozhraní API v2 protokolu, to znamená, že bude fungovat s existující zdroje balíčků než nuget.org také.
+Navzdory investicím do rozhraní API V3 jsme všechny tyto nové funkce také pracovali s naším stávajícím protokolem API v2, což znamená, že budou fungovat i s existujícími zdroji balíčků kromě nuget.org.
 
-## <a name="new-features-coming"></a>Novou funkcí produktů
+## <a name="new-features-coming"></a>Nové funkce přicházejí
 
-Od tohoto okamžiku 3.0 RTM pracujeme také na některé základní nové NuGet, víc funkcí zobrazí v uživatelském rozhraní. Tady je krátký seznam charakteristiky investičních oblastí:
+Mezi Now a 3,0 RTM jsme také pracovali na některých základních nových funkcích NuGet, a to nad rámec toho, co vidíte v uživatelském rozhraní. Tady je krátký seznam nejdůležitějšímich investičních oblastí:
 
-1. Naše partnerství s Visual Studio a nástroje MSBuild týmy, které chcete-li získat [NuGet do platformy pro hlubší](http://blog.nuget.org/20141014/in-the-platform.html).
-1. Pracujeme na opustit konvence čas instalace balíčku a místo toho použít tyto konvence v době vytváření balíčků zavedením nového "autoritativní" [manifest balíčku](http://blog.nuget.org/20141023/package-manifests.html).
-1. Pracujeme na Refaktorujte NuGet základu kódu provést opakovaně použitelné součásti klienta a serveru v různých doménách nad rámec správy balíčků v sadě Visual Studio.
-1. Prošetřujeme pojem "soukromé závislosti" balíček můžete určit, kam se má závislosti na ostatní balíčky pouze podrobnosti implementace, a tyto závislosti by neměl být prezentované jako závislosti nejvyšší úrovně.
+1. Spolupracujeme se sadou Visual Studio a týmy MSBuild, abychom mohli získat hlubší přístup k [platformě NuGet](http://blog.nuget.org/20141014/in-the-platform.html).
+1. Pracujeme na opuštění konvencí balíčků při instalaci a místo toho se tyto konvence použijí v době balení. zavádí se nový "autoritativní" [manifest balíčku](http://blog.nuget.org/20141023/package-manifests.html).
+1. Pracujeme na refaktorování základu NuGet k tomu, aby komponenty klienta a serveru byly opakovaně použitelné v různých doménách, a to i v rámci správy balíčků v sadě Visual Studio.
+1. Zkoumáme pojem "privátní závislosti", kde balíček může indikovat, že má závislosti na dalších balíčcích jenom pro podrobnosti o implementaci, a tyto závislosti by neměly být surfované jako závislosti nejvyšší úrovně.
 
-## <a name="stay-tuned"></a>Nenechte si ujít
+## <a name="stay-tuned"></a>Zůstat vyladěné
 
-Prosím dohlížet na [náš blog o](http://blog.nuget.org) další průběh a oznámení pro NuGet 3.0!
+Na [našem blogu](http://blog.nuget.org) prosím sledujte, kde najdete další informace o průběhu a oznámeních pro NuGet 3,0!

@@ -1,51 +1,51 @@
 ---
-title: NuGet 3.4 RC poznámky
-description: Zpráva k vydání verze pro NuGet 3.4 RC, včetně známých problémů, opravy chyb, nové funkce a chcete.
-author: karann-msft
-ms.author: karann
+title: Poznámky k verzi pro NuGet 3,4 – RC
+description: Poznámky k verzi pro NuGet 3,4 RC, včetně známých problémů, oprav chyb, přidaných funkcí a chcete odeslat obecnou.
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 795bdcfaa2e22447856b60d05807aeb0992cdfa0
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 3023dd3727c7c585212032d38c042bded4135c1e
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546751"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780239"
 ---
-# <a name="nuget-34-rc-release-notes"></a>NuGet 3.4 RC poznámky
+# <a name="nuget-34-rc-release-notes"></a>Poznámky k verzi pro NuGet 3,4 – RC
 
-[Zpráva k vydání verze NuGet 3.3](../release-notes/nuget-3.3.md) | [zpráva k vydání verze NuGet 3.4](../release-notes/nuget-3.4.md)
+Zpráva k [vydání verze](../release-notes/nuget-3.3.md)  |  NuGet 3,3 Zpráva k [vydání verze NuGet 3,4](../release-notes/nuget-3.4.md)
 
-NuGet 3.4-RC byla vydána 3. března 2016 souběžně s Visual Studio 2015 Update 2 RC a byl sestaven s několika zásady v mozky:
+NuGet 3,4 – RC byla vydána 3. března 2016 společně se sadou Visual Studio 2015 Update 2 RC a byla sestavena s několika principy v mozky:
 
-* Podporu pro různé platformy
+* Podpora pro různé platformy
 * Vylepšení výkonu
-* Menší vylepšení uživatelského rozhraní
+* Vylepšení dílčího uživatelského rozhraní
 
-Následující funkce jsou dostupné v této verzi RC další plánované 3.4 finální verzi.
+V této verzi RC jsou k dispozici následující funkce s vyšším plánovaným vydáním pro 3,4 finální verzi.
 
 ## <a name="new-features"></a>Nové funkce
 
-* Klienti NuGet nyní podporují kódování obsahu gzip z úložišť
-* Podpora pro soubory PDB z balíčků v projektech xproj
-* Podpora pro iOS a akce sestavení pro Android v elementu contentFiles
-* Podpora rozhraní framework monikerů netstandard a netstandardapp
+* Klienti NuGet teď podporují kódování obsahu gzip z úložišť.
+* Podpora soubory PDB z balíčků v projektech xproj
+* Podpora pro akce sestavení pro iOS a Android v elementu contentFiles
+* Podpora pro monikery rozhraní netstandard a netstandardapp
 
 ## <a name="new-user-interface-features"></a>Nové funkce uživatelského rozhraní
 
-* Výrazné zlepšení výkonu zejména na kartách instalace, aktualizace a konsolidaci
-* Nainstalovaný a karty aktualizace jsou teď seřazené podle abecedy
-* Přidat tlačítko pro aktualizaci, která umožňuje vyhledávání aktualizovat
+* Významná vylepšení výkonu, zejména na kartách nainstalované, aktualizace a konsolidace
+* Nainstalované a aktualizované karty jsou nyní seřazené abecedně.
+* Přidání tlačítka aktualizovat, které umožňuje aktualizovat hledání
 
 ## <a name="updates-and-improvements"></a>Aktualizace a vylepšení
 
-* Balíčky odkazuje `project.json` , které mají plovoucí verze nebude aktualizovat při každém sestavení. Místo toho bude aktualizovat jenom v případě, že vynutit obnovení, vyčistit, znovu vytvořit nebo upravit `project.json`.
-* nuget.org úložišť zdroje jsou již vynutit do konfigurace projektu při použití konfigurace NuGet uživatelského rozhraní.
-* NuGet už obnoví balíčky ve sdílených projektech ani zapíše soubor zámku.
-* Jsme vylepšili selhání sítě a opakujte zpracování pro servery nedostupné nebo pomalé reakce.
-* Vylepšené chování klávesnice a myši v Uživatelském rozhraní Správce balíčků Visual Studio.
+* Balíčky, na které se odkazuje v `project.json` plovoucí verzi, se v každém sestavení neaktualizují. Místo toho se aktualizují pouze v případě, že je vynuceno obnovení, vyčištění, opětovné sestavení nebo změna `project.json` .
+* zdroje úložiště nuget.org již nejsou vynuceny do konfigurace projektu, když použijete uživatelské rozhraní konfigurace NuGet.
+* NuGet už neobnovuje balíčky ve sdílených projektech ani nezapisuje soubor zámku.
+* Vylepšili jsme selhání sítě a zpracování opakování pro nedosažitelné nebo pomalé servery.
+* Vylepšení chování klávesnice a myši jsou vylepšena v uživatelském rozhraní Správce balíčků sady Visual Studio.
 * Nyní podporujeme nejnovější `project.json` schéma v DNX.
 
 ## <a name="known-issues"></a>Známé problémy
 
-Pokračujeme v sledování problémů v našem seznamu problémů na Githubu najdete je na: [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)
+Pořád sledujeme problémy v našem seznamu problémů GitHubu, které najdete na adrese: [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)

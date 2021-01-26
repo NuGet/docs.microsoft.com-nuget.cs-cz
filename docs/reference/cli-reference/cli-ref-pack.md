@@ -1,16 +1,16 @@
 ---
 title: NuGet – příkaz packu CLI
 description: Referenční informace k příkazu nuget.exe Pack
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 0483a75c7ee1fd851f935f44d96a417e2e86bf20
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: e2906d53119cb8c922df7d177cd686836ac50a5a
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622951"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780045"
 ---
 # <a name="pack-command-nuget-cli"></a>příkaz Pack (NuGet CLI)
 
@@ -105,7 +105,7 @@ kde `<nuspecPath>` a `<projectPath>` Zadejte `.nuspec` soubor projektu, v uveden
 
 - **`-p|-Properties`**
 
-  By měl být na příkazovém řádku zobrazen na konci dalších možností. Určuje seznam vlastností, které přepíší hodnoty v souboru projektu. názvy vlastností najdete v tématu [běžné vlastnosti projektu nástroje MSBuild](/visualstudio/msbuild/common-msbuild-project-properties) . Argument vlastnosti tady je seznam párů token = hodnota oddělený středníky, kde každý výskyt `$token$` v `.nuspec` souboru bude nahrazen danou hodnotou. Hodnoty mohou být řetězce v uvozovkách. Všimněte si, že pro vlastnost "konfigurace" je výchozí hodnota "ladit". Chcete-li přejít na konfiguraci vydané verze, použijte `-Properties Configuration=Release` . **Obecně**platí, že vlastnosti by měly být stejné, jaké byly použity během sestavení odpovídajícího projektu, aby se zabránilo potenciálně podivnému chování.
+  By měl být na příkazovém řádku zobrazen na konci dalších možností. Určuje seznam vlastností, které přepíší hodnoty v souboru projektu. názvy vlastností najdete v tématu [běžné vlastnosti projektu nástroje MSBuild](/visualstudio/msbuild/common-msbuild-project-properties) . Argument vlastnosti tady je seznam párů token = hodnota oddělený středníky, kde každý výskyt `$token$` v `.nuspec` souboru bude nahrazen danou hodnotou. Hodnoty mohou být řetězce v uvozovkách. Všimněte si, že pro vlastnost "konfigurace" je výchozí hodnota "ladit". Chcete-li přejít na konfiguraci vydané verze, použijte `-Properties Configuration=Release` . **Obecně** platí, že vlastnosti by měly být stejné, jaké byly použity během sestavení odpovídajícího projektu, aby se zabránilo potenciálně podivnému chování.
 
 - **`-SolutionDirectory`**
 

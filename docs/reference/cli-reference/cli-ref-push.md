@@ -1,16 +1,16 @@
 ---
 title: Příkaz NuGet CLI push
 description: Odkaz na příkaz nuget.exe push
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: d53a2e7f41219e68e59b195d1d5a9d1f62ad7c63
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 54a09361173ae10040433b05fcfae7304e39452e
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622842"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98779189"
 ---
 # <a name="push-command-nuget-cli"></a>Push – příkaz (NuGet CLI)
 

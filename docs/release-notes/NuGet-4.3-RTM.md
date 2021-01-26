@@ -1,28 +1,28 @@
 ---
-title: NuGet 4.3 RTM Poznámky k verzi
-description: Poznámky k verzi pro NuGet 4.3 RTM včetně známých problémů, oprav chyb, přidaných funkcí a řadičů domény.
-author: karann-msft
-ms.author: karann
+title: Poznámky k verzi NuGet 4,3 RTM
+description: Poznámky k verzi pro NuGet 4,3 RTM, včetně známých problémů, oprav chyb, přidaných funkcí a chcete odeslat obecnou.
+author: JonDouglas
+ms.author: jodou
 ms.date: 08/14/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 72d707cb9bacd8abbac873ee10b2fd00f233d3cc
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: e9b6d15584d875f59ed64fe662944db3e37aeabb
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "64496594"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780175"
 ---
-# <a name="nuget-43-release-notes"></a>NuGet 4.3 Poznámky k verzi
+# <a name="nuget-43-release-notes"></a>Zpráva k vydání verze NuGet 4,3
 
-[Visual Studio 2017 15.3 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) je dodáván s NuGet 4.3 RTM, který přidává podporu pro nové scénáře, jako je například .NET Standard 2.0/.NET Core 2.0, obsahuje mnoho oprav kvality a zlepšuje výkon. Tato verze také přináší několik vylepšení, jako je podpora pro sémantické versioning 2.0.0, MSBuild integrace NuGet upozornění a chyby a další.
+[Visual Studio 2017 15,3 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) obsahuje NUGET 4,3 RTM, který přidává podporu pro nové scénáře, jako je .NET Standard 2.0/. NET Core 2,0, obsahuje mnoho oprav kvality a zvyšuje výkon. Tato verze také přináší několik vylepšení, jako je podpora sémantických verzí 2.0.0, integrace nástroje MSBuild s upozorněními a chybami nástroje NuGet a další.
 
-## <a name="summary-whats-new-in-430"></a>Shrnutí: Co je nového v 4.3.0
+## <a name="summary-whats-new-in-430"></a>Shrnutí: co je nového v 4.3.0
 
-## <a name="summary-whats-new-in-431"></a>Shrnutí: Co je nového v 4.3.1
+## <a name="summary-whats-new-in-431"></a>Shrnutí: co je nového ve 4.3.1
 
-* Oprava zabezpečení: Oprávnění k souborům vytvořeným uvnitř ~/.nuget jsou příliš otevřená [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
-* Oprava zabezpečení: Soubory uvnitř NUPKGs mohou mít relativní cestu nad adresářem NUPKG [#7906](https://github.com/NuGet/Home/issues/7906)
+* Oprava zabezpečení: oprávnění k souborům vytvořeným uvnitř ~/.NuGet jsou příliš otevřená [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757) .
+* Oprava zabezpečení: soubory uvnitř NUPKGs můžou mít relativní cestu nad [#7906](https://github.com/NuGet/Home/issues/7906) ADRESÁŘem nupkg.
 
 ## <a name="known-issues"></a>Známé problémy
 
@@ -30,9 +30,9 @@ ms.locfileid: "64496594"
 
 #### <a name="issue"></a>Problém
 
-Následující techniky obnovení příkazového řádku považují zakázané zdroje balíčků za povolené. [NuGet#5704](https://github.com/NuGet/Home/issues/5704)
+Následující postupy příkazového řádku pro obnovení považují zakázané zdroje balíčků za povolené. [NuGet#5704](https://github.com/NuGet/Home/issues/5704)
 - `msbuild /t:restore`
-- `dotnet restore`(buď s dotnet.exe, který je dodáván s VS, nebo ten, který je dodáván s NetCore SDK 2.0.0)
+- `dotnet restore` (buď pomocí dotnet.exe, které se dodávají s VS nebo s NetCore SDK 2.0.0)
 
 #### <a name="workaround"></a>Alternativní řešení
 
@@ -48,9 +48,9 @@ V konzole Správce balíčků občas nefunguje klávesa Enter. Když toto chová
 
 #### <a name="workaround"></a>Alternativní řešení
 
-Před otevřením řešení restartujte Visual Studio a otevřete konzolu PMC. Případně zkuste znovu smažit `project.lock.json` a obnovit.
+Před otevřením řešení restartujte Visual Studio a otevřete konzolu PMC. Případně zkuste `project.lock.json` obnovení a znovu obnovit.
 
-### <a name="you-are-unable-to-view-add-or-update-dotnetclitools-using-nuget-package-manager"></a>Pomocí Nástroje pro balení Nuget nelze zobrazit, přidat nebo aktualizovat nástroje DotNetCLITools.
+### <a name="you-are-unable-to-view-add-or-update-dotnetclitools-using-nuget-package-manager"></a>Pomocí Správce balíčků NuGet nemůžete zobrazit, přidat ani aktualizovat DotNetCLITools.
 
 #### <a name="issue"></a>Problém
 
@@ -70,65 +70,65 @@ Změna cílení verze cílové architektury v sadě Visual Studio může vést k
 
 Proveďte ruční obnovení.
 
-## <a name="issues-fixed-in-nuget-43-rtm-timeframe"></a>Problémy opravené v časovém rámci NuGet 4.3 RTM
+## <a name="issues-fixed-in-nuget-43-rtm-timeframe"></a>Problémy opravené v časovém rámci NuGet 4,3 RTM
 
-[NuGet 4.0 RTM Poznámky k verzi](../release-notes/nuget-4.0-RTM.md) - Seznam všech problémů opravených pro NuGet 4.0 RTM
+Zpráva k [vydání verze nuget 4,0 RTM](../release-notes/nuget-4.0-RTM.md) – seznam všech problémů opravených pro NUGET 4,0 RTM
 
 ### <a name="features"></a>Funkce
 
-- Zlepšit NuGet Obnovení Perf - Implementovat chytřejší NoOp pro obnovení příkazového řádku a VS - [#5080](https://github.com/NuGet/Home/issues/5080)
+- Vylepšení výkonu NuGet Restore – implementace inteligentnějšího NoOp pro obnovení z příkazového řádku a VS- [#5080](https://github.com/NuGet/Home/issues/5080)
 
-- NET Core 2.0: Rozhraní SE kontinuu VS/Dotnet CLI by mělo začít používat existující funkce NuGet: FallBack složky - [#4939](https://github.com/NuGet/Home/issues/4939)
+- NET Core 2,0: VS/dotnet CLI by měly začít používat stávající funkce NuGet: záložní složky- [#4939](https://github.com/NuGet/Home/issues/4939)
 
-- NET Core 2.0: Umožněte uživatelům ignorovat konkrétní upozornění na obnovení (nebo zvýšit na chybu) - [#4898](https://github.com/NuGet/Home/issues/4898)
+- NET Core 2,0: Povolte uživatelům ignorovat konkrétní upozornění na obnovení (nebo se zvýšením oprávnění na chybu) – [#4898](https://github.com/NuGet/Home/issues/4898)
 
-- NET Core 2.0: Lokalizovaná sestavení rozhraní SEkat - [#4896](https://github.com/NuGet/Home/issues/4896)
+- NET Core 2,0: lokalizovaná sestavení CLI – [#4896](https://github.com/NuGet/Home/issues/4896)
 
-- NET Core 2.0: Zaregistrujte všechna upozornění/chyby do souboru datových zdrojů (včetně PackageTargetFallback) - [#4895](https://github.com/NuGet/Home/issues/4895)
+- NET Core 2,0: Zaregistrujte všechna upozornění/chyby do souboru assetů (včetně PackageTargetFallback) – [#4895](https://github.com/NuGet/Home/issues/4895)
 
-- Povolit podporu TFM: NetStandard2.0, Tizen - [#4892](https://github.com/NuGet/Home/issues/4892)
+- Povolit podporu TFM: NetStandard 2.0, Tizen- [#4892](https://github.com/NuGet/Home/issues/4892)
 
-- Snížit počet projektů NuGet.Core a NuGet.Client (a tedy knihovny DLL) - [#2446](https://github.com/NuGet/Home/issues/2446)
+- Snižte počet NuGet. Core a NuGet. Client Projects (a tak knihovny DLL) – [#2446](https://github.com/NuGet/Home/issues/2446)
 
-- Přidat možnost označit nuget upozornění jako chyby - [#2395](https://github.com/NuGet/Home/issues/2395)
+- Přidání možnosti označovat upozornění NuGet jako chyby – [#2395](https://github.com/NuGet/Home/issues/2395)
 
 ### <a name="bugs"></a>Chyby
 
-- msbuild /t:pack selže s parametrem "DevelopmentDependency" není podporován úlohou "PackTask" - [#5584](https://github.com/NuGet/Home/issues/5584)
+- MSBuild/t: sada se nezdařila s parametrem "DevelopmentDependency" není podporován úlohou "PackTask" – [#5584](https://github.com/NuGet/Home/issues/5584)
 
-- Adresářová struktura pro soubory obsahu byla slonována, pokud nepřidáte oddělovač adresářů systému Windows na konci programu PackagePath - [#4795](https://github.com/NuGet/Home/issues/4795)
+- Adresářová struktura pro soubory obsahu se sloučí, pokud se nepřidá oddělovač adresářů Windows na konci PackagePath- [#4795](https://github.com/NuGet/Home/issues/4795)
 
-- netcore projekty nepodporují nastavení jako developmentDependency - [#4694](https://github.com/NuGet/Home/issues/4694)
+- projekty Netcore nepodporují nastavení jako developmentDependency- [#4694](https://github.com/NuGet/Home/issues/4694)
 
-- RestoreManagerPackage načítají synchronně, který zablokoval vlákno uživatelského rozhraní a zablokování VS - [#4679](https://github.com/NuGet/Home/issues/4679)
+- RestoreManagerPackage se načítá synchronně, což blokuje vlákno uživatelského rozhraní a zablokované VS- [#4679](https://github.com/NuGet/Home/issues/4679) .
 
 - dotnet
-  - dotnetcore Restore (& proto msbuild /t:restore) přeskočí projekty s explicitní míchanou závislostí [#4578](https://github.com/NuGet/Home/issues/4578)
+  - dotnetcore Restore (& proto MSBuild/t: Restore) přeskočí projekty pomocí explicitní závislosti projektu řešení [#4578](https://github.com/NuGet/Home/issues/4578)
 
-- Pokud vaše řešení má odkazy na projekt, které odkazují na stejný projekt, s různými písmeny, obnovení nemusí fungovat. To také ovlivňuje různé relativní cesty, bez rozdílu v pouzdře - [#4574](https://github.com/NuGet/Home/issues/4574)
+- Pokud má vaše řešení ProjectReferences, které odkazují na stejný projekt s různými velikostmi písmen, obnovení nemusí fungovat. To má vliv i na jiné relativní cesty bez rozdílu v případě [#4574í](https://github.com/NuGet/Home/issues/4574) velkých a malých písmen.
 
-- Spustitelné soubory obnovené z balíčků NuGet již nejsou spustitelné s rozhraním .NET Core 2.0 - [#4424](https://github.com/NuGet/Home/issues/4424)
+- Spustitelné soubory obnovené z balíčků NuGet už nejsou spustitelné pomocí .NET Core 2,0- [#4424](https://github.com/NuGet/Home/issues/4424)
 
-- NuGet.exe vypolkne podrobnosti o výjimce při analýzě souboru řešení - [#4411](https://github.com/NuGet/Home/issues/4411)
+- NuGet.exe požití podrobností o výjimce při analýze souboru řešení – [#4411](https://github.com/NuGet/Home/issues/4411)
 
-- Pack umístí soubory obsahu do nesprávného umístění, pokud ContentTargetFolders obsahuje cestu, která končí '/' v systému Windows - [#4407](https://github.com/NuGet/Home/issues/4407)
+- Sada zaznamená soubory obsahu v nesprávném umístění, pokud ContentTargetFolders obsahuje cestu, která končí znakem/v systému Windows- [#4407](https://github.com/NuGet/Home/issues/4407)
 
-- Nelze obnovit DotNetCliToolReference pro nástroje balíček, který se zaměřuje netcoreapp1.1 - [#4396](https://github.com/NuGet/Home/issues/4396)
+- Nejde obnovit DotNetCliToolReference pro balíček nástrojů, který cílí na netcoreapp 1.1- [#4396](https://github.com/NuGet/Home/issues/4396) .
 
-- Cli aktualizace Nuget ponechá podmínku verze starého balíčku v souboru projektu (C++) - [#2449](https://github.com/NuGet/Home/issues/2449)
+- Rozhraní příkazového řádku aktualizace NuGet opustí původní stav verze balíčku v souboru projektu (C++) – [#2449](https://github.com/NuGet/Home/issues/2449)
 
-### <a name="dcrs"></a>Řadiče domény
+### <a name="dcrs"></a>Chcete odeslat obecnou
 
-- Přečtěte si DotnetCliToolTargetFramework z cps nomation - [#5397](https://github.com/NuGet/Home/issues/5397)
+- Čtení DotnetCliToolTargetFramework z CPS nomation- [#5397](https://github.com/NuGet/Home/issues/5397)
 
-- Kontrola TPMinV by měla fungovat pro pj styl UPW - [#4763](https://github.com/NuGet/Home/issues/4763)
+- TPMinV by měla fungovat pro PJ stylu UWP – [#4763](https://github.com/NuGet/Home/issues/4763)
 
-- Zlepšit popis ui pro balíčky AutoReferenced - [#4471](https://github.com/NuGet/Home/issues/4471)
+- Vylepšení popisu uživatelského rozhraní pro balíčky s autoreferencí – [#4471](https://github.com/NuGet/Home/issues/4471)
 
-- NuGet obnovení je výběr dat kompilace z runtime oddílu. - [#4207](https://github.com/NuGet/Home/issues/4207)
+- Obnovení NuGet vybírá možnost kompilovat prostředky z modulu runtime. - [#4207](https://github.com/NuGet/Home/issues/4207)
 
-- Vložit diagnostiku závislostí do souboru zámku - [#1599](https://github.com/NuGet/Home/issues/1599)
+- Vložit diagnostiku závislostí do souboru zámku – [#1599](https://github.com/NuGet/Home/issues/1599)
 
-## <a name="links-to-github-issues-fixed-in-43-rtm"></a>Odkazy na problémy GitHubu opravené v 4.3 RTM
+## <a name="links-to-github-issues-fixed-in-43-rtm"></a>Odkazy na problémy GitHubu opravené ve 4,3 RTM
 
 [Seznam problémů](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.3")

@@ -1,16 +1,16 @@
 ---
 title: Zpráva k vydání verze NuGet 5,5
 description: Poznámky k verzi pro NuGet 5,5, včetně nových funkcí, oprav chyb a chcete odeslat obecnou.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 03/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0e8ab66c937058e84420bc3e3a5031cbc133aad7
-ms.sourcegitcommit: 1a63a84da2719c8141823ac89a20bf507fd22b00
+ms.openlocfilehash: 0fde67dd03c31e986ed89f2f8627608e279ef908
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80148295"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780103"
 ---
 # <a name="nuget-55-release-notes"></a>Zpráva k vydání verze NuGet 5,5
 
@@ -32,23 +32,23 @@ Prostředky pro distribuci NuGet:
 
 * Podpora pro zpřístupnění samostatné ikony v uživatelském rozhraní Správce balíčků sady Visual Studio pro balíčky hostované v místních informačních kanálech – [#8189](https://github.com/NuGet/Home/issues/8189)
 
-* Výrazně se zvýšil výkon při obnovení no-op pomocí `RestoreUseStaticGraphEvaluation`, které urychlují hodnocení voláním rozhraní API statického grafu nástroje MSBuild – [8791](https://github.com/NuGet/Home/issues/8791)
+* Výrazně se zvýšil výkon při obnovení no-op `RestoreUseStaticGraphEvaluation` , který používá urychlení hodnocení voláním statických rozhraní API nástroje MSBuild – [8791](https://github.com/NuGet/Home/issues/8791)
 
-* Vylepšená funkce dotnet. exe při ověřování pomocí modulů plug-in pro různé platformy
+* Vylepšení dotnet.exe spolehlivosti s moduly plug-in pro různé platformy ověřování
     * selhání dotnet restore s TaskCanceledException- [#7842](https://github.com/NuGet/Home/issues/7842)
     * Modul plug-in: úloha byla zrušena. došlo k problému s ověřováním ADO. - [#8528](https://github.com/NuGet/Home/issues/8528)
 
 * Přidat `dotnet nuget <add|remove|update|disable|enable|list> source` příkaz- [#4126](https://github.com/NuGet/Home/issues/4126)
 
-* Podpory for `--skip-duplicate` pomocí příkazu dotnet NuGet push- [#8778](https://github.com/NuGet/Home/issues/8778)
+* Podpory pro `--skip-duplicate`  použití příkazu dotnet NuGet push- [#8778](https://github.com/NuGet/Home/issues/8778)
 
-* Podpora `packages.config` s MSBuild/Restore – [#8506](https://github.com/NuGet/Home/issues/8506)
+* Podpora `packages.config` s nástrojem MSBuild/Restore- [#8506](https://github.com/NuGet/Home/issues/8506)
 
 ### <a name="issues-fixed-in-this-release"></a>Chyby opravené v této verzi
 
 **Štěnic**
 
-* Opětovné fungování samoobslužné aktualizace s rozhraními API V3- [#4197](https://github.com/NuGet/Home/issues/4197)
+* Přepracovaná Self-Updater s rozhraními API V3 – [#4197](https://github.com/NuGet/Home/issues/4197)
 
 * Nesprávná verze závislostí balíčku, pokud je verze závislosti balíčku nastavená na *- [#6697](https://github.com/NuGet/Home/issues/6697)
 
@@ -56,7 +56,7 @@ Prostředky pro distribuci NuGet:
 
 * Soubor zámku se nedodržuje ve scénářích "*" – [#8073](https://github.com/NuGet/Home/issues/8073)
 
-* Nástroj NuGet. exe neumožňuje překládat na nejnovější verzi balíčku při použití * v PackageReference (MSBuild/dotnet/VS Restore) – [#8432](https://github.com/NuGet/Home/issues/8432)
+* NuGet.exe se překládá na nejnovější verzi balíčku při použití * v PackageReference (MSBuild/dotnet/vs Restore) – [#8432](https://github.com/NuGet/Home/issues/8432)
 
 * balíček seznamu dotnet s cíleným projektem WPF – [#8463](https://github.com/NuGet/Home/issues/8463)
 
@@ -92,9 +92,9 @@ Prostředky pro distribuci NuGet:
 
 * Obnovení: velké řetězce vytvořené v haldě pro velké objekty (LOH) – [#9031](https://github.com/NuGet/Home/issues/9031)
 
-* Vlastní nástroj NuGet. exe na novější mono může být přerušený kvůli Překladači sady MSBuild SDK – [8848](https://github.com/NuGet/Home/issues/8848)
+* Vlastní nuget.exe na novější mono se můžou přerušit kvůli Překladači sady MSBuild SDK – [8848](https://github.com/NuGet/Home/issues/8848)
 
-* obnovení se nepovede, když NuGet. argument dgspec. JSON používá jiný proces – [8692](https://github.com/NuGet/Home/issues/8692) .
+* obnovení se nepovede, když nuget.dgspec.jspoužívá jiný proces – [8692](https://github.com/NuGet/Home/issues/8692)
 
 **Chcete odeslat obecnou**
 
