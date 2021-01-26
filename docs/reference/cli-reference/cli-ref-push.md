@@ -1,98 +1,98 @@
 ---
 title: Příkaz NuGet CLI push
 description: Odkaz na příkaz nuget.exe push
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: d53a2e7f41219e68e59b195d1d5a9d1f62ad7c63
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 54a09361173ae10040433b05fcfae7304e39452e
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622842"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98779189"
 ---
-# <a name="push-command-nuget-cli"></a><span data-ttu-id="fb3ed-103">Push – příkaz (NuGet CLI)</span><span class="sxs-lookup"><span data-stu-id="fb3ed-103">push command (NuGet CLI)</span></span>
+# <a name="push-command-nuget-cli"></a><span data-ttu-id="d51a8-103">Push – příkaz (NuGet CLI)</span><span class="sxs-lookup"><span data-stu-id="d51a8-103">push command (NuGet CLI)</span></span>
 
-<span data-ttu-id="fb3ed-104">**Platí pro:** publikování &bullet; **podporovaných verzí balíčku:** All; 4.1.0 + Required for NuGet.org</span><span class="sxs-lookup"><span data-stu-id="fb3ed-104">**Applies to:** package publishing &bullet; **Supported versions:** all; 4.1.0+ required for nuget.org</span></span>
+<span data-ttu-id="d51a8-104">**Platí pro:** publikování &bullet; **podporovaných verzí balíčku:** All; 4.1.0 + Required for NuGet.org</span><span class="sxs-lookup"><span data-stu-id="d51a8-104">**Applies to:** package publishing &bullet; **Supported versions:** all; 4.1.0+ required for nuget.org</span></span>
 
 > [!Important]
-> <span data-ttu-id="fb3ed-105">Pokud chcete nabízet balíčky do nuget.org, musíte použít nuget.exe v 4.1.0 +, která implementuje požadované [protokoly NuGet](../../api/nuget-protocols.md).</span><span class="sxs-lookup"><span data-stu-id="fb3ed-105">To push packages to nuget.org you must use nuget.exe v4.1.0+, which implements the required [NuGet protocols](../../api/nuget-protocols.md).</span></span>
+> <span data-ttu-id="d51a8-105">Pokud chcete nabízet balíčky do nuget.org, musíte použít nuget.exe v 4.1.0 +, která implementuje požadované [protokoly NuGet](../../api/nuget-protocols.md).</span><span class="sxs-lookup"><span data-stu-id="d51a8-105">To push packages to nuget.org you must use nuget.exe v4.1.0+, which implements the required [NuGet protocols](../../api/nuget-protocols.md).</span></span>
 
-<span data-ttu-id="fb3ed-106">Vloží balíček do zdroje balíčku a publikuje ho.</span><span class="sxs-lookup"><span data-stu-id="fb3ed-106">Pushes a package to a package source and publishes it.</span></span>
+<span data-ttu-id="d51a8-106">Vloží balíček do zdroje balíčku a publikuje ho.</span><span class="sxs-lookup"><span data-stu-id="d51a8-106">Pushes a package to a package source and publishes it.</span></span>
 
-<span data-ttu-id="fb3ed-107">Výchozí konfigurace NuGet se získá načtením `%AppData%\NuGet\NuGet.Config` (Windows) nebo `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) a následným načtením všech `Nuget.Config` `.nuget\Nuget.Config` souborů, které začínají z kořene jednotky a končí v aktuálním adresáři (viz [společné konfigurace NuGet](../../consume-packages/configuring-nuget-behavior.md)).</span><span class="sxs-lookup"><span data-stu-id="fb3ed-107">NuGet's default configuration is obtained by loading `%AppData%\NuGet\NuGet.Config` (Windows) or `~/.nuget/NuGet/NuGet.Config` (Mac/Linux), then loading any `Nuget.Config` or `.nuget\Nuget.Config` files starting from root of drive and ending in current directory (see [Common NuGet configurations](../../consume-packages/configuring-nuget-behavior.md))</span></span>
+<span data-ttu-id="d51a8-107">Výchozí konfigurace NuGet se získá načtením `%AppData%\NuGet\NuGet.Config` (Windows) nebo `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) a následným načtením všech `Nuget.Config` `.nuget\Nuget.Config` souborů, které začínají z kořene jednotky a končí v aktuálním adresáři (viz [společné konfigurace NuGet](../../consume-packages/configuring-nuget-behavior.md)).</span><span class="sxs-lookup"><span data-stu-id="d51a8-107">NuGet's default configuration is obtained by loading `%AppData%\NuGet\NuGet.Config` (Windows) or `~/.nuget/NuGet/NuGet.Config` (Mac/Linux), then loading any `Nuget.Config` or `.nuget\Nuget.Config` files starting from root of drive and ending in current directory (see [Common NuGet configurations](../../consume-packages/configuring-nuget-behavior.md))</span></span>
 
-## <a name="usage"></a><span data-ttu-id="fb3ed-108">Využití</span><span class="sxs-lookup"><span data-stu-id="fb3ed-108">Usage</span></span>
+## <a name="usage"></a><span data-ttu-id="d51a8-108">Využití</span><span class="sxs-lookup"><span data-stu-id="d51a8-108">Usage</span></span>
 
 ```cli
 nuget push <packagePath> [options]
 ```
 
-<span data-ttu-id="fb3ed-109">kde `<packagePath>` identifikuje balíček, který se má vložit na server.</span><span class="sxs-lookup"><span data-stu-id="fb3ed-109">where `<packagePath>` identifies the package to push to the server.</span></span>
+<span data-ttu-id="d51a8-109">kde `<packagePath>` identifikuje balíček, který se má vložit na server.</span><span class="sxs-lookup"><span data-stu-id="d51a8-109">where `<packagePath>` identifies the package to push to the server.</span></span>
 
-## <a name="options"></a><span data-ttu-id="fb3ed-110">Možnosti</span><span class="sxs-lookup"><span data-stu-id="fb3ed-110">Options</span></span>
+## <a name="options"></a><span data-ttu-id="d51a8-110">Možnosti</span><span class="sxs-lookup"><span data-stu-id="d51a8-110">Options</span></span>
 
 - **`-ApiKey`**
 
-  <span data-ttu-id="fb3ed-111">Klíč rozhraní API pro cílové úložiště</span><span class="sxs-lookup"><span data-stu-id="fb3ed-111">The API key for the target repository.</span></span> <span data-ttu-id="fb3ed-112">Pokud není k dispozici, použije se ten, který je zadaný v konfiguračním souboru.</span><span class="sxs-lookup"><span data-stu-id="fb3ed-112">If not present,  the one specified in the config file is used.</span></span>
+  <span data-ttu-id="d51a8-111">Klíč rozhraní API pro cílové úložiště</span><span class="sxs-lookup"><span data-stu-id="d51a8-111">The API key for the target repository.</span></span> <span data-ttu-id="d51a8-112">Pokud není k dispozici, použije se ten, který je zadaný v konfiguračním souboru.</span><span class="sxs-lookup"><span data-stu-id="d51a8-112">If not present,  the one specified in the config file is used.</span></span>
 
 - **`-ConfigFile`**
 
-  <span data-ttu-id="fb3ed-113">Konfigurační soubor NuGet, který se má použít</span><span class="sxs-lookup"><span data-stu-id="fb3ed-113">The NuGet configuration file to apply.</span></span> <span data-ttu-id="fb3ed-114">Pokud není zadaný, `%AppData%\NuGet\NuGet.Config` použije se (Windows) nebo `~/.nuget/NuGet/NuGet.Config` nebo `~/.config/NuGet/NuGet.Config` (Mac/Linux).</span><span class="sxs-lookup"><span data-stu-id="fb3ed-114">If not specified, `%AppData%\NuGet\NuGet.Config` (Windows), or `~/.nuget/NuGet/NuGet.Config` or `~/.config/NuGet/NuGet.Config` (Mac/Linux) is used.</span></span>
+  <span data-ttu-id="d51a8-113">Konfigurační soubor NuGet, který se má použít</span><span class="sxs-lookup"><span data-stu-id="d51a8-113">The NuGet configuration file to apply.</span></span> <span data-ttu-id="d51a8-114">Pokud není zadaný, `%AppData%\NuGet\NuGet.Config` použije se (Windows) nebo `~/.nuget/NuGet/NuGet.Config` nebo `~/.config/NuGet/NuGet.Config` (Mac/Linux).</span><span class="sxs-lookup"><span data-stu-id="d51a8-114">If not specified, `%AppData%\NuGet\NuGet.Config` (Windows), or `~/.nuget/NuGet/NuGet.Config` or `~/.config/NuGet/NuGet.Config` (Mac/Linux) is used.</span></span>
 
 - **`-DisableBuffering`**
 
-  <span data-ttu-id="fb3ed-115">Zakáže ukládání do vyrovnávací paměti při odesílání na server HTTP (s), aby se snížilo využití paměti.</span><span class="sxs-lookup"><span data-stu-id="fb3ed-115">Disables buffering when pushing to an HTTP(s) server to decrease memory usages.</span></span> <span data-ttu-id="fb3ed-116">Upozornění: při použití této možnosti nemusí fungovat integrované ověřování systému Windows.</span><span class="sxs-lookup"><span data-stu-id="fb3ed-116">Caution: when this option is used, integrated Windows authentication might not work.</span></span>
+  <span data-ttu-id="d51a8-115">Zakáže ukládání do vyrovnávací paměti při odesílání na server HTTP (s), aby se snížilo využití paměti.</span><span class="sxs-lookup"><span data-stu-id="d51a8-115">Disables buffering when pushing to an HTTP(s) server to decrease memory usages.</span></span> <span data-ttu-id="d51a8-116">Upozornění: při použití této možnosti nemusí fungovat integrované ověřování systému Windows.</span><span class="sxs-lookup"><span data-stu-id="d51a8-116">Caution: when this option is used, integrated Windows authentication might not work.</span></span>
 
 - **`-ForceEnglishOutput`**
 
-  <span data-ttu-id="fb3ed-117">*(3.5 +)* Vynutí spuštění nuget.exe s využitím neutrální jazykové verze založené na angličtině.</span><span class="sxs-lookup"><span data-stu-id="fb3ed-117">*(3.5+)* Forces nuget.exe to run using an invariant, English-based culture.</span></span>
+  <span data-ttu-id="d51a8-117">*(3.5 +)* Vynutí spuštění nuget.exe s využitím neutrální jazykové verze založené na angličtině.</span><span class="sxs-lookup"><span data-stu-id="d51a8-117">*(3.5+)* Forces nuget.exe to run using an invariant, English-based culture.</span></span>
 
 - **`-?|-help`**
 
-  <span data-ttu-id="fb3ed-118">Zobrazí informace o nápovědě k příkazu.</span><span class="sxs-lookup"><span data-stu-id="fb3ed-118">Displays help information for the command.</span></span>
+  <span data-ttu-id="d51a8-118">Zobrazí informace o nápovědě k příkazu.</span><span class="sxs-lookup"><span data-stu-id="d51a8-118">Displays help information for the command.</span></span>
 
 - **`-NonInteractive`**
 
-  <span data-ttu-id="fb3ed-119">Potlačí výzvy pro vstup uživatele nebo potvrzení.</span><span class="sxs-lookup"><span data-stu-id="fb3ed-119">Suppresses prompts for user input or confirmations.</span></span>
+  <span data-ttu-id="d51a8-119">Potlačí výzvy pro vstup uživatele nebo potvrzení.</span><span class="sxs-lookup"><span data-stu-id="d51a8-119">Suppresses prompts for user input or confirmations.</span></span>
 
 - **`-NoServiceEndpoint`**
 
-  <span data-ttu-id="fb3ed-120">Nepřipojí `api/v2/packages` se ke zdrojové adrese URL.</span><span class="sxs-lookup"><span data-stu-id="fb3ed-120">Does not append `api/v2/packages` to the source URL.</span></span>
+  <span data-ttu-id="d51a8-120">Nepřipojí `api/v2/packages` se ke zdrojové adrese URL.</span><span class="sxs-lookup"><span data-stu-id="d51a8-120">Does not append `api/v2/packages` to the source URL.</span></span>
 
 - **`-NoSymbols`**
 
-  <span data-ttu-id="fb3ed-121">*(3.5 +)* Pokud balíček symbolů existuje, nebude vložen na server symbolů.</span><span class="sxs-lookup"><span data-stu-id="fb3ed-121">*(3.5+)* If a symbols package exists, it will not be pushed to a symbol server.</span></span>
+  <span data-ttu-id="d51a8-121">*(3.5 +)* Pokud balíček symbolů existuje, nebude vložen na server symbolů.</span><span class="sxs-lookup"><span data-stu-id="d51a8-121">*(3.5+)* If a symbols package exists, it will not be pushed to a symbol server.</span></span>
 
 - **`-src|-Source`**
 
-  <span data-ttu-id="fb3ed-122">Určuje adresu URL serveru.</span><span class="sxs-lookup"><span data-stu-id="fb3ed-122">Specifies the server URL.</span></span> <span data-ttu-id="fb3ed-123">NuGet identifikuje zdroj v konvenci UNC nebo místní složky a jednoduše zkopíruje soubor místo vložení pomocí protokolu HTTP.</span><span class="sxs-lookup"><span data-stu-id="fb3ed-123">NuGet identifies a UNC or local folder source and simply copies the file there instead of pushing it using HTTP.</span></span>  <span data-ttu-id="fb3ed-124">Kromě toho, počínaje NuGet 3.4.2, se jedná o povinný parametr, pokud `NuGet.Config` soubor neurčuje hodnotu *DefaultPushSource* (viz [Konfigurace chování NuGet](../../consume-packages/configuring-nuget-behavior.md)).</span><span class="sxs-lookup"><span data-stu-id="fb3ed-124">Also, starting with NuGet 3.4.2, this is a mandatory parameter unless the `NuGet.Config` file specifies a *DefaultPushSource* value (see [Configuring NuGet behavior](../../consume-packages/configuring-nuget-behavior.md)).</span></span>
+  <span data-ttu-id="d51a8-122">Určuje adresu URL serveru.</span><span class="sxs-lookup"><span data-stu-id="d51a8-122">Specifies the server URL.</span></span> <span data-ttu-id="d51a8-123">NuGet identifikuje zdroj v konvenci UNC nebo místní složky a jednoduše zkopíruje soubor místo vložení pomocí protokolu HTTP.</span><span class="sxs-lookup"><span data-stu-id="d51a8-123">NuGet identifies a UNC or local folder source and simply copies the file there instead of pushing it using HTTP.</span></span>  <span data-ttu-id="d51a8-124">Kromě toho, počínaje NuGet 3.4.2, se jedná o povinný parametr, pokud `NuGet.Config` soubor neurčuje hodnotu *DefaultPushSource* (viz [Konfigurace chování NuGet](../../consume-packages/configuring-nuget-behavior.md)).</span><span class="sxs-lookup"><span data-stu-id="d51a8-124">Also, starting with NuGet 3.4.2, this is a mandatory parameter unless the `NuGet.Config` file specifies a *DefaultPushSource* value (see [Configuring NuGet behavior](../../consume-packages/configuring-nuget-behavior.md)).</span></span>
 
 - **`-SkipDuplicate`**
 
-  <span data-ttu-id="fb3ed-125">*(5.1 +)* Pokud balíček a verze již existují, přeskočte je a pokračujte dalším balíčkem v nabízené kopii, pokud nějaká existuje.</span><span class="sxs-lookup"><span data-stu-id="fb3ed-125">*(5.1+)* If a package and version already exists, skip it and continue with the next package in the push, if any.</span></span>
+  <span data-ttu-id="d51a8-125">*(5.1 +)* Pokud balíček a verze již existují, přeskočte je a pokračujte dalším balíčkem v nabízené kopii, pokud nějaká existuje.</span><span class="sxs-lookup"><span data-stu-id="d51a8-125">*(5.1+)* If a package and version already exists, skip it and continue with the next package in the push, if any.</span></span>
 
 - **`-SymbolSource`**
 
-  <span data-ttu-id="fb3ed-126">*(3.5 +)* Určuje adresu URL serveru symbolů; nuget.smbsrc.net se používá při vkládání do nuget.org.</span><span class="sxs-lookup"><span data-stu-id="fb3ed-126">*(3.5+)* Specifies the symbol server URL; nuget.smbsrc.net is used when pushing to nuget.org</span></span>
+  <span data-ttu-id="d51a8-126">*(3.5 +)* Určuje adresu URL serveru symbolů; nuget.smbsrc.net se používá při vkládání do nuget.org.</span><span class="sxs-lookup"><span data-stu-id="d51a8-126">*(3.5+)* Specifies the symbol server URL; nuget.smbsrc.net is used when pushing to nuget.org</span></span>
 
 - **`-SymbolApiKey`**
 
-  <span data-ttu-id="fb3ed-127">*(3.5 +)* Určuje klíč rozhraní API pro adresu URL určenou v `-SymbolSource` .</span><span class="sxs-lookup"><span data-stu-id="fb3ed-127">*(3.5+)* Specifies the API key for the URL specified in `-SymbolSource`.</span></span>
+  <span data-ttu-id="d51a8-127">*(3.5 +)* Určuje klíč rozhraní API pro adresu URL určenou v `-SymbolSource` .</span><span class="sxs-lookup"><span data-stu-id="d51a8-127">*(3.5+)* Specifies the API key for the URL specified in `-SymbolSource`.</span></span>
 
 - **`-Timeout`**
 
-  <span data-ttu-id="fb3ed-128">Určuje časový limit pro doručování na server v sekundách.</span><span class="sxs-lookup"><span data-stu-id="fb3ed-128">Specifies the timeout, in seconds, for pushing to a server.</span></span> <span data-ttu-id="fb3ed-129">Výchozí hodnota je 300 sekund (5 minut).</span><span class="sxs-lookup"><span data-stu-id="fb3ed-129">The default is 300 seconds (5 minutes).</span></span>
+  <span data-ttu-id="d51a8-128">Určuje časový limit pro doručování na server v sekundách.</span><span class="sxs-lookup"><span data-stu-id="d51a8-128">Specifies the timeout, in seconds, for pushing to a server.</span></span> <span data-ttu-id="d51a8-129">Výchozí hodnota je 300 sekund (5 minut).</span><span class="sxs-lookup"><span data-stu-id="d51a8-129">The default is 300 seconds (5 minutes).</span></span>
 
 - **`-Verbosity [normal|quiet|detailed]`**
 
-  <span data-ttu-id="fb3ed-130">Určuje množství podrobností zobrazených ve výstupu: `normal` (výchozí), `quiet` nebo `detailed` .</span><span class="sxs-lookup"><span data-stu-id="fb3ed-130">Specifies the amount of detail displayed in the output: `normal` (the default), `quiet`, or `detailed`.</span></span>
+  <span data-ttu-id="d51a8-130">Určuje množství podrobností zobrazených ve výstupu: `normal` (výchozí), `quiet` nebo `detailed` .</span><span class="sxs-lookup"><span data-stu-id="d51a8-130">Specifies the amount of detail displayed in the output: `normal` (the default), `quiet`, or `detailed`.</span></span>
 
 
-<span data-ttu-id="fb3ed-131">Podívejte se také na [proměnné prostředí](cli-ref-environment-variables.md) .</span><span class="sxs-lookup"><span data-stu-id="fb3ed-131">Also see [Environment variables](cli-ref-environment-variables.md)</span></span>
+<span data-ttu-id="d51a8-131">Podívejte se také na [proměnné prostředí](cli-ref-environment-variables.md) .</span><span class="sxs-lookup"><span data-stu-id="d51a8-131">Also see [Environment variables](cli-ref-environment-variables.md)</span></span>
 
-## <a name="examples"></a><span data-ttu-id="fb3ed-132">Příklady</span><span class="sxs-lookup"><span data-stu-id="fb3ed-132">Examples</span></span>
+## <a name="examples"></a><span data-ttu-id="d51a8-132">Příklady</span><span class="sxs-lookup"><span data-stu-id="d51a8-132">Examples</span></span>
 
 ```cli
 nuget push foo.nupkg
