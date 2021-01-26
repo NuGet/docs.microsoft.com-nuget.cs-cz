@@ -1,16 +1,16 @@
 ---
 title: Reference k NuGet Update-Package PowerShellu
 description: Referenční informace k příkazu Update-Package PowerShellu v konzole správce balíčků NuGet v aplikaci Visual Studio.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: af918d11e8f976be962d52084c5eda4d53e382c6
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 159817e56d978d6432e989d2027907c0d2445222
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93238033"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777380"
 ---
 # <a name="update-package-package-manager-console-in-visual-studio"></a>Update-Package (konzola správce balíčků v aplikaci Visual Studio)
 
@@ -45,7 +45,7 @@ Update-Package Microsoft.AspNet.MVC -Version 5.0.0.
 | IncludePrerelease | Zahrnuje předběžné verze balíčků pro aktualizace. |
 | Instaluje | Resintalls balíčky pomocí jejich aktuálně nainstalovaných verzí. Viz [Přeinstalace a aktualizace balíčků](../../consume-packages/reinstalling-and-updating-packages.md). |
 | FileConflictAction | Akce, která se má provést, když se zobrazí výzva k přepsání nebo ignorování existujících souborů, na které se odkazuje v projektu Možné hodnoty jsou *overwrite, ignore, None, OverwriteAll* a *IgnoreAll* (3.0 +). |
-| DependencyVersion | Verze balíčků závislostí, které se mají použít, což může být jedna z následujících:<br/><ul><li>*Nejnižší* (výchozí): nejnižší verze</li><li>*HighestPatch* : verze, která má nejnižší hlavní, nejnižší podverzi, nejvyšší opravu</li><li>*HighestMinor* : verze s nejnižší hlavní, nejvyšší podverze a nejvyšší opravou</li><li>*Nejvyšší* (výchozí pro Update-Package bez parametrů): nejvyšší verze</li></ul>Výchozí hodnotu můžete nastavit pomocí [`dependencyVersion`](../nuget-config-file.md#config-section) nastavení v `Nuget.Config` souboru. |
+| DependencyVersion | Verze balíčků závislostí, které se mají použít, což může být jedna z následujících:<br/><ul><li>*Nejnižší* (výchozí): nejnižší verze</li><li>*HighestPatch*: verze, která má nejnižší hlavní, nejnižší podverzi, nejvyšší opravu</li><li>*HighestMinor*: verze s nejnižší hlavní, nejvyšší podverze a nejvyšší opravou</li><li>*Nejvyšší* (výchozí pro Update-Package bez parametrů): nejvyšší verze</li></ul>Výchozí hodnotu můžete nastavit pomocí [`dependencyVersion`](../nuget-config-file.md#config-section) nastavení v `Nuget.Config` souboru. |
 | ToHighestPatch | ekvivalent – Safe. |
 | ToHighestMinor | Omezuje upgrady jenom na verze se stejnou hlavní verzí jako aktuálně nainstalovaný balíček. |
 | WhatIf | Ukazuje, co se stane při spuštění příkazu bez toho, aby se aktualizace skutečně prováděla. |

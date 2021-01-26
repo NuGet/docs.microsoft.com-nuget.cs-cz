@@ -1,16 +1,16 @@
 ---
 title: Zpráva k vydání verze NuGet 2,8
 description: Poznámky k verzi pro NuGet 2,8, včetně známých problémů, oprav chyb, přidaných funkcí a chcete odeslat obecnou.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 98b8b7334738306e6d40ba7c455409a87c4bb822
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: cb77cf0f049b5b3cfe1039d83ab58e33457674bf
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237014"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776710"
 ---
 # <a name="nuget-28-release-notes"></a>Zpráva k vydání verze NuGet 2,8
 
@@ -44,13 +44,15 @@ NuGet 2,8 byl vydán 29. ledna 2014.
 
 Při vyhodnocování závislostí balíčku NuGet implementovala strategii pro vybírání nejnižší hlavní a dílčí verze balíčku, která splňuje závislosti na balíčku. Na rozdíl od hlavní a dílčí verze však verze opravy vždy přeložila na nejvyšší verzi. I když bylo chování záměrně úmyslné, vytvořilo se nedostatečné determinismem pro instalaci balíčků se závislostmi. Uvažujte následující příklad:
 
-    PackageA@1.0.0 -[ >=1.0.0 ]-> PackageB@1.0.0
+```
+PackageA@1.0.0 -[ >=1.0.0 ]-> PackageB@1.0.0
 
-    Developer1 installs PackageA@1.0.0: installed PackageA@1.0.0 and PackageB@1.0.0
+Developer1 installs PackageA@1.0.0: installed PackageA@1.0.0 and PackageB@1.0.0
 
-    PackageB@1.0.1 is published
+PackageB@1.0.1 is published
 
-    Developer2 installs PackageA@1.0.0: installed PackageA@1.0.0 and PackageB@1.0.1
+Developer2 installs PackageA@1.0.0: installed PackageA@1.0.0 and PackageB@1.0.1
+```
 
 V tomto příkladu, i když je nainstalovaný Developer1 a Developer2 PackageA@1.0.0 , každá skončila s jinou verzí PackageB. NuGet 2,8 mění toto výchozí chování tak, že chování rozlišení závislosti pro verze patch je konzistentní s chováním pro hlavní a dílčí verze. V předchozím příkladu se pak PackageB@1.0.0 nainstaluje jako výsledek instalace PackageA@1.0.0 bez ohledu na novější verzi patch.
 
@@ -64,24 +66,28 @@ I když NuGet 2,8 mění _výchozí_ chování pro řešení závislostí, přid
 
 Kromě přepínače-DependencyVersion popsaného výše má NuGet taky možnost nastavit nový atribut v souboru Nuget.Config definujícím výchozí hodnotu, pokud není přepínač-DependencyVersion zadaný při volání Install-Package. Tuto hodnotu bude také respektován dialog správce balíčků NuGet pro všechny operace instalace balíčku. Chcete-li nastavit tuto hodnotu, přidejte následující atribut do souboru Nuget.Config:
 
-    <config>
-        <add key="dependencyversion" value="Highest" />
-    </config>
+```xml
+<config>
+    <add key="dependencyversion" value="Highest" />
+</config>
+```
 
 ## <a name="preview-nuget-operations-with--whatif"></a>Náhled operací NuGet s-whatIf
 
 Některé balíčky NuGet můžou mít hloubkové grafy závislosti a jako takové můžou být užitečné při instalaci, odinstalaci nebo aktualizaci, abyste nejdřív viděli, co se stane. NuGet 2,8 přidá standardní přepínač PowerShellu-whatIf na příkazy Install-Package, Uninstall-Package a Update-Package, aby bylo možné vizualizovat celý uzávěr balíčků, na které se příkaz aplikuje. Například spuštění `install-package Microsoft.AspNet.WebApi -whatif` v prázdné webové aplikaci ASP.NET poskytuje následující.
 
-    PM> install-package Microsoft.AspNet.WebApi -whatif
-    Attempting to resolve dependency 'Microsoft.AspNet.WebApi.WebHost (≥ 5.0.0)'.
-    Attempting to resolve dependency 'Microsoft.AspNet.WebApi.Core (≥ 5.0.0)'.
-    Attempting to resolve dependency 'Microsoft.AspNet.WebApi.Client (≥ 5.0.0)'.
-    Attempting to resolve dependency 'Newtonsoft.Json (≥ 4.5.11)'.
-    Install Newtonsoft.Json 4.5.11
-    Install Microsoft.AspNet.WebApi.Client 5.0.0
-    Install Microsoft.AspNet.WebApi.Core 5.0.0
-    Install Microsoft.AspNet.WebApi.WebHost 5.0.0
-    Install Microsoft.AspNet.WebApi 5.0.0
+```
+PM> install-package Microsoft.AspNet.WebApi -whatif
+Attempting to resolve dependency 'Microsoft.AspNet.WebApi.WebHost (≥ 5.0.0)'.
+Attempting to resolve dependency 'Microsoft.AspNet.WebApi.Core (≥ 5.0.0)'.
+Attempting to resolve dependency 'Microsoft.AspNet.WebApi.Client (≥ 5.0.0)'.
+Attempting to resolve dependency 'Newtonsoft.Json (≥ 4.5.11)'.
+Install Newtonsoft.Json 4.5.11
+Install Microsoft.AspNet.WebApi.Client 5.0.0
+Install Microsoft.AspNet.WebApi.Core 5.0.0
+Install Microsoft.AspNet.WebApi.WebHost 5.0.0
+Install Microsoft.AspNet.WebApi 5.0.0
+```
 
 ## <a name="downgrade-package"></a>Downgrade – balíček
 
@@ -101,12 +107,14 @@ Při vývoji aplikací pro více cílových platforem je běžné mít různé s
 
 I když jsou balíčky NuGet typicky spotřebované ze vzdálené galerie, jako [je například galerie NuGet](http://www.nuget.org/) pomocí síťového připojení, existuje mnoho scénářů, ve kterých klient není připojen. Bez připojení k síti klient NuGet nemohl úspěšně nainstalovat balíčky, i když už tyto balíčky na počítači klienta v místní mezipaměti NuGet. NuGet 2,8 přidá do konzoly Správce balíčků automatickou zálohu mezipaměti. Například při odpojení síťového adaptéru a instalaci jQuery konzola nástroje zobrazí následující:
 
-    PM> Install-Package jquery
-    The source at nuget.org [https://www.nuget.org/api/v2/] is unreachable. Falling back to NuGet Local Cache at C:\Users\me\AppData\Local\NuGet\Cache
-    Installing 'jQuery 2.0.3'.
-    Successfully installed 'jQuery 2.0.3'.
-    Adding 'jQuery 2.0.3' to WebApplication18.
-    Successfully added 'jQuery 2.0.3' to WebApplication18.
+```
+PM> Install-Package jquery
+The source at nuget.org [https://www.nuget.org/api/v2/] is unreachable. Falling back to NuGet Local Cache at C:\Users\me\AppData\Local\NuGet\Cache
+Installing 'jQuery 2.0.3'.
+Successfully installed 'jQuery 2.0.3'.
+Adding 'jQuery 2.0.3' to WebApplication18.
+Successfully added 'jQuery 2.0.3' to WebApplication18.
+```
 
 Funkce Fallback mezipaměti nevyžaduje žádné konkrétní argumenty příkazu. Kromě toho záložní záloha v tuto chvíli funguje jenom v konzole správce balíčků – v dialogovém okně Správce balíčků to chování momentálně nefunguje.
 

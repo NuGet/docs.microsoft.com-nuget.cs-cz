@@ -1,16 +1,16 @@
 ---
 title: Zpráva k vydání verze NuGet 1,8
 description: Poznámky k verzi pro NuGet 1,8, včetně známých problémů, oprav chyb, přidaných funkcí a chcete odeslat obecnou.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 9d55534ffe765137731b7fbf4be4bbaa618c769c
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 8dd0fff88424c516d8b894412d07dcc53af19265
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93236832"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777102"
 ---
 # <a name="nuget-18-release-notes"></a>Zpráva k vydání verze NuGet 1,8
 

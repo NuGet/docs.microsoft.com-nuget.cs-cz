@@ -1,16 +1,16 @@
 ---
 title: Zpráva k vydání verze NuGet 1,2
 description: Poznámky k verzi pro NuGet 1,2, včetně známých problémů, oprav chyb, přidaných funkcí a chcete odeslat obecnou.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 5d10d6bf27614980a144c30c3af6f9892a109061
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: af2248a41800f7641be9b77d7bb72e2a94d4ce47
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237180"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777198"
 ---
 # <a name="nuget-12-release-notes"></a>Zpráva k vydání verze NuGet 1,2
 
@@ -42,8 +42,8 @@ Tato sestavení nejsou součástí balíčku, protože se předpokládá, že js
 
 |Atribut |Popis|
 |----------------|-----------|
-|**Doplňk**|*Požadováno* . Název sestavení, například `System.Net` .|
-|**targetFramework**|*Volitelné* . Povoluje zadání architektury a názvu profilu (nebo alias), který toto sestavení rozhraní používá, například "net40" nebo "sl4". Používá stejný formát popsaný v tématu [Podpora více cílových rozhraní](../create-packages/supporting-multiple-target-frameworks.md).|
+|**Doplňk**|*Požadováno*. Název sestavení, například `System.Net` .|
+|**targetFramework**|*Volitelné*. Povoluje zadání architektury a názvu profilu (nebo alias), který toto sestavení rozhraní používá, například "net40" nebo "sl4". Používá stejný formát popsaný v tématu [Podpora více cílových rozhraní](../create-packages/supporting-multiple-target-frameworks.md).|
 
 ```xml
   <frameworkAssemblies>
@@ -65,6 +65,6 @@ Předchozí seznam byl nejvýraznější z mnoha implementovaných funkcí a chy
 
 ## <a name="known-issues"></a>Známé problémy
 
-* **1,2 nekompatibilita balíčku** : balíčky sestavené s nejnovější verzí nástroje příkazového řádku, nuget.exe (> 1,2), nebudou fungovat se staršími verzemi doplňku NuGet vs (například 1,1). Pokud narazíte na chybovou zprávu s oznámením o nekompatibilním schématu, zobrazí se tato chyba. Aktualizujte prosím NuGet na nejnovější verzi.
-* **NuGet. nekompatibilita serveru** : Pokud Hostujte interní kanál NuGet pomocí projektu NuGet. Server, budete muset tento projekt aktualizovat na nejnovější verzi NuGet. Server.
-* **Chyba neshody signatury** : Pokud při upgradu dojde k chybě se zprávou o neshodě signatur, musíte nejdřív odinstalovat NuGet a pak ho nainstalovat. Tato stránka je uvedena na [stránce známé problémy](../release-notes/known-issues.md) , která poskytuje další podrobnosti. Problém se týká pouze těch, na kterých běží aplikace Visual Studio 2010 SP1 a má nainstalovanou verzi NuGet 1,0, která byla nesprávně podepsaná. Tato verze byla k dispozici pouze na webu CodePlex po krátké době, takže tento problém by neměl mít vliv na příliš mnoho lidí.
+* **1,2 nekompatibilita balíčku**: balíčky sestavené s nejnovější verzí nástroje příkazového řádku, nuget.exe (> 1,2), nebudou fungovat se staršími verzemi doplňku NuGet vs (například 1,1). Pokud narazíte na chybovou zprávu s oznámením o nekompatibilním schématu, zobrazí se tato chyba. Aktualizujte prosím NuGet na nejnovější verzi.
+* **NuGet. nekompatibilita serveru**: Pokud Hostujte interní kanál NuGet pomocí projektu NuGet. Server, budete muset tento projekt aktualizovat na nejnovější verzi NuGet. Server.
+* **Chyba neshody signatury**: Pokud při upgradu dojde k chybě se zprávou o neshodě signatur, musíte nejdřív odinstalovat NuGet a pak ho nainstalovat. Tato stránka je uvedena na [stránce známé problémy](../release-notes/known-issues.md) , která poskytuje další podrobnosti. Problém se týká pouze těch, na kterých běží aplikace Visual Studio 2010 SP1 a má nainstalovanou verzi NuGet 1,0, která byla nesprávně podepsaná. Tato verze byla k dispozici pouze na webu CodePlex po krátké době, takže tento problém by neměl mít vliv na příliš mnoho lidí.

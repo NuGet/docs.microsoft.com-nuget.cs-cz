@@ -1,20 +1,20 @@
 ---
 title: Zpráva k vydání verze NuGet 1,5
 description: Poznámky k verzi pro NuGet 1,5, včetně známých problémů, oprav chyb, přidaných funkcí a chcete odeslat obecnou.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 940a19cdc485d611d03b52ee3102bc95a78a36bb
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: c9946f3d8cf545ec14f842c40105743c231b4b72
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75383346"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777099"
 ---
 # <a name="nuget-15-release-notes"></a>Zpráva k vydání verze NuGet 1,5
 
-[Poznámky k verzi nuget 1,4](../release-notes/nuget-1.4.md) | zpráva k [vydání verze NuGet 1,6](../release-notes/nuget-1.6.md)
+Zpráva k [vydání verze](../release-notes/nuget-1.4.md)  |  NuGet 1,4 Zpráva k [vydání verze NuGet 1,6](../release-notes/nuget-1.6.md)
 
 NuGet 1,5 byl vydán 30. srpna 2011.
 
@@ -29,7 +29,7 @@ Další podrobnosti o této funkci najdete [v tomto blogovém příspěvku vývo
 
 ### <a name="explicit-assembly-references"></a>Explicitní odkazy na sestavení
 
-Přidání nového prvku `<references />`, který slouží k explicitnímu určení, která sestavení v rámci balíčku by měla být odkazována.
+Přidání nového `<references />` elementu, který slouží k explicitnímu určení sestavení, která mají být v rámci balíčku odkazována.
 
 Například pokud přidáte následující:
 
@@ -40,18 +40,18 @@ Například pokud přidáte následující:
 </references>
 ```
 
-Pak budou odkazy na `xunit.dll` a `xunit.extensions.dll` odkazovány z příslušné [podsložky Framework/profil](../reference/nuspec.md#explicit-assembly-references) složky `lib`, i když jsou ve složce jiná sestavení.
+Pak bude `xunit.dll` odkazována pouze na a `xunit.extensions.dll` z příslušné [podsložky architektury nebo profilu](../reference/nuspec.md#explicit-assembly-references) ve složce, `lib` i když jsou ve složce jiná sestavení.
 
-Pokud je tento element vynechán, použije se obvyklé chování, které má odkazovat na každé sestavení ve složce `lib`.
+Pokud je tento element vynechán, použije se obvyklé chování, které má odkazovat na každé sestavení ve `lib` složce.
 
 __K čemu se tato funkce používá?__
 
-Tato funkce podporuje sestavení pouze pro dobu návrhu. Například při použití kontraktů kódu musí být sestavení kontraktu vedle sestavení modulu runtime, která se rozšiřují, aby je Visual Studio mohl najít, ale sestavení kontraktu by na ně neměla být odkazováno v projektu a neměla by být kopírována do složky `bin`.
+Tato funkce podporuje sestavení pouze pro dobu návrhu. Například při použití kontraktů kódu musí být sestavení kontraktu vedle sestavení modulu runtime, která rozšiřují, aby je Visual Studio mohl najít, ale sestavení kontraktu by na ně neměla odkazovat v projektu a neměla by být kopírována do `bin` složky.
 
 Podobně lze funkci použít pro rozhraní testování částí, jako je například XUnit, které vyžadují, aby jejich nástroje byly umístěny vedle sestavení modulu runtime, ale vyloučeny z odkazů na projekt.
 
 ### <a name="added-ability-to-exclude-files-in-the-nuspec"></a>Přidání možnosti pro vyloučení souborů v souboru. nuspec
-Element `<file>` v rámci `.nuspec` souboru lze použít k zahrnutí konkrétního souboru nebo sady souborů pomocí zástupného znaku. Pokud používáte zástupný znak, neexistuje žádný způsob, jak vyloučit určitou podmnožinu zahrnutých souborů. Předpokládejme například, že chcete všechny textové soubory ve složce s výjimkou konkrétního.
+`<file>`Element v `.nuspec` souboru lze použít k zahrnutí konkrétního souboru nebo sady souborů pomocí zástupného znaku. Pokud používáte zástupný znak, neexistuje žádný způsob, jak vyloučit určitou podmnožinu zahrnutých souborů. Předpokládejme například, že chcete všechny textové soubory ve složce s výjimkou konkrétního.
 
 ```xml
 <files>
@@ -81,10 +81,12 @@ Při odinstalaci balíčku se závislostmi se zobrazí výzva NuGet umožňujíc
 ![Odebírají se závislé balíčky.](./media/remove-dependent-packages.png)
 
 
-### <a name="get-package-command-improvement"></a>vylepšení příkazu `Get-Package`
-Příkaz `Get-Package` nyní podporuje parametr `-ProjectName`. Příkaz
+### <a name="get-package-command-improvement"></a>`Get-Package` vylepšení příkazu
+`Get-Package`Příkaz teď podporuje `-ProjectName` parametr. Příkaz
 
-    Get-Package –ProjectName A
+```
+Get-Package –ProjectName A
+```
 
 Zobrazí seznam všech balíčků nainstalovaných v projektu A.
 
@@ -107,10 +109,10 @@ Balíčky NuGet teď zahrnují podporu pro poznámky k verzi. Poznámky k verzi 
 
 ![Poznámky k verzi na kartě aktualizace](./media/manage-nuget-packages-release-notes.png)
 
-Chcete-li přidat do balíčku poznámky k verzi, použijte nový prvek `<releaseNotes />` metadat v souboru NuSpec.
+Chcete-li přidat do balíčku poznámky k verzi, použijte nový `<releaseNotes />` prvek metadat v souboru NuSpec.
 
-### <a name="nuspec-ltfiles-gt-improvement"></a>nuspec & ltfiles/vylepšení&gt;
-Soubor `.nuspec` nyní umožňuje prázdný `<files />` prvek, který instruuje NuGet. exe, že neobsahuje žádný soubor v balíčku.
+### <a name="nuspec-ltfiles-gt-improvement"></a>. nuspec &ltfiles/ &gt; vylepšení
+`.nuspec`Soubor teď umožňuje prázdný `<files />` element, který oznamuje nuget.exe nezahrnovat do balíčku žádný soubor.
 
 ## <a name="bug-fixes"></a>Opravy chyb
 Aktualizace NuGet 1,5 obsahovala celkem 107 pracovních položek. 103 z nich bylo označeno jako chyby.
@@ -119,6 +121,6 @@ Aktualizace NuGet 1,5 obsahovala celkem 107 pracovních položek. 103 z nich byl
 
 ## <a name="bug-fixes-worth-noting"></a>Opravy chyb zaznamenaly:
 
-* [Problém 1273](http://nuget.codeplex.com/workitem/1273): provedli jsme `packages.config`ější správu verzí pomocí řazení balíčků abecedně a odebráním nadbytečného prázdného znaku.
-* [Problém 844](http://nuget.codeplex.com/workitem/844): čísla verzí jsou nyní normalizována, aby `Install-Package 1.0` fungovala na balíčku s verzí `1.0.0`.
-* [Problém 1060](http://nuget.codeplex.com/workitem/1060): při vytváření balíčku pomocí NuGet. exe příznak `-Version` Přepisuje `<version />` element.
+* [Problém 1273](http://nuget.codeplex.com/workitem/1273): provedli jsme `packages.config` lepší řízení verzí pomocí řazení balíčků abecedně a odebráním nadbytečného prázdného znaku.
+* [Problém 844](http://nuget.codeplex.com/workitem/844): čísla verzí jsou nyní normalizována, aby `Install-Package 1.0` fungovala na balíčku s verzí `1.0.0` .
+* [Problém 1060](http://nuget.codeplex.com/workitem/1060): při vytváření balíčku pomocí nuget.exe `-Version` příznak Přepisuje `<version />` prvek.

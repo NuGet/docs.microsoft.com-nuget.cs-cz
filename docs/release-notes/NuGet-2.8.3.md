@@ -1,21 +1,21 @@
 ---
 title: Poznámky k verzi NuGet 2.8.3
-description: Poznámky k verzi NuGet 2.8.3 Zahrnout – známé problémy, opravy chyb, nové funkce a chcete.
-author: karann-msft
-ms.author: karann
+description: Poznámky k verzi pro NuGet 2.8.3, včetně známých problémů, oprav chyb, přidaných funkcí a chcete odeslat obecnou.
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: e773d6dc55c1593a4f0918d67c9c188a38e0e5ec
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: fe7e8f7c45bc4d67ae4015234cf3775372b71bb1
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548453"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776748"
 ---
 # <a name="nuget-283-release-notes"></a>Poznámky k verzi NuGet 2.8.3
 
-[Zpráva k vydání verze NuGet ve verzi 2.8.2](../release-notes/nuget-2.8.2.md) | [zpráva k vydání verze NuGet 2.8.5](../release-notes/nuget-2.8.5.md)
+Poznámky k verzi [NuGet ve verzi 2.8.2](../release-notes/nuget-2.8.2.md)  |  [Poznámky k verzi NuGet 2.8.5](../release-notes/nuget-2.8.5.md)
 
-NuGet 2.8.3 byla vydána 17. října 2014. Je menší aktualizace na naše 2.8.1 VSIX s některými cílí opravy.
+2.8.3 NuGet byl vydán 17. října 2014. Jedná se o menší aktualizaci našeho 2.8.1 VSIX s některými cílenými opravami.
 
-V této verzi byla přidána podpora pro dialogové okno Správce balíčků NuGet [ASP.NET vNext](http://www.asp.net/vnext), [DevExtreme](http://js.devexpress.com/) a [BizTalk (.btproj)](/biztalk/core/developing-biztalk-server-applications) typů projektů. Zahrnuje také spolehlivost opravy související s scénáře povolit obnovení balíčků a ukládání možnosti Správce balíčků.
+V této verzi se přidalo dialogové okno Správce balíčků NuGet pro typy projektů [ASP.NET vNext](http://www.asp.net/vnext), [projekty DevExtreme](http://js.devexpress.com/) a [BizTalk (. btproj)](/biztalk/core/developing-biztalk-server-applications) . Zahrnuje taky opravy chyb spolehlivosti, které se týkají scénářů povolování obnovení balíčků a ukládání možností Správce balíčků.

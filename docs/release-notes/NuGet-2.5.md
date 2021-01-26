@@ -1,16 +1,16 @@
 ---
 title: Zpráva k vydání verze NuGet 2,5
 description: Poznámky k verzi pro NuGet 2,5, včetně známých problémů, oprav chyb, přidaných funkcí a chcete odeslat obecnou.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 940582d5173f5a53dcd04cf1258fc02a2439af4e
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: efcfb9767772c9e27372b4616f817656d51efed8
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237077"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776860"
 ---
 # <a name="nuget-25-release-notes"></a>Zpráva k vydání verze NuGet 2,5
 
@@ -45,7 +45,7 @@ Rádi bychom pro své významné příspěvky k NuGet 2,5 měli Děkujeme za tyt
 11. [Xavier denákler](https://www.codeplex.com/site/users/view/XavierDecoster) ( [@XavierDecoster](https://twitter.com/xavierdecoster) )
      - [#2991](https://nuget.codeplex.com/workitem/2991), [#3164](https://nuget.codeplex.com/workitem/3164) – při ukládání přihlašovacích údajů ke zdroji balíčků do souborů NuGet. cofig se nepodporuje heslo pro nešifrovaný text.
 12. [James obsazení](http://www.codeplex.com/site/users/view/jmanning) ( [@manningj](https://twitter.com/manningj) )
-     - [#3190](http://nuget.codeplex.com/workitem/3190)popis #3190 [#3191](http://nuget.codeplex.com/workitem/3191) opravy Get-Package
+     - [](http://nuget.codeplex.com/workitem/3190)popis #3190 [#3191](http://nuget.codeplex.com/workitem/3191) opravy Get-Package
 
 Oceňujeme také následující jednotlivce pro vyhledávání chyb s NuGet 2,5 beta/RC, které byly schváleny a opraveny před poslední verzí:
 

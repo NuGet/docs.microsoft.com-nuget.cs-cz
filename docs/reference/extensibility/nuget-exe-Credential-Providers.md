@@ -1,16 +1,16 @@
 ---
 title: Poskytovatelé přihlašovacích údajů nuget.exe
 description: nuget.exe poskytovatelé přihlašovacích údajů ověřují pomocí informačního kanálu a jsou implementovány jako spustitelné soubory příkazového řádku, které následují konkrétní konvence.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: 41e3e63138351bafd5e3a56080268faef10d85a3
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 285504508fa88c96f5c7a23f15ef14d81ebc21e1
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93238111"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777763"
 ---
 # <a name="authenticating-feeds-with-nugetexe-credential-providers"></a>Ověřování informačních kanálů s nuget.exe zprostředkovateli přihlašovacích údajů
 
@@ -22,11 +22,11 @@ Další podrobnosti o všech přístupech k ověřování pro najdete v tématu 
 
 Poskytovatelé přihlašovacích údajů nuget.exe můžou používat 3 způsoby:
 
-- **Globálně** : Pokud chcete poskytovatele přihlašovacích údajů zpřístupnit všem instancím `nuget.exe` běhu v profilu aktuálního uživatele, přidejte ho do `%LocalAppData%\NuGet\CredentialProviders` . Možná budete muset vytvořit `CredentialProviders` složku. Poskytovatelé přihlašovacích údajů se dají nainstalovat do kořenového adresáře `CredentialProviders`  složky nebo do podsložky. Pokud má poskytovatel přihlašovacích údajů více souborů nebo sestavení, můžete použít podsložky a zachovat tak jejich poskytovatele.
+- **Globálně**: Pokud chcete poskytovatele přihlašovacích údajů zpřístupnit všem instancím `nuget.exe` běhu v profilu aktuálního uživatele, přidejte ho do `%LocalAppData%\NuGet\CredentialProviders` . Možná budete muset vytvořit `CredentialProviders` složku. Poskytovatelé přihlašovacích údajů se dají nainstalovat do kořenového adresáře `CredentialProviders`  složky nebo do podsložky. Pokud má poskytovatel přihlašovacích údajů více souborů nebo sestavení, můžete použít podsložky a zachovat tak jejich poskytovatele.
 
-- **Z proměnné prostředí** : poskytovatelé přihlašovacích údajů můžou být uložené kdekoli a zpřístupněni tak, že `nuget.exe` nastaví `%NUGET_CREDENTIALPROVIDERS_PATH%` proměnnou prostředí na umístění poskytovatele. Tato proměnná může být seznam oddělený středníkem (například), `path1;path2` Pokud máte více umístění.
+- **Z proměnné prostředí**: poskytovatelé přihlašovacích údajů můžou být uložené kdekoli a zpřístupněni tak, že `nuget.exe` nastaví `%NUGET_CREDENTIALPROVIDERS_PATH%` proměnnou prostředí na umístění poskytovatele. Tato proměnná může být seznam oddělený středníkem (například), `path1;path2` Pokud máte více umístění.
 
-- **Vedle nuget.exe** : poskytovatelé přihlašovacích údajů nuget.exe můžou umístit do stejné složky jako `nuget.exe` .
+- **Vedle nuget.exe**: poskytovatelé přihlašovacích údajů nuget.exe můžou umístit do stejné složky jako `nuget.exe` .
 
 Při načítání zprostředkovatelů přihlašovacích údajů `nuget.exe` prohledají výše uvedená umístění v případě libovolného souboru s názvem `credentialprovider*.exe` a pak tyto soubory načte v pořadí, v jakém byly nalezeny. Pokud ve stejné složce existuje více zprostředkovatelů přihlašovacích údajů, načtou se v abecedním pořadí.
 
@@ -70,9 +70,11 @@ Poskytovatel musí provádět tyto akce:
 
 Příklad stdout:
 
-    { "Username" : "freddy@example.com",
-      "Password" : "bwm3bcx6txhprzmxhl2x63mdsul6grctazoomtdb6kfbof7m3a3z",
-      "Message"  : "" }
+```
+{ "Username" : "freddy@example.com",
+    "Password" : "bwm3bcx6txhprzmxhl2x63mdsul6grctazoomtdb6kfbof7m3a3z",
+    "Message"  : "" }
+```
 
 ## <a name="troubleshooting-a-credential-provider"></a>Řešení potíží s poskytovatelem přihlašovacích údajů
 

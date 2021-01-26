@@ -5,12 +5,12 @@ author: nkolev92
 ms.author: nikolev
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7de3f0f1133a89848e9268d489751293fb3cbf25
-ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
+ms.openlocfilehash: 0c32978baf6146f10c262ba7af94f61fee22272d
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98235695"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777718"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Sada NuGet Pack a obnovení jako cíle MSBuild
 
@@ -40,9 +40,9 @@ Podobně můžete napsat úlohu MSBuild, napsat vlastní cíl a využít vlastno
 
 ## <a name="pack-target"></a>cíl balíčku
 
-Pro .NET Standard projekty pomocí formátu PackageReference pomocí `msbuild -t:pack` Kreslení vstupů ze souboru projektu, který se má použít při vytváření balíčku NuGet.
+Pro projekty .NET, které používají `PackageReference` formát, pomocí `msbuild -t:pack` kreslí vstupy ze souboru projektu, které se mají použít při vytváření balíčku NuGet.
 
-Následující tabulka popisuje vlastnosti nástroje MSBuild, které lze přidat do souboru projektu v rámci prvního `<PropertyGroup>` uzlu. Tyto úpravy můžete snadno upravit v aplikaci Visual Studio 2017 a novějším kliknutím pravým tlačítkem myši na projekt a výběrem možnosti **Upravit {PROJECT_NAME}** v místní nabídce. Pro přehlednost je tabulka uspořádaná podle ekvivalentní vlastnosti v [ `.nuspec` souboru](../reference/nuspec.md).
+Následující tabulka popisuje vlastnosti MSBuild, které lze přidat do souboru projektu v rámci prvního `<PropertyGroup>` uzlu. Tyto úpravy můžete snadno upravit v aplikaci Visual Studio 2017 a novějším kliknutím pravým tlačítkem myši na projekt a výběrem možnosti **Upravit {PROJECT_NAME}** v místní nabídce. Pro usnadnění práce je tabulka uspořádána podle odpovídající vlastnosti v [ `.nuspec` souboru](../reference/nuspec.md).
 
 Všimněte si, že nástroj `Owners` `Summary` `.nuspec` MSBuild nepodporuje vlastnosti a.
 
@@ -52,63 +52,67 @@ Všimněte si, že nástroj `Owners` `Summary` `.nuspec` MSBuild nepodporuje vla
 | Verze | PackageVersion | Verze | To je semver kompatibilní, například "1.0.0", "1.0.0-beta" nebo "1.0.0-beta-00345" |
 | VersionPrefix | PackageVersionPrefix | empty | Nastavení PackageVersion přepsání PackageVersionPrefix |
 | VersionSuffix | PackageVersionSuffix | empty | $ (VersionSuffix) z MSBuild. Nastavení PackageVersion přepsání PackageVersionSuffix |
-| Autoři | Autoři | Uživatelské jméno aktuálního uživatele | |
+| Autoři | Autoři | Uživatelské jméno aktuálního uživatele | Středníkem oddělený seznam autorů balíčků, které odpovídají názvům profilů v nuget.org. Ty se zobrazí v galerii NuGet na nuget.org a používají se pro balíčky křížového odkazu stejnými autory. |
 | Vlastníci | – | Nepřítomno v NuSpec | |
-| Nadpis | Nadpis | PackageId| |
-| Popis | Popis | Popis balíčku | |
-| Copyright | Copyright | empty | |
-| RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false (nepravda) | |
-| license | PackageLicenseExpression | empty | Odpovídá `<license type="expression">` |
-| license | PackageLicenseFile | empty | Odpovídá `<license type="file">` . Musíte explicitně sbalit soubor s odkazem na licenci. |
-| LicenseUrl | PackageLicenseUrl | empty | `PackageLicenseUrl` je zastaralá, použijte vlastnost PackageLicenseExpression nebo PackageLicenseFile. |
+| Nadpis | Nadpis | PackageId| Popisný název balíčku, který se obvykle používá v uživatelském rozhraní, se zobrazuje jako v nuget.org a správce balíčků v aplikaci Visual Studio. |
+| Popis | Popis | Popis balíčku | Dlouhý popis pro sestavení. Pokud `PackageDescription` parametr není zadán, tato vlastnost se používá také jako Popis balíčku. |
+| Copyright | Copyright | empty | Podrobnosti o autorských právech pro balíček. |
+| RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false (nepravda) | Logická hodnota, která určuje, zda klient musí požádat spotřebitele o přijetí licence k balíčku před instalací balíčku. |
+| license | PackageLicenseExpression | empty | Odpovídá `<license type="expression">` . Viz [balení licenčního výrazu nebo licenčního souboru](#packing-a-license-expression-or-a-license-file). |
+| license | PackageLicenseFile | empty | Cesta k souboru s licencí v rámci balíčku, pokud používáte vlastní licenci nebo licenci, ke které se nepřiřadil identifikátor SPDX Musíte explicitně sbalit soubor s odkazem na licenci. Odpovídá `<license type="file">` . Viz [balení licenčního výrazu nebo licenčního souboru](#packing-a-license-expression-or-a-license-file). |
+| LicenseUrl | PackageLicenseUrl | empty | `PackageLicenseUrl` je zastaralá. Použijte `PackageLicenseExpression` nebo `PackageLicenseFile` místo toho. |
 | ProjectUrl | PackageProjectUrl | empty | |
-| Ikona | PackageIcon | empty | Musíte explicitně sbalit soubor obrázku odkazované ikony.|
-| IconUrl | PackageIconUrl | empty | Pro dosažení nejlepšího prostředí pro starší verze `PackageIconUrl` by se mělo zadat kromě `PackageIcon` . Delší období, `PackageIconUrl` bude zastaralé. |
-| Značky | PackageTags | empty | Značky jsou středníky odděleny středníkem. |
-| ReleaseNotes | PackageReleaseNotes | empty | |
-| Úložiště/adresa URL | RepositoryUrl | empty | Adresa URL úložiště, která se používá k klonování nebo načtení zdrojového kódu. Případě *https://github.com/NuGet/NuGet.Client.git* |
-| Úložiště/typ | RepositoryType | empty | Typ úložiště Příklady: *Git*, *TFS*. |
-| Úložiště/větev | RepositoryBranch | empty | Volitelné informace o větvi úložiště Pro zahrnutí této vlastnosti je nutné zadat také *RepositoryUrl* . Příklad: *Master* (NuGet 4.7.0 +) |
-| Úložiště/potvrzení změn | RepositoryCommit | empty | Volitelné potvrzení změn úložiště nebo sada změn, které označují, na který zdroj byl balíček vytvořen. Pro zahrnutí této vlastnosti je nutné zadat také *RepositoryUrl* . Příklad: *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +) |
+| Ikona | PackageIcon | empty | Cesta k obrázku v balíčku, který se má použít jako ikona balíčku Musíte explicitně sbalit soubor obrázku odkazované ikony. Další informace najdete v tématu [sbalení souboru obrázku ikony](#packing-an-icon-image-file) a [ `icon` metadat](/nuget/reference/nuspec#icon). |
+| IconUrl | PackageIconUrl | empty | `PackageIconUrl` je zastaralé namísto `PackageIcon` . Pro dosažení nejlepšího prostředí pro starší verze byste však měli zadat `PackageIconUrl` kromě `PackageIcon` . |
+| Značky | PackageTags | empty | Seznam značek oddělených středníkem, který určuje balíček. |
+| ReleaseNotes | PackageReleaseNotes | empty | Poznámky k verzi balíčku |
+| Úložiště/adresa URL | RepositoryUrl | empty | Adresa URL úložiště, která se používá k klonování nebo načtení zdrojového kódu. Příklad: *https://github.com/NuGet/NuGet.Client.git* . |
+| Úložiště/typ | RepositoryType | empty | Typ úložiště Příklady: `git` (výchozí), `tfs` . |
+| Úložiště/větev | RepositoryBranch | empty | Volitelné informace o větvi úložiště `RepositoryUrl` musí být také zadáno pro zahrnutí této vlastnosti. Příklad: *Master* (NuGet 4.7.0 +). |
+| Úložiště/potvrzení změn | RepositoryCommit | empty | Volitelné potvrzení změn úložiště nebo sada změn, které označují, na který zdroj byl balíček vytvořen. `RepositoryUrl` musí být také zadáno pro zahrnutí této vlastnosti. Příklad: *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +). |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
 | Souhrn | Nepodporováno | | |
 
 ### <a name="pack-target-inputs"></a>cílové vstupy balení
 
-- Ispackable nastavenou
-- SuppressDependenciesWhenPacking
-- PackageVersion
-- PackageId
-- Autoři
-- Popis
-- Copyright
-- PackageRequireLicenseAcceptance
-- DevelopmentDependency
-- PackageLicenseExpression
-- PackageLicenseFile
-- PackageLicenseUrl
-- PackageProjectUrl
-- PackageIconUrl
-- PackageReleaseNotes
-- PackageTags
-- PackageOutputPath
-- IncludeSymbols
-- IncludeSource
-- PackageTypes
-- Nástroj
-- RepositoryUrl
-- RepositoryType
-- RepositoryBranch
-- RepositoryCommit
-- NoPackageAnalysis
-- MinClientVersion
-- IncludeBuildOutput
-- IncludeContentInPack
-- BuildOutputTargetFolder
-- ContentTargetFolders
-- NuspecFile
-- NuspecBasePath
-- NuspecProperties
+| Vlastnost | Popis |
+| - | - |
+| Ispackable nastavenou | Logická hodnota, která určuje, zda lze projekt zabalit. Výchozí hodnota je `true`. |
+| SuppressDependenciesWhenPacking | Nastavte na `true` , aby se potlačily závislosti balíčků z vygenerovaného balíčku NuGet. |
+| PackageVersion | Určuje verzi, kterou výsledný balíček bude mít. Akceptuje všechny formy řetězce verze NuGet. Výchozí hodnota je hodnota `$(Version)` , to znamená vlastnost `Version` v projektu. |
+| PackageId | Určuje název výsledného balíčku. Pokud tento parametr nezadáte, použije se ve `pack` výchozím nastavení `AssemblyName` jako název balíčku název adresáře nebo. |
+| PackageDescription | Dlouhý popis balíčku pro zobrazení uživatelského rozhraní. |
+| Autoři | Středníkem oddělený seznam autorů balíčků, které odpovídají názvům profilů v nuget.org. Ty se zobrazí v galerii NuGet na nuget.org a používají se pro balíčky křížového odkazu stejnými autory. |
+| Popis | Dlouhý popis pro sestavení. Pokud `PackageDescription` parametr není zadán, tato vlastnost se používá také jako Popis balíčku. |
+| Copyright | Podrobnosti o autorských právech pro balíček. |
+| PackageRequireLicenseAcceptance | Logická hodnota, která určuje, zda klient musí požádat spotřebitele o přijetí licence k balíčku před instalací balíčku. Výchozí formát je `false`. |
+| DevelopmentDependency | Logická hodnota, která určuje, zda je balíček označen jako jen pro vývoj, což zabrání zahrnutí balíčku jako závislosti v jiných balíčcích. V `PackageReference` případě (NuGet 4,8 +) Tento příznak také znamená, že prostředky při kompilaci jsou vyloučeny z kompilace. Další informace najdete v tématu [Podpora DevelopmentDependency pro PackageReference](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference). |
+| PackageLicenseExpression | Identifikátor nebo výraz [licence SPDX](https://spdx.org/licenses/) , například `Apache-2.0` . Další informace najdete v tématu [balení licenčního výrazu nebo licenčního souboru](#packing-a-license-expression-or-a-license-file). |
+| PackageLicenseFile | Cesta k souboru s licencí v rámci balíčku, pokud používáte vlastní licenci nebo licenci, ke které se nepřiřadil identifikátor SPDX |
+| PackageLicenseUrl | `PackageLicenseUrl` je zastaralá. Použijte `PackageLicenseExpression` nebo `PackageLicenseFile` místo toho. |
+| PackageProjectUrl | |
+| PackageIcon | Určuje cestu ikony balíčku vzhledem k kořenu balíčku. Další informace najdete v tématu [sbalení souboru obrázku ikony](#packing-an-icon-image-file). |
+| PackageReleaseNotes| Poznámky k verzi balíčku |
+| PackageTags | Seznam značek oddělených středníkem, který určuje balíček. |
+| PackageOutputPath | Určuje výstupní cestu, do které bude zahozen zabalený balíček. Výchozí je `$(OutputPath)`. |
+| IncludeSymbols | Tato logická hodnota označuje, zda má balíček při zabalení projektu vytvořit další balíček symbolů. Formát balíčku symbolů je řízen `SymbolPackageFormat` vlastností. Další informace najdete v tématu [IncludeSymbols](#includesymbols). |
+| IncludeSource | Tato logická hodnota označuje, zda by měl proces balíčku vytvořit zdrojový balíček. Zdrojový balíček obsahuje zdrojový kód knihovny i soubory PDB. Zdrojové soubory jsou umístěny do `src/ProjectName` adresáře ve výsledném souboru balíčku. Další informace najdete v tématu [IncludeSource](#includesource). |
+| PackageTypes
+| Nástroj | Určuje, zda jsou všechny výstupní soubory zkopírovány do složky *Tools* namísto složky *lib* . Další informace najdete v tématu [Nástroj](#istool). |
+| RepositoryUrl | Adresa URL úložiště, která se používá k klonování nebo načtení zdrojového kódu. Příklad: *https://github.com/NuGet/NuGet.Client.git* . |
+| RepositoryType | Typ úložiště Příklady: `git` (výchozí), `tfs` . |
+| RepositoryBranch | Volitelné informace o větvi úložiště `RepositoryUrl` musí být také zadáno pro zahrnutí této vlastnosti. Příklad: *Master* (NuGet 4.7.0 +). |
+| RepositoryCommit | Volitelné potvrzení změn úložiště nebo sada změn, které označují, na který zdroj byl balíček vytvořen. `RepositoryUrl` musí být také zadáno pro zahrnutí této vlastnosti. Příklad: *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +). |
+| SymbolPackageFormat | Určuje formát balíčku symbolů. Pokud se "Symbols. nupkg", vytvoří se balíček starších symbolů s příponou *. Symbols. nupkg* obsahující soubory PDB, knihovny DLL a další výstupní soubory. Pokud je "snupkg", vytvoří se balíček symbolů snupkg obsahující přenosné soubory PDB. Výchozí hodnota je "Symbols. nupkg". |
+| NoPackageAnalysis | Určuje, že `pack` po sestavení balíčku by neměl spustit analýzu balíčku. |
+| MinClientVersion | Určuje minimální verzi klienta NuGet, která může nainstalovat tento balíček vynutila nuget.exe a správcem balíčků sady Visual Studio. |
+| IncludeBuildOutput | Tato logická hodnota určuje, zda mají být výstupní sestavení sestavení zabalena do souboru *. nupkg* nebo ne. |
+| IncludeContentInPack | Tato logická hodnota určuje, zda jsou všechny položky, které mají typ, `Content` zahrnuty ve výsledném balíčku automaticky. Výchozí formát je `true`. |
+| BuildOutputTargetFolder | Určuje složku, kam se mají umístit výstupní sestavení. Výstupní sestavení (a další výstupní soubory) se zkopírují do příslušných složek rozhraní. Další informace naleznete v tématu [výstupní sestavení](#output-assemblies). |
+| ContentTargetFolders | Určuje výchozí umístění, kde se mají všechny soubory obsahu nacházet, pokud `PackagePath` nejsou pro ně zadány. Výchozí hodnota je Content; contentFiles. Další informace najdete v tématu [zahrnutí obsahu do balíčku](#including-content-in-a-package). |
+| NuspecFile | Relativní nebo absolutní cesta k souboru *. nuspec* , který se používá pro balení. Je-li tento parametr zadán, použije se **výhradně** pro informace o balení a žádné informace v projektech se nepoužijí. Další informace naleznete v tématu [balení pomocí. nuspec](#packing-using-a-nuspec). |
+| NuspecBasePath | Základní cesta pro soubor *. nuspec* Další informace naleznete v tématu [balení pomocí. nuspec](#packing-using-a-nuspec). |
+| NuspecProperties | Seznam párů klíč = hodnota oddělený středníkem. Další informace naleznete v tématu [balení pomocí. nuspec](#packing-using-a-nuspec). |
 
 ## <a name="pack-scenarios"></a>scénáře sady Pack
 
@@ -118,20 +122,18 @@ Chcete-li potlačit závislosti balíčků z vygenerovaného balíčku NuGet, na
 
 ### <a name="packageiconurl"></a>PackageIconUrl
 
-`PackageIconUrl` se bude zastaralá za novou [`PackageIcon`](#packageicon) vlastnost.
-
-Počínaje verzí NuGet 5,3 & Visual Studio 2019 verze 16,3, `pack` vyvolá upozornění [NU5048](./errors-and-warnings/nu5048.md) , pokud se jenom metadata balíčku zanesou `PackageIconUrl` .
+`PackageIconUrl` je zastaralá ve prospěch [`PackageIcon`](#packageicon) Vlastnosti. Od verze NuGet 5,3 a sady Visual Studio 2019 verze 16,3 `pack` vyvolá upozornění [NU5048](./errors-and-warnings/nu5048.md) , pokud je určeno pouze metadata balíčku `PackageIconUrl` .
 
 ### <a name="packageicon"></a>PackageIcon
 
 > [!Tip]
-> Měli byste zadat obojí `PackageIcon` a `PackageIconUrl` pro zajištění zpětné kompatibility se klienty a zdroji, které ještě nepodporují `PackageIcon` . Visual Studio bude podporovat `PackageIcon` balíčky ze zdroje založeného na složce v budoucí verzi.
+> Aby se zachovala zpětná kompatibilita se klienty a zdroji, které ještě nepodporují `PackageIcon` , zadejte obojí `PackageIcon` i `PackageIconUrl` . Visual Studio podporuje `PackageIcon` pro balíčky pocházející ze zdroje založeného na složkách.
 
 #### <a name="packing-an-icon-image-file"></a>Balení souboru obrázku ikony
 
-Při balení souboru obrázku ikony je nutné použít `PackageIcon` vlastnost k určení cesty k balíčku vzhledem k kořenu balíčku. Kromě toho je nutné zajistit, aby byl soubor zahrnut do balíčku. Velikost souboru obrázku je omezená na 1 MB. Podporované formáty souborů zahrnují JPEG a PNG. Doporučujeme, abyste 128 × 128 rozlišení obrazu.
+Při balení souboru obrázku ikony použijte `PackageIcon` vlastnost k určení cesty k souboru ikony vzhledem k kořenu balíčku. Navíc se ujistěte, že je soubor součástí balíčku. Velikost souboru obrázku je omezená na 1 MB. Podporované formáty souborů zahrnují JPEG a PNG. Doporučujeme, abyste 128 × 128 rozlišení obrazu.
 
-Příklad:
+Například:
 
 ```xml
 <PropertyGroup>
@@ -231,8 +233,7 @@ Pokud je soubor typu Compile mimo složku projektu, pak je pouze přidán do `sr
 
 ### <a name="packing-a-license-expression-or-a-license-file"></a>Balení licenčního výrazu nebo licenčního souboru
 
-Při použití licenčního výrazu by se měla použít vlastnost PackageLicenseExpression. 
-[Ukázka licenčního výrazu](https://github.com/NuGet/Samples/tree/master/PackageLicenseExpressionExample).
+Při použití licenčního výrazu použijte `PackageLicenseExpression` vlastnost. Ukázku najdete v tématu [Ukázka licenčního výrazu](https://github.com/NuGet/Samples/tree/master/PackageLicenseExpressionExample).
 
 ```xml
 <PropertyGroup>
@@ -240,9 +241,9 @@ Při použití licenčního výrazu by se měla použít vlastnost PackageLicens
 </PropertyGroup>
 ```
 
-[Přečtěte si další informace o výrazech licencí a licencích, které jsou přijaty nástrojem NuGet.org](nuspec.md#license).
+Další informace o výrazech licencí a licencích, které jsou přijímány službou NuGet.org, najdete v tématu [metadata licencí](nuspec.md#license).
 
-Při balení licenčního souboru musíte použít vlastnost PackageLicenseFile a zadat cestu k balíčku relativní ke kořenu balíčku. Kromě toho je nutné zajistit, aby byl soubor zahrnut do balíčku. Příklad:
+Při balení licenčního souboru použijte `PackageLicenseFile` vlastnost k určení cesty k balíčku relativní ke kořenu balíčku. Navíc se ujistěte, že je soubor součástí balíčku. Například:
 
 ```xml
 <PropertyGroup>
@@ -254,7 +255,10 @@ Při balení licenčního souboru musíte použít vlastnost PackageLicenseFile 
 </ItemGroup>
 ```
 
-[Ukázka licenčního souboru](https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample).
+Ukázku najdete v části [Ukázka souboru s licencí](https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample).
+
+> [!NOTE]
+> `PackageLicenseExpression` `PackageLicenseFile` `PackageLicenseUrl` V jednom okamžiku může být určena pouze jedna z, a.
 
 ### <a name="packing-a-file-without-an-extension"></a>Balení souboru bez přípony
 

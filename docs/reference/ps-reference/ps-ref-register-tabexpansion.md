@@ -1,16 +1,16 @@
 ---
 title: Reference k NuGet Register-TabExpansion PowerShellu
 description: Referenční informace k příkazu Register-TabExpansion PowerShellu v konzole správce balíčků NuGet v aplikaci Visual Studio.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 9d5bae2878cb6bf0848bca9a5ed9af0fee61bb85
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 6ad0da0e84fc2e31499c06bde013d2a256987d9a
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237150"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777456"
 ---
 # <a name="register-tabexpansion-package-manager-console-in-visual-studio"></a>Register-TabExpansion (konzola správce balíčků v aplikaci Visual Studio)
 

@@ -1,16 +1,16 @@
 ---
 title: Reference k NuGet Get-Package PowerShellu
 description: Referenční informace k příkazu Get-Package PowerShellu v konzole správce balíčků NuGet v aplikaci Visual Studio.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 1576e3f20eba1ecdd099b1e7c23aef6b1a1a0a4f
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 8394f888ec3d5e57eacd351a4867173da1070ead
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237228"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777498"
 ---
 # <a name="get-package-package-manager-console-in-visual-studio"></a>Get-Package (konzola správce balíčků v aplikaci Visual Studio)
 
@@ -36,7 +36,7 @@ Bez parametrů `Get-Package` zobrazí seznam balíčků nainstalovaných ve výc
 | ListAvailable | Vypíše balíčky dostupné ze zdroje balíčku, přičemž se jako výchozí nuget.org. Zobrazuje výchozí 50 balíčků, pokud nejsou zadány hodnoty-PageSize a/nebo-First. |
 | Aktualizace | Vypíše balíčky, které mají k dispozici aktualizaci ze zdroje balíčku. |
 | ProjectName | Projekt, ze kterého se mají získat nainstalované balíčky Je-li tento parametr vynechán, vrátí instalované projekty pro celé řešení. |
-| Filtr | Řetězec filtru, který slouží k zúžení seznamu balíčků jeho použitím na ID, popis a značky balíčku. |
+| Filtrovat | Řetězec filtru, který slouží k zúžení seznamu balíčků jeho použitím na ID, popis a značky balíčku. |
 | První | Počet balíčků, které mají být vráceny od začátku seznamu. Pokud není zadaný, použije se výchozí hodnota 50. |
 | Přeskočit | Vynechává první celočíselné &lt; &gt; balíčky ze zobrazeného seznamu.  |
 | AllVersions | Zobrazí všechny dostupné verze jednotlivých balíčků, nikoli jenom nejnovější verzi. |

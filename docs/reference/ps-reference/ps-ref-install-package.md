@@ -1,16 +1,16 @@
 ---
 title: Reference k NuGet Install-Package PowerShellu
 description: Referenční informace k příkazu Install-Package PowerShellu v konzole správce balíčků NuGet v aplikaci Visual Studio.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 06/01/2017
 ms.topic: reference
-ms.openlocfilehash: 5bda888e0fb526faca79e88da93b0ceb9aff5348
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 110b41e830636d60741b14292c17840aa5a63dfd
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237202"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777444"
 ---
 # <a name="install-package-package-manager-console-in-visual-studio"></a>Install-Package (konzola správce balíčků v aplikaci Visual Studio)
 
@@ -36,14 +36,14 @@ Install-Package Microsoft.AspNet.MVC -Version 5.0.0.
 
 | Parametr | Popis |
 | --- | --- |
-| Id | Požadovanou Identifikátor balíčku, který se má nainstalovat ( *3.0 +* ) Identifikátor může být cesta nebo adresa URL `packages.config` souboru nebo `.nupkg` souboru. Samotný přepínač-ID je nepovinný. |
+| Id | Požadovanou Identifikátor balíčku, který se má nainstalovat (*3.0 +*) Identifikátor může být cesta nebo adresa URL `packages.config` souboru nebo `.nupkg` souboru. Samotný přepínač-ID je nepovinný. |
 | IgnoreDependencies | Nainstalujte jenom tento balíček a ne jeho závislosti. |
 | ProjectName | Projekt, do kterého má být balíček nainstalován, je nastaven výchozí projekt. |
 | Zdroj | Adresa URL nebo cesta ke složce pro zdroj balíčku, který má být prohledán. Cesty k místní složce můžou být absolutní nebo relativní vzhledem k aktuální složce. Pokud tento parametr vynecháte, `Install-Package` vyhledá aktuálně vybraný zdroj balíčku. |
 | Verze | Verze balíčku, který se má nainstalovat, ve výchozím nastavení na nejnovější verzi |
 | IncludePrerelease | Bere v úvahu předběžné verze balíčků pro instalaci. Pokud tento parametr vynecháte, budou se brát v úvahu jenom stabilní balíčky. |
-| FileConflictAction | Akce, která se má provést, když se zobrazí výzva k přepsání nebo ignorování existujících souborů, na které se odkazuje v projektu Možné hodnoty jsou *overwrite, ignore, None, OverwriteAll* a *(3.0 +)* *IgnoreAll* . |
-| DependencyVersion | Verze balíčků závislostí, které se mají použít, což může být jedna z následujících:<br/><ul><li>*Nejnižší* (výchozí): nejnižší verze</li><li>*HighestPatch* : verze, která má nejnižší hlavní, nejnižší podverzi, nejvyšší opravu</li><li>*HighestMinor* : verze s nejnižší hlavní, nejvyšší podverze a nejvyšší opravou</li><li>*Nejvyšší* (výchozí pro Update-Package bez parametrů): nejvyšší verze</li></ul>Výchozí hodnotu můžete nastavit pomocí [`dependencyVersion`](../nuget-config-file.md#config-section) nastavení v `Nuget.Config` souboru. |
+| FileConflictAction | Akce, která se má provést, když se zobrazí výzva k přepsání nebo ignorování existujících souborů, na které se odkazuje v projektu Možné hodnoty jsou *overwrite, ignore, None, OverwriteAll* a *(3.0 +)* *IgnoreAll*. |
+| DependencyVersion | Verze balíčků závislostí, které se mají použít, což může být jedna z následujících:<br/><ul><li>*Nejnižší* (výchozí): nejnižší verze</li><li>*HighestPatch*: verze, která má nejnižší hlavní, nejnižší podverzi, nejvyšší opravu</li><li>*HighestMinor*: verze s nejnižší hlavní, nejvyšší podverze a nejvyšší opravou</li><li>*Nejvyšší* (výchozí pro Update-Package bez parametrů): nejvyšší verze</li></ul>Výchozí hodnotu můžete nastavit pomocí [`dependencyVersion`](../nuget-config-file.md#config-section) nastavení v `Nuget.Config` souboru. |
 | WhatIf | Ukazuje, co se stane při spuštění příkazu, aniž by bylo nutné instalaci skutečně provést. |
 
 Žádný z těchto parametrů nepřijímají vstupní ani zástupné znaky kanálu.

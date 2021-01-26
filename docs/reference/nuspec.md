@@ -1,17 +1,17 @@
 ---
 title: Odkaz na soubor. nuspec pro NuGet
 description: Soubor. nuspec obsahuje metadata balíčku, která se používají při sestavování balíčku a poskytování informací pro uživatele balíčku.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 6e5107ac05046ea46cc819ebe2a504ba6b030634
-ms.sourcegitcommit: e39e5a5ddf68bf41e816617e7f0339308523bbb3
+ms.openlocfilehash: 6a68b07c42e6abf4ad57d0129fa76d7dd620145f
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96738939"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777678"
 ---
 # <a name="nuspec-reference"></a>odkaz. nuspec
 
@@ -83,7 +83,7 @@ Verze balíčku, podle vzoru *hlavní_verze. podverze. Oprava* . Čísla verzí 
 
 Při nahrávání balíčku do nuget.org `version` je pole omezeno na 64 znaků.
 
-#### <a name="description"></a>Popis
+#### <a name="description"></a>description
 Popis balíčku pro zobrazení uživatelského rozhraní
 
 Při nahrávání balíčku do nuget.org `description` je pole omezeno na 4000 znaků.
@@ -118,18 +118,18 @@ Při nahrávání balíčku do nuget.org `licenseUrl` je pole omezeno na 4000 zn
 
 *Podporováno s **balíčky NuGet 4.9.0** a novějšími*
 
-SPDX licenční výraz nebo cesta k souboru s licencí v balíčku, který se často zobrazuje v uživatelská rozhraní jako nuget.org. Pokud je balíček licencován v rámci společné licence, jako je například MIT nebo BSD-2, použijte přidružený [identifikátor licence SPDX](https://spdx.org/licenses/). Příklad:
+SPDX licenční výraz nebo cesta k souboru s licencí v balíčku, který se často zobrazuje v uživatelská rozhraní jako nuget.org. Pokud je balíček licencován v rámci společné licence, jako je například MIT nebo BSD-2, použijte přidružený [identifikátor licence SPDX](https://spdx.org/licenses/). Například:
 
 `<license type="expression">MIT</license>`
 
 > [!Note]
 > NuGet.org akceptuje pouze licenční výrazy, které jsou schváleny v rámci iniciativy Open Source nebo Free Software Foundation.
 
-Pokud je váš balíček licencován více běžnými licencemi, můžete zadat složenou licenci pomocí [syntaxe výrazu SPDX verze 2,0](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60). Příklad:
+Pokud je váš balíček licencován více běžnými licencemi, můžete zadat složenou licenci pomocí [syntaxe výrazu SPDX verze 2,0](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60). Například:
 
 `<license type="expression">BSD-2-Clause OR MIT</license>`
 
-Pokud používáte vlastní licenci, která není podporovaná výrazy licence, můžete zabalit `.txt` soubor nebo `.md` soubor s textem licence. Příklad:
+Pokud používáte vlastní licenci, která není podporovaná výrazy licence, můžete zabalit `.txt` soubor nebo `.md` soubor s textem licence. Například:
 
 ```xml
 <package>
@@ -149,6 +149,7 @@ Pokud používáte vlastní licenci, která není podporovaná výrazy licence, 
 V případě ekvivalentu MSBuild si prohlédněte [balení licenčního výrazu nebo souboru s licencí](msbuild-targets.md#packing-a-license-expression-or-a-license-file).
 
 Přesná Syntaxe výrazů s licenčními výrazy NuGet je popsaná níže v tématu [ABNF](https://tools.ietf.org/html/rfc5234).
+
 ```cli
 license-id            = <short form license identifier from https://spdx.org/spdx-specification-21-web-version#h.luq9dgcle9mo>
 
@@ -171,7 +172,7 @@ license-expression =  1*1(simple-expression / compound-expression / UNLICENSED)
 > iconUrl je zastaralá. Místo toho použijte ikonu.
 
 Adresa URL 128 × 128 obrázku s pozadím průhlednosti, která se má použít jako ikona balíčku v zobrazení uživatelského rozhraní. Ujistěte se, že tento prvek obsahuje *adresu URL přímého obrázku* , a ne adresu URL webové stránky, která obsahuje obrázek. Pokud například chcete použít image z GitHubu, použijte adresu URL nezpracovaného souboru, jako je <em> https://github.com/ \<username\> / \<repository\> /raw/ \<branch\> / \<logo.png\> </em>. 
-   
+
 Při nahrávání balíčku do nuget.org `iconUrl` je pole omezeno na 4000 znaků.
 
 #### <a name="icon"></a>ikona
@@ -242,7 +243,7 @@ Při nahrávání balíčku do nuget.org `tags` je pole omezeno na 4000 znaků.
 #### <a name="repository"></a>úložiště
 Metadata úložiště sestávající ze čtyř volitelných atributů: `type` a `url` *(4.0 +)* a `branch` a `commit` *(4.6 +)*. Tyto atributy umožňují mapování na `.nupkg` úložiště, které ho vytvořilo, s potenciálem, který se má považovat za název jednotlivé větve a/nebo na potvrzení hodnoty hash SHA-1, která balíček vytvořila. Měla by to být veřejně dostupná adresa URL, kterou lze vyvolat přímo pomocí softwaru pro správu verzí. Neměla by se jednat o stránku HTML, která je určena pro daný počítač. Pro odkazování na stránku projektu použijte `projectUrl` místo toho pole.
 
-Příklad:
+Například:
 ```xml
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
@@ -265,14 +266,19 @@ Při nahrávání balíčku do nuget.org `title` je pole omezeno na 256 znaků, 
 
 #### <a name="packagetypes"></a>packageTypes
 *(3.5 +)* Kolekce nula nebo více `<packageType>` prvků určující typ balíčku, pokud je jiný než tradiční balíček závislostí. Každý packageType má atributy *názvu* a *verze*. Viz [Nastavení typu balíčku](../create-packages/set-package-type.md).
+
 #### <a name="dependencies"></a>závislosti
 Kolekce nula nebo více prvků, které `<dependency>` určují závislosti pro balíček. Každá závislost má atributy *ID*, *verze*, *include* (3. x +) a *Exclude* (3. x +). Viz [závislosti](#dependencies-element) níže.
+
 #### <a name="frameworkassemblies"></a>frameworkAssemblies
 *(1,2 +)* Kolekce nula nebo více `<frameworkAssembly>` prvků, které identifikují .NET Framework odkazy na sestavení, které tento balíček vyžaduje, což zajistí přidání odkazů do projektů, které balíček spotřebovává. Každý frameworkAssembly má atributy *AssemblyName* a *targetFramework* . Viz [určení sestavení rozhraní odkazy v mezipaměti GAC](#specifying-framework-assembly-references-gac) níže.
+
 #### <a name="references"></a>odkazy
 *(1,5 +)* Kolekce nula nebo více `<reference>` prvků pojmenování sestavení ve `lib` složce balíčku, které jsou přidány jako odkazy na projekt. Každý odkaz má atribut *File* . `<references>` může také obsahovat `<group>` element s atributem *targetFramework* , který pak obsahuje `<reference>` prvky. Pokud tento parametr vynecháte, jsou zahrnuty všechny odkazy v nástroji `lib` . Viz [zadání explicitních odkazů na sestavení](#specifying-explicit-assembly-references) níže.
+
 #### <a name="contentfiles"></a>contentFiles
 *(3.3 +)* Kolekce `<files>` prvků, které identifikují soubory obsahu, které mají být zahrnuty do náročného projektu. Tyto soubory jsou zadány pomocí sady atributů, které popisují, jak by měly být použity v rámci systému projektu. Viz [Určení souborů, které se mají zahrnout do balíčku](#specifying-files-to-include-in-the-package) níže.
+
 #### <a name="files"></a>files 
 `<package>`Uzel může obsahovat `<files>` uzel jako uzel na stejné úrovni `<metadata>` a `<contentFiles>` podřízená položka v rámci `<metadata>` , k určení sestavení a souborů obsahu, které mají být zahrnuty do balíčku. Podrobnosti najdete v části [zahrnutí souborů sestavení](#including-assembly-files) a [zahrnutí souborů obsahu](#including-content-files) dále v tomto tématu.
 
@@ -363,7 +369,7 @@ Při nahrávání balíčku do nuget.org je atribut každého objektu závislost
 
 | Značka include/Exclude | Ovlivněné složky v cíli |
 | --- | --- |
-| contentFiles | Obsah |
+| contentFiles | Content |
 | modul runtime | Modul runtime, prostředky a FrameworkAssemblies |
 | kompilovat | Knihovna |
 | sestavení | Build (MSBuild props and targets) |
@@ -502,7 +508,7 @@ Pokud budete postupovat podle konvencí popsaných v [tématu Vytvoření balí�
 > [!Important]
 > Když je balíček nainstalován do projektu, NuGet automaticky přidá odkazy na sestavení do knihoven DLL balíčku, *kromě* těch, které jsou pojmenovány, `.resources.dll` protože se předpokládá, že jsou lokalizovaná satelitní sestavení. Z tohoto důvodu nepoužívejte `.resources.dll` pro soubory, které jinak obsahují základní kód balíčku.
 
-Chcete-li obejít toto automatické chování a explicitně řídit, které soubory jsou součástí balíčku, umístěte `<files>` prvek jako podřízený objekt `<package>` (a na stejné místo `<metadata>` ) a Identifikujte každý soubor samostatným `<file>` prvkem. Příklad:
+Chcete-li obejít toto automatické chování a explicitně řídit, které soubory jsou součástí balíčku, umístěte `<files>` prvek jako podřízený objekt `<package>` (a na stejné místo `<metadata>` ) a Identifikujte každý soubor samostatným `<file>` prvkem. Například:
 
 ```xml
 <files>
@@ -522,72 +528,82 @@ Každý `<file>` prvek určuje následující atributy:
 | --- | --- |
 | **src** | Umístění souboru nebo souborů, které mají být zahrnuty, v závislosti na vyloučení určených `exclude` atributem. Cesta je relativní vzhledem k `.nuspec` souboru, pokud není zadána absolutní cesta. Zástupný znak `*` je povolen a dvojitý zástupný znak `**` implikuje hledání rekurzivní složky. |
 | **cílové** | Relativní cesta ke složce v rámci balíčku, kde jsou umístěny zdrojové soubory, které musí začínat `lib` na, `content` , `build` nebo `tools` . Viz [vytvoření. nuspec z pracovního adresáře založeného na konvencích](../create-packages/creating-a-package.md#from-a-convention-based-working-directory). |
-| **slevy** | Seznam souborů nebo vzorů souborů, které mají být vyloučeny z umístění, jsou odděleny středníkem `src` . Zástupný znak `*` je povolen a dvojitý zástupný znak `**` implikuje hledání rekurzivní složky. |
+| **vyloučení** | Seznam souborů nebo vzorů souborů, které mají být vyloučeny z umístění, jsou odděleny středníkem `src` . Zástupný znak `*` je povolen a dvojitý zástupný znak `**` implikuje hledání rekurzivní složky. |
 
 ### <a name="examples"></a>Příklady
 
 **Jedno sestavení**
 
-    Source file:
-        library.dll
+```
+Source file:
+    library.dll
 
-    .nuspec entry:
-        <file src="library.dll" target="lib" />
+.nuspec entry:
+    <file src="library.dll" target="lib" />
 
-    Packaged result:
-        lib\library.dll
+Packaged result:
+    lib\library.dll
+```
 
 **Samostatné sestavení specifické pro cílovou architekturu**
 
-    Source file:
-        library.dll
+```
+Source file:
+    library.dll
 
-    .nuspec entry:
-        <file src="assemblies\net40\library.dll" target="lib\net40" />
+.nuspec entry:
+    <file src="assemblies\net40\library.dll" target="lib\net40" />
 
-    Packaged result:
-        lib\net40\library.dll
+Packaged result:
+    lib\net40\library.dll
+```
 
 **Sada knihoven DLL pomocí zástupného znaku**
 
-    Source files:
-        bin\release\libraryA.dll
-        bin\release\libraryB.dll
+```
+Source files:
+    bin\release\libraryA.dll
+    bin\release\libraryB.dll
 
-    .nuspec entry:
-        <file src="bin\release\*.dll" target="lib" />
+.nuspec entry:
+    <file src="bin\release\*.dll" target="lib" />
 
-    Packaged result:
-        lib\libraryA.dll
-        lib\libraryB.dll
+Packaged result:
+    lib\libraryA.dll
+    lib\libraryB.dll
+```
 
 **Knihovny DLL pro různé architektury**
 
-    Source files:
-        lib\net40\library.dll
-        lib\net20\library.dll
+```
+Source files:
+    lib\net40\library.dll
+    lib\net20\library.dll
 
-    .nuspec entry (using ** recursive search):
-        <file src="lib\**" target="lib" />
+.nuspec entry (using ** recursive search):
+    <file src="lib\**" target="lib" />
 
-    Packaged result:
-        lib\net40\library.dll
-        lib\net20\library.dll
+Packaged result:
+    lib\net40\library.dll
+    lib\net20\library.dll
+```
 
 **Vyloučení souborů**
 
-    Source files:
-        \tools\fileA.bak
-        \tools\fileB.bak
-        \tools\fileA.log
-        \tools\build\fileB.log
+```
+Source files:
+    \tools\fileA.bak
+    \tools\fileB.bak
+    \tools\fileA.log
+    \tools\build\fileB.log
 
-    .nuspec entries:
-        <file src="tools\*.*" target="tools" exclude="tools\*.bak" />
-        <file src="tools\**\*.*" target="tools" exclude="**\*.log" />
+.nuspec entries:
+    <file src="tools\*.*" target="tools" exclude="tools\*.bak" />
+    <file src="tools\**\*.*" target="tools" exclude="**\*.log" />
 
-    Package result:
-        (no files)
+Package result:
+    (no files)
+```
 
 ## <a name="including-content-files"></a>Zahrnutí souborů obsahu
 
@@ -608,108 +624,124 @@ Pro soubory obsahu stačí použít stejný formát jako u souborů sestavení, 
 
 **Základní soubory obsahu**
 
-    Source files:
-        css\mobile\style1.css
-        css\mobile\style2.css
+```
+Source files:
+    css\mobile\style1.css
+    css\mobile\style2.css
 
-    .nuspec entry:
-        <file src="css\mobile\*.css" target="content\css\mobile" />
+.nuspec entry:
+    <file src="css\mobile\*.css" target="content\css\mobile" />
 
-    Packaged result:
-        content\css\mobile\style1.css
-        content\css\mobile\style2.css
+Packaged result:
+    content\css\mobile\style1.css
+    content\css\mobile\style2.css
+```
 
 **Soubory obsahu s adresářovou strukturou**
 
-    Source files:
-        css\mobile\style.css
-        css\mobile\wp7\style.css
-        css\browser\style.css
+```
+Source files:
+    css\mobile\style.css
+    css\mobile\wp7\style.css
+    css\browser\style.css
 
-    .nuspec entry:
-        <file src="css\**\*.css" target="content\css" />
+.nuspec entry:
+    <file src="css\**\*.css" target="content\css" />
 
-    Packaged result:
-        content\css\mobile\style.css
-        content\css\mobile\wp7\style.css
-        content\css\browser\style.css
+Packaged result:
+    content\css\mobile\style.css
+    content\css\mobile\wp7\style.css
+    content\css\browser\style.css
+```
 
 **Soubor obsahu specifický pro cílovou architekturu**
 
-    Source file:
-        css\cool\style.css
+```
+Source file:
+    css\cool\style.css
 
-    .nuspec entry
-        <file src="css\cool\style.css" target="Content" />
+.nuspec entry
+    <file src="css\cool\style.css" target="Content" />
 
-    Packaged result:
-        content\style.css
+Packaged result:
+    content\style.css
+```
 
 **Soubor obsahu byl zkopírován do složky s tečkou v názvu**
 
 V takovém případě NuGet zjistí, že rozšíření v `target` neodpovídá rozšíření v nástroji `src` , a proto zpracovává tuto část názvu `target` jako složku:
 
-    Source file:
-        images\picture.png
+```
+Source file:
+    images\picture.png
 
-    .nuspec entry:
-        <file src="images\picture.png" target="Content\images\package.icons" />
+.nuspec entry:
+    <file src="images\picture.png" target="Content\images\package.icons" />
 
-    Packaged result:
-        content\images\package.icons\picture.png
+Packaged result:
+    content\images\package.icons\picture.png
+```
 
 **Soubory obsahu bez rozšíření**
 
 Chcete-li zahrnout soubory bez přípony, použijte `*` `**` zástupné znaky nebo:
 
-    Source file:
-        flags\installed
+```
+Source file:
+    flags\installed
 
-    .nuspec entry:
-        <file src="flags\**" target="flags" />
+.nuspec entry:
+    <file src="flags\**" target="flags" />
 
-    Packaged result:
-        flags\installed
+Packaged result:
+    flags\installed
+```
 
 **Soubory obsahu s hlubokým umístěním a hlubokou cílovou cestou**
 
 V tomto případě předpokládá, že vzhledem k příponám souborů ve zdrojové a cílové shodě NuGet předpokládá, že cílem je název souboru, a ne složka:
 
-    Source file:
-        css\cool\style.css
+```
+Source file:
+    css\cool\style.css
 
-    .nuspec entry:
-        <file src="css\cool\style.css" target="Content\css\cool" />
-        or:
-        <file src="css\cool\style.css" target="Content\css\cool\style.css" />
+.nuspec entry:
+    <file src="css\cool\style.css" target="Content\css\cool" />
+    or:
+    <file src="css\cool\style.css" target="Content\css\cool\style.css" />
 
-    Packaged result:
-        content\css\cool\style.css
+Packaged result:
+    content\css\cool\style.css
+```
 
 **Přejmenování souboru obsahu v balíčku**
 
-    Source file:
-        ie\css\style.css
+```
+Source file:
+    ie\css\style.css
 
-    .nuspec entry:
-        <file src="ie\css\style.css" target="Content\css\ie.css" />
+.nuspec entry:
+    <file src="ie\css\style.css" target="Content\css\ie.css" />
 
-    Packaged result:
-        content\css\ie.css
+Packaged result:
+    content\css\ie.css
+```
 
 **Vyloučení souborů**
 
-    Source file:
-        docs\*.txt (multiple files)
+```
+Source file:
+    docs\*.txt (multiple files)
 
-    .nuspec entry:
-        <file src="docs\*.txt" target="content\docs" exclude="docs\admin.txt" />
-        or
-        <file src="*.txt" target="content\docs" exclude="admin.txt;log.txt" />
+.nuspec entry:
+    <file src="docs\*.txt" target="content\docs" exclude="docs\admin.txt" />
+    or
+    <file src="*.txt" target="content\docs" exclude="admin.txt;log.txt" />
 
-    Packaged result:
-        All .txt files from docs except admin.txt (first example)
-        All .txt files from docs except admin.txt and log.txt (second example)
+Packaged result:
+    All .txt files from docs except admin.txt (first example)
+    All .txt files from docs except admin.txt and log.txt (second example)
+```
 
 <a name="using-contentfiles-element-for-content-files"></a>
 
@@ -726,7 +758,7 @@ Tyto soubory jsou zadány pomocí sady atributů, které popisují, jak by měly
 | Atribut | Popis |
 | --- | --- |
 | **připojit** | Požadovanou Umístění souboru nebo souborů, které mají být zahrnuty, v závislosti na vyloučení určených `exclude` atributem. Cesta je relativní ke složce, `contentFiles` Pokud není zadána absolutní cesta. Zástupný znak `*` je povolen a dvojitý zástupný znak `**` implikuje hledání rekurzivní složky. |
-| **slevy** | Seznam souborů nebo vzorů souborů, které mají být vyloučeny z umístění, jsou odděleny středníkem `src` . Zástupný znak `*` je povolen a dvojitý zástupný znak `**` implikuje hledání rekurzivní složky. |
+| **vyloučení** | Seznam souborů nebo vzorů souborů, které mají být vyloučeny z umístění, jsou odděleny středníkem `src` . Zástupný znak `*` je povolen a dvojitý zástupný znak `**` implikuje hledání rekurzivní složky. |
 | **buildAction** | Akce sestavení, která má být přiřazena položce obsahu pro MSBuild, jako například `Content` ,,, `None` `Embedded Resource` `Compile` atd. Výchozí hodnota je `Compile` . |
 | **copyToOutput** | Logická hodnota označující, zda se mají kopírovat položky obsahu do výstupní složky Build (nebo Publishing). Výchozí hodnotou je hodnota false. |
 | **Flatten** | Logická hodnota označující, zda se mají kopírovat položky obsahu do jediné složky ve výstupu sestavení (true), nebo pro zachování struktury složek v balíčku (false). Tento příznak funguje pouze v případě, že příznak copyToOutput je nastaven na hodnotu true. Výchozí hodnotou je hodnota false. |
@@ -737,27 +769,33 @@ Při instalaci balíčku NuGet aplikuje podřízené prvky `<contentFiles>` od s
 
 Projekt balíčku by měl strukturovat obsah pomocí následujícího vzoru:
 
-    /contentFiles/{codeLanguage}/{TxM}/{any?}
+```
+/contentFiles/{codeLanguage}/{TxM}/{any?}
+```
 
 - `codeLanguages` může `cs` to být, `vb` ,, `fs` `any` nebo malý ekvivalent daného `$(ProjectLanguage)`
 - `TxM` je libovolný moniker platného cílového rozhraní, který podporuje NuGet (viz [cílové architektury](../reference/target-frameworks.md)).
 - Ke konci této syntaxe může být připojena jakákoli struktura složky.
 
-Příklad:
+Například:
 
-    Language- and framework-agnostic:
-        /contentFiles/any/any/config.xml
+```
+Language- and framework-agnostic:
+    /contentFiles/any/any/config.xml
 
-    net45 content for all languages
-        /contentFiles/any/net45/config.xml
+net45 content for all languages
+    /contentFiles/any/net45/config.xml
 
-    C#-specific content for net45 and up
-        /contentFiles/cs/net45/sample.cs
+C#-specific content for net45 and up
+    /contentFiles/cs/net45/sample.cs
+```
 
 Prázdné složky se můžou použít `.` k odhlášení o poskytování obsahu pro určité kombinace jazyka a TxM, například:
 
-    /contentFiles/vb/any/code.vb
-    /contentFiles/cs/any/.
+```
+/contentFiles/vb/any/code.vb
+/contentFiles/cs/any/.
+```
 
 #### <a name="example-contentfiles-section"></a>Příklad oddílu contentFiles
 
@@ -895,6 +933,6 @@ Mějte na paměti, že ruční vytváření nuspecs obsahujících odkazy na roz
 V tomto příkladu jsou nainstalovány následující pro konkrétní cíle projektu:
 
 - . NET4-> `System.Web` , `System.Net`
-- Profil klienta. NET4 – > `System.Net`
+- . Profil klienta NET4 – > `System.Net`
 - Silverlight 3 – > `System.Json`
 - WindowsPhone – > `Microsoft.Devices.Sensors`

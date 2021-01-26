@@ -1,16 +1,16 @@
 ---
 title: Poznámky k verzi NuGet 1,0 a 1,1
 description: Poznámky k verzi pro NuGet 1,1, včetně známých problémů, oprav chyb, přidaných funkcí a chcete odeslat obecnou.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 4f90888eae4d039c99d6f6879a06107ec5a31a82
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: cdd4bad54b08d956dbfdaf54220971492fd3ab02
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75384694"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777206"
 ---
 # <a name="nuget-10-and-11-release-notes"></a>Poznámky k verzi NuGet 1,0 a 1,1
 
@@ -37,13 +37,13 @@ Nástroj příkazového řádku NuGet vyžaduje:
 
 * .NET Framework verze 4
 
-## <a name="installation"></a>Instalace služby
+## <a name="installation"></a>Instalace
 
 Chcete-li použít tuto [nejnovější verzi](http://nuget.codeplex.com/releases/view/52018):
 
 * Nejdřív odinstalujte starší Build. K tomu je potřeba spustit VS jako správce.
 * Odeberte všechny existující kanály, které máte.
-* Přidejte nový informační kanál, který odkazuje na <https://go.microsoft.com/fwlink/?LinkId=206669>.
+* Přidejte nový kanál, na který odkazuje <https://go.microsoft.com/fwlink/?LinkId=206669> .
 
 ## <a name="nuget-11"></a>NuGet 1.1
 
@@ -110,14 +110,14 @@ Níže jsou uvedené změny v této verzi kandidáta od verze CTP 2. Pokud chcet
 * [Podpora přesměrování vazby pro silná pojmenovaná sestavení](http://nuget.codeplex.com/workitem/238)
 * [Přidat odkaz na balíček... Uživatelské rozhraní pro zahrnutí rozevíracího seznamu pro zdroj balíčku](http://nuget.codeplex.com/workitem/226)
 * [NuPack musí podporovat konfigurační transformaci agnostically názvu konfiguračního souboru.](http://nuget.codeplex.com/workitem/224)
-* [Umožňuje přepsat BasePath v NuPack. exe.](http://nuget.codeplex.com/workitem/222)
+* [Umožňuje přepsat BasePath v NuPack.exe](http://nuget.codeplex.com/workitem/222)
 * [Chování záložního zdroje balíčku](http://nuget.codeplex.com/workitem/204)
 * [Selhání v grafickém uživatelském rozhraní](http://nuget.codeplex.com/workitem/201)
 * [Přidání možností řazení do dialogového okna Přidat balíček](http://nuget.codeplex.com/workitem/179)
 * [Klávesová zkratka pro vymazání konzoly Správce balíčků](http://nuget.codeplex.com/workitem/174)
 * [Konzoly powerconsole způsobí selhání konzole NuPack](http://nuget.codeplex.com/workitem/166)
 * [Dialog konzole a přidat balíček by měl nastavit agenta uživatele v žádosti.](http://nuget.codeplex.com/workitem/141)
-* [Nastavte číslo verze VSIX a NuPack. exe v sestavení.](http://nuget.codeplex.com/workitem/134)
+* [Nastavte číslo verze VSIX a NuPack.exe v sestavení.](http://nuget.codeplex.com/workitem/134)
 * [Skrýt běžné parametry PowerShellu z-?](http://nuget.codeplex.com/workitem/118)
 * [Přidat podrobné nápovědu pro příkazy konzoly](http://nuget.codeplex.com/workitem/110)
 * [Dialog Přidat balíček by měl umožňovat výběr aktuálního zdroje balíčku.](http://nuget.codeplex.com/workitem/88)
@@ -129,17 +129,17 @@ Níže jsou uvedené změny v této verzi kandidáta od verze CTP 2. Pokud chcet
 
 Níže jsou uvedené nejvýznamnější změny provedené ve CTP 2:
 
-* Přepnuli jste kanál balíčku z ATOM na koncový bod služby OData: Pokud upgradujete na verzi CTP2 NuGet, nezapomeňte přidat následující adresu URL jako zdroj balíčku: `https://feed.nuget.org/ctp2/odata/v1/`.
-* Byl přejmenován příkaz Add-Package pro *instalaci balíčku*.
-* Aktualizace formátu `.nuspec`. Formát `.nuspec` nyní zahrnuje pole *iconUrl* pro zadání ikony png 32x32, která se zobrazí v dialogovém okně Přidat balíček. Nezapomeňte proto nastavit, aby rozlišil váš balíček. `.nuspec` formát obsahuje také nové pole *projectUrl* , které můžete použít k ukázání na webovou stránku, která poskytuje další informace o balíčku.
+* Přepnuli jste kanál balíčku z ATOM na koncový bod služby OData: Pokud upgradujete na verzi CTP2 NuGet, nezapomeňte jako zdroj balíčku přidat následující adresu URL: `https://feed.nuget.org/ctp2/odata/v1/` .
+* Byl přejmenován Add-Package příkaz pro *instalaci balíčku*.
+* Formát se aktualizoval `.nuspec` . `.nuspec`Formát nyní zahrnuje pole *iconUrl* pro zadání ikony png 32x32, která se zobrazí v dialogovém okně Přidat balíček. Nezapomeňte proto nastavit, aby rozlišil váš balíček. `.nuspec`Formát obsahuje také nové pole *projectUrl* , které můžete použít k ukázání na webovou stránku, která poskytuje další informace o balíčku.
 
-Toto sestavení nebude fungovat se starými `.nupkg` soubory. Pokud získáte výjimky s odkazem s hodnotou null, použijete starý soubor `.nupkg` a budete ho muset znovu sestavit pomocí aktualizovaného [nástroje příkazového řádku NuGet](http://nuget.codeplex.com/releases/52017/download/165468).
+Toto sestavení nebude fungovat se starými `.nupkg` soubory. Pokud získáte výjimky s odkazem s hodnotou null, použijete starý `.nupkg` soubor a budete ho muset znovu sestavit pomocí aktualizovaného [nástroje příkazového řádku NuGet](http://nuget.codeplex.com/releases/52017/download/165468).
 
 Následuje seznam funkcí a chyb, které byly opraveny pro NuGet CTP 2 (nezahrnuje chyby pro drobné čištění kódu atd.).
 
 * [Při dekomprimaci sestavení balíčku při specifiyingi TargetFramework pro sestavení došlo k chybě.](http://nuget.codeplex.com/workitem/10)
 * [Nastavit okno konzoly NuPack o více zjistitelnosti](http://nuget.codeplex.com/workitem/14)
-* [ILMerge vydání nupack. exe](http://nuget.codeplex.com/workitem/19)
+* [ILMerge nupack.exe vydání](http://nuget.codeplex.com/workitem/19)
 * [Lepší zpracování chyb a výjimek](http://nuget.codeplex.com/workitem/24)
 * [[Nupack. Core]: PackageManager by měl řádně zpracovat chyby související s informačním kanálem.](http://nuget.codeplex.com/workitem/28)
 * [Pro konzolu nástroje je potřeba nová ikona.](http://nuget.codeplex.com/workitem/29)
@@ -147,7 +147,7 @@ Následuje seznam funkcí a chyb, které byly opraveny pro NuGet CTP 2 (nezahrnu
 * [NuPack cache stáhly soubory. NuPack v paměti](http://nuget.codeplex.com/workitem/40)
 * [Konzola NuPack: Změna výchozího zástupce pro zobrazení konzoly](http://nuget.codeplex.com/workitem/48)
 * [ProjectSystem by měl podporovat výchozí hodnoty pro společné vlastnosti.](http://nuget.codeplex.com/workitem/49)
-* [Spuštění nupack. exe ve složce s pouze jedním souborem nuspec by mělo používat tento nuspec](http://nuget.codeplex.com/workitem/52)
+* [Spuštění nupack.exe ve složce s pouze jedním souborem nuspec by mělo používat tento nuspec](http://nuget.codeplex.com/workitem/52)
 * [Nabídka projektu se zobrazí i v případě, že není načten žádný projekt nebo řešení.](http://nuget.codeplex.com/workitem/54)
 * [operace Build. cmd se nezdařila při čistém klonu základu kódu.](http://nuget.codeplex.com/workitem/56)
 * [Funkce dostupné pro aktualizace](http://nuget.codeplex.com/workitem/57)
@@ -156,17 +156,17 @@ Následuje seznam funkcí a chyb, které byly opraveny pro NuGet CTP 2 (nezahrnu
 * [Neexistuje žádný způsob, jak zjistit, který z mých nainstalovaných balíčků obsahuje aktualizace.](http://nuget.codeplex.com/workitem/82)
 * [Neexistuje žádný způsob, jak aktualizovat nainstalovaný balíček v dialogovém okně.](http://nuget.codeplex.com/workitem/83)
 * [Neexistuje žádný způsob, jak odinstalovat nainstalovaný balíček v dialogovém okně.](http://nuget.codeplex.com/workitem/84)
-* [v kontextové nabídce nainstalovaných odkazů se zobrazí &ldquo;přidat odkaz na balíček&hellip;&rdquo;](http://nuget.codeplex.com/workitem/85)
+* [&ldquo;Přidat odkaz &hellip; &rdquo; na balíček se zobrazí v kontextové nabídce nainstalovaných odkazů.](http://nuget.codeplex.com/workitem/85)
 * [Po aktualizaci balíčku z konzoly se zobrazí stará verze i nová verze, jak je nainstalovaná.](http://nuget.codeplex.com/workitem/86)
 * [Aktivita v konzole při použití dialogového okna po použití zmizí](http://nuget.codeplex.com/workitem/87)
-* [Vyčištění příkazového řádku pro vyčištění v nupack. exe](http://nuget.codeplex.com/workitem/89)
+* [Analýza příkazového řádku pro vyčištění v nupack.exe](http://nuget.codeplex.com/workitem/89)
 * [Přidat do zdrojů balíčku popisný název](http://nuget.codeplex.com/workitem/98)
 * [Update. nuspec pro podporu zahrnutí ikon balíčku](http://nuget.codeplex.com/workitem/103)
 * [Uživatelské rozhraní informačního kanálu nepovoluje kopírování adresy URL.](http://nuget.codeplex.com/workitem/105)
 * [Lepší zpracování chyb při odebrání balíčku.](http://nuget.codeplex.com/workitem/107)
 * [Psaní v okně konzoly závisí na fokusu kurzoru.](http://nuget.codeplex.com/workitem/112)
 * [Chybové zprávy vypadají awful](http://nuget.codeplex.com/workitem/116)
-* [Výkon odebrání balíčku pro balíček, který není nainstalován, je chybný.](http://nuget.codeplex.com/workitem/117)
+* [Výkon Remove-Package balíčku, který není nainstalován, je chybný.](http://nuget.codeplex.com/workitem/117)
 * [Odebrání balíčku se nepovede, když neexistují žádné zdroje balíčků.](http://nuget.codeplex.com/workitem/119)
 * [Remove-Package se nezdařil, pokud je zdroj balíčku nedostupný.](http://nuget.codeplex.com/workitem/120)
 * [Přidejte název k metadatům balíčku a informačnímu kanálu.](http://nuget.codeplex.com/workitem/125)
@@ -175,14 +175,14 @@ Následuje seznam funkcí a chyb, které byly opraveny pro NuGet CTP 2 (nezahrnu
 * [Aktualizujte NuPack. Server, aby se vyžadovalo stažení balíčku NuPack uživatelský agent.](http://nuget.codeplex.com/workitem/142)
 * [Dialog pro přijetí licence musí vypsat licence pro všechny závislosti, které vyžadují přijetí.](http://nuget.codeplex.com/workitem/145)
 * [Při vyvolání balíčku v informačním kanálu zaprotokolovat chybu](http://nuget.codeplex.com/workitem/150)
-* [NuPack. exe by neměl umožňovat prázdné &lt;licenseurl elementu&gt;](http://nuget.codeplex.com/workitem/152)
-* [Přejmenovat list-Package na Get-Package, Add-Package pro Install-Package a Remove-Package k odinstalaci balíčku](http://nuget.codeplex.com/workitem/155)
+* [NuPack.exe by neměl umožňovat prázdný &lt; element licenseurl &gt;](http://nuget.codeplex.com/workitem/152)
+* [Přejmenovat List-Package pro Get-Package, Add-Package k instalaci-balíčku a Remove-Package k odinstalaci balíčku](http://nuget.codeplex.com/workitem/155)
 * [Použití položky nabídky Přidat odkaz na balíček z Navigátoru řešení zhroucení sady Visual Studio](http://nuget.codeplex.com/workitem/158)
 * [U jmenovky dostupné zdroje balíčků chybí dvojtečka.](http://nuget.codeplex.com/workitem/160)
 * [Make. nuspec – velká písmena elementu XML konzistentně ve stylu CamelCase použita](http://nuget.codeplex.com/workitem/161)
 * [Manifest VSIX NuPack musí zapnout bit admin.](http://nuget.codeplex.com/workitem/162)
-* [Pokud spustíte list-Package bez kanálů, dostanete chybu s odkazem s hodnotou null.](http://nuget.codeplex.com/workitem/164)
-* [NuGet. exe: zadání cílové cesty](http://nuget.codeplex.com/workitem/171)
+* [Pokud spustíte List-Package bez informačních kanálů, získáte chybu s odkazem s hodnotou null.](http://nuget.codeplex.com/workitem/164)
+* [nuget.exe: zadejte cílovou cestu.](http://nuget.codeplex.com/workitem/171)
 * [Chyby PowerShellu při otevírání konzoly Správa balíčků v WinXP](http://nuget.codeplex.com/workitem/175)
 * [Selhání VS při pokusu o načtení seznamu balíčků](http://nuget.codeplex.com/workitem/176)
 * [povoluje meta balíčky (žádné soubory, pouze závislosti).](http://nuget.codeplex.com/workitem/180)
@@ -190,7 +190,7 @@ Následuje seznam funkcí a chyb, které byly opraveny pro NuGet CTP 2 (nezahrnu
 * [PathResolver by měl zahodit část cesty předcházející zástupným znakům, když je zadaný cíl.](http://nuget.codeplex.com/workitem/183)
 * [Žádné závislosti](http://nuget.codeplex.com/workitem/186)
 * [Chyba při instalaci knihovny elmah](http://nuget.codeplex.com/workitem/192)
-* [Transformace konfigurace nefungují správně s &lt;configSections&gt;](http://nuget.codeplex.com/workitem/194)
+* [Transformace v konfiguraci nefungují správně s nástrojem &lt; configSections.&gt;](http://nuget.codeplex.com/workitem/194)
 * [Proměnnou $global:p rojectCache nelze načíst, protože nebyla nastavena.](http://nuget.codeplex.com/workitem/203)
 * [Přidat úlohu MSBuild pro vytváření balíčků NuPack](http://nuget.codeplex.com/workitem/205)
 * [seznam-balíček musí podporovat vyhledávání a filtrování.](http://nuget.codeplex.com/workitem/206)
@@ -200,12 +200,12 @@ Následuje seznam funkcí a chyb, které byly opraveny pro NuGet CTP 2 (nezahrnu
 * [Umožňuje použít záložní/výchozí sadu souborů, pokud nejde najít verzi rozhraní určitou skupinu Framework.](http://nuget.codeplex.com/workitem/223)
 * [Přidat odkaz na balíček... Uživatelské rozhraní nemůže odebrat balíček.](http://nuget.codeplex.com/workitem/225)
 * [Přidat selhání odkazu na balíček Studio, když se jeden nebo víc projektů uvolní](http://nuget.codeplex.com/workitem/228)
-* [V souboru Web. Debug. config se zdá, že transformace konfigurace nefunguje](http://nuget.codeplex.com/workitem/229)
-* [init. ps1 se nevyvolává na vlastním balíčku.](http://nuget.codeplex.com/workitem/237)
+* [Transformace konfigurace nefunguje na web.debug.config souboru](http://nuget.codeplex.com/workitem/229)
+* [init.ps1 se nevyvolává na vlastním balíčku](http://nuget.codeplex.com/workitem/237)
 * [Při přidávání cest k feedlist je výchozí tlačítko nastavené na OK, takže když stisknete klávesu ENTER automaticky se zavře](http://nuget.codeplex.com/workitem/240)
 * [Pokus o odinstalaci závislosti se nezdařil, VS. Pokud se v řádku pokusí 2 časy.](http://nuget.codeplex.com/workitem/241)
 * [Zobrazit adresu URL projektu v dialogu přidat balíček](http://nuget.codeplex.com/workitem/253)
-* [Výchozí dialogové okno Přidat balíček pro nainstalované balíčky](http://nuget.codeplex.com/workitem/254)
+* [Výchozí dialog Add-Package pro nainstalované balíčky](http://nuget.codeplex.com/workitem/254)
 * [Změna položky nabídky dialogového okna Přidat balíček](http://nuget.codeplex.com/workitem/261)
 * [Přejmenování oborů názvů a sestavení](http://nuget.codeplex.com/workitem/274)
 * [Přejmenování projektu NuPack na NuGet](http://nuget.codeplex.com/workitem/282)
@@ -214,7 +214,7 @@ Následuje seznam funkcí a chyb, které byly opraveny pro NuGet CTP 2 (nezahrnu
 * [Změňte text v dialogu pro přijetí licence nad seznamem balíčků.](http://nuget.codeplex.com/workitem/292)
 * [OData nefunguje s adresou URL fwlink.](http://nuget.codeplex.com/workitem/304)
 * [Uživatelské rozhraní Správce balíčků: u více než agresivního ukládání do mezipaměti se počet balíčků pro stránkování použil.](http://nuget.codeplex.com/workitem/317)
-* [NuPack/NuGet-&gt; chyba konzoly Správce balíčků](http://nuget.codeplex.com/workitem/335)
+* [NuPack/NuGet – &gt; Chyba konzoly Správce balíčků](http://nuget.codeplex.com/workitem/335)
 * [Dialog Přidat balíček zobrazuje přijetí licence pro již nainstalované balíčky.](http://nuget.codeplex.com/workitem/336)
 
 ## <a name="ctp-1"></a>CTP 1
@@ -224,7 +224,7 @@ Následuje seznam funkcí a chyb, které byly opraveny pro NuGet CTP 1.
 * [Rozšíření balíčku by mělo být přejmenováno na. nupack](http://nuget.codeplex.com/workitem/1)
 * [Přesunout soubor balíčku do složky](http://nuget.codeplex.com/workitem/2)
 * [Sloučit instalaci &amp; přidat příkazy PS](http://nuget.codeplex.com/workitem/3)
-* [Vytváření aliasů pro rutiny příkazového/podstatného jména](http://nuget.codeplex.com/workitem/4)
+* [Vytváření aliasů pro rutiny Verb-Noun](http://nuget.codeplex.com/workitem/4)
 * [NuPack se při přepnutí řešení v VS.](http://nuget.codeplex.com/workitem/6)
 * [Ve výchozím nastavení by se měla skrýt složka řešení Packages.](http://nuget.codeplex.com/workitem/11)
 * [Přidání podpory pro nahrazení tokenu v položkách obsahu](http://nuget.codeplex.com/workitem/12)
@@ -233,10 +233,10 @@ Následuje seznam funkcí a chyb, které byly opraveny pro NuGet CTP 1.
 * [Při odstranění výchozího projektu z řešení se stále zobrazuje odstraněný projekt jako výchozí.](http://nuget.codeplex.com/workitem/30)
 * [Příkaz New-Package se nezdařil s názvem "nelze přidat součást pro určený identifikátor URI, protože již je v balíčku."](http://nuget.codeplex.com/workitem/32)
 * [Odebrání řetězců "NuPack" z grafického uživatelského rozhraní sady Visual Studio](http://nuget.codeplex.com/workitem/35)
-* [Přidat hlavičku Apache do souboru COPYRIGHT. txt](http://nuget.codeplex.com/workitem/36)
+* [Přidat hlavičku Apache do souboru COPYRIGHT.txt](http://nuget.codeplex.com/workitem/36)
 * [Příkaz Remove Update-PackageSource](http://nuget.codeplex.com/workitem/37)
 * [Správce balíčků se nedá použít, když načítání profilu vyvolá výjimku.](http://nuget.codeplex.com/workitem/39)
-* [init. ps1, Install. ps1 a Uninstall. ps1 musí přijmout další stav.](http://nuget.codeplex.com/workitem/41)
+* [init.ps1 install.ps1 a uninstall.ps1 potřebovat získat další stav](http://nuget.codeplex.com/workitem/41)
 * [Kombinování balíčků konzoly a grafického uživatelského rozhraní do jednoho balíčku](http://nuget.codeplex.com/workitem/42)
 * [Logika transformace XML nefunguje, pokud se použije na XML, které není v kořenovém adresáři.](http://nuget.codeplex.com/workitem/43)
 * [Dialog spravovat nastavení zdrojů balíčků aktualizace konzoly NuPack](http://nuget.codeplex.com/workitem/44)
@@ -262,8 +262,8 @@ Následuje seznam funkcí a chyb, které byly opraveny pro NuGet CTP 1.
 * [Proč – verze pro příkaz Remove-Package](http://nuget.codeplex.com/workitem/113)
 * [Odebrat kartu nedávné v uživatelském rozhraní dialogu](http://nuget.codeplex.com/workitem/115)
 * [Chyba VS při kliknutí pravým tlačítkem na složku řešení po otevření dialogového okna uživatelského rozhraní dialogového okna alespoň jednoho.](http://nuget.codeplex.com/workitem/126)
-* [Změnit parametr-Local v seznamu-Package na-Installed](http://nuget.codeplex.com/workitem/129)
-* [Přejmenujte Packages. XML na NuPack. config.](http://nuget.codeplex.com/workitem/132)
+* [Změnit parametr-Local List-Package na-Installed](http://nuget.codeplex.com/workitem/129)
+* [Přejmenovat packages.xml na NuPack.config](http://nuget.codeplex.com/workitem/132)
 * [Konzola vynutí kurzor na konec řádku.](http://nuget.codeplex.com/workitem/135)
 * [Odstranění balíčku IntelliSense je přerušené.](http://nuget.codeplex.com/workitem/136)
 * [Přidání příznaku RequireLicenseAcceptance do. nuspec a informačního kanálu](http://nuget.codeplex.com/workitem/137)

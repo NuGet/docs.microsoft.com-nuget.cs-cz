@@ -1,16 +1,16 @@
 ---
 title: Zpráva k vydání verze NuGet 2,6
 description: Poznámky k verzi NuGet 2.6.1 pro WebMatrix, včetně známých problémů, oprav chyb, přidaných funkcí a chcete odeslat obecnou.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 5f6504d180879f2e9140552e0d2e07e34a85a083
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 812a0e806e29c5a2141db4f2fbab4bf91b0983f9
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93236971"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776828"
 ---
 # <a name="nuget-26-release-notes"></a>Zpráva k vydání verze NuGet 2,6
 
