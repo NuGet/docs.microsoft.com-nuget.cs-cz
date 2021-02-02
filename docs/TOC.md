@@ -35,9 +35,10 @@
 ## [Vytvoření balíčku (rozhraní příkazového řádku dotnet)](create-packages/creating-a-package-dotnet-cli.md)
 ## [Vytvoření balíčku (nuget.exe CLI)](create-packages/creating-a-package.md)
 ## [Vytvoření balíčku (MSBuild)](create-packages/creating-a-package-msbuild.md)
-## [Podpora více cílových architektur v souboru projektu](create-packages/multiple-target-frameworks-project-file.md)
+## [Osvědčené postupy pro vytváření balíčků](create-packages/Package-authoring-best-practices.md)
 ## [Vytvoření předběžné verze balíčku](create-packages/prerelease-packages.md)
 ## [Vytvoření balíčku symbolů](create-packages/symbol-packages-snupkg.md)
+## [Podpora více cílových architektur v souboru projektu](create-packages/multiple-target-frameworks-project-file.md)
 ## Pokročilé úlohy
 ### [Podpora více cílových architektur](create-packages/supporting-multiple-target-frameworks.md)
 ### [Úprava zdrojového kódu a konfiguračních souborů](create-packages/source-and-config-file-transformations.md)
