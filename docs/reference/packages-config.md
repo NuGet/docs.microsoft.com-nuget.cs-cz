@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 05/21/2018
 ms.topic: reference
-ms.openlocfilehash: 3e5db779f735cd42aa331f9f8a93496d32c8df54
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: da682197d4a156f9dff8ce169aab449a5392ef41
+ms.sourcegitcommit: c19d398cecee3cad2d79a8b22650fc1988d41a3f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98777625"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99260300"
 ---
 # <a name="packagesconfig-reference"></a>Odkaz na packages.config
 
@@ -28,9 +28,9 @@ Schéma je jednoduché: za standardní hlavičkou XML je jeden `<packages>` uzel
 | --- | --- | --- |
 | id | Ano | Identifikátor balíčku, například Newtonsoft.jsna nebo Microsoft. AspNet. Mvc. | 
 | verze | Ano | Přesná verze balíčku, který se má nainstalovat, například 3.1.1 nebo 4.2.5.11-Beta. Řetězec verze musí mít alespoň tři čísla; Čtvrtá je volitelná, stejně jako přípona předběžné verze. Rozsahy nejsou povoleny. | 
-| targetFramework | No | [Moniker cílového rozhraní (TFM)](target-frameworks.md) , který se má použít při instalaci balíčku. Tato nastavení se zpočátku nastaví na cíl projektu při instalaci balíčku. V důsledku toho `<package>` mohou mít různé prvky různé TFM. Například pokud vytvoříte projekt, který cílí na .NET 4.5.2, balíčky nainstalované v tomto okamžiku budou používat TFM net452. Pokud budete, později přecílíte projekt na rozhraní .NET 4,6 a přidáte další balíčky, budou použity TFM z net46. Neshoda mezi cílovou a `targetFramework` atributovou vlastností projektu vygeneruje upozornění. v takovém případě můžete ovlivněné balíčky přeinstalovat. | 
-| Hodnota allowedversions | No | Rozsah povolených verzí pro tento balíček byl použit během aktualizace balíčku (viz téma [omezení verzí upgradu](../consume-packages/reinstalling-and-updating-packages.md#constraining-upgrade-versions). Neovlivňuje *,* ke které balíčku se nainstaluje během operace instalace nebo obnovení. Syntaxe se zobrazuje v tématu [Správa verzí balíčků](../concepts/package-versioning.md#version-ranges) . Uživatelské rozhraní PackageManager také zakáže všechny verze mimo povolený rozsah. | 
-| developmentDependency | No | Pokud samotný projekt vytvoří balíček NuGet, jeho nastavení na `true` hodnotu pro závislost zabraňuje tomu, aby tento balíček byl zahrnutý při vytvoření balíčku, který je k dispozici. Výchozí formát je `false`. | 
+| targetFramework | Ne | [Moniker cílového rozhraní (TFM)](target-frameworks.md) , který se má použít při instalaci balíčku. Tato nastavení se zpočátku nastaví na cíl projektu při instalaci balíčku. V důsledku toho `<package>` mohou mít různé prvky různé TFM. Například pokud vytvoříte projekt, který cílí na .NET 4.5.2, balíčky nainstalované v tomto okamžiku budou používat TFM net452. Pokud budete, později přecílíte projekt na rozhraní .NET 4,6 a přidáte další balíčky, budou použity TFM z net46. Neshoda mezi cílovou a `targetFramework` atributovou vlastností projektu vygeneruje upozornění. v takovém případě můžete ovlivněné balíčky přeinstalovat. | 
+| Hodnota allowedversions | Ne | Rozsah povolených verzí pro tento balíček byl použit během aktualizace balíčku (viz téma [omezení verzí upgradu](../consume-packages/reinstalling-and-updating-packages.md#constraining-upgrade-versions). Neovlivňuje *,* ke které balíčku se nainstaluje během operace instalace nebo obnovení. Syntaxe se zobrazuje v tématu [Správa verzí balíčků](../concepts/package-versioning.md#version-ranges) . Uživatelské rozhraní PackageManager také zakáže všechny verze mimo povolený rozsah. | 
+| developmentDependency | Ne | Pokud samotný projekt vytvoří balíček NuGet, jeho nastavení na `true` hodnotu pro závislost zabraňuje tomu, aby tento balíček byl zahrnutý při vytvoření balíčku, který je k dispozici. Výchozí formát je `false`. | 
 
 ## <a name="examples"></a>Příklady
 
