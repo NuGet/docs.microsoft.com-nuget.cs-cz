@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/30/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 11485f583d6993919f6bb8acabcc87d9e4261975
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 6c04453fec9beb7b0998953384ec60694e1213c1
+ms.sourcegitcommit: af059dc776cfdcbad20baab2919b5d6dc1e9022d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98774159"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99990144"
 ---
 # <a name="catalog"></a>Katalog
 
@@ -220,6 +220,7 @@ shrnutí                 | řetězec                     | ne       |
 tags                    | pole řetězců           | ne       |
 title                   | řetězec                     | ne       |
 verbatimVersion         | řetězec                     | ne       | Řetězec verze, který je původně nalezen v. nuspec
+míst         | pole objektů           | ne       | Ohrožení zabezpečení balíčku
 
 Vlastnost Package `version` je úplný řetězec verze po normalizaci. To znamená, že sem můžete zahrnout data sestavení SemVer 2.0.0.
 
@@ -238,6 +239,17 @@ verze    | řetězec  | ne       | Verze typu balíčku. K dispozici pouze v př
 
 > [!Note]
 > V nuget.org `published` je hodnota nastavena na rok 1900, pokud je balíček neuvedený.
+
+#### <a name="vulnerabilities"></a>Ohrožení zabezpečení
+
+Pole `vulnerability` objektů. Každé ohrožení zabezpečení má následující vlastnosti:
+
+Název         | Typ   | Vyžadováno | Poznámky
+------------ | ------ | -------- | -----
+advisoryUrl  | řetězec | ano      | Umístění zpravodaje zabezpečení pro balíček
+severity     | řetězec | ano      | Závažnost poradenství: "0" = nízká, "1" = střední, "2" = vysoká, "3" = kritická
+
+Pokud `severity` vlastnost obsahuje jiné hodnoty než ty, které jsou tady uvedené, závažnost poradenství se bude považovat za nízkou.
 
 #### <a name="sample-request"></a>Ukázková žádost
 

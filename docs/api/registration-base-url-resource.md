@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 403686de42bf4dc1fa94b9dd92ca6d33f3be2183
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 8d1ab4d1f3d75d93c30d94958fd9d1abf0742730
+ms.sourcegitcommit: af059dc776cfdcbad20baab2919b5d6dc1e9022d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775287"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99990110"
 ---
 # <a name="package-metadata"></a>Metadata balíčků
 
@@ -78,7 +78,7 @@ GET {@id}/{LOWER_ID}/index.json
 
 ### <a name="request-parameters"></a>Parametry žádosti
 
-Name     | V     | Typ    | Vyžadováno | Poznámky
+Název     | V     | Typ    | Vyžadováno | Poznámky
 -------- | ------ | ------- | -------- | -----
 LOWER_ID | URL    | řetězec  | ano      | ID balíčku, malými písmeny
 
@@ -155,6 +155,7 @@ shrnutí                  | řetězec                     | ne       |
 tags                     | řetězec nebo pole řetězce  | ne       | 
 title                    | řetězec                     | ne       | 
 verze                  | řetězec                     | ano      | Úplný řetězec verze po normalizaci
+míst          | pole objektů           | ne       | Ohrožení zabezpečení balíčku
 
 Vlastnost Package `version` je úplný řetězec verze po normalizaci. To znamená, že sem můžete zahrnout data sestavení SemVer 2.0.0.
 
@@ -202,7 +203,7 @@ alternatePackage | object           | ne       | Alternativní balíček, který
 
 `reasons`Vlastnost musí obsahovat alespoň jeden řetězec a měla by obsahovat pouze řetězce z následující tabulky:
 
-Důvod       | Popis             
+Důvod       | Description             
 ------------ | -----------
 Starší verze       | Balíček se už neudržuje.
 CriticalBugs | Balíček obsahuje chyby, které nejsou vhodné pro použití.
@@ -218,6 +219,15 @@ Název         | Typ   | Vyžadováno | Poznámky
 ------------ | ------ | -------- | -----
 id           | řetězec | ano      | ID alternativního balíčku
 range        | object | ne       | Povolený [rozsah verzí](../concepts/package-versioning.md#version-ranges), nebo `*` Pokud je povolená nějaká verze
+
+#### <a name="vulnerabilities"></a>Ohrožení zabezpečení
+
+Pole `vulnerability` objektů. Každé ohrožení zabezpečení má následující vlastnosti:
+
+Název         | Typ   | Vyžadováno | Poznámky
+------------ | ------ | -------- | -----
+advisoryUrl  | řetězec | ano      | Umístění zpravodaje zabezpečení pro balíček
+severity     | řetězec | ano      | Závažnost poradenství: "0" = nízká, "1" = střední, "2" = vysoká, "3" = kritická
 
 ### <a name="sample-request"></a>Ukázková žádost
 

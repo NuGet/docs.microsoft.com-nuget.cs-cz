@@ -6,12 +6,12 @@ ms.author: jodou
 ms.date: 09/07/2019
 ms.topic: reference
 ms.reviewer: karann
-ms.openlocfilehash: af9969df33c6bf7a62709e6e3535b8b886376e3e
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 428fd3d7b324f6eb825b17e4a87a662fbd84a2f0
+ms.sourcegitcommit: af059dc776cfdcbad20baab2919b5d6dc1e9022d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775925"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99990098"
 ---
 # <a name="package-id-prefix-reservation"></a>Rezervace předpony ID balíčku
 
@@ -73,23 +73,25 @@ Po odeslání aplikace se zobrazí oznámení o přijetí nebo zamítnutí (s kr
 
 ### <a name="id-prefix-reservation-criteria"></a>Kritéria rezervace předpony ID
 
-Při kontrole libovolné aplikace pro rezervaci předpony ID tým [NuGet.org](https://www.nuget.org/) vyhodnotí aplikaci proti níže uvedeným kritériím. Není nutné splnit všechna kritéria, aby bylo možné vyhradit předponu, ale aplikace může být zamítnuta, pokud není k dispozici podstatný důkaz o splněných kritériích (s uvedeným vysvětlením):
+Při kontrole libovolné aplikace pro rezervaci předpony ID tým [NuGet.org](https://www.nuget.org) vyhodnotí aplikaci proti níže uvedeným kritériím. Počítejte s tím, že není nutné splnit všechna kritéria, aby bylo možné zarezervovat předponu, ale aplikace může být odepřena, pokud není k dispozici podstatný důkaz kritérií, která jsou splněna (s vysvětlením uvedeným):
 
-1. Je správně předpona ID balíčku a jednoznačně identifikuje vlastníka balíčku?
+1. Je správně předpona ID balíčku a jednoznačně identifikován vlastník rezervace?
 
-1. Povolil se vlastník balíčku [2FA pro svůj účet NuGet.org](individual-accounts.md#enable-two-factor-authentication-2fa)?
-
-1. Je významný počet balíčků, které již byly odeslány vlastníkem v rámci předpony ID balíčku?
+1. Má vlastník [povolen 2FA pro svůj účet NuGet.org](individual-accounts.md#enable-two-factor-authentication-2fa)?
 
 1. Je prefix ID balíčku něco společného, který by neměl patřit žádnému individuálnímu vlastníkovi nebo organizaci?
 
-1. *Nepovedlo* se zachovávat předponu ID balíčku, která by způsobila nejednoznačnost a nejasnost pro komunitu?
+1. *Nepovedlo* se mu zachovávat předponu ID balíčku, která by způsobila nejednoznačnost, nejasnost nebo jiné poškození komunity?
+
+Při publikování balíčků do NuGet.org v rámci rezervované předpony ID je potřeba vzít v úvahu následující osvědčené postupy:
 
 1. Jsou identifikující vlastnosti balíčků, které odpovídají předponě ID balíčku, jasné a konzistentní (zejména autor balíčku)?
 
 1. Mají balíčky licenci (pomocí elementu metadata [licence](../reference/nuspec.md#license) a licenseUrl, který se už nepoužívá)?
 
-1. Pokud mají balíčky ikonu (pomocí elementu metadat iconUrl), jsou také použity v prvku metadat [ikony](../reference/nuspec.md#icon) (není nutné odebrat iconUrl)?
+1. Pokud mají balíčky ikonu (pomocí elementu metadat iconUrl), jsou také použity prvkem metadat [ikony](../reference/nuspec.md#icon) ? Nejde odebrat iconUrl, ale musí se použít vložené ikony.
+ 
+Kromě výše uvedených bodů zvažte možnost projít si kompletní [Průvodce vytvářením osvědčených postupů pro vytváření balíčků](../create-packages/package-authoring-best-practices.md) .
 
 ## <a name="third-party-feed-provider-scenarios"></a>Scénáře poskytovatele kanálu třetích stran
 
