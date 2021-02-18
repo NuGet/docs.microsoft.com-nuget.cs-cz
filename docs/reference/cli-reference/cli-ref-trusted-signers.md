@@ -6,12 +6,12 @@ ms.author: patbel
 ms.date: 11/12/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: 9e25f439617a76d30880bea3c10a5d063e681a41
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 4b6a1c3b6eb0fefd9a78c78233f974eb0db19e93
+ms.sourcegitcommit: aeb9072f2fcaca73dc9de05b7fd643f1aa7c5821
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93238150"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101101365"
 ---
 # <a name="trusted-signers-command-nuget-cli"></a>příkaz důvěryhodného přihlášení (NuGet CLI)
 
@@ -90,7 +90,7 @@ Poskytování současně `-Author` není `-Repository` podporováno.
 nuget trusted-signers add -Name <name> [options]
 ```
 
-_Poznámka_ : Tato možnost bude přidávat jenom důvěryhodná úložiště. 
+_Poznámka_: Tato možnost bude přidávat jenom důvěryhodná úložiště. 
 
 - **`-AllowUntrustedRoot`**
 
@@ -110,7 +110,7 @@ _Poznámka_ : Tato možnost bude přidávat jenom důvěryhodná úložiště.
 nuget trusted-signers add -Name <name> [options]
 ```
 
-_Poznámka_ : Pokud důvěryhodný podpis se zadaným názvem již existuje, bude položka certifikátu přidána k tomuto podepsanému. V opačném případě bude vytvořen důvěryhodný autor s položkou certifikátu z daných informací o certifikátu.
+_Poznámka_: Pokud důvěryhodný podpis se zadaným názvem již existuje, bude položka certifikátu přidána k tomuto podepsanému. V opačném případě bude vytvořen důvěryhodný autor s položkou certifikátu z daných informací o certifikátu.
 
 
 - **`-AllowUntrustedRoot`**
@@ -133,7 +133,7 @@ Odebere všechny důvěryhodné podepisující osoby, které odpovídají daném
 
 Vyžádá nejnovější seznam certifikátů používaných v aktuálně důvěryhodném úložišti, aby aktualizoval existující seznam certifikátů v důvěryhodném přihlášení.
 
-_Poznámka_ : Tento gesto odstraní aktuální seznam certifikátů a nahradí je aktuálním seznamem z úložiště.
+_Poznámka_: Tento gesto odstraní aktuální seznam certifikátů a nahradí je aktuálním seznamem z úložiště.
 
 ## <a name="options"></a>Možnosti
 
@@ -175,7 +175,7 @@ nuget trusted-signers Add -Name author1 -CertificateFingerprint CE40881FF5F0AD3E
 
 nuget trusted-signers Add -Repository .\..\MyRepositorySignedPackage.nupkg -Name TrustedRepo
 
-nuget-trusted-signers Remove -Name TrustedRepo
+nuget trusted-signers Remove -Name TrustedRepo
 
-nuget-trusted-signers Sync -Name TrustedRepo
+nuget trusted-signers Sync -Name TrustedRepo
 ```

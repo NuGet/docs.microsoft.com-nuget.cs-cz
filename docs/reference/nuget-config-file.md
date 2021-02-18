@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 08/13/2019
 ms.topic: reference
-ms.openlocfilehash: 9b15550d0e6e8aec4d526391d77c654a756f343e
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 60626a5a2a261241e0dce34421f73a86d815e454
+ms.sourcegitcommit: aeb9072f2fcaca73dc9de05b7fd643f1aa7c5821
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98777667"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101101340"
 ---
 # <a name="nugetconfig-reference"></a>Odkaz na nuget.config
 
@@ -32,8 +32,8 @@ Obsahuje různá nastavení konfigurace, která lze nastavit pomocí [ `nuget co
 | Klíč | Hodnota |
 | --- | --- |
 | dependencyVersion ( `packages.config` pouze) | Výchozí `DependencyVersion` hodnota pro instalaci balíčku, obnovení a aktualizaci, když `-DependencyVersion` přepínač není zadán přímo Tuto hodnotu používá také uživatelské rozhraní Správce balíčků NuGet. Hodnoty jsou `Lowest` , `HighestPatch` , `HighestMinor` , `Highest` . |
-| globalPackagesFolder (projekty používající pouze PackageReference) | Umístění výchozí složky globálních balíčků. Výchozí hodnota je `%userprofile%\.nuget\packages` (Windows) nebo `~/.nuget/packages` (Mac/Linux). Relativní cestu lze použít v souborech specifických pro projekt `nuget.config` . Toto nastavení je přepsáno proměnnou prostředí NUGET_PACKAGES, která má přednost. |
-| repositoryPath ( `packages.config` pouze) | Místo, kde se mají instalovat balíčky NuGet místo výchozí `$(Solutiondir)/packages` složky Relativní cestu lze použít v souborech specifických pro projekt `nuget.config` . Toto nastavení je přepsáno proměnnou prostředí NUGET_PACKAGES, která má přednost. |
+| globalPackagesFolder (projekty používající pouze PackageReference) | Umístění výchozí složky globálních balíčků. Výchozí hodnota je `%userprofile%\.nuget\packages` (Windows) nebo `~/.nuget/packages` (Mac/Linux). Relativní cestu lze použít v souborech specifických pro projekt `nuget.config` . Toto nastavení je přepsáno `NUGET_PACKAGES` proměnnou prostředí, která má přednost. |
+| repositoryPath ( `packages.config` pouze) | Místo, kde se mají instalovat balíčky NuGet místo výchozí `$(Solutiondir)/packages` složky Relativní cestu lze použít v souborech specifických pro projekt `nuget.config` . Toto nastavení je přepsáno `NUGET_PACKAGES` proměnnou prostředí, která má přednost. |
 | defaultPushSource | Určuje adresu URL nebo cestu ke zdroji balíčku, který má být použit jako výchozí, pokud pro operaci nebyly nalezeny žádné jiné zdroje balíčků. |
 | http_proxy http_proxy. uživatelské http_proxy. Password no_proxy | Nastavení proxy serveru, které se má použít při připojování ke zdrojům balíčků; `http_proxy` by měl být ve formátu `http://<username>:<password>@<domain>` . Hesla jsou šifrovaná a nelze je přidat ručně. V případě je `no_proxy` Tato hodnota čárkami oddělený seznam domén, které proxy server obejít. Pro tyto hodnoty můžete alternativně použít proměnné prostředí http_proxy a no_proxy. Další podrobnosti najdete v tématu [nastavení proxy NuGet](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (skolima.blogspot.com). |
 | signatureValidationMode | Určuje režim ověřování, který se používá k ověření signatur balíčků pro instalaci balíčku a obnovení. Hodnoty jsou `accept` , `require` . Výchozí hodnota je `accept` .
@@ -353,8 +353,8 @@ Následující tabulka zobrazuje syntaxi proměnných lnstalování a podporu od
 
 | Syntax | Oddělovač adresářů | nuget.exe Windows | dotnet.exe Windows | nuget.exe Mac (v mono) | dotnet.exe Mac |
 |---|---|---|---|---|---|
-| `%MY_VAR%` | `/`  | Ano | Ano | Ano | Ano |
-| `%MY_VAR%` | `\`  | Ano | Ano | No | No |
+| `%MY_VAR%` | `/`  | Yes | Yes | Yes | Yes |
+| `%MY_VAR%` | `\`  | Yes | Yes | No | No |
 | `$MY_VAR` | `/`  | No | No | No | No |
 | `$MY_VAR` | `\`  | No | No | No | No |
 
