@@ -5,18 +5,18 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 05/23/2018
 ms.topic: tutorial
-ms.openlocfilehash: 317937b4d9d773d74384b8ebfcd2146062236ac1
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 7660203ec44db75b7764767b519c9ff10dd1122e
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98774325"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859080"
 ---
 # <a name="creating-ui-controls-as-nuget-packages"></a>Vytvoření ovládacích prvků uživatelského rozhraní jako balíčků NuGet
 
-Počínaje sadou Visual Studio 2017 můžete využít výhod přidaných funkcí pro ovládací prvky UWP a WPF, které zadáváte do balíčků NuGet. Tato příručka vás provede následujícími možnostmi v kontextu ovládacích prvků UWP pomocí [ukázky ExtensionSDKasNuGetPackage](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage). Totéž platí pro ovládací prvky WPF, pokud není uvedeno jinak.
+Počínaje sadou Visual Studio 2017 můžete využít výhod přidaných funkcí pro ovládací prvky UWP a WPF, které zadáváte do balíčků NuGet. Tato příručka vás provede následujícími možnostmi v kontextu ovládacích prvků UWP pomocí [ukázky ExtensionSDKasNuGetPackage](https://github.com/NuGet/Samples/tree/main/ExtensionSDKasNuGetPackage). Totéž platí pro ovládací prvky WPF, pokud není uvedeno jinak.
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 1. Visual Studio 2017
 1. Informace o tom, jak [vytvářet balíčky UWP](create-uwp-packages.md)
@@ -90,7 +90,7 @@ V následujícím příkladu se ovládací prvek implementovaný v nástroji `Ma
 
 ## <a name="add-custom-icons-to-your-controls"></a>Přidat vlastní ikony do ovládacích prvků
 
-Chcete-li zobrazit vlastní ikonu v podokně Sada nástrojů/assets, přidejte do projektu obrázek nebo odpovídající `design.dll` projekt s názvem "obor názvů. Control. Extension" a nastavte akci sestavení na "Integrovaný prostředek". Musíte také zajistit, aby vlastnost asociované `AssemblyInfo.cs` určovala atribut ProvideMetadata- `[assembly: ProvideMetadata(typeof(RegisterMetadata))]` . Podívejte se na tuto [ukázku](https://github.com/NuGet/Samples/blob/master/ExtensionSDKasNuGetPackage/NativePackage.Design/Properties/AssemblyInfo.cs#L20).
+Chcete-li zobrazit vlastní ikonu v podokně Sada nástrojů/assets, přidejte do projektu obrázek nebo odpovídající `design.dll` projekt s názvem "obor názvů. Control. Extension" a nastavte akci sestavení na "Integrovaný prostředek". Musíte také zajistit, aby vlastnost asociované `AssemblyInfo.cs` určovala atribut ProvideMetadata- `[assembly: ProvideMetadata(typeof(RegisterMetadata))]` . Podívejte se na tuto [ukázku](https://github.com/NuGet/Samples/blob/main/ExtensionSDKasNuGetPackage/NativePackage.Design/Properties/AssemblyInfo.cs#L20).
 
 Podporované formáty jsou `.png` , `.jpg` ,, a `.jpeg` `.gif` `.bmp` . Doporučený formát je BMP24 v rozmezí 16 × 16 pixelů.
 
@@ -158,7 +158,7 @@ V případě WPF pokračuje v příkladu, kde chcete, aby byl balíček WPF ovl�
 
 Do balíčku můžete vložit řetězcové prostředky ( `.resw` ), které lze použít v ovládacím prvku nebo v projektu UWP, nastavte vlastnost souboru **Akce sestavení** `.resw` na **PRIResource**.
 
-Příklad naleznete v tématu [MyCustomControl.cs](https://github.com/NuGet/Samples/blob/master/ExtensionSDKasNuGetPackage/ManagedPackage/MyCustomControl.cs) v ukázce ExtensionSDKasNuGetPackage.
+Příklad naleznete v tématu [MyCustomControl. cs](https://github.com/NuGet/Samples/blob/main/ExtensionSDKasNuGetPackage/ManagedPackage/MyCustomControl.cs) v ukázce ExtensionSDKasNuGetPackage.
 
 > [!Note]
 > To platí pouze pro ovládací prvky UWP.
@@ -166,4 +166,4 @@ Příklad naleznete v tématu [MyCustomControl.cs](https://github.com/NuGet/Samp
 ## <a name="see-also"></a>Viz také
 
 - [Vytváření balíčků UWP](create-uwp-packages.md)
-- [Ukázka ExtensionSDKasNuGetPackage](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage)
+- [Ukázka ExtensionSDKasNuGetPackage](https://github.com/NuGet/Samples/tree/main/ExtensionSDKasNuGetPackage)

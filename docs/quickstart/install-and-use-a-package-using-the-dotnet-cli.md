@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.openlocfilehash: adbf8f457d8520e3087e539b91ef932877aec3a0
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: dbe1d3ee8e50a90803140bc2c5cb5821b485a2fd
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775446"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859431"
 ---
 # <a name="quickstart-install-and-use-a-package-using-the-dotnet-cli"></a>Rychlý Start: instalace a použití balíčku pomocí rozhraní příkazového řádku dotnet
 
@@ -21,7 +21,7 @@ Po instalaci se podívejte na balíček v kódu, `using <namespace>` kde \<names
 > [!Tip]
 > **Začínáme s NuGet.org**: prohlížení NuGet.org je způsob, jakým vývojáři rozhraní .NET obvykle hledají komponenty, které mohou znovu použít ve svých vlastních aplikacích. Můžete vyhledat nuget.org přímo nebo vyhledat a nainstalovat balíčky v sadě Visual Studio, jak je znázorněno v tomto článku.
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 - [.NET Core SDK](https://www.microsoft.com/net/download/), která poskytuje `dotnet` Nástroj příkazového řádku. Počínaje sadou Visual Studio 2017 se rozhraní příkazového řádku dotnet automaticky nainstaluje se všemi úlohami souvisejícími s .NET Core.
 
@@ -52,9 +52,9 @@ Balíčky NuGet se dají nainstalovat do projektu .NET nějakého druhu. Pro ten
 2. Po dokončení příkazu otevřete `.csproj` soubor, abyste viděli přidaný odkaz:
 
     ```xml
-   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
-   </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    </ItemGroup>
     ```
 
 ## <a name="use-the-newtonsoftjson-api-in-the-app"></a>Použití Newtonsoft.Jsv rozhraní API v aplikaci

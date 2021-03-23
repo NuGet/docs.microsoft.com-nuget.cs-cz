@@ -6,16 +6,16 @@ ms.author: jodou
 ms.date: 04/24/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 5bd0e409f527fb668008204fb16ad002f4784c46
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 76c589b5ad034127675fb2bbf79ea97992883ebe
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98774588"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859106"
 ---
 # <a name="transforming-source-code-and-configuration-files"></a>Transformace zdrojového kódu a konfiguračních souborů
 
-**Transformace zdrojového kódu** aplikuje jednosměrnou náhradu tokenu na soubory v balíčku `content` nebo `contentFiles` složce ( `content` pro zákazníky používající `packages.config` a `contentFiles` pro `PackageReference` ) při instalaci balíčku, kde tokeny odkazují na [Vlastnosti projektu](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7)sady Visual Studio. To umožňuje vložit soubor do oboru názvů projektu, nebo upravit kód, který by obvykle přešel do `global.asax` projektu ASP.NET.
+**Transformace zdrojového kódu** aplikuje jednosměrnou náhradu tokenu na soubory v balíčku `content` nebo `contentFiles` složce ( `content` pro zákazníky používající `packages.config` a `contentFiles` pro `PackageReference` ) při instalaci balíčku, kde tokeny odkazují na [Vlastnosti projektu](/dotnet/api/vslangproj.projectproperties)sady Visual Studio. To umožňuje vložit soubor do oboru názvů projektu, nebo upravit kód, který by obvykle přešel do `global.asax` projektu ASP.NET.
 
 **Transformace konfiguračního souboru** umožňuje upravit soubory, které již existují v cílovém projektu, například `web.config` a `app.config` . Balíček může například potřebovat přidat položku do `modules` oddílu v konfiguračním souboru. Tato transformace se provádí zahrnutím speciálních souborů do balíčku, které popisují oddíly, které se mají přidat do konfiguračních souborů. Při odinstalaci balíčku se tyto změny projeví opačným způsobem transformace.
 
@@ -45,7 +45,7 @@ ms.locfileid: "98774588"
 
     Při instalaci nahrazuje NuGet za `$rootnamespace$` `Fabrikam` předpokladu, že cílový projekt má kořenový obor názvů `Fabrikam` .
 
-`$rootnamespace$`Token je nejčastěji používaná vlastnost projektu. všechny ostatní jsou uvedeny ve [vlastnostech projektu](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7). Je třeba mít na vědomí, že některé vlastnosti mohou být specifické pro typ projektu.
+`$rootnamespace$`Token je nejčastěji používaná vlastnost projektu. všechny ostatní jsou uvedeny ve [vlastnostech projektu](/dotnet/api/vslangproj.projectproperties). Je třeba mít na vědomí, že některé vlastnosti mohou být specifické pro typ projektu.
 
 ## <a name="specifying-config-file-transformations"></a>Určení transformací konfiguračního souboru
 
@@ -113,9 +113,9 @@ Chcete-li zobrazit efekt instalace a odinstalace balíčku, vytvořte nový proj
 ### <a name="xdt-transforms"></a>Transformace XDT
 
 > [!Note]
-> Jak je uvedeno v [části problémy s kompatibilitou balíčku v dokumentaci pro migraci z nástroje `packages.config` do `PackageReference` ](../consume-packages/migrate-packages-config-to-package-reference.md#package-compatibility-issues), XDT transformace, jak je popsáno níže, jsou podporovány pouze v nástroji `packages.config` . Pokud do svého balíčku přidáte následující soubory, příjemci, kteří používají váš balíček, nebudou `PackageReference` mít použité transformace (v [této ukázce](https://github.com/NuGet/Samples/tree/master/XDTransformExample) se dozvíte, jak pomocí XDT transformovat práci `PackageReference` ).
+> Jak je uvedeno v [části problémy s kompatibilitou balíčku v dokumentaci pro migraci z nástroje `packages.config` do `PackageReference` ](../consume-packages/migrate-packages-config-to-package-reference.md#package-compatibility-issues), XDT transformace, jak je popsáno níže, jsou podporovány pouze v nástroji `packages.config` . Pokud do svého balíčku přidáte následující soubory, příjemci, kteří používají váš balíček, nebudou `PackageReference` mít použité transformace (v [této ukázce](https://github.com/NuGet/Samples/tree/main/XDTransformExample) se dozvíte, jak pomocí XDT transformovat práci `PackageReference` ).
 
-Konfigurační soubory můžete upravovat pomocí [syntaxe XDT](/previous-versions/aspnet/dd465326(v=vs.110)). Tokeny NuGet můžete také nahradit [vlastnostmi projektu](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7) zahrnutím názvu vlastnosti v rámci `$` oddělovačů (bez rozlišení velkých a malých písmen).
+Konfigurační soubory můžete upravovat pomocí [syntaxe XDT](/previous-versions/aspnet/dd465326(v=vs.110)). Tokeny NuGet můžete také nahradit [vlastnostmi projektu](/dotnet/api/vslangproj.projectproperties) zahrnutím názvu vlastnosti v rámci `$` oddělovačů (bez rozlišení velkých a malých písmen).
 
 Například následující `app.config.install.xdt` soubor bude vkládat `appSettings` element do `app.config` obsahující `FullPath` `FileName` hodnoty, a `ActiveConfigurationSettings` z projektu:
 

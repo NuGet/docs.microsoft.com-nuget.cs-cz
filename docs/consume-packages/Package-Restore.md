@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: bac4d88c29539f9fbe7b33b44ce11d350920d365
-ms.sourcegitcommit: 650c08f8bc3d48dfd206a111e5e2aaca3001f569
+ms.openlocfilehash: e5dfd9f8dd0439751ddd3863cad03f3b463e1487
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97523525"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859236"
 ---
 # <a name="restore-packages-using-package-restore"></a>Obnovení balíčků pomocí obnovení balíčku
 
@@ -36,7 +36,7 @@ Obnovení balíčku se pokusí nainstalovat všechny závislosti balíčků do s
    - [Visual Studio](#restore-using-visual-studio) ([Automatické obnovení](#restore-packages-automatically-using-visual-studio) nebo [Ruční obnovení](#restore-packages-manually-using-visual-studio))
    - [dotnet CLI](#restore-using-the-dotnet-cli)
    - [nuget.exe CLI](#restore-using-the-nugetexe-cli)
-   - [Nástroji](#restore-using-msbuild)
+   - [MSBuild](#restore-using-msbuild)
    - [Azure Pipelines](#restore-using-azure-pipelines)
    - [Azure DevOps Server](#restore-using-azure-devops-server)
 
@@ -244,4 +244,4 @@ Test automatického obnovení balíčků:
 
 ## <a name="troubleshooting"></a>Řešení potíží
 
-Podívejte se na téma [řešení potíží s obnovením balíčku](package-restore-troubleshooting.md).
+Podívejte se na téma [řešení potíží s obnovením balíčku](Package-restore-troubleshooting.md).

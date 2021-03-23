@@ -6,12 +6,12 @@ ms.author: jodou
 ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 5ba7860fae1037c0c0eb4c55d2df12d98b1d77cf
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 77b96e83f8fc7afd391537d16120d037585dd379
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775112"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859197"
 ---
 # <a name="package-versioning"></a>Správa verzí balíčků
 
@@ -245,3 +245,13 @@ Při získávání balíčků z úložiště během instalace, přeinstalace neb
 `pack` a `restore` operace normalizují verze, kdykoli je to možné. U balíčků už je tato normalizace neovlivněna čísly verzí v samotných balíčcích. má vliv jenom na to, jak NuGet odpovídá verzím při řešení závislostí.
 
 Úložiště balíčků NuGet ale musí tyto hodnoty nakládat stejným způsobem jako NuGet, aby se zabránilo duplikaci verze balíčku. Proto úložiště, které obsahuje verzi *1,0* balíčku, by nemělo také hostovat verzi *1.0.0* jako samostatný a jiný balíček.
+
+## <a name="where-nugetversion-diverges-from-semantic-versioning"></a>Kde se NuGetVersion odchylují od sémantické správy verzí
+
+Pokud chcete programově používat verze balíčků NuGet, důrazně doporučujeme použít [balíček NuGet. Versioning](https://www.nuget.org/packages/NuGet.Versioning). Statickou metodu `NuGetVersion.Parse(string)` lze použít k analýze řetězců verze a `VersionComparer` lze ji použít k řazení `NuGetVersion` instancí.
+
+Pokud implementujete funkce NuGet v jazyce, který neběží na platformě .NET, najdete tady známý seznam rozdílů mezi `NuGetVersion` a sémantickou správou verzí a důvody, proč nemusí existující knihovna sémantických verzí fungovat pro balíčky, které už jsou publikované v NuGet.org.
+
+1. `NuGetVersion` podporuje segment čtvrté verze, `Revision` , aby byl kompatibilní s nebo nadmnožinou, [`System.Version`](/dotnet/api/system.version) . Proto s výjimkou předprodejní a popisků metadat je řetězec verze `Major.Minor.Patch.Revision` . Jak je to normalizace podle výše popsané výše, pokud `Revision` je nula, je z normalizovaného řetězce verze vynechán.
+2. `NuGetVersion` vyžaduje, aby byl definován hlavní segment. Všechny ostatní jsou volitelné a odpovídají nule. To znamená, že `1` ,, `1.0` `1.0.0` a `1.0.0.0` jsou všechny přijaty a rovné.
+3. `NuGetVersion` používá porovnání řetězců insenstive Case pro předběžné verze komponent. To znamená, že `1.0.0-alpha` a `1.0.0-Alpha` jsou stejné.

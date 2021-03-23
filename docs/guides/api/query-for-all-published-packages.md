@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 11/02/2017
 ms.topic: tutorial
 ms.reviewer: kraigb
-ms.openlocfilehash: 7e611b568538e0acfcbad2e5d986a0f9382ac8fd
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 8f21aad93eb952035683314c10cd964f265ec4fd
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98774118"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859340"
 ---
 # <a name="query-for-all-packages-published-to-nugetorg"></a>Dotaz na všechny balíčky publikované do nuget.org
 
@@ -110,7 +110,7 @@ Pokud z nějakého důvodu máte chybu ve způsobu zpracování katalogu, může
 
 Vzhledem k tomu, že se jedná o sadu dokumentů JSON, které jsou dostupné přes protokol HTTP, může se jednat o použití libovolného programovacího jazyka, který má klienta HTTP a deserializaci JSON.
 
-Ukázky v jazyce C# jsou k dispozici v [úložišti NuGet/Samples](https://github.com/NuGet/Samples/tree/master/CatalogReaderExample).
+Ukázky v jazyce C# jsou k dispozici v [úložišti NuGet/Samples](https://github.com/NuGet/Samples/tree/main/CatalogReaderExample).
 
 ```cli
 git clone https://github.com/NuGet/Samples.git
@@ -122,7 +122,7 @@ Nejjednodušší způsob, jak využít katalog, je použít předběžnou verzi 
 
 Tento balíček můžete nainstalovat do projektu kompatibilního se systémem `netstandard1.3` nebo vyšším (například .NET Framework 4,6).
 
-Ukázka použití tohoto balíčku je k dispozici na GitHubu v [projektu NuGet. Protocol. Catalog. Sample](https://github.com/NuGet/Samples/tree/master/CatalogReaderExample/NuGet.Protocol.Catalog.Sample).
+Ukázka použití tohoto balíčku je k dispozici na GitHubu v [projektu NuGet. Protocol. Catalog. Sample](https://github.com/NuGet/Samples/tree/main/CatalogReaderExample/NuGet.Protocol.Catalog.Sample).
 
 #### <a name="sample-output"></a>Ukázkový výstup
 
@@ -160,9 +160,9 @@ warn: NuGet.Protocol.Catalog.CatalogProcessor[0]
 
 ### <a name="minimal-sample"></a>Minimální vzorek
 
-Příklad s menším počtem závislostí, které ilustrují interakci s katalogem, naleznete v tématu [CatalogReaderExample Sample Project](https://github.com/NuGet/Samples/tree/master/CatalogReaderExample/CatalogReaderExample). Projekt cílí na `netcoreapp2.0` a závisí na [4.4.0 NuGet. Protocol](https://www.nuget.org/packages/NuGet.Protocol/4.4.0) (pro překlad indexu služby) a [Newtonsoft.Jsv 9.0.1](https://www.nuget.org/packages/Newtonsoft.Json/9.0.1) (pro deserializaci JSON).
+Příklad s menším počtem závislostí, které ilustrují interakci s katalogem, naleznete v tématu [CatalogReaderExample Sample Project](https://github.com/NuGet/Samples/tree/main/CatalogReaderExample/CatalogReaderExample). Projekt cílí na `netcoreapp2.0` a závisí na [4.4.0 NuGet. Protocol](https://www.nuget.org/packages/NuGet.Protocol/4.4.0) (pro překlad indexu služby) a [Newtonsoft.Jsv 9.0.1](https://www.nuget.org/packages/Newtonsoft.Json/9.0.1) (pro deserializaci JSON).
 
-Hlavní logika kódu je viditelná v [souboru program.cs](https://github.com/NuGet/Samples/blob/master/CatalogReaderExample/CatalogReaderExample/Program.cs).
+Hlavní logika kódu je viditelná v [souboru program. cs](https://github.com/NuGet/Samples/blob/main/CatalogReaderExample/CatalogReaderExample/Program.cs).
 
 #### <a name="sample-output"></a>Ukázkový výstup
 

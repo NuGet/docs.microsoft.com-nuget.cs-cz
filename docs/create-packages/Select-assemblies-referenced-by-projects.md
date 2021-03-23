@@ -1,37 +1,37 @@
 ---
-title: Vybrat sestavení odkazovaná projekty
-description: Zpřístupnit kompilátoru podmnožinu sestavení v balíčku, zatímco všechna sestavení jsou k dispozici za běhu.
+title: Vybrat sestavení, na která odkazují projekty
+description: Vytvořte podmnožinu sestavení v balíčku k dispozici pro kompilátor, zatímco všechna sestavení jsou k dispozici za běhu.
 author: zivkan
 ms.author: zivkan
 ms.date: 05/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: b32075c3f2c06c15c07d36602bdabdaee8b9405a
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: b2202946d0060e09828250d240f931044d1bf485
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "67427659"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859028"
 ---
-# <a name="select-assemblies-referenced-by-projects"></a>Vybrat sestavení odkazovaná projekty
+# <a name="select-assemblies-referenced-by-projects"></a>Vybrat sestavení, na která odkazují projekty
 
-Explicitní odkazy na sestavení umožňují použití podmnožiny sestavení pro službu IntelliSense a kompilaci, zatímco všechna sestavení jsou k dispozici za běhu. `PackageReference`a `packages.config` pracovat odlišně, a jako výsledek balíček autoři musí dbát na vytvoření balíčku, které mají být kompatibilní s oběma typy projektu.
+Explicitní odkazy na sestavení umožňují použít podmnožinu sestavení pro technologii IntelliSense a kompilaci, zatímco všechna sestavení jsou k dispozici v době běhu. `PackageReference` a `packages.config` fungují jinak a jako tvůrci balíčku výsledků se musí postarat o vytvoření balíčku tak, aby byl kompatibilní s oběma typy projektů.
 
 > [!Note]
-> Explicitní odkazy na sestavení se vztahují k sestavením .NET. Není metoda k distribuci nativní sestavení, které jsou P/Vzbuzované spravované sestavení.
+> Explicitní odkazy na sestavení souvisejí s sestaveními .NET. Nejedná se o metodu pro distribuci nativních sestavení, která jsou volána ve spravovaném sestavení.
 
-## <a name="packagereference-support"></a>`PackageReference`Podporu
+## <a name="packagereference-support"></a>`PackageReference` pracovníky
 
-Pokud projekt používá balíček s `PackageReference` a `ref\<tfm>\` balíček obsahuje adresář, NuGet klasifikuje tyto `lib\<tfm>\` sestavení jako prostředky v době kompilace, zatímco sestavení jsou klasifikovány jako datové zdroje runtime. Sestavení v `ref\<tfm>\` se nepoužívají za běhu. To znamená, že je `ref\<tfm>\` nezbytné pro všechny sestavení `lib\<tfm>\` v `runtime\` mít odpovídající sestavení v jednom nebo příslušném adresáři, jinak dojde k chybám za běhu. Vzhledem k `ref\<tfm>\` tomu, že sestavení v nejsou používány za běhu, mohou být [sestavení pouze metadata](https://github.com/dotnet/roslyn/blob/master/docs/features/refout.md) ke snížení velikosti balíčku.
+Když projekt používá balíček s `PackageReference` a balíček obsahuje `ref\<tfm>\` adresář, nástroj NuGet tyto sestavení klasifikuje jako prostředky v době kompilace, zatímco `lib\<tfm>\` sestavení jsou klasifikována jako prostředky modulu runtime. Sestavení v `ref\<tfm>\` se nepoužívají v době běhu. To znamená, že pro každé sestavení v `ref\<tfm>\` musí mít odpovídající sestavení v buď nebo v `lib\<tfm>\` příslušném `runtime\` adresáři, jinak dojde k chybám za běhu. Vzhledem k tomu, že sestavení v nástroji `ref\<tfm>\` nejsou použita za běhu, mohou být [sestavení pouze metadat](https://github.com/dotnet/roslyn/blob/main/docs/features/refout.md) pro snížení velikosti balíčku.
 
 > [!Important]
-> Pokud balíček obsahuje `<references>` nuspec element `packages.config`(používá , viz níže) `ref\<tfm>\`a neobsahuje sestavení v , NuGet `<references>` bude inzerovat sestavení uvedená v nuspec element jako kompilování a runtime prostředky. To znamená, že budou existovat výjimky za běhu, když odkazovaná `lib\<tfm>\` sestavení potřebují načíst jakékoli jiné sestavení v adresáři.
+> Pokud balíček obsahuje `<references>` element nuspec (používaný v `packages.config` , viz níže) a neobsahuje sestavení v nástroji `ref\<tfm>\` , NuGet bude inzerovat sestavení uvedená v `<references>` elementu nuspec jako prostředky kompilace a modulu runtime. To znamená, že dojde k výjimkám za běhu v případě, že odkazovaná sestavení potřebují načíst jakékoliv jiné sestavení v `lib\<tfm>\` adresáři.
 
 > [!Note]
-> Pokud balíček `runtime\` obsahuje adresář, NuGet nesmí používat `lib\` prostředky v adresáři.
+> Pokud balíček obsahuje `runtime\` adresář, NuGet nemusí použít prostředky v `lib\` adresáři.
 
-## <a name="packagesconfig-support"></a>`packages.config`Podporu
+## <a name="packagesconfig-support"></a>`packages.config` pracovníky
 
-Projekty, které používají `packages.config` ke správě balíčků NuGet, obvykle přidávají odkazy na všechna sestavení v adresáři. `lib\<tfm>\` Adresář `ref\` byl přidán `PackageReference` do podpory, a proto `packages.config`není považován za použití . Chcete-li explicitně nastavit, která `packages.config`sestavení jsou odkazována pro projekty pomocí , balíček musí použít [ `<references>` prvek v souboru nuspec](../reference/nuspec.md#explicit-assembly-references). Příklad:
+Projekty `packages.config` , které používají ke správě balíčků NuGet, obvykle přidávají odkazy na všechna sestavení v `lib\<tfm>\` adresáři. `ref\`Adresář se přidal do podpory `PackageReference` , a proto se při použití nebere v úvahu `packages.config` . Chcete-li explicitně nastavit, která sestavení jsou odkazována na projekty pomocí `packages.config` , balíček musí použít [ `<references>` prvek v souboru nuspec](../reference/nuspec.md#explicit-assembly-references). Například:
 
 ```xml
 <references>
@@ -42,11 +42,11 @@ Projekty, které používají `packages.config` ke správě balíčků NuGet, ob
 ```
 
 > [!Note]
-> `packages.config`projekt použít proces s názvem [ResolveAssemblyReference](https://github.com/Microsoft/msbuild/blob/master/documentation/wiki/ResolveAssemblyReference.md) `bin\<configuration>\` ke kopírování sestavení do výstupního adresáře. Sestavení projektu je zkopírováno, pak systém sestavení vyhledá manifest sestavení pro odkazovaná sestavení, pak zkopíruje tato sestavení a rekurzivně se opakuje pro všechna sestavení. To znamená, že pokud některé `lib\<tfm>\` sestavení v adresáři nejsou uvedeny v manifestu jiného sestavení jako závislost `Assembly.Load`(pokud je sestavení načteno za běhu pomocí , MEF `bin\<configuration>\` nebo jiného `bin\<tfm>\`rámce vkládání závislostí), nemusí být zkopírováno do výstupního adresáře projektu, přestože je v .
+> `packages.config` projekt kopíruje sestavení do výstupního adresáře pomocí procesu s názvem [ResolveAssemblyReference –](https://github.com/Microsoft/msbuild/blob/main/documentation/wiki/ResolveAssemblyReference.md) `bin\<configuration>\` . Sestavení projektu je zkopírováno, pak systém sestavení vyhledá manifest sestavení pro odkazovaná sestavení a poté zkopíruje tato sestavení a rekurzivně opakuje pro všechna sestavení. To znamená, že pokud některé sestavení v adresáři nejsou `lib\<tfm>\` uvedena v manifestu žádného jiného sestavení jako závislost (Pokud je sestavení načteno za běhu pomocí `Assembly.Load` rozhraní MEF nebo jiné rozhraní pro vkládání závislostí), pak nemusí být zkopírováno do `bin\<configuration>\` výstupního adresáře projektu, i když se nachází v `bin\<tfm>\` .
 
 ## <a name="example"></a>Příklad
 
-Můj balíček bude obsahovat `MyHelpers.dll` `MyUtilities.dll`tři sestavení , `MyLib.dll`a , které jsou zaměřené na rozhraní .NET Framework 4.7.2. `MyUtilities.dll`obsahuje třídy určené k použití pouze další dvě sestavení, takže nechci, aby tyto třídy k dispozici v IntelliSense nebo v době kompilace na projekty pomocí balíčku. Soubor `nuspec` musí obsahovat následující prvky XML:
+Balíček bude obsahovat tři sestavení, `MyLib.dll` `MyHelpers.dll` a `MyUtilities.dll` , které cílí na .NET Framework 4.7.2. `MyUtilities.dll` obsahuje třídy, které mají být použity pouze ostatními dvěma sestaveními, takže nechci tyto třídy zpřístupnit v technologii IntelliSense nebo v době kompilace do projektů pomocí balíčku. `nuspec`Soubor musí obsahovat následující prvky XML:
 
 ```xml
 <references>

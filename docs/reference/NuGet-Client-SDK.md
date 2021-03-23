@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 01/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: e89b50601deb204892536406b4ddabf7005e0642
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: f9e08d37b30dfea83fd9b61f168c1e20f530ff9f
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98776126"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859405"
 ---
 # <a name="nuget-client-sdk"></a>Sada SDK pro klienta NuGet
 
@@ -20,7 +20,7 @@ ms.locfileid: "98776126"
 * [`NuGet.Packaging`](https://www.nuget.org/packages/NuGet.Packaging) – Používá se k interakci s balíčky NuGet. `NuGet.Protocol` závisí na tomto balíčku.
 
 Zdrojový kód pro tyto balíčky najdete v úložišti [NuGet/NuGet. Client](https://github.com/NuGet/NuGet.Client) GitHub.
-Zdrojový kód pro tyto příklady najdete v projektu [NuGet. Protocol. Samples](https://github.com/NuGet/Samples/tree/master/NuGetProtocolSamples) na GitHubu.
+Zdrojový kód pro tyto příklady najdete v projektu [NuGet. Protocol. Samples](https://github.com/NuGet/Samples/tree/main/NuGetProtocolSamples) na GitHubu.
 
 > [!Note]
 > Dokumentaci k protokolu serveru NuGet najdete v tématu [rozhraní API serveru NuGet](~/api/overview.md).

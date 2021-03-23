@@ -6,12 +6,12 @@ ms.author: jodou
 ms.date: 12/11/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 7671b50b84bf1447fe94e02896786d1f309425dd
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 9172aefb48ab3e542498f5a144f1d4f381ad55bd
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98777316"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859483"
 ---
 # <a name="target-frameworks"></a>Cílové architektury
 
@@ -23,13 +23,17 @@ NuGet používá cílové rozhraní odkazy na celou řadu míst pro specifickou 
 - [packages.config](../reference/packages-config.md): `targetframework` atribut závislosti určuje variantu balíčku, který se má nainstalovat.
 
 > [!Note]
-> Zdrojový kód klienta NuGet, který počítá tabulky uvedené níže, najdete v následujících umístěních:
-> - Podporované názvy rozhraní: [FrameworkConstants.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs)
-> - Priorita architektury a mapování: [DefaultFrameworkMappings.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs)
+> NuGet podporuje všechny moderní cílové rozhraní .NET Framework:
+> - Seznam nejnovějších cílových rozhraní naleznete [v dokumentaci cílové architektury v projektech ve stylu sady SDK](/dotnet/standard/frameworks) .
 
 ## <a name="supported-frameworks"></a>Podporované architektury
 
 Rozhraní je obvykle odkazováno krátkým monikerem cílového rozhraní Framework nebo TFM. V .NET Standard to je také generalizované na *TxM* , aby bylo možné použít jediný odkaz na více rozhraní.
+
+> [!Note]
+> Zdrojový kód klienta NuGet, který počítá tabulky uvedené níže, najdete v následujících umístěních:
+> - Podporované názvy rozhraní: [FrameworkConstants. cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs)
+> - Priorita architektury a mapování: [DefaultFrameworkMappings. cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs)
 
 Klienti NuGet podporují rozhraní v následující tabulce. Ekvivalenty jsou uvedeny v závorkách []. Všimněte si, že některé nástroje, například `dotnet` , mohou v některých souborech používat variace kanonické TFM. Například `dotnet pack` používá  `.NETCoreApp2.0` v `.nuspec` souboru místo `netcoreapp2.0` . Různé nástroje klienta NuGet tyto variace zpracovávají správně, ale při přímém upravování souborů byste měli vždycky používat kanonickou TFM.
 

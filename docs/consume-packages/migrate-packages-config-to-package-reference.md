@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 05/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8161f4a39d4adfdb9efb25bcb840b20b85a58e07
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: fabfd76a46a38ff26acbc6439406d99eb3f85bf4
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98774784"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859158"
 ---
 # <a name="migrate-from-packagesconfig-to-packagereference"></a>Migrace z packages.config na PackageReference
 
@@ -100,31 +100,27 @@ Některé aspekty, které byly podporovány v packages.config, nejsou v PackageR
 
 ### <a name="installps1-scripts-are-ignored-when-the-package-is-installed-after-the-migration"></a>Při instalaci balíčku po migraci se skripty "install.ps1" ignorují.
 
-| | |
-| --- | --- |
-| **Popis** | Při instalaci nebo odinstalaci balíčku se pomocí PackageReference nespustí skripty PowerShellu pro install.ps1 a uninstall.ps1. |
-| **Potenciální dopad** | Balíčky, které závisí na těchto skriptech ke konfiguraci určitého chování v cílovém projektu, nemusí fungovat podle očekávání. |
+* **Popis**: při instalaci nebo odinstalaci balíčku se nespustí skripty PowerShellu pro PackageReference install.ps1 a uninstall.ps1.
+
+* **Potenciální dopad**: balíčky závislé na těchto skriptech pro konfiguraci některých chování v cílovém projektu nemusí fungovat podle očekávání.
 
 ### <a name="content-assets-are-not-available-when-the-package-is-installed-after-the-migration"></a>prostředky Content nejsou dostupné, když se balíček nainstaluje po migraci.
 
-| | |
-| --- | --- |
-| **Popis** | Prostředky ve složce balíčku nejsou `content` podporovány v PackageReference a jsou ignorovány. PackageReference přidává podporu pro `contentFiles` pro zajištění lepší přenosové podpory a sdíleného obsahu.  |
-| **Potenciální dopad** | Prostředky v `content` nejsou zkopírovány do projektu a kód projektu, který závisí na přítomnosti těchto assetů, vyžaduje refaktoring.  |
+* **Popis**: prostředky ve složce balíčku nejsou `content` podporovány v PackageReference a jsou ignorovány. PackageReference přidává podporu pro `contentFiles` pro zajištění lepší přenosové podpory a sdíleného obsahu.
+
+* **Potenciální dopad**: prostředky v `content` nejsou zkopírovány do projektu a kód projektu, který závisí na přítomnosti těchto assetů, vyžaduje refaktoring.
 
 ### <a name="xdt-transforms-are-not-applied-when-the-package-is-installed-after-the-upgrade"></a>Transformace XDT se neaplikují, když se balíček nainstaluje po upgradu.
 
-| | |
-| --- | --- |
-| **Popis** | Transformace XDT nejsou podporované PackageReference a `.xdt` soubory se při instalaci nebo odinstalaci balíčku ignorují.   |
-| **Potenciální dopad** | Transformace XDT nejsou aplikovány na žádné soubory XML projektu, nejčastěji `web.config.install.xdt` a `web.config.uninstall.xdt` , což znamená, že soubor projektu není ` web.config` aktualizován při instalaci nebo odinstalaci balíčku. |
+* **Popis**: transformace XDT nejsou podporované PackageReference a `.xdt` soubory se při instalaci nebo odinstalaci balíčku ignorují.
+
+* **Potenciální dopad**: transformace XDT nejsou aplikovány na žádné soubory XML projektu, nejčastěji `web.config.install.xdt` a `web.config.uninstall.xdt` , což znamená, že soubor projektu není ` web.config` aktualizován při instalaci nebo odinstalaci balíčku.
 
 ### <a name="assemblies-in-the-lib-root-are-ignored-when-the-package-is-installed-after-the-migration"></a>Sestavení v kořenovém adresáři lib se při instalaci balíčku po migraci ignorují.
 
-| | |
-| --- | --- |
-| **Popis** | V PackageReference, sestavení přítomná v kořenu `lib` složky bez konkrétní podsložky cílového rozhraní, se ignorují. NuGet vyhledá podsložku odpovídající monikeru cílového rozhraní (TFM), který odpovídá cílovému rozhraní .NET Framework projektu, a nainstaluje odpovídající sestavení do projektu. |
-| **Potenciální dopad** | Balíčky, které nemají podsložku odpovídající cílovému monikeru rozhraní .NET Framework (TFM) odpovídající cílovému rozhraní projektu, se nemusí chovat podle očekávání po přechodu nebo při neúspěšné instalaci během migrace. |
+* **Popis**: v PackageReference sestaveních, která jsou přítomna v kořenu `lib` složky bez konkrétní podsložky cílové architektury, se ignorují. NuGet vyhledá podsložku odpovídající monikeru cílového rozhraní (TFM), který odpovídá cílovému rozhraní .NET Framework projektu, a nainstaluje odpovídající sestavení do projektu.
+
+* **Potenciální dopad**: balíčky, které nemají podsložku odpovídající cílovému monikeru rozhraní (TFM), které odpovídají cílovému rozhraní projektu, se nemusí chovat podle očekávání po přechodu nebo při neúspěšné instalaci během migrace.
 
 ## <a name="found-an-issue-report-it"></a>Našel se problém? Report IT!
 

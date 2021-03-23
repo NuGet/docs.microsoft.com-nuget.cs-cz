@@ -5,19 +5,19 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: f324f1e27e0d718571525152fcf16b55b900dbaa
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: ab3bde0d320375f854a8f0a98fb90acfecf54aa3
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98777762"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859093"
 ---
 # <a name="authenticating-feeds-in-visual-studio-with-nuget-credential-providers"></a>Ověřování informačních kanálů v aplikaci Visual Studio s poskytovateli přihlašovacích údajů NuGet
 
 Rozšíření NuGet pro Visual Studio Extensions 3.6 + podporuje poskytovatele přihlašovacích údajů, což umožňuje, aby NuGet fungoval s ověřenými informačními kanály.
 Po instalaci poskytovatele pověření NuGet pro Visual Studio rozšíření NuGet sady Visual Studio automaticky získá a obnoví přihlašovací údaje pro ověřené informační kanály podle potřeby.
 
-Ukázkovou implementaci najdete v [ukázce VsCredentialProvider](https://github.com/NuGet/Samples/tree/master/VsCredentialProvider).
+Ukázkovou implementaci najdete v [ukázce VsCredentialProvider](https://github.com/NuGet/Samples/tree/main/VsCredentialProvider).
 
 V sadě Visual Studio NuGet používá interní, `VsCredentialProviderImporter` který také hledá poskytovatele přihlašovacích údajů modulu plug-in. Tito zprostředkovatelé přihlašovacích údajů modulu plug-in musí být zjistitelní jako export MEF typu `IVsCredentialProvider` .
 
@@ -58,7 +58,7 @@ public interface IVsCredentialProvider
 }
 ```
 
-Ukázkovou implementaci najdete v [ukázce VsCredentialProvider](https://github.com/NuGet/Samples/tree/master/VsCredentialProvider).
+Ukázkovou implementaci najdete v [ukázce VsCredentialProvider](https://github.com/NuGet/Samples/tree/main/VsCredentialProvider).
 
 Každý poskytovatel pověření NuGet pro Visual Studio musí:
 
@@ -78,4 +78,4 @@ Vlastní zprostředkovatel pověření NuGet pro Visual Studio musí implementov
 | bool neinteraktivní | Pokud je hodnota true, poskytovatel pověření musí potlačit všechny výzvy uživatelů a místo toho použít výchozí hodnoty. |
 | CancellationToken cancellationToken | Tento token zrušení by měl být zkontrolován, aby bylo možné zjistit, zda operace požadující přihlašovací údaje byla zrušena. |
 
-**Návratová hodnota**: objekt přihlašovacích údajů implementující [ `System.Net.ICredentials` rozhraní](/dotnet/api/system.net.icredentials?view=netstandard-2.0).
+**Návratová hodnota**: objekt přihlašovacích údajů implementující [ `System.Net.ICredentials` rozhraní](/dotnet/api/system.net.icredentials).

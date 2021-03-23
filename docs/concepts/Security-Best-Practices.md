@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 02/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 125579832db2ac32217d24f6fc6fc1b555f54350
-ms.sourcegitcommit: aeb9072f2fcaca73dc9de05b7fd643f1aa7c5821
+ms.openlocfilehash: e0f235d99e41e23a4551fbf7577f6c42e3381f5b
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101101436"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859223"
 ---
 # <a name="best-practices-for-a-secure-software-supply-chain"></a>Osvědčené postupy pro zabezpečený dodavatelský řetězec softwaru
 
@@ -75,7 +75,7 @@ Obvykle se nachází na jednom ze dvou míst:
 -   [`packages.config`](../reference/packages-config.md) – Umístěný v kořenovém adresáři projektu.
 -   [`<PackageReference>`](../consume-packages/package-references-in-project-files.md) – Nachází se v souboru projektu. 
 
-V závislosti na tom, jakou metodu používáte ke správě závislosti NuGet, můžete také použít sadu Visual Studio k zobrazení závislostí přímo v [Průzkumník řešení](/visualstudio/ide/solutions-and-projects-in-visual-studio?view=vs-2019#solution-explorer) nebo [Správce balíčků NuGet](../consume-packages/install-use-packages-visual-studio.md).
+V závislosti na tom, jakou metodu používáte ke správě závislosti NuGet, můžete také použít sadu Visual Studio k zobrazení závislostí přímo v [Průzkumník řešení](/visualstudio/ide/solutions-and-projects-in-visual-studio#solution-explorer) nebo [Správce balíčků NuGet](../consume-packages/install-use-packages-visual-studio.md).
 
 Pro prostředí rozhraní příkazového řádku můžete použít [`dotnet list package`](/dotnet/core/tools/dotnet-list-package) příkaz k vypsání závislosti projektu nebo řešení. 
 
@@ -140,7 +140,7 @@ Pokud chcete nakonfigurovat zásady důvěryhodnosti klientů, [Přečtěte si n
 
 Uzamknout soubory uložte hodnotu hash obsahu balíčku. Pokud se hodnota hash obsahu balíčku, který chcete nainstalovat, shoduje se souborem zámku, zajistíte tak, aby se balíčky opakovaly.
 
-Pokud chcete povolit soubory zámku, [Přečtěte si následující dokumentaci](../consume-packages/package-references-in-project-files#locking-dependencies).
+Pokud chcete povolit soubory zámku, [Přečtěte si následující dokumentaci](../consume-packages/package-references-in-project-files.md#locking-dependencies).
 
 ## <a name="monitor-your-supply-chain"></a>Monitorování dodavatelského řetězce
 
