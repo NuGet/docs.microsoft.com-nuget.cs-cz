@@ -38,6 +38,12 @@
       "url": "https://github.com/Microsoft/templates.docs.msft.pdf",
       "branch": "master"
     },
+     {
+      "path_to_root": "nuget-samples",
+      "url": "https://github.com/NuGet/Samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
     {
       "path_to_root": "_repo.en-us",
       "url": "https://github.com/NuGet/docs.microsoft.com-nuget",
