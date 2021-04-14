@@ -70,6 +70,7 @@
 ## [Správa verzí balíčků](concepts/package-versioning.md)
 ## [Řešení závislostí](concepts/dependency-resolution.md)
 ## [Osvědčené postupy pro zabezpečený dodavatelský řetězec softwaru](concepts/Security-Best-Practices.md)
+## [Řešení potíží s nainstalovanými balíčky](concepts/troubleshooting-installed-packages.md)
 # Odkaz
 ## [.nuspec](reference/nuspec.md)
 ## [Soubor nuget.config](reference/nuget-config-file.md)
