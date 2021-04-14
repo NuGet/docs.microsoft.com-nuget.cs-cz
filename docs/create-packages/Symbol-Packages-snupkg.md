@@ -12,18 +12,18 @@ keywords: Balíčky symbolů NuGet, ladění balíčku NuGet, podpora ladění N
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 001637348fdd435e4ffd3a5a55e8128d1eab453c
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: a62996a28348bf95e4581af180597d72cd5aa298
+ms.sourcegitcommit: c8bf16420f235fc3e42c08cd0d56359e91d490e5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98774570"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107387332"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Vytváření balíčků symbolů (. snupkg)
 
 Dobré prostředí ladění spoléhá na přítomnost symbolů ladění, protože poskytují kritické informace, jako je například přidružení mezi zkompilovaným a zdrojovým kódem, názvy místních proměnných, trasování zásobníku a další. Balíčky symbolů (. snupkg) můžete použít k distribuci těchto symbolů a zlepšení možností ladění balíčků NuGet.
 
-> Všimněte si, že balíček symbolů není jedinou strategií pro zpřístupnění ladicích symbolů pro uživatele vaší knihovny. Je to také [možné `embed` ](https://docs.microsoft.com/dotnet/core/deploying/single-file#include-pdb-files-inside-the-bundle) v `dll` nebo `exe` s následující vlastností projektu:`<DebugType>embedded</DebugType>`
+> Všimněte si, že balíček symbolů není jedinou strategií pro zpřístupnění ladicích symbolů pro uživatele vaší knihovny. Je to také [možné `embed` ](/dotnet/core/deploying/single-file#include-pdb-files-inside-the-bundle) v `dll` nebo `exe` s následující vlastností projektu:`<DebugType>embedded</DebugType>`
 
 ## <a name="prerequisites"></a>Požadavky
 

@@ -10,12 +10,12 @@ no-loc:
 - MSBuild
 - .nuspec
 - nuspec
-ms.openlocfilehash: 9d40d43d972537ee1cb11d54194ed6450ccd0b6e
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: 47411641db47884f79f2bc9a4aa00035fc79993b
+ms.sourcegitcommit: c8bf16420f235fc3e42c08cd0d56359e91d490e5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104858963"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107387371"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet zabalit a obnovit jako MSBuild cíle
 
@@ -68,8 +68,9 @@ Následující tabulka popisuje MSBuild vlastnosti, které lze přidat do soubor
 | `license` | `PackageLicenseFile` | empty | Cesta k souboru s licencí v rámci balíčku, pokud používáte vlastní licenci nebo licenci, ke které se nepřiřadil identifikátor SPDX Musíte explicitně sbalit soubor s odkazem na licenci. Odpovídá `<license type="file">` . Viz [balení licenčního výrazu nebo licenčního souboru](#packing-a-license-expression-or-a-license-file). |
 | `LicenseUrl` | `PackageLicenseUrl` | empty | `PackageLicenseUrl` je zastaralá. Použijte `PackageLicenseExpression` nebo `PackageLicenseFile` místo toho. |
 | `ProjectUrl` | `PackageProjectUrl` | empty | |
-| `Icon` | `PackageIcon` | empty | Cesta k obrázku v balíčku, který se má použít jako ikona balíčku Musíte explicitně sbalit soubor obrázku odkazované ikony. Další informace najdete v tématu [sbalení souboru obrázku ikony](#packing-an-icon-image-file) a [ `icon` metadat](/nuget/reference/nuspec#icon). |
+| `Icon` | `PackageIcon` | empty | Cesta k obrázku v balíčku, který se má použít jako ikona balíčku Musíte explicitně sbalit soubor obrázku odkazované ikony. Další informace najdete v tématu [sbalení souboru obrázku ikony](#packing-an-icon-image-file) a [ `icon` metadat](./nuspec.md#icon). |
 | `IconUrl` | `PackageIconUrl` | empty | `PackageIconUrl` je zastaralé namísto `PackageIcon` . Pro dosažení nejlepšího prostředí pro starší verze byste však měli zadat `PackageIconUrl` kromě `PackageIcon` . |
+| `Readme` | `PackageReadmeFile` | empty | Musíte explicitně zabalit odkazovaný soubor Readme.|
 | `Tags` | `PackageTags` | empty | Seznam značek oddělených středníkem, který určuje balíček. |
 | `ReleaseNotes` | `PackageReleaseNotes` | empty | Poznámky k verzi balíčku |
 | `Repository/Url` | `RepositoryUrl` | empty | Adresa URL úložiště, která se používá k klonování nebo načtení zdrojového kódu. Příklad: *https://github.com/ NuGet / NuGet . Client. Git*. |
@@ -99,6 +100,7 @@ Následující tabulka popisuje MSBuild vlastnosti, které lze přidat do soubor
 | `PackageProjectUrl` | |
 | `PackageIcon` | Určuje cestu ikony balíčku vzhledem k kořenu balíčku. Další informace najdete v tématu [sbalení souboru obrázku ikony](#packing-an-icon-image-file). |
 | `PackageReleaseNotes` | Poznámky k verzi balíčku |
+| `PackageReadmeFile` | Soubor Readme pro balíček. |
 | `PackageTags` | Seznam značek oddělených středníkem, který určuje balíček. |
 | `PackageOutputPath` | Určuje výstupní cestu, do které bude zahozen zabalený balíček. Výchozí je `$(OutputPath)`. |
 | `IncludeSymbols` | Tato logická hodnota označuje, zda má balíček při zabalení projektu vytvořit další balíček symbolů. Formát balíčku symbolů je řízen `SymbolPackageFormat` vlastností. Další informace najdete v tématu [IncludeSymbols](#includesymbols). |
@@ -158,6 +160,28 @@ Například:
 [Ukázka ikony balíčku](https://github.com/NuGet/Samples/tree/main/PackageIconExample)
 
 U nuspec ekvivalentu si přečtěte odkaz na [ nuspec ikonu](nuspec.md#icon).
+
+### <a name="packagereadmefile"></a>PackageReadmeFile
+
+Při balení souboru Readme je potřeba použít `PackageReadmeFile` vlastnost k určení cesty k balíčku vzhledem k kořenu balíčku. Kromě toho je nutné se ujistit, že je soubor součástí balíčku. Podporované formáty souborů obsahují pouze Markdownu (*. MD*).
+
+Například:
+
+```xml
+<PropertyGroup>
+    ...
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
+    ...
+</PropertyGroup>
+
+<ItemGroup>
+    ...
+    <None Include="docs\readme.md" Pack="true" PackagePath="\"/>
+    ...
+</ItemGroup>
+```
+
+V případě nuspec potřeby si přečtěte [ nuspec referenční informace k souboru Readme](nuspec.md#readme).
 
 ### <a name="output-assemblies"></a>Výstupní sestavení
 

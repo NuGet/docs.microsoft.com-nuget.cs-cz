@@ -6,12 +6,12 @@ ms.author: jodou
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 4028657862cfd56d0653b370e8344cab8392d69d
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: a8a8058032b0b6c6ddcd5eed1cf22e75f0e3af72
+ms.sourcegitcommit: c8bf16420f235fc3e42c08cd0d56359e91d490e5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104859496"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107387410"
 ---
 # <a name="nuspec-reference"></a>odkaz. nuspec
 
@@ -204,6 +204,29 @@ V případě ekvivalentu MSBuild se podíváme na [balení souboru obrázku ikon
 
 > [!Tip]
 > Můžete zadat obojí `icon` a `iconUrl` pro zajištění zpětné kompatibility se zdroji, které nepodporují `icon` . Visual Studio bude podporovat `icon` balíčky ze zdroje založeného na složce v budoucí verzi.
+
+#### <a name="readme"></a>Tool
+
+Při balení souboru Readme je nutné pomocí `readme` elementu zadat cestu k balíčku relativní ke kořenu balíčku. Kromě toho je nutné se ujistit, že je soubor součástí balíčku. Podporované formáty souborů obsahují pouze Markdownu (*. MD*).
+
+Například přidejte do svého nuspecu následující, aby bylo možné zabalit soubor Readme s vaším projektem:
+
+```xml
+<package>
+  <metadata>
+    ...
+    <readme>docs\readme.md</readme>
+    ...
+  </metadata>
+  <files>
+    ...
+    <file src="..\readme.md" target="docs\" />
+    ...
+  </files>
+</package>
+```
+
+V případě ekvivalentu MSBuild se podívejte na [balení souboru Readme](msbuild-targets.md#packagereadmefile).
 
 #### <a name="requirelicenseacceptance"></a>requireLicenseAcceptance
 Logická hodnota určující, zda klient musí požádat spotřebitele o přijetí licence k balíčku před instalací balíčku.
