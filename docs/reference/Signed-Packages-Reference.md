@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 05/18/2018
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: ac9efadc1d29bec86ca9b7821d5587e0171613aa
-ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
+ms.openlocfilehash: 85fdf7a41cc033d92bbd0326648142aec27a9970
+ms.sourcegitcommit: 1462f9f42ae36b3c990762ad4f02e38ab799ad09
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98235708"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107508797"
 ---
 # <a name="signed-packages"></a>Podepsané balíčky
 
@@ -23,7 +23,7 @@ Podepsané balíčky poskytují nejsilnější kompletní ověřování. Existuj
 - **Podpis autora** Podpis autora zaručuje, že balíček se nezměnil od autora podpisu balíčku bez ohledu na to, ze kterého úložiště nebo jakou metodu transportu balíček doručí. Navíc balíčky podepsané autorem poskytují pro kanál publikování nuget.org dodatečný mechanismus ověřování, protože podpisový certifikát musí být zaregistrovaný předem. Další informace najdete v tématu [Registrace certifikátů](#signature-requirements-on-nugetorg).
 - **Podpis úložiště** Signatury úložiště poskytují záruku integrity pro **všechny** balíčky v úložišti bez ohledu na to, jestli jsou autorem podepsané, nebo ne, a to i v případě, že se tyto balíčky získávají z jiného umístění, než je původní úložiště, ve kterém byly podepsané.   
 
-Podrobnosti o vytvoření balíčku podepsaného autorem najdete v tématu [podepisování balíčků](../create-packages/Sign-a-package.md) a [příkaz NuGet Sign](../reference/cli-reference/cli-ref-sign.md). Signatury balíčků můžete ověřit pomocí příkazů [dotnet NuGet ověřit](/dotnet/core/tools/dotnet-nuget-verify.md) nebo [NuGet ověřit](../reference/cli-reference/cli-ref-verify.md) .
+Podrobnosti o vytvoření balíčku podepsaného autorem najdete v tématu [podepisování balíčků](../create-packages/Sign-a-package.md) a [příkaz NuGet Sign](../reference/cli-reference/cli-ref-sign.md). Signatury balíčků můžete ověřit pomocí příkazů [dotnet NuGet ověřit](/dotnet/core/tools/dotnet-nuget-verify) nebo [NuGet ověřit](../reference/cli-reference/cli-ref-verify.md) .
 
 > [!Important]
 > Vytváření podpisových balíčků je v tuto chvíli podporované jenom v nuget.exe ve Windows. Všechny balíčky nahrané do nuget.org se ale automaticky podepisují jako úložiště.
@@ -57,6 +57,6 @@ nuget.org má další požadavky na přijetí podepsaného balíčku:
 ## <a name="related-articles"></a>Související články
 
 - [Podepisování balíčků NuGet](../create-packages/Sign-a-Package.md)
-- [Ověření podepsaných balíčků pomocí rozhraní příkazového řádku dotnet](/dotnet/core/tools/dotnet-nuget-verify.md)
+- [Ověření podepsaných balíčků pomocí rozhraní příkazového řádku dotnet](/dotnet/core/tools/dotnet-nuget-verify)
 - [Ověření podepsaných balíčků pomocí nuget.exe](../reference/cli-reference/cli-ref-verify.md)
 - [Správa rozsahu důvěryhodnosti balíčků](../consume-packages/installing-signed-packages.md)
