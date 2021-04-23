@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 7951b3db0cdcaee0a1eb955a5bf6fedce24c79c9
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 5224a4f5be519e1d72285562c1611d047582f7de
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237611"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901561"
 ---
 # <a name="individual-accounts-on-nugetorg"></a>Jednotlivé účty na NuGet.org
 
@@ -60,13 +60,13 @@ Dvojúrovňové ověřování, neboli 2FA, je další vrstva zabezpečení, kter
 
 3. Když se přihlásíte, vyberte jako druhou formu ověřování buď text, nebo e-mail.
 
-   Ověřte telefonní číslo nebo e-mailovou adresu, která je už přidružená k vašemu účet Microsoft. Pro svůj účet možná budete muset zadat nové telefonní číslo nebo e-mailovou adresu. Pokud ano, zadejte požadované informace podle pokynů a klikněte na tlačítko **Další** .
+   Ověřte telefonní číslo nebo e-mailovou adresu, která je už přidružená k vašemu účet Microsoft. Pro svůj účet možná budete muset zadat nové telefonní číslo nebo e-mailovou adresu. Pokud ano, zadejte požadované informace podle pokynů a klikněte na tlačítko **Další**.
 
-   ![Povolit 2FA](media/nuget-org-sign-in-2fa.png)
+   ![Povolit 2FA a zadat telefon](media/nuget-org-sign-in-2fa.png)
 
 4. Ověřte svoje zařízení nebo e-mailový účet a zadejte kód, který jste právě odeslali.
 
-   ![Povolit 2FA](media/nuget-org-enter-code-2fa.png)
+   ![Povolit 2FA a zadat kód](media/nuget-org-enter-code-2fa.png)
 
 5. Dokončete dvojúrovňové ověřování podle všech dalších pokynů.
 

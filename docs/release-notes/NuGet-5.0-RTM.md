@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 04/02/2019
 ms.topic: conceptual
-ms.openlocfilehash: 637db1ae128ce020c33e54e56148c848a5f905a5
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 19173d2be7cd66b65651655385466b40f5e08352
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98776216"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901743"
 ---
 # <a name="nuget-50-release-notes"></a>Zpráva k vydání verze NuGet 5,0
 
@@ -27,7 +27,7 @@ Prostředky pro distribuci NuGet:
 
 ## <a name="summary-whats-new-in-50"></a>Shrnutí: Novinky v 5,0
 
-* Podpora pro obnovení [filtrovaných řešení](/visualstudio/ide/filtered-solutions?view=vs-2019) v aplikaci Visual Studio 2019 – [#5820](https://github.com/NuGet/Home/issues/5820)
+* Podpora pro obnovení [filtrovaných řešení](/visualstudio/ide/filtered-solutions) v aplikaci Visual Studio 2019 – [#5820](https://github.com/NuGet/Home/issues/5820)
 * `BuildTransitive` Složka umožňuje balíčkům, aby byly do projektu hostitele zacíleny cílení na přispívat/props – [#6091](https://github.com/NuGet/Home/issues/6091)
 * Lepší podpora scénářů PackageReference v rozhraní NuGet Ideographic API [](https://github.com/NuGet/Home/issues/7005)– #7005 [#7493](https://github.com/NuGet/Home/issues/7493)
 * `nuget.exe pack project.json` se již nepoužívá- [#7928](https://github.com/NuGet/Home/issues/7928)

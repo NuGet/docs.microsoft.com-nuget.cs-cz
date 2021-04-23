@@ -1,16 +1,16 @@
 ---
 title: Vytvoření balíčku NuGet pomocí nástroje MSBuild
-description: Podrobný průvodce procesem navrhování a vytváření balíčku NuGet, včetně klíčových bodů rozhodování, jako jsou soubory a správa verzí.
+description: Podrobný průvodce procesem navrhování a vytváření balíčku NuGet pomocí nástroje MSBuild, včetně klíčových bodů rozhodování, jako jsou soubory a správa verzí.
 author: JonDouglas
 ms.author: jodou
 ms.date: 02/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 48741668af932a532240f2796a9bf5d490ee8e35
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 18e0da335f65fde99d035388b95f35160757ee84
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98774439"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901457"
 ---
 # <a name="create-a-nuget-package-using-msbuild"></a>Vytvoření balíčku NuGet pomocí nástroje MSBuild
 

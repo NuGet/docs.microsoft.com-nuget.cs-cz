@@ -6,12 +6,12 @@ ms.author: jodou
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: a8a8058032b0b6c6ddcd5eed1cf22e75f0e3af72
-ms.sourcegitcommit: c8bf16420f235fc3e42c08cd0d56359e91d490e5
+ms.openlocfilehash: ed865aad6f72752adcf3e3921287a20b961c4a8a
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107387410"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901808"
 ---
 # <a name="nuspec-reference"></a>odkaz. nuspec
 
@@ -207,6 +207,8 @@ V případě ekvivalentu MSBuild se podíváme na [balení souboru obrázku ikon
 
 #### <a name="readme"></a>Tool
 
+*Podporováno pro **NuGet 5.10.0 Preview 2** a novější*
+
 Při balení souboru Readme je nutné pomocí `readme` elementu zadat cestu k balíčku relativní ke kořenu balíčku. Kromě toho je nutné se ujistit, že je soubor součástí balíčku. Podporované formáty souborů obsahují pouze Markdownu (*. MD*).
 
 Například přidejte do svého nuspecu následující, aby bylo možné zabalit soubor Readme s vaším projektem:
@@ -226,7 +228,7 @@ Například přidejte do svého nuspecu následující, aby bylo možné zabalit
 </package>
 ```
 
-V případě ekvivalentu MSBuild se podívejte na [balení souboru Readme](msbuild-targets.md#packagereadmefile).
+V případě ekvivalentu MSBuild se podívejte na [balení souboru Readme](msbuild-targets.md#packagereadmefile). 
 
 #### <a name="requirelicenseacceptance"></a>requireLicenseAcceptance
 Logická hodnota určující, zda klient musí požádat spotřebitele o přijetí licence k balíčku před instalací balíčku.

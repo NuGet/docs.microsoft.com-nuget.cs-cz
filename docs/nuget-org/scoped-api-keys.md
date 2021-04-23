@@ -1,107 +1,107 @@
 ---
-title: Klíče rozhraní API s vymezenou s rozsahem
-description: Převzetí kontroly nad klíči rozhraní API, které používáte k nabízení balíčků
+title: Obory klíčů rozhraní API
+description: Převzetí řízení klíčů rozhraní API, které použijete k nabízení balíčků
 author: mikejo5000
 ms.author: mikejo
 ms.date: 06/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 12d12d5294a474c4d3e4f5d3cad468bb515d21d5
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: a3d2504528249f3545e2eb5d9bce7713029638db
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "67427500"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901587"
 ---
-# <a name="scoped-api-keys"></a>Klíče rozhraní API s vymezenou s rozsahem
+# <a name="scoped-api-keys"></a>Obory klíčů rozhraní API
 
-Chcete-li NuGet bezpečnější prostředí pro distribuci balíčků, můžete převzít kontrolu klíčů rozhraní API přidáním oborů.
+Pro zajištění bezpečnějšího prostředí pro distribuci balíčků můžete převzít řízení klíčů rozhraní API přidáním oborů.
 
-Možnost poskytnout rozsah klíčů rozhraní API vám lepší kontrolu nad rozhraníapi. Můžete:
+Možnost poskytovat rozsah klíčů rozhraní API vám poskytne lepší kontrolu nad rozhraními API. Další možnosti:
 
-- Vytvořte více klíčů rozhraní API s vymezeným oborem, které lze použít pro různé balíčky s různými časovými rámci vypršení platnosti.
-- Získejte klíče rozhraní API bezpečně.
-- Upravte existující klíče rozhraní API a změňte použitelnost balíčku.
-- Aktualizujte nebo odstraňte existující klíče rozhraní API bez omezení operací pomocí jiných klíčů.
+- Vytvořte několik klíčů rozhraní API s vymezeným oborem, které lze použít pro různé balíčky s různými časovými obdobími vypršení platnosti.
+- Získejte zabezpečený klíč rozhraní API.
+- Úpravou existujících klíčů rozhraní API změňte použitelnost balíčku.
+- Aktualizujte nebo odstraňte existující klíče rozhraní API, aniž by došlo k překážkám operací pomocí jiných klíčů.
 
-## <a name="why-do-we-support-scoped-api-keys"></a>Proč podporujeme klíče rozhraní API s rozsahem?
+## <a name="why-do-we-support-scoped-api-keys"></a>Proč podporujeme vymezené klíče rozhraní API?
 
-Podporujeme obory pro klíče rozhraní API, které vám umožní mít podrobnější oprávnění. Dříve NuGet nabídl jeden klíč rozhraní API pro účet a tento přístup měl několik nevýhod:
+Pro klíče rozhraní API podporujeme obory, které vám umožní mít přesnější oprávnění. V minulosti nabídl NuGet pro účet jeden klíč rozhraní API a tento přístup měl několik nevýhod:
 
-- **Jeden klíč rozhraní API pro řízení všech balíčků**. S jedním klíčem rozhraní API, který se používá ke správě všech balíčků, je obtížné bezpečně sdílet klíč, když více vývojářů jsou zapojeny s různými balíčky a když sdílejí účet vydavatele.
-- **Všechna oprávnění nebo žádná**. Každý, kdo má přístup ke klíči rozhraní API, má všechna oprávnění (publikovat, tlačit a zrušit seznam) v balíčcích. To často není žádoucí v prostředí s více týmy.
-- **Jediný bod selhání**. Jeden klíč rozhraní API také znamená jeden bod selhání. Pokud je klíč ohrožen, všechny balíčky přidružené k účtu může být potenciálně ohrožena. Aktualizace klíče rozhraní API je jediný způsob, jak připojit nevracení a zabránit přerušení pracovního postupu CI/CD. Kromě toho mohou existovat případy, kdy chcete odvolat přístup ke klíči rozhraní API pro jednotlivce (například když zaměstnanec opustí organizaci). Dnes neexistuje žádný čistý způsob, jak to zvládnout.
+- **Jeden klíč rozhraní API pro řízení všech balíčků**. Pomocí jediného klíče rozhraní API, který se používá ke správě všech balíčků, je obtížné tento klíč bezpečně sdílet, pokud se k různým balíčkům účastní více vývojářů a když sdílí účet vydavatele.
+- **Všechna oprávnění nebo žádná**. Každý, kdo má přístup k klíči rozhraní API, má všechna oprávnění (Publish, push a unlist) v balíčcích. To není často žádoucí v prostředí s více týmy.
+- **Jediný bod selhání**. Jeden klíč rozhraní API označuje také jediný bod selhání. Pokud dojde k ohrožení bezpečnosti klíče, můžou být všechny balíčky přidružené k tomuto účtu potenciálně ohrožené. Obnovení klíče rozhraní API je jediný způsob, jak zamezit úniku a vyhnout se přerušení pracovního postupu CI/CD. Kromě toho můžou nastat případy, kdy budete chtít odvolat přístup k klíči rozhraní API pro jednotlivce (například když zaměstnanec odejde z organizace). Neexistuje žádný čistý způsob, jak to zvládnout dnes.
 
-S rozsahem klíče rozhraní API, snažíme se řešit tyto problémy a zároveň se ujistěte, že žádný z existujících pracovních postupů přerušit.
+Pomocí vymezených klíčů rozhraní API se snažíme tyto problémy vyřešit a přitom se ujistit, že žádná z existujících pracovních postupů není přerušená.
 
 ## <a name="acquire-an-api-key"></a>Získání klíče rozhraní API
 
 [!INCLUDE [publish-api-key](../quickstart/includes/publish-api-key.md)]
 
-## <a name="create-scoped-api-keys"></a>Vytvoření klíčů rozhraní API s vymezenou montou s vymezenou monto
+## <a name="create-scoped-api-keys"></a>Vytvoření klíčů rozhraní API s vymezeným oborem
 
-Můžete vytvořit více klíčů rozhraní API na základě vašich požadavků. Klíč rozhraní API lze použít pro jeden nebo více balíčků, mají různé obory, které udělují určitá oprávnění a mají datum vypršení platnosti s ním spojené.
+Můžete vytvořit více klíčů rozhraní API na základě vašich požadavků. Klíč rozhraní API se může vztahovat na jeden nebo více balíčků, má různé obory, které udělují specifická oprávnění, a má k ní přidružené datum vypršení platnosti.
 
-V následujícím příkladu máte klíč `Contoso service CI` rozhraní API s názvem, `Contoso.Service` který lze použít k nabízení balíčků pro konkrétní balíčky a je platný po dobu 365 dnů. Toto je typický scénář, kde různé týmy v rámci stejné organizace pracují na různých balíčcích a členové týmu jsou k dispozici klíč, který uděluje jim oprávnění pouze pro balíček, na kterém pracují. Vypršení platnosti slouží jako mechanismus, aby se zabránilo zastaralé nebo zapomenuté klíče.
+V následujícím příkladu máte klíč rozhraní API s názvem `Contoso service CI` , který se dá použít k nabízení balíčků pro konkrétní `Contoso.Service` balíčky, a je platný po dobu 365 dnů. Jedná se o typický scénář, kdy různé týmy v rámci stejné organizace pracují na různých balíčcích a členové týmu poskytují klíč, který uděluje oprávnění pouze pro balíček, na kterém pracují. Vypršení platnosti slouží jako mechanismus, který brání zastaralým nebo zapomenutým klíčům.
 
-![Vytvořit klíče rozhraní API](media/scoped-api-keys-create-new.png)
+![Vytvoření klíčů rozhraní API](media/scoped-api-keys-create-new.png)
 
-## <a name="use-glob-patterns"></a>Použití glob vzory
+## <a name="use-glob-patterns"></a>Použití vzorů glob
 
-Pokud pracujete na více balíčcích a máte velký seznam balíčků ke správě, můžete použít globbing vzory vybrat více balíčků dohromady. Chcete-li například udělit určité obory klíči pro všechny `Fabrikam.Service`balíčky, jejichž ID `fabrikam.service.*` začíná , můžete to provést zadáním do textového pole **Vzor Glob.**
+Pokud pracujete na více balíčcích a máte velký seznam balíčků, které se mají spravovat, můžete pomocí vzorů expanze názvů vybrat více balíčků dohromady. Například pokud chcete udělit určité obory klíči pro všechny balíčky, jejichž ID začíná na `Fabrikam.Service` , můžete to provést tak, že zadáte `fabrikam.service.*` do textového pole **glob Pattern** .
 
-![Vytvořit klíče rozhraní API](media/scoped-api-keys-glob-pattern.png)
+![Vytvoření klíčů rozhraní API – 2](media/scoped-api-keys-glob-pattern.png)
 
-Použití glob vzory k určení oprávnění klíče rozhraní API platí také pro nové balíčky odpovídající glob vzor. Například pokud se pokusíte push `Fabrikam.Service.Framework`nový balíček s názvem , můžete to udělat s `fabrikam.service.*`klíčem vytvořeným dříve, protože balíček odpovídá glob vzor .
+Použití vzorů glob k určení oprávnění klíče rozhraní API platí i pro nové balíčky, které odpovídají vzoru glob. Pokud se například pokusíte odeslat nový balíček s názvem `Fabrikam.Service.Framework` , můžete to provést pomocí dříve vytvořeného klíče, protože balíček odpovídá glob vzoru `fabrikam.service.*` .
 
-## <a name="obtain-api-keys-securely"></a>Bezpečné získání klíčů rozhraní API
+## <a name="obtain-api-keys-securely"></a>Zabezpečený získávání klíčů rozhraní API
 
-Z bezpečnostních důvodů se nově vytvořený klíč nikdy nezobrazí na obrazovce a je k dispozici pouze pomocí tlačítka **Kopírovat.** Podobně klíč není přístupný po aktualizaci stránky.
+Z důvodu zabezpečení se nově vytvořený klíč nikdy nezobrazuje na obrazovce a je k dispozici pouze pomocí tlačítka **Kopírovat** . Podobně klíč není přístupný po obnovení stránky.
 
-![Vytvořit klíče rozhraní API](media/scoped-api-keys-obtain-keys.png)
+![Vytvoření klíčů rozhraní API – 3](media/scoped-api-keys-obtain-keys.png)
 
-## <a name="edit-existing-api-keys"></a>Úprava existujících klíčů rozhraní API
+## <a name="edit-existing-api-keys"></a>Upravit existující klíče rozhraní API
 
-Můžete také aktualizovat klíčová oprávnění a obory bez změny samotného klíče. Pokud máte klíč s určitým oborem (y) pro jeden balíček, můžete použít stejný obor (y) na jeden nebo mnoho dalších balíčků.
+Je také možné, že budete chtít aktualizovat klíčová oprávnění a obory beze změny samotného klíče. Pokud máte klíč s konkrétními obory pro jeden balíček, můžete použít stejný obor (y) na jednom nebo mnoha dalších balíčcích.
 
-![Vytvořit klíče rozhraní API](media/scoped-api-keys-edit.png)
+![Vytvoření klíčů rozhraní API – 4](media/scoped-api-keys-edit.png)
 
-## <a name="refresh-or-delete-existing-api-keys"></a>Aktualizace nebo odstranění existujících klíčů rozhraní API
+## <a name="refresh-or-delete-existing-api-keys"></a>Aktualizovat nebo odstranit existující klíče rozhraní API
 
-Vlastník účtu může aktualizovat klíč, v takovém případě oprávnění (na balíčky), obor a vypršení platnosti zůstávají stejné, ale je vydán nový klíč, takže starý klíč je nepoužitelný. To je užitečné při správě zastaralých klíčů nebo tam, kde existuje potenciál pro únik klíče rozhraní API.
+Vlastník účtu se může rozhodnout aktualizovat klíč. v takovém případě se oprávnění (v balíčcích), rozsah a vypršení platnosti zůstane stejné, ale nový klíč se vydá, protože starý klíč je vydaný jako nepoužitelný. To je užitečné při správě zastaralých klíčů nebo v případě úniku klíčů rozhraní API.
 
-![Vytvořit klíče rozhraní API](media/scoped-api-keys-refresh.png)
+![Vytvoření klíčů rozhraní API-5](media/scoped-api-keys-refresh.png)
 
-Můžete také odstranit tyto klíče, pokud již nejsou potřeba. Odstraněním klíče odeberete klíč a způsobí, že bude nepoužitelný.
+Tyto klíče můžete odstranit i v případě, že už je nepotřebujete. Odstranění klíče odebere klíč a stane se nepoužitelným.
 
 ## <a name="faqs"></a>Nejčastější dotazy
 
-### <a name="what-happens-to-my-old-legacy-api-key"></a>Co se stane s mým starým (starším) klíčem rozhraní API?
+### <a name="what-happens-to-my-old-legacy-api-key"></a>Co se stane se starým (starším) klíčem rozhraní API?
 
-Váš starý klíč rozhraní API (starší verze) pokračuje v práci a může fungovat tak dlouho, jak chcete, aby fungoval. Tyto klíče však budou vyřazeny, pokud nebyly použity více než 365 dní k vysunutí balíčku. Další podrobnosti najdete v příspěvku blogu [Změny vypršení platnosti klíčů rozhraní API](https://blog.nuget.org/20160825/Changes-to-Expiring-API-Keys.html). Tento klíč již nelze aktualizovat. Je třeba odstranit starší klíč a místo toho vytvořit nový klíč s vymezeným oborem.
+Starý klíč rozhraní API (starší verze) bude i nadále fungovat a může fungovat tak dlouho, dokud budete chtít pracovat. Tyto klíče se ale vyřadí, pokud se nepoužily po dobu delší než 365 dní k odeslání balíčku. Další podrobnosti najdete v blogovém příspěvku [o změnách platnosti klíčů rozhraní API](https://blog.nuget.org/20160825/Changes-to-Expiring-API-Keys.html). Tento klíč už nemůžete aktualizovat. Je nutné odstranit starší klíč a místo toho vytvořit nový klíč s oborem.
 
 > [!NOTE]
-> Tento klíč má všechna oprávnění pro všechny balíčky a jeho platnost nikdy nevyprší. Měli byste zvážit odstranění tohoto klíče a vytvoření nových klíčů s vymezenými oprávněními a definitivní platností.
+> Tento klíč má všechna oprávnění pro všechny balíčky a nikdy nekončí jeho platnost. Měli byste zvážit odstranění tohoto klíče a vytváření nových klíčů s rozsahem oprávnění a s určením platnosti.
 
-### <a name="how-many-api-keys-can-i-create"></a>Kolik klíčů rozhraní API mohu vytvořit?
+### <a name="how-many-api-keys-can-i-create"></a>Kolik klíčů rozhraní API můžu vytvořit?
 
-Počet klíčů rozhraní API, které můžete vytvořit, není nijak omezen. Doporučujeme vám však, abyste ji udrželi na zvládnutelném počtu, abyste neskončili s mnoha zastaralými klíči bez znalosti, kde a kdo je používá.
+Počet klíčů rozhraní API, které můžete vytvořit, není nijak omezený. Doporučujeme však, abyste zachovali spravovatelný počet, takže nebudete mít spoustu zastaralých klíčů bez znalosti toho, kde a kdo je používá.
 
-### <a name="can-i-delete-my-legacy-api-key-or-discontinue-using-now"></a>Můžu odstranit starší klíč rozhraní API nebo přestat používat?
+### <a name="can-i-delete-my-legacy-api-key-or-discontinue-using-now"></a>Můžu odstranit zastaralý klíč rozhraní API nebo ho teď přestat používat?
 
-Ano. Můžete -- a pravděpodobně byste měli -- odstranit váš starší klíč rozhraní API.
+Ano. Můžete--a pravděpodobně byste měli odstranit starší klíč rozhraní API.
 
-### <a name="can-i-get-back-my-api-key-that-i-deleted-by-mistake"></a>Mohu získat zpět klíč rozhraní API, který jsem omylem vymazal(a)?
+### <a name="can-i-get-back-my-api-key-that-i-deleted-by-mistake"></a>Můžu získat zpátky svůj klíč rozhraní API, který jsem odstranil omylem?
 
-Ne. Po odstranění můžete vytvořit pouze nové klíče. Pro omylem odstraněné klíče není možné obnovit.
+No. Po odstranění můžete vytvořit pouze nové klíče. Nechtěně odstraněné klíče není možné obnovit.
 
-### <a name="does-the-old-api-key-continue-to-work-upon-api-key-refresh"></a>Má starý klíč rozhraní API nadále fungovat při aktualizaci klíče rozhraní API?
+### <a name="does-the-old-api-key-continue-to-work-upon-api-key-refresh"></a>Funguje starý klíč rozhraní API i nadále při aktualizaci klíče rozhraní API?
 
-Ne. Po aktualizaci klíče se vygeneruje nový klíč, který má stejný obor, oprávnění a vypršení platnosti jako ten starý. Starý klíč přestává existovat.
+No. Když aktualizujete klíč, vygeneruje se nový klíč, který má stejný obor, oprávnění a vypršení platnosti jako starý. Starý klíč přestane existovat.
 
-### <a name="can-i-give-more-permissions-to-an-existing-api-key"></a>Můžu dát více oprávnění existujícímu klíči rozhraní API?
+### <a name="can-i-give-more-permissions-to-an-existing-api-key"></a>Můžu pro existující klíč rozhraní API přidělit další oprávnění?
 
-Obor nelze upravit, ale můžete upravit seznam balíčků, pro který se vztahuje.
+Obor nemůžete změnit, ale můžete upravit seznam balíčků, na který se vztahuje.
 
-### <a name="how-do-i-know-if-any-of-my-keys-expired-or-are-getting-expired"></a>Jak poznám, že platnost některého z mých klíčů vypršela nebo vypršela?
+### <a name="how-do-i-know-if-any-of-my-keys-expired-or-are-getting-expired"></a>Návody zjistit, jestli vypršela platnost nějakého z mých klíčů nebo že vypršela platnost?
 
-Pokud platnost některého klíče vyprší, dáme vám vědět prostřednictvím varovné zprávy v horní části stránky. Varovný e-mail také zašleme držiteli účtu deset dní před vypršením platnosti klíče, abyste podle něj mohli jednat s velkým předstihem.
+Pokud vyprší platnost nějakého klíče, dáme vám v horní části stránky informovat zprávu s upozorněním. E-mailovou zprávu pro držitele účtu pošleme také deset dnů před vypršením platnosti klíče, abyste mohli i nadále fungovat předem.

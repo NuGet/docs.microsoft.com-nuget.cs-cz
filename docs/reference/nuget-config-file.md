@@ -5,14 +5,14 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 08/13/2019
 ms.topic: reference
-ms.openlocfilehash: afc06c81bf0344f2086efd19111cc60d24d7f723
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: 38620058bccde876152328302a6049f011c149db
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104859509"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901860"
 ---
-# <a name="nugetconfig-reference"></a>Odkaz na nuget.config
+# <a name="nugetconfig-reference"></a>`nuget.config` odkaz
 
 Chování NuGet se řídí podle nastavení v různých `NuGet.Config` `nuget.config` souborech nebo, jak je popsáno v tématu [běžné konfigurace NuGet](../consume-packages/configuring-nuget-behavior.md).
 
@@ -350,14 +350,14 @@ Pokud se proměnná prostředí nenajde, NuGet použije hodnotu literálu z konf
 
 Následující tabulka zobrazuje syntaxi proměnných lnstalování a podporu oddělovače cest pro NuGet.Config soubory.
 
-### <a name="nugetconfig-environment-variable-support"></a>Podpora proměnné prostředí NuGet.Config
+### <a name="nugetconfig-environment-variable-support"></a>`NuGet.Config` Podpora proměnných prostředí
 
 | Syntax | Oddělovač adresářů | nuget.exe Windows | dotnet.exe Windows | nuget.exe Mac (v mono) | dotnet.exe Mac |
 |---|---|---|---|---|---|
-| `%MY_VAR%` | `/`  | Ano | Ano | Ano | Ano |
-| `%MY_VAR%` | `\`  | Ano | Ano | Ne | Ne |
-| `$MY_VAR` | `/`  | Ne | Ne | Ne | Ne |
-| `$MY_VAR` | `\`  | Ne | Ne | Ne | Ne |
+| `%MY_VAR%` | `/`  | Yes | Yes | Yes | Yes |
+| `%MY_VAR%` | `\`  | Yes | Yes | No | No |
+| `$MY_VAR` | `/`  | No | No | No | No |
+| `$MY_VAR` | `\`  | No | No | No | No |
 
 
 ## <a name="example-config-file"></a>Ukázkový konfigurační soubor

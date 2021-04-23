@@ -1,17 +1,17 @@
 ---
 title: Poznámky k verzi NuGet 4,4 RTM
-description: Poznámky k verzi pro NuGet 4,3 RTM, včetně známých problémů, oprav chyb, přidaných funkcí a chcete odeslat obecnou.
+description: Poznámky k verzi pro NuGet 4,4 RTM, včetně známých problémů, oprav chyb, přidaných funkcí a chcete odeslat obecnou.
 author: JonDouglas
 ms.author: jodou
 ms.date: 08/14/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 970a920a401b8a74c04d84cbad9933c54e3cd19e
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 980afffcd4202e019ffa87de5dccf947300a9c13
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98776288"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901704"
 ---
 # <a name="nuget-44-release-notes"></a>Zpráva k vydání verze NuGet 4,4
 

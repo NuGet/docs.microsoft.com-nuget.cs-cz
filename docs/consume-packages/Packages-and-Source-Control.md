@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 9bae65573ca49c68d07250228c1923890e0f14ac
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: fa3ec6992002224c9fb56a53aee9096e6d2c6fbb
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775017"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901665"
 ---
 # <a name="omitting-nuget-packages-in-source-control-systems"></a>Vynechávání balíčků NuGet v systémech správy zdrojového kódu
 
@@ -80,7 +80,7 @@ Chcete-li zakázat integraci správy zdrojového kódu s TFVC pro vybrané soubo
 
 1. Pokud používáte TFS 2010 nebo starší, skryté `packages` složky v mapování pracovních prostorů.
 
-1. Na serveru TFS 2012 nebo novějším nebo pomocí Visual Studio Team Services vytvořte `.tfignore` soubor, jak je popsáno v tématu [Přidání souborů na server](/vsts/tfvc/add-files-server?view=vsts#tfignore). V tomto souboru zahrňte níže uvedený obsah, který explicitně ignoruje změny `\packages` složky na úrovni úložiště a několik dalších zprostředkujících souborů. (Soubor můžete vytvořit v Průzkumníkovi Windows pomocí názvu a `.tfignore.` s koncovou tečkou, ale možná budete muset nejdřív zakázat možnost "Skrýt známé přípony souborů".):
+1. Na serveru TFS 2012 nebo novějším nebo pomocí Visual Studio Team Services vytvořte `.tfignore` soubor, jak je popsáno v tématu [Přidání souborů na server](/vsts/tfvc/add-files-server?view=vsts#tfignore&preserve-view=true). V tomto souboru zahrňte níže uvedený obsah, který explicitně ignoruje změny `\packages` složky na úrovni úložiště a několik dalších zprostředkujících souborů. (Soubor můžete vytvořit v Průzkumníkovi Windows pomocí názvu a `.tfignore.` s koncovou tečkou, ale možná budete muset nejdřív zakázat možnost "Skrýt známé přípony souborů".):
 
    ```cli
    # Ignore NuGet Packages

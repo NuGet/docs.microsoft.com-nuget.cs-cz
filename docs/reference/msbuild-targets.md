@@ -10,12 +10,12 @@ no-loc:
 - MSBuild
 - .nuspec
 - nuspec
-ms.openlocfilehash: 47411641db47884f79f2bc9a4aa00035fc79993b
-ms.sourcegitcommit: c8bf16420f235fc3e42c08cd0d56359e91d490e5
+ms.openlocfilehash: 0a10a6f1e4c71903232281c25a6c4b6bbc65fb34
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107387371"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901482"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet zabalit a obnovit jako MSBuild cíle
 
@@ -162,6 +162,8 @@ Například:
 U nuspec ekvivalentu si přečtěte odkaz na [ nuspec ikonu](nuspec.md#icon).
 
 ### <a name="packagereadmefile"></a>PackageReadmeFile
+
+*Podporováno s **NuGet 5.10.0 Preview 2**  /  **.NET 5.0.3** a vyššími*
 
 Při balení souboru Readme je potřeba použít `PackageReadmeFile` vlastnost k určení cesty k balíčku vzhledem k kořenu balíčku. Kromě toho je nutné se ujistit, že je soubor součástí balíčku. Podporované formáty souborů obsahují pouze Markdownu (*. MD*).
 
@@ -471,7 +473,7 @@ Soubor projektu:
 
 Obnovení vytvoří ve složce buildu následující soubory `obj` :
 
-| Soubor | Popis |
+| Soubor | Description |
 |--------|--------|
 | `project.assets.json` | Obsahuje graf závislostí všech odkazů na balíčky. |
 | `{projectName}.projectFileExtension.nuget.g.props` | Odkazy na MSBuild props obsažené v balíčcích |

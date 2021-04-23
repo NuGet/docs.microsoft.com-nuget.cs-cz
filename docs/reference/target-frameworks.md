@@ -6,12 +6,12 @@ ms.author: jodou
 ms.date: 12/11/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 9172aefb48ab3e542498f5a144f1d4f381ad55bd
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: d7f91880096b5cbdca7447f7838634ff099c3c4c
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104859483"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901717"
 ---
 # <a name="target-frameworks"></a>Cílové architektury
 
@@ -83,13 +83,15 @@ Univerzální platforma Windows | UAP | UAP [UAP 10.0] |
 | | | netstandard 1.6 |
 | | | netstandard 2.0 |
 | | | netstandard 2.1 |
-Aplikace .NET Core | netcoreapp | netcoreapp 1.0 |
+.NET 5 + (a .NET Core) | netcoreapp | netcoreapp 1.0 |
 | | | netcoreapp 1.1 |
 | | | netcoreapp2.0 |
 | | | netcoreapp 2.1 |
 | | | netcoreapp 2.2 |
 | | | netcoreapp 3.0 |
 | | | netcoreapp 3.1 |
+| | net | NET 5.0 |
+| | | NET 6.0 |
 Tizen | tizen | tizen3 |
 | | | tizen4 |
 
@@ -290,7 +292,7 @@ Další architektury definované třetími stranami poskytují kompatibilitu s j
 
 Balíčky NuGet cílené na Xamarin můžou navíc používat další architektury definované pro Xamarin. Viz [vytváření balíčků NuGet pro Xamarin](https://developer.xamarin.com/guides/cross-platform/advanced/nuget/).
 
-| Název | Popis | .NET Standard |
+| Název | Description | .NET Standard |
 | --- | --- | ---
 | monoandroid | Podpora mono pro operační systém Android | netstandard 1.4 |
 | MonoTouch | Podpora mono pro iOS | netstandard 1.4 |

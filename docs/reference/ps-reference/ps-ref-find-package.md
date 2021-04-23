@@ -5,16 +5,16 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 6/1/2017
 ms.topic: reference
-ms.openlocfilehash: 83d0d62bbda07d07ea1e3b58e531447e2001b680
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 263835da64340a13737b32ab54ab057cb640a080
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98777503"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901756"
 ---
 # <a name="find-package-package-manager-console-in-visual-studio"></a>Find-Package (konzola správce balíčků v aplikaci Visual Studio)
 
-*Verze 3.0 +; Toto téma popisuje příkaz v [konzole správce balíčků](../../consume-packages/install-use-packages-powershell.md) v sadě Visual Studio ve Windows. Obecný příkaz Find-Package PowerShellu najdete v [referenčních informacích k PowerShellu PackageManagement](/powershell/module/packagemanagement/?view=powershell-6).*
+*Verze 3.0 +; Toto téma popisuje příkaz v [konzole správce balíčků](../../consume-packages/install-use-packages-powershell.md) v sadě Visual Studio ve Windows. Obecný příkaz Find-Package PowerShellu najdete v [referenčních informacích k PowerShellu PackageManagement](/powershell/module/packagemanagement).*
 
 Získá sadu vzdálených balíčků se zadaným ID nebo klíčovými slovy ze zdroje balíčku.
 

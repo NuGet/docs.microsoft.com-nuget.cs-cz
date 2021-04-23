@@ -6,12 +6,12 @@ ms.author: jodou
 ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 5be7a4d4c31df9f2f4bda7bdb1ff9f4887108578
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 05a16d8bf609d727aba3ddbc42959a3deb97b24b
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775991"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901912"
 ---
 # <a name="publishing-packages"></a>Publikování balíčků
 
@@ -38,11 +38,9 @@ Dále můžete balíček nahrát prostřednictvím webového portálu nuget.org,
 
 1. nuget.org obsahuje informace o tom, jestli je k dispozici název balíčku. Pokud není, změňte identifikátor balíčku v projektu, znovu sestavte a opakujte nahrávání.
 
-1. Pokud je název balíčku k dispozici, nuget.org otevře oddíl **ověření** , ve kterém můžete zkontrolovat metadata z manifestu balíčku. Chcete-li změnit jakoukoli metadata, upravit projekt (soubor projektu nebo `.nuspec` soubor), znovu sestavit, znovu vytvořit balíček a znovu nahrávat.
+1. Pokud je název balíčku k dispozici, nuget.org otevře oddíl **ověření** , ve kterém můžete zkontrolovat metadata z manifestu balíčku. Pokud jste do balíčku zahrnuli [soubor Readme](/docs/nuget-org/package-readme-on-nuget-org.md) , podívejte se do verze Preview a ujistěte se, že se veškerý obsah vykreslí správně. Chcete-li změnit jakoukoli metadata, upravit projekt (soubor projektu nebo `.nuspec` soubor), znovu sestavit, znovu vytvořit balíček a znovu nahrávat.
 
-1. V části **importovat dokumentaci** můžete Markdownu vložit, nasměrovat na své dokumenty pomocí adresy URL nebo nahrát soubor dokumentace.
-
-1. Až budou všechny informace připravené, vyberte tlačítko **Odeslat** .
+2. Až budou všechny informace připravené, vyberte tlačítko **Odeslat** .
 
 ### <a name="command-line"></a>Příkazový řádek
 
