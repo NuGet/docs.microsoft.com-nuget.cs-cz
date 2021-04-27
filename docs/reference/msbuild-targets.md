@@ -10,12 +10,12 @@ no-loc:
 - MSBuild
 - .nuspec
 - nuspec
-ms.openlocfilehash: 0a10a6f1e4c71903232281c25a6c4b6bbc65fb34
-ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
+ms.openlocfilehash: 8ebf0329f9dc7af09a59f1498a934754842df365
+ms.sourcegitcommit: 08c5b2c956a1a45f0ea9fb3f50f55e41312d8ce3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107901482"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108067307"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet zabalit a obnovit jako MSBuild cíle
 
@@ -77,7 +77,7 @@ Následující tabulka popisuje MSBuild vlastnosti, které lze přidat do soubor
 | `Repository/Type` | `RepositoryType` | empty | Typ úložiště Příklady: `git` (výchozí), `tfs` . |
 | `Repository/Branch` | `RepositoryBranch` | empty | Volitelné informace o větvi úložiště `RepositoryUrl` musí být také zadáno pro zahrnutí této vlastnosti. Příklad: *Master* ( NuGet 4.7.0 +). |
 | `Repository/Commit` | `RepositoryCommit` | empty | Volitelné potvrzení změn úložiště nebo sada změn, které označují, na který zdroj byl balíček vytvořen. `RepositoryUrl` musí být také zadáno pro zahrnutí této vlastnosti. Příklad: *0e4d1b598f350b3dc675018d539114d1328189ef* ( NuGet 4.7.0 +). |
-| `PackageType` | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
+| `PackageType` | `<PackageType>CustomType1, 1.0.0.0;CustomType2</PackageType>` | | Určuje zamýšlené použití balíčku. Typy balíčků používají stejný formát jako ID balíčků a jsou odděleny `;` . Typy balíčků můžou být ve verzi s připojením `,` a a [`Version`](/dotnet/api/system.version) řetězcem. Viz [nastavení NuGet typu balíčku](../create-packages/set-package-type.md) ( NuGet 3.5.0 +). |
 | `Summary` | Nepodporováno | | |
 
 ### <a name="pack-target-inputs"></a>cílové vstupy balení
@@ -163,7 +163,7 @@ U nuspec ekvivalentu si přečtěte odkaz na [ nuspec ikonu](nuspec.md#icon).
 
 ### <a name="packagereadmefile"></a>PackageReadmeFile
 
-*Podporováno s **NuGet 5.10.0 Preview 2**  /  **.NET 5.0.3** a vyššími*
+*Podporováno s **NuGet 5.10.0 Preview 2**  /  **.NET SDK 5.0.300** a novějšími*
 
 Při balení souboru Readme je potřeba použít `PackageReadmeFile` vlastnost k určení cesty k balíčku vzhledem k kořenu balíčku. Kromě toho je nutné se ujistit, že je soubor součástí balíčku. Podporované formáty souborů obsahují pouze Markdownu (*. MD*).
 
