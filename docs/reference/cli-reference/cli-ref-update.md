@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: cfa7fdcc6af46fd5f4030ba424754291f697bc43
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 5f244e4cf15ca7afa0e6318a8c20d464ff75bd8e
+ms.sourcegitcommit: f3d98c23408a4a1c01ea92fc45493fa7bd97c3ee
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98779133"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112323645"
 ---
 # <a name="update-command-nuget-cli"></a>Update – příkaz (NuGet CLI)
 
@@ -86,7 +86,7 @@ kde `<configPath>` identifikuje buď `packages.config` soubor řešení nebo, kt
 
 - **`-Self`**
 
-  Aktualizuje nuget.exe na nejnovější verzi. všechny ostatní argumenty jsou ignorovány.
+  Aktualizuje `nuget.exe` na nejnovější verzi. `-Source` dá se použít, ale všechny ostatní argumenty se ignorují. Pokud není zadaný žádný zdroj, vyhledá `nuget.org` aktualizace bez ohledu na `NuGet.Config` nastavení.
 
 - **`-Source`**
 

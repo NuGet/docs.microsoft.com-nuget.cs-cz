@@ -5,16 +5,16 @@ author: nkolev92
 ms.author: nikolev
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: df7c793d115622f04a148cbbc3ebf396a3e4ab69
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: c7b963352e0e9640844a213767a58c883ed0eeb9
+ms.sourcegitcommit: f3d98c23408a4a1c01ea92fc45493fa7bd97c3ee
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104859184"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112323710"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Odkazy na balíčky ( `PackageReference` ) v souborech projektu
 
-Odkazy na balíčky, použití `PackageReference` uzlu, Správa závislostí NuGet přímo v souborech projektu (na rozdíl od samostatného `packages.config` souboru). Použití PackageReference, jak je voláno, nemá vliv na jiné aspekty NuGet; například nastavení v `NuGet.config` souborech (včetně zdrojů balíčků) jsou stále aplikována, jak je vysvětleno v tématu [běžné konfigurace NuGet](configuring-nuget-behavior.md).
+Odkazy na balíčky, použití `PackageReference` uzlu, Správa závislostí NuGet přímo v souborech projektu (na rozdíl od samostatného `packages.config` souboru). Použití PackageReference, jak je voláno, nemá vliv na jiné aspekty NuGet; například nastavení v `NuGet.Config` souborech (včetně zdrojů balíčků) jsou stále aplikována, jak je vysvětleno v tématu [běžné konfigurace NuGet](configuring-nuget-behavior.md).
 
 Pomocí PackageReference můžete také použít podmínky nástroje MSBuild pro výběr odkazů na balíčky na cílové rozhraní nebo jiná seskupení. Umožňuje také jemně odstupňovanou kontrolu nad závislostmi a tokem obsahu. (Další podrobnosti najdete v tématu Další informace o [sadě NuGet Pack a obnovení jako cíle MSBuild](../reference/msbuild-targets.md).)
 
@@ -99,7 +99,7 @@ Je možné, že použijete závislost čistě jako ve vývojovém prostředí a 
 
 Následující Tagy metadat řídí prostředky závislostí:
 
-| Značka | Popis | Výchozí hodnota |
+| Značka | Description | Výchozí hodnota |
 | --- | --- | --- |
 | IncludeAssets | Tyto prostředky budou spotřebovány. | Vše |
 | ExcludeAssets | Tyto prostředky nebudou spotřebovány. | žádné |
@@ -238,17 +238,17 @@ namespace PackageReferenceAliasesExample
 
 ```
 
-## <a name="nuget-warnings-and-errors"></a>Upozornění a chyby NuGet
+## <a name="nuget-warnings-and-errors"></a>Upozornění a chyby NuGetu
 
-*Tato funkce je k dispozici pro NuGet **4,3** nebo vyšší a pro Visual Studio 2017 **15,3** nebo vyšší.*
+*Tato funkce je dostupná pro NuGet **4.3** nebo vyšší a s Visual Studio 2017 **15.3** nebo vyšší.*
 
-Pro mnoho scénářů sad a obnovení jsou všechna upozornění a chyby NuGet zakódované a začínají na `NU****` . Všechna upozornění a chyby NuGet jsou uvedená v [referenční](../reference/errors-and-warnings.md) dokumentaci.
+V mnoha scénářích balíčků a obnovení se všechna upozornění a chyby NuGet kódují a začínají na `NU****` . Všechna upozornění a chyby NuGetu jsou uvedená v [referenční](../reference/errors-and-warnings.md) dokumentaci.
 
-NuGet sleduje následující vlastnosti upozornění:
+NuGet pozoruje následující vlastnosti upozornění:
 
-- `TreatWarningsAsErrors`, považovat všechna upozornění za chyby
-- `WarningsAsErrors`, považovat specifická upozornění za chyby
-- `NoWarn`, skryjte konkrétní upozornění, ať už na úrovni projektu, nebo na úrovni balíčku.
+- `TreatWarningsAsErrors`– zachází se všemi upozorněními jako s chybami
+- `WarningsAsErrors`– zacházení s konkrétními upozorněními jako s chybami
+- `NoWarn`– skryje konkrétní upozornění, ať už celého projektu, nebo celého balíčku.
 
 Příklady:
 
@@ -270,10 +270,10 @@ Příklady:
 </ItemGroup>
 ```
 
-### <a name="suppressing-nuget-warnings"></a>Potlačení upozornění NuGet
+### <a name="suppressing-nuget-warnings"></a>Potlačení upozornění NuGetu
 
-I když se vám doporučuje vyřešit všechna upozornění sady NuGet během operací aktualizace a obnovení, v některých případech je jejich potlačení oprávněné.
-Chcete-li potlačit projekt s upozorněním na šířku, zvažte provedení těchto akcí:
+Přestože se doporučuje vyřešit všechna upozornění NuGetu během operací balíčku a obnovení, v určitých situacích je jejich potlačení zaručuje.
+Pokud chcete potlačit projekt upozornění v celém projektu, zvažte následující:
 
 ```xml
 <PropertyGroup>
@@ -285,7 +285,7 @@ Chcete-li potlačit projekt s upozorněním na šířku, zvažte provedení těc
 </ItemGroup>
 ```
 
-Upozornění se někdy vztahují jenom na určitý balíček v grafu. Můžeme se rozhodnout pro potlačení tohoto upozornění selektivně přidáním `NoWarn` položky na položku PackageReference. 
+Někdy se upozornění vztahují pouze na určitý balíček v grafu. Můžeme se rozhodnout toto upozornění potlačit selektivně tak, že do `NoWarn` položky PackageReference přidáme . 
 
 ```xml
 <PropertyGroup>
@@ -296,29 +296,29 @@ Upozornění se někdy vztahují jenom na určitý balíček v grafu. Můžeme s
 </ItemGroup>
 ```
 
-#### <a name="suppressing-nuget-package-warnings-in-visual-studio"></a>Potlačení upozornění balíčku NuGet v aplikaci Visual Studio
+#### <a name="suppressing-nuget-package-warnings-in-visual-studio"></a>Potlačení upozornění balíčku NuGet v Visual Studio
 
-Při v aplikaci Visual Studio můžete také [potlačit upozornění](/visualstudio/ide/how-to-suppress-compiler-warnings#suppress-warnings-for-nuget-packages
-) prostřednictvím integrovaného vývojového prostředí (IDE).
+V Visual Studio můžete také potlačit [upozornění prostřednictvím](/visualstudio/ide/how-to-suppress-compiler-warnings#suppress-warnings-for-nuget-packages
+) integrovaného vývojového prostředí.
 
-## <a name="locking-dependencies"></a>Uzamykání závislostí
+## <a name="locking-dependencies"></a>Zamykání závislostí
 
-*Tato funkce je k dispozici pro NuGet **4,9** nebo vyšší a pro Visual Studio 2017 **15,9** nebo vyšší.*
+*Tato funkce je dostupná pro NuGet **4.9** nebo vyšší a s Visual Studio 2017 **15.9** nebo vyšší.*
 
-Vstup do obnovení NuGet je sada odkazů na balíčky ze souboru projektu (závislosti na nejvyšší úrovni nebo přímých závislostí) a výstup je plný uzávěr všech závislostí balíčku včetně přenosných závislostí. V případě, že se vstupní seznam PackageReference nezměnil, nástroj NuGet se pokusí vždy vydávat stejný plný uzávěr závislostí balíčku. Existují však situace, kdy to není možné. Například:
+Vstup pro obnovení NuGetu je sada odkazů na balíčky ze souboru projektu (hlavní úroveň nebo přímé závislosti) a výstupem je úplné uzavření všech závislostí balíčku, včetně tranzitivních závislostí. NuGet se pokusí vždy vytvořit stejné úplné uzavření závislostí balíčku, pokud se vstupní seznam PackageReference nezměnil. Existují však některé scénáře, kdy to nemůže udělat. Příklad:
 
-* Při použití plovoucích verzí, jako je `<PackageReference Include="My.Sample.Lib" Version="4.*"/>` . I když tady je tento záměr na nejnovější verzi v každé obnovy balíčků, existují situace, kdy uživatelé potřebují, aby byl graf uzamčený na určitou nejnovější verzi a aby byl na novější verzi, pokud je k dispozici, po explicitním gestu.
-* Je publikovaná novější verze balíčku, která odpovídá požadavkům verze PackageReference. Například 
+* Při použití plovoucích verzí, jako je `<PackageReference Include="My.Sample.Lib" Version="4.*"/>` . I když se zde záměrem při každém obnovení balíčků vrátit na nejnovější verzi, existují scénáře, kdy uživatelé vyžadují, aby byl graf uzamčený na určitou nejnovější verzi, a s plovoucí desetinnou čárkou na novější verzi, pokud je k dispozici, při explicitním gestu.
+* Publikovaná je novější verze balíčku, která odpovídá požadavkům na verzi PackageReference. Například 
 
-  * Den 1: Pokud jste zadali `<PackageReference Include="My.Sample.Lib" Version="4.0.0"/>` verze, které jsou k dispozici v úložištích NuGet, byly 4.1.0, 4.2.0 a 4.3.0. V tomto případě se NuGet přeložil na 4.1.0 (nejbližší minimální verzi).
+  * Den 1: Pokud jste zadali , ale verze dostupné v úložištích NuGet byly `<PackageReference Include="My.Sample.Lib" Version="4.0.0"/>` 4.1.0, 4.2.0 a 4.3.0. V tomto případě by se NuGet vyřešil na verzi 4.1.0 (nejbližší minimální verze).
 
-  * Den 2: verze 4.0.0 se publikuje. NuGet teď najde přesnou shodu a začne řešit na 4.0.0
+  * 2. den: Publikovaná verze 4.0.0. NuGet teď najde přesnou shodu a začne se překládání na verzi 4.0.0.
 
-* Daná verze balíčku se odebere z úložiště. I když nuget.org nepovoluje odstraňování balíčků, ne všechna úložiště balíčků mají tato omezení. Výsledkem je, že NuGet najde nejlepší shodu, když ho nelze vyřešit na odstraněnou verzi.
+* Z úložiště se odebere given package version (verze balíčku). Přestože nuget.org odstranění balíčků nepovoluje, ne všechna úložiště balíčků mají tato omezení. Výsledkem je, že NuGet najde nejlepší shodu, když se nemůže přeložit na odstraněnou verzi.
 
-### <a name="enabling-lock-file"></a>Povoluje se soubor zámku.
+### <a name="enabling-lock-file"></a>Povolení souboru zámku
 
-Aby se zachoval úplný konec závislostí balíčku, můžete se přihlásit k funkci zámek souboru nastavením vlastnosti MSBuild `RestorePackagesWithLockFile` pro váš projekt:
+Pokud chcete zachovat úplné uzavření závislostí balíčků, můžete se přihlásit k funkci souboru zámku nastavením vlastnosti MSBuild `RestorePackagesWithLockFile` pro váš projekt:
 
 ```xml
 <PropertyGroup>
@@ -328,31 +328,31 @@ Aby se zachoval úplný konec závislostí balíčku, můžete se přihlásit k 
 </PropertyGroup>    
 ```
 
-Pokud je tato vlastnost nastavená, obnovení NuGet vygeneruje soubor zámku File `packages.lock.json` v kořenovém adresáři projektu, který obsahuje seznam všech závislostí balíčku. 
+Pokud je tato vlastnost nastavená, obnovení NuGet vygeneruje soubor zámku – soubor v kořenovém adresáři projektu se `packages.lock.json` seznamem všech závislostí balíčku. 
 
 > [!Note]
-> Jakmile projekt obsahuje `packages.lock.json` soubor ve svém kořenovém adresáři, soubor zámku se vždy používá s obnovením i v případě, že vlastnost není `RestorePackagesWithLockFile` nastavena. Další možností, jak se vyjádřit k této funkci, je vytvořit fiktivní prázdný `packages.lock.json` soubor v kořenovém adresáři projektu.
+> Jakmile projekt obsahuje soubor v kořenovém adresáři, soubor zámku se vždy používá s obnovením, i když `packages.lock.json` vlastnost `RestorePackagesWithLockFile` není nastavená. Dalším způsobem, jak se k této funkci přihlásit, je vytvořit fiktivní prázdný soubor v kořenovém adresáři `packages.lock.json` projektu.
 
-### <a name="restore-behavior-with-lock-file"></a>`restore` chování se souborem zámku
-Pokud je soubor zámku k dispozici pro projekt, nástroj NuGet používá ke spuštění tento soubor zámku `restore` . NuGet provede rychlou kontrolu, jestli se v závislostech balíčku nezměnily žádné změny, jak je uvedeno v souboru projektu (nebo v souborech závislých projektů) a jestli nedošlo k žádným změnám, jenom obnoví balíčky uvedené v souboru zámku. Nedošlo k opakovanému vyhodnocení závislostí balíčku.
+### <a name="restore-behavior-with-lock-file"></a>`restore` chování se zamykacím souborem
+Pokud je pro projekt k dispozici soubor zámku, NuGet použije tento soubor zámku ke spuštění `restore` . NuGet rychle zkontroluje, jestli v závislostech balíčků došlo k žádným změnám, jak je uvedeno v souboru projektu (nebo v souborech závislých projektů), a pokud k žádným změnám došlo, pouze obnoví balíčky uvedené v souboru zámku. Neexistuje žádné opětovné vyhodnocení závislostí balíčků.
 
-Pokud NuGet detekuje změnu v definovaných závislostech, jak je uvedeno v souborech projektu, znovu vyhodnotí graf balíčku a aktualizuje soubor zámku tak, aby odrážel nový uzavření balíčku pro daný projekt.
+Pokud NuGet zjistí změnu v definovaných závislostech, jak je uvedeno v souborech projektu, znovu vyhodnotí graf balíčku a aktualizuje soubor zámku tak, aby odrážel nový uzavření balíčku pro projekt.
 
-V případě CI/CD a dalších scénářů, kde byste nechtěli změnit závislosti balíčku za běhu, můžete to provést nastavením `lockedmode` na `true` :
+V případě CI/CD a dalších scénářů, kdy nechcete měnit závislosti balíčku za běhu, můžete to provést nastavením `lockedmode` na `true` :
 
-Pro dotnet.exe spusťte:
+Pokud dotnet.exe, spusťte:
 
 ```
 > dotnet.exe restore --locked-mode
 ```
 
-Pro msbuild.exe spusťte:
+Pokud msbuild.exe, spusťte:
 
 ```
 > msbuild.exe -t:restore -p:RestoreLockedMode=true
 ```
 
-Tuto vlastnost podmíněného MSBuild můžete nastavit také v souboru projektu:
+Tuto podmíněnou vlastnost MSBuild můžete nastavit také v souboru projektu:
 
 ```xml
 <PropertyGroup>
@@ -362,12 +362,12 @@ Tuto vlastnost podmíněného MSBuild můžete nastavit také v souboru projektu
 </PropertyGroup> 
 ```
 
-Pokud je uzamčený režim `true` , obnovení obnoví buď přesné balíčky uvedené v souboru zámku, nebo selže, pokud jste aktualizovali definované závislosti balíčků pro projekt po vytvoření souboru zámku.
+Pokud je uzamčený režim , obnovení buď obnoví přesné balíčky uvedené v souboru zámku, nebo selže, pokud jste po vytvoření souboru zámku aktualizovali definované `true` závislosti balíčku pro projekt.
 
-### <a name="make-lock-file-part-of-your-source-repository"></a>Nastavit zámek souboru jako součást zdrojového úložiště
-Pokud vytváříte aplikaci, spustitelný soubor a příslušný projekt jsou na začátku řetězu závislostí a pak proveďte vrácení souboru se zámkem do úložiště zdrojového kódu, aby jej mohla aplikace NuGet využít při obnovení.
+### <a name="make-lock-file-part-of-your-source-repository"></a>Zmknutí souboru jako součásti zdrojového úložiště
+Pokud aplikaci tvoříte, spustitelný soubor a na začátku řetězu závislostí se nachází sporý projekt, zkontrolujte soubor zámku v úložišti zdrojového kódu, aby ho NuGet mohl využít během obnovení.
 
-Pokud je však projekt knihovnou projektu, který nedodáte nebo se jedná o běžný projekt kódu, na kterém jsou závislé další projekty, **neměli byste** soubory zámku vrátit se změnami jako součást zdrojového kódu. Neexistuje žádný škodný soubor zámku, ale nelze použít uzamčené závislosti balíčku pro běžný projekt kódu, jak je uvedeno v souboru zámku během obnovení nebo sestavení projektu, který je závislý na tomto projektu Common-Code.
+Pokud je ale váš projekt projekt knihovny, který dodáte, nebo společný  projekt kódu, na kterém závisí jiné projekty, neměli byste se v rámci zdrojového kódu účastnit souboru zámku. Zachování souboru zámku není škodou, ale během obnovování/sestavování projektu, který závisí na tomto projektu společného kódu, se nemusí použít závislosti uzamčeného balíčku pro společný projekt kódu, jak je uvedeno v souboru zámku.
 
 Např.
 
@@ -378,36 +378,36 @@ ProjectA
              |------>PackageX 1.0.0
 ```
 
-Pokud `ProjectA` má závislost na `PackageX` verzi `2.0.0` a také odkazy `ProjectB` , které závisejí na `PackageX` verzi `1.0.0` , pak soubor zámku pro `ProjectB` bude zobrazovat závislost na `PackageX` verzi `1.0.0` . Když je však `ProjectA` sestaven, jeho soubor zámku bude obsahovat závislost na `PackageX` verzi **`2.0.0`** a **nikoli** `1.0.0` , jak je uvedeno v souboru zámku pro `ProjectB` . Proto soubor zámku pro běžný projekt kódu trochu říká, že balíčky byly vyřešeny pro projekty, které jsou na ní závislé.
+Pokud má závislost na verzi a také odkazuje na verzi , pak soubor zámku pro zobrazí závislost `ProjectA` `PackageX` na verzi `2.0.0` `ProjectB` `PackageX` `1.0.0` `ProjectB` `PackageX` `1.0.0` . Pokud je však sestaven, bude jeho soubor zámku obsahovat závislost na verzi, a ne tak, jak je uvedeno v `ProjectA` `PackageX` souboru zámku pro **`2.0.0`**  `1.0.0` `ProjectB` . Proto má soubor zámků společného projektu kódu nad balíčky vyřešené pro projekty, které na tomto projektu závisejí, jen malé říci.
 
-### <a name="lock-file-extensibility"></a>Zamknout rozšíření souboru
+### <a name="lock-file-extensibility"></a>Rozšiřitelnost souboru zámků
 
-Můžete řídit různá chování při obnovení pomocí souboru zámku, jak je popsáno níže:
+Pomocí souboru zámku můžete řídit různé chování obnovení, jak je popsáno níže:
 
-| Možnost NuGet.exe | dotnet – možnost | Možnost ekvivalentu MSBuild | Popis |
+| NuGet.exe možnosti | možnost dotnet | Ekvivalentní možnost nástroje MSBuild | Description |
 |:--- |:--- |:--- |:--- |
-| `-UseLockFile` |`--use-lock-file` | RestorePackagesWithLockFile | Výslovný se na použití souboru zámku. |
-| `-LockedMode` | `--locked-mode` | RestoreLockedMode | Zapne uzamčený režim pro obnovení. To je užitečné ve scénářích CI/CD, kde chcete opakovat sestavení.|   
-| `-ForceEvaluate` | `--force-evaluate` | RestoreForceEvaluate | Tato možnost je užitečná pro balíčky s plovoucí verzí definovanou v projektu. Ve výchozím nastavení při obnovení NuGet nebude automaticky aktualizovat verzi balíčku pro každé obnovení, pokud u této možnosti nespustíte příkaz Restore. |
-| `-LockFilePath` | `--lock-file-path` | NuGetLockFilePath | Definuje vlastní umístění souboru zámku pro projekt. Ve výchozím nastavení NuGet podporuje `packages.lock.json` v kořenovém adresáři. Pokud máte ve stejném adresáři více projektů, NuGet podporuje soubor zámku specifický pro projekt. `packages.<project_name>.lock.json` |
+| `-UseLockFile` |`--use-lock-file` | RestorePackagesWithLockFile | Vyjádí výslovný souhlas s použitím souboru zámku. |
+| `-LockedMode` | `--locked-mode` | RestoreLockedMode | Povolí uzamčený režim obnovení. To je užitečné ve scénářích CI/CD, kde chcete opakovatelná sestavení.|   
+| `-ForceEvaluate` | `--force-evaluate` | RestoreForceEvaluate | Tato možnost je užitečná u balíčků s plovoucí verzí definovanou v projektu. Obnovení NuGet ve výchozím nastavení při každém obnovení automaticky aktualizuje verzi balíčku, pokud s touto možností nespouštěte obnovení. |
+| `-LockFilePath` | `--lock-file-path` | NuGetLockFilePath | Definuje vlastní umístění souboru zámku pro projekt. NuGet ve výchozím nastavení podporuje `packages.lock.json` v kořenovém adresáři. Pokud máte ve stejném adresáři více projektů, NuGet podporuje soubor zámku specifický pro projekt. `packages.<project_name>.lock.json` |
 
 ## <a name="assettargetfallback"></a>AssetTargetFallback
 
-`AssetTargetFallback`Vlastnost umožňuje určit další kompatibilní verze rozhraní pro projekty, na které projekt odkazuje, a balíčky NuGet, které váš projekt spotřebovává.
+Vlastnost umožňuje zadat další kompatibilní verze architektury pro projekty, na které projekt odkazuje, a balíčky `AssetTargetFallback` NuGet, které váš projekt využívá.
 
-Pokud zadáte závislost balíčku pomocí `PackageReference` , ale tento balíček neobsahuje prostředky, které jsou kompatibilní s cílovým rozhraním .NET Framework vašich projektů, `AssetTargetFallback` vlastnost se dostane do hry. Kompatibilita odkazovaného balíčku je znovu zkontrolována pomocí každé cílové architektury, která je určena v `AssetTargetFallback` .
-V případě `project` , že `package` je odkazováno na nebo `AssetTargetFallback` , se vyvolá upozornění [NU1701](../reference/errors-and-warnings/NU1701.md) .
+Pokud pomocí příkazu zadáte závislost balíčku, ale tento balíček neobsahuje prostředky, které jsou kompatibilní s cílovou architekturou vašich projektů, vlastnost `PackageReference` se pro vás `AssetTargetFallback` hraje. Kompatibilita odkazovaného balíčku se znovu prověří pomocí každé cílové architektury, která je zadaná v `AssetTargetFallback` .
+Pokud se na objekt nebo odkazuje prostřednictvím , bude vyvoláno upozornění `project` `package` `AssetTargetFallback` [NU1701.](../reference/errors-and-warnings/NU1701.md)
 
-V následující tabulce najdete příklady `AssetTargetFallback` vlivu kompatibility.
+Příklady ovlivnění kompatibility najdete `AssetTargetFallback` v následující tabulce.
 
-| Projektový rámec | AssetTargetFallback | Balíčky balíčků | Výsledek |
+| Rozhraní projektu | AssetTargetFallback | Architektury balíčků | Výsledek |
 |-------------------|---------------------|--------------------|--------|
-|  .NET Framework 4.7.2 | | .NET Standard 2,0 | .NET Standard 2,0 |
-| .NET Core – aplikace 3,1 | | .NET Standard 2,0, .NET Framework 4.7.2 | .NET Standard 2,0 |
-| .NET Core – aplikace 3,1 | |  .NET Framework 4.7.2 | Nekompatibilní, selhání s [`NU1202`](../reference/errors-and-warnings/NU1202.md) |
-| .NET Core – aplikace 3,1 | net472;net471 |  .NET Framework 4.7.2 | .NET Framework 4.7.2 s [`NU1701`](../reference/errors-and-warnings/NU1701.md) |
+|  .NET Framework 4.7.2 | | .NET Standard 2.0 | .NET Standard 2.0 |
+| Aplikace .NET Core 3.1 | | .NET Standard 2.0, .NET Framework 4.7.2 | .NET Standard 2.0 |
+| Aplikace .NET Core 3.1 | |  .NET Framework 4.7.2 | Nekompatibilní, selhání s [`NU1202`](../reference/errors-and-warnings/NU1202.md) |
+| Aplikace .NET Core 3.1 | net472, net471 |  .NET Framework 4.7.2 | .NET Framework 4.7.2 s [`NU1701`](../reference/errors-and-warnings/NU1701.md) |
 
-Pomocí oddělovače lze zadat více rozhraní `;` . Pro přidání záložního rozhraní můžete provést následující akce:
+Pomocí lze zadat více architektur `;` jako oddělovač. Pokud chcete přidat záložní rozhraní, můžete provést následující akce:
 
 ```xml
 <AssetTargetFallback Condition=" '$(TargetFramework)'=='netcoreapp3.1' ">
@@ -415,9 +415,9 @@ Pomocí oddělovače lze zadat více rozhraní `;` . Pro přidání záložního
 </AssetTargetFallback>
 ```
 
-`$(AssetTargetFallback)`Pokud chcete přepsat místo přidání do stávajících hodnot, můžete ho nechat vypnuté `AssetTargetFallback` .
+Pokud chcete přepsat místo přidávání k existujícím hodnotám, můžete toto nastavení `$(AssetTargetFallback)` `AssetTargetFallback` ponechat vypnuté.
 
 > [!NOTE]
-> Pokud používáte [projekt založený na sadě .NET SDK](/dotnet/core/sdk), `$(AssetTargetFallback)` jsou nakonfigurovány správné hodnoty a nemusíte je nastavovat ručně.
+> Pokud používáte projekt založený [na sadě .NET SDK,](/dotnet/core/sdk)jsou nakonfigurované odpovídající hodnoty a není nutné je `$(AssetTargetFallback)` nastavovat ručně.
 >
-> `$(PackageTargetFallback)` byla dřívější funkce, která se pokusila vyřešit tuto výzvu, ale je zásadní a *neměla by* se používat. Chcete-li provést migraci z nástroje `$(PackageTargetFallback)` na `$(AssetTargetFallback)` , jednoduše změňte název vlastnosti.
+> `$(PackageTargetFallback)` byla dřívější funkce, která se pokusila tuto výzvu řešit, ale v podstatě je porušená a *neměla* by se používat. Pokud chcete `$(PackageTargetFallback)` migrovat z `$(AssetTargetFallback)` na , stačí změnit název vlastnosti.
