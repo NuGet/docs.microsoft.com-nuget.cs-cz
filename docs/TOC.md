@@ -158,6 +158,7 @@
 ### [NU1605](reference/errors-and-warnings/NU1605.md)
 ### [NU1608](reference/errors-and-warnings/NU1608.md)
 ### [NU1701](reference/errors-and-warnings/NU1701.md)
+### [NU1703](reference/errors-and-warnings/NU1703.md)
 ### [NU1801](reference/errors-and-warnings/NU1801.md)
 ### [NU3000](reference/errors-and-warnings/NU3000.md)
 ### [NU3001](reference/errors-and-warnings/NU3001.md)
@@ -292,8 +293,8 @@
 ## Zpráva k vydání verze
 ### [Známé problémy](release-notes/known-issues.md)
 ### NuGet 5.x
-#### [NuGet 5,10](release-notes/NuGet-5.10.md)
-#### [NuGet 5,9](release-notes/NuGet-5.9.md)
+#### [NuGet 5.10](release-notes/NuGet-5.10.md)
+#### [NuGet 5.9](release-notes/NuGet-5.9.md)
 #### [NuGet 5.8](release-notes/NuGet-5.8.md)
 #### [NuGet 5.7](release-notes/NuGet-5.7.md)
 #### [NuGet 5.6](release-notes/NuGet-5.6.md)
