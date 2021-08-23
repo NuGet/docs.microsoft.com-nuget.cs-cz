@@ -1,155 +1,153 @@
 ---
-title: Zpráva k vydání verze NuGet 5.10
-description: Poznámky k verzi pro NuGet 5.10, včetně nových funkcí, oprav chyb a souborů DCR
+title: zpráva k vydání verze NuGet 5,10
+description: poznámky k verzi NuGet 5,10, včetně nových funkcí, oprav chyb a chcete odeslat obecnou.
 author: zkat
 ms.author: kmarchan
 ms.date: 6/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: 666eda5803b540dc18a9310f61c92dc74ff2089e
-ms.sourcegitcommit: f3d98c23408a4a1c01ea92fc45493fa7bd97c3ee
+ms.openlocfilehash: 80a372074604f5c0073f78927b84de00e78acc74
+ms.sourcegitcommit: 5f706c62c97b78bbe3d8c7e95659976535fe486f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112356535"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122726948"
 ---
-# <a name="nuget-510-release-notes"></a>Zpráva k vydání verze NuGet 5.10
+# <a name="nuget-510-release-notes"></a>zpráva k vydání verze NuGet 5,10
 
-Distribuční vozidla NuGet:
+NuGet distribučních vozidel:
 
-| Verze NuGet | K dispozici ve Visual Studio verzi | K dispozici v sadě .NET SDK |
+| verze NuGet | k dispozici ve verzi Visual Studio | K dispozici v sadě .NET SDK |
 |:---|:---|:---|
-| [**5.10.0**](https://nuget.org/downloads) | [Visual Studio 2019 verze 16.10](https://visualstudio.microsoft.com/downloads/) | [5.0.300](https://dotnet.microsoft.com/download/dotnet-core/5.0)<sup>1</sup> |
+| [**5.10.0**](https://nuget.org/downloads) | [verze Visual Studio 2019 16,10](https://visualstudio.microsoft.com/downloads/) | [5.0.300](https://dotnet.microsoft.com/download/dotnet-core/5.0)<sup>1</sup> |
 
-<sup>1</sup> Nainstalované s Visual Studio 2019 s úlohou .NET Core
+<sup>1</sup> nainstalovaná s Visual Studio 2019 s úlohou .net Core
   
 > [!NOTE]
-> Visual Studio verze 16.10, MSBuild 16.10 a .NET 5.0.300+ vyžaduje NuGet.exe 5.10 nebo novější.
+> Visual Studio 16,10, MSBuild 16,10 a .net 5.0.300 + vyžaduje NuGet.exe 5,10 nebo novější.
 
-## <a name="summary-whats-new-in-510"></a>Shrnutí: Co je nového ve windows 5.10
+## <a name="summary-whats-new-in-510"></a>Shrnutí: Novinky v 5,10
 
-* Podepisování: Implementujte příkaz dotnet trusted-signers [– #8053](https://github.com/NuGet/Home/issues/8053)
+* Podepisování: implementace příkazu dotnet Trusted-Signer- [#8053](https://github.com/NuGet/Home/issues/8053)
 
-* Zakázat výchozí ověřování v Linuxu, ale ve výchozím nastavení je povolené ve Windows – [#10713](https://github.com/NuGet/Home/issues/10713)
+* nastavit výchozí ověřování v systému Linux, ale ve výchozím nastavení povoleno v Windows- [#10713](https://github.com/NuGet/Home/issues/10713)
 
-* Přidání proměnné ENV pro ověření podepisování balíčků v .NET 5+ Linux/MAC – [#10742](https://github.com/NuGet/Home/issues/10742)
+* Přidání proměnné ENV pro ověření podpisu balíčku na .NET 5 + Linux/MAC – [#10742](https://github.com/NuGet/Home/issues/10742)
 
-* Vylepšení výkonu instalace nových balíčků pro velká řešení – [#10166](https://github.com/NuGet/Home/issues/10166)
+* Zlepšení výkonu při instalaci nového balíčku pro velká řešení – [#10166](https://github.com/NuGet/Home/issues/10166)
 
 * Přidejte typ projektu `nfproj` do seznamu supportedProjectExtensions pro rozhraní příkazového řádku NuGet. - [#10562](https://github.com/NuGet/Home/issues/10562)
 
 ### <a name="issues-fixed-in-this-release"></a>Chyby opravené v této verzi
 
-* Potlačení <requireLicenseAcceptance> elementu při balení projektu – [#5133](https://github.com/NuGet/Home/issues/5133)
+* Potlačit `<requireLicenseAcceptance>` element při balení projektu – [#5133](https://github.com/NuGet/Home/issues/5133)
 
-* Upozornění [CPVM] verze Preview by se měla zobrazit v rozhraní příkazového řádku dotnet – [#10226](https://github.com/NuGet/Home/issues/10226)
+* V příkazu dotnet CLI- [#10226](https://github.com/NuGet/Home/issues/10226) by mělo být zobrazeno upozornění verze Preview [CPVM].
 
-* Aktualizujte barevné tokeny pozadí a popředí pmui na CommonDocumentColors – [#10608](https://github.com/NuGet/Home/issues/10608)
+* Aktualizovat barevné tokeny pozadí a popředí PMUI na CommonDocumentColors- [#10608](https://github.com/NuGet/Home/issues/10608)
 
-* [Bug Bash] Při rychlém přepínání mezi kartami v uživatelském rozhraní PM se Seznam chyb chyba Operace byla zrušena uživatelem – [#10671](https://github.com/NuGet/Home/issues/10671)
+* [Chyba bash] Chyba "operace byla zrušena uživatelem" v Seznam chyb okně při rychlém přepínání mezi kartami v uživatelském rozhraní PM – [#10671](https://github.com/NuGet/Home/issues/10671)
 
-* Uživatelské rozhraní PM: Zvýšení výkonu instalace balíčku na úrovni řešení – [#10210](https://github.com/NuGet/Home/issues/10210)
+* Uživatelské rozhraní PM: Vylepšete výkon instalace balíčku na úrovni řešení – [#10210](https://github.com/NuGet/Home/issues/10210)
 
-* GetService nahraďte GetServiceAsync všude v NuGet.Clients – [#3784](https://github.com/NuGet/Home/issues/3784)
+* Nahraďte GetService GetServiceAsync všude v NuGet. Klienti – [#3784](https://github.com/NuGet/Home/issues/3784)
 
-* NuGet.exe s výkonem balíčku s `..` relativní cestou – [#5016](https://github.com/NuGet/Home/issues/5016)
+* Problém s výkonem NuGet.exe Pack s `..` relativní cestou – [#5016](https://github.com/NuGet/Home/issues/5016)
 
-* Výkon "balíčku NuGet" se snižuje s rostoucími úrovněmi ve zdrojových cestách – [#5706](https://github.com/NuGet/Home/issues/5706)
+* Výkon "sady NuGet Pack" se zmenší se zvýšenými úrovněmi ve zdrojových cestách – [#5706](https://github.com/NuGet/Home/issues/5706)
 
-* Při balení nuspec s duplicitními soubory se NuGet ne chybně nelišuje. - [#6941](https://github.com/NuGet/Home/issues/6941)
+* při vytváření balíčků nuspec s duplicitními soubory není NuGet chyba. - [#6941](https://github.com/NuGet/Home/issues/6941)
 
-* Balíček NuGet "Zadaný DateTimeOffset nelze převést na časové razítko souboru Zip" – [#7001](https://github.com/NuGet/Home/issues/7001)
+* NuGet pack "zadanou hodnotu DateTimeOffset nelze převést na časové razítko souboru Zip"- [#7001](https://github.com/NuGet/Home/issues/7001)
 
-* Časová razítka souboru zabalených balíčků se posunou o časové pásmo – [#7395](https://github.com/NuGet/Home/issues/7395)
+* Časová razítka souboru zabalených balíčků jsou posunuta podle časového pásma – [#7395](https://github.com/NuGet/Home/issues/7395)
 
-* Nu1004 by měl obsahovat další informace s možností akce – [#7696](https://github.com/NuGet/Home/issues/7696)
+* NU1004 by měl obsahovat další informace, [#7696](https://github.com/NuGet/Home/issues/7696)
 
-* [Bug Bash] [Test Failure] Prázdný nebo poškozený soubor zámku by se neměl aktualizovat při spuštění dotnet restore --use-lock-file --locked-mode – [#8640](https://github.com/NuGet/Home/issues/8640)
+* [Chyba bash] [Selhání testu] Při spuštění dotnet restore--use-Lock-File--uzamčený režim by se neměl aktualizovat prázdný nebo poškozený soubor zámku- [#8640](https://github.com/NuGet/Home/issues/8640)
 
-* NuGetVersionRange umožňuje parsovat logicky nesprávné rozsahy – [#9145](https://github.com/NuGet/Home/issues/9145)
+* NuGetVersionRange umožňuje analyzovat logicky nesprávné rozsahy – [#9145](https://github.com/NuGet/Home/issues/9145)
 
-* Uživatelské rozhraní PM nemůže zobrazit rozlišitelnou barvu pozadí mezi vybranými a najetými zdroji balíčků – [#9538](https://github.com/NuGet/Home/issues/9538)
+* Uživatelské rozhraní PM nemůže zobrazit rozlišitelné barvy pozadí mezi vybranými a zdrojovými balíčky s najetím myší – [#9538](https://github.com/NuGet/Home/issues/9538)
 
-* Zaškrtávací políčko pro výběr projektů, na které se má nainstalovat, nečte čtečka obrazovky – [#9578](https://github.com/NuGet/Home/issues/9578)
+* Zaškrtávací políčko pro výběr projektů k instalaci, které se nečtou čtečkou obrazovky – [#9578](https://github.com/NuGet/Home/issues/9578)
 
-* Výchozí výběr verze podokna podrobností Rozevírací seznam by měl být Nainstalováno/NejnovějšíStable na kartách Nainstalované/Aktualizace [– #9887](https://github.com/NuGet/Home/issues/9887)
+* Výchozí nastavení rozevíracího seznamu verze podokna podrobností je třeba nainstalovat/LatestStable na kartách installed/updates- [#9887](https://github.com/NuGet/Home/issues/9887)
 
-* Odebrání účtu alternativního řešení pro některé verze .NET 5 SDK hlásí TargetPlatformMoniker ` ,Version= `  -  [#9913](https://github.com/NuGet/Home/issues/9913)
+* Odebrání účtu alternativního řešení pro některé sady SDK .NET 5 TargetPlatformMoniker sestav ` ,Version= `  -  [#9913](https://github.com/NuGet/Home/issues/9913)
 
-* dotnet nuget verify is too quiet – [#10316](https://github.com/NuGet/Home/issues/10316)
+* příkaz dotnet NuGet Verify je příliš tichý – [#10316](https://github.com/NuGet/Home/issues/10316)
 
-* Rozsah verzí nemůže parsovat jednociferné rozsahy – [#10342](https://github.com/NuGet/Home/issues/10342)
+* VersionRange nemůže analyzovat rozsahy s jednou číslicí – [#10342](https://github.com/NuGet/Home/issues/10342)
 
-* Správce řešení VS vyvolá během ladění výjimku null – [#10352](https://github.com/NuGet/Home/issues/10352)
+* Správce řešení VS během ladění vyvolá výjimku null – [#10352](https://github.com/NuGet/Home/issues/10352)
 
-* Přesunutí zpráv o výjimce rozhraní příkazového řádku do souborů prostředků řetězců [– #10392](https://github.com/NuGet/Home/issues/10392)
+* Přesunout zprávy o výjimce CLI do řetězcových souborů prostředků – [#10392](https://github.com/NuGet/Home/issues/10392)
 
-* Odebrání neschopového kódu (TabItemButtonAutomationPeer) [– #10435](https://github.com/NuGet/Home/issues/10435)
+* Odebrat mrtvý kód (TabItemButtonAutomationPeer) – [#10435](https://github.com/NuGet/Home/issues/10435)
 
-* Místní nabídka Aktualizovat by se měla posunout k první vybrané [položce](https://github.com/NuGet/Home/issues/10498) – #10498
+* Příkaz Aktualizovat kontextovou nabídku by měl přejít na první vybranou položku – [#10498](https://github.com/NuGet/Home/issues/10498)
 
-* Podrobnosti PMUI řešení se překrývají vodorovným pruhem – [#10533](https://github.com/NuGet/Home/issues/10533)
+* Podrobnosti PMUI řešení mají překrývající vodorovný pruh – [#10533](https://github.com/NuGet/Home/issues/10533)
 
-* Podepisování: Podrobnosti primárního podpisu se nezobrazují, když vypršela platnost certifikátu a časové razítko je nedůvěryhodné – [#10535](https://github.com/NuGet/Home/issues/10535)
+* Podepisování: podrobnosti primárního podpisu se nezobrazují, pokud vypršela platnost certifikátu a časové razítko není důvěryhodné- [#10535](https://github.com/NuGet/Home/issues/10535)
 
-* Pokud žádné povolené zdroje neumožňují zobrazení uživatelského rozhraní PM, [#10541](https://github.com/NuGet/Home/issues/10541)
+* Nepovolené zdroje brání v zobrazení uživatelského rozhraní pro ODP. [#10541](https://github.com/NuGet/Home/issues/10541)
 
-* Metadata balíčků (podrobnosti, vyněcování) se někdy nečtou z nuget.org v CodeSpaces – [#10549](https://github.com/NuGet/Home/issues/10549)
+* Metadata balíčku (podrobnosti, vyřazení) se někdy nevyžadují z nuget.org v CodeSpaces – [#10549](https://github.com/NuGet/Home/issues/10549)
 
-* Inicializace PMUI selže s výjimkou během ladicí relace – [#10559](https://github.com/NuGet/Home/issues/10559)
+* Inicializace PMUI se nezdařila s výjimkou během relace ladění – [#10559](https://github.com/NuGet/Home/issues/10559)
 
-* Obnovení nuget vede k selhání kontroly integrity balíčků v systému Big Endian [– #10567](https://github.com/NuGet/Home/issues/10567)
+* Výsledkem obnovení NuGet je selhání kontroly integrity balíčku v systému big endian – [#10567](https://github.com/NuGet/Home/issues/10567)
 
-* Místo PackagingException je vyvolána výjimka FormatException [– #10595](https://github.com/NuGet/Home/issues/10595)
+* Je vyvolána výjimka FormatException místo PackagingException- [#10595](https://github.com/NuGet/Home/issues/10595)
 
-* CPVM – Problémy se souběžnosti v algoritmu cházek v grafu – [#10598](https://github.com/NuGet/Home/issues/10598)
+* CPVM – problémy s Concurrency v grafu předávání algoritmu – [#10598](https://github.com/NuGet/Home/issues/10598)
 
-* Přidání telemetrie verze PowerShellu PMC – [#10609](https://github.com/NuGet/Home/issues/10609)
+* Přidání telemetrie verze PMC PowerShellu – [#10609](https://github.com/NuGet/Home/issues/10609)
 
-* Zvýšení výkonu řazení NuGetVersion – [#10611](https://github.com/NuGet/Home/issues/10611)
+* Zlepšení výkonu řazení NuGetVersion – [#10611](https://github.com/NuGet/Home/issues/10611)
 
-* Přidání důvěryhodných podpisů má nekonzistentní argumenty – [#10647](https://github.com/NuGet/Home/issues/10647)
+* Přidání důvěryhodných přihlášení má nekonzistentní argumenty – [#10647](https://github.com/NuGet/Home/issues/10647)
 
-* Vs2019 v16.9.0: Přepnutím karet ve Správce balíčků NuGetu z "Aktualizace" na "Nainstalováno" se rámec ne aktualizován. - [#10654](https://github.com/NuGet/Home/issues/10654)
+* Vs2019 v 16.9.0: přepnutí tabulátorů v NuGet Správce balíčků z části aktualizace na "nainstalované" neaktualizuje rámec. - [#10654](https://github.com/NuGet/Home/issues/10654)
 
-* Odeberte "v" z čísla verze v PMUI – [#10677](https://github.com/NuGet/Home/issues/10677)
+* Odebere "v" z čísla verze v PMUI- [#10677](https://github.com/NuGet/Home/issues/10677)
 
-* INuGetProjectService.GetInstalledPackagesAsync vyvolá výjimku před přijetím nominace systému projektu CPS – [#10681](https://github.com/NuGet/Home/issues/10681)
+* INuGetProjectService. GetInstalledPackagesAsync vyvolá před přijetím jmenování systému projektu CPS- [#10681](https://github.com/NuGet/Home/issues/10681)
 
-* Vložené ikony způsobují odepření přístupu ze zdroje Microsoft Visual Studio offline balíčky na kartě Procházet [– #10687](https://github.com/NuGet/Home/issues/10687)
+* vložené ikony způsobí, že přístup byl odepřen ze zdroje Microsoft Visual Studio Offline balíčky na kartě procházet – [#10687](https://github.com/NuGet/Home/issues/10687)
 
-* INuGetProjectService.GetInstalledPackagesAsync vyvolá výjimku, když není nastavená vlastnost MSBuildProjectExtensionsPath – [#10739](https://github.com/NuGet/Home/issues/10739)
+* INuGetProjectService. GetInstalledPackagesAsync vyvolá v případě, že MSBuildProjectExtensionsPath není nastaven- [#10739](https://github.com/NuGet/Home/issues/10739)
 
-* "dotnet nuget remove source nuget.org" nefunguje poprvé – [#10745](https://github.com/NuGet/Home/issues/10745)
+* "dotnet NuGet Remove source nuget.org" při prvním [#10745](https://github.com/NuGet/Home/issues/10745) nefunguje
 
-* Nuget blokuje vlákno fondu vláken v asynchronní metodě, která synchronně volá vlákno uživatelského rozhraní – [#10775](https://github.com/NuGet/Home/issues/10775)
+* NuGet blokuje vlákno nevláken v asynchronní metodě, která provádí synchronní volání vlákna uživatelského rozhraní [#10775](https://github.com/NuGet/Home/issues/10775)
 
-* Nástroje – > možnosti –> řetězec Správce balíčků NuGet je zkrácený – [#10779](https://github.com/NuGet/Home/issues/10779)
+* `PackageLoadContext.GetInstalledAndTransitivePackagesAsync` je mrtvý kód a neubližujeme výkon – [#10790](https://github.com/NuGet/Home/issues/10790)
 
-* `PackageLoadContext.GetInstalledAndTransitivePackagesAsync` je neschůdný kód a snížení výkonu [– #10790](https://github.com/NuGet/Home/issues/10790)
-
-* Použití vložené ikony v balíčcích sady NuGet SDK [– #10795](https://github.com/NuGet/Home/issues/10795)
+* použití vložené ikony v balíčcích NuGet SDK – [#10795](https://github.com/NuGet/Home/issues/10795)
 
 * Aktualizace seznamu licencí SPDX – [#10806](https://github.com/NuGet/Home/issues/10806)
 
-**[Seznam všech problémů opravených v této verzi – 5.10](https://app.zenhub.com/workspaces/nuget-client-team-55aec9a240305cf007585881/reports/release?release=Z2lkOi8vcmFwdG9yL1JlbGVhc2UvNTY2MTQ)**
+**[Seznam všech problémů opravených v této verzi – 5,10](https://app.zenhub.com/workspaces/nuget-client-team-55aec9a240305cf007585881/reports/release?release=Z2lkOi8vcmFwdG9yL1JlbGVhc2UvNTY2MTQ)**
   
-**[Seznam potvrzení v této verzi – 5.10.0](https://github.com/NuGet/NuGet.Client/compare/5.9.0.7134...5.10.0.7240)**
+**[Seznam potvrzení v tomto vydání – 5.10.0](https://github.com/NuGet/NuGet.Client/compare/5.9.0.7134...5.10.0.7240)**
   
 ### <a name="community-contributions"></a>Komunitní příspěvky
 
-Děkujeme všem přispěvatelům, kteří této verzi NuGet pomohli udělat vynikající!
+děkujeme všem přispěvatelům, kteří vám pomohl tuto NuGet vydávat.
 
-|Kdo|PRS|Problémy|
+|Kdo|PR|Problémy|
 |----|----|----|
-[přidchytá–z](https://github.com/louis-z) | [3991](https://github.com/NuGet/NuGet.Client/pull/3991) | Rozsah verzí nemůže parsovat jednociferné rozsahy – [#10342](https://github.com/NuGet/Home/issues/10342)
-[omajid (id souboru)](https://github.com/omajid) | [3860](https://github.com/NuGet/NuGet.Client/pull/3860) | Nefunkční build.sh NuGet.Client [– #10139](https://github.com/NuGet/Home/issues/10139)
-[Nirmal4G](https://github.com/Nirmal4G) | [3623](https://github.com/NuGet/NuGet.Client/pull/3623) | Nefunkční build.sh NuGet.Client [– #10139](https://github.com/NuGet/Home/issues/10139)
-[BlackGad](https://github.com/BlackGad) | [3953](https://github.com/NuGet/NuGet.Client/pull/3953) | Výkon "balíčku NuGet" se snižuje s rostoucími úrovněmi ve zdrojových cestách – [#5706](https://github.com/NuGet/Home/issues/5706)
-[BlackGad](https://github.com/BlackGad) | [3953](https://github.com/NuGet/NuGet.Client/pull/3953) | NuGet.exe s výkonem balíčku . relative path – [#5016](https://github.com/NuGet/Home/issues/5016)
-[přichytávka-smyšlová](https://github.com/marcin-krystianc) | [3940](https://github.com/NuGet/NuGet.Client/pull/3940) | CPVM – Problémy se souběžnosti v algoritmu cházek v grafu – [#10598](https://github.com/NuGet/Home/issues/10598)
-[přisudky](https://github.com/josesimoes) | [3943](https://github.com/NuGet/NuGet.Client/pull/3943) | Přidejte typ projektu nfproj do seznamu supportedProjectExtensions pro rozhraní příkazového řádku NuGet. - [#10562](https://github.com/NuGet/Home/issues/10562)
+[Louis – z](https://github.com/louis-z) | [3991](https://github.com/NuGet/NuGet.Client/pull/3991) | VersionRange nemůže analyzovat rozsahy s jednou číslicí – [#10342](https://github.com/NuGet/Home/issues/10342)
+[omajid](https://github.com/omajid) | [3860](https://github.com/NuGet/NuGet.Client/pull/3860) | NuGet. Build.sh klienta je přerušená – [#10139](https://github.com/NuGet/Home/issues/10139)
+[Nirmal4G](https://github.com/Nirmal4G) | [3623](https://github.com/NuGet/NuGet.Client/pull/3623) | NuGet. Build.sh klienta je přerušená – [#10139](https://github.com/NuGet/Home/issues/10139)
+[BlackGad](https://github.com/BlackGad) | [3953](https://github.com/NuGet/NuGet.Client/pull/3953) | Výkon "sady NuGet Pack" se zmenší se zvýšenými úrovněmi ve zdrojových cestách – [#5706](https://github.com/NuGet/Home/issues/5706)
+[BlackGad](https://github.com/BlackGad) | [3953](https://github.com/NuGet/NuGet.Client/pull/3953) | Problém s výkonem sady NuGet.exe Pack s nástrojem.. relativní cesta – [#5016](https://github.com/NuGet/Home/issues/5016)
+[marcin-krystianc](https://github.com/marcin-krystianc) | [3940](https://github.com/NuGet/NuGet.Client/pull/3940) | CPVM – problémy s Concurrency v grafu předávání algoritmu – [#10598](https://github.com/NuGet/Home/issues/10598)
+[josesimoes](https://github.com/josesimoes) | [3943](https://github.com/NuGet/NuGet.Client/pull/3943) | Přidejte typ projektu nfproj do seznamu supportedProjectExtensions pro NuGet CLI. - [#10562](https://github.com/NuGet/Home/issues/10562)
 
-## <a name="feedback-welcome"></a>Váš názor – vítejte
+## <a name="feedback-welcome"></a>Úvodní názory
 
-Vaše názory jsou pro nás důležité.  Pokud se v této verzi vyskytnou nějaké problémy, podívejte se na naše [problémy GitHubu](https://github.com/NuGet/Home/issues) a [komunitu vývojářů pro Visual Studio](https://developercommunity.visualstudio.com/) , kde najdete stávající problémy.  Pro nové problémy v rámci NuGet ohlaste [problém GitHubu](https://github.com/NuGet/Home/issues/new).
-Pro obecné problémy s prostředím NuGet nám dejte informace v části **Help > nahlásit problém** pomocí možnosti [nahlásit problém](/visualstudio/ide/how-to-report-a-problem-with-visual-studio) , která se nachází ve vašem oblíbeném prostředí IDE.
+Váš názor je pro nás důležitý.  pokud se v této verzi vyskytnou nějaké problémy, podívejte se na naše [problémy s GitHub](https://github.com/NuGet/Home/issues) a [Visual Studio Developer Community](https://developercommunity.visualstudio.com/) pro stávající problémy.  V případě nových problémů v NuGet nahlásit problém [GitHub problémy.](https://github.com/NuGet/Home/issues/new)
+V případě obecných NuGet problémů s prostředím nám dejte vědět prostřednictvím možnosti Nahlásit problém, která se nachází ve vašem oblíbeném integrovaném vývojovém prostředí (IDE) **v části Nápověda > Nahlásit problém.** [](/visualstudio/ide/how-to-report-a-problem-with-visual-studio)
